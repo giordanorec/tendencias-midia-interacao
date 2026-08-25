@@ -1,5 +1,10 @@
 # Hiper Deep Research
 
+Atividade da disciplina Tendências em Mídia e Interação 2026.2, CIn/UFPE.
+
+- Aplicação: https://tendencias-midia-interacao.vercel.app
+- Galeria pública: https://tendencias-midia-interacao.vercel.app/galeria/
+
 Sistema da Atividade 01 da disciplina **Tendências em Mídia e Interação** (CIN0055) —
 CIn/UFPE, 2026.2.
 

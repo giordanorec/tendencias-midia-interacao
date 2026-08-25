@@ -53,8 +53,32 @@ export const DB = {
         headers: { "Prefer": "resolution=merge-duplicates,return=minimal" },
         body: JSON.stringify(parte),
       });
+      await api("tmi_catalogo?on_conflict=aluno,cid", {
+        method: "POST",
+        headers: { "Prefer": "resolution=ignore-duplicates,return=minimal" },
+        body: JSON.stringify(parte.map(x => ({ aluno: login, cid: x.cid }))),
+      });
       if (aoProgredir) aoProgredir(Math.min(i + LOTE, itens.length), itens.length);
     }
+  },
+
+  /* o catalogo que o aluno mandou, para ele voltar depois sem reenviar nada */
+  async meuCatalogo(login) {
+    const linhas = await api(
+      "tmi_catalogo?select=cid,tmi_ferramentas(nome,url,descricao,categoria,imagem,capa)" +
+      "&aluno=eq." + encodeURIComponent(login) + "&limit=5000");
+    return linhas.map(l => ({ _cid: l.cid, ...(l.tmi_ferramentas || {}) })).filter(x => x.nome);
+  },
+
+  /* capas: a funcao no servidor le a og:image de cada site e guarda */
+  async capasDe(cids) {
+    if (!cids.length) return {};
+    const r = await fetch(SUPA_URL + "/functions/v1/capa", {
+      method: "POST", headers: H, body: JSON.stringify({ cids: cids.slice(0, 30) }),
+    });
+    if (!r.ok) return {};
+    const j = await r.json();
+    return j.capas || {};
   },
 
   async registrarUpload(login, arquivo, lido, unico, deOutros) {
@@ -108,7 +132,52 @@ export const DB = {
 
   /* a lista viva da turma, que substitui a planilha */
   async listaDaTurma() {
-    return api("tmi_escolhas?select=cid,aluno,nivel,criada_em,tmi_ferramentas(nome,url,descricao,categoria,imagem)&order=criada_em.desc");
+    return api("tmi_escolhas?select=cid,aluno,nivel,criada_em,tmi_ferramentas(nome,url,descricao,categoria,imagem,capa)&order=criada_em.desc");
+  },
+
+  /* ---- arquivos brutos da entrega (log, fontes, metodo) ---- */
+  async subirArquivo(login, tipo, file) {
+    const ext = ((file.name || "").match(/\.[a-z0-9]{1,6}$/i) || [".txt"])[0].toLowerCase();
+    const caminho = login + "/" + tipo + ext;
+    const r = await fetch(SUPA_URL + "/storage/v1/object/tmi/" + caminho, {
+      method: "POST",
+      headers: {
+        "apikey": SUPA_KEY,
+        "Authorization": "Bearer " + SUPA_KEY,
+        "x-upsert": "true",
+        "Content-Type": file.type || "text/plain",
+      },
+      body: file,
+    });
+    if (!r.ok) {
+      const t = await r.text();
+      const e = new Error("nao consegui guardar o arquivo (HTTP " + r.status + ")");
+      e.detalhe = t.slice(0, 300);
+      throw e;
+    }
+    return caminho;
+  },
+
+  linkPublico(caminho) {
+    return caminho ? SUPA_URL + "/storage/v1/object/public/tmi/" + caminho : "";
+  },
+
+  /* ---- a entrega: uma linha por aluno, atualizada em pedacos ---- */
+  async salvarEntrega(login, campos) {
+    await api("tmi_entregas?on_conflict=aluno", {
+      method: "POST",
+      headers: { "Prefer": "resolution=merge-duplicates,return=minimal" },
+      body: JSON.stringify({ aluno: login, ...campos }),
+    });
+  },
+
+  async minhaEntrega(login) {
+    const r = await api("tmi_entregas?select=*&aluno=eq." + encodeURIComponent(login));
+    return r[0] || null;
+  },
+
+  async entregasDaTurma() {
+    return api("tmi_entregas?select=*&order=aluno.asc");
   },
 
   /* telemetria — nao pode travar a interface, entao vai em lote e falha em silencio */

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Instruções para agentes de IA que forem ajudar um aluno com esta atividade:
+# https://tendencias-midia-interacao.vercel.app/llms.txt

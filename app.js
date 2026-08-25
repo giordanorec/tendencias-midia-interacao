@@ -106,4 +106,29 @@ function icone(it) {
     src ? `<img src="${esc(src)}" alt="" loading="lazy" onload="this.style.opacity=1"
              onerror="this.remove()">` : ""}</div>`;
 }
-export { S, esc, nfmt, icone, $, app };
+/* ---------- cartao de galeria: faixa de capa + selo do favicon ---------- */
+function favicon(url) {
+  if (!url) return "";
+  try {
+    const h = new URL(/^https?:/.test(url) ? url : "https://" + url).hostname;
+    return "https://www.google.com/s2/favicons?domain=" + encodeURIComponent(h) + "&sz=64";
+  } catch (e) { return ""; }
+}
+function dominio(url) {
+  try { return new URL(/^https?:/.test(url) ? url : "https://" + url).hostname.replace(/^www\./, ""); }
+  catch (e) { return ""; }
+}
+function faixa(it, capa) {
+  const h = [...(it.nome || "?")].reduce((a, c) => (a * 31 + c.charCodeAt(0)) & 0xffffff, 7) % 360;
+  const ini = ((it.nome || "?").replace(/[^A-Za-zÀ-ÿ0-9 ]/g, "").trim()[0] || "?").toUpperCase();
+  const fv = it.imagem || favicon(it.url);
+  return `<div class="capa" style="background:linear-gradient(150deg,hsl(${h} 52% 32%),hsl(${(h + 40) % 360} 55% 15%))">
+    <span class="sigla">${esc(ini)}</span>
+    ${capa ? `<img class="cv" src="${esc(capa)}" alt="" loading="lazy" decoding="async"
+        onerror="this.remove()">` : ""}
+    ${fv ? `<img class="fv" src="${esc(fv)}" alt="" loading="lazy" decoding="async"
+        onerror="this.remove()">` : ""}
+  </div>`;
+}
+
+export { S, esc, nfmt, icone, faixa, favicon, dominio, $, app };
