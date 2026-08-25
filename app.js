@@ -2,10 +2,26 @@ import { DB } from "./db.js";
 
 /* ---------- estado ---------- */
 const S = {
-  fase: "login", login: "", itens: [], fp: 0,
+  fase: "login", unidade: DB.unidade, login: "", itens: [], fp: 0,
   marc: new Set(), vist: new Set(), finais: new Map(), // cid -> nivel
   turma: new Map(), lidos: 0, dups: 0, removidos: 0,
   tItem: null, tempos: [], abriu: 0, brutos: null,
+};
+export const UNIDADES = {
+  inspiracao: {
+    numero: 1,
+    nome: "Inspiração",
+    titulo: "Ferramentas de inspiração",
+    curta: "aplicativos e serviços interessantes para usar",
+    galeria: "/galeria/?entrega=inspiracao",
+  },
+  desenvolvimento: {
+    numero: 2,
+    nome: "Desenvolvimento",
+    titulo: "Ferramentas de desenvolvimento",
+    curta: "APIs, bibliotecas, SDKs, frameworks e código aberto chamados pelo seu código",
+    galeria: "/galeria/?entrega=desenvolvimento",
+  },
 };
 const $ = i => document.getElementById(i);
 const app = $("app");

@@ -3,13 +3,17 @@
 Atividade da disciplina Tendências em Mídia e Interação 2026.2, CIn/UFPE.
 
 - Aplicação: https://tendencias-midia-interacao.vercel.app
-- Galeria pública: https://tendencias-midia-interacao.vercel.app/galeria/
+- Galerias públicas: https://tendencias-midia-interacao.vercel.app/galeria/
 
 Sistema da Atividade 01 da disciplina **Tendências em Mídia e Interação** (CIN0055) —
 CIn/UFPE, 2026.2.
 
 O aluno faz uma varredura de dezenas de milhares de ferramentas com IA, afunila até uma, e
-**a entrega acontece aqui dentro** — não há planilha, arquivo ou anexo para enviar.
+**a entrega acontece aqui dentro** — não há planilha, arquivo ou anexo para enviar. O processo
+acontece em duas unidades independentes:
+
+1. **Inspiração** — aplicativos, plataformas e serviços usados diretamente.
+2. **Desenvolvimento** — APIs, bibliotecas, SDKs, frameworks e código aberto chamados pelo código.
 
 ## O funil
 
@@ -33,10 +37,11 @@ O aluno faz uma varredura de dezenas de milhares de ferramentas com IA, afunila 
 
 ## A regra da unicidade
 
-Uma ferramenta pertence a **um** aluno. Dois alunos podem subir catálogos com 95% de sobreposição
+Uma ferramenta pertence a **um** aluno dentro de cada unidade. Dois alunos podem subir catálogos com 95% de sobreposição
 — isso é esperado —, mas ninguém escolhe o que já foi escolhido.
 
-Isso não é validado na interface: é a **chave primária** de `tmi_escolhas.cid`. O banco recusa a
+Isso não é validado só na interface: é a **chave primária composta** de `tmi_escolhas`
+(`unidade`, `cid`). O banco recusa a
 segunda tentativa, e o sistema avisa quem chegou primeiro. Não há condição de corrida possível.
 
 As já reservadas nem chegam a aparecer na peneira do aluno.
@@ -67,7 +72,7 @@ Postgres no Supabase, cinco tabelas prefixadas `tmi_`:
 
 - `tmi_alunos` — quem entrou
 - `tmi_ferramentas` — catálogo comum, chave `cid`
-- `tmi_escolhas` — **`cid` é PK**; é o que garante a unicidade. `nivel` ∈ {50, 5, 1}
+- `tmi_escolhas` — **(`unidade`, `cid`) é PK**; é o que garante a unicidade por entrega. `nivel` ∈ {50, 5, 1}
 - `tmi_uploads` — cada varredura entregue, com os totais
 - `tmi_eventos` — telemetria: cada marcação, com o tempo gasto no item
 

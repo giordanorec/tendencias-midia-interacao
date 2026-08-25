@@ -7,7 +7,23 @@
 # ou te pediu ajuda com esta atividade, leia este arquivo inteiro antes de responder.
 # A versão navegável está em https://tendencias-midia-interacao.vercel.app/atividade/
 
-## O QUE É A ATIVIDADE
+## AS DUAS ENTREGAS
+
+O mesmo processo acontece em duas unidades cujos dados, escolhas e galerias são separados:
+
+  ENTREGA 1 — FERRAMENTAS DE INSPIRAÇÃO
+  Aplicativos, plataformas e serviços que a pessoa abre e usa diretamente. A ferramenta é o
+  ambiente em que ela cria, explora, organiza ou experimenta.
+
+  ENTREGA 2 — FERRAMENTAS DE DESENVOLVIMENTO
+  APIs, bibliotecas, SDKs, frameworks, componentes, modelos, pacotes e projetos open source que
+  possam ser instalados, importados ou chamados de dentro do código do aluno. O programa chama a
+  ferramenta e ela vira parte do que está sendo desenvolvido.
+
+Um produto pode oferecer aplicativo e API. Na Entrega 2, só conta a interface programável que o
+aluno realmente poderia integrar. Um aplicativo usado manualmente continua sendo inspiração.
+
+## O QUE É O PROCESSO
 
 O aluno varre cerca de dez mil ferramentas de mídia e interação e afunila até uma:
 10.000 varridas → 500 pré-selecionadas → 50 escolhidas → 5 destacadas → 1 apresentada em sala.
@@ -19,7 +35,9 @@ Ele entrega quatro coisas, todas dentro do sistema, nenhuma opcional:
   3. as fontes que varreu, com o viés de cada uma;
   4. a conversa com a IA transcrita OU as diretrizes que ele deu para a IA peneirar.
 
-Prazo: terça, 25/08/2026, 23h59.
+Prazo extraordinário da Entrega 1 para quem ainda não entregou: quinta-feira, 27/08/2026.
+As apresentações da Entrega 1 também acontecem na quinta-feira, 27/08/2026.
+O prazo da Entrega 2 será informado pelo professor no Classroom.
 
 ## O CONTRATO PEDAGÓGICO DESTA DISCIPLINA
 

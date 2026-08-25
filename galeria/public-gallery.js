@@ -1,7 +1,10 @@
 import { DB } from "../db.js";
-import { esc, nfmt, faixa, dominio } from "../app.js";
+import { UNIDADES, esc, nfmt, faixa, dominio } from "../app.js";
 
 const app = document.getElementById("app");
+const parametro = new URLSearchParams(window.location.search).get("entrega");
+const unidade = parametro === "desenvolvimento" ? "desenvolvimento" : parametro === "inspiracao" ? "inspiracao" : null;
+const U = unidade ? UNIDADES[unidade] : null;
 let busca = "";
 let filtro = "todos";
 let linhas = [];
@@ -51,6 +54,28 @@ function desenhar() {
 }
 
 async function iniciar() {
+  if (!U) {
+    document.title = "Galerias da turma — Hiper Deep Research";
+    app.innerHTML = `<section class="panel public-intro unit-hero">
+      <span class="unit-kicker">Hiper Deep Research</span>
+      <h1>Duas galerias públicas</h1>
+      <p class="sub">As duas entregas usam o mesmo funil, mas mantêm ferramentas, escolhas e
+        apresentações separadas.</p>
+    </section>
+    <section class="unit-grid">
+      <article class="unit-card inspiracao"><span class="unit-number">Entrega 1</span>
+        <h2>Galeria de inspirações</h2>
+        <p>Aplicativos, plataformas e serviços interessantes para usar diretamente.</p>
+        <div class="row"><a class="btn" href="?entrega=inspiracao">Abrir a galeria</a></div>
+      </article>
+      <article class="unit-card desenvolvimento"><span class="unit-number">Entrega 2</span>
+        <h2>Galeria de desenvolvimento</h2>
+        <p>APIs, bibliotecas, SDKs, frameworks e código aberto utilizáveis dentro de código.</p>
+        <div class="row"><a class="btn" href="?entrega=desenvolvimento">Abrir a galeria</a></div>
+      </article>
+    </section>`;
+    return;
+  }
   try {
     const recebidas = await DB.listaDaTurma();
     linhas = [...new Map(recebidas.map(l => [l.cid, l])).values()];
@@ -58,9 +83,17 @@ async function iniciar() {
     const apresentadas = linhas.filter(l => l.nivel === 1).length;
     const destaques = linhas.filter(l => l.nivel === 1 || l.nivel === 5).length;
 
+    const tituloGaleria = unidade === "inspiracao"
+      ? "Galeria de inspirações"
+      : "Galeria de ferramentas de desenvolvimento";
+    document.title = `${tituloGaleria} — Hiper Deep Research`;
     app.innerHTML = `<section class="panel public-intro">
-      <h1>A galeria da turma</h1>
-      <p class="sub">O resultado vivo da Atividade 01 de Tendências em Mídia e Interação, CIn/UFPE, 2026.2. Aqui aparecem apenas as ferramentas escolhidas; os arquivos brutos das entregas permanecem fora desta página pública.</p>
+      <span class="unit-kicker">Entrega ${U.numero}</span>
+      <h1>${tituloGaleria}</h1>
+      <p class="sub">${unidade === "inspiracao"
+        ? "Aplicativos, plataformas e serviços interessantes usados diretamente."
+        : "APIs, bibliotecas, SDKs, frameworks e projetos open source que podem ser chamados de dentro de código."}
+        Aqui aparecem apenas as ferramentas escolhidas; os arquivos brutos permanecem privados.</p>
       <div class="grid">
         <div class="box"><b>${nfmt(linhas.length)}</b><small>ferramentas selecionadas</small></div>
         <div class="box"><b>${nfmt(alunos)}</b><small>alunos com seleção</small></div>
@@ -68,6 +101,8 @@ async function iniciar() {
         <div class="box r"><b>${nfmt(destaques)}</b><small>♥ destaques</small></div>
       </div>
       <p class="public-note"><b>Privacidade:</b> a galeria pública não mostra logins, logs de varredura, fontes nem conversas dos estudantes.</p>
+      <div class="row"><a class="btn gh sm" href="/galeria/">Ver as duas galerias</a>
+        <a class="btn gh sm" href="/?entrega=${unidade}">Entrar nesta entrega</a></div>
     </section>
     <div class="toolbar public-toolbar">
       <button class="pill on" data-filtro="todos">todas</button>
@@ -87,7 +122,7 @@ async function iniciar() {
     };
     desenhar();
   } catch (e) {
-    app.innerHTML = `<div class="panel"><h1>A galeria da turma</h1>
+    app.innerHTML = `<div class="panel"><h1>${unidade === "inspiracao" ? "Galeria de inspirações" : "Galeria de ferramentas de desenvolvimento"}</h1>
       <div class="msg bad">Não consegui carregar a galeria agora: ${esc(e.message)}</div>
       <div class="row"><button class="btn" onclick="location.reload()">Tentar de novo</button></div></div>`;
   }

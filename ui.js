@@ -1,11 +1,18 @@
 import { DB } from "./db.js";
-import { S, esc, nfmt, icone, faixa, dominio, $, app, parse, cid } from "./app.js";
+import { S, UNIDADES, esc, nfmt, icone, faixa, dominio, $, app, parse, cid } from "./app.js";
 
 const FASES = [["login", "1 entrar"], ["carga", "2 entregar"],
                 ["escolha", "3 escolher as 50"], ["turma", "4 a turma"]];
+const U = UNIDADES[S.unidade];
+const TEM_UNIDADE = ["inspiracao", "desenvolvimento"]
+  .includes(new URLSearchParams(window.location.search).get("entrega"));
 let TMR = null;
 
 export function chrome() {
+  const brand = document.querySelector(".brand");
+  if (brand) brand.textContent = `Hiper Deep Research · ${U.nome}`;
+  const gl = document.getElementById("link-galeria");
+  if (gl) gl.href = U.galeria;
   const atual = S.fase === "foco" ? "escolha" : S.fase;
   const k = FASES.findIndex(f => f[0] === atual);
   $("steps").innerHTML = FASES.map((f, i) =>
@@ -33,6 +40,49 @@ export function go(f) {
   window.scrollTo(0, 0);
 }
 
+function tUnidades() {
+  S.fase = "unidades";
+  $("steps").innerHTML = "";
+  $("stats").innerHTML = "";
+  $("prog").style.width = "0";
+  const brand = document.querySelector(".brand");
+  if (brand) brand.textContent = "Hiper Deep Research";
+  app.innerHTML = `
+  <section class="panel unit-hero">
+    <span class="unit-kicker">Tendências em Mídia e Interação · CIn/UFPE · 2026.2</span>
+    <h1>Duas entregas, dois tipos de ferramenta</h1>
+    <p class="sub">O processo é o mesmo nas duas unidades — 10.000 → 500 → 50 → 5 → 1 —,
+      mas os catálogos, as reservas e as galerias são completamente separados.</p>
+    <div class="msg bad"><b>Entrega 1 — prazo extraordinário.</b> Quem ainda não entregou pode
+      concluir até <b>quinta-feira, 27/08/2026</b>, e apresenta também na quinta-feira.</div>
+  </section>
+  <section class="unit-grid" aria-label="Escolha a entrega">
+    <article class="unit-card inspiracao">
+      <span class="unit-number">Entrega 1</span>
+      <h2>Ferramentas de inspiração</h2>
+      <p>Aplicativos, plataformas e serviços interessantes que você abre e usa diretamente para
+        criar, explorar, organizar ou experimentar.</p>
+      <p class="unit-rule"><b>Teste:</b> a ferramenta é, ela própria, o lugar onde você trabalha.</p>
+      <div class="row"><a class="btn" href="/?entrega=inspiracao">Abrir a Entrega 1</a>
+        <a class="btn gh" href="${UNIDADES.inspiracao.galeria}">Ver a galeria</a></div>
+    </article>
+    <article class="unit-card desenvolvimento">
+      <span class="unit-number">Entrega 2</span>
+      <h2>Ferramentas de desenvolvimento</h2>
+      <p>APIs, bibliotecas, SDKs, frameworks, componentes e projetos open source que você consegue
+        instalar, importar ou chamar <b>de dentro do seu próprio código</b>.</p>
+      <p class="unit-rule"><b>Teste:</b> seu programa chama a ferramenta; ela vira parte do que você desenvolve.</p>
+      <div class="row"><a class="btn" href="/?entrega=desenvolvimento">Abrir a Entrega 2</a>
+        <a class="btn gh" href="${UNIDADES.desenvolvimento.galeria}">Ver a galeria</a></div>
+    </article>
+  </section>
+  <section class="panel unit-note">
+    <b>A fronteira em uma frase.</b> Midjourney usado no navegador é inspiração; uma API de geração
+    de imagens chamada pelo seu código é desenvolvimento. Um produto pode oferecer os dois, mas
+    nesta rodada você cadastra a interface programável que realmente conseguiria integrar.
+  </section>`;
+}
+
 /* ===== 1. entrar ===== */
 /* aceita o login puro (grec) ou o e-mail inteiro do CIn (grec@cin.ufpe.br) */
 function normLogin(v) {
@@ -53,18 +103,26 @@ function tLogin(msg) {
   const salvo = (() => { try { return localStorage.getItem("tmi_login") || ""; } catch (e) { return ""; } })();
   app.innerHTML = `
   <div class="panel" style="max-width:600px;margin:32px auto">
-    <h1>Hiper Deep Research</h1>
-    <p class="sub" style="margin-bottom:22px">Tendências em Mídia e Interação · Atividade 01 · 2026.2</p>
+    <span class="unit-kicker">Entrega ${U.numero}</span>
+    <h1>${esc(U.titulo)}</h1>
+    <p class="sub" style="margin-bottom:22px">Tendências em Mídia e Interação · 2026.2 · ${esc(U.curta)}</p>
     ${msg ? `<div class="msg bad">${msg}</div>` : ""}
 
+    ${S.unidade === "inspiracao" ? `<div class="msg bad"><b>Novo prazo para quem ainda não entregou:</b>
+      quinta-feira, <b>27/08/2026</b>. A apresentação também será na quinta-feira.</div>` :
+      `<div class="msg info"><b>O que entra nesta unidade:</b> APIs, bibliotecas, SDKs, frameworks,
+      componentes e código aberto que possam ser instalados, importados ou chamados pelo seu código.
+      Um aplicativo interessante usado manualmente pertence à Entrega 1, não a esta.</div>`}
+
     <div class="porta">
-      <b>Comece por aqui — a atividade inteira está explicada.</b>
+      <b>Comece por aqui — o método e a distinção entre as duas entregas estão explicados.</b>
       <p>O funil de 10.000 até 1, o que entregar, que ferramenta de IA usar (e como fazer sem pagar
          nada), as dicas de garimpo, o prazo. Uns cinco minutos de leitura.</p>
       <div class="row" style="margin-top:14px">
-        <a class="btn" href="/atividade/">Ler a atividade</a>
+        <a class="btn" href="/atividade/#${S.unidade}">Ler a atividade</a>
         <a class="btn gh" href="/exemplos/">Ver os exemplos</a>
-        <a class="btn gh" href="/galeria/">Ver a galeria pública</a>
+        <a class="btn gh" href="${U.galeria}">Ver esta galeria</a>
+        <a class="btn gh" href="/">Trocar de entrega</a>
       </div>
     </div>
 
@@ -141,6 +199,7 @@ const caixa = (id, n, tit, sub, aceita, extra) => `
 function tCarga(msg) {
   app.innerHTML = `
   <div class="panel">
+    <span class="unit-kicker">Entrega ${U.numero} · ${esc(U.nome)}</span>
     <h1>A sua entrega</h1>
     <p class="sub">Quatro coisas, e nenhuma é opcional. Não existe planilha nem anexo por fora: o que ficar
        gravado aqui é o que vale. As ferramentas que outra pessoa já escolheu aparecem com a borda
@@ -735,6 +794,7 @@ async function tTurma() {
 
   app.innerHTML = `
   <div class="panel" style="padding:20px 22px">
+    <span class="unit-kicker">Entrega ${U.numero} · ${esc(U.nome)}</span>
     <h1>A galeria da turma</h1>
     <p class="sub">Esta é a entrega — não existe planilha nem arquivo para mandar. O que está aqui
        é o que vale.</p>
@@ -869,4 +929,5 @@ document.addEventListener("keydown", e => {
   else if (k.toLowerCase() === "e") { e.preventDefault(); acao(it._cid, "est"); }
 });
 window.addEventListener("beforeunload", () => DB.descarregar());
-go("login");
+if (TEM_UNIDADE) go("login");
+else tUnidades();
