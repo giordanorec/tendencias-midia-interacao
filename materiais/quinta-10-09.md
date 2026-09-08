@@ -89,8 +89,9 @@ testar mais de uma skill. E você vai ver, na sua página, o que a turma disse d
 O site publica a ordem sorteada. O sorteio não tem mão humana: é a assinatura digital
 (SHA-256) de `seu-login + "TMI-2026-2-sorteio"`, em ordem alfabética do resultado — qualquer
 um pode conferir. Quem tirar 1 e 2 apresenta em 17/09; 3 e 4 em 22/09; e assim por diante,
-dois por aula, até 08/10. Trocar de data com um colega pode, desde que os dois concordem e
-avisem no grupo.
+dois por aula, até 08/10. Trocar de data com um colega pode: na mesma página, no bloco **Trocar de
+data**, você propõe e o colega aceita — a ordem muda para os dois na hora. Só vale com os dois de
+acordo; a página garante isso.
 
 ### Terça, 15/09, 10h — aula online
 

@@ -111,6 +111,21 @@
       <p class="mudo" style="margin-top:var(--s-2)">Sorteio sem mão humana: a ordem é dada pela assinatura digital (SHA-256) de <code>seu-login + "TMI-2026-2-sorteio"</code>, em ordem alfabética do resultado. Qualquer um pode conferir. Quem tirar 1 e 2 apresenta em 17/09; 3 e 4 em 22/09; e assim por diante, dois por aula. Trocar de data com um colega pode, desde que os dois concordem e avisem no grupo.</p>
       <ol class="sorteio" id="lista-sorteio"><li class="mudo">A ordem aparece aqui na segunda 14/09 às 8h, com os temas já travados.</li></ol>
     </div>
+
+    <!-- 5. TROCA DE DATA -->
+    <div class="bloco" id="bloco-trocas" hidden>
+      <p class="rotulo">Depois do sorteio</p>
+      <h2>Trocar de data com um colega</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">A regra: só vale se <strong>os dois concordarem</strong> — e é a página que garante isso. Você propõe; o colega vê a proposta aqui e aceita ou recusa. Quando ele aceita, vocês trocam de posição na ordem acima, e os avisos no grupo já saem com a ordem nova. Você só pode ter uma proposta pendente por vez.</p>
+      <p id="troca-minha" class="mudo" style="margin-top:var(--s-3)"></p>
+      <form id="form-troca" class="linha" style="margin-top:var(--s-3)">
+        <select id="troca-para" class="campo" required><option value="">— escolha o colega —</option></select>
+        <button class="botao botao--principal" type="submit">Propor a troca</button>
+      </form>
+      <p id="troca-aviso" class="ok"></p>
+      <h3 style="margin-top:var(--s-6)">Propostas</h3>
+      <ul class="feedbacks" id="lista-trocas"><li class="mudo">Nenhuma troca por enquanto.</li></ul>
+    </div>
   </div>
 </section>
 </main>

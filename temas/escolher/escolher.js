@@ -66,13 +66,14 @@ function entrar() {
 }
 
 /* ---------------- dados ---------------- */
-let TEMA = [], ALUNOS = [], FB = [];
+let TEMA = [], ALUNOS = [], FB = [], TROCAS = [];
 async function carregar() {
   try {
-    [TEMA, ALUNOS, FB] = await Promise.all([
+    [TEMA, ALUNOS, FB, TROCAS] = await Promise.all([
       api("tmi_tema?select=aluno,tema,escolhido_em"),
       api("tmi_alunos?select=login,skill_url,skill_em&order=login.asc"),
       api("tmi_skill_feedback?select=de,para,tema,perguntou,recusou_maduro,duvidou,formato,comentario,criado_em&order=criado_em.desc"),
+      api("tmi_troca?select=id,de,para,status,criado_em,respondido_em&order=criado_em.asc"),
     ]);
   } catch (e) { console.error(e); return; }
   pintarTemas(); pintarSkills(); pintarFeedback(); pintarSorteio();
@@ -168,13 +169,71 @@ async function sha(s) {
   const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
   return [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
 }
+/* A ordem final = sorteio + trocas ACEITAS, aplicadas na ordem em que foram aceitas.
+   A central do WhatsApp calcula exatamente igual (central-zap: ordem_sorteada). */
+async function ordemFinal() {
+  const linhas = await Promise.all(TEMA.map(async (r) => ({ ...r, h: await sha(r.aluno + SEMENTE), troca: null })));
+  linhas.sort((a, b) => a.h.localeCompare(b.h));
+  const aceitas = TROCAS.filter((t) => t.status === "aceita").sort((a, b) => (a.respondido_em || "").localeCompare(b.respondido_em || ""));
+  for (const t of aceitas) {
+    const i = linhas.findIndex((l) => l.aluno === t.de), j = linhas.findIndex((l) => l.aluno === t.para);
+    if (i < 0 || j < 0) continue;
+    [linhas[i], linhas[j]] = [linhas[j], linhas[i]];
+    linhas[i].troca = t; linhas[j].troca = t;
+  }
+  return linhas;
+}
+
 async function pintarSorteio() {
   if (new Date() < SORTEIO) return;
-  const linhas = await Promise.all(TEMA.map(async (r) => ({ ...r, h: await sha(r.aluno + SEMENTE) })));
-  linhas.sort((a, b) => a.h.localeCompare(b.h));
+  const linhas = await ordemFinal();
   $("#lista-sorteio").innerHTML = linhas.length ? linhas.map((r, i) =>
-    `<li><span><b>${esc(r.aluno)}</b> · tema ${r.tema} — ${esc(TEMAS[r.tema - 1])}</span><span class="data">${DATAS[i] || "a combinar"} · ${r.h.slice(0, 8)}</span></li>`).join("")
+    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · tema ${r.tema} — ${esc(TEMAS[r.tema - 1])}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · ${r.h.slice(0, 8)}</span></li>`).join("")
     : `<li class="mudo">Ninguém escolheu tema.</li>`;
+  pintarTrocas(linhas);
 }
+
+/* ---------------- troca de data: quem propõe + quem aceita ---------------- */
+function pintarTrocas(linhas) {
+  const bloco = $("#bloco-trocas"); if (!bloco) return;
+  bloco.hidden = false;
+  const minhaPos = linhas.findIndex((l) => l.aluno === EU);
+  const pendentesParaMim = TROCAS.filter((t) => t.status === "pendente" && t.para === EU);
+  const minhasPendentes = TROCAS.filter((t) => t.status === "pendente" && t.de === EU);
+  const historico = TROCAS.filter((t) => t.status !== "pendente" && (t.de === EU || t.para === EU));
+  const sel = $("#troca-para"); const atual = sel.value;
+  sel.innerHTML = `<option value="">— escolha o colega —</option>` + linhas.filter((l) => l.aluno !== EU).map((l, k) =>
+    `<option value="${esc(l.aluno)}">${esc(l.aluno)} — ${DATAS[linhas.indexOf(l)] || "?"} (posição ${linhas.indexOf(l) + 1})</option>`).join("");
+  sel.value = atual;
+  $("#troca-minha").textContent = minhaPos >= 0 ? `Você está na posição ${minhaPos + 1}, em ${DATAS[minhaPos] || "data a combinar"}.` : "Você não está na ordem (não escolheu tema).";
+  $("#form-troca button").disabled = minhasPendentes.length > 0 || minhaPos < 0;
+  $("#troca-aviso").textContent = minhasPendentes.length ? `Você já tem uma proposta pendente para ${minhasPendentes[0].para}. Espere a resposta ou cancele.` : "";
+  $("#lista-trocas").innerHTML = [
+    ...pendentesParaMim.map((t) => `<li><span><b>${esc(t.de)}</b> propôs trocar de data com você.</span><span><button class="botao botao--principal" data-aceitar="${t.id}">Aceitar</button> <button class="botao botao--linha" data-recusar="${t.id}">Recusar</button></span></li>`),
+    ...minhasPendentes.map((t) => `<li><span>Sua proposta para <b>${esc(t.para)}</b> está esperando resposta.</span><span><button class="botao botao--linha" data-cancelar="${t.id}">Cancelar</button></span></li>`),
+    ...historico.slice(-5).reverse().map((t) => `<li class="mudo"><span>${esc(t.de)} ⇄ ${esc(t.para)}: ${t.status}</span><span class="data">${(t.respondido_em || t.criado_em).slice(0, 16).replace("T", " ")}</span></li>`),
+  ].join("") || `<li class="mudo">Nenhuma troca por enquanto.</li>`;
+}
+
+$("#form-troca")?.addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const para = $("#troca-para").value; if (!para) return;
+  try {
+    await api("tmi_troca", { method: "POST", body: JSON.stringify({ de: EU, para }) });
+    $("#troca-aviso").textContent = `Proposta enviada para ${para}. Ela só vale quando ${para} aceitar aqui na página.`;
+  } catch (e) { alert("Não deu para propor: " + e.message.slice(0, 160)); }
+  carregar();
+});
+
+$("#lista-trocas")?.addEventListener("click", async (ev) => {
+  const b = ev.target.closest("button"); if (!b) return;
+  const id = b.dataset.aceitar || b.dataset.recusar || b.dataset.cancelar;
+  const status = b.dataset.aceitar ? "aceita" : b.dataset.recusar ? "recusada" : "cancelada";
+  b.disabled = true;
+  try {
+    await api(`tmi_troca?id=eq.${id}&status=eq.pendente`, { method: "PATCH", body: JSON.stringify({ status, respondido_em: new Date().toISOString() }) });
+  } catch (e) { alert("Não deu: " + e.message.slice(0, 160)); }
+  carregar();
+});
 
 if (EU) entrar();

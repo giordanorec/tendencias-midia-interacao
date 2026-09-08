@@ -44,3 +44,8 @@ textarea.campo { width: 100%; resize: vertical; }
 .sorteio li::before { counter-increment: s; content: counter(s); font-family: var(--font-display); font-weight: 700; color: var(--numeral); margin-right: var(--s-3); }
 .sorteio li { grid-template-columns: auto minmax(0,1fr) auto; }
 .sorteio .data { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); }
+
+/* troca de data: a minha linha na ordem */
+.sorteio li.meu { background: var(--brand-wash); margin-inline: calc(var(--s-3) * -1); padding-inline: var(--s-3); border-radius: var(--r-sm); }
+:root[data-tema="escuro"] .sorteio li.meu { background: #2a1c1b; }
+@media (prefers-color-scheme: dark) { :root:not([data-tema="claro"]) .sorteio li.meu { background: #2a1c1b; } }
