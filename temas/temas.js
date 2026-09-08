@@ -49,6 +49,7 @@
     var id = "t" + t.n;
     return '<section class="cena cena--tema" id="tema-' + t.n + '" data-rotulo="' + esc(pad2(t.n) + " " + t.rotulo) + '" data-fam="' + f.id + '">' +
       '<span class="fantasma" aria-hidden="true" data-par=".08">' + pad2(t.n) + "</span>" +
+      '<img class="ilus" src="/temas/ilustracoes/tema-' + pad2(t.n) + '.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" onerror="this.remove()">' +
       '<div class="in tema">' +
         '<div class="tema__esq">' +
         '<div class="tema__topo"><p class="kick">Tema ' + pad2(t.n) + " · " + esc(f.nome) + '</p><nav class="viz" aria-label="Temas vizinhos"><span>vizinhos</span>' + viz + "</nav></div>" +
@@ -215,7 +216,7 @@
     $$(".aresta", svg).forEach(function (l) { l.classList.remove("on"); });
     nos[n].classList.add("on");
     t.vizinhos.forEach(function (v) { nos[v].classList.add("viz"); var k = Math.min(n, v) + "-" + Math.max(n, v); if (arestas[k]) arestas[k].classList.add("on"); });
-    legenda.innerHTML = '<p class="kick">Tema ' + pad2(n) + " · " + esc(famDe[n].nome) + "</p><h3>" + esc(t.titulo) + "</h3><p>" + esc(t.frase) + '</p><div class="legenda__viz"><span>vizinhos</span>' +
+    legenda.innerHTML = '<img class="legenda__ilus" src="/temas/ilustracoes/tema-' + pad2(n) + '.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" onerror="this.remove()"><p class="kick">Tema ' + pad2(n) + " · " + esc(famDe[n].nome) + "</p><h3>" + esc(t.titulo) + "</h3><p>" + esc(t.frase) + '</p><div class="legenda__viz"><span>vizinhos</span>' +
       t.vizinhos.map(function (v) { return '<a href="#tema-' + v + '">' + pad2(v) + " " + esc(temaDe[v].rotulo) + "</a>"; }).join("") + '</div><a class="botao botao--principal" href="#tema-' + n + '">Mergulhar no tema ' + pad2(n) + " →</a>";
   }
   function apagar() { if (selecionado) return acender(selecionado); svg.classList.remove("foco"); $$(".no", svg).forEach(function (g) { g.classList.remove("on", "viz"); }); $$(".aresta", svg).forEach(function (l) { l.classList.remove("on"); }); legenda.innerHTML = legendaVazia; }

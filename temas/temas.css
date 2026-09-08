@@ -113,6 +113,17 @@ h2.sec { font-size: var(--t-cena); max-width: 22ch; margin-bottom: clamp(16px, 3
 /* número-fantasma */
 .fantasma { position: absolute; right: calc(var(--pad) + var(--trilho-w)); top: 4vh; font-family: var(--font-display); font-weight: 700; font-size: clamp(9rem, 22vw, 26rem); line-height: 1; letter-spacing: -.06em; color: var(--brand-ghost); z-index: 0; pointer-events: none; user-select: none; will-change: transform; }
 
+/* ilustração-acento do tema: PNG duotone (tinta + vermelho) sobre alpha, uma por tema.
+   No escuro não há segundo arquivo: invert(1) leva a tinta a quase-branco e hue-rotate(180deg)
+   devolve o vermelho ao vermelho — o alpha fica intacto. Decorativa (alt=""), atrás do numeral. */
+.ilus { position: absolute; right: calc(var(--pad) + var(--trilho-w) + 1vw); top: calc(4vh + 2.5rem); width: clamp(220px, 20vw, 300px); max-width: 390px; height: auto; aspect-ratio: 1; z-index: 0; pointer-events: none; user-select: none; opacity: 0; transition: opacity 1.2s var(--ease-in) .45s; }
+.cena.play .ilus { opacity: var(--ilus-o, .3); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) .ilus, :root:not([data-tema="claro"]) .legenda__ilus { filter: invert(1) hue-rotate(180deg); }
+}
+:root[data-tema="escuro"] .ilus, :root[data-tema="escuro"] .legenda__ilus { filter: invert(1) hue-rotate(180deg); }
+.legenda__ilus { width: 96px; height: 96px; margin-bottom: var(--s-3); display: block; }
+
 /* ---------------------------------------------------------------- 01 ABERTURA */
 .cena--abre { min-height: calc(100svh - var(--altura-topo)); }
 #funil { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
@@ -342,6 +353,8 @@ h2.sec { font-size: var(--t-cena); max-width: 22ch; margin-bottom: clamp(16px, 3
   .regua { grid-template-columns: 1fr; }
   .tema__acoes .objeto { margin-left: 0; }
   .fantasma { font-size: clamp(7rem, 34vw, 12rem); top: auto; bottom: 0; right: var(--s-2); }
+  .ilus { width: 140px; right: var(--s-2); top: clamp(24px, 4vh, 40px); --ilus-o: .22; }
+  .legenda__ilus { width: 72px; height: 72px; }
   .abas { flex-wrap: wrap; }
   .familias { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; -webkit-overflow-scrolling: touch; margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); }
   .familias::-webkit-scrollbar { display: none; }
@@ -427,6 +440,7 @@ h2.sec { font-size: var(--t-cena); max-width: 22ch; margin-bottom: clamp(16px, 3
   html { scroll-behavior: auto; scroll-snap-type: none; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
   .rv, .casc .w i { opacity: 1 !important; transform: none !important; }
+  .ilus { opacity: var(--ilus-o, .3) !important; }
   .hl::before, .cena::before, .cena::after, .regua::before, .balanca__fio { transform: none !important; }
   .cena .hl { color: var(--on-brand); }
   .regua__marcador { left: 100% !important; }
