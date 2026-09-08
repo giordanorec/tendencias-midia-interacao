@@ -1,0 +1,216 @@
+/* ============================================================================
+   CIn-UFPE — Design System · Tokens (herdado do Projetão)
+   Identidade CIn-UFPE. Fonte da verdade da paleta e da escala.
+
+   Regra da rampa: no claro quem assina é o vermelho institucional (--cin-red).
+   No escuro ele não tem luz suficiente sobre --ink-900 e some — quem assina
+   passa a ser --brand-lift, que é outro degrau da MESMA família, não cor nova.
+   ============================================================================ */
+
+/* As webfonts entram por <link rel="stylesheet"> no <head>, com preconnect —
+   @import aqui serializaria a cadeia de carregamento. */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---------------------------------------------------------------- MARCA
+     Paleta oficial do CIn-UFPE (manual de marca) */
+  --cin-red:        #db1e2f;
+  --cin-red-deep:   #af0421;
+  --cin-black:      #231f20;
+  --cin-grey:       #e0e1e0;
+
+  /* Degraus derivados da família do vermelho — para estados e para o escuro */
+  --brand-lift:     #ff6b64;   /* assina no escuro */
+  --brand-wash:     #fdeced;   /* fundo de destaque no claro */
+  --brand-wash-2:   #f9d6d9;
+
+  /* --------------------------------------------------------------- TINTA */
+  --ink-900:        #16110f;   /* preto de fundo no escuro */
+  --ink-800:        #231f20;   /* = cin-black, tinta de título */
+  --ink-700:        #3a3436;
+  --ink-600:        #554d50;   /* corpo */
+  --ink-400:        #7d7376;   /* apagado */
+  --ink-200:        #b8b1b3;
+  --ink-300:        #8f8789;   /* numeral quieto que ainda passa 3:1 no claro */
+
+  /* ------------------------------------------------------------ SUPERFÍCIE */
+  --canvas:         #ffffff;
+  --surface-soft:   #faf8f8;
+  --surface:        #f4f1f1;
+  --surface-strong: var(--cin-grey);
+  --hairline:       #e4e0e0;
+  --hairline-strong:#c9c3c4;
+
+  /* ------------------------------------------------------------- SEMÂNTICA */
+  --fg:             var(--ink-800);
+  --fg-body:        var(--ink-600);
+  --fg-muted:       var(--ink-400);
+  --bg:             var(--canvas);
+  --bg-soft:        var(--surface-soft);
+  /* O bloco de código é escuro nos DOIS temas, mas no escuro precisa de uma
+     superfície própria: `--ink-900` é o fundo da página ali, e o bloco sumia. */
+  --bg-code:        var(--ink-900);
+  --sombra-borda:   rgba(35, 31, 32, 0.22);   /* sinal de "há mais para o lado" */
+  --rule-code:      #3a3230;
+  --bg-raised:      #ffffff;
+  /* Superfície da pílula neutra: precisa diferir de --bg-soft, que é o fundo do
+     hover da linha de quest — senão a pílula some justamente ao passar o mouse. */
+  --bg-pilula:      var(--surface-soft);   /* #faf8f8 */
+  --bg-hover:       var(--surface);        /* #f4f1f1 — mais fundo que a pílula */
+  --rule:           var(--hairline);
+  --brand:          var(--cin-red);
+  --brand-strong:   var(--cin-red-deep);
+  --on-brand:       #ffffff;
+  --focus:          var(--cin-red);
+  --numeral:        var(--ink-300);
+  --rule-control:   #8f8789;   /* borda de controle — 3,5:1 sobre branco */
+
+  /* Modos de IA — três estados, cor funcional, nunca decorativa */
+  --mode-off:       #b4322b;   /* 🔴 sem assistência */
+  --mode-off-bg:    #fdeced;
+  --mode-aid:       #8a6a12;   /* 🟡 com apoio */
+  --mode-aid-bg:    #fdf4e0;
+  --mode-co:        #2c6a4a;   /* 🟢 coprodução */
+  --mode-co-bg:     #e6f3ec;
+
+  /* --------------------------------------------------------------- FONTES */
+  --font-display: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-text:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif:   "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Escala tipográfica — razão 1.25 a partir de 16px, com display fluido */
+  --t-xs:    0.75rem;    /* 12 */
+  --t-sm:    0.875rem;   /* 14 */
+  --t-base:  1rem;       /* 16 */
+  --t-md:    1.125rem;   /* 18 */
+  --t-lg:    1.375rem;   /* 22 */
+  --t-xl:    1.75rem;    /* 28 */
+  --t-2xl:   2.25rem;    /* 36 */
+  --t-3xl:   clamp(2.5rem, 1.6rem + 3.4vw, 4rem);
+  --t-4xl:   clamp(3rem, 1.4rem + 6.2vw, 6.5rem);
+
+  --lh-tight:  1.05;
+  --lh-snug:   1.22;
+  --lh-normal: 1.55;
+  --lh-loose:  1.7;
+
+  --tr-tight:  -0.025em;
+  --tr-snug:   -0.015em;
+  --tr-wide:    0.08em;
+
+  /* -------------------------------------------------------------- ESPAÇO
+     Base 4px. Uso: gap, padding, margin — nunca valor solto. */
+  --s-1:  0.25rem;
+  --s-2:  0.5rem;
+  --s-3:  0.75rem;
+  --s-4:  1rem;
+  --s-5:  1.5rem;
+  --s-6:  2rem;
+  --s-7:  3rem;
+  --s-8:  4rem;
+  --s-9:  6rem;
+  --s-10: 8rem;
+  --s-11: 12rem;
+
+  /* Medidas nomeadas — antes eram valores soltos no componente */
+  --altura-topo:  60px;
+  --alvo-min:     44px;
+  --col-numero:   6.5rem;
+  --col-indice:   14rem;
+
+  /* --------------------------------------------------------------- FORMA */
+  --r-xs:   3px;
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   16px;
+  --r-pill: 9999px;
+
+  --border:        1px solid var(--rule);
+  --border-strong: 1px solid var(--hairline-strong);
+
+  /* ------------------------------------------------------------- ELEVAÇÃO
+     Sombra discreta; a hierarquia é feita por espaço e fio, não por sombra. */
+  --sh-1: 0 1px 2px rgba(35, 31, 32, 0.05);
+  --sh-2: 0 2px 8px rgba(35, 31, 32, 0.06), 0 1px 2px rgba(35, 31, 32, 0.04);
+  --sh-3: 0 12px 32px rgba(35, 31, 32, 0.10), 0 2px 6px rgba(35, 31, 32, 0.05);
+
+  /* -------------------------------------------------------------- MEDIDAS */
+  --measure:      34em;   /* ≈68 caracteres reais; ch mede o dígito, que é estreito demais */
+  --measure-wide: 40em;
+  --page:         1240px;
+  --page-narrow:  820px;
+
+  /* --------------------------------------------------------------- MOVIMENTO */
+  --ease: cubic-bezier(0.2, 0.6, 0.25, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+}
+
+/* ============================================================ MODO ESCURO
+   Só tokens são redefinidos — nenhum componente sabe que o tema mudou. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --fg:             #f4efee;
+    --fg-body:        #cdc4c3;
+    --fg-muted:       #968b8b;
+    --bg:             var(--ink-900);
+    --bg-soft:        #1d1817;
+    --bg-raised:      #241e1d;
+    --bg-pilula:      #1d1817;
+    --bg-hover:       #241e1d;
+    --sombra-borda:   rgba(0, 0, 0, 0.55);
+    --rule:           #332c2b;
+    --hairline-strong:#48403f;
+    --brand:          var(--brand-lift);
+    --brand-strong:   #ff8b85;
+    --on-brand:       #16110f;
+    --focus:          var(--brand-lift);
+    --numeral:        #6f6564;
+    --rule-control:   #6f6564;
+
+    --mode-off:       #ff8079;
+    --mode-off-bg:    #33201f;
+    --mode-aid:       #e8bf5e;
+    --mode-aid-bg:    #2e2718;
+    --mode-co:        #6fc79b;
+    --mode-co-bg:     #16291f;
+
+    --sh-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --sh-2: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --sh-3: 0 14px 36px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-tema="escuro"] {
+  --fg:             #f4efee;
+  --fg-body:        #cdc4c3;
+  --fg-muted:       #968b8b;
+  --bg:             var(--ink-900);
+  --bg-soft:        #1d1817;
+  --sombra-borda:   rgba(0, 0, 0, 0.55);
+  --bg-raised:      #241e1d;
+  --bg-pilula:      #1d1817;
+  --bg-hover:       #241e1d;
+  --rule:           #332c2b;
+  --hairline-strong:#48403f;
+  --brand:          var(--brand-lift);
+  --brand-strong:   #ff8b85;
+  --on-brand:       #16110f;
+  --focus:          var(--brand-lift);
+  --numeral:        #6f6564;
+  --rule-control:   #6f6564;
+
+  --mode-off:       #ff8079;
+  --mode-off-bg:    #33201f;
+  --mode-aid:       #e8bf5e;
+  --mode-aid-bg:    #2e2718;
+  --mode-co:        #6fc79b;
+  --mode-co-bg:     #16291f;
+
+  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --sh-2: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --sh-3: 0 14px 36px rgba(0, 0, 0, 0.6);
+}

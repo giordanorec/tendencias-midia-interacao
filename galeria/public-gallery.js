@@ -102,7 +102,7 @@ async function iniciar() {
       </div>
       <p class="public-note"><b>Privacidade:</b> a galeria pública não mostra logins, logs de varredura, fontes nem conversas dos estudantes.</p>
       <div class="row"><a class="btn gh sm" href="/galeria/">Ver as duas galerias</a>
-        <a class="btn gh sm" href="/?entrega=${unidade}">Entrar nesta entrega</a></div>
+        <a class="btn gh sm" href="/hdr/?entrega=${unidade}">Entrar nesta entrega</a></div>
     </section>
     <div class="toolbar public-toolbar">
       <button class="pill on" data-filtro="todos">todas</button>

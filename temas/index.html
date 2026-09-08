@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mergulho nos 19 temas — Tendências em Mídia e Interação</title>
+<meta name="description" content="Os 19 temas de tendência de 2026.2 como mergulho visual: o funil que os gerou, o mapa das famílias, a régua maduro-emergente de cada um, o que a turma trouxe e as perguntas para a roda.">
+<!-- site-dinamico · registro Suíço Cinético adaptado à identidade CIn (Inter Tight no lugar da Archivo Black) · dial 4 (uma cena em canvas: o funil) -->
+<!-- ref: https://pudding.cool — roubei: um dado por tela, cena que se monta ao entrar, painel que troca de estado -->
+<!-- ref: https://www.awwwards.com/inspiration/interactive-data-visualization-scrollytelling-searching-for-birds — roubei: partículas que se condensam em número -->
+<!-- ref: https://everynoise.com — roubei: território por proximidade semântica; hover acende os vizinhos -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="canonical" href="https://tendencias-midia-interacao.vercel.app/temas/">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/temas/temas.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div class="grao" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal">
+      <a href="/">Central</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#dados">Dados</a>
+      <a href="#tema-1">Temas</a>
+      <a href="#fora">Fora</a>
+      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============================================================ 01 ABERTURA: o funil -->
+<section class="cena cena--abre" id="abertura" data-rotulo="O funil">
+  <canvas id="funil" aria-hidden="true"></canvas>
+  <div class="in abre">
+    <p class="kick">CIN0055 · 2026.2 · Hiper Deep Research → temas</p>
+    <h1 class="casc abre__h1">
+      <span class="w"><i>Dezenas&nbsp;</i></span><span class="w"><i>de&nbsp;milhares&nbsp;</i></span><span class="w"><i>de&nbsp;ferramentas.&nbsp;</i></span><br>
+      <span class="w"><i class="hl">Dezenove&nbsp;temas.</i></span>
+    </h1>
+    <ol class="funil" aria-label="O funil que gerou os temas">
+      <li class="funil__passo rv" data-d="1"><b class="num" data-alvo="6963">0</b><span>linhas entregues nas 14 varreduras</span></li>
+      <li class="funil__passo rv" data-d="2"><b class="num" data-alvo="5776">0</b><span>no catálogo comum, únicas</span></li>
+      <li class="funil__passo rv" data-d="3"><b class="num" data-alvo="659">0</b><span>escolhas — as 50, as 5 e a 1 de cada entrega</span></li>
+      <li class="funil__passo rv funil__passo--fim" data-d="4"><b class="num" data-alvo="19">0</b><span>temas que passam na régua</span></li>
+    </ol>
+    <p class="abre__olho rv" data-d="4">O que se procurou não foi o que apareceu mais, mas o que, dentro do que apareceu, <strong>rompe alguma coisa</strong>. A régua: <em>isto muda o que é possível fazer, ou só faz mais rápido o que já se fazia?</em></p>
+    <p class="abre__dica rv" data-d="4"><span class="tecla">↓</span> role ou use as setas · <span class="tecla">/</span> busca</p>
+  </div>
+  <div class="folio"><span>14 varreduras · 14 alunos</span><span>01</span></div>
+</section>
+
+<!-- ============================================================ 02 MAPA: a constelação -->
+<section class="cena cena--mapa" id="mapa" data-rotulo="O mapa dos 19">
+  <div class="in mapa">
+    <div class="mapa__cab">
+      <div>
+        <p class="kick">O mapa dos 19</p>
+        <h2 class="sec rv">Cinco famílias, dezenove temas, uma fronteira entre cada par de vizinhos.</h2>
+      </div>
+      <form class="busca rv" data-d="1" role="search" onsubmit="return false">
+        <label class="visually-hidden" for="q">Buscar tema, ferramenta ou termo</label>
+        <input id="q" type="search" placeholder="Buscar tema, ferramenta, termo…" autocomplete="off">
+        <output id="q-out" for="q" aria-live="polite"></output>
+      </form>
+    </div>
+    <div class="familias rv" data-d="2" role="group" aria-label="Filtrar por família" id="familias"></div>
+    <div class="mapa__corpo">
+      <svg id="constelacao" viewBox="0 0 1000 660" role="img" aria-label="Constelação dos 19 temas agrupados por família; as linhas são as fronteiras entre vizinhos"></svg>
+      <aside class="legenda" id="legenda" aria-live="polite">
+        <p class="legenda__vazio">Passe o mouse ou toque num tema.<br>O tamanho do ponto é quantas ferramentas a turma trouxe para ele.</p>
+      </aside>
+    </div>
+  </div>
+  <div class="folio"><span>tamanho do ponto = ferramentas citadas</span><span>02</span></div>
+</section>
+
+<!-- ============================================================ 03 DADOS: o que a turma leu -->
+<section class="cena" id="dados" data-rotulo="O que a turma leu">
+  <div class="in">
+    <p class="kick">Cenas de dados · 1 de 2</p>
+    <h2 class="sec rv">O que a turma leu: 14 varreduras, um catálogo comum.</h2>
+    <div class="dados">
+      <div class="catalogo rv" data-d="1" id="catalogo"></div>
+      <div class="varreduras rv" data-d="2" id="varreduras"></div>
+    </div>
+  </div>
+  <div class="folio"><span>alunos anonimizados: A1…A9</span><span>03</span></div>
+</section>
+
+<!-- ============================================================ 04 DADOS: o que a turma escolheu -->
+<section class="cena" id="escolhas" data-rotulo="O que a turma escolheu">
+  <div class="in">
+    <p class="kick">Cenas de dados · 2 de 2</p>
+    <h2 class="sec rv">O que a turma escolheu: 659 escolhas, três níveis, catorze nº 1.</h2>
+    <div class="escolhas">
+      <div class="piramide rv" data-d="1" id="piramide"></div>
+      <div class="categorias rv" data-d="2" id="categorias"></div>
+      <div class="n1 rv" data-d="3" id="n1"></div>
+    </div>
+  </div>
+  <div class="folio"><span>categorias = as mais frequentes no catálogo</span><span>04</span></div>
+</section>
+
+<!-- ============================================================ 05–23 TEMAS (renderizados por temas.js) -->
+<div id="temas"></div>
+
+<!-- ============================================================ 24 O QUE FICOU DE FORA -->
+<section class="cena cena--fora" id="fora" data-rotulo="O que ficou de fora">
+  <div class="in">
+    <p class="kick">O que ficou de fora, e por quê</p>
+    <h2 class="sec casc fora__h2"><span class="w"><i>Muda&nbsp;</i></span><span class="w"><i>o&nbsp;que&nbsp;é&nbsp;</i></span><span class="w"><i class="hl">possível,</i></span><span class="w"><i>&nbsp;ou&nbsp;só&nbsp;</i></span><span class="w"><i>faz&nbsp;</i></span><span class="w"><i>mais&nbsp;rápido?</i></span></h2>
+    <div class="balanca" id="balanca">
+      <div class="balanca__trilho"><span class="balanca__polo balanca__polo--a">só faz mais rápido</span><i class="balanca__fio"></i><span class="balanca__polo balanca__polo--b">muda o que é possível</span></div>
+      <div class="balanca__lado balanca__lado--a">
+        <article class="fora__item rv" data-d="1"><h3>Infraestrutura de desenvolvimento genérica</h3><p>FastAPI, React, Spring, DuckDB, Playwright, ruff, Biome. Uma entrega inteira é isto. Excelente e madura: não rompe nada, sustenta tudo.</p></article>
+        <article class="fora__item rv" data-d="2"><h3>Física de jogos e motores</h3><p>Godot, Bevy, Jolt, Bullet, Phaser, raylib. São o chão dos temas 7, 9, 14 e 15. Quem quiser defender Bevy como disruptivo por si pode propor — a régua é a mesma.</p></article>
+        <article class="fora__item rv" data-d="3"><h3>Mapas e geolocalização</h3><p>Leaflet, Lanelet2. Maduros. Entram como substrato do tema 9.</p></article>
+      </div>
+      <div class="balanca__meio">
+        <article class="fora__item fora__item--quase rv" data-d="3"><h3>Quase entrou · documento vivo e conhecimento executável</h3><p>typst, marked, chronicler, manim como documento. Fraco demais no catálogo.</p></article>
+        <article class="fora__item fora__item--quase rv" data-d="4"><h3>Quase entrou · gamificação da vida</h3><p>THE-SYSTEM, awesome-gamified-life, screen-time-stocks. Absorvido pelos temas <a href="#tema-18">18</a> e <a href="#tema-19">19</a>.</p></article>
+      </div>
+      <div class="balanca__lado balanca__lado--b">
+        <div class="fora__dezenove rv" data-d="4"><b>19</b><span>temas que passam</span><a href="#mapa">ver o mapa ↑</a></div>
+      </div>
+    </div>
+    <p class="fora__nota rv" data-d="4">Qualquer um dos dois "quase" pode ser proposto fora da lista, com aprovação, desde que passe na mesma régua.</p>
+  </div>
+  <div class="folio"><span>a régua</span><span>24</span></div>
+</section>
+
+<!-- ============================================================ 25 FIM (peak-end) -->
+<section class="cena cena--fim" id="fim" data-rotulo="Escolha ao vivo">
+  <div class="in fim">
+    <p class="kick">Aula de 10/09</p>
+    <h2 class="casc fim__h2"><span class="w"><i>Um&nbsp;tema&nbsp;</i></span><span class="w"><i>por&nbsp;pessoa.&nbsp;</i></span><br><span class="w"><i>Primeiro&nbsp;a&nbsp;escolher&nbsp;</i></span><span class="w"><i class="hl">fica&nbsp;com&nbsp;ele.</i></span></h2>
+    <p class="fim__olho rv" data-d="3">Dá para propor tema fora da lista, com aprovação, desde que passe na régua. E a Roda dos Futuros é a proposta do professor — quem trouxer outro método precisa mostrar que ele é pelo menos tão bom para explorar consequências encadeadas.</p>
+    <p class="fim__acoes rv" data-d="4">
+      <a class="botao botao--principal" href="/temas/escolher/">Escolher o meu tema</a>
+      <a class="fim__volta" href="#mapa">voltar ao mapa</a>
+    </p>
+  </div>
+  <div class="folio"><span>CIn · UFPE · CIN0055</span><span>25</span></div>
+</section>
+
+</main>
+
+<!-- índice persistente (desktop: trilho; mobile: folha) -->
+<nav class="trilho" id="trilho" aria-label="Índice das cenas"></nav>
+<button class="indice-btn" id="indice-btn" type="button" aria-expanded="false" aria-controls="folha">Índice</button>
+<div class="folha" id="folha" hidden>
+  <div class="folha__cab"><strong>Os 19 temas</strong><button type="button" class="folha__fechar" id="folha-fechar" aria-label="Fechar índice">×</button></div>
+  <input class="folha__busca" id="q2" type="search" placeholder="Buscar…" aria-label="Buscar tema">
+  <ol class="folha__lista" id="folha-lista"></ol>
+</div>
+
+<footer class="rodape">
+  <div class="pagina rodape__grade">
+    <div>
+      <p class="rotulo">CIN0055 · Tendências em Mídia e Interação</p>
+      <p style="margin-top:var(--s-3);max-width:44ch">Centro de Informática da UFPE · 2026.2 · Prof. Giordano Cabral. Derivado do que a turma entregou no Hiper Deep Research, lido em 03/09/2026.</p>
+    </div>
+    <div>
+      <p class="rotulo">Mais</p>
+      <ul style="margin-top:var(--s-3)">
+        <li><a href="/">Central da disciplina</a></li>
+        <li><a href="/materiais/temas-tendencias-2026-2/">Os 19 temas em texto corrido</a></li>
+        <li><a href="/temas/escolher/">Escolher o meu tema</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="/temas/dados-temas.js"></script>
+<script src="/temas/temas.js"></script>
+</body>
+</html>

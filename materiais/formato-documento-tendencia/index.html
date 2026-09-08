@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Formato do documento de tendência — Tendências em Mídia e Interação</title>
+<meta name="description" content="O documento de tendência: frontmatter, doze seções e o bloco da roda em YAML.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="canonical" href="https://tendencias-midia-interacao.vercel.app/materiais/formato-documento-tendencia/">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="alternate" type="text/markdown" title="Este documento em Markdown" href="/materiais/formato-documento-tendencia.md">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal">
+      <a href="/#agora">Agora</a>
+      <a href="/#jornada">Jornada</a>
+      <a href="/#calendario">Calendário</a>
+      <a href="/#temas">Temas</a>
+      <a href="/materiais/" aria-current="page">Materiais</a>
+      <a href="/galeria/">Galerias</a>
+      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main id="conteudo">
+<section class="estreita doc-cabecalho">
+  <p class="rotulo">Material · Formato · CIN0055 · 2026.2</p>
+  <h1 style="margin-top:var(--s-4)">Formato do documento de tendência</h1>
+  <p class="olho">CIN0055 · Tendências em Mídia e Interação · 2026.2</p>
+  <p class="doc-nav">
+    <a class="botao botao--linha" href="/">← Voltar à central</a>
+    <a class="botao botao--discreto" href="/materiais/formato-documento-tendencia.md">Versão em Markdown</a>
+  </p>
+</section>
+<section class="estreita doc-corpo">
+  <article class="prosa">
+<p>Este é o formato de saída do movimento 2. Todo mapa de futuro sai daqui, e a skill de cada aluno (Atividade 03) tem que <strong>produzir já neste formato</strong>.</p>
+<p>O formato existe por uma razão prática: dez documentos escritos cada um do seu jeito viram dez documentos. Dez documentos no mesmo esqueleto viram <strong>um site, um conjunto de infográficos e uma apresentação com consistência única</strong> — sem que ninguém precise reformatar nada à mão.</p>
+<p><strong>Regra que vale sobre todas as outras: nada de corte.</strong> Este documento é para ser <strong>exaustivo</strong>. Tudo o que foi levantado entra. O processamento para as peças públicas é feito depois, por cima; e só dá para resumir bem o que foi escrito por inteiro.</p>
+<hr>
+<h2 id="arquivo">Arquivo</h2>
+<pre><code class="lang-">tendencia-&lt;slug-do-tema&gt;.md</code></pre>
+<p><code>slug</code> em minúsculas, sem acento, palavras separadas por hífen. Ex.: <code>audio-espacial-generativo</code>.</p>
+<hr>
+<h2 id="esqueleto">Esqueleto</h2>
+<p>Os títulos de seção são <strong>fixos e literais</strong>, com a numeração. Um script separa o documento por eles; um título trocado quebra o processamento. Você pode criar subtítulos livres dentro de cada seção.</p>
+<h3 id="frontmatter">Frontmatter</h3>
+<p>Primeira coisa do arquivo, entre <code>---</code>. Todos os campos são obrigatórios; use <code>null</code> quando não se aplicar.</p>
+<pre><code class="lang-yaml">---
+tema: Áudio espacial generativo
+slug: audio-espacial-generativo
+autor_login: yrv
+zona_de_interesse: Áudio e computação musical
+data: 2026-09-15
+horizonte: 2031            # o ano-alvo do mapa
+publico: null              # para quem esta análise foi feita, ou null
+recorte_geografico: global # global | brasil | &lt;outro&gt;
+disrupcoes_raiz: 3         # quantas você identificou
+efeitos_ordem_1: 6
+efeitos_ordem_2: 11
+efeitos_ordem_3: 14
+tecnologias_citadas: [ ... ]    # nomes, como aparecem no texto
+fontes: 34                      # quantas você de fato leu
+confianca: media                # alta | media | baixa — sua avaliação do próprio mapa
+experimento: Renderizador de cena sonora a partir de descrição em texto
+skill_usada: futurizacao-yrv
+publico_ok: false          # true se você autoriza seu nome na galeria pública
+---</code></pre>
+<p><code>publico_ok</code> controla a atribuição na página pública da disciplina. O padrão é <code>false</code>: o conteúdo processado vai para a galeria <strong>sem o seu nome</strong>, a menos que você marque <code>true</code>.</p>
+<h3 id="as-secoes">As seções</h3>
+<pre><code class="lang-markdown">## 1. Resumo
+
+Um parágrafo. O mapa inteiro em cinco a oito linhas. É o texto que vai para o card
+da galeria, então ele precisa se sustentar sozinho, fora do documento.
+
+## 2. O tema
+
+O que é, onde ele encosta em mídia e interação, e por que ele merece um mapa de futuro
+em vez de um levantamento de estado da arte.
+
+## 3. Onde isso está hoje
+
+O estado atual, com fontes. O que já existe e funciona, o que existe e não funciona,
+quem está construindo. Esta seção é a âncora do mapa no presente: sem ela, os efeitos
+de terceira ordem são ficção.
+
+## 4. As disrupções-raiz
+
+As rupturas de onde tudo deriva. Uma subseção por disrupção. Para cada uma:
+o que rompe, por que agora e não há cinco anos, e o que ainda falta acontecer para
+que ela se concretize.
+
+Tecnologia madura não entra aqui. Se você não consegue dizer o que ela rompe,
+ela não é uma disrupção — é uma melhoria.
+
+## 5. A roda dos futuros
+
+O bloco YAML abaixo é **obrigatório e é lido por máquina** — é dele que saem os
+infográficos. Escreva-o exatamente nesta estrutura, e depois comente em prosa
+o que o bloco não consegue dizer.
+</code></pre>
+<p>roda:</p>
+<ul><ul><li>disrupcao: Modelos generativos de áudio rodando em tempo real no dispositivo efeitos:</li><li>id: e1 ordem: 1 efeito: Trilha sonora deixa de ser gravada e passa a ser sintetizada na hora sinal: forte          # forte | medio | fraco prazo: 2028 confianca: alta       # alta | media | baixa efeitos:</li><li>id: e1.1 ordem: 2 efeito: O ofício de sound designer migra para curadoria de sistemas sinal: medio prazo: 2030 confianca: media efeitos:</li><li>id: e1.1.1 ordem: 3 efeito: Formação em áudio se reorganiza em torno de direção, não de execução sinal: fraco prazo: 2033 confianca: baixa</li></ul></li></ul>
+<pre><code class="lang-">
+Regras do bloco:
+- Três níveis de profundidade. Nem menos, nem mais.
+- `id` hierárquico e único (`e1`, `e1.1`, `e1.1.1`).
+- Todo efeito tem `sinal`, `prazo` e `confianca`. `confianca: baixa` é resposta legítima
+  e frequente — na terceira ordem, é a resposta esperada.
+- Um efeito por linha de `efeito`, em uma frase afirmativa. Não use pergunta.
+
+## 6. Sinais fracos e wildcards
+
+O que quase não aparece hoje mas mudaria o mapa inteiro se acontecesse. Inclua pelo
+menos um wildcard de baixa probabilidade e alto impacto.
+
+## 7. Contra o próprio mapa
+
+A seção que vale mais numa correção. Onde este mapa provavelmente está errado.
+No mínimo:
+
+- Qual efeito é só extrapolação linear do presente.
+- Qual efeito assume uma velocidade de adoção que nunca se viu em caso comparável.
+- Qual disrupção pode simplesmente não se concretizar, e o que aconteceria com o mapa.
+- Que viés seu entrou aqui — você escolheu este tema por gostar dele.
+
+## 8. O que a máquina errou
+
+O que a IA produziu de errado durante este trabalho, e como você percebeu.
+Fonte inventada, número redondo demais, efeito plausível que não se sustenta,
+autoria trocada. Um item específico com o motivo da desconfiança vale mais
+que cinco genéricos.
+
+## 9. Três cenários para &lt;ano do horizonte&gt;
+
+Um parágrafo cada, escritos como se o ano já tivesse chegado:
+
+- **Provável** — o que acontece se as tendências correntes seguirem.
+- **Desejável** — o melhor desfecho plausível, e o que teria que ser feito para chegar lá.
+- **Indesejável** — o desfecho ruim plausível, e qual é o sinal precoce dele.
+
+## 10. O experimento
+
+O que dá para construir **hoje** que ajude a entender essa tendência. É daqui que sai
+o seu projeto do movimento 3.
+
+- O que é.
+- Que pergunta sobre o futuro ele ajuda a responder.
+- Que tecnologia emergente ele usa — e por que não dá para fazer com tecnologia madura.
+- O que a turma vai fazer quando testar isso em sala.
+- O que seria um resultado que te faria mudar de ideia.
+
+## 11. Fontes
+
+Lista numerada. Só o que você leu. Para cada uma: link, o que ela sustenta neste
+documento, e uma linha sobre o quanto ela é confiável.
+
+Fonte que você não abriu não entra. Link tem que responder.
+
+## 12. Anexo — o levantamento bruto
+
+Sem limite de tamanho e sem edição. Tudo o que foi levantado e não coube nas seções
+acima: as saídas completas da skill, as rodadas descartadas, os efeitos cortados,
+os caminhos abandonados, as buscas que não deram em nada.
+
+É a seção mais longa do documento, e é normal que seja. Nada aqui vai para a página
+pública sem passar por processamento — mas o que não estiver aqui não pode ser
+processado depois.</code></pre>
+<hr>
+<h2 id="checagem-antes-de-entregar">Checagem antes de entregar</h2>
+<pre><code class="lang-bash"># 1. o frontmatter é YAML válido e tem todos os campos
+python3 - &lt;&lt;&#x27;EOF&#x27;
+import re, sys, yaml
+t = open(&quot;tendencia-&lt;slug&gt;.md&quot;, encoding=&quot;utf-8&quot;).read()
+fm = re.match(r&quot;^---\n(.*?)\n---\n&quot;, t, re.S)
+assert fm, &quot;sem frontmatter&quot;
+d = yaml.safe_load(fm.group(1))
+faltam = [k for k in [&quot;tema&quot;,&quot;slug&quot;,&quot;autor_login&quot;,&quot;zona_de_interesse&quot;,&quot;data&quot;,&quot;horizonte&quot;,
+    &quot;publico&quot;,&quot;recorte_geografico&quot;,&quot;disrucoes_raiz&quot;,&quot;efeitos_ordem_1&quot;,&quot;efeitos_ordem_2&quot;,
+    &quot;efeitos_ordem_3&quot;,&quot;tecnologias_citadas&quot;,&quot;fontes&quot;,&quot;confianca&quot;,&quot;experimento&quot;,
+    &quot;skill_usada&quot;,&quot;publico_ok&quot;] if k not in d and k != &quot;disrucoes_raiz&quot;]
+if &quot;disrupcoes_raiz&quot; not in d: faltam.append(&quot;disrupcoes_raiz&quot;)
+print(&quot;FALTAM:&quot;, faltam or &quot;nada&quot;)
+EOF
+
+# 2. as 12 seções estão lá, com os títulos literais
+grep -c &quot;^## &quot; tendencia-&lt;slug&gt;.md     # tem que imprimir 12
+
+# 3. o bloco da roda é YAML válido
+python3 -c &quot;
+import re,yaml
+t=open(&#x27;tendencia-&lt;slug&gt;.md&#x27;,encoding=&#x27;utf-8&#x27;).read()
+b=re.search(r&#x27;\`\`\`yaml\nroda:(.*?)\n\`\`\`&#x27;,t,re.S)
+print(&#x27;roda ok&#x27; if b and yaml.safe_load(&#x27;roda:&#x27;+b.group(1)) else &#x27;RODA QUEBRADA&#x27;)&quot;
+
+# 4. os links das fontes respondem
+grep -o &#x27;https\?://[^ )]*&#x27; tendencia-&lt;slug&gt;.md | sort -u \
+  | xargs -I{} sh -c &#x27;printf &quot;%s &quot; {}; curl -o /dev/null -s -w &quot;%{http_code}\n&quot; -L --max-time 10 {}&#x27;</code></pre>
+<hr>
+<h2 id="o-que-a-disciplina-faz-com-isso-depois">O que a disciplina faz com isso depois</h2>
+<ol><li>Os doze blocos <code>roda:</code> viram <strong>um mapa único de futuros da turma</strong>, com os efeitos cruzados — onde dois temas diferentes convergem para o mesmo efeito de segunda ordem é exatamente o achado interessante.</li><li>As seções 1, 5, 9 e 10 alimentam o <strong>site público</strong> de tendências.</li><li>A seção 12 fica <strong>privada</strong>, atrás de login, e é a matéria-prima do processamento.</li><li>A seção 7 é o que se confronta com o mapa adversarial do professor na aula.</li></ol>
+  </article>
+</section>
+</main>
+<footer class="rodape">
+  <div class="pagina rodape__grade">
+    <div>
+      <p class="rotulo">CIN0055 · Tendências em Mídia e Interação</p>
+      <p style="margin-top:var(--s-3);max-width:44ch">Centro de Informática da UFPE · 2026.2 · Prof. Giordano Cabral.</p>
+    </div>
+    <div>
+      <p class="rotulo">Materiais</p>
+      <ul style="margin-top:var(--s-3)"><li><a href="/materiais/quinta-10-09/">Quinta 10/09</a></li><li><a href="/materiais/plano-2026-2/">Plano</a></li><li><a href="/materiais/atividade-03-skill-futurizacao/">Atividade 03</a></li><li><a href="/materiais/formato-documento-tendencia/">Formato</a></li><li><a href="/materiais/temas-tendencias-2026-2/">Temas</a></li></ul>
+    </div>
+    <div>
+      <p class="rotulo">A central</p>
+      <ul style="margin-top:var(--s-3)"><li><a href="/#agora">Agora</a></li><li><a href="/#calendario">Calendário</a></li><li><a href="/hdr/">Hiper Deep Research</a></li></ul>
+    </div>
+  </div>
+</footer>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

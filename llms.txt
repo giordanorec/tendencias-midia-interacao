@@ -1,3 +1,10 @@
+# Tendências em Mídia e Interação — CIn/UFPE · 2026.2
+
+> A central da disciplina é https://tendencias-midia-interacao.vercel.app/ — o que está aberto agora,
+> a jornada em três movimentos, o calendário, os 19 temas e as ferramentas. O sistema do Hiper Deep
+> Research (movimento 1) mora em /hdr/. Os materiais em Markdown estão em /materiais/<slug>.md:
+> plano-2026-2, atividade-03-skill-futurizacao, formato-documento-tendencia, temas-tendencias-2026-2.
+
 # Hiper Deep Research — Atividade 01
 # CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2
 # Professor: Giordano Cabral

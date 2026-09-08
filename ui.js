@@ -63,7 +63,7 @@ function tUnidades() {
       <p>Aplicativos, plataformas e serviços interessantes que você abre e usa diretamente para
         criar, explorar, organizar ou experimentar.</p>
       <p class="unit-rule"><b>Teste:</b> a ferramenta é, ela própria, o lugar onde você trabalha.</p>
-      <div class="row"><a class="btn" href="/?entrega=inspiracao">Abrir a Entrega 1</a>
+      <div class="row"><a class="btn" href="/hdr/?entrega=inspiracao">Abrir a Entrega 1</a>
         <a class="btn gh" href="${UNIDADES.inspiracao.galeria}">Ver a galeria</a></div>
     </article>
     <article class="unit-card desenvolvimento">
@@ -72,7 +72,7 @@ function tUnidades() {
       <p>APIs, bibliotecas, SDKs, frameworks, componentes e projetos open source que você consegue
         instalar, importar ou chamar <b>de dentro do seu próprio código</b>.</p>
       <p class="unit-rule"><b>Teste:</b> seu programa chama a ferramenta; ela vira parte do que você desenvolve.</p>
-      <div class="row"><a class="btn" href="/?entrega=desenvolvimento">Abrir a Entrega 2</a>
+      <div class="row"><a class="btn" href="/hdr/?entrega=desenvolvimento">Abrir a Entrega 2</a>
         <a class="btn gh" href="${UNIDADES.desenvolvimento.galeria}">Ver a galeria</a></div>
     </article>
   </section>
@@ -122,7 +122,7 @@ function tLogin(msg) {
         <a class="btn" href="/atividade/#${S.unidade}">Ler a atividade</a>
         <a class="btn gh" href="/exemplos/">Ver os exemplos</a>
         <a class="btn gh" href="${U.galeria}">Ver esta galeria</a>
-        <a class="btn gh" href="/">Trocar de entrega</a>
+        <a class="btn gh" href="/hdr/">Trocar de entrega</a>
       </div>
     </div>
 

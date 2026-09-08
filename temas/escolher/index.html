@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Escolher o meu tema — Tendências em Mídia e Interação</title>
+<meta name="description" content="Escolha do tema, link da sua skill e rodada cruzada — a dinâmica assíncrona de quinta, 10/09.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="./escolher.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal">
+      <a href="/#agora">Agora</a>
+      <a href="/#jornada">Etapas</a>
+      <a href="/#calendario">Calendário</a>
+      <a href="/temas/">Temas</a>
+      <a href="/temas/escolher/" aria-current="page">Escolher</a>
+      <a href="/materiais/">Materiais</a>
+      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho">
+  <p class="rotulo">Quinta, 10/09 · momento assíncrono · etapa 2</p>
+  <h1 style="margin-top:var(--s-4)">Escolha o seu tema</h1>
+  <p class="olho">Não tem aula na quinta. No lugar dela, três coisas para fazer nesta página, no seu tempo: <strong>escolher o seu tema</strong>, <strong>deixar o link da sua skill</strong> para os colegas verem, e <strong>testar a skill de um colega</strong>. Tudo aqui é visível para a turma — é assim que vocês veem uns aos outros.</p>
+  <div class="nota" style="margin-top:var(--s-5)">
+    <strong>Como funciona a escolha.</strong>
+    Abre <strong>quinta 10/09 às 8h</strong> (o horário da aula) e fecha <strong>domingo 13/09 às 23h59</strong>. Um tema por pessoa, sem repetição: quem escolher primeiro fica com ele. Até domingo você pode trocar por outro que ainda esteja livre. Depois de domingo, trava — e na segunda 14/09 às 8h esta página mostra a ordem sorteada das apresentações.
+  </div>
+</section>
+
+<section class="estreita doc-corpo" id="app">
+  <div class="painel-login" id="bloco-login">
+    <p class="rotulo">Passo 0</p>
+    <h2>Entre com o seu login do CIn</h2>
+    <p class="mudo" style="margin-top:var(--s-2)">O mesmo do sistema do Hiper Deep Research. Pode ser só o login (<code>grec</code>) ou o e-mail inteiro (<code>grec@cin.ufpe.br</code>). Sem senha: a lista é aberta entre vocês.</p>
+    <form id="form-login" class="linha" style="margin-top:var(--s-4)">
+      <input id="login" class="campo" type="text" autocomplete="username" placeholder="seulogin" required>
+      <button class="botao botao--principal" type="submit">Entrar</button>
+    </form>
+    <p id="erro-login" class="erro" hidden></p>
+  </div>
+
+  <div id="bloco-app" hidden>
+    <p class="eu">Você está como <b id="eu-login"></b> · <button class="link" id="sair" type="button">trocar</button></p>
+
+    <!-- 1. TEMA -->
+    <div class="bloco">
+      <p class="rotulo">Passo 1 · abre quinta 8h</p>
+      <h2>Escolha um tema</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Leia os temas antes, em <a href="/temas/">Os 19 temas</a>. Os que já têm dono aparecem com o nome de quem escolheu. Clique em <em>Escolher</em> — se dois clicarem no mesmo segundo, o sistema fica com o primeiro e avisa o outro.</p>
+      <p id="estado-janela" class="janela"></p>
+      <ol class="temas-lista" id="lista-temas"></ol>
+    </div>
+
+    <!-- 2. SKILL -->
+    <div class="bloco">
+      <p class="rotulo">Passo 2</p>
+      <h2>Deixe o link da sua skill</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">O mesmo link que você entregou no Classroom (repositório ou pasta compartilhada). É para os colegas conseguirem abrir e testar. Aparece na lista abaixo com o seu login.</p>
+      <form id="form-skill" class="linha" style="margin-top:var(--s-4)">
+        <input id="skill-url" class="campo" type="url" placeholder="https://github.com/…/futurizacao-seulogin" required>
+        <button class="botao botao--principal" type="submit">Salvar</button>
+      </form>
+      <p id="ok-skill" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-6)">As skills da turma</h3>
+      <ul class="skills" id="lista-skills"></ul>
+    </div>
+
+    <!-- 3. RODADA CRUZADA -->
+    <div class="bloco">
+      <p class="rotulo">Passo 3 · até domingo 13/09</p>
+      <h2>Teste a skill de um colega</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Escolha um colega da lista acima (de preferência alguém que ainda não recebeu teste — a lista mostra quantos cada um já recebeu). Abra a skill dele na sua IA, rode <strong>no seu tema</strong>, e responda quatro perguntas de sim ou não mais um comentário curto. Isso conta como o "feedback dado aos colegas" da nota da etapa 2. Quem quiser pode testar mais de uma.</p>
+      <form id="form-fb" class="pilha" style="margin-top:var(--s-4)">
+        <label class="rot">Testei a skill de <select id="fb-para" class="campo" required><option value="">— escolha —</option></select></label>
+        <div class="perguntas">
+          <label><input type="checkbox" id="fb-perguntou"> Ela <strong>fez perguntas antes de rodar</strong> (horizonte, público, região, o que já está fora)?</label>
+          <label><input type="checkbox" id="fb-recusou"> Ela <strong>soube separar</strong> o que é novidade do que já é comum — e recusou o comum?</label>
+          <label><input type="checkbox" id="fb-duvidou"> Ela <strong>duvidou do próprio resultado</strong> (tentou derrubar os efeitos que gerou)?</label>
+          <label><input type="checkbox" id="fb-formato"> A saída veio <strong>no formato da disciplina</strong> (frontmatter, seções numeradas, bloco da roda)?</label>
+        </div>
+        <label class="rot">Um comentário para o autor (o que mais te ajudou, ou o que faltou) — até 300 caracteres
+          <textarea id="fb-coment" class="campo" maxlength="300" rows="3"></textarea></label>
+        <button class="botao botao--principal" type="submit" style="align-self:flex-start">Enviar o teste</button>
+      </form>
+      <p id="ok-fb" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-6)">O que a turma disse da sua skill</h3>
+      <ul class="feedbacks" id="lista-fb"><li class="mudo">Ninguém testou ainda.</li></ul>
+    </div>
+
+    <!-- 4. SORTEIO -->
+    <div class="bloco" id="bloco-sorteio">
+      <p class="rotulo">Segunda, 14/09, 8h</p>
+      <h2>A ordem das apresentações</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Sorteio sem mão humana: a ordem é dada pela assinatura digital (SHA-256) de <code>seu-login + "TMI-2026-2-sorteio"</code>, em ordem alfabética do resultado. Qualquer um pode conferir. Quem tirar 1 e 2 apresenta em 17/09; 3 e 4 em 22/09; e assim por diante, dois por aula. Trocar de data com um colega pode, desde que os dois concordem e avisem no grupo.</p>
+      <ol class="sorteio" id="lista-sorteio"><li class="mudo">A ordem aparece aqui na segunda 14/09 às 8h, com os temas já travados.</li></ol>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2</p></div></footer>
+<script src="/assets/hub.js"></script>
+<script type="module" src="./escolher.js"></script>
+</body>
+</html>

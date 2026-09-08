@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atividade 03 — Construa a sua ferramenta de futurização — Tendências em Mídia e Interação</title>
+<meta name="description" content="Construa a sua ferramenta de futurização — as quatro exigências, os quatro arquivos, como se avalia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="canonical" href="https://tendencias-midia-interacao.vercel.app/materiais/atividade-03-skill-futurizacao/">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="alternate" type="text/markdown" title="Este documento em Markdown" href="/materiais/atividade-03-skill-futurizacao.md">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal">
+      <a href="/#agora">Agora</a>
+      <a href="/#jornada">Jornada</a>
+      <a href="/#calendario">Calendário</a>
+      <a href="/#temas">Temas</a>
+      <a href="/materiais/" aria-current="page">Materiais</a>
+      <a href="/galeria/">Galerias</a>
+      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main id="conteudo">
+<section class="estreita doc-cabecalho">
+  <p class="rotulo">Material · Atividade 03 · CIN0055 · 2026.2</p>
+  <h1 style="margin-top:var(--s-4)">Atividade 03 — Construa a sua ferramenta de futurização</h1>
+  <p class="olho">CIN0055 · Tendências em Mídia e Interação · 2026.2</p>
+  <p class="doc-nav">
+    <a class="botao botao--linha" href="/">← Voltar à central</a>
+    <a class="botao botao--discreto" href="/materiais/atividade-03-skill-futurizacao.md">Versão em Markdown</a>
+  </p>
+</section>
+<section class="estreita doc-corpo">
+  <article class="prosa">
+<p><strong>Entrega: terça, 08/09, até meio-dia (12h00).</strong> Individual. Vale nota, dentro dos 4,0 do movimento de tendências.</p>
+<hr>
+<h2 id="o-problema">O problema</h2>
+<p>A partir da próxima aula, cada um de vocês vai pegar <strong>um tema</strong> e produzir um <strong>mapa de futuro</strong> dele: quais disrupções estão na raiz, e o que elas provocam em primeira, segunda e terceira ordem. Não é opinião. É método — e existe um corpo de métodos para isso, com décadas de uso, com pontos fortes e com falhas conhecidas.</p>
+<p>Vocês poderiam usar uma ferramenta pronta. <strong>Não vão.</strong> Cada um vai construir a sua.</p>
+<p>Por dois motivos. O primeiro é que, quando dez pessoas rodam a mesma ferramenta, dez pessoas chegam ao mesmo lugar, e não se aprende nada sobre o método — só sobre a ferramenta. Com dez ferramentas diferentes nos mesmos temas, a divergência entre elas <strong>é o objeto de estudo</strong>. Vamos comparar, e eu vou rodar a minha contra as de vocês.</p>
+<p>O segundo é mais direto: <strong>construir a ferramenta é a competência.</strong> Escrever o prompt que alguém executa uma vez é uma coisa. Empacotar um método inteiro em algo que outra pessoa roda, que faz as perguntas certas antes de rodar, e que produz saída num formato previsível — isso é outra, e é a que quase nenhum currículo alcançou.</p>
+<hr>
+<h2 id="o-que-voce-entrega">O que você entrega</h2>
+<p>Uma pasta com quatro arquivos. Nada além disso.</p>
+<pre><code class="lang-">futurizacao-&lt;seu-login&gt;/
+  SKILL.md          a ferramenta
+  ESTUDO.md         o que você aprendeu do método, e de onde
+  TESTE.md          uma rodada completa, num tema de teste
+  DUVIDAS.md        onde a IA errou, e como você percebeu</code></pre>
+<h3 id="1-skill-md-a-ferramenta">1. <code>SKILL.md</code> — a ferramenta</h3>
+<p>Uma skill no formato de Agent Skill: um arquivo Markdown com frontmatter e instruções. Tem que funcionar em pelo menos um agente real — Claude Code, Codex, ou colada como instrução de sistema num chat. Diga no topo do arquivo onde você testou.</p>
+<pre><code class="lang-markdown">---
+name: futurizacao-&lt;seu-login&gt;
+description: Use quando ... (uma frase; é o que faz o agente decidir invocar a skill)
+---
+
+# ... as instruções ...</code></pre>
+<p><strong>Quatro exigências de comportamento.</strong> Uma skill que não faz as quatro não conta:</p>
+<p><strong>(a) Ela entrevista antes de rodar.</strong> Recebe um tema e um recorte, e <strong>não sai produzindo</strong>. Pergunta o que precisa perguntar até o pedido estar claro: qual horizonte de tempo, para quem, que região, o que já está descartado, qual o viés desejado. Só depois roda. Uma skill que aceita "faça a roda dos futuros de XR" e já despeja três níveis de efeitos não está pronta — está adivinhando.</p>
+<p><strong>(b) Ela separa emergente de disruptivo, e maduro de nenhum dos dois.</strong> Está no enunciado da disciplina e é a distinção mais fácil de errar. A sua skill tem que ter um critério explícito, escrito, para recusar tecnologia madura.</p>
+<p><strong>(c) Ela duvida do próprio resultado.</strong> Depois de gerar os efeitos, a skill tem que ter um passo que <strong>tenta derrubá-los</strong>: qual efeito não se sustenta, qual é só extrapolação linear do presente, qual assume adoção que nunca aconteceu antes nessa velocidade. Se a sua skill só produz e nunca contesta, ela está automatizando entusiasmo, não análise.</p>
+<p><strong>(d) Ela produz a saída no formato padrão da disciplina.</strong> O documento está especificado em <code>FORMATO-documento-tendencia.md</code>. A saída da sua skill tem que sair já naquele formato — frontmatter, seções numeradas e o bloco da roda em YAML. É isso que vai permitir processar os dez mapas juntos, gerar os infográficos e montar o site da turma.</p>
+<h3 id="2-estudo-md-o-metodo-estudado-por-voce">2. <code>ESTUDO.md</code> — o método, estudado por você</h3>
+<p>Este é o arquivo em que você mostra que <strong>entendeu</strong>, não que pesquisou. Máximo de duas páginas.</p>
+<p>Cubra, no mínimo:</p>
+<ul><li><strong>Futures Wheel</strong> — como funciona, quem propôs, e como se decide onde parar de derivar efeitos.</li><li><strong>Hype Cycle da Gartner</strong> — o que a curva afirma, e a crítica de que ela não é validada empiricamente. Você vai usá-la assim mesmo; a questão é saber para quê ela serve e para quê não.</li><li><strong>Quadrante Mágico</strong> — o que ele mede, e por que ele fala de mercado e não de futuro.</li><li><strong>Emergente × disruptivo</strong> — a distinção, com o critério que você adotou.</li><li><strong>Efeitos de 1ª, 2ª e 3ª ordem</strong> — o que separa uma ordem da seguinte, na prática.</li><li><strong>Pelo menos um método que não está nesta lista</strong>, que você encontrou por conta própria.</li></ul>
+<p>Para cada método, uma linha que a maioria dos textos não escreve: <strong>para que ele não serve.</strong></p>
+<h3 id="3-teste-md-uma-rodada-de-verdade">3. <code>TESTE.md</code> — uma rodada de verdade</h3>
+<p>Rode a sua skill num tema de teste — qualquer um, <strong>não precisa ser o tema que você vai pegar na disciplina</strong>. Cole a rodada inteira: a entrevista que a skill fez, as suas respostas, e a saída. Sem cortes e sem embelezar.</p>
+<h3 id="4-duvidas-md-onde-a-maquina-errou">4. <code>DUVIDAS.md</code> — onde a máquina errou</h3>
+<p>Meia página. Onde a IA te deu coisa errada, plausível e convincente, enquanto você construía isso: efeito inventado, fonte que não existe, autoria trocada, número redondo demais, causa que não decorre. E — a parte que interessa — <strong>como você percebeu.</strong></p>
+<p>Se a resposta honesta for "não percebi nada de errado", escreva isso. Mas releia antes, porque em duas horas de trabalho com um modelo generativo sobre um método que você acabou de conhecer, não ter encontrado nada geralmente significa não ter conferido.</p>
+<hr>
+<h2 id="como-entregar">Como entregar</h2>
+<p>Repositório ou pasta compartilhada, link no Google Classroom, até <strong>08/09, 12h00</strong>. Não há aula síncrona nesse dia — o horário da aula é seu, para terminar.</p>
+<hr>
+<h2 id="como-isso-e-avaliado">Como isso é avaliado</h2>
+<p>Na ordem em que pesa:</p>
+<ol><li><strong>A skill roda e faz as quatro coisas.</strong> Entrevista, distingue, duvida, e sai no formato.</li><li><strong><code>DUVIDAS.md</code> mostra discernimento real</strong> — um erro específico, pego por um motivo que você consegue explicar. Vale mais do que um <code>ESTUDO.md</code> caprichado.</li><li><strong><code>ESTUDO.md</code> mostra que você entendeu os limites de cada método</strong>, não só o que cada um é.</li><li><strong><code>TESTE.md</code> é uma rodada honesta</strong>, com a entrevista visível.</li></ol>
+<p>Não se avalia tamanho, nem quantidade de métodos, nem beleza do Markdown.</p>
+<hr>
+<h2 id="se-voce-travar">Se você travar</h2>
+<p>Cota estourada, máquina que não aguenta, ferramenta que passou a pedir cartão, tempo curto: <strong>me avise antes de segunda, 07/09.</strong> Tem contorno para quase tudo — modelo aberto rodando local, lote menor, skill em formato mais simples. O que não tem contorno é avisar depois do prazo.</p>
+  </article>
+</section>
+</main>
+<footer class="rodape">
+  <div class="pagina rodape__grade">
+    <div>
+      <p class="rotulo">CIN0055 · Tendências em Mídia e Interação</p>
+      <p style="margin-top:var(--s-3);max-width:44ch">Centro de Informática da UFPE · 2026.2 · Prof. Giordano Cabral.</p>
+    </div>
+    <div>
+      <p class="rotulo">Materiais</p>
+      <ul style="margin-top:var(--s-3)"><li><a href="/materiais/quinta-10-09/">Quinta 10/09</a></li><li><a href="/materiais/plano-2026-2/">Plano</a></li><li><a href="/materiais/atividade-03-skill-futurizacao/">Atividade 03</a></li><li><a href="/materiais/formato-documento-tendencia/">Formato</a></li><li><a href="/materiais/temas-tendencias-2026-2/">Temas</a></li></ul>
+    </div>
+    <div>
+      <p class="rotulo">A central</p>
+      <ul style="margin-top:var(--s-3)"><li><a href="/#agora">Agora</a></li><li><a href="/#calendario">Calendário</a></li><li><a href="/hdr/">Hiper Deep Research</a></li></ul>
+    </div>
+  </div>
+</footer>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

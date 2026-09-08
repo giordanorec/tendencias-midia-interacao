@@ -2,8 +2,15 @@
 
 Atividade da disciplina Tendências em Mídia e Interação 2026.2, CIn/UFPE.
 
-- Aplicação: https://tendencias-midia-interacao.vercel.app
+- Central da disciplina: https://tendencias-midia-interacao.vercel.app
+- Sistema do Hiper Deep Research: https://tendencias-midia-interacao.vercel.app/hdr/
 - Galerias públicas: https://tendencias-midia-interacao.vercel.app/galeria/
+- Materiais: https://tendencias-midia-interacao.vercel.app/materiais/
+
+A raiz do site é a **central da disciplina** (identidade CIn-UFPE herdada do Projetão — `assets/`).
+O app do Hiper Deep Research, que antes vivia na raiz, está em `hdr/`; `/?entrega=…` redireciona
+para `/hdr/?entrega=…` por causa dos links antigos do Classroom. Os materiais em `materiais/*.md`
+viram páginas com `python3 materiais/construir.py` — rode depois de editar qualquer `.md`.
 
 Sistema da Atividade 01 da disciplina **Tendências em Mídia e Interação** (CIN0055) —
 CIn/UFPE, 2026.2.

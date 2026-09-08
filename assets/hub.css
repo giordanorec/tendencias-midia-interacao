@@ -1,0 +1,203 @@
+/* ============================================================================
+   TENDÊNCIAS EM MÍDIA E INTERAÇÃO — componentes próprios da central
+   Depende de tokens.css e base.css. Nenhum valor de cor ou espaço solto.
+   ============================================================================ */
+
+/* ------------------------------------------------------------------ AGORA
+   O que está aberto esta semana. É a razão de a página existir: quem chega
+   precisa saber em dez segundos o que vence e quando é a próxima aula. */
+.agora { border-top: var(--border-strong); }
+.agora__item {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+  gap: var(--s-5);
+  align-items: start;
+  padding-block: var(--s-5);
+  border-bottom: var(--border);
+  position: relative;
+}
+.agora__item::before {
+  content: "";
+  position: absolute; inset: 0 calc(var(--s-4) * -1);
+  border-radius: var(--r-md);
+  z-index: -1;
+}
+.agora__item--proximo::before { background: var(--brand-wash); }
+:root[data-tema="escuro"] .agora__item--proximo::before { background: #2a1c1b; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) .agora__item--proximo::before { background: #2a1c1b; }
+}
+.agora__item--passado { opacity: 0.55; }
+.agora__item--passado .agora__titulo { text-decoration: line-through; text-decoration-thickness: 1px; }
+
+.agora__quando { display: grid; gap: var(--s-1); }
+.agora__data {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-tight);
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.agora__item--proximo .agora__data { color: var(--brand); }
+.agora__hora { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); }
+.agora__falta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.02em;
+  color: var(--brand-strong);
+  font-weight: 500;
+}
+.agora__titulo {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: var(--tr-snug);
+  line-height: var(--lh-snug);
+}
+.agora__texto { font-size: var(--t-sm); color: var(--fg-body); margin-top: var(--s-2); max-width: var(--measure); }
+.agora__meta { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-3); }
+.agora__acoes { display: flex; flex-direction: column; gap: var(--s-2); align-items: flex-end; align-self: center; }
+.agora__acoes .botao { white-space: nowrap; }
+@media (max-width: 720px) {
+  .agora__item { grid-template-columns: 1fr; gap: var(--s-3); }
+  .agora__quando { grid-template-columns: auto auto 1fr; align-items: baseline; gap: var(--s-3); }
+  .agora__acoes { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
+}
+
+/* ----------------------------------------------------------- MOVIMENTOS
+   A jornada são três movimentos; cada um lista as entregas que o compõem.
+   Reusa a espinha das quests, com sub-lista de entregas. */
+.movimento__entregas {
+  list-style: none; padding: 0;
+  margin-top: var(--s-4);
+  display: grid; gap: var(--s-2);
+  border-top: var(--border);
+  padding-top: var(--s-3);
+}
+.movimento__entregas li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s-4);
+  align-items: baseline;
+  font-size: var(--t-sm);
+}
+.movimento__entregas li > span:first-child { color: var(--fg-body); }
+.movimento__entregas a { white-space: nowrap; }
+.movimento__peso {
+  font-family: var(--font-display);
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.quest--movimento { cursor: default; }
+.quest--movimento:hover::before { background: transparent; }
+.quest--movimento:hover .quest__titulo, .quest--movimento:hover .quest__n { color: inherit; }
+.quest--movimento:hover .quest__n { color: var(--numeral); }
+.quest__estado {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-wide);
+  align-self: start;
+  padding-top: var(--s-2);
+  white-space: nowrap;
+}
+.quest__estado--vivo { color: var(--brand); }
+.quest__estado--feito { color: var(--mode-co); }
+.quest__estado--futuro { color: var(--fg-muted); }
+
+/* ---------------------------------------------------------------- CALENDÁRIO */
+.cal tbody td:first-child { white-space: nowrap; font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-body); }
+.cal tbody td:first-child b { font-family: var(--font-display); font-size: var(--t-sm); color: var(--fg); display: block; }
+.cal tr.passado td { color: var(--fg-muted); }
+.cal tr.passado td:first-child b { color: var(--fg-muted); }
+.cal tr.hoje td, .cal tr.proximo td { background: var(--brand-wash); }
+:root[data-tema="escuro"] .cal tr.hoje td, :root[data-tema="escuro"] .cal tr.proximo td { background: #2a1c1b; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) .cal tr.hoje td,
+  :root:not([data-tema="claro"]) .cal tr.proximo td { background: #2a1c1b; }
+}
+.cal tr.hoje td:first-child b::after { content: " · hoje"; color: var(--brand); font-family: var(--font-mono); font-size: var(--t-xs); }
+.cal tr.proximo td:first-child b::after { content: " · próxima"; color: var(--brand); font-family: var(--font-mono); font-size: var(--t-xs); }
+.cal .m { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); }
+.cal td:last-child { white-space: nowrap; }
+
+/* -------------------------------------------------------------------- TEMAS */
+.temas { list-style: none; padding: 0; border-top: var(--border-strong); counter-reset: tema; }
+.temas li { border-bottom: var(--border); }
+.temas a {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: var(--s-4);
+  align-items: baseline;
+  padding-block: var(--s-3);
+  text-decoration: none;
+  color: var(--fg);
+}
+.temas a::before {
+  counter-increment: tema;
+  content: counter(tema, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--numeral);
+  font-variant-numeric: tabular-nums;
+}
+.temas a:hover, .temas a:hover::before { color: var(--brand); }
+.temas__grade { columns: 2; column-gap: var(--s-8); }
+.temas__grade .temas { break-inside: avoid; }
+@media (max-width: 800px) { .temas__grade { columns: 1; } }
+
+/* ----------------------------------------------------------------- FERRAMENTAS */
+.card .rotulo { margin-top: auto; padding-top: var(--s-2); }
+.card__acao { font-size: var(--t-sm); font-weight: 500; text-decoration: none; margin-top: var(--s-1); }
+.card--em-preparo { border-style: dashed; background: transparent; }
+.card--em-preparo .card__titulo { color: var(--fg-body); }
+
+/* -------------------------------------------------------------------- NOTAS */
+.notas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-4); }
+.notas > div { border-top: 2px solid var(--brand); padding-top: var(--s-3); }
+.notas__valor { font-family: var(--font-display); font-size: var(--t-2xl); font-weight: 700; color: var(--fg); line-height: 1; letter-spacing: var(--tr-tight); }
+.notas__nome { font-family: var(--font-display); font-weight: 600; color: var(--fg); margin-top: var(--s-2); }
+.notas__de { font-size: var(--t-sm); color: var(--fg-body); margin-top: var(--s-1); }
+@media (max-width: 640px) { .notas { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------------------------------ DOCUMENTO
+   As páginas de material: um artigo por página, na medida de leitura. */
+.doc-cabecalho { padding-block: var(--s-8) var(--s-6); border-bottom: var(--border); }
+.doc-cabecalho h1 { font-size: var(--t-3xl); }
+.doc-cabecalho .olho { margin-top: var(--s-4); }
+.doc-corpo { padding-block: var(--s-7) var(--s-9); }
+.doc-corpo .prosa h1 { font-size: var(--t-2xl); }
+.doc-corpo .prosa h2 { scroll-margin-top: calc(var(--altura-topo) + var(--s-5)); }
+.doc-corpo .prosa h3 { scroll-margin-top: calc(var(--altura-topo) + var(--s-5)); }
+.doc-corpo .prosa blockquote { margin-block: var(--s-5); }
+.doc-corpo .prosa pre { max-width: none; }
+.doc-corpo .prosa hr { border: 0; border-top: var(--border); margin-block: var(--s-6); }
+.doc-corpo .prosa table { max-width: none; }
+.doc-corpo .prosa del { color: var(--fg-muted); }
+.doc-nav { display: flex; gap: var(--s-3); flex-wrap: wrap; margin-top: var(--s-5); }
+.docs { list-style: none; padding: 0; border-top: var(--border-strong); }
+.docs li { border-bottom: var(--border); }
+.docs a {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-4);
+  align-items: baseline; padding-block: var(--s-4); text-decoration: none; color: inherit;
+}
+.docs a:hover .docs__titulo { color: var(--brand); }
+.docs__titulo { font-family: var(--font-display); font-weight: 600; font-size: var(--t-md); color: var(--fg); display: block; }
+.docs__texto { font-size: var(--t-sm); color: var(--fg-body); display: block; margin-top: var(--s-1); max-width: var(--measure); }
+.docs__meta { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); white-space: nowrap; }
+
+/* ------------------------------------------------------------------ TOPO
+   Seis links e o botão de tema não cabem numa linha de 390px: o nav quebra
+   em duas linhas em vez de estourar a página para o lado. */
+@media (max-width: 720px) {
+  .topo nav { flex-wrap: wrap; row-gap: var(--s-1); column-gap: var(--s-4); }
+  .topo nav a { font-size: var(--t-sm); }
+}
+
+/* URLs longas em código ou link não podem alargar a página no celular. */
+.prosa code, .prosa a { overflow-wrap: anywhere; }

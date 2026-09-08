@@ -50,5 +50,19 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "entrega",
+          "value": "(?<entrega>.*)"
+        }
+      ],
+      "destination": "/hdr/?entrega=:entrega",
+      "permanent": false
+    }
   ]
 }
