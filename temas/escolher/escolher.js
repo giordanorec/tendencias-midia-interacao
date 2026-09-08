@@ -43,7 +43,8 @@ async function api(caminho, opt = {}) {
 function validaLogin(v) {
   let s = v.trim().toLowerCase();
   if (s.includes("@")) { const [u, d] = s.split("@"); if (!/^(cin\.)?ufpe\.br$/.test(d || "")) return { erro: "Esse e-mail não é do CIn. Use seulogin@cin.ufpe.br ou só o login." }; s = u; }
-  if (!/^[a-z0-9._-]{2,24}$/.test(s)) return { erro: "Use o seu login do CIn — letras e números, sem espaço. Ex.: grec." };
+  /* a mesma regra do Hiper Deep Research (ui.js): letra inicial, só letras e números, 2 a 12 — o login tem que ser o MESMO nos dois sistemas */
+  if (!/^[a-z][a-z0-9]{1,11}$/.test(s)) return { erro: "Use o seu login do CIn — só letras e números, sem espaço nem ponto. Ex.: grec. Tem que ser o mesmo que você usou no Hiper Deep Research." };
   return { login: s };
 }
 let EU = (() => { try { return localStorage.getItem("tmi_login") || ""; } catch (e) { return ""; } })();
