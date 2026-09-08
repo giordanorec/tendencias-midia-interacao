@@ -1,17 +1,10 @@
-.public-badge{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--yes);
-  border:1px solid #1c6b56;border-radius:99px;padding:3px 9px;background:#0f2a22}
-.public-intro{padding:20px 22px}
-.public-note{font-size:12.5px;color:var(--dim);max-width:72ch;margin-top:12px}
-.public-note b{color:var(--tx)}
-.public-toolbar{top:62px}
-.public-empty{margin-top:20px}
-.public-card{cursor:default}
-.public-card:hover{border-color:var(--line);transform:none}
-.public-card:hover .abrir{opacity:1}
-.public-card .abrir{opacity:.8}
-.public-card .txt{min-height:135px}
-@media(max-width:620px){
-  header .public-badge{display:inline-block}
-  .public-intro{padding:18px}
-  .public-toolbar{top:58px}
-}
+/* Galeria pública — só o que style.css não tem. */
+.public-note { font-size: var(--t-sm); color: var(--fg-muted); max-width: var(--measure-wide); margin-top: var(--s-3); }
+.public-note b { color: var(--fg); }
+.public-intro .grid { margin-bottom: var(--s-4); }
+.public-toolbar { margin-top: var(--s-5); }
+.public-empty { margin-top: var(--s-5); }
+.public-card { cursor: default; }
+.public-card:hover { border-color: var(--rule); transform: none; box-shadow: none; }
+.public-card:hover .abrir { text-decoration: underline; }
+.public-card .txt { min-height: 135px; }

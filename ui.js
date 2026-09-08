@@ -53,8 +53,7 @@ function tUnidades() {
     <h1>Duas entregas, dois tipos de ferramenta</h1>
     <p class="sub">O processo é o mesmo nas duas unidades — 10.000 → 500 → 50 → 5 → 1 —,
       mas os catálogos, as reservas e as galerias são completamente separados.</p>
-    <div class="msg bad"><b>Entrega 1 — prazo extraordinário.</b> Quem ainda não entregou pode
-      concluir até <b>quinta-feira, 27/08/2026</b>, e apresenta também na quinta-feira.</div>
+    <div class="msg info"><b>As duas entregas estão reabertas até domingo, 13/09/2026, às 23h59</b>, valendo os 2,0 pontos integrais. O que estiver gravado aqui na hora do prazo é o que vale.</div>
   </section>
   <section class="unit-grid" aria-label="Escolha a entrega">
     <article class="unit-card inspiracao">
@@ -108,8 +107,7 @@ function tLogin(msg) {
     <p class="sub" style="margin-bottom:22px">Tendências em Mídia e Interação · 2026.2 · ${esc(U.curta)}</p>
     ${msg ? `<div class="msg bad">${msg}</div>` : ""}
 
-    ${S.unidade === "inspiracao" ? `<div class="msg bad"><b>Novo prazo para quem ainda não entregou:</b>
-      quinta-feira, <b>27/08/2026</b>. A apresentação também será na quinta-feira.</div>` :
+    ${S.unidade === "inspiracao" ? `<div class="msg info"><b>Reaberta até domingo, 13/09/2026, às 23h59.</b> Vale os 2,0 pontos integrais para quem concluir até lá.</div>` :
       `<div class="msg info"><b>O que entra nesta unidade:</b> APIs, bibliotecas, SDKs, frameworks,
       componentes e código aberto que possam ser instalados, importados ou chamados pelo seu código.
       Um aplicativo interessante usado manualmente pertence à Entrega 1, não a esta.</div>`}

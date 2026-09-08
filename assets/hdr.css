@@ -1,0 +1,111 @@
+/* ============================================================================
+   HIPER DEEP RESEARCH — páginas de documento fora do app: o enunciado
+   (/atividade/) e os exemplos (/exemplos/). Depende de tokens.css, base.css e
+   hub.css. Só o que a casa ainda não tinha.
+   ============================================================================ */
+
+/* ------------------------------------------------------------ SUMÁRIO
+   Gruda sob o cabeçalho; a altura real do cabeçalho é medida na casca. */
+.toc {
+  position: sticky;
+  top: var(--topo-h, var(--altura-topo));
+  z-index: 40;
+  display: flex; gap: var(--s-2); flex-wrap: wrap;
+  padding-block: var(--s-3);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: var(--border);
+}
+.toc a { text-decoration: none; }
+.toc a:hover { color: var(--brand); border-color: var(--brand); }
+.toc + section { margin-top: var(--s-7); }
+
+/* O rótulo do cabeçalho é metadado numa linha só; não segue a medida de parágrafo. */
+.doc-cabecalho .rotulo { max-width: none; }
+
+/* ------------------------------------------------------------- SEÇÕES */
+.doc-corpo > section + section { margin-top: var(--s-7); padding-top: var(--s-7); border-top: var(--border); }
+.doc-corpo section { scroll-margin-top: calc(var(--topo-h, var(--altura-topo)) + 72px); }
+.doc-corpo section > h2 { margin-top: 0; font-size: var(--t-2xl); }
+.doc-corpo section > .olho { margin-top: var(--s-3); }
+.doc-corpo .prosa { max-width: none; }
+.doc-corpo .prosa p, .doc-corpo .prosa li { max-width: var(--measure); }
+.doc-corpo .prosa h4 { margin-top: var(--s-6); }
+
+/* ------------------------------------------------------ BLOCOS NUMERADOS
+   .ent é um entregável (card); .passo é um passo (só o numeral). */
+.ent {
+  display: flex; gap: var(--s-4); align-items: flex-start;
+  background: var(--bg-raised);
+  border: var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+  max-width: var(--measure-wide);
+}
+.ent > div, .passo > div { min-width: 0; flex: 1; }
+.ent > i, .passo > i, .arquivos__n {
+  flex: 0 0 28px; width: 28px; height: 28px;
+  border-radius: var(--r-pill);
+  background: var(--brand-wash);
+  color: var(--brand-strong);
+  font-family: var(--font-mono);
+  font-style: normal; font-size: var(--t-xs); font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+:root[data-tema="escuro"] .ent > i, :root[data-tema="escuro"] .arquivos__n { background: #2a1c1b; color: var(--brand); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) .ent > i,
+  :root:not([data-tema="claro"]) .arquivos__n { background: #2a1c1b; color: var(--brand); }
+}
+.ent h3 { margin: 0 0 var(--s-2); font-size: var(--t-md); }
+.ent p { font-size: var(--t-base); line-height: var(--lh-normal); }
+.ent p + p, .passo p + p, .passo p + ul, .passo ul + p { margin-top: var(--s-3); }
+.passo { display: flex; gap: var(--s-4); align-items: flex-start; }
+.passo > i { border-radius: var(--r-sm); background: var(--bg-soft); border: var(--border); color: var(--fg); }
+.passo ul { padding-left: var(--s-5); display: grid; gap: var(--s-2); }
+
+/* ------------------------------------------------------------- NOTAS */
+.nota--aviso { border-left-color: var(--mode-off); background: var(--mode-off-bg); }
+.nota p { max-width: none; }
+.nota p + p { margin-top: var(--s-3); }
+
+/* ------------------------------------------------------------- FUNIL */
+.qtd { font-family: var(--font-display); font-size: var(--t-lg); font-weight: 700; color: var(--fg); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.qtd--marca { color: var(--brand); }
+.qtd--estrela { color: var(--mode-aid); }
+
+/* ------------------------------------------------------------- TECLAS */
+kbd {
+  background: var(--bg-soft);
+  border: var(--border); border-bottom-width: 2px;
+  border-radius: var(--r-xs);
+  padding: 0.05em 0.45em;
+  font-size: 0.88em;
+  color: var(--fg);
+}
+
+/* ------------------------------------------------------ BLOCO COPIÁVEL
+   Mesmo desenho de .rel + .copiar da casa, mas sobre um <pre> claro. */
+.rel pre { padding-right: calc(var(--s-3) * 2 + 5.5em); }
+@media (max-width: 720px) { .rel pre { padding-right: var(--s-5); width: 100%; } }
+
+/* --------------------------------------------------------- SÓ NO PDF */
+.soimpresso { display: none; }
+
+/* ------------------------------------------------- LISTA DE ARQUIVOS */
+.arquivos { list-style: none; padding: 0; border-top: var(--border-strong); }
+.arquivos li {
+  display: grid; grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: var(--s-4); align-items: flex-start;
+  padding-block: var(--s-4);
+  border-bottom: var(--border);
+}
+.arquivos b { font-family: var(--font-display); font-weight: 600; color: var(--fg); overflow-wrap: anywhere; }
+.arquivos p { font-size: var(--t-sm); color: var(--fg-body); margin-top: var(--s-1); }
+.arquivos__acoes { display: flex; gap: var(--s-2); white-space: nowrap; }
+.arquivos__acoes .botao { padding: 0.42em 0.85em; font-size: var(--t-xs); }
+@media (max-width: 560px) {
+  .arquivos li { grid-template-columns: 28px minmax(0, 1fr); }
+  .arquivos__acoes { grid-column: 2; }
+}

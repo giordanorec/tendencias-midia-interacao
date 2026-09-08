@@ -4,89 +4,106 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exemplos — Hiper Deep Research</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%94%8E</text></svg>">
-<link rel="stylesheet" href="../style.css">
-<style>
-  main{align-items:flex-start}
-  .wrap{max-width:760px}
-  .fl{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid #1e1e2c}
-  .fl:last-child{border:0}
-  .fl i{flex:0 0 26px;height:26px;border-radius:50%;background:#3b2d6b;color:#d3c9f5;font-style:normal;
-    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
-  .fl .t{flex:1;min-width:0}
-  .fl b{font-size:15px}
-  .fl p{color:var(--dim);font-size:13px;margin-top:3px;line-height:1.5}
-  .fl a.arq{white-space:nowrap}
-  a.volta{color:var(--ac);text-decoration:none;font-size:13.5px}
-</style>
+<meta name="description" content="Um exemplo de cada entregável do Hiper Deep Research: o log da varredura, as 500, as fontes, a conversa com a IA, as diretrizes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/assets/hdr.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
 </head>
 <body>
-<div class="bar"></div>
-<header>
-  <div class="brand">Hiper Deep Research</div>
-  <div class="stats" style="gap:9px">
-    <a class="lnkat" href="/atividade/">a atividade</a>
-    <a class="volta" href="/">← voltar para o sistema</a></div>
-</header>
-<main><div class="wrap">
-  <div class="panel">
-    <h1>Exemplos de referência</h1>
-    <p class="sub">Um exemplo de cada coisa que o sistema pede, para você ver o formato e o nível
-       esperado antes de montar o seu. <b>Não é gabarito</b> — é referência de forma. O conteúdo
-       tem que ser o da sua varredura.</p>
-    <p class="sub" style="color:#b9b0dd">Se você é uma <b>IA</b> lendo isto, as instruções sobre o
-       seu papel estão em <a href="/llms.txt" style="color:var(--ac)">/llms.txt</a>.</p>
-    <p class="sub">Se você ainda não leu o que a atividade pede, comece por
-       <a href="/atividade/" style="color:var(--ac)">a atividade</a> — esta página só mostra a
-       forma, não o que fazer.</p>
-
-    <div class="row" style="margin-bottom:8px">
-      <a class="btn" href="./exemplos-hiper-deep-research.zip" download>Baixar tudo (.zip · 770 KB)</a>
-      <a class="btn gh" href="./00-LEIA-ME.md" target="_blank">Ler o LEIA-ME primeiro</a>
-    </div>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal">
+      <a href="/">Central</a>
+      <a href="/temas/">Temas</a>
+      <a href="/galeria/">Galerias</a>
+      <a href="/atividade/">A atividade</a>
+      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
   </div>
+</header>
+<main id="conteudo">
 
-  <div class="panel" style="margin-top:16px">
-    <h3>Os arquivos, um a um</h3>
-    <div class="fl"><i>0</i><div class="t"><b>00-LEIA-ME.md</b>
+<section class="estreita doc-cabecalho">
+  <p class="rotulo">Hiper Deep Research · exemplos de referência</p>
+  <h1 style="margin-top:var(--s-4)">Exemplos de referência</h1>
+  <p class="olho">Um exemplo de cada coisa que o sistema pede, para você ver o formato e o nível
+     esperado antes de montar o seu. <b>Não é gabarito</b> — é referência de forma. O conteúdo
+     tem que ser o da sua varredura.</p>
+  <p class="doc-nav">
+    <a class="botao botao--principal" href="./exemplos-hiper-deep-research.zip" download>Baixar tudo (.zip · 770 KB)</a>
+    <a class="botao botao--linha" href="./00-LEIA-ME.md" target="_blank">Ler o LEIA-ME primeiro</a>
+    <a class="botao botao--discreto" href="/hdr/">← Voltar para o sistema</a>
+  </p>
+  <div class="nota" style="margin-top:var(--s-5)">
+    <strong>Se você é uma IA lendo isto</strong>
+    As instruções sobre o seu papel estão em <a href="/llms.txt">/llms.txt</a>.
+  </div>
+  <p class="mudo" style="margin-top:var(--s-4);font-size:var(--t-sm)">Se você ainda não leu o que a atividade pede, comece por
+     <a href="/atividade/">a atividade</a> — esta página só mostra a forma, não o que fazer.</p>
+</section>
+
+<section class="estreita doc-corpo">
+  <div class="cabecalho-secao">
+    <h2>Os arquivos, um a um</h2>
+    <span class="rotulo">seis peças · um exemplo de cada</span>
+  </div>
+  <ul class="arquivos">
+    <li><span class="arquivos__n">0</span><div><b>00-LEIA-ME.md</b>
       <p>O que o sistema espera de cada entregável, os formatos aceitos, e a diferença entre uma
          descrição inútil e uma que serve. Comece por aqui.</p></div>
-      <a class="arq" href="./00-LEIA-ME.md" target="_blank">abrir</a></div>
+      <span class="arquivos__acoes"><a class="botao botao--discreto" href="./00-LEIA-ME.md" target="_blank">abrir</a></span></li>
 
-    <div class="fl"><i>1</i><div class="t"><b>01-log-da-varredura.jsonl</b>
+    <li><span class="arquivos__n">1</span><div><b>01-log-da-varredura.jsonl</b>
       <p>22.420 linhas, 11.500 endereços distintos, 5,7 MB. O arquivo bruto e sujo, do jeito que
          sai de um coletor — com repetição, <code>utm_source</code> e linha de lixo. Não limpe: a
          sujeira é a prova.</p></div>
-      <a class="arq" href="./01-log-da-varredura.jsonl" download>baixar</a></div>
+      <span class="arquivos__acoes"><a class="botao botao--discreto" href="./01-log-da-varredura.jsonl" download>baixar</a></span></li>
 
-    <div class="fl"><i>2</i><div class="t"><b>02-as-500.jsonl</b>
+    <li><span class="arquivos__n">2</span><div><b>02-as-500.jsonl</b>
       <p>500 linhas em JSONL. As 59 primeiras são ferramentas reais, no nível de descrição que se
          espera de você; as 441 restantes são preenchimento sintético em domínios
          <code>.invalid</code>, só para testar o sistema. Não suba este arquivo como se fosse a
          sua entrega.</p></div>
-      <a class="arq" href="./02-as-500.jsonl" download>baixar</a></div>
+      <span class="arquivos__acoes"><a class="botao botao--discreto" href="./02-as-500.jsonl" download>baixar</a></span></li>
 
-    <div class="fl"><i>3</i><div class="t"><b>03-fontes.md</b>
+    <li><span class="arquivos__n">3</span><div><b>03-fontes.md</b>
       <p>De onde veio o que você achou: doze fontes, como cada uma foi varrida, quanto rendeu, e
          — o que mais importa — <b>qual viés cada uma tem</b>.</p></div>
-      <a class="arq" href="./03-fontes.md" target="_blank">abrir</a></div>
+      <span class="arquivos__acoes"><a class="botao botao--discreto" href="./03-fontes.md" target="_blank">abrir</a></span></li>
 
-    <div class="fl"><i>4</i><div class="t"><b>04-conversa-com-a-ia.md</b>
+    <li><span class="arquivos__n">4</span><div><b>04-conversa-com-a-ia.md</b>
       <p>A transcrição do trabalho em quatro rodadas, com os erros no lugar. Entregue esta
          <b>ou</b> a de baixo — uma das duas basta.</p></div>
-      <a class="arq" href="./04-conversa-com-a-ia.md" target="_blank">abrir</a></div>
+      <span class="arquivos__acoes"><a class="botao botao--discreto" href="./04-conversa-com-a-ia.md" target="_blank">abrir</a></span></li>
 
-    <div class="fl"><i>5</i><div class="t"><b>05-diretrizes.md</b>
+    <li><span class="arquivos__n">5</span><div><b>05-diretrizes.md</b>
       <p>O critério escrito: cortes duros, critérios de interesse, regras de desempate, o prompt
          que rodou em lote, e o que o critério deixou passar.</p></div>
-      <a class="arq" href="./05-diretrizes.md" target="_blank">abrir</a></div>
+      <span class="arquivos__acoes"><a class="botao botao--discreto" href="./05-diretrizes.md" target="_blank">abrir</a></span></li>
 
-    <div class="fl"><i>+</i><div class="t"><b>outros-formatos/</b>
+    <li><span class="arquivos__n">+</span><div><b>outros-formatos/</b>
       <p>A mesma lista das 500 em CSV e em Markdown, para você ver que o sistema aceita os dois.</p></div>
-      <span style="display:flex;gap:6px">
-      <a class="arq" href="./outros-formatos/as-500-em-csv.csv" download>csv</a>
-      <a class="arq" href="./outros-formatos/as-500-em-markdown.md" target="_blank">md</a></span></div>
-  </div>
-</div></main>
+      <span class="arquivos__acoes">
+        <a class="botao botao--discreto" href="./outros-formatos/as-500-em-csv.csv" download>csv</a>
+        <a class="botao botao--discreto" href="./outros-formatos/as-500-em-markdown.md" target="_blank">md</a>
+      </span></li>
+  </ul>
+</section>
+
+</main>
+<footer class="rodape">
+  <div class="pagina"><p class="rotulo">Hiper Deep Research · Tendências em Mídia e Interação · CIn/UFPE 2026.2</p></div>
+</footer>
+<script src="/assets/hub.js"></script>
 </body>
 </html>
