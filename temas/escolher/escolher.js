@@ -67,17 +67,18 @@ function entrar() {
 }
 
 /* ---------------- dados ---------------- */
-let TEMA = [], ALUNOS = [], FB = [], TROCAS = [];
+let TEMA = [], ALUNOS = [], FB = [], TROCAS = [], AULA = [], ORDEM = [];
 async function carregar() {
   try {
-    [TEMA, ALUNOS, FB, TROCAS] = await Promise.all([
+    [TEMA, ALUNOS, FB, TROCAS, AULA] = await Promise.all([
       api("tmi_tema?select=aluno,tema,proposta,proposta_status,escolhido_em"),
-      api("tmi_alunos?select=login,skill_url,skill_em&order=login.asc"),
+      api("tmi_alunos?select=login,skill_url,skill_em,doc_url,doc_em&order=login.asc"),
       api("tmi_skill_feedback?select=de,para,tema,perguntou,recusou_maduro,duvidou,formato,comentario,criado_em&order=criado_em.desc"),
       api("tmi_troca?select=id,de,para,status,criado_em,respondido_em&order=criado_em.asc"),
+      api("tmi_aula_feedback?select=de,para,data,puxou_discussao,mapa_fundamentado,contra_mapa,experimento_claro,comentario,criado_em&order=criado_em.desc"),
     ]);
   } catch (e) { console.error(e); return; }
-  pintarTemas(); pintarSkills(); pintarFeedback(); pintarSorteio();
+  pintarTemas(); pintarSkills(); pintarFeedback(); await pintarSorteio(); pintarDocs(); pintarAula();
 }
 
 function janela() {
@@ -227,8 +228,8 @@ async function ordemFinal() {
 }
 
 async function pintarSorteio() {
-  if (new Date() < SORTEIO) return;
-  const linhas = await ordemFinal();
+  if (new Date() < SORTEIO) { ORDEM = []; return; }
+  const linhas = await ordemFinal(); ORDEM = linhas;
   $("#lista-sorteio").innerHTML = linhas.length ? linhas.map((r, i) =>
     `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · ${r.h.slice(0, 8)}</span></li>`).join("")
     : `<li class="mudo">Ninguém escolheu tema.</li>`;
@@ -275,6 +276,80 @@ $("#lista-trocas")?.addEventListener("click", async (ev) => {
   try {
     await api(`tmi_troca?id=eq.${id}&status=eq.pendente`, { method: "PATCH", body: JSON.stringify({ status, respondido_em: new Date().toISOString() }) });
   } catch (e) { alert("Não deu: " + e.message.slice(0, 160)); }
+  carregar();
+});
+
+/* ---------------- documento de tendência: prazo individual = véspera da apresentação ---------------- */
+function dataApres(login) {
+  const i = ORDEM.findIndex((l) => l.aluno === login);
+  return i >= 0 ? DATAS[i] || null : null;
+}
+function prazoDoc(login) {
+  const d = dataApres(login); if (!d) return null;
+  const [dd, mm] = d.split("/").map(Number);
+  const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() - 1);
+  return new Date(`2026-${String(dia.getUTCMonth() + 1).padStart(2, "0")}-${String(dia.getUTCDate()).padStart(2, "0")}T23:59:59-03:00`);
+}
+const fmtDia = (d) => `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}`;
+
+function pintarDocs() {
+  const eu = ALUNOS.find((a) => a.login === EU);
+  if (eu?.doc_url && !$("#doc-url").value) $("#doc-url").value = eu.doc_url;
+  const pz = prazoDoc(EU);
+  $("#doc-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (você apresenta em ${dataApres(EU)})` : "o seu prazo aparece aqui depois do sorteio de segunda 14/09";
+  const com = ALUNOS.filter((a) => a.doc_url);
+  $("#lista-docs").innerHTML = com.length ? com.map((a) => {
+    const pzA = prazoDoc(a.login); const em = a.doc_em ? new Date(a.doc_em) : null;
+    const tarde = pzA && em && em > pzA;
+    return `<li><span><span class="quem">${esc(a.login)}</span> · <a href="${esc(a.doc_url)}" target="_blank" rel="noopener">${esc(a.doc_url.replace(/^https?:\/\//, "")).slice(0, 60)}</a></span><span class="n-testes">${em ? fmtDia(em) : ""}${tarde ? ' <span class="atrasado">· entrega atrasada</span>' : ""}</span></li>`;
+  }).join("") : `<li class="mudo">Nenhum ainda.</li>`;
+}
+
+$("#form-doc").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  try {
+    await api(`tmi_alunos?login=eq.${encodeURIComponent(EU)}`, { method: "PATCH", body: JSON.stringify({ doc_url: $("#doc-url").value.trim(), doc_em: new Date().toISOString() }) });
+    const pz = prazoDoc(EU); const tarde = pz && new Date() > pz;
+    $("#ok-doc").textContent = tarde ? "Salvo — depois do seu prazo, então fica registrado como entrega atrasada." : "Salvo. O professor abre daqui para montar o mapa adversarial."; $("#ok-doc").hidden = false;
+  } catch (e) { alert("Não deu para salvar: " + e.message.slice(0, 160)); }
+  carregar();
+});
+
+/* ---------------- feedback das aulas de apresentação ---------------- */
+function pintarAula() {
+  const bloco = $("#bloco-aula"); if (!bloco) return;
+  if (!ORDEM.length) { bloco.hidden = true; return; }
+  bloco.hidden = false;
+  const hoje = new Date();
+  const datas = [...new Set(DATAS.slice(0, ORDEM.length))].filter((d) => { const [dd, mm] = d.split("/").map(Number); return new Date(`2026-${String(mm).padStart(2, "0")}-${String(dd).padStart(2, "0")}T08:00:00-03:00`) <= hoje; });
+  const selD = $("#aula-data"); const atualD = selD.value;
+  selD.innerHTML = `<option value="">— escolha a data —</option>` + datas.map((d) => `<option value="${d}">${d}</option>`).join("");
+  selD.value = datas.includes(atualD) ? atualD : (datas[datas.length - 1] || "");
+  const d = selD.value;
+  const quem = ORDEM.filter((l, i) => DATAS[i] === d && l.aluno !== EU);
+  const selP = $("#aula-para"); const atualP = selP.value;
+  selP.innerHTML = `<option value="">— escolha o colega —</option>` + quem.map((l) => `<option value="${esc(l.aluno)}">${esc(l.aluno)} — ${esc(nomeTema(l)).slice(0, 60)}</option>`).join("");
+  selP.value = quem.some((l) => l.aluno === atualP) ? atualP : "";
+  const meus = AULA.filter((f) => f.para === EU);
+  $("#lista-aula").innerHTML = meus.length ? meus.map((f) => {
+    const m = [["puxou a discussão", f.puxou_discussao], ["mapa com fonte", f.mapa_fundamentado], ["contra o próprio mapa", f.contra_mapa], ["experimento claro", f.experimento_claro]]
+      .map(([r, v]) => (v ? `<b>✓ ${r}</b>` : `✗ ${r}`)).join(" · ");
+    return `<li><span><span class="marcas">${m}</span>${f.comentario ? `<br>${esc(f.comentario)}` : ""}</span><span class="n-testes">de ${esc(f.de)} · aula de ${(f.data || "").slice(8, 10)}/${(f.data || "").slice(5, 7)}</span></li>`;
+  }).join("") : `<li class="mudo">Nada ainda.</li>`;
+}
+$("#aula-data")?.addEventListener("change", pintarAula);
+
+$("#form-aula")?.addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const para = $("#aula-para").value, d = $("#aula-data").value; if (!para || !d) return;
+  const [dd, mm] = d.split("/");
+  try {
+    await api("tmi_aula_feedback?on_conflict=de,para,data", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" },
+      body: JSON.stringify({ de: EU, para, data: `2026-${mm}-${dd}`, puxou_discussao: $("#aula-puxou").checked, mapa_fundamentado: $("#aula-fund").checked,
+        contra_mapa: $("#aula-contra").checked, experimento_claro: $("#aula-exp").checked, comentario: $("#aula-coment").value.trim().slice(0, 300) }) });
+    $("#ok-aula").textContent = `Enviado para ${para}. Registrado como presença na aula de ${d}.`; $("#ok-aula").hidden = false;
+    $("#form-aula").reset();
+  } catch (e) { alert("Não deu para enviar: " + e.message.slice(0, 160)); }
   carregar();
 });
 

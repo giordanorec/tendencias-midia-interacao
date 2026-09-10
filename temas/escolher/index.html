@@ -120,6 +120,58 @@
       <h2>A ordem das apresentações</h2>
       <p class="mudo" style="margin-top:var(--s-2)">Sorteio sem mão humana: a ordem é dada pela assinatura digital (SHA-256) de <code>seu-login + "TMI-2026-2-sorteio"</code>, em ordem alfabética do resultado. Qualquer um pode conferir. Quem tirar 1 e 2 apresenta em 17/09; 3 e 4 em 22/09; e assim por diante, dois por aula. Trocar de data com um colega pode, desde que os dois concordem e avisem no grupo.</p>
       <ol class="sorteio" id="lista-sorteio"><li class="mudo">A ordem aparece aqui na segunda 14/09 às 8h, com os temas já travados.</li></ol>
+      <p class="mudo" style="margin-top:var(--s-4)"><strong>Se sobrar vaga.</strong> Só entra na ordem quem tiver tema (escolhido ou proposto) até domingo 23h59. Se forem menos de 14, a ordem preenche as aulas de 17/09 em diante, dois por aula, e as últimas aulas ficam livres — viram tempo de orientação. <strong>Quem entrar depois de domingo</strong> não entra sozinho: fala com o professor (ou escreve @claude no grupo), que coloca a pessoa no fim da ordem, na primeira vaga livre.</p>
+    </div>
+
+    <!-- 6. DOCUMENTO DE TENDÊNCIA -->
+    <div class="bloco" id="bloco-doc">
+      <p class="rotulo">Passo 4 · véspera da sua apresentação, 23h59</p>
+      <h2>Entregue o documento de tendência</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">O mapa de futuro do seu tema, no <a href="/materiais/formato-documento-tendencia/">formato da disciplina</a> (arquivo <code>tendencia-&lt;slug&gt;.md</code>, 12 seções, bloco da roda em YAML). O prazo é individual: <strong>até 23h59 do dia anterior à sua apresentação</strong>. Deixe aqui o link (repositório ou pasta) — é o que o professor abre para montar o mapa adversarial da sua aula. Entrega depois do prazo fica marcada como atrasada.</p>
+      <p id="doc-prazo" class="janela"></p>
+      <form id="form-doc" class="linha" style="margin-top:var(--s-3)">
+        <input id="doc-url" class="campo" type="url" placeholder="https://github.com/…/tendencia-seu-tema.md" required>
+        <button class="botao botao--principal" type="submit">Salvar o link</button>
+      </form>
+      <p id="ok-doc" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-6)">Documentos entregues</h3>
+      <ul class="skills" id="lista-docs"><li class="mudo">Nenhum ainda.</li></ul>
+    </div>
+
+    <!-- 7. FEEDBACK DA AULA -->
+    <div class="bloco" id="bloco-aula" hidden>
+      <p class="rotulo">Depois de cada aula de apresentação</p>
+      <h2>Feedback para quem apresentou</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Em cada aula, dois colegas apresentam. Até 23h59 do mesmo dia, responda quatro perguntas de sim ou não e deixe um comentário curto para cada um. Isso registra que você estava na aula e é a outra metade do "feedback dado aos colegas" da nota — a primeira foi a rodada cruzada das skills.</p>
+      <form id="form-aula" class="pilha" style="margin-top:var(--s-4)">
+        <label class="rot">Aula de <select id="aula-data" class="campo" required><option value="">— escolha a data —</option></select></label>
+        <label class="rot">Quem apresentou <select id="aula-para" class="campo" required><option value="">— escolha o colega —</option></select></label>
+        <div class="perguntas">
+          <label><input type="checkbox" id="aula-puxou"> A pessoa <strong>puxou a discussão</strong> (definiu o que a turma ia discutir), em vez de só expor?</label>
+          <label><input type="checkbox" id="aula-fund"> Os efeitos do mapa estavam <strong>ancorados em fonte</strong>, não só em opinião?</label>
+          <label><input type="checkbox" id="aula-contra"> Ela <strong>mostrou onde o próprio mapa pode estar errado</strong> (a seção "Contra o próprio mapa")?</label>
+          <label><input type="checkbox" id="aula-exp"> Deu para entender <strong>que experimento</strong> sai daí e que pergunta ele responde?</label>
+        </div>
+        <label class="rot">Um comentário para quem apresentou — até 300 caracteres
+          <textarea id="aula-coment" class="campo" maxlength="300" rows="3"></textarea></label>
+        <button class="botao botao--principal" type="submit" style="align-self:flex-start">Enviar o feedback</button>
+      </form>
+      <p id="ok-aula" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-6)">O que a turma disse da sua apresentação</h3>
+      <ul class="feedbacks" id="lista-aula"><li class="mudo">Nada ainda.</li></ul>
+    </div>
+
+    <!-- 8. NOTA -->
+    <div class="bloco" id="bloco-nota">
+      <p class="rotulo">Como os 4,0 da etapa 2 se dividem</p>
+      <h2>A nota desta etapa</h2>
+      <table class="nota-tabela">
+        <tr><td>Skill de futurização (Atividade 03)</td><td>1,0</td></tr>
+        <tr><td>Documento de tendência (no formato, na véspera)</td><td>1,5</td></tr>
+        <tr><td>Condução da discussão na sua aula</td><td>1,0</td></tr>
+        <tr><td>Feedback aos colegas (rodada cruzada + feedback das aulas)</td><td>0,5</td></tr>
+      </table>
+      <p class="mudo" style="margin-top:var(--s-3)"><strong>Atraso.</strong> Skill entregue depois de quarta 09/09: vale até 0,8 se chegar até domingo 13/09 23h59, e até 0,5 depois disso. Documento depois da véspera: perde 0,3 por aula de atraso. Sem documento, não há aula de apresentação — a vaga passa para o fim da ordem. Casos de saúde, matrícula e força maior: fale com o professor.</p>
     </div>
 
     <!-- 5. TROCA DE DATA -->
