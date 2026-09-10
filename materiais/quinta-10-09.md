@@ -54,9 +54,18 @@ A regra é validada pelo sistema, não só pela tela: antes das 8h de quinta e d
 de domingo, o botão não funciona. Se dois clicarem no mesmo tema no mesmo segundo, o sistema
 fica com o primeiro e avisa o outro.
 
-Quer um tema que não está na lista? Pode propor, com aprovação do professor, desde que seja
-algo **novo ou que está começando** — não algo que já é comum. Mande no grupo, com **@claude**
-ou direto para o professor.
+Quer um tema que não está na lista? Na própria página, logo abaixo dos 19, há o bloco
+**"Ou proponha um tema fora da lista"**: escreva o tema em uma frase. Ele fica **aguardando o
+professor**, que aprova ou recusa — a régua é a mesma: algo **novo ou que está começando**, não
+algo que já é comum. Enquanto a proposta está pendente você não ocupa nenhum dos 19; se ele
+recusar, escolha um da lista.
+
+Mudou de ideia? O botão **Desistir** devolve o tema (ou a proposta) e libera você para escolher
+outro — vale até domingo 23h59.
+
+Não entregou a skill até quarta? **Ainda pode entregar**: o link vai no Classroom e no Passo 2
+desta página. Fica registrado como entrega atrasada — o efeito na nota é o professor quem decide.
+Sem o link você fica fora da rodada cruzada, então vale entregar mesmo assim.
 
 ### Passo 2 — Deixe o link da sua skill
 
