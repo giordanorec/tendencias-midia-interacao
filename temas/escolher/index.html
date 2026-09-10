@@ -57,7 +57,7 @@
   </div>
 
   <div id="bloco-app" hidden>
-    <p class="eu">Você está como <b id="eu-login"></b> · <button class="link" id="sair" type="button">trocar</button></p>
+    <p class="eu">Você está como <b id="eu-login"></b> — tudo o que você fizer nesta página fica registrado nesse login · <button class="link" id="sair" type="button">sair</button></p>
 
     <!-- 1. TEMA -->
     <div class="bloco">
@@ -66,6 +66,16 @@
       <p class="mudo" style="margin-top:var(--s-2)">Leia os temas antes, em <a href="/temas/">Os 19 temas</a>. Os que já têm dono aparecem com o nome de quem escolheu. Clique em <em>Escolher</em> — se dois clicarem no mesmo segundo, o sistema fica com o primeiro e avisa o outro.</p>
       <p id="estado-janela" class="janela"></p>
       <ol class="temas-lista" id="lista-temas"></ol>
+
+      <h3 style="margin-top:var(--s-6)">Ou proponha um tema fora da lista</h3>
+      <p class="mudo" style="margin-top:var(--s-2)">Achou que o seu assunto não está entre os 19? Descreva em uma frase. A proposta fica <strong>aguardando o professor</strong>, que aprova ou recusa; enquanto isso você não ocupa nenhum tema da lista. A régua é a mesma: algo <strong>novo ou que está começando</strong>, não algo já comum. Se ele recusar, escolha um dos 19. Mudou de ideia? <em>Desistir</em> devolve o tema (ou a proposta) e libera para escolher outro — até domingo 23h59.</p>
+      <p id="minha-proposta" class="linha" style="margin-top:var(--s-3);align-items:center;justify-content:space-between"></p>
+      <form id="form-proposta" class="linha" style="margin-top:var(--s-3)">
+        <input id="proposta-texto" class="campo" type="text" maxlength="200" placeholder="Ex.: Interfaces de voz para idosos com IA local" required>
+        <button class="botao botao--linha" type="submit">Propor este tema</button>
+      </form>
+      <p id="ok-proposta" class="ok" hidden></p>
+      <ul class="feedbacks" id="lista-propostas"><li class="mudo">Nenhum colega propôs tema fora da lista.</li></ul>
     </div>
 
     <!-- 2. SKILL -->

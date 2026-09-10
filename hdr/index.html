@@ -42,10 +42,19 @@ try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.doc
     <div class="brand">Hiper Deep Research</div>
     <div class="steps" id="steps"></div>
     <a class="lnkat" href="/hdr/">trocar entrega</a>
+    <a class="lnkat" id="hdr-sair" href="/hdr/" hidden title="Sair deste login e entrar com outro">sair</a>
     <div class="stats" id="stats"></div>
   </div>
   <div class="bar"><i id="prog"></i></div>
 </div>
+<script>
+/* "Sair" do HDR: o ui.js guarda o login em localStorage (tmi_login) e não tem logout próprio.
+   A casca resolve sem tocar no JS: mostra o link quando há login e, ao clicar, apaga e recarrega. */
+(function(){var a=document.getElementById("hdr-sair");if(!a)return;
+ function ver(){try{a.hidden=!localStorage.getItem("tmi_login");a.textContent=a.hidden?"":"sair ("+localStorage.getItem("tmi_login")+")";}catch(e){}}
+ a.addEventListener("click",function(ev){ev.preventDefault();try{localStorage.removeItem("tmi_login");}catch(e){}location.href="/hdr/"+location.search;});
+ ver();setInterval(ver,1500);})();
+</script>
 
 <main><div class="wrap" id="app">
   <div class="panel" style="max-width:600px;margin-inline:auto">

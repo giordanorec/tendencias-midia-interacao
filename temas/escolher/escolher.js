@@ -71,7 +71,7 @@ let TEMA = [], ALUNOS = [], FB = [], TROCAS = [];
 async function carregar() {
   try {
     [TEMA, ALUNOS, FB, TROCAS] = await Promise.all([
-      api("tmi_tema?select=aluno,tema,escolhido_em"),
+      api("tmi_tema?select=aluno,tema,proposta,proposta_status,escolhido_em"),
       api("tmi_alunos?select=login,skill_url,skill_em&order=login.asc"),
       api("tmi_skill_feedback?select=de,para,tema,perguntou,recusou_maduro,duvidou,formato,comentario,criado_em&order=criado_em.desc"),
       api("tmi_troca?select=id,de,para,status,criado_em,respondido_em&order=criado_em.asc"),
@@ -87,19 +87,60 @@ function janela() {
   return { ok: true, txt: "aberta até domingo 13/09, 23h59" };
 }
 
+/* Rótulo do tema de uma linha do banco: um dos 19, ou a proposta fora da lista. */
+function nomeTema(r) {
+  if (r.tema) return `tema ${r.tema} — ${TEMAS[r.tema - 1]}`;
+  const st = r.proposta_status === "aprovada" ? "aprovado pelo professor" : r.proposta_status === "recusada" ? "recusado pelo professor" : "aguardando o professor";
+  return `tema próprio — ${r.proposta || ""} (${st})`;
+}
+
 function pintarTemas() {
   const j = janela(); const ej = $("#estado-janela"); ej.textContent = "escolha " + j.txt; ej.className = "janela " + (j.ok ? "aberta" : "fechada");
-  const dono = {}; TEMA.forEach((r) => { dono[r.tema] = r.aluno; });
-  const meu = TEMA.find((r) => r.aluno === EU)?.tema;
+  const dono = {}; TEMA.forEach((r) => { if (r.tema) dono[r.tema] = r.aluno; });
+  const minha = TEMA.find((r) => r.aluno === EU);
   $("#lista-temas").innerHTML = TEMAS.map((t, i) => {
     const n = i + 1, d = dono[n];
     const cls = d === EU ? "meu" : d ? "tomado" : "";
     const rot = d === EU ? "o seu tema" : d ? "escolhido por " + esc(d) : "livre";
     const btn = d === EU ? `<button class="botao botao--linha" data-soltar="${n}" ${j.ok ? "" : "disabled"}>Desistir</button>`
-      : d ? "" : `<button class="botao botao--principal" data-escolher="${n}" ${j.ok ? "" : "disabled"}>${meu ? "Trocar para este" : "Escolher"}</button>`;
+      : d ? "" : `<button class="botao botao--principal" data-escolher="${n}" ${j.ok ? "" : "disabled"}>${minha ? "Trocar para este" : "Escolher"}</button>`;
     return `<li class="${cls}"><span class="n">${String(n).padStart(2, "0")}</span><span class="t"><a href="/temas/#tema-${n}">${esc(t)}</a><span class="dono">${rot}</span></span>${btn}</li>`;
   }).join("");
+  /* proposta fora da lista: a minha, e as dos colegas (para ninguém propor a mesma) */
+  const propostas = TEMA.filter((r) => !r.tema);
+  const minhaProp = propostas.find((r) => r.aluno === EU);
+  $("#minha-proposta").innerHTML = minhaProp
+    ? `<span><b>A sua proposta:</b> ${esc(minhaProp.proposta)} <span class="mudo">— ${esc(nomeTema(minhaProp).split("(").pop().replace(")", ""))}</span></span>
+       <button class="botao botao--linha" data-soltar-proposta="1" ${j.ok ? "" : "disabled"}>Desistir da proposta</button>`
+    : "";
+  $("#form-proposta button").disabled = !j.ok;
+  $("#lista-propostas").innerHTML = propostas.filter((r) => r.aluno !== EU).length
+    ? propostas.filter((r) => r.aluno !== EU).map((r) => `<li class="mudo"><span>${esc(r.aluno)}: ${esc(r.proposta)}</span><span class="data">${esc(r.proposta_status)}</span></li>`).join("")
+    : `<li class="mudo">Nenhum colega propôs tema fora da lista.</li>`;
 }
+
+$("#form-proposta").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const texto = $("#proposta-texto").value.trim();
+  if (texto.length < 8) { alert("Descreva o tema em uma frase (pelo menos 8 caracteres)."); return; }
+  try {
+    await api("tmi_tema?on_conflict=aluno", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" },
+      body: JSON.stringify({ aluno: EU, tema: null, proposta: texto.slice(0, 200), proposta_status: "pendente", atualizado_em: new Date().toISOString() }) });
+    $("#proposta-texto").value = "";
+    $("#ok-proposta").textContent = "Proposta registrada. Ela fica aguardando o professor; enquanto isso você não ocupa nenhum dos 19. Se ele recusar, escolha um da lista."; $("#ok-proposta").hidden = false;
+  } catch (e) {
+    alert(/42501|policy|row-level/i.test(e.message) ? "A escolha está fechada agora (abre quinta 10/09 às 8h, fecha domingo 13/09 23h59)." : "Não deu: " + e.message.slice(0, 160));
+  }
+  carregar();
+});
+
+$("#minha-proposta").addEventListener("click", async (ev) => {
+  const b = ev.target.closest("button[data-soltar-proposta]"); if (!b) return;
+  b.disabled = true;
+  try { await api(`tmi_tema?aluno=eq.${encodeURIComponent(EU)}`, { method: "DELETE" }); }
+  catch (e) { alert("Não deu: " + e.message.slice(0, 160)); }
+  carregar();
+});
 
 $("#lista-temas").addEventListener("click", async (ev) => {
   const b = ev.target.closest("button"); if (!b) return;
@@ -110,7 +151,7 @@ $("#lista-temas").addEventListener("click", async (ev) => {
     } else {
       const tema = Number(b.dataset.escolher);
       await api("tmi_tema?on_conflict=aluno", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" },
-        body: JSON.stringify({ aluno: EU, tema, atualizado_em: new Date().toISOString() }) });
+        body: JSON.stringify({ aluno: EU, tema, proposta: null, proposta_status: null, atualizado_em: new Date().toISOString() }) });
     }
   } catch (e) {
     const msg = /23505|duplicate|unique/i.test(e.message) ? "Alguém escolheu esse tema um instante antes de você. Escolha outro."
@@ -189,7 +230,7 @@ async function pintarSorteio() {
   if (new Date() < SORTEIO) return;
   const linhas = await ordemFinal();
   $("#lista-sorteio").innerHTML = linhas.length ? linhas.map((r, i) =>
-    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · tema ${r.tema} — ${esc(TEMAS[r.tema - 1])}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · ${r.h.slice(0, 8)}</span></li>`).join("")
+    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · ${r.h.slice(0, 8)}</span></li>`).join("")
     : `<li class="mudo">Ninguém escolheu tema.</li>`;
   pintarTrocas(linhas);
 }
