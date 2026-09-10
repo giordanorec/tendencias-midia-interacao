@@ -1,7 +1,7 @@
 # Movimento 3 — O projeto-experimento
 
 *CIN0055 · Tendências em Mídia e Interação · 2026.2*
-**Testes com a turma: de 22/10 a 12/11, presenciais, dois por aula. Apresentações finais: 17 a 26/11.** Individual. Vale **4,0**.
+**Testes com a turma: de 22/10 a 12/11, presenciais, dois por aula. Apresentações finais: 17/11, 19/11, 01/12 e 03/12.** Individual. Vale **4,0**.
 
 ---
 
@@ -41,9 +41,11 @@ ordem foi sorteada.
 |---|---|
 | 13/10, 15/10, 20/10 | **Construção com orientação.** Aulas remotas; você traz o que tem, o professor e a turma reagem. |
 | 22/10 · 27/10 · 29/10 · 03/11 · 05/11 · 10/11 · 12/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). |
-| 17/11 · 19/11 · 24/11 · 26/11 | **Apresentações finais**, na ordem dos testes, três ou quatro por aula. |
-| 26/11 | Publicação da galeria pública de experimentos · encerramento. |
-| 01/12 · 03/12 | Margem. |
+| 17/11 · 19/11 | **Apresentações finais**, blocos 1 e 2 (quem testou até 03/11), remotas. |
+| 24/11 · 26/11 | Semana do ENEXC (UFPE): sem atividade para nota. Orientação remota do `REGISTRO.md`. |
+| 01/12 · 03/12 | **Apresentações finais**, blocos 3 e 4 (quem testou de 05 a 12/11). |
+| 03/12 | Publicação da galeria pública de experimentos · encerramento. |
+| 10/12 | Margem (08/12 é feriado em Recife). |
 
 A sua data de teste e a de apresentação final aparecem na [página de escolha](/temas/escolher/),
 assim que a ordem estiver definida.
