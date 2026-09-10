@@ -13,6 +13,7 @@ DOCS = [
     ("formato-documento-tendencia",    "Formato",     "O documento de tendência: frontmatter, doze seções e o bloco da roda em YAML."),
     ("temas-tendencias-2026-2",        "Temas",       "Os 19 temas derivados do que a turma entregou, com a régua entre maduro e emergente."),
     ("movimento-3-experimento",        "Movimento 3", "O projeto-experimento: as três exigências, a aula de teste, o registro do que mudou e a nota."),
+    ("aula-15-09",                     "Aula 15/09",  "Métodos de prospecção com os seus limites, as nove skills lado a lado em cinco pares, e a skill do professor."),
 ]
 
 def slug(t):
