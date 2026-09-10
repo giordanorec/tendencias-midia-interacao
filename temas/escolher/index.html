@@ -118,7 +118,7 @@
     <div class="bloco" id="bloco-sorteio">
       <p class="rotulo">Segunda, 14/09, 8h</p>
       <h2>A ordem das apresentações</h2>
-      <p class="mudo" style="margin-top:var(--s-2)">Sorteio sem mão humana: a ordem é dada pela assinatura digital (SHA-256) de <code>seu-login + "TMI-2026-2-sorteio"</code>, em ordem alfabética do resultado. Qualquer um pode conferir. Quem tirar 1 e 2 apresenta em 17/09; 3 e 4 em 22/09; e assim por diante, dois por aula. Trocar de data com um colega pode, desde que os dois concordem e avisem no grupo.</p>
+      <p class="mudo" style="margin-top:var(--s-2)">Sorteio sem mão humana: a ordem é dada pela assinatura digital (SHA-256) de <code>seu-login + "TMI-2026-2-sorteio"</code>, em ordem alfabética do resultado. Qualquer um pode conferir. Quem tirar 1 e 2 apresenta em 17/09; 3 e 4 em 22/09; e assim por diante, dois por aula. A mesma ordem vale para o <strong>teste do experimento</strong> (22/10 a 12/11, presencial) e para a <strong>apresentação final</strong> (17 a 26/11). Trocar de data com um colega pode, desde que os dois concordem — a troca vale para as três datas.</p>
       <ol class="sorteio" id="lista-sorteio"><li class="mudo">A ordem aparece aqui na segunda 14/09 às 8h, com os temas já travados.</li></ol>
       <p class="mudo" style="margin-top:var(--s-4)"><strong>Se sobrar vaga.</strong> Só entra na ordem quem tiver tema (escolhido ou proposto) até domingo 23h59. Se forem menos de 14, a ordem preenche as aulas de 17/09 em diante, dois por aula, e as últimas aulas ficam livres — viram tempo de orientação. <strong>Quem entrar depois de domingo</strong> não entra sozinho: fala com o professor (ou escreve @claude no grupo), que coloca a pessoa no fim da ordem, na primeira vaga livre.</p>
     </div>
@@ -136,6 +136,21 @@
       <p id="ok-doc" class="ok" hidden></p>
       <h3 style="margin-top:var(--s-6)">Documentos entregues</h3>
       <ul class="skills" id="lista-docs"><li class="mudo">Nenhum ainda.</li></ul>
+    </div>
+
+    <!-- 6b. EXPERIMENTO -->
+    <div class="bloco" id="bloco-exp">
+      <p class="rotulo">Passo 5 · véspera do seu teste, 23h59</p>
+      <h2>Entregue o link do experimento</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">O movimento 3: um experimento acessível a quem não é da turma, com <code>README.md</code> (o que é, a pergunta sobre o futuro, a tecnologia emergente, como usar, o que você espera que aconteça). Enunciado em <a href="/materiais/movimento-3-experimento/">Movimento 3</a>. Os testes são presenciais, de 22/10 a 12/11, na mesma ordem das apresentações. O <code>REGISTRO.md</code> vai no mesmo repositório até a véspera da sua apresentação final.</p>
+      <p id="exp-prazo" class="janela"></p>
+      <form id="form-exp" class="linha" style="margin-top:var(--s-3)">
+        <input id="exp-url" class="campo" type="url" placeholder="https://…/experimento-seu-tema" required>
+        <button class="botao botao--principal" type="submit">Salvar o link</button>
+      </form>
+      <p id="ok-exp" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-6)">Experimentos entregues</h3>
+      <ul class="skills" id="lista-exps"><li class="mudo">Nenhum ainda.</li></ul>
     </div>
 
     <!-- 7. FEEDBACK DA AULA -->

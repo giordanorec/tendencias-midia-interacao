@@ -7,6 +7,9 @@ const FECHA = new Date("2026-09-13T23:59:59-03:00");
 const SORTEIO = new Date("2026-09-14T08:00:00-03:00");
 const SEMENTE = "TMI-2026-2-sorteio";
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
+/* A mesma ordem vale para os testes (movimento 3, presenciais) e para as apresentações finais. */
+const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
+const DATAS_FINAL = ["17/11","17/11","17/11","17/11","19/11","19/11","19/11","19/11","24/11","24/11","24/11","24/11","26/11","26/11"];
 
 const TEMAS = [
  "Programação agêntica: o desenvolvedor vira orquestrador",
@@ -72,13 +75,13 @@ async function carregar() {
   try {
     [TEMA, ALUNOS, FB, TROCAS, AULA] = await Promise.all([
       api("tmi_tema?select=aluno,tema,proposta,proposta_status,escolhido_em"),
-      api("tmi_alunos?select=login,skill_url,skill_em,doc_url,doc_em&order=login.asc"),
+      api("tmi_alunos?select=login,skill_url,skill_em,doc_url,doc_em,exp_url,exp_em&order=login.asc"),
       api("tmi_skill_feedback?select=de,para,tema,perguntou,recusou_maduro,duvidou,formato,comentario,criado_em&order=criado_em.desc"),
       api("tmi_troca?select=id,de,para,status,criado_em,respondido_em&order=criado_em.asc"),
       api("tmi_aula_feedback?select=de,para,data,puxou_discussao,mapa_fundamentado,contra_mapa,experimento_claro,comentario,criado_em&order=criado_em.desc"),
     ]);
   } catch (e) { console.error(e); return; }
-  pintarTemas(); pintarSkills(); pintarFeedback(); await pintarSorteio(); pintarDocs(); pintarAula();
+  pintarTemas(); pintarSkills(); pintarFeedback(); await pintarSorteio(); pintarDocs(); pintarExps(); pintarAula();
 }
 
 function janela() {
@@ -231,7 +234,7 @@ async function pintarSorteio() {
   if (new Date() < SORTEIO) { ORDEM = []; return; }
   const linhas = await ordemFinal(); ORDEM = linhas;
   $("#lista-sorteio").innerHTML = linhas.length ? linhas.map((r, i) =>
-    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · ${r.h.slice(0, 8)}</span></li>`).join("")
+    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · teste ${DATAS_TESTE[i] || "?"} · final ${DATAS_FINAL[i] || "?"} · ${r.h.slice(0, 8)}</span></li>`).join("")
     : `<li class="mudo">Ninguém escolheu tema.</li>`;
   pintarTrocas(linhas);
 }
@@ -284,8 +287,9 @@ function dataApres(login) {
   const i = ORDEM.findIndex((l) => l.aluno === login);
   return i >= 0 ? DATAS[i] || null : null;
 }
-function prazoDoc(login) {
-  const d = dataApres(login); if (!d) return null;
+function prazoDoc(login, tabela = DATAS) {
+  const i = ORDEM.findIndex((l) => l.aluno === login);
+  const d = i >= 0 ? tabela[i] || null : null; if (!d) return null;
   const [dd, mm] = d.split("/").map(Number);
   const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() - 1);
   return new Date(`2026-${String(dia.getUTCMonth() + 1).padStart(2, "0")}-${String(dia.getUTCDate()).padStart(2, "0")}T23:59:59-03:00`);
@@ -311,6 +315,29 @@ $("#form-doc").addEventListener("submit", async (ev) => {
     await api(`tmi_alunos?login=eq.${encodeURIComponent(EU)}`, { method: "PATCH", body: JSON.stringify({ doc_url: $("#doc-url").value.trim(), doc_em: new Date().toISOString() }) });
     const pz = prazoDoc(EU); const tarde = pz && new Date() > pz;
     $("#ok-doc").textContent = tarde ? "Salvo — depois do seu prazo, então fica registrado como entrega atrasada." : "Salvo. O professor abre daqui para montar o mapa adversarial."; $("#ok-doc").hidden = false;
+  } catch (e) { alert("Não deu para salvar: " + e.message.slice(0, 160)); }
+  carregar();
+});
+
+/* ---------------- experimento (movimento 3): prazo = véspera do teste ---------------- */
+function pintarExps() {
+  const eu = ALUNOS.find((a) => a.login === EU);
+  if (eu?.exp_url && !$("#exp-url").value) $("#exp-url").value = eu.exp_url;
+  const pz = prazoDoc(EU, DATAS_TESTE); const i = ORDEM.findIndex((l) => l.aluno === EU);
+  $("#exp-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (você testa em ${DATAS_TESTE[i]} e apresenta a final em ${DATAS_FINAL[i]})` : "o seu prazo aparece aqui depois do sorteio de segunda 14/09";
+  const com = ALUNOS.filter((a) => a.exp_url);
+  $("#lista-exps").innerHTML = com.length ? com.map((a) => {
+    const pzA = prazoDoc(a.login, DATAS_TESTE); const em = a.exp_em ? new Date(a.exp_em) : null;
+    const tarde = pzA && em && em > pzA;
+    return `<li><span><span class="quem">${esc(a.login)}</span> · <a href="${esc(a.exp_url)}" target="_blank" rel="noopener">${esc(a.exp_url.replace(/^https?:\/\//, "")).slice(0, 60)}</a></span><span class="n-testes">${em ? fmtDia(em) : ""}${tarde ? ' <span class="atrasado">· entrega atrasada</span>' : ""}</span></li>`;
+  }).join("") : `<li class="mudo">Nenhum ainda.</li>`;
+}
+$("#form-exp").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  try {
+    await api(`tmi_alunos?login=eq.${encodeURIComponent(EU)}`, { method: "PATCH", body: JSON.stringify({ exp_url: $("#exp-url").value.trim(), exp_em: new Date().toISOString() }) });
+    const pz = prazoDoc(EU, DATAS_TESTE); const tarde = pz && new Date() > pz;
+    $("#ok-exp").textContent = tarde ? "Salvo — depois do seu prazo, então fica registrado como entrega atrasada." : "Salvo. É este link que a turma vai abrir no dia do teste."; $("#ok-exp").hidden = false;
   } catch (e) { alert("Não deu para salvar: " + e.message.slice(0, 160)); }
   carregar();
 });

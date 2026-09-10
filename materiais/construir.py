@@ -12,6 +12,7 @@ DOCS = [
     ("atividade-03-skill-futurizacao", "Atividade 03", "Construa a sua ferramenta de futurização — as quatro exigências, os quatro arquivos, como se avalia."),
     ("formato-documento-tendencia",    "Formato",     "O documento de tendência: frontmatter, doze seções e o bloco da roda em YAML."),
     ("temas-tendencias-2026-2",        "Temas",       "Os 19 temas derivados do que a turma entregou, com a régua entre maduro e emergente."),
+    ("movimento-3-experimento",        "Movimento 3", "O projeto-experimento: as três exigências, a aula de teste, o registro do que mudou e a nota."),
 ]
 
 def slug(t):
