@@ -1,0 +1,957 @@
+---
+tema: "IA local: no dispositivo e no navegador"
+slug: ia-local-no-dispositivo-e-no-navegador
+autor_login: bvga
+zona_de_interesse: "Criação e plataforma"
+data: 2026-09-12
+horizonte: 2031
+publico: "quem projeta mídia e interação"
+recorte_geografico: global
+disrupcoes_raiz: 3
+efeitos_ordem_1: 5
+efeitos_ordem_2: 9
+efeitos_ordem_3: 9
+tecnologias_citadas: [BitNet b1.58, bitnet.cpp, CAT-Q, quantização ternária, GGUF, llama.cpp, Ollama, LM Studio, WebGPU, Prompt API do Chrome, Gemini Nano, AICore, ML Kit GenAI, LiteRT-LM, Gemma 197M, Apple Foundation Models framework, AFM 3 Core, Private Cloud Compute, Windows AI Foundry, Phi Silica, Aion Instruct, NPU, LPDDR5X]
+fontes: 19
+confianca: media
+experimento: "Motor à vista"
+skill_usada: futurizacao-bvga
+publico_ok: false
+---
+
+## 1. Resumo
+
+A capacidade de rodar um modelo de linguagem no aparelho do usuário final deixou, entre 2025 e
+2026, de ser demonstração e virou **superfície de programação oferecida pelos donos de
+plataforma**: Apple expõe o modelo de ~3 bilhões de parâmetros do Apple Intelligence a qualquer
+app Swift; Google distribui o Gemini Nano pelo serviço de sistema AICore e o LiteRT-LM até no
+relógio; Microsoft embarca um modelo pequeno no Windows e o serve pelo Windows Update; o Chrome
+estabilizou uma API de modelo embutido na versão 148. Isso é o fato novo — não "IA que roda
+offline", que já existia.
+
+Deste fato derivam três rupturas distintas, e este mapa as separa de propósito. A primeira é
+**econômica e política ao mesmo tempo**: quando a inferência não tem preço por chamada, o
+fabricante do sistema operacional passa a ser quem decide qual modelo está ali, quando ele muda e
+o que ele se recusa a dizer — e há evidência documental, não especulativa, dos três movimentos
+(o Windows vai **remover** o Phi Silica em novembro de 2026 e substituí-lo por outro modelo; o
+Phi Silica **não está disponível na China**; a moderação de conteúdo local vem ligada por padrão
+e o nível `high` é descrito como "Not available"). A segunda é **de distribuição**: a aba do
+navegador vira ambiente de execução, e publicar produto com IA deixa de exigir servidor, chave e
+fatura. A terceira é **técnica e ainda incerta**: a quantização ternária deixou de exigir treino
+do zero e passou a ser aplicável a modelos prontos de até 235 bilhões de parâmetros.
+
+O mapa também registra o que contraria a tendência, e o contrassinal mais forte é irônico: a
+demanda de IA **na nuvem** está encarecendo a memória que a IA **local** precisa. Os preços
+contratados de LPDDR5X subiram entre 78% e 83% num único trimestre de 2026, e a consequência
+medida é que o aparelho de entrada está voltando para 4 GB de RAM. Ao mesmo tempo, o preço da
+inferência na nuvem cai em ritmo de dezenas a centenas de vezes por ano. Rodar local não vence
+por ser barato; se vencer em algum lugar, vence por ser **verificável** — e esse é o único
+argumento que o mapa considera sólido o bastante para sustentar mudança de comportamento até
+2031.
+
+## 2. O tema
+
+**Objeto.** A inferência de modelos generativos **no dispositivo do usuário final** — celular,
+laptop comum, aba do navegador, relógio —, com qualidade suficiente para tarefas de texto,
+voz e visão, exposta a quem constrói produto por uma API pública.
+
+**Horizonte.** 2031.
+
+**Público.** Quem projeta mídia e interação: pessoas que decidem onde a inteligência de um
+produto mora, quem paga por ela, e o que o usuário vê enquanto ela pensa.
+
+**Recorte.** Global, com uma nota sobre o Brasil ao final da seção 3 e efeitos brasileiros
+marcados onde aparecem.
+
+**Fora do escopo, por decisão de entrada.** O que já é comum em produto de massa: chamar API de
+modelo na nuvem, rodar modelo pequeno em servidor próprio, assistente embarcado que o usuário não
+programa. Estes entram como **antecedentes maduros**, nunca como raiz.
+
+**Fronteira com temas vizinhos.** Dado e conta que ficam locais (local-first, E2E, passkeys) é
+outro tema; voz local é outro tema; navegador como plataforma 3D é outro tema. Aqui o objeto é a
+**inferência** e quem a governa. Onde este mapa toca o vizinho — por exemplo, ao tratar do
+histórico de conversa guardado em disco —, o efeito é declarado como fronteiriço.
+
+**Postura analítica.** Neutra, com ônus da prova sobre a tendência. Em caso de empate entre uma
+leitura otimista e uma cética, o mapa fica com a que sobrevive à seção 7. Foram excluídas por
+princípio as ideias que serviriam a qualquer tema ("a IA vai mudar o trabalho", "haverá questões
+éticas") — elas não discriminam nada.
+
+**O que faria este mapa mudar de ideia.** Evidência de que a adoção já passou da maioria inicial
+na curva de Rogers — o que a transformaria em tema maduro, fora do escopo da disciplina — ou
+evidência de que a capacidade só melhora o que já existe sem romper nenhuma estrutura.
+
+## 3. Onde isso está hoje
+
+### O que se consolidou entre 2025 e 2026
+
+**O modelo virou componente do sistema operacional, com API pública.** A Apple publicou em
+8 de junho de 2026 a terceira geração dos seus modelos: **AFM 3 Core**, denso, de 3 bilhões de
+parâmetros no aparelho, e **AFM 3 Core Advanced**, esparso, de 20 bilhões "ativando apenas 1 a 4
+bilhões de parâmetros por vez", ambos comprimidos por *Quantization Aware Training* [1]. No
+Android, o Gemini Nano não é baixado pelo app: roda no serviço de sistema **AICore**, que "gerencia
+a distribuição do Gemini Nano e cuida das atualizações futuras", de modo que todo app da máquina
+usa o **mesmo** modelo compartilhado [2]. No Windows, as Windows AI APIs rodam localmente e
+"podem rodar continuamente em segundo plano"; em Copilot+ PC o modelo vem pré-instalado no NPU,
+e nas demais máquinas ele é baixado sob demanda — "downloads podem ter vários GB e rodam em
+segundo plano pelo Windows Update" [3].
+
+**O navegador ganhou uma API de modelo embutido.** A Prompt API está disponível desde o Chrome 138
+e, segundo o próprio relato do Google I/O 2026, no Chrome 148 ela opera "com entradas multimodais e
+saída estruturada", com um caso de produção nomeado: a Trip.com gerando resumos de viagem
+inteiramente no cliente [4]. O mesmo blog anuncia o **Gemma 197M**, modelo especialista minúsculo
+para alimentar APIs de tarefa específica "possibilitando compatibilidade com mais dispositivos" —
+um sinal de que o caminho escolhido não é o modelo grande no navegador, e sim o modelo pequeno
+especializado.
+
+**A base gráfica saiu do experimental.** O WebGPU está marcado como enviado (✅) em Chrome desde a
+113 em Mac, Windows e ChromeOS, em Android desde a 121 para ARM/Qualcomm/Intel, no Safari 26 em
+macOS, iOS/iPadOS e visionOS, e no Firefox 141 em Windows e 147 em macOS. Continua **fora**:
+Firefox em Linux e Android ("Nightly", "atrás de uma flag"), Chrome em Windows ARM64 [5].
+
+**A prateleira de modelos locais é enorme.** A própria Hugging Face lista, na data desta
+consulta, **203.368 modelos** com o filtro de biblioteca GGUF — o formato do llama.cpp, Ollama e
+LM Studio. Os mais baixados são quantizações de 4 bits de modelos de 9 a 30 bilhões de parâmetros,
+com 12,9 e 11,5 milhões de downloads [6].
+
+**A pesquisa de quantização extrema deu um passo grande em 2026.** O BitNet b1.58 2B4T, publicado
+pela Microsoft em abril de 2025, foi "o primeiro LLM nativo de 1 bit em código aberto na escala de
+2 bilhões de parâmetros", treinado em 4 trilhões de tokens, com 0,4 GB de memória fora dos
+embeddings, 29 ms de latência de decodificação em CPU e 0,028 J estimados por token [7][8]. Em
+junho de 2026, o **CAT-Q** mostrou que dá para chegar a modelos ternários **sem** treino do zero:
+quantiza modelos prontos de 1,7 a 8 bilhões usando "apenas 512 amostras de calibração", supera as
+famílias BitNet 1.58 v1 e v2 treinadas com 100 bilhões de tokens — "cerca de uma redução de
+100.000× em tokens de treino" — e escala para modelos de 14 a 235 bilhões "em apenas 8 a 60 horas
+em 8 GPUs A100-80GB" [9].
+
+### O que não se consolidou, e é aqui que o mapa fica interessante
+
+**A API do navegador não roda em celular.** A documentação primária do Chrome é explícita:
+"Chrome for Android, iOS, and ChromeOS on non-Chromebook Plus devices are not yet supported by the
+APIs which use foundation models". Os requisitos de máquina são "pelo menos 22 GB de espaço livre
+no volume que contém o perfil do Chrome", e **ou** "estritamente mais de 4 GB de VRAM" **ou**
+"16 GB de RAM ou mais e 4 núcleos de CPU ou mais". Se o espaço livre cair abaixo de 10 GB depois
+do download, "o modelo é removido do dispositivo" [10]. Ou seja: a "IA no navegador" de 2026 é,
+na prática, IA no **desktop caro** do desenvolvedor.
+
+**O gargalo não é cálculo, é banda de memória.** Vikas Chandra e Raghuraman Krishnamoorthi
+registraram em janeiro de 2026 que os NPUs móveis entregam compute abundante — ~35 TOPS no Apple
+A19 Pro, ~60 TOPS no Snapdragon 8 Elite — enquanto a banda de memória fica em 50–90 GB/s contra
+2–3 TB/s de uma GPU de centro de dados, uma diferença de 30 a 50 vezes, com a RAM disponível
+tipicamente abaixo de 4 GB. Para eles, "4 bits é o novo padrão", e o que **não** funciona local
+continua sendo raciocínio de fronteira, conhecimento de mundo amplo e conversa longa [11].
+
+**E o aparelho esquenta.** Um estudo de março de 2026 mediu inferência sob carga sustentada e
+achou que o iPhone 16 Pro "perde quase metade da sua vazão em duas iterações", e que o Galaxy S24
+Ultra encontra "um piso de frequência de GPU imposto pelo sistema operacional que encerra a
+inferência por completo". Uma RTX 4050 de laptop fez 131,7 tokens/s a 34,1 W; um NPU Hailo-10H
+fez 6,9 tokens/s abaixo de 2 W [12]. Agente pessoal "sempre ligado" no celular, em 2026, é uma
+frase, não uma medida.
+
+**O 1 bit não foi adotado.** O modelo BitNet b1.58 2B4T teve **21.450 downloads** no último mês
+contra 12,9 milhões do GGUF de 4 bits mais baixado [8][6], e o próprio card avisa em maiúsculas:
+"do NOT expect performance efficiency gains ... when using this model with the standard
+transformers library"; é preciso usar o bitnet.cpp [8]. O 1 bit é hoje um objeto de pesquisa com
+implementação própria, não um artefato em uso.
+
+**E a nuvem não está encolhendo — está barateando.** A Epoch AI mediu quedas de preço de
+inferência entre 9× e 900× por ano conforme o patamar de qualidade: o nível do GPT-3 em MMLU saiu
+de US$ 60,00 por milhão de tokens em novembro de 2021 para US$ 0,07 em outubro de 2024 [13]. O
+argumento "local é grátis" compete com um alvo que também corre.
+
+### Three Horizons, como cheque temporal
+
+- **H1 (o sistema dominante hoje).** Produto chama API na nuvem; o custo por chamada é linha de
+  planilha; o dado sai da máquina; o fornecedor do modelo é o ponto de falha. O que roda local é
+  ditado, autocompletar, OCR — e ninguém chama isso de IA.
+- **H2 (a transição, 2026–2029).** Os dois convivem com **roteamento**: tarefa curta e sem risco
+  fica no aparelho; raciocínio e conhecimento vão para a nuvem. É exatamente a arquitetura que a
+  Apple assumiu publicamente em janeiro de 2026, quando Tim Cook disse que a Siri vai "continuar
+  rodando no dispositivo e rodar no Private Cloud Compute" [14]. Os conflitos de H2 são: quem
+  decide o roteamento, quem paga o download do modelo, e qual comportamento é do app e qual é do
+  sistema.
+- **H3 (a lógica nova possível, 2030+).** A inferência de base vira utilidade do aparelho, como
+  o corretor ortográfico: não se anuncia, não se cobra, não se escolhe. A disputa migra para o
+  que só a nuvem faz e para o direito de trocar o modelo que o fabricante pôs ali.
+
+### Nota sobre o Brasil
+
+A TIC Domicílios 2025, divulgada em 9 de dezembro de 2025 pelo Cetic.br a partir de 27.177
+domicílios e 24.535 indivíduos, mediu que cerca de 50 milhões de brasileiros (32% dos usuários de
+internet de 10 anos ou mais) usaram IA generativa, e que "a proporção daqueles que utilizaram
+essas ferramentas chega a 69% na classe A, caindo para 16% nas classes D e E". No mesmo
+levantamento, **39% dos usuários de celular ficaram sem pacote de dados** nos três meses
+anteriores [15]. Some-se a isso o efeito de preço: os contratos de LPDDR4X subiram "pelo menos
+70–75%" e os de LPDDR5X "78–83%" no segundo trimestre de 2026, e a consequência medida é que
+"aparelhos de entrada em sua maioria se acomodam em torno de 4 GB" de RAM [16]. A IA local no
+Brasil, até 2031, não é a IA do celular popular — é a IA de quem tem aparelho e banda. Qualquer
+efeito deste mapa que dependa de "todo mundo tem um modelo no bolso" deve ser lido com esse
+desconto.
+
+## 4. As disrupções-raiz
+
+Foram avaliados **nove** candidatos; seis foram rebaixados (fichas completas na seção 12). Três
+passaram na régua da seção 2.3 da skill.
+
+### D1 — O modelo de linguagem como serviço do sistema operacional, com API pública e sem preço por chamada
+
+| campo | conteúdo |
+|---|---|
+| **maturidade** | emergente |
+| **potencial de ruptura** | alto |
+| **o que rompe** | (a) o custo marginal da inteligência num produto de software, que deixa de crescer com o uso; (b) a cadeia de valor, porque o provedor de modelo deixa de ter relação comercial com quem constrói o app; (c) a governança, porque quem decide o que o modelo recusa passa a ser o dono do sistema operacional, não o dono do produto |
+| **por que agora** | AFM 3 publicado em 08/06/2026 com modelo denso de 3B e esparso de 20B no aparelho [1]; Gemini Nano distribuído e atualizado pelo AICore como serviço de sistema [2]; Windows AI Foundry expandindo além do NPU, com modelo servido pelo Windows Update [3]; Prompt API estável no Chrome 148 [4] |
+| **o que falta** | cobertura em aparelho mediano (o gargalo é banda de memória e RAM, não TOPS [11]); um contrato estável entre app e modelo do sistema — hoje o modelo pode ser **removido** debaixo do app [3]; e alguma interoperabilidade entre as quatro APIs proprietárias, que hoje não existe |
+| **evidências** | [1][2][3][4][10][11] |
+| **veredito** | **ACEITA.** Passa nos cinco itens. Note-se a formulação: não é "existe IA no celular" (maduro, fora do escopo), é "o modelo é uma **API pública do sistema**, gratuita por chamada e governada pelo fabricante" |
+
+### D2 — A aba do navegador como ambiente de execução de modelo, sem instalação e sem servidor
+
+| campo | conteúdo |
+|---|---|
+| **maturidade** | emergente |
+| **potencial de ruptura** | alto |
+| **o que rompe** | (a) quem pode produzir: publicar produto com IA deixa de exigir servidor, chave, faturamento e limite de cota; (b) a barreira de acesso do lado do usuário, que não instala nada; (c) a arquitetura do produto web, cujo servidor deixa de ser o lugar onde a inteligência mora |
+| **por que agora** | WebGPU enviado por padrão em Chrome, Safari 26 e Firefox nas plataformas principais [5]; Prompt API estável no Chrome 148 com caso de produção nomeado [4]; LiteRT-LM em produção no Chrome, no Chromebook Plus e no Pixel Watch [17]; 203.368 modelos GGUF disponíveis para quem preferir carregar o seu [6] |
+| **o que falta** | **muito.** Não roda em Chrome Android nem iOS [10]; exige 22 GB livres e 16 GB de RAM ou 4 GB de VRAM [10]; o Firefox ainda não enviou WebGPU em Linux e Android [5]; e não existe API de modelo embutido padronizada entre navegadores — só a do Chrome |
+| **evidências** | [4][5][6][10][17] |
+| **veredito** | **ACEITA, com o maior "o que falta" das três.** É aceita porque o que ela rompe é específico e não redundante com D1 — D1 muda quem paga e quem governa, D2 muda **quem pode publicar** |
+
+### D3 — Quantização ternária aplicável a modelos prontos, sem treinar do zero
+
+| campo | conteúdo |
+|---|---|
+| **maturidade** | experimental |
+| **potencial de ruptura** | alto |
+| **o que rompe** | (a) o custo marginal de memória por parâmetro, que é hoje a barreira dura do aparelho [11]; (b) quem pode rodar peso de grande porte, já que a compressão deixa de exigir orçamento de treino; (c) por consequência, o que dá vantagem a quem detém peso de fronteira |
+| **por que agora** | CAT-Q, junho de 2026: ternarização pós-treino com 512 amostras de calibração, superando BitNet 1.58 v1 e v2 com redução de ~100.000× em tokens de treino, e escalando para 14–235 bilhões de parâmetros em 8 a 60 horas de 8×A100 [9]. Até 2025 a ternarização exigia *quantization-aware training* do zero — o que a mantinha restrita a quem treina modelos [7] |
+| **o que falta** | (a) validação independente — é um resultado de junho de 2026 que ainda não tem replicação de terceiros que eu tenha conseguido ler; (b) **kernel**: o ganho depende de implementação dedicada, e o próprio BitNet exige o bitnet.cpp para render qualquer coisa [8]; (c) silício: NPU de celular não tem unidade ternária, e o gargalo medido é banda de memória, que a ternarização alivia mas não elimina [11][12]; (d) adoção — 21.450 downloads/mês contra 12,9 milhões do 4 bits [8][6] |
+| **evidências** | [7][8][9][11][12] |
+| **veredito** | **ACEITA com confiança baixa.** É a raiz mais frágil do mapa e a primeira a ser derrubada na seção 7. Entra porque, se se confirmar, muda de escala tudo o que está acima dela; e porque "por que agora" tem data e número |
+
+### Rejeitadas explicitamente por parecerem futuristas sendo maduras
+
+- **Chamar modelo na nuvem por API** — maduro; antecedente.
+- **Rodar modelo em servidor próprio** — maduro; antecedente.
+- **Assistente de voz embarcado no aparelho** — maduro; antecedente.
+- **"IA de 1 bit já mudou tudo"** — não passou: a evidência de adoção contradiz (ver ficha em 12).
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: "O modelo de linguagem como serviço do sistema operacional, com API pública e sem preço por chamada"
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: "Funcionalidades de texto de baixo risco — resumir, corrigir, extrair, classificar, rotular — migram da nuvem para o aparelho porque deixam de ter custo variável"
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: "O preço do software com IA descola do volume de uso e a cobrança se desloca para sincronizar, guardar histórico e fazer o trabalho pesado na nuvem"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: "A IA local deixa de ser anunciada como recurso e vira item de base invisível, como o corretor ortográfico, enquanto o marketing se concentra no que só a nuvem faz"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: "Equipes passam a escrever para dois modelos de qualidade desigual e o roteamento entre local e nuvem vira decisão de projeto, não detalhe de infraestrutura"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: "O roteamento de inferência vira componente disputado: app, sistema operacional e usuário passam a reivindicar quem decide para onde vai cada pedido"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: "O fabricante do sistema operacional passa a decidir qual modelo está no aparelho, quando ele muda e o que ele se recusa a responder"
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: "O comportamento de um app com IA local muda sem que uma linha do app mude, e a regressão passa a vir da atualização do sistema"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: "Equipes que precisam de comportamento estável abandonam a API do sistema e embarcam o próprio modelo no pacote, e o tamanho de instalação volta a crescer"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: "Rodar local deixa de significar rodar sem filtro: a moderação embarcada vira padrão de fábrica e a disponibilidade do modelo varia por país"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: "Baixar um modelo alternativo por fora deixa de ser escolha técnica e vira marcador político, sujeito a regra de loja de aplicativos"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: "A aba do navegador como ambiente de execução de modelo, sem instalação e sem servidor"
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: "Publicar um produto com IA deixa de exigir servidor, chave de API e faturamento, e uma página estática passa a bastar"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: "O custo de experimentar cai a quase zero e o número de protótipos com IA cresce muito mais rápido que o de produtos que alguém sustenta"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: "A escassez se desloca de conseguir rodar para conseguir ser encontrado, e curadoria e reputação viram o gargalo do campo"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: "O primeiro acesso passa a custar centenas de megabytes a gigabytes de download, e a web recupera um problema de peso que havia resolvido"
+            sinal: forte
+            prazo: 2028
+            confianca: alta
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: "A web se parte em duas: sítios que pressupõem modelo local e sítios que continuam servindo do servidor, e a diferença entre eles deixa de ser técnica e passa a ser de renda do público"
+                sinal: medio
+                prazo: 2031
+                confianca: media
+      - id: e4
+        ordem: 1
+        efeito: "A promessa de que o dado não sai da máquina torna-se verificável pelo próprio usuário, bastando desligar a rede, e deixa de depender da palavra do fornecedor"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: "Setores com sigilo — saúde, jurídico, escola, recursos humanos — adotam IA em fluxos onde a nuvem era vetada por política interna, e não por preço"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: "O histórico da conversa com a IA vira artefato apreensível no disco do próprio usuário, e a privacidade ganha diante do provedor é perdida diante da perícia e de quem tem acesso físico ao aparelho"
+                sinal: medio
+                prazo: 2031
+                confianca: media
+  - disrupcao: "Quantização ternária aplicável a modelos prontos, sem treinar do zero"
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: "Modelos de porte hoje impossível no aparelho passam a caber na memória de um laptop comum sem que ninguém precise retreiná-los"
+        sinal: medio
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: "A vantagem de quem detém peso de fronteira encurta, porque a barreira deixa de ser rodar o modelo e passa a ser ter o direito de usá-lo"
+            sinal: medio
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: "A licença de peso aberto assume a função de controle que a infraestrutura já não exerce, e a disputa jurídica migra de acesso ao modelo para uso do modelo"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: "O gargalo se desloca de capacidade de memória para banda de memória, e a velocidade para de melhorar na mesma proporção em que o modelo encolhe"
+            sinal: forte
+            prazo: 2029
+            confianca: alta
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: "Projetar interação com IA local vira projetar espera: resposta em fluxo, resultado parcial e trabalho em segundo plano deixam de ser enfeite e viram a forma padrão"
+                sinal: medio
+                prazo: 2031
+                confianca: media
+```
+
+### O que a estrutura não captura
+
+**Três coisas, e elas importam.**
+
+A primeira é que **a roda separa o que na realidade é o mesmo movimento**. `e1` (a inferência
+fica de graça) e `e2` (o fabricante vira guardião) não são dois efeitos: são a mesma moeda. O
+fabricante só pode oferecer inferência sem cobrar porque ele controla o modelo, e só controla o
+modelo porque ele o oferece de graça. A árvore, por ser árvore, não consegue mostrar que o preço
+zero **é** o mecanismo da captura. Quem ler só `e1` vai achar que ganhou alguma coisa.
+
+A segunda é que **não há arestas de retorno**. O contrassinal mais forte que encontrei é um laço:
+a demanda de IA na nuvem encarece a DRAM [16], a DRAM cara empurra o aparelho de entrada para
+4 GB [16], e 4 GB de RAM inviabilizam justamente o efeito `e5` e boa parte de `e3.2`. Ou seja, a
+própria nuvem que a tendência deveria esvaziar está, pelo mercado de memória, comendo o recurso
+de que a tendência depende. Uma roda de futuros não desenha isso; só a prosa desenha.
+
+A terceira é que **`prazo` finge uma precisão que não tenho**. Os anos ali são a ordem de
+grandeza em que o efeito deixaria de ser surpresa, não uma previsão de data. O efeito `e2` está
+marcado em 2027 não porque eu preveja algo, mas porque ele já começou: o Phi Silica será removido
+das máquinas em novembro de 2026 [3].
+
+## 6. Sinais fracos e wildcards
+
+### Sinais fracos
+
+**O modelo no relógio.** O LiteRT-LM entrou em produção não só no Chrome e no Chromebook Plus,
+mas no **Pixel Watch** [17]. Um relógio não tem banda de memória, não tem térmica e não tem
+bateria para inferência generativa como a entendemos — o que sugere que a forma que vence no
+aparelho não é o modelo generalista pequeno, e sim o modelo especialista minúsculo. O anúncio do
+**Gemma 197M** como "modelo especialista ultra-eficiente" para alimentar APIs de tarefa
+específica [4] é o mesmo sinal pelo outro lado. Se isso se confirmar, o futuro da IA local não é
+um assistente no bolso: é um enxame de funções pequenas que ninguém chama de IA.
+
+**A perícia forense chegou antes do produto.** Em março de 2026 saiu a primeira análise
+sistemática de artefatos de Ollama, LM Studio e llama.cpp, cuja conclusão é que esses programas
+"criam um ponto cego probatório", e que se recupera "histórico de prompts em texto claro em
+arquivos JSON estruturados" [18]. Já existe ferramenta de triagem para seis clientes de LLM
+local. Uma tecnologia ganha subcampo forense antes de ganhar mercado quando o que ela produz
+começa a importar juridicamente — este é um sinal de que `e4.1.1` já está acontecendo, e não em
+2031.
+
+**A moderação que não se desliga.** A documentação do Windows descreve o nível de severidade
+`high` como "Not available": conteúdo classificado em nível 3 ou acima "está atualmente
+bloqueado de ser retornado pelo modelo de IA generativa" [19]. O usuário pode apertar o filtro,
+nunca afrouxá-lo além do padrão. É pequeno, é um parágrafo de documentação, e é a coisa mais
+concreta que encontrei contra a ideia de que local significa livre.
+
+**Um sinal que não consegui verificar.** A varredura da turma cita o `Termly` — controlar por
+celular, com criptografia de ponta a ponta, um agente de IA que roda na sua máquina. Se for o que
+o nome promete, é o computador pessoal virando servidor de IA pessoal, que seria o sinal fraco
+mais interessante de todos. **Não localizei fonte primária sobre ele nesta pesquisa e por isso
+ele não sustenta nenhum efeito da roda.** Fica registrado como pendência, não como evidência.
+
+### Wildcards
+
+**Wildcard 1 — um fabricante desliga a API local.** Baixa probabilidade, alto impacto: por
+decisão comercial, por pressão regulatória ou por incidente de responsabilidade, um dos quatro
+donos de plataforma remove ou restringe o acesso de terceiros ao modelo do sistema. **Isto já tem
+metade da evidência no presente**: o Phi Silica será removido das máquinas em novembro de 2026
+[3], e não está disponível na China [3]. Se acontecer em escala, D1 cai inteira e leva junto
+`e1`, `e2` e seus nove descendentes; sobra D2 — e D2 depende do Chrome, que é do mesmo tipo de
+ator. O mapa inteiro está apoiado na permanência de uma cortesia comercial revogável, e isso é a
+sua maior fragilidade estrutural.
+
+**Wildcard 2 — um ternário de qualidade de fronteira num aparelho de entrada.** Se o caminho do
+CAT-Q [9] for replicado, ganhar kernel para NPU de celular e produzir um modelo de 70B ternário
+rodando em 8 GB de RAM com qualidade de conversa geral, a roda muda de eixo: `e5` sobe de
+confiança baixa para alta, `e1.1.1` (IA local como item invisível) antecipa-se para o começo dos
+anos 30, e a hipótese de que "o que é bom fica na nuvem" — que sustenta todo o H2 da seção 3 —
+deixa de valer. É improvável até 2031 pelas três razões da ficha D3, e por uma quarta: mesmo
+resolvida a memória, resta a banda [11] e resta a térmica [12].
+
+## 7. Contra o próprio mapa
+
+**1. Qual efeito é apenas extrapolação linear do presente?**
+`e3.1` — "o custo de experimentar cai e o número de protótipos explode". É a repetição do que já
+aconteceu com hospedagem estática, com Docker e com a própria API de LLM: barateou, apareceu
+muita coisa. Não tem nada de específico da IA local e serviria para qualquer barateamento. Está
+mantido por ser plausível, mas **rebaixado a sinal `medio` e explicitamente marcado como o efeito
+mais descartável do mapa**. Se houvesse que cortar um, era este.
+
+**2. Qual efeito assume adoção rápida demais? Compare com caso histórico.**
+`e1` — a migração de funcionalidades de texto para o aparelho até 2028. O caso histórico que me
+faz duvidar é o **WebGL**: enviado no Chrome em 2011, e a web só passou a contar com 3D por
+padrão mais de uma década depois; o WebGPU levou de 2023 (Chrome 113) a 2026 para chegar a todos
+os navegadores, e **ainda não chegou** ao Firefox em Linux e Android [5]. Se o padrão se repetir,
+a migração de `e1` não acontece em dois anos: acontece em oito, e no meio disso a nuvem barateou
+mais 100× [13], removendo o incentivo. Mantido, mas com a ressalva de que o prazo 2028 vale para
+o **desktop de quem constrói**, não para o parque instalado.
+
+**3. Qual disrupção-raiz pode simplesmente não acontecer?**
+**D3.** A evidência é de um único artigo de junho de 2026, sem replicação independente que eu
+tenha lido, e a história da quantização extrema é uma história de resultados que não sobreviveram
+ao contato com hardware real — o próprio BitNet, com relatório técnico e implementação oficial da
+Microsoft, tem 21.450 downloads mensais [8]. Além disso há um argumento técnico contra: o ganho
+da ternarização é de **capacidade** de memória, e a medição diz que o gargalo é **banda** [11] e
+térmica [12]. Comprimir o modelo pela metade não dobra a velocidade se o problema é o caminho
+até a memória.
+
+**4. O que quebra na roda se essa disrupção falhar?**
+Caem `e5`, `e5.1`, `e5.1.1` — três efeitos. Sobrevive `e5.2` (o gargalo é banda), que é verdadeiro
+independentemente de D3 e que na verdade **é o argumento contra D3**; ele fica órfão e deveria
+migrar para D1 numa próxima versão. Sobrevive também `e5.2.1` (projetar a espera). Se D3 falhar,
+o mapa perde escala mas não perde estrutura: D1 e D2 não dependem dela.
+
+**5. Que contrassinais existem?**
+Quatro, e são pesados. (a) **O preço da nuvem cai mais rápido do que a capacidade do aparelho
+sobe**: 9× a 900× ao ano por patamar de qualidade [13]. (b) **A memória encareceu**: LPDDR5X
++78–83% num trimestre, com o aparelho de entrada voltando a 4 GB [16] — a IA de centro de dados
+está literalmente consumindo o insumo da IA local. (c) **A API do navegador não roda em celular
+e exige 22 GB livres** [10], o que a torna, hoje, uma capacidade de desktop caro. (d) **A própria
+Apple, dona da melhor integração local do mercado, contratou modelo de nuvem para a Siri** [14] —
+o ator com mais incentivo e mais capacidade para provar a tese local optou por híbrido.
+
+**6. Que barreiras foram subestimadas?**
+A **térmica**, que eu não teria incluído se não tivesse achado a medição: metade da vazão perdida
+em duas iterações no iPhone 16 Pro e inferência encerrada pelo sistema no S24 Ultra [12]. Isso
+mata "agente pessoal sempre ligado no celular" como classe de produto até que haja silício
+dedicado, e a roda não tem nenhum efeito que represente esse limite — é uma lacuna real desta
+versão. Também subestimei a **fragmentação**: quatro APIs proprietárias incompatíveis (Apple,
+Google, Microsoft, Chrome) e nenhum padrão; quem constrói para as quatro paga quatro vezes, e é
+mais barato chamar uma API de nuvem que funciona em todas.
+
+**7. Que ator teria incentivo para bloquear, capturar ou redirecionar a mudança?**
+O mesmo que a está promovendo, e esse é o ponto. Apple, Google e Microsoft ganham com a inferência
+local porque ela **transfere o custo de computação para o usuário** e, de quebra, lhes entrega a
+posição de guardião — o `e2`. O ator com incentivo para bloquear é o provedor de modelo de
+fronteira que vende por token; mas a operação da Siri mostra que o caminho dele não é bloquear, e
+sim **ser comprado para dentro** [14]. Já quem perde é o desenvolvedor independente, que troca uma
+dependência contratual (a API, que ele pode trocar) por uma dependência de plataforma (o modelo do
+sistema, que ele não pode).
+
+**8. Que viés entrou na seleção do tema e dos efeitos?**
+Três, identificados. (a) **Viés de amostragem na origem**: o tema veio de uma varredura de
+repositórios de código, que mede o que desenvolvedores **publicam**, não o que usuários
+**adotam** — `bitnet.cpp` ser a escolha nº 1 de uma varredura de repositórios e ter 21 mil
+downloads mensais de modelo é exatamente essa distorção. (b) **Viés de documentação**: quase toda
+a evidência de capacidade veio de documentação de fabricante, que é parte interessada; triangulei
+com arXiv e com contagens de plataforma onde consegui, mas as afirmações de qualidade dos modelos
+(AFM 3, Gemini Nano) permanecem **sem triangulação independente**, e estão marcadas assim na
+seção 11. (c) **Viés do analista de futuro**, que é o meu: a hipótese "a inteligência se
+descentraliza" é mais interessante de escrever do que "tudo continua híbrido e chato", e eu
+precisei do contrassinal (b) da pergunta 5 para não escrever a primeira.
+
+### O que foi efetivamente cortado
+
+- **"O negócio de nuvem encolhe"** — era um efeito de 1ª ordem na primeira versão. **Cortado**, não
+  rebaixado. A evidência vai no sentido oposto: preço por token em queda [13] com gasto total em
+  alta, que é o padrão de Jevons. Barateamento de inferência não esvazia centro de dados, enche.
+- **"O usuário escolhe o próprio modelo"** — **cortado.** Não achei mecanismo. Em nenhuma das
+  quatro plataformas o usuário final escolhe o modelo: no Windows ele pode apenas **remover** o
+  componente [3]; no Android o AICore decide [2]. A aresta "se a IA roda local, então o usuário
+  manda nela" não fecha, e a moderação embutida [19] é a prova de que não fecha.
+- **"Agente pessoal sempre ligado no aparelho"** — **cortado** por medição térmica [12].
+
+## 8. O que a máquina errou
+
+Cinco erros reais nesta execução, todos detectados por verificação contra fonte primária.
+
+**1. Adotei números de adoção de fonte sem reputação e tive de descartá-los.** Uma busca devolveu
+"Ollama atingiu 52 milhões de downloads mensais no 1T26" e "r/LocalLLaMA com 749 mil a 821 mil
+membros". Ambos vinham de blogs comerciais, os dois valores de Reddit divergiam entre si, e a
+tentativa de abrir o Reddit para conferir foi bloqueada. **Os três números não entraram no mapa.**
+Onde eu precisava de escala de adoção, usei a contagem da própria Hugging Face [6], que é a
+plataforma que hospeda o dado.
+
+**2. Ia eleger o 1 bit como disrupção-raiz porque o enunciado do tema o destaca.** O `bitnet.cpp`
+é a escolha nº 1 da varredura da turma, e a formulação natural seria "a disrupção é o modelo de
+1 bit". Ao abrir o card do modelo, o número desmentiu: 21.450 downloads no último mês [8] contra
+12,9 milhões do GGUF de 4 bits mais baixado [6]. **Corrigi a raiz**: ela não é "o 1 bit chegou",
+é "a ternarização deixou de exigir treino do zero" [9] — que é uma afirmação com data, número e
+data de validade, e entrou com confiança baixa.
+
+**3. Tratei anúncio como disponibilidade.** Um resultado de busca afirmava que, com o Chrome 148,
+"qualquer site pode rodar inferência local". A documentação primária diz o contrário: Android, iOS
+e ChromeOS fora de Chromebook Plus "não são suportados", e são exigidos 22 GB livres mais 16 GB de
+RAM ou 4 GB de VRAM [10]. A frase "qualquer site" era falsa, e ela teria contaminado toda a
+disrupção D2 — que é justamente sobre alcance.
+
+**4. Classifiquei D1 como madura por um momento, pelo motivo errado.** Ela está em quatro
+plataformas comerciais, o que é um dos critérios de maturidade da própria skill. O que me fez
+recuar foi o mesmo erro que o `DUVIDAS.md` desta skill já registra a propósito de *hand tracking*:
+**disponibilidade comercial e existência de API não são evidência de maturidade operacional.** Os
+critérios que faltam aqui são verificáveis e falham: não há padrão nem interoperabilidade entre as
+quatro APIs, e o modelo não é estável — um deles será removido das máquinas em novembro de 2026
+[3]. Fica emergente.
+
+**5. Duas fontes não abriram e não foram citadas.** A reportagem da CNBC sobre o acordo
+Apple–Google devolveu HTTP 403 e a matéria do Android Central sobre a crise de memória veio
+truncada. **Nenhuma das duas está na seção 11.** O acordo Apple–Google entrou pelo 9to5Mac [14],
+que eu de fato abri, e com a ressalva de que ali a Apple "declinou de fornecer qualquer detalhe
+específico sobre os termos" — por isso **o mapa não afirma valor nem tamanho de modelo desse
+acordo**, embora os números circulem.
+
+Não detectei, nesta execução, citação inexistente, autoria trocada nem número sem origem no texto
+final. Todos os valores citados têm fonte na seção 11 e foram lidos na fonte.
+
+## 9. Três cenários para 2031
+
+### Provável — "A utilidade silenciosa"
+
+Estamos em 2031 e ninguém diz "IA local" porque ninguém diz "corretor ortográfico". Resumir,
+reescrever, extrair campo de um documento, descrever imagem e transcrever voz acontecem no
+aparelho, de graça, e nenhum produto anuncia isso. O que se vende continua sendo o que a nuvem
+faz: raciocínio longo, conhecimento do mundo, memória entre aparelhos. Toda equipe de produto
+mantém uma camada de roteamento e discute em reunião onde cada pedido cai.
+
+O que o tornou provável: o preço da nuvem continuou caindo [13], a memória continuou cara [16], e
+os quatro donos de plataforma nunca padronizaram nada entre si — então quem constrói para todo
+mundo continua chamando a nuvem, e usa o local só onde o ganho é grande e o risco é pequeno. O
+celular de entrada, no Brasil e fora dele, nunca chegou a rodar nada disso; a assimetria de classe
+que a TIC Domicílios media em 2025 [15] permaneceu, com outra roupa.
+
+O desconforto deste cenário: ele é o único dos três em que ninguém se opõe a nada, e por isso o
+mais provável de todos.
+
+### Desejável — "A inferência auditável"
+
+Estamos em 2031 e a frase "seu dado não sai do aparelho" virou uma afirmação **verificável**, não
+uma promessa de marketing. Existe um indicador de plataforma que mostra, para qualquer
+funcionalidade, se ela está rodando local ou remoto — e o usuário pode exigir local. Escola,
+consultório, escritório de advocacia e RH usam IA em material sigiloso porque a política interna
+finalmente pôde aprovar. O ganho não foi de preço; foi de permissão.
+
+O que precisou ser construído para chegar aqui, e nenhuma dessas quatro coisas era inevitável:
+(a) um **padrão entre navegadores** para a API de modelo embutido, de modo que "local" não
+significasse "só no Chrome, só no desktop, só com 22 GB livres" [10]; (b) uma exigência
+regulatória de **rótulo de proveniência de inferência**, tornando mentira comercial dizer local
+quando é remoto; (c) reconhecimento de que o histórico local é dado sensível — porque a perícia
+já sabia disso desde 2026 [18] — com cifragem em repouso por padrão nos clientes de LLM local; e
+(d) modelos pequenos bons o bastante em português para que o benefício não fosse só de quem
+escreve em inglês.
+
+### Indesejável — "O guardião gentil"
+
+Estamos em 2031 e a inferência é gratuita, instantânea e privada — e ninguém escolhe nada. O
+modelo que roda na sua máquina foi posto ali pelo fabricante, é atualizado por ele sem aviso,
+recusa os mesmos assuntos em todo aparelho vendido no seu país e recusa outros no país vizinho.
+Trocá-lo é tecnicamente possível e socialmente marcado: quem baixa modelo por fora está fazendo
+uma declaração. Aplicativos que dependiam da API do sistema quebraram duas vezes em atualizações
+de sistema operacional e migraram para modelos embarcados no pacote — os instaladores voltaram a
+pesar gigabytes, e os menores desistiram.
+
+**O sinal precoce que teria antecipado isto já existia em 2026, e está em documentação pública.**
+O Windows anunciou que removeria o Phi Silica das máquinas em novembro de 2026 para substituí-lo
+[3]; o mesmo modelo não estava disponível na China [3]; e a moderação local vinha ligada por
+padrão, com o nível permissivo descrito como "Not available" [19]. Três parágrafos de documentação
+técnica, publicados sem alarde, descreviam a estrutura inteira: o dono do sistema instala, o dono
+do sistema remove, o dono do sistema filtra, e a geografia decide. Quem leu a página de requisitos
+em 2026 viu o cenário indesejável escrito por extenso — só não estava rotulado como tal.
+
+## 10. O experimento
+
+### "Motor à vista"
+
+**O que é.** Uma página web única que executa a mesma tarefa de duas maneiras, lado a lado, e
+mostra o motor em funcionamento. À esquerda, um modelo rodando na aba (WebGPU/WebLLM ou a Prompt
+API do Chrome, conforme o aparelho); à direita, a mesma tarefa por API de nuvem. A tarefa é uma só
+e é deliberadamente pessoal: **"cole um texto seu e peça um resumo para outra pessoa ler"** — um
+e-mail difícil, um laudo, uma conversa, um relato. Junto de cada motor, um painel ao vivo mostra o
+tráfego de rede daquele lado: zero pacotes à esquerda, requisições visíveis à direita. Um botão
+desliga a rede da aba e a coluna esquerda continua funcionando.
+
+**A pergunta de futuro que testa.** O efeito `e4` do mapa afirma que a privacidade verificável
+muda comportamento — que é o único argumento que sobreviveu ao red team como razão para preferir
+local, já que o preço não sobrevive [13] e a velocidade não sobrevive [11][12]. A pergunta é:
+**ver a inferência acontecer sem rede muda o que a pessoa está disposta a escrever?**
+
+**Tecnologia emergente usada.** Inferência no navegador (WebGPU [5] e/ou Prompt API [10]) com
+modelo carregado no cliente — que é exatamente D2.
+
+**Por que uma solução madura não responde à mesma pergunta.** Uma API de nuvem com política de
+privacidade e selo de conformidade também *promete* que o dado está seguro. O que não existe em
+solução madura é a **verificabilidade pelo próprio usuário**: só com o modelo na aba é possível
+cortar a rede diante da pessoa e a coisa continuar respondendo. O experimento não testa
+privacidade; testa o que a **prova** de privacidade faz com a confiança. Isso é irreproduzível
+com servidor.
+
+**O que os participantes fazem.** Cada pessoa recebe as duas colunas em ordem sorteada, com o
+painel de rede visível, e é convidada a usar material próprio e real. Sem tarefa fabricada, sem
+texto de exemplo — a variável de interesse só aparece se houver algo a perder.
+
+**O que se mede.**
+1. **Sensibilidade do que foi colado**, classificada por rubrica fixa aplicada por dois avaliadores
+   humanos cegos à condição (presença de nome de terceiro, dado de saúde, dado financeiro,
+   conflito interpessoal identificável) — nunca o texto em si, apenas a categoria.
+2. **Volume colado** (caracteres) por condição.
+3. **Abandono antes da primeira execução**, cronometrado — separando abandono durante o download
+   do modelo de abandono durante a espera pela resposta.
+4. **Escolha declarada** ao final: qual coluna a pessoa usaria de novo, e por quê, em uma frase.
+
+**Qual resultado me faria mudar de ideia — três, e cada um muda uma coisa diferente.**
+- Se **a sensibilidade não diferir** entre as colunas, o argumento de privacidade não é argumento
+  de produto: `e4` e toda a sua descendência (`e4.1`, `e4.1.1`) caem, e sobra apenas o argumento
+  de custo — que o red team já derrubou [13]. Nesse caso, a IA local até 2031 é uma otimização de
+  fornecedor, não uma mudança de relação, e o mapa perde uma das suas duas pernas.
+- Se **o abandono no download** for alto o bastante para esvaziar a coluna local antes de qualquer
+  digitação, a variável dominante não é confiança, é banda — e o efeito `e3.2` sobe de importância
+  enquanto `e4` vira irrelevante na prática. Este é o resultado que eu espero no Brasil, dado que
+  39% dos usuários de celular ficaram sem pacote de dados no trimestre medido [15].
+- Se a diferença aparecer **mas desaparecer quando o painel de rede é escondido**, então não é a
+  arquitetura que muda o comportamento: é a **interface que a torna visível**. Seria o melhor
+  resultado possível para quem projeta interação, e reescreveria `e4` de "rodar local muda a
+  confiança" para "mostrar onde roda muda a confiança" — que é uma afirmação de design, e não de
+  infraestrutura.
+
+## 11. Fontes
+
+Dezenove fontes, todas abertas e lidas nesta sessão, em 12/09/2026. Classificação de
+confiabilidade ao final de cada linha.
+
+1. **Apple Machine Learning Research — "Introducing the Third Generation of Apple's Foundation
+   Models"**, 08/06/2026. `https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models`
+   Sustenta: existência e tamanho dos modelos no aparelho (AFM 3 Core, 3B denso; AFM 3 Core
+   Advanced, 20B esparso com 1–4B ativos), uso de *Quantization Aware Training*, cobertura de
+   idiomas. — *Fonte corporativa interessada: confiável quanto ao que a empresa afirma ter
+   construído; os números de preferência (45,6% × 23,3%) são autoavaliação e não foram
+   triangulados.*
+2. **Android Developers — "Gemini Nano"**. `https://developer.android.com/ai/gemini-nano`
+   Sustenta: o modelo roda no serviço de sistema AICore, que "gerencia a distribuição do Gemini
+   Nano e cuida das atualizações futuras", compartilhado entre apps. — *Documentação primária de
+   plataforma: alta para a arquitetura; não informa quais aparelhos recebem o modelo, e essa
+   lacuna está registrada no anexo.*
+3. **Microsoft Learn — "What are Windows AI APIs?"**, atualizado em 19/08/2026.
+   `https://learn.microsoft.com/en-us/windows/ai/apis/`
+   Sustenta: modelo pré-instalado no NPU em Copilot+ PC e baixado sob demanda ("downloads podem ter
+   vários GB") nas demais; remoção pelo usuário em Configurações › Componentes de IA; requisitos de
+   GPU (RTX 30+ ou RX 9060+, 6+ GB de VRAM); "Phi Silica não está disponível na China"; e a
+   substituição por Aion Instruct com remoção do Phi Silica em novembro de 2026. — *Documentação
+   primária: alta. É a fonte mais importante deste mapa.*
+4. **Chrome for Developers — "15 updates from Google I/O 2026"**.
+   `https://developer.chrome.com/blog/chrome-at-io26`
+   Sustenta: estado da Prompt API no Chrome 148 (multimodal, saída estruturada), o modelo Gemma
+   197M, e o caso de produção da Trip.com. — *Blog corporativo de lançamento: média. Usei-o para
+   fatos verificáveis (versão, nome do modelo, cliente nomeado), não para afirmação de qualidade.*
+5. **W3C GPU for the Web Community Group — "Implementation Status"** (wiki do gpuweb).
+   `https://github.com/gpuweb/gpuweb/wiki/Implementation-Status`
+   Sustenta: status de envio do WebGPU por navegador e plataforma, incluindo o que **não** enviou
+   (Firefox em Linux e Android, Chrome em Windows ARM64). — *Fonte do próprio grupo de trabalho:
+   alta.*
+6. **Hugging Face — modelos com biblioteca GGUF, ordenados por download**.
+   `https://huggingface.co/models?library=gguf&sort=downloads`
+   Sustenta: 203.368 modelos GGUF listados; os mais baixados são quantizações de 4 bits, com 12,9
+   e 11,5 milhões de downloads. — *Contagem da própria plataforma: alta para escala relativa;
+   download não é uso.*
+7. **arXiv:2504.12285 — "BitNet b1.58 2B4T Technical Report"**, Microsoft Research, 16/04/2025
+   (v2 em 25/04/2025). `https://arxiv.org/abs/2504.12285`
+   Sustenta: primeiro LLM nativo de 1 bit aberto na escala de 2B, 4 trilhões de tokens, paridade
+   com pares de precisão plena do mesmo porte. — *Pré-print de laboratório industrial: média-alta.
+   Resultados de paridade são auto-relatados.*
+8. **Hugging Face — card do modelo `microsoft/bitnet-b1.58-2B-4T`**.
+   `https://huggingface.co/microsoft/bitnet-b1.58-2B-4T`
+   Sustenta: 0,4 GB de memória fora dos embeddings, 29 ms de latência em CPU, 0,028 J estimados;
+   **21.450 downloads no último mês**; e o aviso de que os ganhos exigem obrigatoriamente o
+   bitnet.cpp. — *Card oficial do autor + contagem da plataforma: alta.*
+9. **arXiv:2606.26650 — "CAT-Q: Cost-efficient and Accurate Ternary Quantization for LLMs"**,
+   25/06/2026. `https://arxiv.org/abs/2606.26650`
+   Sustenta: ternarização pós-treino com 512 amostras, superando BitNet 1.58 v1/v2, redução de
+   ~100.000× em tokens de treino, escala de 14B a 235B em 8–60 horas de 8×A100. — *Pré-print
+   recente sem replicação independente conhecida: média. É a base da raiz mais frágil do mapa, e
+   isso está declarado na ficha D3 e na seção 7.*
+10. **Chrome for Developers — "The Prompt API"**. `https://developer.chrome.com/docs/ai/prompt-api`
+    Sustenta: disponibilidade a partir do Chrome 138; exclusão de Android, iOS e ChromeOS fora de
+    Chromebook Plus; 22 GB de espaço livre; >4 GB de VRAM ou 16 GB de RAM e 4 núcleos; remoção do
+    modelo abaixo de 10 GB livres; nenhum dado enviado ao Google. — *Documentação primária: alta.
+    É o contrassinal mais útil do mapa, e vem do próprio proponente da tecnologia.*
+11. **Vikas Chandra e Raghuraman Krishnamoorthi — "On-Device LLMs: State of the Union, 2026"**,
+    24/01/2026. `https://v-chandra.github.io/on-device-llms/`
+    Sustenta: banda de memória de 50–90 GB/s no celular contra 2–3 TB/s em centro de dados; RAM
+    disponível tipicamente abaixo de 4 GB; "4 bits é o novo padrão"; o que não roda local. —
+    *Página técnica assinada por pesquisadores identificados da área, não revisada por pares:
+    média-alta. Os autores trabalham com IA eficiente, o que é competência e também interesse.*
+12. **arXiv:2603.23640 — "LLM Inference at the Edge: Mobile, NPU, and GPU Performance Efficiency
+    Trade-offs Under Sustained Load"**, 24/03/2026 (v2 em 07/06/2026).
+    `https://arxiv.org/abs/2603.23640`
+    Sustenta: iPhone 16 Pro perde quase metade da vazão em duas iterações; S24 Ultra tem piso de
+    frequência imposto pelo sistema que encerra a inferência; RTX 4050 a 131,7 tok/s e 34,1 W;
+    Hailo-10H a 6,9 tok/s abaixo de 2 W. — *Pré-print com medição direta e hardware nomeado:
+    média-alta.*
+13. **Epoch AI — "LLM inference prices have fallen rapidly but unequally across tasks"**,
+    12/03/2025. `https://epoch.ai/data-insights/llm-inference-price-trends`
+    Sustenta: quedas de 9× a 900× por ano conforme o patamar; MMLU nível GPT-3 de US$ 60,00/milhão
+    (nov/2021) para US$ 0,07 (out/2024); GPQA Diamond de US$ 37,50 (mar/2023) para US$ 0,12
+    (dez/2024). — *Organização de pesquisa independente com método publicado: alta. Os próprios
+    autores advertem que a aceleração recente pode não persistir.*
+14. **9to5Mac — "Apple confirms Gemini-powered Siri will use Private Cloud Compute"**, 29/01/2026.
+    `https://9to5mac.com/2026/01/29/apple-confirms-gemini-powered-siri-will-use-private-cloud-compute/`
+    Sustenta: declaração de Tim Cook — "We'll continue to run on the device and run in Private
+    Cloud Compute" — e que a Apple "declinou de fornecer qualquer detalhe específico sobre os
+    termos" do acordo. — *Imprensa especializada citando declaração pública: média. É por essa
+    ressalva que o mapa **não** afirma valor nem tamanho do modelo do acordo.*
+15. **Cetic.br / CGI.br — "50 milhões de brasileiros já usam IA, mas potenciais benefícios
+    continuam limitados às camadas de maior renda e escolaridade"** (TIC Domicílios 2025),
+    09/12/2025. `https://cetic.br/pt/noticia/50-milhoes-de-brasileiros-ja-usam-ia-mas-potenciais-beneficios-continuam-limitados-as-camadas-de-maior-renda-e-escolaridade/`
+    Sustenta: 32% dos usuários de internet de 10+ anos usaram IA generativa; "chega a 69% na classe
+    A, caindo para 16% nas classes D e E"; 59% com ensino superior contra 17% com fundamental; 39%
+    dos usuários de celular ficaram sem pacote de dados no trimestre; amostra de 27.177 domicílios
+    e 24.535 indivíduos. — *Pesquisa oficial de referência nacional, com amostra e método
+    públicos: alta.*
+16. **TrendForce — "Mobile DRAM Contract Prices Continue Rising in 2Q26, Pressuring Smartphone
+    Production"**, 14/05/2026. `https://www.trendforce.com/presscenter/news/20260514-13044.html`
+    Sustenta: LPDDR4X "+70–75% QoQ" e LPDDR5X "+78–83%"; redução da produção total de smartphones
+    em 2026; e a configuração por faixa — 12 GB no topo, 8 GB no médio, "entry-level models mostly
+    settle around 4GB". — *Consultoria de mercado com metodologia proprietária: média-alta. É
+    fonte paga que publica trecho; os números não são verificáveis de forma independente por mim.*
+17. **Google Developers Blog — "On-device GenAI in Chrome, Chromebook Plus, and Pixel Watch with
+    LiteRT-LM"**, 24/09/2025. `https://developers.googleblog.com/on-device-genai-in-chrome-chromebook-plus-and-pixel-watch-with-litert-lm/`
+    Sustenta: LiteRT-LM em produção nos três produtos, incluindo o relógio; arquitetura de pipeline
+    em C++; clonagem de sessão abaixo de 10 ms. — *Blog corporativo: média. Usado para o fato de
+    embarque, não para desempenho.*
+18. **arXiv:2603.23996 — "Forensic Implications of Localized AI: Artifact Analysis of Ollama, LM
+    Studio, and llama.cpp"**, 25/03/2026. `https://arxiv.org/abs/2603.23996`
+    Sustenta: recuperação de "histórico de prompts em texto claro em arquivos JSON estruturados",
+    logs de uso de modelo e assinaturas de arquivo; e a caracterização do LLM local como "ponto
+    cego probatório". — *Pré-print com experimento controlado e método reproduzível: média-alta.*
+19. **Microsoft Learn — "Content safety moderation with the Windows AI APIs"**, 18/06/2026.
+    `https://learn.microsoft.com/en-us/windows/ai/apis/content-moderation`
+    Sustenta: moderação ligada por padrão em todas as chamadas generativas; categorias Hate,
+    Sexual, Violence, Self-harm; e o nível `high` descrito como "Not available", com conteúdo de
+    severidade 3+ "bloqueado de ser retornado". — *Documentação primária: alta.*
+
+**Limitação de triangulação, declarada.** As afirmações de **qualidade** dos modelos locais —
+AFM 3 [1], Gemini Nano [2], Phi Silica [3] — têm, neste mapa, **apenas fonte corporativa
+interessada**. Não encontrei avaliação independente comparável desses três modelos e não a
+fabriquei. Onde o mapa depende de qualidade suficiente (efeitos `e1` e `e4.1`), a confiança
+declarada no YAML já reflete esse desconto. As afirmações de **limite físico** [11][12] e de
+**adoção** [6][8] vêm de fora dos fabricantes, e é por isso que os efeitos apoiados nelas têm
+confiança mais alta que os apoiados em promessa de fornecedor — o que é uma inversão deliberada da
+hierarquia habitual.
+
+## 12. Anexo — o levantamento bruto
+
+### Os nove candidatos avaliados, com classificação
+
+| # | candidato | maturidade | ruptura | veredito |
+|---|---|---|---|---|
+| 1 | Modelo como serviço do SO, com API pública e sem preço por chamada | emergente | alto | **raiz D1** |
+| 2 | Aba do navegador como ambiente de execução de modelo | emergente | alto | **raiz D2** |
+| 3 | Ternarização aplicável a modelo pronto, sem treino do zero | experimental | alto | **raiz D3** |
+| 4 | Modelo de 1 bit como artefato adotado | experimental | médio | rebaixado a sinal |
+| 5 | Agente pessoal persistente na máquina do usuário | experimental | alto | rebaixado a efeito (`e4.1.1`) |
+| 6 | Distribuição do modelo pelo canal do SO (Windows Update, AICore) | emergente | alto | absorvido em D1 (`e2`) |
+| 7 | Chamar API de modelo na nuvem | maduro | — | antecedente |
+| 8 | Modelo pequeno em servidor próprio | maduro | — | antecedente |
+| 9 | NPU no aparelho | maduro | baixo | tecnologia habilitadora |
+
+**Por que o candidato 4 não virou raiz.** A régua da seção 2.3 exige "evidência concreta de por que
+agora". O BitNet tem relatório técnico (abril/2025), implementação oficial e modelo publicado — e
+21.450 downloads mensais contra 12,9 milhões de um GGUF de 4 bits. Além disso, o próprio card
+declara que sem o bitnet.cpp não há ganho algum. Um artefato que exige runtime dedicado e tem três
+ordens de grandeza menos uso que a alternativa não é disrupção em curso; é pesquisa. O que **é**
+novo tem data de junho de 2026 e é o método pós-treino [9] — por isso a raiz foi reformulada.
+
+**Por que o candidato 5 não virou raiz.** O "agente pessoal que roda na sua máquina e aprende com
+você" é atraente e é a formulação que o enunciado do tema sugere na pergunta de 3ª ordem. Mas ele
+não é uma **capacidade**: é uma composição de capacidades que já estão em D1 e D2, mais uma
+suposição de continuidade térmica que a medição desmente [12]. Virou efeito, e a parte dele que
+sobreviveu — o histórico local como artefato apreensível — está em `e4.1.1`, ancorada em fonte
+[18].
+
+**Por que o candidato 6 foi absorvido.** É o mesmo mecanismo de D1 visto do lado do fornecedor.
+Mantê-lo separado duplicaria toda a cadeia de `e2`. A decisão é discutível: se uma próxima versão
+quiser dar mais peso à governança, ele merece raiz própria.
+
+### Arestas causais cortadas, e por quê
+
+- **"Inferência local grátis" → "o negócio de nuvem encolhe".** Cortada. O mecanismo suposto
+  (menos chamadas, menos receita) ignora que o preço por token já caiu 9× a 900× ao ano [13] sem
+  que o gasto total caísse. Barateamento de um insumo elástico aumenta o consumo dele.
+- **"O modelo roda na sua máquina" → "o usuário controla o modelo".** Cortada, e é a aresta mais
+  sedutora do tema. Não há mecanismo: em nenhuma das quatro plataformas o usuário escolhe o
+  modelo; ele pode, no máximo, **removê-lo** [3]. E a moderação vem ligada com o nível permissivo
+  indisponível [19]. Propriedade do hardware não é controle do software.
+- **"Modelo no aparelho" → "agente sempre ligado".** Cortada por medição térmica [12].
+- **"Ternarização" → "velocidade proporcionalmente maior".** Cortada: o ganho é de capacidade,
+  o gargalo é banda [11].
+- **"IA local" → "inclusão digital".** Cortada, e no sentido contrário. A demanda de IA de centro
+  de dados encareceu a DRAM, empurrando o aparelho de entrada de volta para 4 GB [16]; e a base
+  brasileira de uso de IA já é de 69% na classe A contra 16% nas D e E [15]. Não achei nenhum
+  mecanismo pelo qual a IA local reduza essa distância no horizonte; achei dois pelos quais ela
+  aumenta. Esta é uma conclusão desconfortável e está registrada porque é o que a evidência diz.
+
+### Contrassinais reunidos
+
+1. Preço da inferência na nuvem em queda de 9× a 900× ao ano [13].
+2. LPDDR5X +78–83% em um trimestre; aparelho de entrada retornando a 4 GB [16].
+3. Prompt API do Chrome fora de Android e iOS, com 22 GB livres exigidos [10].
+4. Apple, que mais teria a ganhar com a tese local, contratou modelo de nuvem para a Siri [14].
+5. Quatro APIs proprietárias incompatíveis e nenhum padrão entre elas [1][2][3][10].
+6. Térmica encerrando inferência sustentada em dois carros-chefe de 2024 [12].
+7. Banda de memória 30 a 50 vezes menor que a de centro de dados, e sem rota de solução no
+   horizonte [11].
+8. Adoção real concentrada em 4 bits, não em 1 bit [6][8].
+
+### Hipóteses alternativas que o mapa não adotou
+
+- **"O vencedor é o modelo especialista minúsculo, não o generalista pequeno."** Sustentada pelo
+  Gemma 197M [4] e pelo LiteRT-LM no relógio [17]. Se for verdade, a IA local nunca será um
+  assistente: será uma coleção de funções invisíveis, e o tema perde quase toda a carga política
+  de `e2`. Não adotei porque a evidência ainda é de dois anúncios, mas é a alternativa que eu
+  vigiaria primeiro.
+- **"O híbrido é o estado final, não a transição."** Sustentada por [14] e por [11]. Neste caso
+  não há H3: o que a seção 3 chama de transição é o destino, e a pergunta relevante deixa de ser
+  "local ou nuvem" e passa a ser "quem escolhe o roteamento" — que é `e1.2.1`, hoje o efeito de
+  confiança mais baixa do mapa e que, sob esta hipótese, seria o mais importante.
+- **"A regulação, não a técnica, decide."** Se um regulador exigir processamento local para
+  categorias de dado, D1 acelera por decreto e o mapa inteiro muda de prazo. Não desenvolvi esta
+  hipótese porque não consegui ler fonte primária que a sustentasse no horizonte; buscas sobre
+  obrigações de IA de propósito geral devolveram material sobre provedores de modelo, não sobre
+  local de processamento.
+
+### Buscas sem resultado utilizável
+
+- **Dados de adoção de ferramentas locais** (Ollama, LM Studio, r/LocalLLaMA): só blogs
+  comerciais, com números divergentes entre si; o Reddit recusou a leitura automatizada. Nenhum
+  número entrou.
+- **Parque de aparelhos no Brasil por faixa de RAM**: as buscas devolveram guias de compra
+  comerciais. Substituí pela faixa de configuração por tier da TrendForce [16], que é o mais
+  próximo que consegui de dado verificável.
+- **Avaliação independente de qualidade de AFM 3, Gemini Nano e Phi Silica**: não encontrada.
+  Declarada como limitação na seção 11.
+- **`Termly`**, citado no enunciado do tema: não localizei fonte primária. Não sustenta nada no
+  mapa.
+- **CNBC** (acordo Apple–Google) devolveu HTTP 403; **Android Central** (crise de memória) veio
+  truncada. Nenhuma das duas foi citada.
+
+### Observações que não entraram no mapa
+
+- O Chrome remove o modelo se o espaço livre cair abaixo de 10 GB [10]. Isto significa que a
+  capacidade de uma página web pode **desaparecer** por causa de outro programa que encheu o disco.
+  É um modo de falha que não tem análogo na web atual e que ninguém está projetando ainda; não
+  virou efeito por falta de segunda evidência, mas é o detalhe que mais me chamou atenção na
+  pesquisa.
+- A moderação local do Windows é descrita como implementada "de forma similar" à do Azure AI
+  Content Safety [19] — ou seja, a política de nuvem foi portada para dentro do aparelho junto com
+  o modelo. O filtro também viajou.
+- O Apple Foundation Models framework expõe o modelo por macro de tipo Swift, com decodificação
+  restrita a estruturas declaradas. Isso empurra o uso do modelo para **extração e formatação**, e
+  não para conversa — o que é coerente com o cenário "utilidade silenciosa" e sugere que os donos
+  de plataforma já estão projetando para ele.
+
+### Registro do processo
+
+**Entrevista, conduzida antes de qualquer análise.** As seis perguntas mínimas da seção 0 da skill
+foram feitas e respondidas na abertura desta execução; os parâmetros confirmados estão
+reproduzidos na seção 2 (tema, horizonte 2031, público, recorte global com nota sobre o Brasil,
+descartes, postura neutra), acrescidos de três definições que o solicitante forneceu sem que a
+skill as pedisse: profundidade de três ordens, modo de análise a partir de uma inovação e não de
+um setor, e o critério de mudança de ideia. Não houve contradição entre os parâmetros; nenhuma
+pergunta de seguimento foi necessária. Nenhum parâmetro foi adivinhado em silêncio.
+
+**Sequência executada.** Entrevista → confirmação → ancoragem no presente (19 fontes abertas) →
+nove candidatos → classificação em duas dimensões → três raízes → roda de três ordens → sinais e
+wildcards → red team com corte efetivo de três efeitos → auditoria de erros → cenários →
+experimento. A skill foi seguida na ordem em que está escrita.
