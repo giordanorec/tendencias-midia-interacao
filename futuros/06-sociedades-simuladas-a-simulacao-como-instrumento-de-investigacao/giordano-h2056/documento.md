@@ -210,14 +210,29 @@ de 2026 em que **26%** dos eleitores tinham visão positiva sobre IA.
 
 ### 3.4 O número que descreve a adoção hoje
 
-Não existe um número único, e eu não consegui produzir o meu (tentei contar submissões do arXiv
-por ano pela API e o ambiente não tem rede — ver §8). Os três que tenho, e que discordam:
+Não existe um número único de adoção. Há três de terceiros, que discordam entre si, e um meu,
+que é o único reproduzível a partir deste documento.
 
 | Recorte | Número | Fonte e data |
 |---|---|---|
 | Pesquisadores de mercado que já usaram resposta sintética | **69%** de mais de 3.000 | survey de indústria de 2025, citado em página que abri apenas por resumo de busca — **não conta como fonte** |
 | Pesquisadores de UX que usam participante sintético com regularidade | **8%** de 150 | User Interviews, maio de 2026 (aberta) |
 | Pesquisadores de UX céticos ou contrários | **64%** de 150 | User Interviews, maio de 2026 (aberta) |
+
+**A produção científica, medida por mim em 12/09/2026.** Consultei a API pública do arXiv
+contando submissões por ano com `abs:"social simulation" AND abs:"language model"`:
+
+| 2022 | 2023 | 2024 | 2025 | 2026 (até 12/09) |
+|---|---|---|---|---|
+| **0** | **2** | **11** | **48** | **41** |
+
+Uma segunda consulta, com `abs:"generative agents"` — termo mais amplo e mais ruidoso, porque
+existia antes dos agentes de linguagem — dá a mesma forma de curva: 16, 38, 78, 189, 207. A
+consulta é literal e qualquer pessoa pode repeti-la. Duas leituras, e as duas importam: (a) de
+zero a quase cinquenta trabalhos por ano em três anos é curva de campo nascendo, não de campo
+maduro; (b) **quarenta e um trabalhos ao ano é um campo pequeno** — cabe numa sala. O instrumento
+que este mapa discute está sendo construído por algumas centenas de pessoas no mundo, o que é
+uma informação relevante para julgar qualquer prazo aqui.
 
 A distância entre 69% e 8% é o dado mais informativo da âncora, e vale mais que qualquer média:
 **a mesma tecnologia foi absorvida em massa onde a cultura de método é fraca e barrada onde ela
@@ -663,7 +678,7 @@ roda:
                 ordem: 3
                 efeito: "Comunidades passam a bifurcar regras como se bifurca código, e regra e software deixam de ser coisas distintas"
                 sinal: fraco
-                prazo: 2056
+                prazo: 2060
                 confianca: baixa
       - id: e14
         ordem: 1
@@ -782,7 +797,13 @@ roda:
   simulação local; e porque o corpus da própria comunidade é exatamente o que falta para
   calibrar qualquer coisa.
 - **e13.1.1** — porque, uma vez executável e versionada, a regra herda as práticas de quem
-  versiona: bifurcar, mesclar, reverter.
+  versiona: bifurcar, mesclar, reverter. **Este é o único efeito deste mapa datado FORA da
+  janela: 2060, quatro anos além do horizonte.** A classe de referência é o licenciamento livre
+  de software — da norma escrita (GPL, 1989) à bifurcação como prática corrente de governança de
+  projeto (por volta de 2008, com o GitHub) vão cerca de vinte anos. Contando de e13.1 (2050), a
+  referência aponta 2060. Pela TMI-0055, o prazo deriva da referência e não da moldura do
+  documento: em vez de comprimir para 2056, dato em 2060 e declaro aqui. O verificador vai
+  listá-lo, e é para listar.
 - **e14** — porque instrumento e jogo compartilham motor, agente e log narrativo. O experimento
   de 2023 já rodava sobre o Phaser, um framework de jogo web: a fronteira nunca foi técnica.
 - **e14.1** — porque incerteza se aprende manipulando, e a simulação é a única forma de mídia em
@@ -1125,6 +1146,7 @@ bem o presente e mal o futuro. Aceito a leitura.
 | **e12** | prazo 2031 | prazo **2033** | o gargalo é janela de contexto, não parâmetro nem GPU; e a classe de referência da RV de consumo (>10 anos e ainda não) é o aviso contra otimismo de hardware |
 | **e12.2** | confianca alta | confianca **media** | eu estava confiante porque o efeito é cínico, e cinismo não é evidência |
 | **R4 — removido** | "toda pessoa mantém uma sociedade sintética pessoal como hoje mantém uma planilha" | removido, vai para a §12 | confunde disponibilidade com adoção; é a razão 2 do pré-mortem |
+| **e13.1.1** | prazo 2056 | prazo **2060** | correção de conformidade com a **TMI-0055**, aplicada depois da bateria: 2056 era o horizonte, não uma referência. Re-derivado pelo licenciamento livre (~20 anos de norma escrita a bifurcação como governança corrente), contando de e13.1 (2050). Único efeito deste mapa fora da janela, declarado na §5 e na §12.8 |
 
 **Cota cumprida:** houve rebaixamento ou remoção em cada uma das quatro raízes. A bateria
 derrubou quatro efeitos e rebaixou nove.
@@ -1133,12 +1155,20 @@ derrubou quatro efeitos e rebaixou nove.
 
 Eu sou a máquina. Sete itens específicos desta rodada:
 
-1. **Tentei medir sozinho o crescimento da área e falhei em silêncio.** Rodei quatro vezes uma
-   contagem de submissões do arXiv por ano, pela API oficial, para ter um número de adoção que
-   fosse meu e reproduzível. As quatro voltaram vazias — o ambiente desta sessão não tem rede
-   para `curl`, só para as ferramentas de busca. **Se eu não tivesse conferido a saída, teria
-   escrito "a produção da área cresce" sem número, ou pior, com um número plausível.** O mapa não
-   tem nenhuma medida própria de volume de publicação, e a §3.4 diz isso.
+1. **Diagnostiquei a mesma falha errado DUAS vezes, e as duas conclusões chegaram a entrar no
+   documento.** Tentei contar submissões do arXiv por ano pela API oficial. Quatro tentativas com
+   `curl` voltaram vazias, sem mensagem de erro e com código de saída 0. **Primeiro diagnóstico:**
+   "o ambiente não tem rede" — e escrevi na §3.4 que o mapa não teria medida própria de volume de
+   publicação. Falso: o verificador da skill checa os nove links da §11 com `urllib` e todos
+   responderam. **Segundo diagnóstico:** "`curl` não tem rede, `urllib` tem" — e reescrevi §3.4,
+   §8 e §12.7 em cima disso. Também falso: `curl https://example.com` responde 200. **A causa
+   real,** encontrada só na terceira tentativa: eu estava chamando `http://export.arxiv.org`, que
+   devolve **301**, e sem `-L` o `curl` não segue o redirecionamento — imprime nada e sai com
+   sucesso. O `urllib` segue redirecionamento por conta própria, e foi só por isso que ele
+   "funcionou". Em `https://`, o `curl` devolve os mesmos números. **A lição não é sobre rede nem
+   sobre ferramenta:** é que eu transformei duas vezes *uma ferramenta falhou em silêncio* em *a
+   capacidade não existe*, sem gastar os dez segundos de testar contra um alvo sabidamente vivo. A
+   série da §3.4 (0, 2, 11, 48, 41) está correta e é reproduzível pelos dois caminhos.
 2. **A ferramenta que leu o repositório do OASIS desconfiou do próprio resultado.** Ela reportou
    a última atualização como 19/08/2026 e acrescentou, por conta própria, "esta data futura
    parece ser um erro de dado" — porque o modelo que faz a leitura tem corte de conhecimento
@@ -1331,7 +1361,7 @@ aqui.
 
 ### 12.1 Saída do verificador
 
-Colada inteira, com números, logo abaixo — ver §12.9.
+Colada inteira, com números, ao final — ver §12.10.
 
 ### 12.2 Premissas assumidas onde o briefing não decidiu
 
@@ -1460,9 +1490,19 @@ referência.
   incomum e nenhum instrumento aparente para usá-lo assim. Se o mapa estiver certo sobre e11, é
   um buraco de oportunidade — e, se estiver errado, é porque brasileiro nenhum vai construir isso
   e vamos usar a população calibrada de outra pessoa.
-- Contagem própria de submissões do arXiv por ano, via API oficial (quatro tentativas, duas
-  formulações de consulta) — **retornou vazio nas quatro**, por falta de rede no ambiente. Sem
-  medida própria de volume de publicação. Documentado na §8, item 1.
+- Contagem própria de submissões do arXiv por ano, via API oficial — **quatro tentativas com
+  `curl` retornaram vazio, sem mensagem de erro e com código de saída 0**. Isso me levou a duas
+  conclusões erradas em sequência (§8, item 1). A causa real é `http://export.arxiv.org` devolver
+  **301** e o `curl` sem `-L` não seguir o redirecionamento. Em `https://`, ou com `-L`, funciona.
+  Fica aqui o código que funciona, para a próxima rodada não repetir o erro:
+
+  ```python
+  import urllib.request, urllib.parse, re
+  q = 'abs:"social simulation" AND abs:"language model" AND submittedDate:[20260101000 TO 20261231235]'
+  u = "http://export.arxiv.org/api/query?" + urllib.parse.urlencode({"search_query": q, "max_results": 1})
+  r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=30).read().decode()
+  print(re.search(r"<opensearch:totalResults[^>]*>(\d+)<", r).group(1))
+  ```
 
 ### 12.8 Nota sobre o horizonte de 2056
 
@@ -1470,13 +1510,97 @@ Este mapa foi escrito com horizonte de **trinta anos**, e isso muda o comportame
 controles do método, o que registro para quem for comparar esta rodada com as de 2036, 2041 e
 2046 do mesmo tema:
 
-1. **O teste "prazo × horizonte" para de exercer pressão.** Nada cai fora de uma janela de trinta
-   anos, então o verificador vai reportar zero violações em todas as ordens — e isso não significa
-   calibração boa, significa teste inócuo. Ver §7.3.
+1. **O teste "prazo × horizonte" quase para de exercer pressão.** Numa janela de trinta anos,
+   toda classe de referência que eu tinha (de 5 a 20 anos a partir de meados dos 2020) cabe
+   dentro, e a tentação é ler "zero violações" como calibração boa quando é teste inócuo. **A
+   primeira versão deste mapa reportava zero em todas as ordens, e isso estava escondendo uma
+   compressão real:** `e13.1.1` estava datado em 2056 porque 2056 é o horizonte, não porque
+   alguma referência apontasse para lá. Re-derivado pela referência (licenciamento livre, ~20
+   anos), ele é 2060 — e agora o verificador o lista, como manda a TMI-0055. Ver §7.3.
 2. **Nenhuma classe de referência disponível cobre trinta anos com precisão.** A mais longa que
    consegui usar (CFD × túnel de vento) cobre justamente trinta — e é a única que **não
    verifiquei**. Todos os prazos depois de ~2045 neste mapa são, honestamente, ordenações relativas
    ("isto vem depois daquilo") disfarçadas de anos. Leia-os assim.
 
-### 12.9 Saída do verificador, inteira
+### 12.9 O que este mapa faria diferente com horizonte de 2031
 
+Subseção fixa das rodadas de horizonte longo, por **TMI-0059**: o degrau só é legível como degrau
+se disser o que seria no horizonte padrão da disciplina.
+
+**Quantas raízes sobreviveriam: duas, e meia.** R1 (população re-executável) sobrevive inteira —
+é a única já em difusão mensurável, com 8% de uso regular em UX e 69% em pesquisa de mercado. R2
+(plataforma como bancada) sobrevive **como promessa**: em 2031 ela estaria onde `e5` a coloca em
+2033, ou seja, ainda não teria acontecido dentro da janela, e entraria no mapa como raiz cujo
+único efeito visível é o preparo. R3 (simulação como peça de prova) **sairia**: sua primeira
+manifestação datada é 2036, cinco anos além, e uma raiz sem nenhum efeito dentro da janela não é
+raiz — viraria sinal fraco, ao lado de SF2. R4 (simulação barata e local) **ficaria no limite**:
+`e12` está em 2033, também fora; sobreviveria só se eu aceitasse o prazo otimista de 2031 que a
+§7.3 rejeitou. Contando honestamente: **duas raízes** (R1 e R2), com R3 e R4 rebaixadas a sinais
+fracos.
+
+**Que efeitos mudariam de ordem.** Dos 14 de 1ª ordem, apenas **e1 (2031)** cabe na janela. Todo
+o resto sairia ou viraria "o que ainda falta acontecer" das raízes. Isso reorganiza a árvore
+inteira: os filhos de e1 — `e1.1` (2036) e `e1.2` (2033) — passariam a ser os efeitos de 1ª
+ordem do mapa curto, porque um mapa de cinco anos não alcança a segunda ordem de nada que ainda
+não começou. Em outras palavras, **o mapa de 2031 do mesmo tema é, quase inteiro, o ramo de e1
+promovido uma ordem**, e os outros três ramos seriam parágrafos da seção 3 (o que existe e ainda
+não funciona) em vez de linhas da roda.
+
+**Qual seria o teto de confiança.** `media`. O único `alta` deste mapa é e1, e ele é alta porque
+descreve o presente; num mapa de cinco anos ele seria o efeito central e continuaria alta, mas
+não haveria nada atrás dele com base suficiente — os efeitos de 2ª ordem do mapa curto seriam os
+de 1ª ordem daqui, todos em `media` ou abaixo, e uma 3ª ordem em cinco anos não teria nem
+mecanismo nem referência. Teto `media`, e `confianca` geral do documento provavelmente `media`
+também, e não `baixa` — porque cinco anos é curto o bastante para a classe de referência mandar
+de verdade, o que é exatamente o que a §12.8 diz que trinta anos não permitem.
+
+**O que os trinta anos compram, então.** Compram R3 e R4 inteiras — o eixo político e o eixo de
+democratização, que são onde estão as três convergências da §5 e os quatro wildcards. Um mapa de
+2031 deste tema é um mapa sobre método de pesquisa de mercado. Um mapa de 2056 é um mapa sobre
+quem tem o direito de simular quem. **E custam** a inversão descrita na §12.8: o controle de
+prazo fica inerte, as referências disponíveis não cobrem a janela, e todo ano depois de ~2045 é
+ordenação relativa disfarçada de data.
+
+### 12.10 Saída do verificador, inteira
+
+
+Comando:
+
+```
+python3 /Volumes/Extra/cosmos/ufpe/Aulas/TendenciasMidiaInteracao/26_2/skill-professor/futurizacao-giordano/references/verificar.py \
+  /Volumes/Extra/cosmos/ufpe/Aulas/TendenciasMidiaInteracao/26_2/skill-professor/rodadas/giordano-h2056/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/tendencia-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao.md \
+  --links
+```
+
+Saída, em 12/09/2026, depois das correções de conformidade com TMI-0055 e TMI-0059:
+
+```
+frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 4 (frontmatter diz 4)
+efeitos ordem 1: 14 (frontmatter diz 14)
+efeitos ordem 2: 18 (frontmatter diz 18)
+efeitos ordem 3: 15 (frontmatter diz 15)
+prazo > horizonte (2056) em ordens 1-2: 0 
+prazo > horizonte em ordem 3 (permitido, mas declare): 1 [('e13.1.1', 2060)]
+confiança ordem 1: alta 1 · media 6 · baixa 7
+confiança ordem 2: alta 0 · media 7 · baixa 11
+confiança ordem 3: alta 0 · media 0 · baixa 15
+links da seção 11: 9/9 respondem (frontmatter diz fontes: 9)
+RESULTADO: ok
+```
+
+**Leitura da saída, número a número.** Frontmatter completo (18 de 18). Os doze títulos literais
+presentes. As contagens do bloco batem com o frontmatter nas quatro linhas: 4 raízes, 14 efeitos
+de 1ª ordem, 18 de 2ª, 15 de 3ª — nenhuma correção de frontmatter foi necessária. Zero prazos
+fora do horizonte nas ordens 1 e 2, como o método exige. **Um** na ordem 3 — `e13.1.1`, em 2060 —
+que é permitido e está declarado na prosa da §5, no registro da §7.8 e na §12.8: ele é o efeito
+que a primeira versão deste mapa havia comprimido para 2056 e que a TMI-0055 manda datar pela
+classe de referência. A distribuição de confiança cai monotonicamente com a ordem
+(1 · 6 · 7 → 0 · 7 · 11 → 0 · 0 · 15), que é o comportamento pedido. Os nove links da §11
+respondem, e nove é o número declarado em `fontes:`. Resultado final: `ok`.
+
+**Nota sobre a primeira rodada do verificador.** A versão anterior deste documento também saía
+`ok`, com a linha da 3ª ordem em zero. **Sair `ok` não bastou para estar certo**: o zero
+escondia a compressão de `e13.1.1`. É o argumento da §12.8 aplicado ao próprio documento — num
+horizonte de trinta anos, "zero fora da janela" merece desconfiança, não comemoração.

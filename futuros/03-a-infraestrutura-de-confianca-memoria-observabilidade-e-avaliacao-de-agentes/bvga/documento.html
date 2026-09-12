@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A infraestrutura de confiança: memória, observabilidade e avaliação de agentes · futurizacao-bvga (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 3 · futurizacao-bvga (aluno)</p><h1>A infraestrutura de confiança: memória, observabilidade e avaliação de agentes</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/03-a-infraestrutura-de-confianca-memoria-observabilidade-e-avaliacao-de-agentes/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/03-a-infraestrutura-de-confianca-memoria-observabilidade-e-avaliacao-de-agentes/bvga/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/03-a-infraestrutura-de-confianca-memoria-observabilidade-e-avaliacao-de-agentes/bvga/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h3 id="d1-o-traco-de-execucao-como-unidade-de-prova">D1 — O traço de execução como unidade de prova</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><code>candidato</code></td><td>O artefato que se audita, versiona e contesta deixa de ser a saída e passa a ser a árvore completa da execução: cada chamada, cada ferramenta, cada tentativa descartada.</td></tr><tr><td><code>maturidade</code></td><td>emergente</td></tr><tr><td><code>potencial_de_ruptura</code></td><td>alto</td></tr><tr><td><code>o_que_rompe</code></td><td>(1) O contrato de qualidade do software — "passou no teste" deixa de ser suficiente porque o teste mede o produto, e o produto foi fabricado pela máquina que se quer medir. (2) O papel do QA e do revisor humano. (3) A arquitetura de produto: coletar o caminho inteiro muda o que se armazena, o que custa e o que vaza. (4) A governança: o traço é simultaneamente a prova e o dado mais sensível do sistema.</td></tr><tr><td><code>por_que_agora</code></td><td>Os agentes ficaram longos o bastante para que ninguém confira tudo — e benchmarks de resultado são comprovadamente gamáveis (brechas no SWE-bench, <em>reward hacking</em>, PRs aprovados que não seriam integrados). O <code>pass^8 &lt; 25%</code> do τ-bench mostra que uma passada não diz nada sobre o sistema. E já existe uma gramática candidata para descrever o caminho de forma comparável (spans <code>invoke_agent</code>/<code>execute_tool</code>/<code>plan</code>).</td></tr><tr><td><code>o_que_falta</code></td><td>Convenção estável — hoje 100% em "Development". Custo e política de retenção de traço. Tratamento de PII dentro do traço. Um juiz confiável para ler o caminho em escala.</td></tr><tr><td><code>evidencias</code></td><td>Kirgis et al. (2605.08545); τ-bench (2406.12045); semconv GenAI do OpenTelemetry; LangChain 2026 (89% instrumentam, 52,4% avaliam offline).</td></tr><tr><td><code>veredito</code></td><td><strong>Aceita.</strong> Emergente, ruptura alta, "por que agora" concreto, rompimento claro, condição pendente identificada.</td></tr></tbody></table></div>
+<hr>
+<h3 id="d2-a-memoria-persistente-como-acervo-com-titular">D2 — A memória persistente como acervo com titular</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><code>candidato</code></td><td>O que o agente lembra deixa de ser cache de sessão e vira acervo que atravessa projeto, ferramenta, equipe e emprego — acumulando contexto, decisões e erros já cometidos, sem que esteja decidido de quem ele é.</td></tr><tr><td><code>maturidade</code></td><td>emergente</td></tr><tr><td><code>potencial_de_ruptura</code></td><td>alto</td></tr><tr><td><code>o_que_rompe</code></td><td>(1) A fronteira de privacidade: ela deixa de ser o aplicativo e passa a ser a pessoa. (2) A barreira de troca de fornecedor: o lock-in migra da API para o contexto acumulado. (3) A distribuição de poder: o ativo passa a ser o acervo, não o modelo. (4) A noção de sessão como unidade de interação — que é uma premissa de design, não um fato técnico.</td></tr><tr><td><code>por_que_agora</code></td><td>Lembrar virou economia mensurável: 91% menos latência p95 e &gt;90% menos custo de token contra contexto cheio. O contexto é recurso finito com degradação documentada (<em>context rot</em>). E não existe padrão ratificado de portabilidade — o MCP padronizou a ferramenta e deixou a memória de fora do roadmap de 2026.</td></tr><tr><td><code>o_que_falta</code></td><td>Um modelo de dados interoperável. Um regime de consentimento que funcione quando o titular do dado não é quem opera o agente. Defesa contra envenenamento — o MINJA opera só com consultas. Evidência independente de eficácia: os placares de memória hoje são autorreportados.</td></tr><tr><td><code>evidencias</code></td><td>Mem0 (2504.19413); Portable Agent Memory (2605.11032); MINJA (2503.03704); Anthropic sobre contexto finito; New America sobre MCP e poder; contagem de estrelas de Mem0/Letta/Zep.</td></tr><tr><td><code>veredito</code></td><td><strong>Aceita</strong>, com a ressalva de que a evidência de desempenho é majoritariamente de parte interessada e está triangulada apenas parcialmente.</td></tr></tbody></table></div>
+<hr>
+<h3 id="d3-a-metrologia-da-avaliacao-nao-deterministica">D3 — A metrologia da avaliação não determinística</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><code>candidato</code></td><td>Quando o sistema avaliado é não determinístico e o avaliador é ele mesmo um modelo, a avaliação deixa de ser uma etapa de engenharia e passa a exigir metrologia: variância declarada, número de execuções, calibração do juiz e alguém que responda por ele.</td></tr><tr><td><code>maturidade</code></td><td>emergente</td></tr><tr><td><code>potencial_de_ruptura</code></td><td>alto</td></tr><tr><td><code>o_que_rompe</code></td><td>(1) O papel de profissionais e intermediários — surge um avaliador separado de quem constrói. (2) A cadeia de valor da certificação e da compra: o que se vende passa a incluir a prova. (3) As normas de governança: log deixa de ser boa prática e vira obrigação documental. (4) Quem detém a régua detém o mercado.</td></tr><tr><td><code>por_que_agora</code></td><td>O juiz-máquina está documentadamente instável — inconsistência em nível de cara-ou-coroa por efeito de posição, preferência por si mesmo, variância que inverte rankings. Ao mesmo tempo, a exigência legal de registro já está em vigor no Judiciário brasileiro (CNJ art. 13, V) e escrita, ainda que adiada, no art. 12 do AI Act. Não há padrão técnico finalizado para esse log.</td></tr><tr><td><code>o_que_falta</code></td><td>Padrões de log de IA ainda em rascunho. Conjuntos de referência humanos abertos. Um modelo econômico: avaliar bem custa execuções repetidas, e repetição é dinheiro. Uma resposta institucional para "quem paga o auditor".</td></tr><tr><td><code>evidencias</code></td><td>Yagubyan (2606.13685); Bjarnason et al. (2602.07150); τ-bench <code>pass^k</code>; CNJ 615/2025 art. 4º XVII e art. 13; AI Act art. 12; LangChain 2026 (só 24% rodam offline e online).</td></tr><tr><td><code>veredito</code></td><td><strong>Aceita.</strong> É a raiz de confiança mais baixa das três, porque depende de um motor regulatório que acaba de perder dois anos na Europa.</td></tr></tbody></table></div>
+<hr>
+<h3 id="candidatos-recusados-por-serem-maduros-ou-por-nao-romperem">Candidatos recusados por serem maduros ou por não romperem</h3>
+<ul><li><strong>Tracing de chamada de LLM como produto</strong> — maduro (89% de instrumentação; múltiplos fornecedores). Entra como infraestrutura de D1.</li><li><strong>Replay determinístico</strong> — evidência forte e recente (<code>F = 1,0</code>), mas rebaixado a <strong>tecnologia habilitadora</strong> de D1 e D3: ele torna o traço reexecutável, não muda por si só o que conta como prova.</li><li><strong>Memória de perfil em produto de massa</strong> — descartada pela régua da disciplina.</li><li><strong>RAG / busca sobre documentos</strong> — maduro; melhora o que existe, não rompe.</li><li><strong>Redução de contexto / <em>context engineering</strong></em> — habilitadora, dentro de D2.</li><li><strong>Avaliação com dinheiro real</strong> — rebaixada a <strong>sinal fraco</strong> (seção 6): é um experimento, não uma capacidade instalada.</li></ul>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — O traço de execução como unidade de prova&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;O objeto que se audita deixa de ser a saída do agente e passa a ser a árvore completa da execução, incluindo as tentativas descartadas.&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;O traço vira dado de primeira classe do produto, com orçamento próprio de armazenamento, política de retenção, amostragem e tratamento de dados pessoais.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Exportar o próprio traço vira requisito de compra e cláusula contratual, e ferramenta que não exporta é eliminada na triagem.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;Publicar um número de benchmark sem o log correspondente passa a ser tratado como evidência de segunda classe.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Forma-se uma prática de contestação por terceiros, que reabrem o traço alheio para derrubar a alegação de desempenho.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;O ofício de garantir qualidade se desloca de escrever asserção determinística para desenhar rubrica, cenário e plano de amostragem.&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Aparece um cargo dedicado de engenharia de avaliação, com carreira própria e separado de quem constrói o agente.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;A separação entre quem constrói e quem avalia deixa de ser escolha de time e vira exigência interna de conformidade.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;Produtos de mídia e interação passam a expor parte do caminho ao usuário final, e não apenas o resultado.&quot;
+        sinal: fraco
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;A justificativa navegável vira elemento de design, com problemas próprios de ruído, sobrecarga cognitiva e hierarquia.&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Consolida-se um padrão de justificativa que ninguém lê: a transparência vira ritual de interface e perde função de controle.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;D2 — A memória persistente como acervo com titular&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;A memória do agente passa a ser tratada como acervo com titularidade disputada, e não como cache descartável de sessão.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;A fronteira de privacidade deixa de ser o aplicativo e passa a ser a pessoa: o que o agente sabe atravessa projeto, equipe e empregador.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Desligamento e troca de emprego passam a incluir expurgo de memória, com disputa sobre o que é conhecimento da empresa e o que é da pessoa.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;Trocar de fornecedor passa a custar o acervo e não a integração: o aprisionamento migra da interface de programação para o contexto acumulado.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;Portabilidade de memória entra na pauta regulatória como entrou a portabilidade de dados, e um formato de exportação é imposto de fora do mercado.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;Lembrar deixa de ser conforto e vira economia: memória passa a ser a principal técnica de controle do custo de contexto.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;A memória vira superfície de ataque de primeira ordem, porque envenenar o acervo rende mais e dura mais do que burlar um prompt.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Surge uma prática de higiene de memória, com proveniência assinada, quarentena e revisão periódica do que o agente acredita saber.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: &quot;Sistemas antigos com acervo grande passam a superar sistemas novos tecnicamente melhores, por vantagem de contexto e não de modelo.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: &quot;Acervo de contexto passa a ser comprado e vendido como se compra base de usuários, e aparece um mercado cinzento de memória.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: &quot;D3 — A metrologia da avaliação não determinística&quot;
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: &quot;A avaliação passa a reportar variância, número de execuções e intervalo em vez de um número único de desempenho.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;O juiz-máquina vira ele mesmo objeto de calibração periódica contra um painel humano de referência.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Quem detém o painel humano de referência detém a régua do mercado, e os conjuntos-ouro se fecham para preservar esse poder.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;O custo de avaliar cresce a ponto de virar linha de orçamento própria, e as equipes passam a avaliar por amostragem em vez de integralmente.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;Amostragem mal desenhada cria pontos cegos sistemáticos: o que não é amostrado deixa de existir para a organização.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: &quot;A exigência legal de registro converte observabilidade de prática de engenharia em obrigação documental com prazo e responsável.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Auditoria independente de sistema agêntico se organiza como serviço, com credencial, metodologia publicada e responsabilidade contratual.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;Reaparece o problema estrutural da auditoria contábil: o auditor é pago por quem ele audita, e a independência vira questão regulatória.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa</code></pre>
+<p><strong>O que a estrutura não captura bem.</strong> Três coisas.</p>
+<p>A primeira é a <strong>realimentação</strong>. A roda é uma árvore, e o fenômeno não é. O efeito <code>e5.2</code> (acervo antigo vence sistema novo) reforça diretamente <code>e4.2</code> (aprisionamento pelo contexto), que está em outro ramo da mesma disrupção; e <code>e6.2</code> (avaliar por amostragem) enfraquece <code>e1</code> (auditar o caminho inteiro) na raiz vizinha. A árvore obriga a escolher um pai e perde o ciclo.</p>
+<p>A segunda é a <strong>interação entre raízes</strong>. D1 e D3 são quase o mesmo movimento visto de dois lados — coletar a prova e julgá-la — e D2 é o que torna a prova necessária, porque o que o agente lembra é o que ninguém mais consegue inspecionar. Separá-las foi decisão metodológica para permitir que uma falhe sem derrubar as outras, não uma afirmação de que são independentes.</p>
+<p>A terceira é a <strong>distribuição desigual</strong>. Quase todo efeito aqui vale de modos muito diferentes para um time de produto num fornecedor de plataforma, para um tribunal brasileiro sob a Resolução 615 e para uma agência de mídia de cinco pessoas. O YAML não tem campo para "para quem", e isso é uma perda real: o mesmo <code>e4.2</code> é catástrofe para quem compra e estratégia deliberada para quem vende.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<ol><li><strong>Avaliação com dinheiro real.</strong> O Alpha Arena da Nof1 deu 10 mil dólares reais a cada modelo de fronteira, com o mesmo prompt, e pediu plano de operação com alvo, <em>stop</em> e condição de invalidação — realimentando o próprio plano nas chamadas seguintes. O conjunto perdeu dinheiro. É pequeno, localizado e ambíguo, e por isso é sinal e não raiz: mas é a primeira avaliação em que errar dói.</li></ol>
+<ol><li><strong>Uma ferramenta de avaliação de Estado, minúscula.</strong> O Inspect AI, do instituto britânico de segurança de IA, tem 2.756 estrelas — ordens de grandeza abaixo do Mem0 ou do promptfoo. É exatamente o perfil de sinal fraco: pouca ressonância, origem institucional incomum, e é ele que o artigo sobre análise de logs indica como o tipo de arcabouço que captura registro detalhado de execução.</li></ol>
+<ol><li><strong>A ausência como sinal.</strong> O roadmap 2026 do MCP não menciona memória, embora o <em>release candidate</em> de 28/07/2026 formalize um arcabouço de extensões que seria o lugar natural dela. Uma lacuna deliberada num protocolo dominante diz mais sobre disputa de valor do que um anúncio.</li></ol>
+<ol><li><strong>Padrões de log de IA em rascunho.</strong> <code>prEN 18229-1</code> (registro e supervisão humana) e <code>ISO/IEC DIS 24970</code> (registro de sistemas de IA) ainda não são normas finalizadas. Quando forem, o art. 12 do AI Act ganha conteúdo técnico — e é aí que a obrigação vira especificação de produto.</li></ol>
+<ol><li><strong>Agentes de código emitindo telemetria nativa.</strong> Copilot no VS Code, Codex e Claude Code (em beta) já emitem traços no vocabulário GenAI do OpenTelemetry. A ferramenta que o desenvolvedor usa todo dia está instrumentando a si mesma — é assim que uma convenção deixa de ser proposta.</li></ol>
+<h3 id="wildcards">Wildcards</h3>
+<p><strong>W1 — O Brasil vira o campo de prova antes da Europa.</strong> O AI Act adiou alto risco para dez/2027 e ago/2028. Se o PL 2338/2023 for aprovado na Câmara com dispositivo de rastreabilidade de decisão automatizada e entrar em vigor antes, o país com a menor indústria de ferramentas de observabilidade passa a ser o primeiro mercado grande a exigir trilha de auditoria em larga escala — e o Judiciário, já sob a Resolução 615, vira o laboratório. <strong>Efeito no mapa:</strong> <code>e7</code> e <code>e7.1</code> antecipam de 2028/2030 para 2027/2028, e o eixo de desenvolvimento dessas ferramentas deixa de ser puramente americano. Probabilidade baixa, impacto alto.</p>
+<p><strong>W2 — O primeiro grande vazamento de acervo de memória corporativa.</strong> Não de mensagens, mas de <em>conclusões</em>: o que o agente inferiu e registrou sobre pessoas, projetos e decisões, atravessando equipes. <strong>Efeito no mapa:</strong> inverte D2. A memória vira passivo, não ativo; "esquecer por padrão" vira funcionalidade de venda; <code>e5.2</code> e <code>e4.2</code> se enfraquecem porque ninguém quer acumular; e <code>e5.1.1</code> (higiene de memória) antecipa e vira obrigatório. O incidente "Echoleak", em que instruções escondidas em e-mails levaram agentes a vazar conversa privada, é o precedente em escala menor.</p>
+<p><strong>W3 — O padrão de portabilidade sai de um incumbente e é adotado.</strong> O aprisionamento se resolveria por captura, não por abertura: um fornecedor publica o formato, ele vira de fato o padrão, e a interoperabilidade passa a existir sob a governança de quem mais lucra com ela. <strong>Efeito no mapa:</strong> <code>e4.2.1</code> acontece sem regulação, e <code>e6.1.1</code> piora — quem define o formato da memória também define o que é memorizável.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Qual efeito é apenas extrapolação linear do presente?</strong> <code>e1.1</code> — "o traço vira dado de primeira classe, com retenção, amostragem e tratamento de PII". Isso é a história do log de aplicação repetida com outro nome. Não há mecanismo novo ali: é a mesma pressão de custo e de conformidade que produziu retenção de log em 2010. Mantive porque é o degrau causal que leva a <code>e1.1.1</code>, mas a confiança deveria ser lida como "provável e pouco informativo", não como descoberta.</p>
+<p><strong>2. Qual efeito assume adoção rápida demais?</strong> <code>e2.1</code> — o cargo dedicado de engenharia de avaliação até 2030. O precedente histórico é o SRE: a prática foi formulada no Google em 2003 e só virou cargo comum fora dele por volta de 2016–2018 — cerca de quinze anos. O caso do cientista de dados é parecido. Rebaixei de 2029 para 2030 e de confiança alta para média. Mesmo assim, pode ser otimista: o dado disponível mostra que <strong>só 24% das equipes rodam avaliação offline e online</strong>, o que não é população suficiente para sustentar uma carreira.</p>
+<p><strong>3. Qual disrupção-raiz pode simplesmente não acontecer?</strong> <strong>D2.</strong> Se as janelas de contexto continuarem crescendo e barateando, "memória" deixa de ser uma camada com dono e vira detalhe de implementação dentro do fornecedor do modelo. O contrassinal é direto: a Anthropic descreve compactação e limpeza de resultado de ferramenta como funcionalidades <em>da plataforma</em> — quanto melhor isso ficar, menos razão existe para uma camada externa de memória com protocolo próprio. Nesse mundo, o acervo nunca se destaca o bastante para ter titular.</p>
+<p><strong>4. O que quebra na roda se essa disrupção falhar?</strong> Cai o ramo inteiro de <code>e4</code> — a fronteira de privacidade na pessoa (<code>e4.1</code>), o expurgo de memória no desligamento (<code>e4.1.1</code>), o aprisionamento pelo contexto (<code>e4.2</code>) e a imposição regulatória de portabilidade (<code>e4.2.1</code>). Sobrevive <code>e5</code>, porque a economia de contexto continua valendo mesmo que a memória seja interna à plataforma — mas <code>e5.2</code> (acervo antigo vence sistema novo) perde o mecanismo, já que a vantagem passaria a ser do fornecedor e não do cliente. Perde-se, com isso, a pergunta de terceira ordem mais interessante do tema: de quem é a memória.</p>
+<p><strong>5. Que contrassinais existem?</strong></p>
+<ul><li><strong>A demanda pode não existir.</strong> 89% instrumentam, mas só 37,3% avaliam em produção. Coletar é barato e passivo; julgar é caro e gera responsabilidade. A hipótese nula é que o traço continue sendo coletado e ignorado por mais cinco anos.</li><li><strong>A convenção pode nunca estabilizar.</strong> O <code>gen_ai.*</code> está inteiramente em "Development" desde que existe. Convenção semântica que não estabiliza é convenção que não força comparabilidade — e sem comparabilidade, <code>e1.2</code> e <code>e1.2.1</code> não têm base.</li><li><strong>O motor regulatório perdeu força.</strong> O adiamento para dez/2027 e ago/2028 tira dois anos do mecanismo que sustenta <code>e7</code>.</li><li><strong>O campo de memória pode estar medindo mal a si mesmo.</strong> O LOCOMO tem 81 pares de pergunta-resposta, e os placares divulgados são autorreportados com modelos e configurações diferentes, não comparáveis entre si. Isso não é evidência de disrupção: é evidência de que ainda não há régua.</li></ul>
+<p><strong>6. Que barreiras foram subestimadas?</strong> Custo, em três formas. Determinismo bit a bit custa cerca de 61,5% de <em>throughput</em>. Armazenar o traço integral de agentes que rodam por horas é caro por construção. E avaliar bem exige execuções repetidas — o <code>pass^k</code> é literalmente pagar <em>k</em> vezes pela mesma tarefa. Há ainda uma barreira que quase nunca é dita: <strong>o traço é o dado mais sensível do sistema</strong>, porque contém tudo o que o agente viu, inclusive o que não deveria ter visto. A organização que instrumenta bem cria a prova contra si mesma. Isso é um desincentivo cultural e jurídico real, não um detalhe.</p>
+<p><strong>7. Que ator teria incentivo para bloquear, capturar ou redirecionar a mudança?</strong> Os fornecedores de modelo, e o argumento não é meu: "contexto, e não desempenho do modelo, é a verdadeira fonte de poder monopolista". Memória e traço dentro da plataforma são fosso; fora dela, são commodity. Os fornecedores de observabilidade têm o incentivo simétrico de manter esquema proprietário. E o comprador — que seria o beneficiário — tem o incentivo silencioso de não produzir registro auditável do que seu sistema fez. Os três incentivos apontam para o mesmo lugar: coletar muito, padronizar pouco, julgar menos ainda.</p>
+<p><strong>8. Que viés do pesquisador e do modelo entrou na seleção?</strong> Três, e um deles é constitutivo. (a) <strong>Viés de auto-interesse:</strong> este mapa foi produzido por um agente, sobre a infraestrutura que serve para fiscalizar agentes. Há um empurrão estrutural para concluir que essa infraestrutura é inevitável e valiosa. (b) <strong>Viés de fonte interessada:</strong> a evidência de desempenho de memória vem majoritariamente de fornecedores medindo a si próprios; sinalizei onde, mas não consegui triangular com fonte independente. (c) <strong>Viés de disponibilidade:</strong> o arXiv publica muitíssimo sobre avaliação e memória de agente, e volume de publicação não é evidência de adoção — é evidência de que o problema é interessante para pesquisadores.</p>
+<p><strong>Cortes efetivamente aplicados.</strong> Foram removidos dois efeitos que não sobreviveram ao teste causal: "agentes passam a recusar tarefa quando o traço está desligado" (sem mecanismo — nada obriga o modelo a isso, e o incentivo do fornecedor é o oposto) e "a profissão de avaliador vira regulamentada por conselho até 2031" (assume velocidade regulatória sem precedente; a auditoria contábil levou décadas). <code>e3</code> foi rebaixado de sinal médio para fraco, porque a evidência de que produtos de consumo vão expor o caminho é anedótica. E <code>e2.1</code> foi adiado e rebaixado, como descrito em (2).</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Erros efetivamente detectados nesta execução — nenhum inventado para parecer crítico.</p>
+<p><strong>1. Placar de memória tratado como evidência de maturidade.</strong> A primeira varredura devolveu uma tabela de desempenho no LOCOMO (Mem0 92,5%, Zep 94,7%, ZeroMemory 96,1%) e eu ia usá-la como demonstração de que a memória de longo prazo já funciona. Ao ler com cuidado, a própria fonte adverte que os números são autorreportados, com modelos e configurações diferentes, <strong>não comparáveis entre si</strong> — e que o benchmark tem 81 pares de pergunta-resposta. <strong>Correção:</strong> os números saíram do corpo do mapa. Passei a usar o fato como contrassinal na seção 7: um campo cujos placares não são comparáveis ainda não tem régua.</p>
+<p><strong>2. Padronização confundida com padrão.</strong> Num rascunho da seção 3, escrevi que o OpenTelemetry "já padronizou" o traço de agente. A fonte primária mostra cada span e cada atributo marcado como <em>Development</em> — nada estável. <strong>Correção:</strong> a existência da convenção virou evidência de "por que agora" de D1, e a ausência de estabilidade virou o "o que falta" da mesma ficha. É uma diferença que muda o veredito: com padrão estável, D1 estaria perto de madura.</p>
+<p><strong>3. Fonte primária inacessível, declarada como tal.</strong> Duas tentativas falharam: <code>nof1.ai</code> devolveu HTTP 429 atrás de um <em>checkpoint</em> de segurança, em duas tentativas e também por linha de comando. O PDF da Resolução CNJ 615/2025 devolveu 403 pela ferramenta de fetch — foi obtido por download direto e lido na íntegra, e as citações de artigos vêm desse texto. Já o Alpha Arena <strong>não foi lido em primeira mão</strong>: o sinal fraco da seção 6 se apoia em fonte secundária especializada e está assim declarado na seção 11.</p>
+<p><strong>4. Números oferecidos e recusados.</strong> A busca ofereceu "entre as primeiras 350 organizações do mundo com ISO/IEC 42001" como evidência de que a auditoria de IA está se profissionalizando. Não abri fonte primária que sustentasse a contagem, e por isso o número <strong>não entra no mapa</strong> — a seção 6 e o efeito <code>e7.1</code> ficam sem ele. Registro aqui porque a tentação de usar era real e o critério da skill é explícito.</p>
+<p><strong>5. O que não encontrei.</strong> Não localizei nenhuma fonte primária, lida, que medisse <strong>adoção de memória persistente entre sessões em produção</strong> — o equivalente ao "89% instrumentam observabilidade" da LangChain, mas para memória. A pesquisa da LangChain não traz dado sobre memória. Isso é uma lacuna do mapa, não um detalhe: D2 está apoiada em capacidade demonstrada e economia medida, não em adoção medida.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-coletado-e-nao-lido">Provável — "Coletado e não lido"</h3>
+<p>Em 2031 praticamente todo sistema agêntico em produção emite traço. A convenção GenAI do OpenTelemetry finalmente estabilizou partes do vocabulário — chamada de modelo e execução de ferramenta — e deixou <code>plan</code> e as operações de memória em desenvolvimento permanente, porque é justamente ali que os fornecedores não querem comparabilidade. O resultado é um mundo em que o caminho está gravado e quase ninguém o lê: a proporção de equipes que avalia em produção subiu de 37% para pouco mais da metade, e a amostragem virou norma por razão de custo, com os pontos cegos previstos em <code>e6.2.1</code>.</p>
+<p>A memória ficou onde o cliente não decide: dentro das plataformas de modelo, entregue como funcionalidade e não como camada. Existem exportadores, eles produzem arquivos, e os arquivos não reconstituem o que o sistema sabia — a portabilidade continua nominal. Trocar de fornecedor custa o acervo, e todo mundo sabe disso e ninguém chama de aprisionamento.</p>
+<p>Quem projeta mídia e interação convive com uma assimetria desconfortável: tem um botão de "ver o raciocínio" na interface porque virou expectativa de mercado, e sabe, pela telemetria da própria interface, que quase ninguém clica.</p>
+<h3 id="desejavel-a-prova-acompanha-a-alegacao">Desejável — "A prova acompanha a alegação"</h3>
+<p>O mesmo traço, mas com três condições que precisaram ser construídas, e nenhuma delas é tecnológica.</p>
+<p>A primeira: <strong>um conjunto de referência humano aberto</strong>, mantido por instituição sem participação no mercado que ele arbitra, contra o qual os juízes-máquina são calibrados periodicamente. Sem isso, <code>e6.1</code> acontece e <code>e6.1.1</code> também — a régua se fecha. Aqui ela não fechou porque alguém pagou para mantê-la aberta antes de ela valer dinheiro.</p>
+<p>A segunda: <strong>portabilidade de memória com proveniência verificável</strong>, no espírito do protocolo PAM, adotada como requisito de compra pública antes de virar lei. Compra pública moveu o mercado em vez de esperar a norma — e foi esse o caminho, não a regulação, porque a regulação chegou tarde.</p>
+<p>A terceira, e a mais difícil: <strong>a cultura de publicar o log junto do número</strong>. Em 2031, alegação de desempenho sem traço reexecutável tem o mesmo estatuto que artigo sem dado: publicável, não confiável. Isso não veio de norma; veio de contestação repetida (<code>e1.2.1</code>) até o custo reputacional de não publicar superar o de publicar.</p>
+<p>O ganho para quem projeta interação é concreto: dá para desenhar justificativa com hierarquia honesta, porque existe uma medida de quanto da justificativa é realmente verificável.</p>
+<h3 id="indesejavel-o-acervo-e-a-regua-nas-mesmas-maos">Indesejável — "O acervo e a régua nas mesmas mãos"</h3>
+<p>Em 2031, memória e avaliação convergiram para os mesmos três ou quatro atores. O contexto acumulado ficou dentro das plataformas, a régua de qualidade também — porque quem tem o painel humano de referência tem o juiz, e quem tem o juiz define o que é bom. A auditoria independente existe, é paga por quem ela audita, e o problema estrutural previsto em <code>e7.1.1</code> se instalou sem crise: ninguém precisou de escândalo, bastou a economia.</p>
+<p>O golpe que fecha o cenário vem por onde ninguém olhava: envenenamento de memória em escala. Como o ataque não exige privilégio — basta conversar com o agente —, acervos corporativos acumularam, ao longo de anos, crenças plantadas que ninguém consegue datar, porque o traço que permitiria datá-las foi descartado por política de retenção de 90 dias, escolhida por custo. A organização sabe o que o agente acredita e não sabe por quê.</p>
+<p><strong>O sinal precoce que teria antecipado isso</strong> é de 2026 e estava à vista: a distância entre 89% de instrumentação e 37,3% de avaliação em produção. Coletar sem julgar não é um estágio intermediário rumo à auditoria — é um equilíbrio estável, e confortável para quem vende. Quem quisesse ter visto, teria visto ali.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="o-caminho-na-tela">"O caminho na tela"</h3>
+<p><strong>O que é.</strong> Um mesmo agente de produção — um assistente que monta uma pauta ou um roteiro a partir de fontes que ele mesmo busca e lê — exposto em duas interfaces. Na <strong>A</strong>, apenas o resultado. Na <strong>B</strong>, o resultado mais o traço navegável: cada chamada de ferramenta, cada fonte aberta, cada caminho tentado e descartado, instrumentado no vocabulário GenAI do OpenTelemetry (<code>invoke_agent</code>, <code>execute_tool</code>, <code>plan</code>) e com replay do traço disponível para quem quiser reexecutar um passo.</p>
+<p><strong>Pergunta de futuro que testa.</strong> Mostrar o caminho melhora a <strong>calibração</strong> da confiança — isto é, faz a pessoa aceitar o que está certo <em>e</em> rejeitar o que está errado — ou apenas aumenta a aceitação de tudo, incluindo o errado? É a pergunta que decide se o efeito <code>e3.1</code> é design de controle ou teatro de transparência (<code>e3.1.1</code>).</p>
+<p><strong>Tecnologia emergente usada.</strong> As convenções semânticas GenAI (emergentes: tudo em <em>Development</em>) e o replay determinístico de execução agêntica.</p>
+<p><strong>Por que uma solução madura não responde à mesma pergunta.</strong> Log de aplicação registra chamadas que aconteceram; não registra a tentativa descartada nem o plano — e é exatamente a tentativa descartada que carrega a informação sobre <em>por que</em> o resultado está como está. Teste unitário não serve porque a saída é não determinística: a mesma pergunta produz duas respostas diferentes, ambas aceitáveis ou ambas erradas por motivos distintos. E um painel de métricas de produto responde "quantos aceitaram", não "quantos aceitaram o que deveriam ter rejeitado".</p>
+<p><strong>O que os participantes farão.</strong> 40 pessoas que projetam mídia e interação, divididas em dois grupos, 20 tarefas cada. Em 10 das 20 tarefas, um erro é plantado — <strong>plausível e verificável</strong>: uma fonte que não diz o que o resumo afirma, um número trocado, uma atribuição de autoria errada. Para cada saída, o participante decide aceitar ou rejeitar e declara sua confiança de 0 a 100. A interface B registra, por telemetria própria, quanto do traço foi de fato aberto e por quanto tempo.</p>
+<p><strong>Métrica e observação.</strong> Três medidas, nessa ordem de importância:</p>
+<ol><li><strong>Discriminação (d′)</strong> entre saídas corretas e erradas, comparando A e B. É a medida que separa confiança útil de confiança genérica.</li><li><strong>Calibração (escore de Brier)</strong> entre a confiança declarada e o acerto.</li><li><strong>Uso real do traço</strong> — fração de participantes de B que abriram algum nó, e correlação entre profundidade de inspeção e discriminação.</li></ol>
+<p>Como controle de variância, cada tarefa roda três vezes no agente e as três saídas entram no conjunto: sem isso, se estaria medindo uma amostra de um sistema estocástico como se fosse fixa — o erro que o τ-bench e o trabalho sobre aleatoriedade em avaliações agênticas documentam.</p>
+<p><strong>O que me faria mudar de ideia.</strong> Se B aumentar a aceitação também nos casos com erro plantado — confiança sobe, d′ não muda ou piora —, a camada de justificativa é teatro. Nesse caso <code>e3.1</code> deve ser cortado da roda e <code>e3.1.1</code> promovido a efeito de segunda ordem, e a premissa geral de que "ver o caminho gera confiança legítima" cai junto com boa parte da utilidade de D1 para produto voltado ao usuário final. O contrário também é falseável: se a discriminação melhorar <strong>apenas</strong> entre quem abriu o traço de fato, e esse grupo for pequeno, então o efeito existe mas é elitista, e o desenho de interface — não a instrumentação — vira o gargalo.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li><strong>OpenTelemetry — GenAI agent and framework spans.</strong> <a href="https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md">https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md</a> — Sustenta que existe um vocabulário comum candidato para o traço de agente (<code>create_agent</code>, <code>invoke_agent</code>, <code>invoke_workflow</code>, <code>plan</code>, <code>execute_tool</code>) e que <strong>todo ele está marcado como "Development"</strong>, sem atributo estável. <em>Confiabilidade alta: fonte primária, o próprio repositório da especificação.</em></li></ol>
+<ol><li><strong>Yao, Heineman, Mao et al. — τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains.</strong> arXiv:2406.12045, 17/06/2024. <a href="https://arxiv.org/abs/2406.12045">https://arxiv.org/abs/2406.12045</a> — Sustenta a métrica <code>pass^k</code> e os números de inconsistência (agentes de fronteira abaixo de 50% no <code>pass^1</code> e abaixo de 25% no <code>pass^8</code> em varejo). <em>Confiabilidade alta: artigo primário, amplamente replicado como benchmark de referência.</em></li></ol>
+<ol><li><strong>Kirgis, Kapoor, Rabanser, Nadgir, Ududec, Dubois, Allaire, Stosz, Hobbhahn, Steinhardt, Narayanan — Log analysis is necessary for credible evaluation of AI agents.</strong> arXiv:2605.08545. <a href="https://arxiv.org/pdf/2605.08545">https://arxiv.org/pdf/2605.08545</a> — Sustenta o núcleo de D1: avaliação baseada só em resultado é evidência insuficiente; há brechas identificáveis no SWE-bench e <em>reward hacking</em> em modelos de fronteira. <em>Confiabilidade alta: artigo primário com autoria de grupos independentes (Princeton, AISI, Apollo, METR).</em></li></ol>
+<ol><li><strong>Bjarnason, Silva, Monperrus — On Randomness in Agentic Evals.</strong> arXiv:2602.07150v3, 26/03/2026. <a href="https://arxiv.org/pdf/2602.07150">https://arxiv.org/pdf/2602.07150</a> — Sustenta que a variância entre execuções idênticas é grande o bastante para inverter rankings, e que execução única não representa desempenho de forma confiável. <em>Confiabilidade alta: artigo primário com análise estatística explícita.</em></li></ol>
+<ol><li><strong>Yagubyan — The Coin Flip Judge? Reliability and Bias in LLM-as-a-Judge Evaluation.</strong> arXiv:2606.13685. <a href="https://arxiv.org/pdf/2606.13685">https://arxiv.org/pdf/2606.13685</a> — Sustenta a instabilidade do juiz-máquina: variância entre execuções idênticas, viés de posição em nível de cara-ou-coroa, preferência por saídas de modelos semelhantes. <em>Confiabilidade média-alta: artigo primário, autoria única, resultados convergentes com a literatura mais ampla sobre viés de juiz.</em></li></ol>
+<ol><li><strong>Mudasiru — Deterministic Replay for AI Agent Systems.</strong> arXiv:2607.16200, 30/04/2026. <a href="https://arxiv.org/abs/2607.16200">https://arxiv.org/abs/2607.16200</a> — Sustenta a viabilidade técnica do replay determinístico (<code>agrepl</code>): fidelidade F = 1,0 em 250 instâncias, redução de 98,3% na latência mediana por passo, binário Go sob licença MIT. <em>Confiabilidade média-alta: artigo primário com implementação aberta; ainda sem replicação independente.</em></li></ol>
+<ol><li><strong>Dong, Xu, Wang et al. — Memory Injection Attacks on LLM Agents via Query-Only Interaction (MINJA).</strong> arXiv:2503.03704, v1 05/03/2025, v5 12/02/2026. <a href="https://arxiv.org/abs/2503.03704">https://arxiv.org/abs/2503.03704</a> — Sustenta que memória persistente é superfície de ataque acessível a qualquer usuário, sem privilégio elevado, apenas por consultas e observação de saída. <em>Confiabilidade alta para o modelo de ameaça; os percentuais de sucesso citados em fontes secundárias não constam do resumo lido e por isso não foram usados.</em></li></ol>
+<ol><li><strong>Chhikara, Khant, Aryan et al. — Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory.</strong> arXiv:2504.19413, 28/04/2025. <a href="https://arxiv.org/abs/2504.19413">https://arxiv.org/abs/2504.19413</a> — Sustenta a economia de lembrar: 91% de redução de latência p95 e mais de 90% de economia de token contra contexto completo. <em>Confiabilidade média: é artigo dos próprios autores do produto; o ganho de custo é plausível e mecanicamente explicável, mas a comparação de qualidade é autoavaliação.</em></li></ol>
+<ol><li><strong>Ravindran (Microsoft) — Portable Agent Memory: A Protocol for Provenance-Verified Memory Transfer Across Heterogeneous LLM Agents.</strong> arXiv:2605.11032, maio/2026. <a href="https://arxiv.org/html/2605.11032v1">https://arxiv.org/html/2605.11032v1</a> — Sustenta os seis gargalos de memória (aprisionamento, amnésia de sessão, ausência de verificação de integridade, controle de acesso grosseiro, vulnerabilidade a injeção, incompatibilidade entre modelos) e que nenhum protocolo existente cobre portabilidade com integridade criptográfica. <em>Confiabilidade média: primária para a proposta; os números do piloto são do próprio autor e a amostra não é descrita como grande.</em></li></ol>
+<ol><li><strong>Anthropic — Effective context engineering for AI agents.</strong> <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a> — Sustenta o contexto como recurso finito, o fenômeno de <em>context rot</em> e as técnicas de compactação e anotação estruturada fora da janela. <em>Confiabilidade média: fonte corporativa interessada; a afirmação sobre degradação com o comprimento do contexto é convergente com literatura independente, mas a fonte é parte no assunto.</em></li></ol>
+<ol><li><strong>LangChain — State of Agent Engineering (2026).</strong> <a href="https://www.langchain.com/state-of-agent-engineering">https://www.langchain.com/state-of-agent-engineering</a> — Sustenta os números de adoção: 1.340 respostas entre 18/11 e 02/12/2025; 57% com agentes em produção; 89% com observabilidade instrumentada (94% entre quem já está em produção); 52,4% com avaliação offline; 37,3% online; 24% com as duas; qualidade como principal barreira (32%), latência em segundo (20%). <em>Confiabilidade média: pesquisa de fornecedor, com amostra autosselecionada e enviesada para o ecossistema da própria empresa — mas com metodologia declarada e tamanho de amostra razoável. Os percentuais devem ser lidos como ordem de grandeza, não medida populacional.</em></li></ol>
+<ol><li><strong>EU Artificial Intelligence Act — Article 12: Record-Keeping.</strong> <a href="https://artificialintelligenceact.eu/article/12/">https://artificialintelligenceact.eu/article/12/</a> — Sustenta a obrigação de registro automático de eventos ao longo da vida do sistema de alto risco, o que deve ser registrado, e as datas de aplicação (02/12/2027 para o Anexo III, 02/08/2028 para o Anexo I). <em>Confiabilidade alta para o texto legal; a plataforma é uma consolidação não oficial, mas reproduz o articulado.</em></li></ol>
+<ol><li><strong>Conselho Nacional de Justiça — Resolução nº 615, de 11 de março de 2025.</strong> <a href="https://atos.cnj.jus.br/files/original1555302025031467d4517244566.pdf">https://atos.cnj.jus.br/files/original1555302025031467d4517244566.pdf</a> (41 páginas, baixado e lido na íntegra) — Sustenta a nota sobre o Brasil: definição de auditabilidade (art. 4º, XVII), obrigações de governança prévia para alto risco incluindo registro de fontes automatizadas submetido a auditoria regular (art. 13, II) e registro automático de operação em log (art. 13, V), publicidade dos relatórios na plataforma Sinapses e acesso garantido à OAB, ao Ministério Público e às Defensorias. <em>Confiabilidade alta: fonte primária oficial.</em></li></ol>
+<ol><li><strong>Senado Federal — PL 2338/2023, "Dispõe sobre o uso da Inteligência Artificial".</strong> <a href="https://www25.senado.leg.br/web/atividade/materias/-/materia/157233">https://www25.senado.leg.br/web/atividade/materias/-/materia/157233</a> — Sustenta a situação de tramitação: aprovada pelo Plenário do Senado em 10/12/2024, remetida à Câmara dos Deputados em 17/03/2025. <em>Confiabilidade alta: fonte primária oficial.</em></li></ol>
+<ol><li><strong>Steinberg e Trivedi (New America) — AI Agents and Memory: Privacy and Power in the Model Context Protocol (MCP) Era.</strong> 05/11/2025. <a href="https://www.newamerica.org/insights/ai-agents-and-memory/">https://www.newamerica.org/insights/ai-agents-and-memory/</a> — Sustenta o argumento de que memória de agente é distribuída, persistente e opaca; o risco de vazamento entre serviços; o incidente "Echoleak"; e a formulação de que "contexto, e não desempenho do modelo, é a verdadeira fonte de poder monopolista". <em>Confiabilidade média-alta: instituto de políticas públicas, argumentativo por natureza, com posição declarada — usado como análise, não como medição.</em></li></ol>
+<ol><li><strong>GitHub REST API — contagem de estrelas e datas de repositório</strong>, consultada em 12/09/2026 para <code>langfuse/langfuse</code> (34.502), <code>mem0ai/mem0</code> (65.169), <code>promptfoo/promptfoo</code> (25.042), <code>letta-ai/letta</code> (24.710), <code>Arize-ai/phoenix</code> (11.420), <code>getzep/zep</code> (4.911), <code>UKGovernmentBEIS/inspect_ai</code> (2.756). <a href="https://api.github.com/repos/langfuse/langfuse">https://api.github.com/repos/langfuse/langfuse</a> — Sustenta a diferença de ressonância entre projetos e a classificação do Inspect AI como sinal fraco. <em>Confiabilidade alta para o número; baixa como proxy de adoção em produção — estrela mede atenção, não uso.</em></li></ol>
+<ol><li><strong>Moran (Flat Circle) — AI Trading Arenas.</strong> <a href="https://blog.flatcircle.ai/p/ai-trading-arenas">https://blog.flatcircle.ai/p/ai-trading-arenas</a> — Sustenta o sinal fraco do Alpha Arena: 10 mil dólares reais por modelo, desenho com plano de operação realimentado nas chamadas seguintes, e prejuízo geral dos participantes. <em>Confiabilidade baixa-média: blog especializado, sem metodologia publicada. <strong>Limitação declarada:</strong> a fonte primária (<code>nof1.ai</code>) devolveu HTTP 429 atrás de checkpoint de segurança em três tentativas, inclusive por linha de comando, e não foi lida. O sinal está registrado com essa ressalva e nenhum número dele entrou na roda.</em></li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="a-a-entrevista-como-ocorreu">A. A entrevista, como ocorreu</h3>
+<p>A skill exige parada antes da análise. A entrevista foi conduzida com as seis perguntas mínimas e respondida integralmente antes de qualquer busca. Respostas registradas: tema (o tema 3 de 19 da disciplina, família "Agentes"); horizonte 2031; público "quem projeta mídia e interação"; recorte global com nota sobre o Brasil; descartes = o que já é comum em produto de massa, mais ideias genéricas que serviriam a qualquer tema; viés neutro; profundidade três ordens; modo "a partir de uma inovação/tema". Duas informações adicionais foram fornecidas e usadas: nenhuma disrupção suspeita foi indicada a priori ("descubra"), e o critério de mudança de ideia declarado foi <em>evidência de que a adoção já passou da maioria inicial, ou de que a tecnologia só melhora o que existe sem romper nada</em>. Esse segundo critério foi aplicado literalmente e é o que rebaixou tracing de LLM, RAG e engenharia de contexto.</p>
+<h3 id="b-candidatos-gerados-e-vereditos">B. Candidatos gerados e vereditos</h3>
+<div class="tabela-envolve"><table><thead><tr><th>#</th><th>Candidato</th><th>Maturidade</th><th>Ruptura</th><th>Veredito</th></tr></thead><tbody><tr><td>1</td><td>Traço de execução como unidade de prova</td><td>emergente</td><td>alto</td><td><strong>aceito — D1</strong></td></tr><tr><td>2</td><td>Memória persistente como acervo com titular</td><td>emergente</td><td>alto</td><td><strong>aceito — D2</strong></td></tr><tr><td>3</td><td>Metrologia da avaliação não determinística</td><td>emergente</td><td>alto</td><td><strong>aceito — D3</strong></td></tr><tr><td>4</td><td>Replay determinístico de execução agêntica</td><td>emergente/experimental</td><td>médio</td><td>rebaixado a <strong>tecnologia habilitadora</strong> de D1 e D3</td></tr><tr><td>5</td><td>Tracing de chamada de LLM como produto</td><td><strong>maduro</strong></td><td>—</td><td>rebaixado a <strong>antecedente</strong>; 89% de instrumentação, múltiplos fornecedores, problema de engenharia</td></tr><tr><td>6</td><td>Avaliação com consequência financeira real</td><td>experimental</td><td>alto se ocorrer</td><td>rebaixado a <strong>sinal fraco</strong>; um experimento não é capacidade instalada</td></tr><tr><td>7</td><td>Memória de perfil em produto de massa</td><td>maduro</td><td>baixo</td><td><strong>descartado</strong> pela régua da disciplina</td></tr><tr><td>8</td><td>RAG / recuperação sobre documentos</td><td>maduro</td><td>baixo</td><td><strong>descartado</strong>: melhora o que existe</td></tr><tr><td>9</td><td>Redução de contexto / engenharia de contexto</td><td>emergente</td><td>médio</td><td>rebaixado a <strong>habilitadora</strong> de D2</td></tr></tbody></table></div>
+<h3 id="c-caminhos-causais-cortados">C. Caminhos causais cortados</h3>
+<ul><li><em>"Agentes passarão a recusar tarefas quando o traço estiver desligado."</em> Cortado no teste "se A, então B porque ___": não há mecanismo. Nada no sistema obriga o modelo a isso, e o incentivo do fornecedor aponta no sentido contrário.</li><li><em>"A profissão de avaliador será regulamentada por conselho profissional até 2031."</em> Cortado por velocidade sem precedente. A auditoria contábil levou décadas entre prática e regulamentação; sete anos não é plausível sem um choque que não está previsto.</li><li><em>"O custo de avaliação levará empresas a abandonar agentes."</em> Cortado: assume que avaliar é condição de uso, e o dado disponível mostra exatamente o contrário — 63% não avaliam em produção e continuam operando.</li><li><em>"Traço completo vira obrigatório para todo produto com IA."</em> Cortado por confusão entre previsão e desejo. A obrigação, onde existe, é para <strong>alto risco</strong> — não para todo produto.</li><li><em>"Memória compartilhada entre agentes de uma equipe melhora o desempenho coletivo."</em> Não cortado por implausibilidade, mas <strong>não incluído por falta de evidência lida</strong>. É uma hipótese aberta e provavelmente o melhor tema para quem quiser continuar este mapa.</li></ul>
+<h3 id="d-buscas-sem-resultado-ou-com-resultado-insuficiente">D. Buscas sem resultado, ou com resultado insuficiente</h3>
+<ul><li><strong>Adoção de memória persistente em produção.</strong> Nenhuma fonte primária lida com o equivalente ao "89% instrumentam observabilidade", mas para memória. A pesquisa da LangChain, consultada diretamente, <strong>não traz dado sobre memória</strong>. Lacuna declarada na seção 8.</li><li><strong><code>nof1.ai</code>.</strong> HTTP 429 atrás de checkpoint de segurança da Vercel, em três tentativas (duas por ferramenta de fetch, uma por <code>curl</code> com <em>user agent</em> de navegador). Não lida.</li><li><strong>PDF da Resolução CNJ 615/2025 pela ferramenta de fetch.</strong> HTTP 403. Resolvido por download direto e extração de texto; lido na íntegra (41 páginas).</li><li><strong>Contagem de certificações ISO/IEC 42001.</strong> Oferecida pela busca ("entre as primeiras 350 organizações"), sem fonte primária aberta. <strong>Não usada.</strong></li><li><strong>Dado brasileiro de adoção de observabilidade ou avaliação de agentes.</strong> Nenhuma fonte encontrada. A nota sobre o Brasil é, por isso, regulatória e não de adoção — o que é uma limitação real do recorte.</li></ul>
+<h3 id="e-contrassinais-registrados-inclusive-os-que-nao-couberam-na-secao-7">E. Contrassinais registrados (inclusive os que não couberam na seção 7)</h3>
+<ul><li>A convenção GenAI do OpenTelemetry existe desde 2024 e segue integralmente em <em>Development</em>. Convenção que não estabiliza não força comparabilidade.</li><li>89% coletam, 37,3% avaliam em produção. Coletar sem julgar pode ser um equilíbrio estável, não uma etapa.</li><li>O AI Act adiou alto risco em dois anos (dez/2027 e ago/2028).</li><li>O LOCOMO tem 81 pares de pergunta-resposta e placares autorreportados não comparáveis.</li><li>O MCP, protocolo dominante de acesso a ferramenta, <strong>não tem memória no roadmap de 2026</strong>.</li><li>Compactação e limpeza de resultado de ferramenta viraram funcionalidade <strong>da plataforma</strong>, o que empurra a memória para dentro do fornecedor e enfraquece D2.</li></ul>
+<h3 id="f-hipoteses-alternativas-ao-mapa-inteiro">F. Hipóteses alternativas ao mapa inteiro</h3>
+<p><strong>H1 — A janela de contexto resolve a memória.</strong> Se contexto longo continuar barateando na mesma curva, a camada externa de memória some, e D2 inteira era um artefato de um gargalo temporário. É a hipótese que mais me preocupa e a que está explicitamente na pergunta 3 da seção 7.</p>
+<p><strong>H2 — A avaliação não vira infraestrutura; vira seguro.</strong> Em vez de todo mundo avaliar, o mercado precifica o risco: quem não avalia paga apólice mais cara, e uma seguradora — não um auditor — vira o ator que define a régua. Essa hipótese reorganiza toda a raiz D3 em torno de um ator que nem aparece no mapa atual. Não a desenvolvi por falta de evidência lida, mas ela é internamente coerente e tem precedente em segurança cibernética.</p>
+<p><strong>H3 — O traço vira prova contra quem o guarda, e a prática recua.</strong> Se os primeiros processos judiciais usarem traço de agente como prova contra o operador, o incentivo racional passa a ser <strong>não coletar</strong>, ou coletar com retenção mínima. Nesse mundo, <code>e1</code> acontece e depois se reverte — algo que a Futures Wheel, por ser uma árvore que só cresce, não tem como representar.</p>
+<h3 id="g-observacoes-que-nao-entraram-no-mapa-final">G. Observações que não entraram no mapa final</h3>
+<ul><li>O ataque de envenenamento de memória tem um irmão que não explorei: <strong>envenenamento do traço</strong>. Se o traço é a prova, adulterá-lo é adulterar a prova — e é exatamente por isso que o protocolo PAM usa assinatura, embora para memória e não para traço. Não encontrei trabalho lido sobre integridade criptográfica de traço de agente. Parece lacuna real.</li><li>A distinção entre <em>memória</em> e <em>traço</em> é menos nítida do que este documento sugere. Um traço retido e indexado <strong>é</strong> uma memória, e um dos projetos citados no enunciado da disciplina (<code>deja-vu</code>, que indexa sessões já gravadas em disco) opera exatamente nessa ambiguidade. Se as duas coisas forem a mesma infraestrutura vista de ângulos diferentes, D1 e D2 são uma raiz só — e o mapa teria duas, não três.</li><li>Nada aqui trata do <strong>custo ambiental</strong> de reexecutar tarefas <em>k</em> vezes para medir <code>pass^k</code>. Avaliar bem é computacionalmente caro por definição, e esse custo não aparece em nenhuma das fontes lidas.</li></ul></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>
