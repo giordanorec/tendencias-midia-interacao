@@ -1,0 +1,716 @@
+---
+tema: Voz e som gerativos
+slug: voz-e-som-gerativos
+autor_login: vafs
+zona_de_interesse: Percepção e mídia sintética
+data: 2026-09-11
+horizonte: 2031
+publico: Quem projeta mídia e interação
+recorte_geografico: global (com nota sobre o Brasil)
+disrupcoes_raiz: 3
+efeitos_ordem_1: 3
+efeitos_ordem_2: 8
+efeitos_ordem_3: 8
+tecnologias_citadas: [fala conversacional full-duplex (Moshi, gpt-realtime), reconhecimento e síntese de fala no dispositivo (Apple SpeechAnalyzer, Kokoro, Transformers.js/WebGPU), geração de música completa a partir de descrição (Suno, Udio), separação em faixas da música gerada (Suno Advanced Split, 12 stems), clonagem de voz, detecção automática de música gerada (Deezer), divulgação de uso de IA por metadado (DDEX)]
+fontes: 14
+confianca: media
+experimento: Comparar, na sala, dois protótipos da mesma tarefa por voz — um por turno, com nuvem, e um full-duplex rodando no próprio navegador — medindo desistência, reação à interrupção e o que acontece quando a fala foge do padrão
+skill_usada: futurizacao-vafs
+publico_ok: false
+---
+
+## 1. Resumo
+
+Duas coisas mudaram de natureza, não de preço. A fala deixou de ser uma sequência de turnos
+(falar, esperar, ouvir) e passou a ser um fluxo contínuo em que sistema e pessoa ocupam o canal
+ao mesmo tempo, com latência medida em fração de segundo. Na música, a mudança não é a que a
+descrição de partida deste tema anuncia: gerar uma faixa inteira a partir de uma descrição é hoje
+produto de massa — 100 milhões de pessoas já usaram um único gerador — e por isso foi **recusada**
+como disrupção-raiz (seção 4.1). O que rompe ali é o oposto do que se esperava: a saída deixou de
+ser editável em faixas separadas para deixar de ser **exportável**. Quanto mais licenciado o
+gerador, menos se leva embora dele.
+
+Até 2031, o efeito mais provável não é o desaparecimento de profissões inteiras, é o
+deslocamento do gargalo: na voz, do custo de API e da latência de rede para a decisão de design
+sobre quem interrompe quem e quem fica de fora quando a fala é o único caminho; na música, da
+capacidade técnica para o direito de exportar o que se produziu. Os números que sustentam isso já
+existem e são públicos: mais de 50% das faixas novas enviadas ao Deezer por dia são geradas por
+IA, e elas respondem por 1 a 3% das escutas. O denominador cresce, o numerador não.
+
+## 2. O tema
+
+"Voz e som gerativos" aqui significa duas famílias técnicas que a disciplina trata juntas por
+compartilharem o mesmo objeto — áudio gerado — mas que rompem coisas diferentes. A primeira é a
+fala: reconhecer, entender e sintetizar voz em tempo real, cada vez mais dentro do próprio
+aparelho, sem enviar áudio a um servidor. A segunda é a música: gerar instrumental, voz e
+mixagem a partir de uma descrição em linguagem natural, e agora também devolver as faixas
+separadas para edição.
+
+Fica de fora o que a régua da disciplina já classifica como produto de massa: assistente de voz
+por nuvem, transcrição automática, síntese de fala para audiolivro e dublagem comercial,
+sampler e estação de trabalho de áudio. Fica de fora, também, a imagem em movimento (tema 12) e
+o tema mais amplo de modelos rodando no dispositivo (tema 16) — daquele conjunto, só a parte de
+áudio e voz entra aqui.
+
+O tema merece mapa de futuro, e não levantamento de estado da arte, porque a pergunta útil para
+quem projeta mídia e interação não é "o que já dá para fazer" — é o que deixa de ser
+necessário. Que etapa de um projeto de interface, que papel de uma equipe de produção, que
+camada de um contrato de direitos perde a razão de existir quando falar com a máquina não tem
+turno e produzir uma faixa não tem custo marginal.
+
+## 3. Onde isso está hoje
+
+**Maduro.** Assistente de voz por nuvem, transcrição automática e síntese de fala de boa
+qualidade são tecnologia estabelecida: opção padrão em fluxos reais (legendagem, notas de
+reunião, atendimento automatizado, audiolivro), e o que resta ali é ficar mais barato, não mudar
+de natureza. Clonagem de voz também já é produto comercial corrente, com política explícita nas
+plataformas — o Spotify anunciou em 25/09/2025 que "clones de voz por IA não autorizados,
+deepfakes e qualquer outra forma de réplica vocal ou personificação não são permitidos e serão
+removidos"
+([TechCrunch, 25/09/2025](https://techcrunch.com/2025/09/25/spotify-updates-ai-policy-to-label-tracks-cut-down-on-spam)).
+
+**Emergente, na fala.** O que ainda sobe é a conversa full-duplex: o modelo Moshi, do Kyutai,
+descreve no próprio resumo "uma latência teórica de 160ms, 200ms na prática"
+([arXiv:2410.00037](https://arxiv.org/abs/2410.00037)), com estrutura de fluxo duplo em que o
+sistema nunca larga o microfone. Do lado industrial, a interface de tempo real da OpenAI saiu
+de prévia para disponibilidade geral com um modelo fala-a-fala. Mas o campo ainda não estabilizou
+nem o vocabulário: uma revisão de junho de 2026 aponta que o termo "full-duplex" "tem sido usado
+para descrever capacidades substancialmente diferentes", e identifica uma lacuna entre o que os
+sistemas poderiam fazer em teoria e o comportamento que de fato exibem, "limitado pelos padrões
+de interação representados no treinamento e na avaliação"
+([Lu et al., arXiv:2606.19453, 17/06/2026](https://arxiv.org/abs/2606.19453)).
+
+**Emergente, no dispositivo.** Rodar fala localmente saiu do laboratório. A Apple expôs a
+transcrição no próprio aparelho pela API SpeechAnalyzer, e há modelos de síntese pequenos o
+bastante para rodar dentro de uma aba de navegador. Mas o desempenho não é o que a cobertura
+secundária sugere: no único teste independente que consegui abrir, feito pela Argmax em
+20/06/2025 sobre um recorte de ~12 horas do conjunto *earnings22*, o SpeechAnalyzer ficou com
+**14,0% de taxa de erro de palavra contra 12,8% do WhisperKit** (whisper-small.en), e **70x de
+fator de velocidade contra 111x**, num Mac mini M4 — e a mesma página registra que "o modelo da
+Apple ainda exige um download e não vem pré-instalado com o iOS ou o macOS"
+([Argmax, 20/06/2025](https://www.argmaxinc.com/blog/apple-and-argmax)).
+
+**Emergente, na música — e em escala grande.** Aqui a adoção de *produção* já é enorme e a de
+*escuta* não. O Deezer informou em 21/07/2026 que faixas inteiramente geradas por IA passaram de
+"mais de 50% do total de envios de música nova", com cerca de **90 mil faixas por dia** no pico
+de junho de 2026, enquanto respondem por "entre 1 e 3%" das execuções totais — e que até **85%
+das execuções geradas por faixas inteiramente sintéticas eram fraudulentas em 2025**
+([Deezer Newsroom, 21/07/2026](https://newsroom-deezer.com/2026/07/ai-music-exceeds-50-percent-daily-uploads-deezer/);
+[TechCrunch, 21/07/2026](https://techcrunch.com/2026/07/21/music-streamer-deezer-says-more-than-50-of-daily-uploads-are-ai-generated/),
+que registra que o detector identifica faixas vindas de Suno e Udio).
+
+**O que mudou desde a descrição de partida deste tema.** A saída do gerador deixou de ser um
+arquivo fechado. A própria página da Suno documenta a extração de faixas separadas — "baixe as
+faixas individuais (vocais, instrumental, bateria etc.) como WAVs ou MP3s de alta qualidade" e
+"exporte até 12 faixas WAV alinhadas no tempo e use no Ableton, Logic ou qualquer DAW"
+([Suno](https://suno.com/l/vocal-and-instrumental-splitter)). O limite técnico que a disciplina
+apontava como sinal revelador foi removido pelo produto.
+
+**E o negócio se reorganizou por acordo, não por sentença.** A Universal fechou com o Udio em
+29/10/2025 um acerto com plataforma conjunta prevista para 2026, e o Udio suspendeu o download
+das faixas no dia seguinte — o próprio presidente-executivo da empresa reconheceu publicamente
+que "isso representa um sacrifício significativo" e que detestava eliminar funcionalidade
+([Music Ally, 30/10/2025](https://musically.com/2025/10/30/umg-settles-udio-lawsuit-companies-plan-new-ai-music-service-together/)).
+A Warner fechou com a Suno em 25/11/2025, com modelos licenciados substituindo os atuais em 2026
+e limite mensal de download para assinantes, tendo a Suno levantado US$ 250 milhões numa
+avaliação de US$ 2,45 bilhões
+([MarketScreener, 25/11/2025](https://uk.marketscreener.com/news/warner-music-group-settles-copyright-case-with-suno-for-licensed-ai-music-ce7d5ed2db8bff22)).
+
+**Nota sobre o Brasil.** Duas frentes andam em ritmos diferentes. Na regulação, o PL 2338/2023
+segue em comissão especial na Câmara — a página oficial da comissão registra 31 reuniões, 180
+convidados e seminários de novembro de 2025 dedicados ao impacto da IA nos setores criativo e
+jornalístico
+([Câmara dos Deputados](https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-temporarias/especiais/57a-legislatura/comissao-especial-sobre-inteligencia-artificial-pl-2338-23)).
+Na sociedade civil, a dublagem chegou antes: em audiência pública de 29/08/2024, profissionais
+do setor pediram proteção legal contra voz gerada por IA, argumentando perda de postos e de
+diversidade linguística, e um representante do Ministério da Cultura relatou "contratos de
+adesão" que violariam direitos inalienáveis sobre a própria voz
+([Câmara dos Deputados, 29/08/2024](https://www.camara.leg.br/noticias/1092791-segmento-de-dublagem-pede-protecao-legal-contra-uso-de-voz-gerada-por-inteligencia-artificial/)).
+
+## 4. As disrupções-raiz
+
+Três candidatos passaram nos três testes da Fase 2. O registro das rejeições está na seção 12.
+
+### D1 — A conversa por voz perde o turno
+
+**O que rompe.** Deixa de fazer sentido a unidade básica de toda interface de voz até aqui: o
+turno. O botão de falar, a palavra de ativação, a espera pelo fim da frase e a árvore de diálogo
+existem porque o sistema precisava saber quando era a vez dele. Num modelo de fluxo duplo que
+nunca larga o microfone, essa pergunta não se coloca — e quem projeta atendimento por voz deixa
+de desenhar um fluxo com nós e passa a escrever uma política de comportamento: quando interromper,
+quando calar, quando insistir.
+
+**Por que agora e não há cinco anos.** Latência abaixo de 200ms com geração de fala e escuta
+simultâneas é recente e está documentada em modelo aberto, não só em produto fechado
+(arXiv:2410.00037); e a versão comercial saiu de prévia para disponibilidade geral.
+
+**O que falta.** Estabilizar o que a palavra significa e fechar a distância entre capacidade
+teórica e comportamento observado — a revisão de 2026 (arXiv:2606.19453) trata exatamente disso
+como problema em aberto, e aponta a assimetria entre dados públicos e conjuntos industriais não
+divulgados como condição desigual de desenvolvimento.
+
+### D2 — A fala sai da nuvem e vira capacidade do aparelho
+
+**O que rompe.** Deixa de ser necessário o par "servidor + API paga por minuto" para uma classe
+inteira de produtos com voz, e com ele deixa de valer a premissa regulatória e contratual de que
+usar voz implica enviar áudio a um terceiro. O que era item de custo variável e risco de
+privacidade vira capacidade do dispositivo, como a câmera.
+
+**Por que agora.** Transcrição no aparelho virou API de sistema, e modelos de síntese pequenos
+rodam dentro do navegador. O ponto não é qualidade máxima — é qualidade suficiente sem rede.
+
+**O que falta.** Fechar a distância medida para a fala fora do padrão (ver e2.3) e resolver a
+parte que o marketing esconde: mesmo a via "no dispositivo" ainda exige baixar modelo na
+primeira execução (Argmax, 20/06/2025), o que é diferente de vir pronto no sistema.
+
+### D3 — A saída do gerador deixa de ser um arquivo que se leva embora
+
+**O que rompe.** Deixa de valer a premissa que sustenta todo o resto da cadeia de produção
+musical: a de que o que você produz é um arquivo seu, que você exporta e usa onde quiser. O Udio
+suspendeu o download das faixas em 30/10/2025, no dia seguinte ao acordo com a Universal, e a
+plataforma conjunta anunciada para 2026 é um jardim murado; a Suno passou a operar com teto mensal
+de download para assinantes. Se isso escalar, o que perde a razão de existir não é o compositor —
+é o próprio pressuposto do fluxo profissional de áudio, em que o gerador seria mais um plugin
+entregando material para a estação de trabalho. O obstáculo migra de "consigo fazer?" para "posso
+levar embora?".
+
+**Por que agora e não há cinco anos.** Porque a restrição é nova e vai na direção contrária da
+curva técnica. No mesmo período em que a saída ficou mais editável — separação em até doze faixas
+alinhadas no tempo, documentada no produto —, ela ficou menos exportável, por contrato. As duas
+coisas acontecem ao mesmo tempo e a segunda é que decide: editabilidade dentro de um jardim murado
+não devolve o arquivo a ninguém.
+
+**O que falta.** Saber se o jardim murado se sustenta. Uma plataforma de música gerada da qual não
+se pode extrair o resultado é a aposta de que a escuta dentro dela compensa a perda de uso fora, e
+não há precedente que diga se isso se sustenta — o próprio presidente-executivo do Udio reconheceu
+publicamente que a medida "representa um sacrifício significativo" para os usuários.
+
+### 4.1 Candidato recusado como raiz, com a evidência
+
+**Candidato "a música passa a ser gerada inteira a partir de uma descrição" — recusado como
+disrupção-raiz por ser produto de massa.** É a ruptura que a descrição de partida deste tema nomeia,
+e ela reprova no Teste 1 da Fase 2 com evidência datada: o presidente-executivo da Suno declarou em
+25/02/2026 que "mais de 100 milhões de pessoas no mundo todo já usaram a Suno", com **2 milhões de
+assinantes pagantes e US$ 300 milhões de receita anual recorrente**
+([Music Business Worldwide, 27/02/2026](https://www.musicbusinessworldwide.com/suno-hits-2m-paid-subscribers-300m-annual-revenue/)).
+Some-se a isso o volume medido do lado da distribuição — mais de metade dos envios diários de um
+serviço grande de streaming (seção 3) — e as duas perguntas do Teste 1 se respondem com sim: há
+implantação em produção e em escala, e o que resta é ficar mais barato e mais difundido, não mudar
+de natureza. A resposta 5 da entrevista desta rodada, além disso, excluiu de início "o que já é
+comum em produto de massa". Mapear isso como raiz produziria um mapa de futuro sobre o que já
+aconteceu.
+
+A recusa não retira o tema do documento: gerar música inteira continua descrito na seção 3 como
+estado presente, e continua sendo a **causa** de efeitos que aparecem na roda. Ela só não pode ser
+a raiz, porque raiz é o que ainda não aconteceu.
+
+## 5. A roda dos futuros
+
+O bloco a seguir é lido por máquina. Em prosa: quase todo efeito de 3ª ordem está com confiança
+baixa de propósito, e a auditoria da Fase 4 mexeu no ramo da música inteiro: o que era o efeito de
+1ª ordem — produzir faixa sem orçamento nem agenda — foi cortado por descrever o presente e não o
+futuro, e o e3 foi reescrito em cima da restrição de exportação, que é o que de fato ainda não
+aconteceu. O e1.1.1 foi rebaixado por supor mudança de métrica setorial em prazo sem precedente. A
+seção 7 nomeia cada um.
+
+```yaml
+roda:
+  - disrupcao: A conversa por voz perde o turno (fala full-duplex em tempo real)
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: A interação por voz deixa de ter turno explícito — somem o botão de falar, a palavra de ativação e a espera pelo fim da frase, porque sistema e pessoa ocupam o canal ao mesmo tempo
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Quem projetava fluxo de atendimento por voz passa a escrever política de conversa em vez de árvore de diálogo, porque não há mais nó de menu onde ancorar o fluxo
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: O setor de contact center troca as métricas que descrevem o serviço, porque taxa de contenção em menu e tempo médio por etapa deixam de ter referente quando não há menu nem etapa
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: A interrupção vira decisão de produto disputada — quando o sistema pode cortar a pessoa e quando deve calar passa a ser escolha de design com consequência direta sobre confiança, não detalhe de implementação
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: As regras de transparência passam a mirar o áudio ao vivo e não só a mídia gravada, exigindo que a máquina se identifique como máquina dentro da própria conversa
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: A fala sai da nuvem e vira capacidade do aparelho
+    efeitos:
+      - id: e2
+        ordem: 1
+        efeito: Reconhecer e sintetizar fala deixa de ser custo por minuto e latência de rede no orçamento de um produto e passa a ser capacidade local, como a câmera
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Uma classe de produtos passa a prometer que o áudio não sai do aparelho, e essa promessa vira argumento comercial e caminho de conformidade em saúde, escola e jurídico
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Normas de proteção de dados passam a distinguir processamento local de voz de tratamento de dado biométrico, criando uma categoria intermediária que hoje não existe em nenhuma delas
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Como o custo marginal de falar cai a quase zero, produtos passam a falar por padrão, e o excesso de som de interface vira problema de projeto em vez de recurso de acessibilidade
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Em dispositivos de mãos ocupadas — carro, cozinha, oficina, campo — a tela deixa de ser a superfície onde a atenção é disputada, e o silêncio passa a ser vendido como configuração, do mesmo modo que hoje se vende a ausência de anúncio
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.3
+            ordem: 2
+            efeito: Quem fala fora do padrão fica mais dependente e não menos, porque a voz vira caminho obrigatório antes de a lacuna de reconhecimento fechar — o erro medido em fala disártrica é de 36,3% contra 3,4% em fala típica, e 23,7% mesmo depois de ajuste fino com dados do próprio grupo
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.3.1
+                ordem: 3
+                efeito: Acessibilidade deixa de ser conformidade de tela e passa a exigir caminho não-vocal equivalente como requisito de projeto, sob pena de empurrar para fora do serviço uma parcela nomeável de usuários
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: A saída do gerador deixa de ser um arquivo que se leva embora
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: O que se gera deixa de ser exportável por padrão — o download é suspenso ou limitado por teto — e passa a existir apenas dentro da plataforma que o produziu, ao mesmo tempo em que fica tecnicamente mais editável lá dentro
+        sinal: forte
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: A licença substitui a capacidade técnica como barreira e o mercado se parte em dois — geradores licenciados com catálogo maior e saída presa, e geradores de proveniência incerta cuja única vantagem passa a ser devolver o arquivo
+            sinal: forte
+            prazo: 2027
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Procedência declarada por faixa vira metadado obrigatório da cadeia de direitos, como hoje é o código de gravação, e cadastrar uma obra passa a exigir dizer o que nela foi gerado
+                sinal: medio
+                prazo: 2030
+                confianca: media
+          - id: e3.2
+            ordem: 2
+            efeito: O catálogo de música de biblioteca deixa de perder para o gerador em trilha funcional de vídeo, jogo e publicidade e volta a ser contratado por quem precisa entregar o arquivo ao cliente, porque descrever é mais rápido mas não dá direito de exportar
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: A remuneração por execução deixa de distribuir porque foi calibrada para escassez de catálogo — o denominador de faixas cresce muito mais rápido que o numerador de escuta, e a disputa migra de quanto se paga por execução para quem tem direito de entrar no catálogo
+                sinal: medio
+                prazo: 2030
+                confianca: media
+          - id: e3.3
+            ordem: 2
+            efeito: Ser músico se separa em duas ocupações que hoje se confundem, e o que as separa não é saber teoria musical e sim ter direito de exportar o que produziu — quem entrega arquivo e quem entrega link
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.3.1
+                ordem: 3
+                efeito: Escolas de música e cursos de produção passam a ensinar direção e curadoria de gerador como disciplina própria, e a prova de instrumento deixa de ser o único portão de entrada da profissão
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+```
+
+## 6. Sinais fracos e wildcards
+
+**O sinal fraco que se realizou — e virou ao contrário.** A descrição de partida deste tema
+apontava, como sinal revelador, que a música gerada "não entrega os canais separados", e que o dia
+em que entregasse mudaria o jogo de novo. Esse dia passou: a extração de até doze faixas alinhadas
+no tempo está documentada na página do próprio produto. Mas o jogo não mudou no sentido previsto.
+A previsão implícita era que a editabilidade integraria o gerador ao fluxo profissional de áudio;
+o que aconteceu em paralelo foi o contrário — a saída ficou mais editável **dentro** da plataforma
+e menos extraível **para fora** dela. Quando um sinal fraco se realiza e produz o efeito inverso
+do esperado, o problema não estava no prazo, estava na variável escolhida para vigiar: o gargalo
+era contratual e estava sendo lido como técnico.
+
+**O wildcard que também já aconteceu, em parte.** A hipótese de baixa probabilidade seria um
+artista sintético liderar uma parada. Uma artista construída com o gerador da Suno, criada por
+Telisha "Nikki" Jones, entrou nas paradas da Billboard em 2025: "Let Go, Let God" chegou ao
+terceiro lugar em Hot Gospel Songs em 25/10/2025, e "How Was I Supposed to Know?" entrou em Adult
+R&B Airplay em 31/10/2025, com pico de vigésimo lugar em Hot R&B Songs; o contrato com a Hallwood
+Media foi assinado em 16/09/2025 por US$ 3 milhões, depois de disputa entre gravadoras
+([Wikipédia](https://en.wikipedia.org/wiki/Xania_Monet)). Não é o primeiro lugar de uma parada
+principal, mas já não é hipótese remota — é gradação de escala.
+
+**Sinal fraco de fato, ainda.** A separação entre o que é gerado e o que é humano começa a virar
+metadado padronizado, e não rótulo editorial: a divulgação estruturada de uso de IA nos créditos
+já foi adotada por plataforma grande, com granularidade suficiente para declarar que a voz foi
+gerada e a letra não (TechCrunch, 25/09/2025). Se isso pegar, a pergunta deixa de ser "é IA?" e
+passa a ser "qual parte".
+
+**Wildcard remanescente (baixa probabilidade, alto impacto até 2031).** Uma fraude de larga
+escala por voz clonada em tempo real dentro de uma chamada ao vivo — não áudio gravado e enviado,
+mas conversa interativa com voz de pessoa conhecida — atingindo uma instituição financeira ou um
+processo eleitoral de forma pública e cara. Baixa probabilidade porque a operação exige combinar
+clonagem, tempo real e engenharia social numa mesma cadeia; se acontecer, derruba de uma vez a
+premissa residual de que reconhecer a voz de alguém ao telefone é forma de verificação, e força o
+efeito e1.2.1 muito antes de 2031.
+
+## 7. Contra o próprio mapa
+
+- **Um efeito de 1ª ordem foi cortado por descrever o presente, e a raiz foi refeita.** A primeira
+  versão do e3 dizia que produzir uma faixa deixa de exigir orçamento, agenda e busca em catálogo.
+  Isso não é consequência a se realizar, é descrição de hoje: 90 mil faixas por dia num único
+  serviço, 100 milhões de pessoas em um único gerador. Extrapolação linear pura. O efeito saiu, a
+  raiz foi recusada por maturidade (seção 4.1) e o que ficou no lugar é a restrição de exportação —
+  que é recente, tem data e vai na direção oposta da curva técnica. Consequência honesta disso: o
+  ramo da música deste mapa não é o ramo que o enunciado do tema pedia, e a divergência é
+  deliberada.
+- **Adoção sem precedente comparável (e1.1.1, e2.1.1, e3.3.1).** Trocar as métricas de um setor
+  inteiro de atendimento, criar uma categoria intermediária em norma de proteção de dados e
+  reorganizar currículo de escola de música são, historicamente, processos de uma década ou mais.
+  Os três acontecerem dentro do horizonte de 2031 seria a exceção, não a regra — daí `confianca:
+  baixa` nos três. Não encontrei caso comparável em que mudança de norma de dados de escala
+  equivalente tenha se completado em cinco anos.
+- **O elo mais frágil do mapa é comercial, não técnico, e agora é a própria raiz (D3, e3.1).** O
+  ramo inteiro supõe que o jardim murado se sustente. Ele pode não se sustentar, e há evidência a
+  favor da dúvida vinda de dentro: o próprio presidente-executivo do Udio reconheceu publicamente
+  que tirar o download "representa um sacrifício significativo". Se o modelo licenciado sem
+  exportação não retiver público, a restrição é revertida, D3 deixa de ser disrupção e vira
+  episódio de negociação — e cai com ela um terço do mapa, incluindo o e3.1.1 (procedência como
+  metadado obrigatório), que perde o motor que o empurraria. Este é o risco mais alto do documento:
+  D1 pode falhar por limite técnico, que costuma ceder com o tempo; D3 pode falhar por reversão de
+  decisão comercial, que pode acontecer em um trimestre.
+- **Uma disrupção-raiz pode simplesmente não se concretizar (D1).** O full-duplex conversacional
+  depende de o comportamento observado alcançar a capacidade teórica — e a revisão de junho de
+  2026 descreve exatamente essa distância como problema em aberto, agravada pela assimetria entre
+  dados públicos e conjuntos industriais fechados. Se a conversa sem turno não se estabilizar, os
+  ramos e1, e1.1, e1.2 e seus efeitos de 3ª ordem caem juntos — aproximadamente um terço da roda —
+  e sobra a leitura mais modesta de que a voz por turnos apenas ficou mais rápida.
+- **Um efeito puxa contra o otimismo do resto do mapa, e é o mais bem medido (e2.3).** É o único
+  efeito de 2ª ordem com `sinal: forte` apoiado em medição direta: 36,3% de erro em fala
+  disártrica contra 3,4% em fala típica, caindo a 23,7% só depois de ajuste fino com dados do
+  próprio grupo (Hasegawa-Johnson et al., 2024). Se a voz virar caminho obrigatório antes disso
+  fechar, o resultado não é ampliação de acesso — é o oposto, para um grupo nomeável.
+- **Viés de quem construiu.** A zona de interesse declarada do autor é percepção e mídia
+  sintética, o que tende a inflar a maturidade percebida dessas tecnologias e a velocidade
+  atribuída à adoção institucional. O viés pedido para esta rodada foi neutro; o contrapeso
+  aplicado foi rebaixar de propósito todo efeito cuja evidência viesse de analogia com outro setor
+  em vez de sinal deste domínio, e manter no mapa o único efeito que contraria a leitura favorável
+  (e2.3) com a confiança mais alta que a evidência permite.
+
+## 8. O que a máquina errou
+
+**1. Errei a raiz da música duas vezes, e a segunda foi pior que a primeira.** A descrição do tema,
+entregue como contexto, apontava como limite revelador que o gerador "não entrega os canais
+separados". Gerei a primeira versão de D3 em cima desse limite. Ao abrir a página do produto, o
+limite não existe mais — até doze faixas WAV alinhadas no tempo —, então reescrevi D3 como "a
+música gerada vira sessão editável". Esse foi o erro maior, e ele passou pela Fase 2 sem ser pego:
+eu classifiquei a geração de música inteira como **emergente e limítrofe**, registrando a dúvida no
+anexo em vez de resolvê-la, quando bastava medir. Medido depois: 100 milhões de pessoas já usaram
+um único gerador, 2 milhões pagantes, US$ 300 milhões de receita anual recorrente, declarados pelo
+próprio presidente-executivo em 25/02/2026. Isso reprova no Teste 1 sem margem, e a resposta 5 da
+entrevista desta rodada já excluía "o que já é comum em produto de massa" — ou seja, eu tinha os
+dois fundamentos para recusar e não recusei.
+
+O padrão do erro vale mais do que o erro: **"limítrofe, registro a dúvida no anexo" foi o caminho
+de menor resistência para não aplicar um critério que eu já sabia que derrubaria o candidato.**
+Declarar incerteza parece rigor e funciona como o oposto dele quando a incerteza era mensurável com
+uma busca. A raiz foi refeita sobre a restrição de exportação (seção 4.1), que é o que de fato
+ainda não aconteceu.
+
+**2. Quase escrevi que o reconhecimento de fala da Apple supera o Whisper, e a fonte primária diz
+o contrário.** Várias páginas secundárias afirmam, em títulos, que o SpeechAnalyzer "supera o
+Whisper Small" em precisão e velocidade. Ao abrir o teste independente citado por elas, os números
+vão na direção oposta naquele conjunto de dados: 14,0% de erro contra 12,8% do WhisperKit, e 70x
+contra 111x de velocidade, num M4 (Argmax, 20/06/2025). A mesma página ainda derruba um segundo
+detalhe que eu teria escrito sem pensar — que o modelo "já vem no sistema": ele exige download na
+primeira execução. Os dois pontos entraram na seção 3 na forma corrigida, e D2 foi escrita
+reconhecendo a diferença entre rodar localmente e vir pronto localmente.
+
+**3. Um número que não entrou, por não ter sido possível confirmar na fonte.** A parte de fraude
+por voz clonada renderia números fortes — relatórios secundários repetem 22.364 queixas
+relacionadas a IA e cerca de US$ 893 milhões em perdas no relatório anual de 2025 do centro de
+queixas do FBI. Tentei abrir o relatório original em PDF e o texto não veio legível; a nota de
+imprensa oficial e uma das reportagens retornaram bloqueio de acesso. Como a regra desta skill é
+não contar como fonte o que não foi aberto, o número está fora do corpo do documento e fora da
+contagem do frontmatter, e o wildcard da seção 6 foi escrito sem ele. Isto é diferente de
+"verifiquei e não confere": é "não consegui verificar", e as duas coisas não merecem o mesmo
+tratamento.
+
+**4. Um candidato a disrupção-raiz reprovado por um teste que eu teria pulado.** Clonagem de voz
+era o candidato mais óbvio, e é o que mais mexe com a pergunta de 3ª ordem da disciplina sobre voz
+e identidade. Reprovou no Teste 1: é opção padrão em fluxos reais (dublagem, audiolivro,
+acessibilidade), com política explícita nas plataformas desde 2025 — ou seja, madura. O que sobra
+de emergente ali é a clonagem *dentro de uma conversa em tempo real*, e isso já é consequência de
+D1, não raiz própria. Sem a exigência de escrever o teste, essa tecnologia teria entrado como
+quarta disrupção-raiz por ser interessante, não por passar no critério.
+
+## 9. Três cenários para 2031
+
+**Provável.** A conversa sem turno é comum em atendimento e em assistente de carro, mas convive
+com botão de falar em quase todo o resto, porque o custo de errar a interrupção é alto em
+contexto público. A fala local virou padrão para transcrição e comandos curtos, e continua indo à
+nuvem quando a resposta precisa de raciocínio. Na música, o mercado se estabilizou em dois
+andares: plataformas licenciadas, com catálogo menor e exportação restrita, atendendo quem precisa
+de segurança jurídica; e ferramentas abertas atendendo quem não precisa. Trilha funcional para
+vídeo e jogo é gerada por padrão; trilha assinada continua sendo encomendada, e a diferença entre
+as duas passou a ser contratual, não sonora. A remuneração por execução foi ajustada mais de uma
+vez sem que ninguém considere o problema resolvido. Currículo e norma de dados não mudaram.
+
+**Desejável.** Existe, por volta de 2031, caminho não-vocal equivalente como requisito corrente de
+projeto — não por regulação, por prática —, e a distância de reconhecimento para fala atípica
+encolheu porque conjuntos de dados desse tipo passaram a ser tratados como infraestrutura pública
+e não como diferencial de fornecedor. A procedência do áudio é declarada por faixa e por trecho,
+com granularidade suficiente para dizer o que foi gerado e o que não foi, e isso é usado para
+distribuir dinheiro e não apenas para rotular. Quem dirige geradores e quem toca instrumento se
+reconhecem como ocupações distintas, sem que uma precise se apresentar como a outra.
+
+**Indesejável.** A voz virou caminho obrigatório em serviços essenciais antes de a lacuna de
+reconhecimento fechar, e uma parcela nomeável de pessoas — fala atípica, sotaque regional pouco
+representado, quem não pode falar em público — depende de terceiros para usar serviço que antes
+usava sozinha. Em paralelo, o volume de faixas geradas tornou a distribuição por execução tão
+diluída que o catálogo humano vivo deixou de se sustentar no streaming, sem que nada tenha
+ocupado o lugar. O sinal precoce dos dois já é visível: o erro medido em fala disártrica segue
+uma ordem de grandeza acima do erro em fala típica, e mais de metade dos envios diários a um
+serviço grande já é sintética enquanto a escuta correspondente fica entre 1 e 3%.
+
+## 10. O experimento
+
+- **O que é.** Dois protótipos da mesma tarefa por voz, rodando lado a lado na sala: um por
+  turno, com botão de falar e reconhecimento na nuvem; outro full-duplex, rodando inteiro no
+  navegador, sem servidor. A turma executa a mesma tarefa nos dois e registra três coisas — em
+  qual a pessoa desiste antes, o que ela faz quando o sistema a interrompe no meio de uma frase, e
+  o que muda quando a fala sai do padrão.
+- **Que pergunta sobre o futuro ele ajuda a responder.** Se a ausência de turno é ganho de
+  interação ou apenas ganho de latência. É a diferença entre D1 ser disrupção-raiz e ser melhoria:
+  se as pessoas preferem o protótipo com botão mesmo sendo mais lento, o ramo e1 do mapa perde a
+  base, e o efeito e1.2 (interrupção como decisão de produto) passa a ser o efeito principal em
+  vez de derivado.
+- **Que tecnologia emergente usa, e por que não dá com tecnologia madura.** Fala full-duplex com
+  latência de fração de segundo e modelos de reconhecimento e síntese pequenos o bastante para
+  rodar dentro da aba do navegador. Um assistente de voz por nuvem — tecnologia madura — não
+  serve, porque o comportamento em teste é justamente o que ele não faz: ocupar o canal ao mesmo
+  tempo que a pessoa.
+- **O que a turma faria ao testar isso em sala.** Além de executar a tarefa nos dois protótipos,
+  cada aluno repete a mesma frase em três condições de fala — normal, sussurrada e com a mandíbula
+  restrita — e anota a transcrição obtida. O objetivo é que a lacuna do e2.3 deixe de ser um
+  número lido num artigo e vire uma medição da própria sala, com a ressalva explícita de que fala
+  restringida de propósito não é o mesmo fenômeno que fala disártrica clínica.
+- **O que seria um resultado que mudaria de ideia.** Se a desistência for igual ou maior no
+  protótipo sem turno, e se as pessoas relatarem a interrupção como invasiva em vez de natural,
+  D1 se rebaixa de disrupção a melhoria de latência — e o mapa perde um terço, exatamente como a
+  seção 7 prevê. E se a transcrição local segurar bem as três condições de fala, o e2.3 enfraquece
+  e o cenário indesejável da seção 9 fica menos provável do que este documento assume.
+
+## 11. Fontes
+
+Treze fontes abertas e lidas de fato nesta sessão. O que não abriu está registrado na seção 12 e
+não conta aqui.
+
+1. Défossez, A. et al. — ["Moshi: a speech-text foundation model for real-time dialogue"](https://arxiv.org/abs/2410.00037),
+   arXiv:2410.00037, Kyutai. Sustenta a seção 3 e D1 (latência "160ms teórica, 200ms na prática",
+   confirmada no resumo). Confiável: relatório técnico com modelo e código abertos; alta para a
+   descrição do sistema, média para comparação com produtos fechados, que ela não faz.
+2. Lu, J. et al. — ["A Survey of Full-Duplex Spoken Dialogue Systems"](https://arxiv.org/abs/2606.19453),
+   arXiv:2606.19453, 17/06/2026. Sustenta a ressalva central de D1 e o item correspondente da
+   seção 7 (ambiguidade do termo, distância entre capacidade e comportamento, assimetria de
+   dados). Confiável: revisão ampla e recente, **ainda sem revisão por pares** — é a fonte que
+   mais sustenta a parte cética deste mapa e a que mais merece essa ressalva.
+3. Deezer Newsroom — ["AI music tops 50% of daily uploads"](https://newsroom-deezer.com/2026/07/ai-music-exceeds-50-percent-daily-uploads-deezer/),
+   21/07/2026. Sustenta os números da seção 3, o efeito e3.1.1 e o cenário indesejável (>50% dos
+   envios, ~90 mil faixas/dia em junho de 2026, 1–3% das execuções, até 85% de fraude em 2025).
+   Confiável: fonte primária da medição, mas **com interesse próprio** — quem mede é a empresa que
+   vende o detector e decide o que remover; tratar como evidência de volume, não como avaliação
+   neutra de qualidade.
+4. TechCrunch — ["Music streamer Deezer says more than 50% of daily uploads are AI-generated"](https://techcrunch.com/2026/07/21/music-streamer-deezer-says-more-than-50-of-daily-uploads-are-ai-generated/),
+   21/07/2026. Confere de forma independente os números acima e registra que o detector identifica
+   faixas vindas de Suno e Udio. Confiável: veículo jornalístico estabelecido; média-alta.
+5. Suno — [página do separador de vocal e instrumental](https://suno.com/l/vocal-and-instrumental-splitter).
+   Sustenta a parte nova de D3 e o item 1 da seção 8 (até 12 faixas WAV alinhadas no tempo,
+   exportáveis para DAW). Confiável: material do próprio fornecedor, portanto evidência de que o
+   recurso é oferecido, **não** de qualidade de separação — que não foi testada por ninguém
+   independente nesta rodada.
+6. MarketScreener — [acordo entre Warner Music Group e Suno](https://uk.marketscreener.com/news/warner-music-group-settles-copyright-case-with-suno-for-licensed-ai-music-ce7d5ed2db8bff22),
+   25/11/2025. Sustenta a seção 3 e o e3.2 (modelos licenciados substituindo os atuais em 2026,
+   limite mensal de download, US$ 250 milhões em avaliação de US$ 2,45 bilhões). Confiável: síntese
+   de agência; média — traz os termos anunciados, não os contratuais.
+7. Music Ally — ["UMG settles Udio lawsuit; companies plan new AI-music service together"](https://musically.com/2025/10/30/umg-settles-udio-lawsuit-companies-plan-new-ai-music-service-together/),
+   30/10/2025. Sustenta o e3.2 e a ressalva da seção 7 sobre o jardim murado (suspensão do
+   download, fala do presidente-executivo do Udio, adesão voluntária dos artistas). Confiável:
+   publicação especializada do setor; alta para o registro do anúncio.
+8. TechCrunch — ["Spotify updates AI policy to label tracks, cut down on spam"](https://techcrunch.com/2025/09/25/spotify-updates-ai-policy-to-label-tracks-cut-down-on-spam),
+   25/09/2025. Sustenta a classificação de clonagem de voz como madura (seção 8, item 4) e o sinal
+   fraco de metadado de divulgação da seção 6. Confiável: alta. Nota de verificação: a página não
+   traz o número de faixas removidas que circula em fontes secundárias — a reportagem registra que
+   o Spotify não divulgou a própria métrica, e por isso esse número não aparece neste documento.
+9. Wikipédia — [Xania Monet](https://en.wikipedia.org/wiki/Xania_Monet). Sustenta o wildcard
+   parcialmente realizado da seção 6 (posições nas paradas em outubro de 2025, contrato de US$ 3
+   milhões com a Hallwood Media em 16/09/2025, uso do gerador da Suno pela autora Telisha Jones).
+   Confiável: terciária, com datas e posições verificáveis contra as paradas citadas; média.
+10. Argmax — [comparação entre Apple SpeechAnalyzer e WhisperKit](https://www.argmaxinc.com/blog/apple-and-argmax),
+    20/06/2025. Sustenta a seção 3, D2 e o item 2 da seção 8 (14,0% contra 12,8% de erro; 70x
+    contra 111x; necessidade de download na primeira execução). Confiável: **é parte interessada**
+    — a Argmax mantém o WhisperKit, o concorrente que sai melhor na comparação. Em compensação,
+    publica o script de referência e o conjunto de dados usado, o que torna o resultado
+    contestável por terceiros; média-alta pela reprodutibilidade declarada, com a ressalva do
+    conflito.
+11. Hasegawa-Johnson, M. et al. — ["Community-Supported Shared Infrastructure in Support of Speech
+    Accessibility"](https://pmc.ncbi.nlm.nih.gov/articles/PMC12379581/), 2024. Sustenta o e2.3,
+    o e2.3.1 e o contrapeso da seção 7 (3,4% de erro em fala típica, 36,3% em fala disártrica,
+    23,7% após ajuste fino; 211 falantes mais 42 no conjunto de teste). Confiável: artigo revisado
+    por pares, com dados abertos a pesquisadores; alta. Ressalva de escopo: a amostra é de fala
+    associada a doença de Parkinson, não de toda fala atípica.
+12. Câmara dos Deputados — ["Segmento de dublagem pede proteção legal contra uso de voz gerada por
+    inteligência artificial"](https://www.camara.leg.br/noticias/1092791-segmento-de-dublagem-pede-protecao-legal-contra-uso-de-voz-gerada-por-inteligencia-artificial/),
+    29/08/2024. Sustenta a nota sobre o Brasil na seção 3. Confiável: registro oficial de audiência
+    pública; alta para o que foi dito, sendo o conteúdo posição de parte interessada.
+13. Music Business Worldwide — ["Suno: We've hit 2M paid subscribers and $300M annual revenue"](https://www.musicbusinessworldwide.com/suno-hits-2m-paid-subscribers-300m-annual-revenue/),
+    27/02/2026. Sustenta a recusa da seção 4.1 e o item 1 da seção 8 (mais de 100 milhões de
+    pessoas já usaram, 2 milhões de assinantes pagantes, US$ 300 milhões de receita anual
+    recorrente, ditos pelo presidente-executivo em publicação própria de 25/02/2026). Confiável:
+    publicação especializada do setor, **reportando número autodeclarado pela empresa e não
+    auditado** — é evidência de ordem de grandeza de adoção, não de receita verificada. Para a
+    finalidade aqui, que é decidir se a tecnologia é produto de massa, a ordem de grandeza basta.
+14. Câmara dos Deputados — [página da Comissão Especial sobre o PL 2338/23](https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-temporarias/especiais/57a-legislatura/comissao-especial-sobre-inteligencia-artificial-pl-2338-23).
+    Sustenta a nota sobre o Brasil (31 reuniões, 180 convidados, seminários de novembro de 2025
+    sobre setores criativo e jornalístico). Confiável: fonte oficial; alta para os dados que traz.
+    A página **não** confirmou relatoria nem situação de tramitação na leitura feita — ver seção 12.
+
+## 12. Anexo — o levantamento bruto
+
+**Estado da entrevista (Fase 1).** Os seis pontos vieram respondidos na abertura desta rodada, e
+nenhum ficou em aberto: recorte (voz e som gerados, dentro da família percepção e mídia
+sintética), horizonte (2031), público (quem projeta mídia e interação), recorte geográfico
+(global, com nota sobre o Brasil), o que está descartado (o que já é comum em produto de massa,
+pela régua da disciplina, sem outras exclusões) e viés (neutro). Por isso **não** se aplica a
+regra de corte da Fase 1, e a confiança não foi rebaixada por esse motivo.
+
+Há, porém, uma limitação a declarar, porque afeta a qualidade do recorte e não apenas a forma:
+esta rodada foi executada sem interlocutor disponível para pergunta de esclarecimento. No teste
+documentado da skill, a Fase 1 incluiu uma segunda pergunta quando uma resposta veio ambígua — aqui
+isso não era possível.
+
+A ambiguidade que apareceu foi na resposta 5 ("o que já está descartado: o que já é comum em
+produto de massa"). Ela é clara para assistente de voz por nuvem e síntese de fala comercial. Não é
+clara para música gerada, que está em escala de massa na **produção** (mais de metade dos envios
+diários a um serviço grande) e em escala pequena na **escuta** (1 a 3%). A primeira versão deste
+documento resolveu a ambiguidade por suposição — a de que a régua mede "escolha padrão de fluxo
+profissional" e não volume bruto — e admitiu a geração de música como disrupção-raiz, registrando a
+dúvida aqui em vez de medi-la.
+
+Isso foi corrigido antes da entrega, e a correção está na seção 4.1 e na seção 8. A medição que
+faltava existe e é inequívoca (100 milhões de usuários, 2 milhões pagantes, receita anual de US$ 300
+milhões), e sob qualquer uma das duas leituras da régua ela caracteriza produto de massa. A raiz da
+música passou a ser a restrição de exportação, e não a capacidade de gerar. **O mapa continua com
+três disrupções-raiz, mas a terceira é outra.**
+
+**Candidatos testados na Fase 2 e rejeitados, com o motivo:**
+
+| Candidato | Teste 1 — madura? | Teste 2 — emergente? | Teste 3 — disruptiva? | Decisão |
+|---|---|---|---|---|
+| Assistente de voz por nuvem (comando e resposta) | Sim — opção padrão em bilhões de aparelhos | — | — | **Madura.** Fora da seção 4; citada na seção 3. |
+| Síntese de fala comercial de boa qualidade | Sim — padrão em audiolivro, dublagem e atendimento | — | — | **Madura.** Fora da seção 4. |
+| Transcrição automática (inclusive em português) | Sim — padrão em legendagem e notas de reunião | — | — | **Madura.** Fora da seção 4. |
+| Sampler, DAW e separação clássica de faixas | Sim — base da produção musical há duas décadas | — | — | **Madura.** Fora da seção 4. |
+| Clonagem de voz | Sim — produto corrente, com política de plataforma desde 2025 | — | Sim, mas o que rompe é a versão em tempo real dentro de conversa | **Madura como raiz; o resíduo disruptivo é consequência de D1.** Ver seção 8, item 4. |
+| Detecção automática de música gerada | Não — recente, em um punhado de serviços | Sim | Não — é contramedida; nada deixa de fazer sentido se ela escalar | **Emergente, não disruptiva.** Entrou como contexto na seção 3. |
+| Fala conversacional full-duplex | Não — existe em produto, mas não é padrão em nenhum fluxo em escala | Sim | Sim — o turno, a palavra de ativação e a árvore de diálogo perdem a razão de existir | **Aprovada: D1.** |
+| Fala no dispositivo e no navegador | Não — funciona, mas a maioria dos produtos ainda envia áudio à nuvem | Sim | Sim — o par servidor mais API paga por minuto deixa de ser necessário para uma classe de produtos | **Aprovada: D2.** |
+| Música gerada completa a partir de uma descrição | **Sim** — 100 milhões de usuários e 2 milhões de assinantes pagantes em um único gerador (25/02/2026), mais de metade dos envios diários de um serviço de streaming; e a resposta 5 da entrevista já a excluía | — | — | **Madura. Recusada como raiz, com a recusa escrita na seção 4.1.** Foi admitida por engano na primeira versão; ver seção 8, item 1. |
+| Restrição contratual de exportação da saída gerada | Não — é de 2025–2026 e vai contra a curva técnica | Sim | Sim — deixa de valer o pressuposto de que o que se produz é um arquivo que se leva embora, e com ele o papel do gerador como etapa de um fluxo de produção | **Aprovada: D3.** |
+
+**Efeitos cortados na auditoria da Fase 4, e por quê:**
+
+- *"O podcast deixa de existir como formato porque qualquer texto vira áudio."* Cortado: o elo
+  causal pula etapa. Síntese de fala barata existe há anos e o formato não encolheu — o que
+  sustenta o podcast é a relação com quem fala, não o custo de produzir áudio. Sem nomear o
+  mecanismo que mudaria isso, o efeito é afirmação, não derivação.
+- *"A locução comercial desaparece como profissão."* Cortado: é consequência de tecnologia madura
+  (síntese comercial), não das disrupções deste mapa, e o que descreve é redução de custo — ou
+  seja, melhoria, pelo critério da Fase 2. Onde o assunto é de fato deste mapa — voz e trabalho —
+  ele aparece por outro caminho, na nota sobre a dublagem no Brasil.
+- *"Produzir uma faixa funcional deixa de exigir orçamento, agenda e busca em catálogo."* Era o
+  efeito de 1ª ordem da versão anterior do ramo da música. Cortado por extrapolação linear pura:
+  descreve o presente medido, não uma consequência a se realizar. O que sobrou dele, reformulado
+  como efeito da nova raiz, é o e3.2 — que diz o contrário do original, porque a biblioteca
+  licenciada volta a ser contratada justamente por quem precisa entregar o arquivo.
+- *"Todo mundo passa a compor música."* Cortado por ser genérico: o mesmo efeito vale para
+  qualquer ferramenta generativa, em qualquer tema, o que é exatamente o critério (c) de parada
+  da Fase 3. A versão específica que sobreviveu é o e3.3, que nomeia a separação em duas
+  ocupações em vez de afirmar democratização.
+
+**Efeitos reescritos, não cortados:**
+
+- e2.2 nasceu como "as pessoas param de usar tela" e não tinha passo intermediário. Reescrito com
+  o mecanismo que faltava: custo marginal perto de zero, produtos falando por padrão, excesso de
+  som virando problema de projeto. A parte sobre a tela sobrou apenas no e2.2.1, restrita a
+  dispositivos de mãos ocupadas.
+- e3.1.1 nasceu como "o streaming quebra". Reescrito com o mecanismo de denominador e numerador, e
+  ancorado nos números do Deezer, porque "quebra" não é efeito narrável — é conclusão sem passo.
+
+**Fontes lidas cujo link recusa cliente automatizado (medido na entrega):** a nota do Deezer
+(`newsroom-deezer.com`) e a síntese sobre o acordo Warner–Suno (`uk.marketscreener.com`) devolvem
+HTTP 403 a `curl`, embora ambas tenham sido abertas e lidas nesta sessão pela ferramenta de leitura
+de página. Pela seção 5 desta skill, `fontes` é a contagem do que foi **de fato lido** — e foi. As
+duas permanecem na seção 11, com esta medição declarada, e quem quiser conferir precisa abri-las
+num navegador. O fato ficou registrado aqui em vez de silenciado, para que a divergência entre
+"link responde" e "fonte foi lida" seja visível a quem auditar.
+
+**Buscas que não deram em nada, ou que não puderam ser confirmadas na fonte:**
+
+- Relatório anual de 2025 do centro de queixas do FBI: o PDF em ic3.gov não retornou texto
+  legível, e tanto a nota de imprensa oficial em fbi.gov quanto uma reportagem de veículo grande
+  retornaram bloqueio de acesso (HTTP 403). Os números de queixas e perdas ligadas a IA, portanto,
+  **não** foram usados e **não** entram na contagem de fontes. Fontes secundárias repetem
+  22.364 queixas e cerca de US$ 893 milhões, mas isso é registro do que não foi verificado, não
+  citação.
+- Estatísticas agregadas de fraude por voz clonada: os resultados que retornam são, em grande
+  parte, páginas de marketing de fornecedores de segurança, com números divergentes entre si
+  (um mesmo trimestre aparece com crescimentos de ordens de grandeza diferentes conforme a
+  página). Nenhuma foi usada. Por isso o wildcard da seção 6 está escrito de forma qualitativa,
+  sem número.
+- Posição oficial do ECAD sobre cadastro de obra com marcação de IA generativa: a página do ECAD
+  retornou bloqueio de acesso, e a informação só apareceu em terceiros. O efeito e3.2.1 fala de
+  procedência declarada por faixa apoiado apenas na fonte que abriu (a divulgação estruturada por
+  metadado, TechCrunch 25/09/2025), sem citar o cadastro brasileiro como fato verificado.
+- Situação de tramitação e relatoria do PL 2338/2023 na Câmara: a página oficial da comissão
+  especial abriu, mas não exibiu relatoria nem estado atual — só contagem de reuniões, convidados
+  e seminários. A nota sobre o Brasil na seção 3 se limita ao que a página de fato mostrou.
+- Página técnica sobre agente de voz rodando inteiramente no navegador, e página oficial do modelo
+  de tempo real da OpenAI: ambas retornaram bloqueio de acesso (HTTP 403). A afirmação sobre
+  disponibilidade geral do modelo fala-a-fala ficou, por isso, sem link de fonte primária no corpo
+  do texto, e é apresentada como contexto, não como dado verificado.
+
+**O que não foi investigado nesta rodada, e é lacuna assumida:** geração de som e foley em tempo
+real para jogo (que pertence a este tema e não foi buscada); o mercado brasileiro de produção
+musical publicitária, onde o e3.1 teria efeito direto e nenhuma fonte foi procurada; e o
+desempenho de reconhecimento de fala em português brasileiro com sotaques regionais, que é o
+recorte local do e2.3 e para o qual não busquei medição.

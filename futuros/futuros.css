@@ -1,0 +1,53 @@
+/* /futuros/ — os futuros da turma (11/09/2026) */
+.entrar { padding-top: var(--s-8); }
+.entrar__form { display: grid; gap: var(--s-3); max-width: 380px; margin-top: var(--s-6); }
+.entrar__form label { font-weight: 600; }
+.entrar__form input { font: inherit; padding: var(--s-3) var(--s-4); border: var(--border-strong, 1.5px solid var(--hairline-strong)); border-radius: 10px; background: var(--surface); color: var(--fg); }
+.entrar__erro { color: var(--cin-red); font-weight: 600; margin-top: var(--s-3); }
+
+.fut-cab { padding-top: var(--s-7); }
+.fut-cab h1 { margin-top: var(--s-3); }
+.fut-cab .olho { max-width: 70ch; }
+.fut-barra { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; margin-top: var(--s-5); font-size: var(--t-sm); color: var(--fg-muted); }
+.fut-barra .pilula { border: 1px solid var(--hairline-strong); border-radius: 999px; padding: 2px 10px; }
+.fut-barra .pilula--ok { border-color: var(--cin-red); color: var(--cin-red); font-weight: 600; }
+
+.temas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--s-4); margin-top: var(--s-6); }
+.tema-card { display: grid; grid-template-rows: auto 1fr auto; gap: var(--s-2); border: 1px solid var(--hairline-strong); border-radius: 14px; overflow: hidden; background: var(--surface); text-decoration: none; color: inherit; transition: border-color .15s; }
+.tema-card:hover { border-color: var(--cin-red); }
+.tema-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #F6F1E6; }
+.tema-card .corpo { padding: var(--s-3) var(--s-4) 0; }
+.tema-card .n { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); }
+.tema-card h3 { margin: var(--s-1) 0 0; font-size: var(--t-md); line-height: 1.25; }
+.tema-card .meta { padding: 0 var(--s-4) var(--s-3); font-size: var(--t-xs); color: var(--fg-muted); display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.tema-card .meta b { color: var(--fg); }
+.tema-card--vazio { opacity: .55; }
+.tema-card .estado { font-size: var(--t-xs); font-weight: 600; }
+.tema-card .estado--aberto { color: var(--cin-red); }
+
+.fontes { display: grid; gap: var(--s-6); margin-top: var(--s-6); }
+.fonte { border: 1px solid var(--hairline-strong); border-radius: 16px; padding: var(--s-5); background: var(--surface); }
+.fonte__cab { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); align-items: baseline; }
+.fonte__cab h2 { margin: 0; font-size: var(--t-xl); }
+.fonte__cab .tipo { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); }
+.fonte__stats { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); margin-top: var(--s-3); font-size: var(--t-sm); color: var(--fg-muted); }
+.fonte__stats b { color: var(--fg); font-weight: 600; }
+.fonte__resumo { margin-top: var(--s-4); max-width: 80ch; font-family: var(--font-serif); font-size: var(--t-md); line-height: 1.55; }
+.fonte__acoes { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-4); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
+.thumbs a { display: block; border: 1px solid var(--hairline); border-radius: 10px; overflow: hidden; background: #F6F1E6; }
+.thumbs a:hover { border-color: var(--cin-red); }
+.thumbs img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.thumbs figcaption { font-size: var(--t-xs); color: var(--fg-muted); padding: 4px 8px; }
+
+.visor { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; z-index: 50; }
+.visor[open] { display: block; }
+.visor iframe { width: 100vw; height: 100vh; border: 0; background: #F6F1E6; }
+.visor button { position: absolute; top: 12px; right: 12px; font: inherit; padding: 8px 14px; border-radius: 999px; border: 0; background: #fff; cursor: pointer; }
+
+.tabela-wrap { overflow-x: auto; margin-top: var(--s-5); }
+.tabela-wrap table { border-collapse: collapse; width: 100%; font-size: var(--t-sm); }
+.tabela-wrap th, .tabela-wrap td { text-align: left; padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--hairline); vertical-align: top; }
+.tabela-wrap th { font-weight: 600; color: var(--fg-muted); font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .06em; }
+.doc-corpo .infog { margin: var(--s-6) 0; }
+@media (max-width: 640px) { .fonte { padding: var(--s-4); } }

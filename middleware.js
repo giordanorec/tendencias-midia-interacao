@@ -1,0 +1,40 @@
+// Edge Middleware — acesso à área /futuros/ (11/09/2026).
+// Regra: o professor entra com senha (cookie tmi_prof) e vê tudo. Um tema fica público para a turma
+// a partir da data registrada em /futuros/liberados.json (a data da aula em que ele é apresentado).
+// Tudo o mais em /futuros/ redireciona para a página de entrada.
+export const config = { matcher: ['/futuros/:path*'] };
+
+async function sha256(s) {
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('');
+}
+
+function hojeRecife() {
+  // AAAA-MM-DD em America/Recife (UTC-3, sem horário de verão)
+  const d = new Date(Date.now() - 3 * 3600 * 1000);
+  return d.toISOString().slice(0, 10);
+}
+
+export default async function middleware(req) {
+  const url = new URL(req.url);
+  const p = url.pathname;
+  if (p.startsWith('/futuros/entrar') || p === '/futuros/liberados.json' || p === '/futuros/futuros.css') return;
+  const senha = process.env.FUTUROS_SENHA || '';
+  if (senha) {
+    const esperado = await sha256(senha + '|tmi-futuros');
+    const cookie = req.headers.get('cookie') || '';
+    if (cookie.split(';').some(c => c.trim() === 'tmi_prof=' + esperado)) return;
+  }
+  const m = p.match(/^\/futuros\/(\d{2}-[a-z0-9-]+)(\/|$)/);
+  if (m) {
+    try {
+      const r = await fetch(new URL('/futuros/liberados.json', req.url));
+      const lib = await r.json();
+      const data = lib[m[1]];
+      if (data && hojeRecife() >= data) return;
+    } catch (e) { /* sem lista: fica fechado */ }
+  }
+  const destino = new URL('/futuros/entrar/', req.url);
+  destino.searchParams.set('de', p);
+  return Response.redirect(destino, 302);
+}

@@ -1,0 +1,754 @@
+---
+tema: Bem-estar digital e design de fricção
+slug: bem-estar-digital-e-design-de-friccao
+autor_login: vafs
+zona_de_interesse: Pessoas e dados
+data: 2026-09-11
+horizonte: 2031
+publico: Quem projeta mídia e interação — designers de produto, de plataforma e de ferramenta de IA — para decidir onde a fricção deliberada entra no próprio trabalho
+recorte_geografico: global (com nota sobre o Brasil)
+disrupcoes_raiz: 3
+efeitos_ordem_1: 5
+efeitos_ordem_2: 8
+efeitos_ordem_3: 8
+tecnologias_citadas: [micro-fricção temporal no ponto de abertura de app (padrão one sec), token físico NFC como chave de destravamento, telefone minimalista dedicado (Light Phone), impressão em papel do resumo diário (Paper Phone), capa de celular como interface de obturação (Aperture), limite de tempo por default imposto pela plataforma, lembrete de pausa em sessão longa de assistente de IA, painel de tempo de tela embutido no sistema operacional, bloqueador de app e extensão de navegador]
+fontes: 12
+confianca: media
+experimento: Chave física de sessão — comparar, na própria turma e por duas semanas, o abandono de abertura de app sob três condições (fricção só em software, token físico guardado a mais de dez metros, e nenhuma fricção), medindo tentativas e desistências, não tempo de tela
+skill_usada: futurizacao-vafs
+publico_ok: false
+---
+
+## 1. Resumo
+
+Depois de vinte anos otimizando engajamento, uma contracorrente virou mercado: interfaces
+desenhadas para serem usadas menos. O que já está maduro — painel de tempo de tela no sistema
+operacional, bloqueador de app, modo não perturbe — saturou e é ineficaz justamente por ser
+software rodando dentro do aparelho que disputa a atenção. O que está se movendo é o **formato**
+da intervenção: um objeto físico fora do bolso como chave de acesso, a fricção nascendo ligada
+por decisão de plataforma ou por lei, e a fricção migrando do consumo de conteúdo para o uso do
+agente de IA. Até 2031, o efeito mais provável não é "as pessoas usarão menos o celular": é que
+**a autoria da interrupção muda de mão** — sai do usuário que instala um app e vai para o
+fabricante de um objeto, para o regulador, e para o próprio assistente. O maior risco deste mapa
+é confundir anúncio de plataforma com mudança de prática: das três disrupções aqui, duas
+dependem de uma adoção que hoje só existe para menores de idade e sob pressão legal.
+
+## 2. O tema
+
+"Bem-estar digital e design de fricção" aqui significa o conjunto de intervenções cujo objetivo
+declarado é **reduzir, interromper ou recuperar a atenção** de quem usa — e, por extensão, o
+desenho deliberado de atrito onde a indústria passou duas décadas removendo atrito. O recorte
+não é "as pessoas usam demais o celular" (diagnóstico, já consensual) nem "existe app para
+bloquear app" (produto, já maduro): é o que acontece com a prática de projetar quando a métrica
+de sucesso deixa de ser tempo de permanência.
+
+O tema encosta em mídia e interação em três pontos. Primeiro, inverte a regra de ofício mais
+estável da área — a de que boa interface é a de menor atrito. Segundo, empurra o design para
+fora da tela: papel, capa, token NFC, caixa trancável, objeto de função única. Terceiro, a
+pergunta se repete um nível acima, sobre a ferramenta que faz o trabalho por você: como se
+projeta fricção para um agente de IA, cujo valor declarado é exatamente poupar esforço?
+
+Merece mapa de futuro, e não levantamento de estado da arte, porque a pergunta que interessa não
+é "o que já existe para bloquear app" — é **o que deixa de fazer sentido** quando a interrupção
+passa a ser default, legal e física, em vez de voluntária, opcional e digital.
+
+Fronteira declarada: vínculo afetivo com companheiro digital é outro tema. Aqui, a IA entra só
+como objeto da fricção (o agente que interrompe a si mesmo), não como relação.
+
+## 3. Onde isso está hoje
+
+**Maduro, e é preciso dizer com todas as letras.** Painel de tempo de tela embutido no sistema
+operacional, limite por app, modo de foco e modo não perturbe são opção padrão de fábrica nos
+dois sistemas móveis dominantes há anos; o que resta é ficar mais granular, não mudar de
+natureza. O mercado de terceiros também já havia saturado antes mesmo dessa absorção: a revisão
+de Lyngs e colegas na CHI 2019 analisou **367 apps e extensões de navegador** das lojas Google
+Play, Chrome Web e Apple App para mapear as estratégias de intervenção então disponíveis
+([Lyngs et al., arXiv:1902.00157](https://arxiv.org/abs/1902.00157)) — sete anos atrás. Um
+levantamento de 2026 que reprove "clone genérico de bloqueador" está reprovando algo que já
+tinha três centenas e meia de instâncias catalogadas em 2019.
+
+**Validado, e por isso já quase maduro: a micro-fricção temporal.** O padrão de intercalar uma
+pausa curta entre o toque e a abertura do app saiu do laboratório e tem evidência revisada por
+pares: o estudo do app *one sec* foi publicado na PNAS em 2023 por David J. Grüning, Frederik
+Riedel e Philipp Lorenz-Spreen, sob o título "Directing smartphone use through the self-nudge app
+one sec" ([DOI 10.1073/pnas.2213114120](https://doi.org/10.1073/pnas.2213114120)). A continuação
+longitudinal, na CHI 2024, coletou dados de **N = 1.039 usuários por uma média de 13,4 semanas**,
+mais respostas de 249 deles, e concluiu, literalmente, que "users overwhelmingly choose to target
+Social Media apps" e que "the short design frictions introduced by one sec effectively reduce how
+often users attempt to open target apps and lead to more intentional app-openings over time"
+([Haliburton, Grüning, Riedel, Schmidt e Terzimehić, DOI 10.1145/3613904.3642370](https://doi.org/10.1145/3613904.3642370)).
+O mesmo trabalho registra que os usuários tiram pausas periódicas da própria intervenção — isto
+é, a fricção em software é negociável com quem a instalou.
+
+**Emergente, e é onde o mapa mora.** O objeto físico como chave: o Light Phone, fabricado pela
+The Light Phone, Inc. (Brooklyn, fundada em 15 de setembro de 2014 por Joe Hollier e Kaiwei
+Tang), aparelho descrito como "designed to be used as little as possible", cuja segunda geração
+levantou US$ 3.513.838 com 10.732 apoiadores em financiamento coletivo e cuja terceira geração
+começou a ser enviada em 27 de março de 2025
+([Wikipédia, "Light Phone"](https://en.wikipedia.org/wiki/Light_Phone)). O ritual impresso: o
+*Paper Phone*, do estúdio Special Projects para os Google Digital Wellbeing Experiments em 2019,
+que imprime um livreto com o essencial do dia
+([Special Projects, Paper Phone](https://www.specialprojects.studio/project/paper-phone/)) — e
+que, note-se, foi financiado pelo próprio programa de bem-estar de uma das plataformas. A capa
+como interface: o *Aperture*, do mesmo estúdio, de 2025, em que "virar a capa do telefone" deixa
+"apenas uma pequena seção da tela visível", e o gesto de virar é a própria fricção
+([Special Projects, Aperture](https://www.specialprojects.studio/project/aperture/)). Ao redor
+disso, o token NFC que trava o aparelho até ser tocado de novo é hoje um produto de prateleira —
+sem número de vendas público que eu tenha conseguido confirmar (ver seção 12).
+
+**Emergente, vindo de cima: a fricção por default e por lei.** Em 26 de agosto de 2026 a Meta
+anunciou que adolescentes passam a ter "a two-hour daily time limit on Facebook and Instagram,
+though it can be overridden by a parent", além de bloqueio de postagem entre meia-noite e 6h,
+silenciamento de notificações das 8h às 15h, desligamento de autoplay, ocultação de contagem de
+curtidas e a opção — que os pais podem tornar obrigatória — de um feed não personalizado; no
+mesmo anúncio, pediu que TikTok e YouTube adotassem limite de uma hora e pagassem "$5.3 billion
+each" ([MacRumors, 26/08/2026](https://www.macrumors.com/2026/08/26/meta-teen-time-limit/)). Na
+União Europeia, o **Digital Fairness Act** está com status "Announced" e data indicativa no
+quarto trimestre de 2026, e pretende endereçar "dark patterns, unfair pricing, misleading
+marketing by social media influencers, addictive design of digital products and unfair
+personalisation practices"; o Parlamento já havia pedido legislação contra design viciante em
+resolução de dezembro de 2023, e a consulta pública fechou em 24 de outubro de 2025
+([Parlamento Europeu, Legislative Train, atualizado em 01/08/2026](https://www.europarl.europa.eu/legislative-train/theme-protecting-our-democracy-upholding-our-values/file-digital-fairness-act)).
+
+**Nota sobre o Brasil.** O ECA Digital (Lei 15.211/2025) entrou em fiscalização em **março de
+2026**, seis meses após a sanção, e proíbe, em jogos eletrônicos, "as chamadas lootboxes, as
+'caixas-surpresa' que exigem pagamento sem que o usuário saiba previamente", proíbe "o uso de
+dados ou perfis emocionais de crianças e adolescentes para fins publicitários", exige verificação
+de idade que substitua a autodeclaração e vincula a conta de menores de 16 anos à de um
+responsável ([Câmara dos Deputados, infográfico do ECA Digital](https://infograficos.camara.leg.br/eca-digital/)).
+Importante para este mapa: a página oficial que consultei **não** trata explicitamente de
+notificação, autoplay ou limite de tempo de uso — o Brasil chegou primeiro pelo lado do
+comércio e do dado, não pelo lado do ritmo de uso. É uma diferença de forma, não de intenção, e
+ela importa para quem projeta: a obrigação brasileira hoje recai sobre o que se vende e o que se
+mede, a europeia em preparo recai sobre como a interface conduz.
+
+**Emergente, do outro lado do balcão: a fricção sobre a IA.** Em 4 de agosto de 2025 a OpenAI
+anunciou lembretes de pausa em conversas longas, com o pop-up "Just Checking In. You've been
+chatting for a while — is this a good time for a break?"
+([Engadget, 04/08/2025](https://www.engadget.com/ai/chatgpt-will-now-remind-you-to-take-breaks-following-mental-health-concerns-180221008.html)).
+E existe base empírica para o recorte: na colaboração OpenAI–MIT Media Lab, um estudo analisou
+"nearly 40 million ChatGPT interactions" e o outro foi um ensaio controlado randomizado
+pré-registrado com "nearly 1,000 participants using ChatGPT over four weeks"; os achados
+principais para cá são que sinais afetivos "were not present in the vast majority of on-platform
+conversations", mas que conversas não-pessoais "tended to increase emotional dependence,
+especially with heavy usage", e que "extended daily use was also associated with worse outcomes"
+([MIT Media Lab](https://www.media.mit.edu/posts/openai-mit-research-collaboration-affective-use-and-emotional-wellbeing-in-ChatGPT/)).
+
+**E, do lado cultural, o nome.** "Friction-maxxing" — escolher deliberadamente a opção menos
+conveniente, "building up tolerance for 'inconvenience'" — foi cunhado pela colunista Kathryn
+Jezer-Morton em janeiro de 2026, no ensaio "In 2026, We Are Friction-Maxxing", na *The Cut*; a
+página registra tanto as filiações intelectuais (Tim Wu sobre a "tirania da conveniência",
+Hartmut Rosa sobre incontrolabilidade) quanto a crítica de equidade — a de que a prática tende a
+beneficiar sobretudo trabalhadores de alto status
+([Wikipédia, "Friction-maxxing"](https://en.wikipedia.org/wiki/Friction-maxxing)). Que o
+comportamento já tenha verbete é sinal de que saiu do nicho; que a crítica de classe já venha
+junto é sinal de que a discussão amadureceu mais rápido que a prática.
+
+## 4. As disrupções-raiz
+
+As três abaixo passaram pelos testes da Fase 2 da skill. O registro completo do que foi
+**rejeitado** e por quê está na seção 12 — é o que prova que o critério foi aplicado.
+
+### D1 — O controle da atenção sai do software e vira objeto físico
+
+**O que rompe.** A premissa de que o autocontrole digital é um problema a ser resolvido dentro do
+aparelho, por software instalado pelo próprio usuário. Se o destravamento passa a exigir um
+objeto que não está no bolso — um token NFC na cozinha, um segundo aparelho sem navegador, um
+livreto de papel, uma capa virada —, o app de autocontrole perde a característica que o tornava
+ineficaz: ser negociável, em três toques, pela mesma pessoa que o instalou. O estudo longitudinal
+de 2024 mostra exatamente isso ao registrar que usuários tiram pausas periódicas da própria
+intervenção. Quem perde a razão de existir: o **dispositivo de compromisso implementado em
+software dentro do sistema que se quer limitar** — e, com ele, o painel de tempo de tela como
+locus do controle.
+
+**Por que agora e não há cinco anos.** Três coisas mudaram ao mesmo tempo: NFC passivo virou
+barato e universal nos aparelhos; o telefone minimalista deixou de ser protótipo de campanha e
+virou produto com terceira geração entregue (março de 2025); e estúdios de design com repertório
+industrial passaram a tratar o problema como projeto de objeto, não de app — o Paper Phone é de
+2019 e o Aperture é de 2025, ambos do mesmo estúdio, e a diferença entre eles é a distância que o
+gênero percorreu.
+
+**O que falta.** Números públicos de venda. Nenhum dos fabricantes de token físico que procurei
+divulga volume, e a página oficial do Light Phone tem financiamento coletivo, não vendas. Sem
+isso, "mercado" é inferência a partir de cobertura de imprensa e de preço praticado.
+
+### D2 — A fricção deixa de ser produto de terceiro e passa a nascer ligada, por plataforma e por lei
+
+**O que rompe.** A arquitetura inteira do bem-estar digital como **mercado de terceiros**. Se o
+limite vem de fábrica e é exigido por regulação, o app de autocontrole deixa de ter público
+majoritário — o usuário casual já vem servido pelo default — e a categoria encolhe para o nicho
+de quem quer fricção mais dura que a legal. Rompe também algo mais profundo do lado de quem
+projeta: "tempo de permanência" deixa de ser métrica neutra de sucesso e passa a ser um número
+que pode ser usado contra a empresa num processo. Quem perde a razão de existir: o **app de
+bem-estar digital de terceiro** e, mais adiante, a função de crescimento organizada em torno de
+engajamento em produto de consumo voltado a menores.
+
+**Por que agora.** Porque saiu do papel em 2026, dos dois lados: a Meta anunciou limite de duas
+horas por default em agosto, e o Digital Fairness Act tem data indicativa no quarto trimestre —
+com o Parlamento tendo pedido legislação contra design viciante desde dezembro de 2023. No
+Brasil, o ECA Digital já está em fiscalização desde março de 2026.
+
+**O que falta — e é muito.** Tudo isso vale hoje **para menores de idade**. Não há caso público
+de plataforma grande aplicando limite por default à base adulta inteira. E o anúncio da Meta vem
+acompanhado de uma exigência de que concorrentes paguem 5,3 bilhões de dólares cada, o que o
+torna, em parte, movimento competitivo — não evidência de mudança de doutrina de produto.
+
+### D3 — A fricção migra do consumo de conteúdo para o uso do agente de IA
+
+**O que rompe.** A regra de ofício de que a melhor interface é a de menor atrito — regra que,
+para conteúdo, já vinha sendo contestada, mas que para ferramenta de trabalho ainda é consenso
+quase absoluto. Um agente que interrompe a si mesmo, que pergunta pela intenção antes de
+continuar, ou que exige um ponto de revisão antes de entregar, é um produto que deliberadamente
+piora a própria eficiência declarada. Quem perde a razão de existir: o **assistente sempre
+disponível e sempre disposto** como modelo único de interação — e, junto, a ideia de que volume
+de uso de uma ferramenta de IA é, por si, evidência de valor entregue.
+
+**Por que agora.** Porque a primeira implementação existe e é de uma plataforma dominante (agosto
+de 2025), e porque já há medida empírica do dano concentrado no uso intenso, não na média (o
+ensaio randomizado com cerca de mil participantes por quatro semanas). A pergunta deixou de ser
+hipotética.
+
+**O que falta.** Que alguém demonstre fricção em agente que não seja apenas um lembrete
+descartável. Interromper quem lê conteúdo e interromper quem delega trabalho são problemas
+diferentes: no segundo caso, o custo que se quer evitar não é o tempo gasto, é a entrega aceita
+sem leitura. Nenhum produto público, que eu tenha encontrado, projeta para esse custo. **Esta é a
+mais frágil das três raízes pelo teste 3** — o registro está na seção 12.
+
+## 5. A roda dos futuros
+
+O bloco a seguir é lido por máquina. Em prosa, três observações que o YAML não carrega. Primeira:
+a concentração de `confianca: baixa` na terceira ordem não é preguiça — é o resultado esperado do
+método, e qualquer efeito de terceira ordem com confiança alta aqui seria sinal de que a
+auditoria não rodou. Segunda: o único efeito de primeira ordem com `sinal: forte` é o e3, e ele é
+forte porque tem data, nome e documento oficial, não porque eu acredite mais nele. Terceira: o e4
+está com confiança baixa **por decisão da auditoria**, não por falta de imaginação — é o efeito
+que assume adoção sem precedente comparável, e a seção 7 explica por quê.
+
+```yaml
+roda:
+  - disrupcao: O controle da atenção sai do software e vira objeto físico fora do alcance imediato
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O compromisso deixa de depender de força de vontade exercida dentro do mesmo aparelho que disputa a atenção, porque o destravamento passa a exigir um objeto que não está ao alcance da mão
+        sinal: medio
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Forma-se uma categoria de acessório com margem de hardware onde antes havia app gratuito com assinatura, e o preço deixa de ser objeção porque o objeto é comprado como móvel da casa, não como software
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Estar permanentemente acessível deixa de ser presunção social padrão em certos círculos profissionais, e a indisponibilidade vira sinal de posição — com o custo recaindo sobre quem não pode se dar a ela
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: O aparelho único se fragmenta em parte, com funções migrando para objetos de função única (papel impresso, tela e-ink, capa que oblitera), e o celular passa a ser o modo caro de fazer as mesmas coisas
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Projetar interação passa a incluir decidir em que objeto cada função mora, e o briefing de projeto deixa de ser de um app para ser de um portfólio de dispositivos com papéis distintos
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: A plataforma perde o monopólio sobre quem pode interromper o uso, porque a decisão de bloquear passa a ser executada por um dispositivo que ela não controla, não mede e não pode negociar com o usuário
+        sinal: medio
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Plataformas passam a tratar o hardware de desconexão como concorrente e disputam compatibilidade — oferecendo atalho oficial de um lado, quebrando integração do outro — repetindo o roteiro que já usaram contra bloqueador de anúncio
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Quem tem direito de interromper o uso vira matéria de regulação de interoperabilidade e de acesso a API, e sai do campo do bem-estar para o campo da concorrência
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: A fricção deixa de ser produto de terceiro e passa a nascer ligada, por decisão de plataforma e por obrigação legal
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: O limite de uso deixa de ser algo que o usuário instala e passa a ser algo que ele desliga, porque nasce ligado por decisão da plataforma ou por exigência de lei
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O mercado de apps de autocontrole perde o público majoritário — o usuário casual já vem servido pelo default de fábrica — e sobrevive no nicho de quem quer fricção mais dura, mais estranha ou mais ritualizada que a legal
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Bem-estar digital deixa de ser categoria de produto e vira requisito de conformidade com relatório de impacto e auditoria, seguindo o caminho que acessibilidade e privacidade já fizeram
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Tempo de permanência deixa de ser métrica interna publicável porque passa a servir de prova documental em processo regulatório, e equipes de produto migram para medidas declaradas de intenção atendida — que são piores de otimizar e por isso mais difíceis de usar contra elas
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: A remuneração variável de equipe de produto de consumo desacopla de engajamento, e a função de crescimento se reescreve em torno de retenção declarada ou encolhe nas empresas mais expostas a regulação
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: A fricção entra na tabela de preços — modo calmo como item de plano pago, ou como benefício corporativo contratado pelo empregador em vez de escolhido pela pessoa
+        sinal: fraco
+        prazo: 2029
+        confianca: baixa
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Quem paga compra de volta a própria atenção enquanto quem não paga permanece no default otimizado para engajamento, e a desigualdade atencional passa a ter uma linha de assinatura como fronteira explícita
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Reguladores passam a tratar o default engajante como prática comercial desleal contra quem não pode pagar pelo modo calmo, e a versão paga da fricção é proibida antes de se consolidar
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: A fricção migra do consumo de conteúdo para o uso do agente de IA
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: O assistente passa a interromper a si mesmo com checagem de sessão longa e pergunta sobre intenção, invertendo dentro da ferramenta de trabalho a regra de que boa interface é a de menor atrito
+        sinal: medio
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: No trabalho com agente de código, a fricção deixa de ser pausa de descanso e vira ponto de revisão obrigatório, porque o custo que se quer evitar não é o tempo de tela e sim a entrega aceita sem leitura
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Saber parar e conferir o agente entra na formação e na avaliação de quem projeta e de quem programa, do mesmo modo que ler um diff entrou, e vira critério de contratação antes de virar disciplina
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: Produtos de IA passam a medir dependência declarada em vez de tempo de uso, porque o dano relatado se concentra na cauda de uso intenso e uma média de sessão não o enxerga
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Fornecedores de IA de consumo passam a ser obrigados a declarar e endereçar perfil de uso problemático, seguindo o desenho regulatório já aplicado a plataforma de aposta, e não o de rede social
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+```
+
+## 6. Sinais fracos e wildcards
+
+**O wildcard já aconteceu pela metade, e vale menos do que parece.** A pergunta plantada era: "e
+se uma plataforma grande adotar fricção deliberada por default e ganhar usuários com isso?". Em
+26 de agosto de 2026 a Meta adotou — limite de duas horas, bloqueio noturno, autoplay desligado,
+curtidas ocultas, feed sem algoritmo como opção que os pais podem tornar obrigatória. Mas só para
+menores, com sobreposição parental, sob pressão regulatória, e no mesmo movimento em que exigiu
+que concorrentes pagassem 5,3 bilhões de dólares cada. Isso é fricção como **instrumento
+competitivo e de defesa jurídica**, não como proposta de produto. O wildcard de verdade continua
+em aberto: uma plataforma grande aplicando fricção por default à base adulta inteira, sem ser
+obrigada, e publicando que cresceu com isso.
+
+**Sinal fraco 1 — o bem-estar embutido no ambiente de programação com agente.** Extensões que
+monitoram e interrompem o fluxo de trabalho com agente de código, e ganchos de bem-estar dentro
+do próprio harness. É o tema do bem-estar encontrando o tema das ferramentas de agente, e é
+sinal fraco no sentido estrito: existe como projeto pessoal publicado, não como produto. Se
+crescer, é o caminho do e5.1.
+
+**Sinal fraco 2 — a sátira como gênero de produto.** Peças que ironizam o uso excessivo de IA
+generativa, aplicativos que repreendem verbalmente quem rola a tela, ícones falsos que impõem
+pausa e não fazem mais nada, extensões que trocam conteúdo indesejado por poesia. Sátira não é
+tecnologia e não entra na roda, mas historicamente é o primeiro registro público de que um
+comportamento virou reconhecível o bastante para ser caricaturado. O verbete de "friction-maxxing"
+é a versão enciclopédica do mesmo sinal.
+
+**Sinal fraco 3 — a economia comportamental invertida.** Tratar tempo de tela como carteira de
+investimento, contar milhas percorridas pelo polegar, cobrar matemática adaptativa para liberar
+um app. O que há de novo não é a gamificação — é gamificar a **redução**, usando o mesmo
+repertório que a indústria usou para aumentar. Se funcionar, é a demonstração mais incômoda do
+tema: que o problema nunca foi a técnica, foi o objetivo para o qual ela apontava.
+
+**Wildcard 2 — um processo judicial que transforma métrica interna em prova.** Se num litígio
+sobre design viciante a métrica de engajamento de uma empresa for aceita como documento
+comprobatório de intenção, o e3.2 deixa de ser efeito de segunda ordem lento e vira decisão de
+uma reunião de jurídico. Não encontrei caso concluído nesse formato; por isso fica aqui e não na
+roda.
+
+**Wildcard 3 — o token físico virar acessório de fábrica.** Um fabricante de celular embutir, no
+próprio aparelho ou na capa oficial, o mecanismo físico de obturação. O *Aperture* é exatamente
+a prova de conceito disso feita por um estúdio de design; se um fabricante incorporar, D1 e D2
+colidem — o objeto físico deixa de ser o que escapa da plataforma e passa a ser o que a
+plataforma vende.
+
+## 7. Contra o próprio mapa
+
+Esta seção é o produto da auditoria da Fase 4, item a item, não um texto de cautela genérico.
+
+**1. O efeito e4 assume adoção sem precedente comparável.** Não conheço caso em que uma empresa
+de mídia tenha vendido, com sucesso e em escala, **menos uso** do próprio produto como item
+premium. Os precedentes que existem são de remoção de anúncio (vender ausência de interrupção
+comercial, o que é o oposto) e de assinatura de produtividade (vender mais capacidade). Vender
+fricção exige que o cliente pague para receber menos do que já recebe de graça. Por isso e4 e
+toda a sua descendência estão com `sinal: fraco` e `confianca: baixa` — e se e4 não ocorrer,
+e4.1 e e4.1.1 caem inteiros, sem afetar o resto do mapa.
+
+**2. O efeito e1.1.1 é, em boa medida, extrapolação linear.** A dinâmica de "indisponibilidade
+como bem posicional" já existe e já está documentada: a crítica de equidade ao friction-maxxing
+diz exatamente que a prática favorece trabalhadores de alto status. Ou seja, e1.1.1 não prevê um
+regime novo — projeta para 2031 uma curva que já está em curso em 2026. Continua no mapa porque a
+derivação é válida e o mecanismo é narrável, mas foi rebaixado a `confianca: baixa` justamente
+por isso, e o leitor não deve tomá-lo como descoberta.
+
+**3. O efeito e3.2 tinha um elo causal faltando, e foi reescrito.** Na primeira geração ele dizia
+apenas que "tempo de uso deixa de ser métrica de sucesso" — o que é um verbo mágico: empresas não
+abandonam métrica boa de otimizar por convicção. O passo intermediário que faltava, e que foi
+escrito no efeito final, é jurídico: a métrica vira **prova documental** num processo sobre
+design viciante, e o custo de mantê-la passa a ser maior que o benefício. Sem esse elo, o efeito
+não deveria ter entrado.
+
+**4. A disrupção D2 pode simplesmente não se concretizar para adultos — e isso derruba um terço
+do mapa.** Todo o material duro que sustenta D2 é sobre menores de idade: a Meta com sobreposição
+parental, o ECA Digital brasileiro, o foco em minors do Digital Fairness Act. É perfeitamente
+possível que o regime se estabilize como **proteção de menores** e nunca alcance o público geral
+— caso em que e3.1, e3.1.1, e3.2 e e3.2.1 não acontecem, e o mercado de terceiros continua vivo
+porque o adulto continua sozinho com o problema. Este é o cenário C da seção 9, e eu diria que é
+tão provável quanto os outros dois.
+
+**5. A disrupção D3 é a mais frágil pelo teste de disrupção.** "Assistente sempre disponível
+deixa de ser o único modelo de interação" é mais fraco que "um ator perde a razão de existir". Um
+lembrete de pausa descartável pode perfeitamente ser só uma melhoria de segurança dentro do mesmo
+produto — e melhoria não é disrupção, pelo próprio critério que esta skill aplica. D3 foi
+mantida porque o objeto da fricção muda de natureza (interromper quem delega trabalho não é o
+mesmo problema que interromper quem consome conteúdo, e exige projeto diferente), mas é a raiz
+que eu cortaria primeiro se tivesse de cortar uma.
+
+**6. O viés de quem pediu e de quem construiu.** O recorte da disciplina — "reprove clone
+genérico de bloqueador; aprove só o que muda o formato da intervenção" — é uma régua que
+**premia a novidade formal** e, por construção, empurra o mapa para hardware, ritual e humor,
+que é onde a novidade formal está. Uma régua diferente, que perguntasse "o que de fato reduz uso
+medido em escala", provavelmente devolveria um mapa dominado por default de plataforma e
+regulação, com o objeto físico como nota de rodapé de mercado pequeno. Os dois mapas seriam
+honestos; este é o da primeira régua, e o leitor deve saber disso. O viés declarado na entrevista
+foi **neutro**, e o que fiz para honrá-lo foi dar a D2 — a menos "interessante" pela régua da
+disciplina — o único `sinal: forte` do documento.
+
+**7. Sobre o próprio ofício.** Há um viés estrutural em produzir este mapa com uma ferramenta de
+IA, num tema cuja terceira raiz é o uso excessivo de ferramentas de IA. Não tenho como
+neutralizá-lo; registro que ele existe e que ele empurra na direção de tratar D3 como mais madura
+do que ela é.
+
+## 8. O que a máquina errou
+
+**1. A situação legislativa do Digital Fairness Act, corrigida contra a fonte.** Eu tinha, de
+memória, o Digital Fairness Act como proposta já apresentada. A página oficial do Legislative
+Train do Parlamento Europeu, atualizada em **01/08/2026**, mostra status "Announced", data
+indicativa no **quarto trimestre de 2026** e consulta pública encerrada em **24 de outubro de
+2025** — ou seja, a proposta ainda não foi apresentada. Isso muda o mapa concretamente: se eu
+tivesse mantido a memória, o e3 teria saído com prazo anterior e confiança maior do que merece.
+É o tipo de erro que este método existe para pegar.
+
+**2. Dois números que a busca me ofereceu e que eu não coloquei no documento.** Resumos de busca
+me entregaram, para o estudo do *one sec* na PNAS, os valores de "36% das tentativas abandonadas"
+e "37% menos tentativas ao longo de seis semanas", com 280 participantes. Eu **não** consegui
+abrir a fonte primária — pnas.org devolveu HTTP 403 — e o resumo estruturado que consegui abrir
+(Semantic Scholar) traz o abstract truncado, sem esses números. Então eles não entraram no corpo
+do texto, nem no contador de fontes. Não estou afirmando que estão errados; estou afirmando que
+não os verifiquei, e a diferença entre as duas coisas é o assunto desta seção. O que ficou no
+documento é o que veio do abstract integral da CHI 2024 (N = 1.039, 13,4 semanas), esse sim
+obtido por inteiro.
+
+**3. Números de mercado de dumbphone que descartei por procedência.** A busca devolveu
+afirmações do tipo "vendas para jovens adultos cresceram quase 150%", "US$ 799", "399 mil
+pré-encomendas", todas vindas de páginas de comparação comercial e conteúdo de afiliado. A única
+fonte que abri e que é rastreável — a Wikipédia do Light Phone — tem financiamento coletivo
+(US$ 415.127 com 3.187 apoiadores na primeira geração; US$ 3.513.838 com 10.732 na segunda),
+datas de envio e número de funcionários, e **não** tem número de vendas. Por isso o documento não
+afirma tamanho de mercado em lugar nenhum, e a seção 4 diz explicitamente que "mercado", em D1, é
+inferência. Também por isso não nomeei a plataforma de financiamento coletivo da segunda geração:
+a página que abri dá o valor e o número de apoiadores, não a plataforma, e eu tinha uma resposta
+de memória para isso que preferi não usar.
+
+**4. Um efeito que saiu fácil demais, por analogia, e foi rebaixado.** O e1.1.1 (indisponibilidade
+como marcador de posição social) veio rápido porque é um padrão conhecido de bem posicional
+recolocado neste domínio. Ao rodar a auditoria, a pergunta "isto é extrapolação linear?" expôs
+que a dinâmica já está documentada em 2026 — logo o efeito não descobre nada, só estende. Ficou
+no mapa com sinal fraco e confiança baixa, e está citado aqui para não ser lido como mais sólido
+do que é.
+
+**5. O que eu conferi e estava certo.** As atribuições que carreguei de memória e checei contra
+fonte aberta bateram: Lyngs e colegas, CHI 2019, 367 apps e extensões; Grüning, Riedel e
+Lorenz-Spreen, PNAS 2023, título exato "Directing smartphone use through the self-nudge app one
+sec"; Paper Phone do Special Projects para os Google Digital Wellbeing Experiments em 2019. Isso
+não significa que conferir era desnecessário — significa que, das seis atribuições checadas, uma
+(o estágio do Digital Fairness Act) não bateu, e sem checar as seis eu não saberia qual.
+
+## 9. Três cenários para 2031
+
+**Cenário A — A fricção vira infraestrutura (o mapa se confirma pela via legal).** O Digital
+Fairness Act é apresentado e aprovado, os limites por default saem do público infantil e
+alcançam o adulto, e o bem-estar digital segue o caminho que acessibilidade percorreu: de
+diferencial de produto a requisito com auditoria, relatório de impacto e sanção. Para quem
+projeta, a consequência prática é que "quanto tempo a pessoa ficou" sai do briefing e entra na
+lista de coisas que o jurídico prefere não medir. O mercado de terceiros encolhe para o nicho
+ritualizado; o hardware de desconexão sobrevive como objeto de gosto, não como remédio. Este é o
+cenário em que e3, e3.1 e e3.1.1 se realizam.
+
+**Cenário B — A fricção vira mercadoria de nicho e marcador de classe.** A regulação trava ou fica
+restrita a menores; a plataforma mantém o default engajante para adultos; e a resposta continua
+vindo de fora, em hardware, ritual e objeto caro. Desconectar vira competência de quem pode
+comprá-la — o token, o segundo aparelho, o acordo com o empregador. A crítica de equidade que já
+acompanha o friction-maxxing em 2026 vira a discussão central do tema em 2031, e a pergunta
+deixa de ser "como projetar fricção" para virar "fricção para quem". Este é o cenário em que e1,
+e1.1, e1.1.1 e e4 se realizam juntos, e é o mais desconfortável dos três.
+
+**Cenário C — Nada disso escala e o problema muda de lugar.** O default de plataforma fica para
+sempre no perímetro infantil; o hardware de desconexão se estabiliza como mercado pequeno e
+estável, do tamanho de máquina de escrever mecânica ou câmera analógica; e o assunto atencional
+migra inteiro para a IA, onde a métrica de uso ainda é vista como sinal de valor e não de risco.
+Em 2031 a discussão de tela é vista como problema dos anos 2010 e 2020, e a fricção que importa é
+a que impede alguém de aceitar sem ler o que o agente entregou. Este é o cenário em que D2 não
+acontece, D1 vira nicho e só D3 importa — e é o cenário que eu consideraria mais provável se
+tivesse de apostar, o que o método explicitamente não me pede para fazer.
+
+## 10. O experimento
+
+**Chave física de sessão.** Testar, com a própria turma e em duas semanas, a hipótese central de
+D1: que a fricção **fora** do aparelho se comporta de modo diferente da fricção **dentro** dele —
+não por ser mais forte, mas por não ser negociável pelo próprio usuário no momento do impulso.
+
+**Desenho.** Três condições, cada participante passando por todas em ordem sorteada, quatro dias
+cada, com um dia de intervalo:
+1. **Software.** Uma pausa curta com mensagem de deliberação antes de abrir o app-alvo escolhido
+   pela pessoa, com opção de prosseguir — o padrão já validado na literatura, aqui como linha de
+   base, não como novidade.
+2. **Objeto.** O mesmo app-alvo só destrava ao tocar um token físico (etiqueta NFC, cartão, ou
+   qualquer objeto que exija levantar), guardado por acordo a **pelo menos dez metros** do lugar
+   onde a pessoa costuma usar o celular.
+3. **Nada.** Nenhuma intervenção, só registro.
+
+**O que medir — e o que deliberadamente não medir.** Medir **tentativa de abertura** e
+**desistência após a tentativa**, separadamente, e o intervalo entre tentativas. Não medir tempo
+de tela: tempo de tela é a métrica madura, saturada e ambígua que este tema inteiro existe para
+questionar, e usá-la aqui seria reintroduzir pela porta dos fundos a régua que se quer contestar.
+
+**Por que é um teste de verdade, e não uma demonstração.** Porque tem um resultado que refuta D1:
+se a condição 2 não produzir mais desistências que a condição 1, a tese de que a distância física
+importa mais que o atrito temporal fica sem sustentação, e D1 desce de disrupção-raiz para
+variação de formato. Há um resultado incômodo previsto e que vale registrar: é plausível que a
+condição 2 produza **menos tentativas e mais irritação declarada** — e que a pessoa contorne
+levando o token para perto. O contorno é dado, não falha do experimento: mede exatamente quanto a
+fricção física é negociável na prática.
+
+**Instrumento de coleta.** Registro manual em papel — uma marca por tentativa, uma por
+desistência. É deliberado: instrumentar a medição por app introduziria, no experimento sobre
+fricção, mais uma tela para consultar.
+
+**Limite honesto.** Duas semanas, turma pequena, autorrelato, sem cegamento possível (a pessoa
+sabe em que condição está). Não produz evidência generalizável; produz uma pergunta calibrada e a
+experiência direta de projetar contra o próprio uso — que é o que o tema pede a quem projeta.
+
+## 11. Fontes
+
+Todas foram abertas e lidas nesta sessão. Fontes que a busca ofereceu e que eu não consegui abrir
+(pnas.org, dl.acm.org, openai.com, ssense.com — todas HTTP 403) **não** entram nesta lista nem no
+contador do frontmatter; o que delas se aproveitou está registrado na seção 8 e na seção 12.
+
+1. Lyngs, U.; Lukoff, K.; Slovak, P.; Binns, R.; Slack, A.; Inzlicht, M.; Van Kleek, M.;
+   Shadbolt, N. **Self-Control in Cyberspace: Applying Dual Systems Theory to a Review of Digital
+   Self-Control Tools.** CHI 2019, Glasgow. `https://arxiv.org/abs/1902.00157`
+   — 367 apps e extensões analisados; usado na seção 3 para datar a saturação do mercado de
+   terceiros.
+2. Haliburton, L.; Grüning, D. J.; Riedel, F.; Schmidt, A.; Terzimehić, N. **A Longitudinal
+   In-the-Wild Investigation of Design Frictions to Prevent Smartphone Overuse.** CHI 2024.
+   Registro e abstract integral via API do Semantic Scholar:
+   `https://api.semanticscholar.org/graph/v1/paper/DOI:10.1145/3613904.3642370`
+   — N = 1.039 usuários, média de 13,4 semanas, 249 respostas de survey; a citação literal da
+   seção 3 vem daqui.
+3. Grüning, D. J.; Riedel, F.; Lorenz-Spreen, P. **Directing smartphone use through the self-nudge
+   app one sec.** PNAS, 2023. Registro via API do Semantic Scholar:
+   `https://api.semanticscholar.org/graph/v1/paper/DOI:10.1073/pnas.2213114120`
+   — usado para autoria, título, veículo e ano; o abstract disponível é truncado (ver seção 8).
+4. Parlamento Europeu — **Legislative Train Schedule, Digital Fairness Act** (atualizado em
+   01/08/2026).
+   `https://www.europarl.europa.eu/legislative-train/theme-protecting-our-democracy-upholding-our-values/file-digital-fairness-act`
+   — status, escopo, cronograma e a resolução de dezembro de 2023; fonte da correção da seção 8.
+5. MacRumors — **Meta Agrees to Limit Teens' Time on Facebook and Instagram, Calls on TikTok and
+   YouTube to Match** (26/08/2026). `https://www.macrumors.com/2026/08/26/meta-teen-time-limit/`
+   — limite de duas horas, modo noturno, modo escolar, feed não personalizado, exigência de
+   US$ 5,3 bilhões aos concorrentes.
+6. Câmara dos Deputados — **ECA Digital** (infográfico oficial).
+   `https://infograficos.camara.leg.br/eca-digital/`
+   — obrigações da Lei 15.211/2025, proibição de lootboxes, verificação de idade, início da
+   fiscalização em março de 2026.
+7. Engadget — **ChatGPT will now remind you to take breaks, following mental health concerns**
+   (04/08/2025).
+   `https://www.engadget.com/ai/chatgpt-will-now-remind-you-to-take-breaks-following-mental-health-concerns-180221008.html`
+   — texto literal do pop-up de pausa.
+8. MIT Media Lab — **OpenAI + MIT research collaboration: affective use and emotional wellbeing in
+   ChatGPT.**
+   `https://www.media.mit.edu/posts/openai-mit-research-collaboration-affective-use-and-emotional-wellbeing-in-ChatGPT/`
+   — cerca de 40 milhões de interações analisadas, ensaio randomizado com cerca de mil
+   participantes por quatro semanas, achados sobre dependência emocional em uso intenso.
+9. Special Projects — **Aperture** (2025). `https://www.specialprojects.studio/project/aperture/`
+   — a capa virada como obturador e como fricção gestual.
+10. Special Projects — **Paper Phone** (2019).
+    `https://www.specialprojects.studio/project/paper-phone/`
+    — livreto impresso do essencial do dia, feito para os Google Digital Wellbeing Experiments;
+    prêmio IxDA 2020 de melhor conceito; sem dados quantitativos de uso.
+11. Wikipédia — **Light Phone.** `https://en.wikipedia.org/wiki/Light_Phone`
+    — fundação (15/09/2014), fundadores, valores de financiamento coletivo das duas primeiras
+    gerações, envio da terceira em 27/03/2025.
+12. Wikipédia — **Friction-maxxing.** `https://en.wikipedia.org/wiki/Friction-maxxing`
+    — origem do termo (Kathryn Jezer-Morton, *The Cut*, janeiro de 2026), exemplos, filiações
+    intelectuais e a crítica de equidade.
+
+## 12. Anexo — o levantamento bruto
+
+### 12.1 Entrevista da Fase 1 — o que foi respondido e o que foi assumido
+
+A entrevista **aconteceu**: os seis pontos vieram respondidos no pedido, e por isso não houve
+rebaixamento de confiança por entrevista pulada. Para o registro, ponto a ponto:
+
+1. **Tema e recorte** — respondido: "Bem-estar digital e design de fricção", com a régua explícita
+   de descartar o que já é comum em produto de massa.
+2. **Horizonte** — respondido: 2031.
+3. **Para quem** — respondido: quem projeta mídia e interação.
+4. **Recorte geográfico** — respondido: global, com uma nota sobre o Brasil. A nota está na seção
+   3 e é substantiva, não decorativa: o Brasil regulou primeiro o comércio e o dado (lootbox,
+   perfil emocional, verificação de idade), não o ritmo de uso.
+5. **O que já está descartado** — respondido: o que já é comum em produto de massa; nenhuma outra
+   exclusão. Aplicado literalmente na Fase 2.
+6. **Viés desejado** — respondido: neutro. Declarado no documento (seção 7, item 6), com a
+   providência concreta que tomei para honrá-lo.
+
+**O que assumi por conta própria, e declaro:** (a) que "quem projeta mídia e interação" inclui
+quem projeta ferramenta de IA — foi o que autorizou D3; (b) que a fronteira com o tema de
+companheiros digitais e vínculo afetivo com IA deveria ser respeitada, tratando a IA aqui apenas
+como objeto da fricção; (c) que o horizonte 2031 corta efeitos de quarta ordem, e por isso a roda
+para em três níveis mesmo onde havia derivação possível.
+
+### 12.2 Fase 2 — tecnologias testadas e REJEITADAS, com o motivo
+
+**Rejeitadas por maturidade (Teste 1 — sim para as duas perguntas):**
+
+- **Painel de tempo de tela do sistema operacional** (Screen Time, Digital Wellbeing). Três
+  implantações em produção e em escala são triviais de citar — é recurso de fábrica dos dois
+  sistemas móveis dominantes. É a opção padrão. O que resta é ficar mais granular. → madura.
+  Entra na seção 3, nunca na 4.
+- **Bloqueador de app e extensão de navegador.** 367 catalogados em 2019 pela revisão da CHI. Não
+  há como argumentar emergência para uma categoria com essa densidade sete anos atrás. → madura.
+- **Modo não perturbe / modo foco.** Recurso de fábrica, padrão, décadas de precedente em
+  telefonia. → madura.
+- **Modo escala de cinza.** Recurso de acessibilidade de fábrica reaproveitado; nada muda de
+  natureza. → madura.
+- **Micro-fricção temporal no ponto de abertura (padrão *one sec*).** Caso de fronteira, e o mais
+  difícil de julgar. Tem evidência revisada por pares (PNAS 2023) e longitudinal em escala (CHI
+  2024, N = 1.039). Não é ainda a opção padrão de fábrica, mas é commodity de mercado e está
+  sendo absorvida pelos defaults de plataforma. **Decisão: tratada como madura para efeito de
+  raiz**, e usada na seção 3 como estado atual e como linha de base do experimento. É o item que
+  eu mais reconsideraria se a régua fosse outra.
+
+**Rejeitadas por não serem disruptivas (Teste 3 — a resposta possível era só "melhor/mais
+difícil de burlar"):**
+
+- **Extensão que deixa o site feio de propósito.** Aumenta o custo de permanecer, não retira a
+  razão de existir de ator nenhum. É uma melhoria criativa sobre o bloqueio. → emergente, não
+  disruptiva. Fica como exemplo de novidade formal, não como raiz.
+- **Desafio de matemática adaptativa para liberar o app.** Mesmo caso: eleva o atrito, não muda
+  quem controla. → emergente, não disruptiva. Aparece na seção 6 como sinal fraco de
+  gamificação invertida.
+- **Caixa trancável com temporizador.** Objeto físico, mas sem acoplamento ao software — não
+  altera quem executa o bloqueio, só guarda o aparelho. Absorvida conceitualmente por D1, sem
+  entrar como raiz própria.
+- **YouTube sem Shorts, remoção de estrelas e avaliações, substituição de conteúdo indesejado.**
+  Curadoria de interface por terceiro. Legítimo e interessante, mas é customização de cliente, e
+  a prática de customizar cliente é antiga. → emergente, não disruptiva.
+
+**Rejeitadas por não serem tecnologia (viraram sinal, não raiz):**
+
+- **Sátira sobre uso excessivo de IA generativa.** É gênero cultural. → seção 6.
+- **Friction-maxxing como comportamento de consumo.** É prática social com verbete, não
+  tecnologia. Usada como evidência de contexto e como base do e1.1.1.
+- **Repreensão verbal e outras intervenções afetivas.** Formato de mensagem, não mecanismo novo.
+
+### 12.3 Fase 4 — efeitos CORTADOS na auditoria, e por quê
+
+- **"O design de fricção se espalha para carro, TV e eletrodoméstico, e o atrito deliberado vira
+  princípio geral de projeto de produto."** Cortado pelo critério (c) de parada: é o efeito que
+  se aplicaria a qualquer disrupção de design, não a esta. Não sobrevive à pergunta "e isso é
+  específico deste tema?".
+- **"A atenção vira ativo mensurável e negociável, com mercado próprio."** Cortado pelo item 3 da
+  auditoria: não consigo narrar o passo intermediário sem um verbo mágico. Entre "as pessoas
+  querem menos interrupção" e "existe um mercado de atenção" falta o mecanismo inteiro de quem
+  compra, de quem vende e do que exatamente muda de mãos. É ficção especulativa geral.
+- **"Escolas e empresas adotam períodos obrigatórios sem dispositivo, e isso reorganiza a jornada
+  de trabalho."** Cortado por ultrapassar o recorte: é política organizacional, não design de
+  mídia e interação, e este mapa serve a quem projeta. Vale registro como adjacência.
+- **"Surge certificação independente de produto de baixa fricção, como selo de eficiência
+  energética."** Cortado por redundância: é uma forma particular do e3.1.1, que já cobre o
+  movimento de bem-estar virando conformidade auditável. Manter os dois inflaria a roda sem
+  acrescentar mecanismo.
+
+### 12.4 Buscas que não deram em nada, e barreiras de acesso
+
+- **Números de venda de token físico de bloqueio.** Procurei receita e volume; a cobertura
+  disponível registra que a empresa se recusa a divulgar números. Resultado: o documento não
+  afirma tamanho de mercado para D1 em lugar nenhum.
+- **Texto integral do artigo da PNAS sobre o *one sec*.** `pnas.org` devolveu HTTP 403. O
+  abstract obtido por via alternativa é truncado. Consequência registrada na seção 8, item 2.
+- **Texto integral do artigo da CHI 2024 na ACM Digital Library.** `dl.acm.org` devolveu HTTP 403;
+  o PDF do repositório institucional veio como fluxo binário ilegível. O abstract integral foi
+  obtido pela API do Semantic Scholar, e é dele que vêm os números e a citação usados.
+- **Página oficial da OpenAI sobre o estudo de uso afetivo.** `openai.com` devolveu HTTP 403. Os
+  dados usados vêm da página do MIT Media Lab, que descreve a mesma colaboração.
+- **Reportagem sobre o token físico como objeto de status.** `ssense.com` devolveu HTTP 403. A
+  leitura cultural correspondente foi sustentada pela página de *friction-maxxing*, que abri.
+- **Regulação brasileira sobre ritmo de uso (notificação, autoplay, limite de tempo).** Procurei e
+  não encontrei na fonte oficial que abri. Registrado como ausência afirmada na seção 3, não como
+  silêncio.
+
+### 12.5 Nota de método
+
+A busca e a leitura de página estavam disponíveis nesta sessão e foram usadas: doze fontes
+abertas, quatro barreiras de acesso registradas, uma atribuição de memória corrigida contra a
+fonte. A confiança geral do documento é **media** e não alta por três razões declaradas: o
+material duro de D2 cobre apenas menores de idade; D1 não tem número público de adoção; e D3
+tem uma única implementação pública de referência. Nenhuma dessas lacunas é de esforço de busca —
+são lacunas do próprio campo em setembro de 2026, e estão marcadas como tais para que a próxima
+rodada saiba onde procurar primeiro.

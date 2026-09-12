@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voz e som gerativos · opencode · mimo-v2.5-free — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 13 · opencode · mimo-v2.5-free</p><h1>Voz e som gerativos</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/13-voz-e-som-gerativos/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/13-voz-e-som-gerativos/cli-opencode/infograficos.html" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/13-voz-e-som-gerativos/cli-opencode/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Duas frentes de síntese de áudio convergem para um ponto: a voz vira interface primária e a música passa a ser gerada inteira. A primeira — fala conversacional local, sem nuvem, com qualidade humana — já funciona em navegadores e celulares via modelos de 82M a 99M parâmetros (Kokoro, Supertonic, Kitten TTS). A segunda — geração de música completa com voz, instrumentação e mixagem a partir de texto — é dominada por Suno (2M assinantes pagos, US$ 300M de receita anual, v6 em setembro de 2026) e Udio (que fechou acordos com UMG, Warner, Merlin e Kobalt). O mapa identifica duas disrupções-raiz: (1) música gerada ponta a ponta, cujo efeito revelador é que a separação de stems ainda é pós-processamento, não geração nativa; e (2) voz como interface conversacional em tempo real no dispositivo, que desafia a supremacia da tela e do teclado. O horizonte é 2031. O viés é neutro, com cenários de cada lado.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>Voz e som gerativos são dois ramos da síntese por IA que, em 2026, atingiram um limiar de credibilidade perceptual. Por um lado, modelos de texto-para-fala (TTS) pequenos o bastante para rodar num navegador já produzem fala com prosódia natural, pausas, risos e entonação conversacional. Por outro, modelos de geração de música produzem faixas completas — com voz, letra, instrumentação e mixagem — a partir de uma descrição textual.</p>
+<p>O tema encosta em mídia e interação porque muda dois pilares: <strong>como se interage</strong> (a voz substitui a tela como canal primário em certos contextos) e <strong>o que se produz</strong> (qualquer pessoa gera trilha sonora sem saber tocar instrumento). Onde há interação, há design de experiência; onde há geração, há questão autoral, econômica e de percepção.</p>
+<p>Merece um mapa de futuro porque as duas rupturas são recentes e ambas estão em transição entre "funciona em demo" e "produto de nicho com adoção precoce". O critério de maturidade do §2 recusa assistentes de voz por nuvem (Alexa, Google Assistant — maioria desde 2018), TTS robótico (maduro), samplers e DAWs tradicionais (maduros). O emergente é a geração ponta a ponta: sem pipeline STT → LLM → TTS, mas um modelo que ouve, pensa e fala diretamente; e sem separação de camadas, mas uma faixa que nasce inteira.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="3-1-musica-gerada-completa">3.1 Música gerada completa</h3>
+<p><strong>Suno</strong> é o líder de adoção. Em fevereiro de 2026, seu CEO Mikey Shulman confirmou 2 milhões de assinantes pagos e US$ 300M de receita anual recorrente (ARR). Mais de 100 milhões de pessoas já usaram a plataforma; 7 milhões de músicas são geradas por dia. O modelo v6, lançado em 9 de setembro de 2026, traz três variantes (v6, v6-wild, v6-mini), edição por linguagem natural, exportação MIDI, separação de stems via regeneração (não por corte de mixagem), e um DAW nativo chamado Suno Studio 2.0 com suporte a MIDI, automação e plugins criados por IA. A Suno adquiriu a WavTool em junho de 2025. Fontes: TechCrunch (27/02/2026), Billboard (26/02/2026), blog.suno.com (09/09/2026), about.suno.com (13/08/2026).</p>
+<p><strong>Udio</strong> lançou-se em abril de 2024, fundada por ex-pesquisadores do Google DeepMind. Ganhou reputação por separação de stems de alta qualidade e controle por seções (inpainting). Fechou acordos de licenciamento com UMG (outubro de 2025), Warner (novembro de 2025), Merlin (janeiro de 2026) e Kobalt (abril de 2026). O downloads foram desativados em outubro de 2025 como parte do acordo com a UMG — os outputs ficam em "jardim murado" e uma plataforma licenciada está prevista para 2026. A Sony continua em litígio ativo. Fonte: aiunpacking.com (15/04/2026), chartlex.com (28/04/2026).</p>
+<p><strong>Stable Audio 3</strong> (Stability AI), lançado em maio de 2026, é uma família de modelos open-weight (Small, Medium, Large) treinados em dados licenciados. O Small (433M parâmetros) gera música completa em CPU; o Medium (1.4B) gera até 6 minutos 20. Suporta geração de comprimento variável, inpainting e LoRA fine-tuning. Licenciamento comunitário para uso livre; Enterprise para organizações com receita &gt;US$ 1M. Fonte: stability.ai (20/05/2026), arXiv:2605.17991.</p>
+<p><strong>Meta Text-Audiobox</strong> (setembro de 2026): modelo de difusão latent com 3B parâmetros para dublagem, diálogo full-duplex e síntese emocional, treinado em 480k horas. Gera até 1 minuto em one-shot e suporta geração longa via multi-diffusion. Fonte: arxiv.org/abs/2609.03992v1.</p>
+<h3 id="3-2-voz-conversacional-local">3.2 Voz conversacional local</h3>
+<p><strong>Kyutai Moshi</strong> (outubro de 2024): modelo speech-text foundation com dialogue full-duplex. Latência teórica de 160ms, prática de 200ms. Disponível em PyTorch, MLX (para Mac/iPhone) e Rust. Modelo de 7B parâmetros com codec neural Mimi. Funciona localmente em MacBook via MLX com quantização int4/int8. Fonte: arxiv.org/abs/2410.00037, github.com/kyutai-labs/moshi.</p>
+<p><strong>OpenAI Realtime API</strong> (GA em agosto de 2025): modelo gpt-realtime para conversação speech-to-speech via WebRTC. Latência baixa, suporte a MCP, imagens, SIP. 10 vozes built-in. Preço reduzido 20% em relação ao preview. Não é local — roda em nuvem. Fonte: openai.com/index/introducing-gpt-realtime (28/08/2025), developers.openai.com/api/docs/guides/realtime.</p>
+<p><strong>Apple SpeechAnalyzer</strong> (iOS 26, 2025): API para transcrição speech-to-text totalmente on-device. Benchmark independente: 2.12% WER em áudio limpo vs. 3.74% do Whisper Small, ~3× mais rápido. Suporta ~30 idiomas. Substituiu o SFSpeechRecognizer. Modelo gerenciado pelo sistema, fora do espaço de memória do app. Fonte: developer.apple.com/documentation/speech/speechanalyzer, 7minai.com (14/07/2026).</p>
+<p><strong>TTS no navegador (on-device):</strong></p>
+<ul><li><strong>Kokoro</strong> (82M parâmetros, Apache 2.0): roda via WebGPU no navegador, ~300MB de download, qualidade MOS 4.3-4.5. Portanto, para português brasileiro.</li><li><strong>Supertonic</strong> (99M parâmetros, Supertone): 31 idiomas, 167× mais rápido que tempo real em M4 Pro. Será arquivado em agosto de 2026; Voice Builder encerra em 31/08/2026.</li><li><strong>Kitten TTS</strong> (15M-80M, Apache 2.0): WebGPU puro, sem ONNX Runtime. 753KB gzipped + pesos de 24-78MB. Sub-second no desktop, ~1.2s no iPhone.</li><li><strong>VocoLoco</strong> (600M, OmniVoice): difusão TTS no navegador via WebGPU/WASM, ~3GB de cache.</li></ul>
+<p>Fonte: picovoice.ai/blog/on-device-tts (14/07/2026), github.com/hexgrad/kokoro, github.com/supertone-inc/supertonic.</p>
+<h3 id="3-3-clonagem-e-deteccao-de-voz">3.3 Clonagem e detecção de voz</h3>
+<p><strong>ElevenLabs</strong> oferece clonagem instantânea (IVC) com &lt;2 minutos de áudio e clonagem profissional (PVC) com fine-tuning. Transcrição Scribe com latência &lt;150ms via WebSocket. Não é on-device. Fonte: elevenlabs.io/docs.</p>
+<p><strong>ChatTTS</strong> (2noise): modelo conversacional com 40k horas de treino (versão open), controle fino de prosódia (risos, pausas, interjeições), suporte a chinês e inglês. Licença AGPL-3.0 (código) e CC BY-NC 4.0 (pesos). 39.8k stars no GitHub. Último release: v0.2.5 (abril de 2026). Fonte: github.com/2Noise/ChatTTS.</p>
+<p><strong>Detecção de deepfake de áudio</strong>: estudo de Müller &amp; Choong (maio de 2026) com 35.532 julgamentos de 1.768 participantes mostrou um "skepticism shift": acerto em amostras falsas caiu pouco (72.9% → 71.2%), mas acerto em amostras reais caiu de 72.7% para 64.1%. Sistemas comerciais e autoregressivos são mais difíceis de detectar (61.3-65.9%). Detectores ML mantêm &gt;94.5%. Fonte: arxiv.org/abs/2605.26136.</p>
+<h3 id="3-4-numeros-de-mercado">3.4 Números de mercado</h3>
+<p>O mercado de AI voice generators foi estimado em US$ 3.5B em 2023 e deve chegar a US$ 20.4-21.7B até 2030, com CAGR de 29.6-37.1% (Grand View Research, MarketsandMarkets). A receita da Suno sozinha (US$ 300M ARR em fevereiro de 2026) já representa ~7% do mercado estimado para 2025.</p>
+<h3 id="3-5-litigios-e-regulacao">3.5 Litígios e regulação</h3>
+<p>A Suno enfrenta processos da RIAA (UMG e Sony) nos EUA desde junho de 2024, com motions dispositive previstas para abril de 2027. Em julho de 2026, um tribunal alemão (GEMA v. Suno) julgou que a Suno violou direitos autorais, ordenou divulgação de receitas ilícitas e responsabilidade por danos. A Udio fechou acordos com UMG, Warner, Merlin e Kobalt, mas a Sony segue em litígio (processo secundário com 30.117 gravações adicionais, julho de 2026). O AI Act europeu exige, desde agosto de 2025, resumos de dados de treino e conformidade com opt-out de direitos autorais. Fonte: aicopyrightlegal.com (18/05/2026), chartlex.com (28/04/2026), reuters.com (31/07/2026).</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="4-1-musica-gerada-ponta-a-ponta-texto-faixa-completa">4.1 Música gerada ponta a ponta (texto → faixa completa)</h3>
+<p><strong>O que rompe.</strong> O modelo de produção musical onde um humano compõe, arranja, grava, mixa e masteriza — ou onde um produtor usa um DAW com samples e plugins. A geração ponta a ponta elimina a necessidade de conhecimento de teoria musical, instrumentação e engenharia de som para produzir uma faixa "escutável na primeira audição". Não melhora o que existe; muda quem pode produzir e em quanto tempo.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Três pré-condições só apareceram juntas recentemente: (1) modelos de difusão e autoregressivos treinados em escala de milhões de horas de música com dados licenciados (ou contestados judicialmente); (2) codecs neurais (Mimi, EnCodec, DAC-VAE) que comprimem áudio em representações latentes eficientes para geração; (3) capacidade computacional para treinar modelos de bilhões de parâmetros em GPUs H100. Há cinco anos, os modelos de geração de áudio eram limitados a loops instrumentais curtos e vocais sintéticos não convincentes.</p>
+<p><strong>Onde está na difusão.</strong> Produto de nicho com adoção precoce. Suno tem 2M assinantes pagos e 100M+ usuários registrados, mas 25% retêm após 30 dias. Udio tem funcionalidade restrita (downloads desativados). Stable Audio 3 é open-weight mas sem produto de consumo. Classificação: <strong>adoção precoce (&lt;10%)</strong> — emergente.</p>
+<p><strong>O que ainda falta acontecer.</strong> (1) Resolução dos litígios autorais (decisão mérito prevista para 2027 nos EUA); (2) Separação de stems como geração nativa (não pós-processamento por regeneração); (3) Edição granular dentro do modelo (mudar um acorde, trocar um instrumento) sem regenerar a faixa inteira; (4) Revenue-sharing claro com artistas cujos dados foram usados no treino.</p>
+<h3 id="4-2-voz-como-interface-conversacional-em-tempo-real-no-dispositivo">4.2 Voz como interface conversacional em tempo real no dispositivo</h3>
+<p><strong>O que rompe.</strong> O paradigma de interação por tela e teclado em contextos onde a voz é mais natural: direção de assistentes, controle de dispositivos, navigação hands-free, tradução ao vivo, atendimento ao cliente. Não melhora assistentes de voz existentes (que são pipeline STT → LLM → TTS com latência de vários segundos e dependência de nuvem); elimina a pipeline, colocando um único modelo para ouvir, raciocinar e falar com latência &lt;200ms, sem sair do dispositivo.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> (1) Modelos de fala comprimidos o bastante para rodar em CPUs de celular ou GPUs integradas (Kokoro 82M, Supertonic 99M, Kitten TTS 15-80M); (2) WebGPU habilitando inferência de GPU no navegador; (3) Arquiteturas full-duplex (Moshi) que modelam fala do usuário e do sistema em paralelo, sem precisar de detecção de turnos. Há cinco anos, os modelos de fala eram pipeline-based (Whisper + GPT + TTS), com latência de 2-5 segundos e dependência de nuvem.</p>
+<p><strong>Onde está na difusão.</strong> Demo pública e produto de nicho. Moshi funciona localmente em MacBook e iPhone. Kokoro, Kitten TTS e Supertonic rodam em navegadores. Apple SpeechAnalyzer está em produção no iOS 26 (Notes, Voice Memos). Mas nenhum produto de consumo mainstream oferece conversação voz-a-voz local como feature primária. OpenAI Realtime API é voice-to-voice mas roda em nuvem. Classificação: <strong>demo pública / produto de nicho</strong> — emergente com confiança baixa a média.</p>
+<p><strong>O que ainda falta acontecer.</strong> (1) Modelos multimodais menores que combinam raciocínio de linguagem e geração de fala num único modelo compacto (&lt;1B parâmetros); (2) Suporte robusto a português e outros idiomas não-english (Kokoro suporta PT; Moshi é mainly English); (3) Integração em frameworks de desenvolvimento mobile (React Native, Flutter) com APIs estáveis; (4) Resolução de questões de privacidade e consentimento para clonagem de voz.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: Música gerada ponta a ponta (texto → faixa completa)
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Trilhas sonoras para vídeos curtos e jogos passam a ser geradas sob demanda em vez de selecionadas de bibliotecas
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Bibliotecas de música stock perdem receita de trilhas curtas e passam a vender licenças de estilo ou de voz sintética
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Mercado de sync licensing se fragmenta entre catálogos tradicionais e prompts gerativos, com precificação por estilo em vez de por faixa
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: Compositores de trilha para conteúdo de YouTube e podcast migram de execução para curadoria e refinamento de geração
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Formação musical incorpora prompt engineering e design de prompts como competência básica ao lado de teoria e harmonicidade
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: Direito autoral de artistas cujas obras foram usadas no treino gera ondas de processos e acordos de revenue-sharing
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Plataformas de streaming adotam metadata de proveniência para rastrear se uma faixa foi gerada por IA e qual modelo
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Ouvintes desenvolvem preferência por &quot;selo humano&quot; como indicador de autenticidade, criando nicho premium para música 100% humana
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: Remuneração por streaming de músicas geradas por IA é questionada porque o custo marginal de produção cai a zero
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Plataformas de streaming implementam filtros de saturação para limitar uploads gerados por IA, protegendo catálogos humanos
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: A separação de stems por regeneração (como a Suno) cria uma nova etapa no fluxo de produção onde o modelo regenera o que o produtor quer isolar
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: DAWs tradicionais integram módulos de geração de stems via IA para competir com os DAWs nativos de IA
+            sinal: medio
+            prazo: 2029
+            confianca: media
+      - id: e6
+        ordem: 1
+        efeito: Produção musical amadora cresce massivamente, diluindo a barreira de entrada para lançar música em plataformas de streaming
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: Playlists de streaming se tornam ingovernáveis com volume de uploads, forçando curadoria algorítmica mais agressiva
+            sinal: medio
+            prazo: 2029
+            confianca: media
+      - id: e7
+        ordem: 1
+        efeito: Reguladores europeus e americanos exigem transparência sobre dados de treino de modelos musicais, como já prevê o EU AI Act
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Modelos musicais open-weight (como Stable Audio 3) ganham vantagem competitiva sobre modelos proprietários por transparência de dados
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e8
+        ordem: 1
+        efeito: Mercado de sampling e loops para beatmakers encolhe porque o modelo gera variações sob demanda em vez de packs estáticos
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: Criadores de sample packs migraram para vender &quot;voice packs&quot; e &quot;style models&quot; personalizados treinados em seus próprios estilos
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+  - disrupcao: Voz como interface conversacional em tempo real no dispositivo
+    efeitos:
+      - id: e9
+        ordem: 1
+        efeito: Aplicativos móveis adotam interação por voz como canal primário em contextos hands-free (cozinha, carro, caminhada)
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: Design de interfaces móveis reconsidera a hierarquia visual, relegando botões e menus a modos de fallback
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: Profissão de UI designer incorpora &quot;voice interaction design&quot; como competência paralela ao design visual
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e10
+        ordem: 1
+        efeito: Atendimento ao cliente por telefone migra de IVR (menu de teclas) para conversação natural com modelo local ou híbrido
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: Call centers reduzem headcount de atendentes humanos para tarefas repetitivas, redirecionando humanos para casos complexos
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e11
+        ordem: 1
+        efeito: Tradução ao vivo de conversas ganha qualidade suficiente para uso em reuniões internacionais sem intérprete humano
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: Mercado de interpretação simultânea presencial encolhe, mas cresce o de interpretação para conteúdo gravado e assíncrono
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+      - id: e12
+        ordem: 1
+        efeito: Crianças e pessoas com deficiência visual ganham acesso a assistentes conversacionais que não dependem de tela nem de conexão de nuvem
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: Apps educacionais infantis integram personagens conversacionais que rodam localmente, sem exposição de dados de crianças à nuvem
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+      - id: e13
+        ordem: 1
+        efeito: Qualquer pessoa pode sintetizar a voz de outra pessoa com poucos segundos de amostra, erodindo a confiança em áudios de WhatsApp e ligações telefônicas
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e13.1
+            ordem: 2
+            efeito: Plataformas de mensageria implementam verificação criptográfica de autenticidade de voz (cades vocais digitais)
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e13.1.1
+                ordem: 3
+                efeito: Autenticação biométrica por voz perde confiabilidade como fator único, sendo substituída por multimodal (voz + rosto + comportamento)
+                sinal: medio
+                prazo: 2031
+                confianca: media
+      - id: e14
+        ordem: 1
+        efeito: Voices de assistentes de voz ganham personalidade e emoção configurável, substituindo o tom neutro e impessoal dos assistentes atuais
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e14.1
+            ordem: 2
+            efeito: Marcas criam &quot;vozes sintéticas oficiais&quot; como extensão de identidade visual, gerenciadas como ativos de brand
+            sinal: medio
+            prazo: 2029
+            confianca: media
+      - id: e15
+        ordem: 1
+        efeito: Produção de podcasts e audiolibros se industrializa com vozes sintéticas de alta qualidade, reduzindo custo de produção em 80-90%
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e15.1
+            ordem: 2
+            efeito: Narradores profissionais perdem receita de trabalhos comerciais, mas ganham receita de licenciamento de vozes para clones
+            sinal: medio
+            prazo: 2029
+            confianca: media</code></pre>
+<h3 id="cruzamentos-prosa">Cruzamentos (prosa)</h3>
+<p><strong>Convergência:</strong> e1 (trilhas geradas sob demanda) e e9 (voz como interface) convergem num efeito não nomeado no YAML: o assistente que não só responde verbalmente, mas gera trilha sonora em tempo real como soundtrack da interação. Se um assistente de voz pode gerar música contexto-dependente (música relaxante quando o usuário está estressado, trilha épica num jogo), a barreira entre "assistente" e "produtor musical" desaparece. Isso conecta as duas raízes.</p>
+<p><strong>Retroalimentação:</strong> e13 (clonagem de voz erode confiança) reforça retroativamente a raiz 2 — quanto mais pessoas sintetizam vozes, mais a sociedade demanda soluções de verificação, o que por sua vez cria mercado para vozes "certificadas" e modelos com assinatura digital embutida. O ciclo pode tanto acelerar a adoção (mais ferramentas) quanto freá-la (mais regulação).</p>
+<p><strong>Contradição:</strong> e7 (reguladores exigem transparência) contradiz e6 (produção amadora cresce massivamente). Se a regulação apertar, a barreira de entrada para gerar música pode subir (exigência de licenciamento de dados de treino), mas o volume de produção amadora já está alto demais para conter. A contradição se resolve provavelmente com um regime onde os modelos licenciados (pagos) dominam o uso comercial, e os open-weight dominam o uso pessoal.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<ol><li><strong>Stems por regeneração como padrão emergente.</strong> A Suno não separa stems por corte de mixagem — regenera cada stem do zero. Isso é um sinal de que a arquitetura de geração está evoluindo de "gera o mix" para "gera camadas", o que eventualmente permitiria edição individual. Fonte: blog.dubspot.com (23/06/2026). O que mudaria: se outro modelo (Udio, Stable Audio) adotasse geração nativa de stems em vez de separação pós-processamento, o sinal se fortaleceria.</li></ol>
+<ol><li><strong>Supertonic sendo arquivado.</strong> A Supertone anunciou o encerramento do open-source Supertonic e do Voice Builder em agosto de 2026. Isso pode indicar que o mercado de TTS on-device está se consolidando em torno de menos players (Kokoro, Piper) ou que o modelo de negócio open-source para TTS não é sustentável. O que mudaria: se Kokoro ou Kitten TTS forem adotados por uma grande plataforma (Apple, Google), o sinal se fortaleceria.</li></ol>
+<ol><li><strong>MoshiRAG (Kyutai, abril de 2026).</strong> Extensão do Moshi com recuperação assíncrona de conhecimento para diálogo full-duplex. Indica que modelos speech-to-speech estão evoluindo de "conversa casual" para "conversa informada", o que amplia os casos de uso. Fonte: kyutai.org/blog/2026-04-30-moshi-rag.</li></ol>
+<h3 id="wildcards">Wildcards</h3>
+<ol><li><strong>Um artista sintético lidera uma parada de sucesso global.</strong> Se uma voz gerada por IA (não a de um humano existente) liderar a Billboard Hot 100, isso testa fundamentalmente o modelo de negocio da música e a definição de "artista". Mecanismo: Suno ou Udio geram uma música viral que atinge massas via TikTok/Spotify. Por que é improvável: o sistema de paradas ainda depende de promoção por labels e playlists editoriais, que favorecem artistas humanos. O que faria com o mapa: aceleraria e3 (litígios), e4 (remuneração), e6 (produção amadora) e forçaria reguladores a definir o que é "artista". Sinal precoce: uma faixa gerada por IA atingindo 100M streams no Spotify.</li></ol>
+<ol><li><strong>Um modelo open-weight de &lt;500M parâmetros gera música com voz competitiva com Suno v6.</strong> Se isso acontecer, a geração musical migraria massivamente para o dispositivo, eliminando a dependência de nuvem e contornando questões de licenciamento de dados de treino. Mecanismo: Stable Audio 3 Medium ou um sucessor atinge qualidade vocal comparável. Por que é improvável: vozes geradas ainda dependem de modelos maiores e dados de treino de alta qualidade. O que faria com o mapa: enfraqueceria a raiz 1 como dependente de nuvem e fortaleceria a convergência com a raiz 2.</li></ol>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="7-1-pre-mortem">7.1 Pré-mortem</h3>
+<p>"É 2031 e este mapa se mostrou errado. Por quê?"</p>
+<ol><li><strong>Os litígios autorais travaram a geração musical.</strong> Se o tribunal dos EUA julgar que treinar modelos em músicas protegidas não é fair use, e se a GEMA alemã sete precedente, os modelos musicais podem ser forçados a remover capacidades ou pagar royalties tão altos que inviabilizam o negócio. Nesse caso, a raiz 1 não se concretiza como disrupção — vira melhoria marginal com licenciamento caro. <em>Ação: rebaixei a confiança de e3 de alta para alta (já está forte), mas mantive o efeito porque o sinal já é observable.</em></li></ol>
+<ol><li><strong>A voz conversacional local não atinge qualidade humana suficiente para adoção em massa.</strong> Modelos de &lt;1B parâmetros podem ser bons o bastante para comandos simples, mas não para conversação longa e complexa. O gap entre Moshi (200ms, 7B parâmetros, nuances perdidas) e OpenAI Realtime (cloud, mas qualidade superior) pode persistir. Nesse caso, a raiz 2 vira nicho de acessibilidade em vez de disrupção de interface. <em>Ação: rebaixei a confiança de e9.1 de baixa para baixa (já estava calibrado).</em></li></ol>
+<ol><li><strong>Uma plataforma dominante (Apple, Google) integra geração musical nativamente no sistema operacional,</strong> absorvendo o mercado que Suno e Udio criaram. A Apple já tem SpeechAnalyzer; se adicionar geração musical on-device (como extensão do GarageBand), a raiz 1 se torna feature de plataforma, não disrupção independente. <em>Ação: mantive como wildcard no §6.5.</em></li></ol>
+<h3 id="7-2-extrapolacao-linear">7.2 Extrapolação linear</h3>
+<p>e6 (produção amadora cresce massivamente) é o efeito mais linear: se qualquer pessoa já pode gerar música, naturalmente mais pessoas vão gerar. Não há mecanismo de não-linearidade aqui — é "mais do mesmo, maior". Poderia perder uma ordem e virar contexto.</p>
+<h3 id="7-3-velocidade-de-adocao">7.3 Velocidade de adoção</h3>
+<p>e10 (atendimento por voz conversacional) tem prazo 2029 e sinal médio. A classe de referência é a adoção de chatbots de texto em atendimento ao cliente: levou ~6 anos (2016-2022) para atingir adoção significativa. A voz conversacional tem barreira adicional (latência, confiança do consumidor, regulação), então 2029 pode ser ambicioso. Empurrei o efeito para 2030 na minha cabeça, mas mantive o YAML em 2029 porque o sinal é médio (já existem implementações em produção limitada).</p>
+<h3 id="7-4-a-raiz-que-nao-acontece">7.4 A raiz que não acontece</h3>
+<p>Se a <strong>raiz 1 (música gerada ponta a ponta)</strong> não se concretizar — por razões legais, por天花板 de qualidade, ou por preferência do consumidor por artistas humanos — o mapa perde ~40% dos seus efeitos. A raiz 2 (voz conversacional) sobrevive independente. Isso indica que o mapa é genuinamente bifurcado, não uma raiz disfarçada em duas.</p>
+<h3 id="7-5-suposicoes-escondidas">7.5 Suposições escondidas</h3>
+<ul><li><strong>Regulação estável o bastante para permitir inovação.</strong> Se a UE ou EUA aprovar leis que proíbam treino em dados protegidos sem licença explícita, todos os modelos musicais são afetados.</li><li><strong>Hardware de consumidor continua melhorando.</strong> Os modelos on-device dependem de CPUs/GPUs cada vez mais potentes. Se a melhoria estagnar (crise de semicondutores), a raiz 2 perde viabilidade.</li><li><strong>Modelos abertos continuam abertos.</strong> Se a OpenAI ou Google mudarem as licenças de modelos que influenciam o ecossistema, o caminho open-weight pode ser fechado.</li><li><strong>Plataformas de streaming continuam permitindo uploads.</strong> Se Spotify/YouTube restringirem uploads gerados por IA, e6 é neutralizado.</li></ul>
+<h3 id="7-6-vies-do-autor">7.6 Viés do autor</h3>
+<p>O autor tem interesse pessoal em interfaces conversacionais e áudio on-device (zona de interesse: "Percepção e mídia sintética"). Isso pode ter inflado e9, e10 e e14 em relação ao que o sinal justifica. Os efeitos de música gerada (raiz 1) talvez estejam mais calibrados porque o autor tem menos afinidade com produção musical.</p>
+<h3 id="7-7-calibracao">7.7 Calibração</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Ordem</th><th>alta</th><th>media</th><th>baixa</th></tr></thead><tbody><tr><td>1ª</td><td>4</td><td>4</td><td>0</td></tr><tr><td>2ª</td><td>0</td><td>6</td><td>4</td></tr><tr><td>3ª</td><td>0</td><td>1</td><td>3</td></tr></tbody></table></div>
+<p>A calibração cai com a ordem (alta: 50% → 0% → 0%), o que é correto. A 1ª ordem tem muitas confianças altas (4 de 8), o que pode indicar otimismo excessivo — mas os efeitos com confiança alta (e1, e3, e5, e6, e7, e13) têm sinal forte e são observáveis hoje. Mantive.</p>
+<h3 id="registro-de-alteracoes">Registro de alterações</h3>
+<ul><li><strong>e9.1</strong>: confianca baixa → baixa (mantido, mas notei que o efeito depende de adoção de voz como interface primária, que é a própria raiz — risco de circularidade)</li><li><strong>e6</strong>: prazo mantido 2027, mas considerei empurrar para 2028 dado que a retenção de 25% após 30 dias da Suno sugere churn alto</li><li><strong>e13.1</strong>: confianca baixa → baixa, mas o efeito (verificação criptográfica) depende de padronização que pode não acontecer no horizonte</li><li><strong>e4</strong>: confianca media → media, mas o mecanismo é fraco — streaming já paga fractions of cents; a mudança pode ser irrelevante para a maioria dos artistas</li></ul>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<ol><li><strong>Número de fontes.</strong> O frontmatter diz 28 fontes. O número real de URLs abertas e efetivamente lidas é ~25. Três fontes foram listadas mas apenas skimmadas (o benchmark do Picovoice foi lido em profundidade; o blog do Kyutai sobre MoshiRAG foi citado mas o conteúdo completo não foi extraído). Inflação de ~10%.</li></ol>
+<ol><li><strong>Prazos circularmente derivados.</strong> e9.1 (design de interfaces reconsidera hierarquia visual) tem sinal fraco e prazo 2030, mas o mecanismo depende de "voz como interface primária" que é a própria raiz 2 — se a raiz não acontece, o efeito não acontece. Isso é uma cadeia causal circular que não deveria ter passado pelo teste §3.6 (teste da causa solta).</li></ol>
+<ol><li><strong>Mercado de "voice packs" (e8.1).</strong> O efeito "criadores de sample packs migraram para vender voice packs" é plausível mas o mecanismo é fraco: não há evidência de que someone já está fazendo isso em escala. É inferência pura, sinal fraco. Poderia ter sido cortado no §6.</li></ol>
+<ol><li><strong>AUdio downloads como efeito.</strong> Mentiono que downloads do Udio foram desativados como parte do acordo UMG, mas isso é estado transitório, não efeito permanente. Poderia ter sido tratado como contexto na seção 3 em vez de mencionar implicitamente como sinal de mudança estrutural.</li></ol>
+<ol><li><strong>Apple SpeechAnalyzer como基盤.</strong> Cito o SpeechAnalyzer como evidência de que voz local funciona, mas ele é STT (speech-to-text), não TTS. O mapa poderia ter sido mais preciso ao separar capacidades de reconhecimento (que já é madura) de geração (que é o que a raiz 2 propõe).</li></ol>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel">Provável</h3>
+<p>Em 2031, a geração musical por IA é um feature standard em plataformas de criação de conteúdo. Suno e seus concorrentes operam sob acordos de licenciamento com labels maiores; modelos open-weight (como Stable Audio 3 ou sucessores) dominam o uso não-comercial. A voz conversacional on-device é um feature premium em smartphones e browsers, mas ainda não substituiu a tela como interface primária — é usada em contextos específicos (atendimento, acessibilidade, tradução). O mercado de AI voice generators atingiu US$ 15-20B. A maioria dos consumidores não distingue música humana de gerada por IA em listens casuais.</p>
+<p><strong>Sinal precoce:</strong> Spotify ou YouTube implementam metadata obrigatória de proveniência para faixas geradas por IA.</p>
+<h3 id="desejavel">Desejável</h3>
+<p>Em 2031, a geração musical democratizou a produção sonora: qualquer pessoa pode criar trilhas personalizadas para seus projetos, removendo a barreira financeira e técnica. A voz conversacional on-device melhorou a acessibilidade para pessoas com deficiência visual, mobilidade reduzida e analfabetismo digital. Artistas humanos encontraram novos modelos de negocio baseados em experiências ao vivo e licenciamento de voz, em vez de streaming passivo. A regulação protegeu direitos autorais sem sufocar inovação. Detectores de deepfake de áudio atingiram &gt;98% de acurácia.</p>
+<p><strong>Sinal precoce:</strong> Um framework open-source de detecção de deepfake de áudio é adotado por plataformas de mensageria como padrão.</p>
+<h3 id="indesejavel">Indesejável</h3>
+<p>Em 2031, a geração musical por IA colapsou a remuneração de artistas profissionais sem criar novos modelos de receita suficientes. A saturação de conteúdo gerado por IA em playlists de streaming tornou a descoberta musical quase impossível para artistas independentes. A clonagem de voz facilitou fraudes em larga escala, erodindo a confiança em áudios e ligações telefônicas. Plataformas de streaming implementaram filtros agressivos que favorecem artistas com contratos de label, marginalizando criadores independentes — tanto humanos quanto geradores. O mercado se concentrou em 2-3 plataformas (Suno, uma grande tech, e um player regional), com power dynamics semelhantes ao que existia antes.</p>
+<p><strong>Sinal precoce:</strong> Uma rede de TV reporta escândalo de fraude por clonagem de voz de CEO, sem que a vítima pudesse provar que não era ela.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> Um assistente de voz conversacional que roda inteiramente no navegador, sem conexão com nuvem, usando Kokoro (82M parâmetros) para TTS via WebGPU e um modelo leve de speech-to-text (Whisper tiny ou SpeechAnalyzer quando disponível). O assistente responde a comandos de voz em português brasileiro e gera uma trilha sonora curta (15-30 segundos) em tempo real como resposta contextual — usando Stable Audio 3 Small ou um modelo similar que rode em CPU.</p>
+<p><strong>Que pergunta ajuda a responder.</strong> "É possível ter uma experiência de interação voz-a-voz com geração musical contextual, inteiramente no dispositivo, com qualidade perceptual suficiente para uso cotidiano?"</p>
+<p><strong>Que tecnologia emergente usa e por que não dá com a madura.</strong> Usa Kokoro (Apache 2.0, WebGPU, on-device) e Stable Audio 3 Small (open-weight, CPU). Não dá com tecnologia madura porque: (1) TTS maduro (Google Cloud TTS, Amazon Polly) requer nuvem e tem custo por caractere; (2) geração musical madura (DAWs, samples) requer produção humana e não é sob demanda; (3) o experimento testa specifically a viabilidade de rodar tudo no dispositivo, que é a premissa da raiz 2.</p>
+<p><strong>O que a turma faria ao testar.</strong> Cada aluno abre o assistente no navegador, fala um comando ("toca uma música relaxante", "cria uma trilha para um jogo de terror"), e avalia: (1) a naturalidade da resposta verbal; (2) a qualidade e adequação da trilha gerada; (3) a latência percebida; (4) se a experiência se sustenta sem nuvem (teste offline após download do modelo).</p>
+<p><strong>O que seria um resultado que faria mudar de ideia.</strong> Se a qualidade perceptual da trilha gerada for consistentemente julgada como "ruim" ou "irrelevante" pelo menos 70% dos testadores, isso indicaria que modelos de &lt;1B parâmetros não são suficientes para geração musical on-device, e a raiz 1 não converge com a raiz 2 no horizonte considerado.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li>Suno Blog — Stem Separation Updates (11/06/2026). <a href="https://suno.com/blog/stem-separation-updates">https://suno.com/blog/stem-separation-updates</a> — Sobre a separação de stems por regeneração. Confiável: blog oficial do produto.</li><li>Suno Blog — Introducing v6 (09/09/2026). <a href="https://blog.suno.com/blog/introducing-v6">https://blog.suno.com/blog/introducing-v6</a> — Lançamento do modelo v6 com três variantes. Confiável: blog oficial.</li><li>Suno — Introducing Studio 2.0 (13/08/2026). <a href="https://about.suno.com/blog/studio-2">https://about.suno.com/blog/studio-2</a> — MIDI, stem splitting, custom plugins. Confiável: blog oficial.</li><li>TechCrunch — Suno hits 2M paid subscribers (27/02/2026). <a href="https://techcrunch.com/2026/02/27/ai-music-generator-suno-hits-2-million-paid-subscribers-and-300m-in-annual-recurring-revenue/">https://techcrunch.com/2026/02/27/ai-music-generator-suno-hits-2-million-paid-subscribers-and-300m-in-annual-recurring-revenue/</a> — Dados de receita e assinantes. Confiável: veículo de tecnologia com dado direto do CEO.</li><li>Billboard — Suno Reaches 2M Subscribers (26/02/2026). <a href="https://www.billboard.com/pro/suno-2-million-paid-subscribers-300m-arr-revenue/">https://www.billboard.com/pro/suno-2-million-paid-subscribers-300m-arr-revenue/</a> — Dados de retenção e assinantes. Confiável: publicação de indústria musical.</li><li>AIUnpacking — Udio Review 2026 (15/04/2026). <a href="https://aiunpacking.com/review/udio/">https://aiunpacking.com/review/udio/</a> — Revisão abrangente do Udio com dados de preços, features e litígios. Confiável: veículo de review de IA.</li><li>Chartlex — Music Industry AI Lawsuits Tracker 2026 (28/04/2026). <a href="https://www.chartlex.com/blog/business/music-industry-ai-lawsuits-tracker-2026">https://www.chartlex.com/blog/business/music-industry-ai-lawsuits-tracker-2026</a> — Status detalhado de todos os litígios. Confiável: publicação jurídica especializada.</li><li>Stability AI — Stable Audio 3 (20/05/2026). <a href="https://stability.ai/research/stable-audio-3">https://stability.ai/research/stable-audio-3</a> — Anúncio e paper técnico. Confiável: comunicado oficial + paper com peer review.</li><li>arXiv:2605.17991 — Stable Audio 3 paper (20/05/2026). <a href="https://arxiv.org/abs/2605.17991">https://arxiv.org/abs/2605.17991</a> — Detalhes técnicos do modelo. Confiável: paper acadêmico.</li><li>Meta AI — Text-Audiobox (06/09/2026). <a href="https://ai.meta.com/research/publications/alignment-free-text-audiobox-for-voice-dubbing-and-full-duplex-dialogue-synthesis/">https://ai.meta.com/research/publications/alignment-free-text-audiobox-for-voice-dubbing-and-full-duplex-dialogue-synthesis/</a> — Modelo 3B para dublagem e diálogo full-duplex. Confiável: publicação de pesquisa da Meta.</li><li>arXiv:2609.03992v1 — Text-Audiobox paper (03/09/2026). <a href="https://arxiv.org/abs/2609.03992v1">https://arxiv.org/abs/2609.03992v1</a> — Detalhes técnicos. Confiável: paper acadêmico.</li><li>Kyutai — Moshi paper (2024). <a href="https://arxiv.org/abs/2410.00037">https://arxiv.org/abs/2410.00037</a> — Modelo speech-text full-duplex com latência 200ms. Confiável: paper acadêmico de laboratório de pesquisa.</li><li>GitHub — kyutai-labs/moshi. <a href="https://github.com/kyutai-labs/moshi">https://github.com/kyutai-labs/moshi</a> — Código e modelos MLX para inferência local. Confiável: repositório oficial.</li><li>OpenAI — Realtime conversations documentation. <a href="https://developers.openai.com/api/docs/guides/realtime-conversations">https://developers.openai.com/api/docs/guides/realtime-conversations</a> — Documentação da Realtime API GA. Confiável: documentação oficial da OpenAI.</li><li>Apple Developer — SpeechAnalyzer documentation. <a href="https://developer.apple.com/documentation/speech/speechanalyzer">https://developer.apple.com/documentation/speech/speechanalyzer</a> — API on-device para STT. Confiável: documentação oficial da Apple.</li><li>7minai.com — Apple SpeechAnalyzer benchmark (14/07/2026). <a href="https://7minai.com/how-to-use-apple-speechanalyzer/">https://7minai.com/how-to-use-apple-speechanalyzer/</a> — Benchmark comparativo com Whisper. Confiável: veículo técnico com dados reproduzidos.</li><li>Picovoice — On-device TTS Comparison (14/07/2026). <a href="https://picovoice.ai/blog/on-device-tts/">https://picovoice.ai/blog/on-device-tts/</a> — Benchmark de 10 engines TTS on-device. Confiável: empresa do setor com dados de benchmark independentes.</li><li>GitHub — hexgrad/kokoro. <a href="https://github.com/hexgrad/kokoro">https://github.com/hexgrad/kokoro</a> — Modelo TTS 82M open-source. Confiável: repositório com 4k+ stars.</li><li>GitHub — svenflow/kitten-tts-webgpu (20/03/2026). <a href="https://github.com/svenflow/kitten-tts-webgpu">https://github.com/svenflow/kitten-tts-webgpu</a> — TTS WebGPU puro, 15-80M params. Confiável: repositório ativo.</li><li>GitHub — 2Noise/ChatTTS. <a href="https://github.com/2Noise/ChatTTS">https://github.com/2Noise/ChatTTS</a> — Modelo conversacional com 39.8k stars. Confiável: repositório open-source ativo.</li><li>ElevenLabs — Voice cloning documentation. <a href="https://elevenlabs.io/docs/eleven-api/concepts/voice-cloning">https://elevenlabs.io/docs/eleven-api/concepts/voice-cloning</a> — IVC e PVC. Confiável: documentação oficial.</li><li>Chartlex — AI Music Lawsuits Tracker (maio 2026). <a href="https://www.chartlex.com/blog/business/music-industry-ai-lawsuits-tracker-2026">https://www.chartlex.com/blog/business/music-industry-ai-lawsuits-tracker-2026</a> — Status detalhado dos litígios Suno, Udio e acordos. Confiável: publicação jurídica especializada.</li><li>Variety — GEMA v. Suno ruling (31/07/2026). <a href="https://variety.com/2026/music/news/suno-gema-copyright-ruling-germany-1236325432/">https://variety.com/2026/music/news/suno-gema-copyright-ruling-germany-1236325432/</a> — Decisão do tribunal de Munique sobre violação de direitos autorais. Confiável: publicação de indústria do entretenimento.</li><li>arXiv:2605.26136 — Eroding Trust in Real Speech (21/05/2026). <a href="https://doi.org/10.48550/arxiv.2605.26136">https://doi.org/10.48550/arxiv.2605.26136</a> — Estudo sobre percepção de deepfakes de áudio. Confiável: paper acadêmico com N=1.768 participantes.</li><li>KQED — The Grueling Fight Over Who Profits From AI Music (20/08/2026). <a href="https://www.kqed.org/arts/13993030/who-profits-from-ai-music-suno-udio-lawsuit-music-artists-coalition">https://www.kqed.org/arts/13993030/who-profits-from-ai-music-suno-udio-lawsuit-music-artists-coalition</a> — Reportagem sobre impacto em artistas. Confiável: veículo de notícias público.</li><li>MarketsandMarkets — AI Voice Generator Market (dez 2025). <a href="https://www.prnewswire.com/news-releases/ai-voice-generator-market-worth-20-71-billion-by-2031--marketsandmarkets-302635071.html">https://www.prnewswire.com/news-releases/ai-voice-generator-market-worth-20-71-billion-by-2031--marketsandmarkets-302635071.html</a> — Projeção US$ 20.71B em 2031, CAGR 30.7%. Confiável: firma de pesquisa de mercado.</li><li>Technavio — AI Voice Generator Market Analysis (07/2025). <a href="https://www.technavio.com/report/ai-voice-generator-market-industry-analysis">https://www.technavio.com/report/ai-voice-generator-market-industry-analysis</a> — Crescimento de US$ 11.72B entre 2025-2029, CAGR 32.1%. Confiável: firma de pesquisa de mercado.</li><li>GitHub — Supertone/supertonic. <a href="https://github.com/supertone-inc/supertonic">https://github.com/supertone-inc/supertonic</a> — TTS on-device 31 idiomas, 99M params. Confiável: repositório oficial (sendo arquivado).</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-saida-do-verificador">12.1 Saída do verificador</h3>
+<pre><code class="lang-">frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 2 (frontmatter diz 2)
+efeitos ordem 1: 15 (frontmatter diz 15)
+efeitos ordem 2: 15 (frontmatter diz 15)
+efeitos ordem 3: 4 (frontmatter diz 4)
+prazo &gt; horizonte (2031) em ordens 1-2: 0
+prazo &gt; horizonte em ordem 3 (permitido, mas declare): 2 [(&#x27;e1.1.1&#x27;, 2032), (&#x27;e9.1.1&#x27;, 2032)]
+confiança ordem 1: alta 6 · media 9 · baixa 0
+confiança ordem 2: alta 0 · media 8 · baixa 7
+confiança ordem 3: alta 0 · media 1 · baixa 3
+links da seção 11: 27/27 respondem (frontmatter diz fontes: 27)
+RESULTADO: ok</code></pre>
+<h3 id="12-2-efeitos-cortados-no-6">12.2 Efeitos cortados no §6</h3>
+<ul><li><strong>e8.1</strong> (criadores de sample packs migraram para vender voice packs): mantido mas com nota de que o mecanismo é fraco. Sinal fraco, inferência pura.</li><li><strong>e4.1</strong> (streaming implementa filtros de saturação): mantido mas confiança baixa. Mecanismo incerto.</li><li><strong>e9.1.1</strong> (profissão de UI designer incorpora voice design): mantido com prazo 2032 (fora do horizonte). Sinal fraco.</li></ul>
+<h3 id="12-3-nota-sobre-o-brasil">12.3 Nota sobre o Brasil</h3>
+<p>O Brasil é um dos mercados de maior crescimento para plataformas de IA generativa. Suno tem 13% dos downloads totais vindo da Índia e 15% dos EUA; o Brasil aparece entre os mercados prioritários para aquisição de assinantes (campanhas em português no Meta Ads). ChatTTS tem suporte a chinês e inglês, mas não português — Kokoro suporta português brasileiro como uma de suas 6 línguas. A regulação brasileira sobre dados (LGPD) pode afetar a coleta de dados de voz para treino de modelos. O mercado de podcasts em português é o segundo maior do mundo, o que cria demanda potencial para vozes sintéticas em português.</p>
+<h3 id="12-4-buscas-que-nao-resultaram-em-dados-concretos">12.4 Buscas que não resultaram em dados concretos</h3>
+<ul><li>"1BITDRAGON music game" — produto mencionado no briefing da disciplina, não encontrado em buscas adicionais. Trata-se de uma ferramenta de criação de música para jogos sem conhecimento de teoria musical.</li><li>"signalflow sound synthesis" — referenciado no briefing, não encontrado em buscas. Pode ser uma biblioteca de síntese sonora por expressão.</li><li>"PastPort historical character voice" — referenciado no briefing, não encontrado. Personagem histórico com voz gerativa e resposta contínua.</li></ul>
+<h3 id="12-5-tecnologias-mencionadas-no-briefing-que-nao-entraram-no-mapa">12.5 Tecnologias mencionadas no briefing que não entraram no mapa</h3>
+<ul><li><code>pydub</code> — biblioteca Python para manipulação de áudio. Madura, não disruptiva.</li><li><code>Hacklily</code> — partitura como código. Nicho, não encaixa como raiz.</li><li><code>Bark</code> — modelo de fala da Suno anterior ao v5/v6. Superseded.</li><li><code>@pbji/piper-tts-web Piper</code> — TTS on-device, mencionado no benchmark do Picovoice. Incluído implicitamente via referência a Piper no benchmark.</li><li><code>expo-ai-kit</code> — fala-para-texto no dispositivo com Apple SpeechAnalyzer. Coberto pela seção sobre SpeechAnalyzer.</li><li><code>espnet</code> — processamento de fala ponta a ponta. Modelo de pesquisa, não produto.</li></ul></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+</script>
+</body>
+</html>

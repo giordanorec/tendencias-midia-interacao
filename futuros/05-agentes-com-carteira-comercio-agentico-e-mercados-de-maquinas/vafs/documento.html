@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentes com carteira: comércio agêntico e mercados de máquinas · futurizacao-vafs (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 5 · futurizacao-vafs (aluno)</p><h1>Agentes com carteira: comércio agêntico e mercados de máquinas</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/05-agentes-com-carteira-comercio-agentico-e-mercados-de-maquinas/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/05-agentes-com-carteira-comercio-agentico-e-mercados-de-maquinas/vafs/infograficos.html" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/05-agentes-com-carteira-comercio-agentico-e-mercados-de-maquinas/vafs/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="2-o-tema">2. O tema</h2>
+<p><strong>O recorte.</strong> Não é "IA em compras". É o subconjunto em que <strong>o agente é parte da transação</strong> — escolhe, paga e, portanto, responde por algo. Isso separa três coisas que costumam vir embrulhadas juntas:</p>
+<ul><li><strong>Agente que recomenda</strong> — sugere a passagem, a pessoa compra. Fora do recorte: é busca com outra interface.</li><li><strong>Agente que executa uma compra que a pessoa aprovou item a item</strong> — na fronteira: o mandato é por transação, e a pessoa continua sendo o contratante.</li><li><strong>Agente que opera sob mandato prévio, com teto e escopo, e fecha sozinho</strong> — dentro do recorte. É aqui que a identidade do contratante fica ambígua, que o dinheiro muda de dono sem clique, e que a interface de compra desaparece da tela.</li></ul>
+<p><strong>Por que agora, e não em 2021.</strong> Três condições técnicas que não coexistiam antes:</p>
+<ol><li><strong>Liquidação por requisição.</strong> O código HTTP 402 ("Payment Required") existia reservado desde a especificação original da web e nunca teve semântica. O x402 lhe deu uma: o servidor responde com um preço, o cliente paga e repete o pedido com prova anexada, tudo dentro de um HTTP comum, sem página de checkout (<a href="https://blog.cloudflare.com/monetization-gateway/">Cloudflare, 01/07/2026</a>).</li><li><strong>Mandato verificável.</strong> O AP2 introduziu três contratos assinados — Intent, Cart, Payment — carregados como <em>Verifiable Credentials</em> do W3C, cuja finalidade declarada é resolver autorização, autenticidade e responsabilização (<a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol">Google Cloud, 16/09/2025</a>).</li><li><strong>Identidade de agente na borda.</strong> O Trusted Agent Protocol assina a identidade do agente em cabeçalhos HTTP via RFC 9421 / Web Bot Auth, de modo que o comerciante consegue distinguir agente registrado de bot anônimo e saber se a visita é para <strong>navegar ou para pagar</strong> (<a href="https://blog.cloudflare.com/secure-agentic-commerce/">Cloudflare</a>).</li></ol>
+<p><strong>O que este mapa não faz.</strong> Não estima probabilidade nem prioriza investimento — a roda dos futuros mapeia o que é logicamente derivável, não o que é provável (ver <code>ESTUDO.md</code>). E não trata de mercados simulados como instrumento de pesquisa, que é o tema vizinho; aqui o objeto é dinheiro real trocando de mãos por decisão de máquina.</p>
+<hr>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="o-substrato-maduro-contexto-nao-disrupcao">O substrato maduro (contexto, não disrupção)</h3>
+<ul><li><strong>Checkout online, comparador de preço, e-commerce.</strong> Padrão em escala há duas décadas.</li><li><strong>Tokenização de credencial de cartão.</strong> A troca do número do cartão por um token com escopo é a base técnica tanto do Apple Pay quanto dos "Agentic Tokens" da Mastercard e do Shared Payment Token da Stripe. O primitivo é o mesmo; o que muda é o <strong>escopo</strong> do token — agora amarrado a um agente, a um comerciante e a um carrinho específico (<a href="https://stripe.com/newsroom/news/stripe-openai-instant-checkout">Stripe, 29/09/2025</a>).</li><li><strong>APIs de reserva de viagem.</strong> Duffel, Amadeus, Sabre Mosaic (420+ companhias aéreas, 2 milhões de hotéis). São trilho, não novidade: existem para programas desde antes de haver agentes de IA (<a href="https://www.oag.com/blog/march-2026-the-month-agentic-travel-gets-real">OAG</a>).</li><li><strong>Pagamento instantâneo.</strong> O Pix é infraestrutura consolidada; a camada de execução financeira do Open Finance brasileiro já suporta Pix imediato, agendado e automático (<a href="https://finsidersbrasil.com.br/economia-open/open-finance-e-pix-formam-base-para-agentes-de-ia-mas-isso-e-so-o-comeco/">Finsiders, 11/09/2026</a>).</li><li><strong>Negociação algorítmica de alta frequência.</strong> Máquina negociando com máquina em mercado financeiro é prática estabelecida desde os anos 2000.</li></ul>
+<h3 id="o-que-esta-emergindo-e-em-que-estagio">O que está emergindo (e em que estágio)</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Peça</th><th>Estado medido</th><th>Onde está na curva</th></tr></thead><tbody><tr><td><strong>x402</strong></td><td>&gt;100 milhões de transações acumuladas na Base até o 1º tri/2026; ~US$ 28 mil/dia e ~131 mil transações/dia em março de 2026; ticket médio ~US$ 0,20; ~metade classificada como autonegócio ou <em>wash trading</em></td><td>Emergente, com evidência de uso real fraca</td></tr><tr><td><strong>Cloudflare Monetization Gateway</strong></td><td>Lista de espera aberta em 01/07/2026; cobra por página, dataset, API ou ferramenta MCP, liquidando em stablecoin</td><td>Emergente, pré-produção aberta</td></tr><tr><td><strong>ACP / Instant Checkout</strong></td><td>Lançado em 29/09/2025 com Etsy e Shopify; <strong>despriorizado em março de 2026</strong> em favor de apps de varejistas dentro do ChatGPT; o protocolo segue como infraestrutura</td><td>Emergente, com recuo documentado</td></tr><tr><td><strong>AP2</strong></td><td>Anunciado em 16/09/2025 com 60+ parceiros (Mastercard, PayPal, Amex, Coinbase, Adyen, Etsy, Salesforce)</td><td>Emergente, ecossistema amplo, adoção não medida</td></tr><tr><td><strong>Trusted Agent Protocol / Web Bot Auth</strong></td><td>Anunciado em 14/10/2025 com 12 parceiros de aceitação (Adyen, Checkout.com, Shopify, Stripe, Worldpay, Fiserv, Microsoft, Coinbase...)</td><td>Emergente</td></tr><tr><td><strong>Mercado medido em dinheiro</strong></td><td>Alpha Arena temporada 1: seis modelos, US$ 10 mil reais cada, perpétuos em cripto, prompt idêntico. Qwen3 Max +22,3%; DeepSeek V3.1 +4,89%; Claude Sonnet 4.5 −30,81%; Grok 4 −45,3%; Gemini 2.5 Pro −56,71%; GPT-5 −62,66%</td><td>Emergente como <em>instrumento de medida</em>; resultado negativo</td></tr><tr><td><strong>Viagem agêntica</strong></td><td>Sabre + PayPal + MindTrip (anúncio 12/02/2026, lançamento previsto 2º tri/2026); Skyscanner no ChatGPT em 27/02/2026; Google construindo reserva no AI Mode com Booking.com, Expedia, Marriott, IHG e Choice</td><td>Emergente, saindo de protótipo</td></tr></tbody></table></div>
+<h3 id="a-nota-sobre-o-brasil">A nota sobre o Brasil</h3>
+<p>O Brasil chega a este tema com a camada de execução mais pronta que a média e a camada de governança menos pronta. Banco do Brasil e Visa executaram em março de 2026 o que descrevem como a primeira transação com agente de IA no país — busca, seleção e pagamento com autenticação bancária e tokenização, em cerca de um minuto; o caso foi apresentado por Pedro Bramont, diretor de Meios de Pagamento do BB, no IACX 2026 (<a href="https://consumidormoderno.com.br/agentes-ia-banco-brasil-comercio-agentico-iacx-2026/">Consumidor Moderno</a>).</p>
+<p>O contraponto vem de dentro do próprio ecossistema: Elcio Calefi, diretor de Tecnologia e Experiência da Associação Open Finance Brasil, escreveu em <strong>11/09/2026</strong> que o país tem os alicerces — dados padronizados e consentidos, APIs transacionais, iniciação de pagamento, Pix — mas que as lacunas estão em <strong>identidade do agente, mandato digital, delegação e governança</strong>, e que os padrões atuais têm dificuldade com "maior autonomia, subagentes, múltiplas organizações, operações assíncronas e milhares de decisões" (<a href="https://finsidersbrasil.com.br/economia-open/open-finance-e-pix-formam-base-para-agentes-de-ia-mas-isso-e-so-o-comeco/">Finsiders</a>).</p>
+<p>Ou seja: no Brasil o agente já consegue <strong>pagar</strong>. O que ainda não existe é a resposta a "quem autorizou, até quanto, por quanto tempo, e o que acontece quando dá errado".</p>
+<hr>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<p>Cada candidata passou pelos três testes da Fase 2 por escrito. O registro das <strong>rejeitadas</strong> está na seção 12.</p>
+<h3 id="d1-pagamento-por-requisicao-o-acesso-deixa-de-exigir-cadastro">D1 — Pagamento por requisição: o acesso deixa de exigir cadastro</h3>
+<p><strong>Teste 1 (está madura?)</strong> Não. Existem implantações reais — Cloudflare na borda, x402 na Base e na Solana — mas não é opção padrão em nenhum fluxo em escala: US$ 28 mil/dia com metade classificada como artificial não é "a escolha padrão de ninguém". <strong>Não é madura.</strong></p>
+<p><strong>Teste 2 (é emergente?)</strong> Sim. Está fora do laboratório (produção aberta, ecossistema de facilitadores, fundação sob o Linux Foundation), a curva de capacidade sobe, a adoção é de <em>early adopter</em>. <strong>É emergente.</strong></p>
+<p><strong>Teste 3 (é disruptiva?)</strong> Sim, e é possível nomear o que perde a razão de existir: <strong>a conta de usuário como pré-condição para cobrar</strong>. Hoje, cobrar por um recurso digital exige cadastrar, autenticar, manter assinatura e faturar — toda uma camada de produto (onboarding, plano, <em>paywall</em>, gestão de assinatura) existe porque o custo de cobrar centavos é maior que os centavos. Se a liquidação por requisição funcionar a custo desprezível, essa camada inteira deixa de ser necessária para uma classe de recursos. Não é "cobrar fica mais barato" — é "a assinatura deixa de ser o formato obrigatório da monetização digital". <strong>Entra como disrupção-raiz.</strong></p>
+<p><em>Peneira dos Três Horizontes (Sharpe):</em> prepara H3 em vez de prolongar H1 — o modelo dominante hoje (atenção + assinatura) não é otimizado por isto, é contornado.</p>
+<h3 id="d2-o-agente-como-parte-contratante-identificavel">D2 — O agente como parte contratante identificável</h3>
+<p><strong>Teste 1</strong> Não é madura. Protocolos anunciados entre setembro e outubro de 2025, com adoção declarada em parceiros e não em volume. A própria OpenAI recuou do produto de ponta em março de 2026.</p>
+<p><strong>Teste 2</strong> É emergente: 60+ parceiros no AP2, 12 adquirentes e plataformas no TAP, ACP em beta com versionamento por data, e casos em produção (Etsy, Shopify, BB/Visa).</p>
+<p><strong>Teste 3</strong> Sim. O que perde a razão de existir é <strong>a suposição de que do outro lado da sessão há uma pessoa olhando</strong>. Dessa suposição derivam a vitrine, a página de produto, o funil de conversão, o teste A/B de botão, o <em>retargeting</em> — e também o modelo de segurança em que "tráfego não-humano = ataque". Quando o comerciante consegue verificar criptograficamente que ali há um agente <strong>legítimo, registrado e com mandato</strong>, e distinguir se ele veio "navegar ou pagar", a interface deixa de ser o canal da transação e passa a ser um artefato paralelo. <strong>Entra como disrupção-raiz.</strong></p>
+<p><em>Três Horizontes:</em> claramente H3. O TAP e o Agentic Token prolongam H1 no curto prazo (mantêm a bandeira de cartão no meio), mas o efeito de identidade de agente não é revertível para o modelo anterior.</p>
+<h3 id="d3-o-agente-como-operador-de-capital-e-contraparte-de-outro-agente">D3 — O agente como operador de capital e contraparte de outro agente</h3>
+<p><strong>Teste 1</strong> Não é madura <strong>como prática de varejo e de mercado aberto a agentes genéricos</strong>. O HFT é maduro, mas é outro objeto: são sistemas determinísticos e auditados, operados por instituições financeiras. Modelo de linguagem de propósito geral operando capital próprio contra outro modelo é outra coisa — e o único benchmark público com dinheiro real deu prejuízo agregado.</p>
+<p><strong>Teste 2</strong> É emergente: Alpha Arena colocou seis modelos com US$ 10 mil reais cada em perpétuos de cripto; há literatura experimental sobre agentes de LLM precificando em oligopólio.</p>
+<p><strong>Teste 3</strong> Sim. O que perde a razão de existir é <strong>o preço afixado</strong>. O preço publicado existe porque negociar caso a caso com cada comprador é caro em tempo humano. Se as duas pontas são agentes, o custo marginal da negociação tende a zero e o preço deixa de ser <em>um número na página</em> e passa a ser <em>o resultado de uma interação entre duas contrapartes</em>. Isso derruba um objeto específico e nomeável do design de interface: a etiqueta de preço. <strong>Entra como disrupção-raiz, com a ressalva forte registrada na seção 7.</strong></p>
+<p><em>O contraponto que sustenta a ressalva:</em> Fish, Gonczarowski e Shorrer mostram experimentalmente que agentes de precificação baseados em LLM "rápida e autonomamente atingem preços e lucros supracompetitivos" em oligopólio, e que variações inócuas no prompt alteram substancialmente o grau de supracompetitividade (<a href="https://arxiv.org/abs/2404.00806">arXiv:2404.00806</a>). Isto é evidência de que agentes <strong>negociam de fato</strong> — e também de que o resultado não é necessariamente melhor para quem compra.</p>
+<hr>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — Pagamento por requisição: o acesso deixa de exigir cadastro&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;Recursos da web passam a ter preço por chamada, cobrado na borda, sem conta e sem página de checkout — o cadastro deixa de ser a pré-condição técnica para cobrar.&quot;
+        sinal: medio
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;O publicador passa a manter duas tabelas de preço para o mesmo conteúdo — uma para leitor humano, monetizada por atenção, e outra para leitor-máquina, monetizada por requisição — e a segunda cresce mais rápido porque o rastreador pede o conteúdo de cem a dezenas de milhares de vezes por visitante que devolve.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;A unidade editorial deixa de ser a página e passa a ser o trecho cobrável: a redação fragmenta o que escreve pelo recorte que a máquina compra, como já havia fragmentado pelo recorte que o buscador indexava.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: &quot;A audiência deixa de ser o ativo contratual do publicador — o ativo vira a licença de leitura por máquina, e a métrica de alcance perde a função que tinha na negociação comercial.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;O custo marginal por chamada entra no projeto de interface: quem desenha um produto passa a decidir quantas requisições pagas cada gesto do usuário dispara, e não apenas o custo fixo do plano contratado.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;A web se separa em duas economias com regras distintas: uma camada visível paga por atenção e uma camada só legível por máquina paga por requisição, com preços, latências e termos de uso diferentes para o mesmo conteúdo.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;Qualquer endpoint vira produto vendável sem contrato, sem cadastro de cliente e sem área comercial, porque a cobrança acontece na própria resposta HTTP.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: baixa
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Aparece uma camada de fornecedores que vende exclusivamente para máquinas — sem página, sem marca, sem suporte, sem SLA negociado — e cuja única superfície pública é a descrição da ferramenta e o preço por chamada.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;A reputação comercial desses fornecedores deixa de ser construída por marca e passa a ser construída por histórico de execução legível por máquina (taxa de erro, latência, estabilidade de preço), o que desloca o trabalho de posicionamento de quem escreve para quem instrumenta.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;O orçamento do agente vira objeto de interface: a pessoa passa a configurar teto, escopo e validade de gasto em vez de aprovar cada compra.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;O consentimento deixa de ser por transação e passa a ser por política, e a tela de compra desaparece do fluxo — o que a pessoa vê depois do fato é um extrato, não uma confirmação.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;O arrependimento de compra se desloca do momento da decisão para o momento da leitura do extrato, e surge uma categoria de interface cujo objetivo é reconstruir, depois, por que o agente comprou aquilo — a justificativa vira produto.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;D2 — O agente como parte contratante identificável&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;O comerciante passa a distinguir criptograficamente agente registrado de bot anônimo e a saber se a visita é para navegar ou para pagar, tratando o agente como visitante legítimo com identidade própria.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;A loja se desdobra em duas fachadas do mesmo catálogo — uma vitrine para olho humano e um feed estruturado para agente — e o orçamento de produto migra para a segunda, porque é nela que a decisão de compra passa a ser tomada.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;A disciplina de otimização para busca se bifurca: um ramo continua otimizando para olhos e outro passa a otimizar a descrição estruturada que o agente lê, com métrica de sucesso que não é clique nem sessão, e sim inclusão no carrinho proposto.&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;O programa de fidelidade perde o canal pelo qual operava: como quem escolhe é o agente e o benefício é resgatado na conta da pessoa, o programa passa a ter de oferecer ao agente um desconto legível em tempo de decisão, ou é ignorado no comparativo.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;O acúmulo de pontos deixa de funcionar como trava de troca de fornecedor e passa a ser lido pelo agente como desconto futuro descontado a valor presente, o que empurra os programas para benefício imediato e reduz a diferença entre fidelidade e promoção.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;A injeção de instrução em conteúdo lido pelo agente vira vetor de fraude de pagamento, porque o mandato apresentado é legítimo e o que foi sequestrado é a intenção, não a credencial.&quot;
+        sinal: medio
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;Surge uma categoria de disputa de estorno específica de agente, em que a prova deixa de ser a assinatura do titular e passa a ser a cadeia de mandatos assinados — e quem não guardou a cadeia perde a disputa por não conseguir mostrar a intenção original.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;O registro de intenção vira obrigação de guarda comparável à nota fiscal, e a empresa que opera o agente passa a ter o mesmo tipo de dever documental que hoje recai sobre quem processa pagamento.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: &quot;Aparece preço diferenciado para agente, justificado pelo custo de atendimento que o agente não gera — experimento comercial isolado, não política de setor.&quot;
+        sinal: fraco
+        prazo: 2028
+        confianca: baixa
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;O preço passa a depender de quem pergunta, e a comparação entre ofertas deixa de ser verificável por uma pessoa: o número que o agente viu não é o número que a pessoa vê ao abrir a mesma página.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;A auditoria de preço vira função de terceiro: surgem serviços cuja única razão de existir é consultar o mesmo catálogo com identidades diferentes e publicar a diferença, replicando para preço o papel que a checagem de fatos ocupa para conteúdo.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;D3 — O agente como operador de capital e contraparte de outro agente&quot;
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: &quot;O agente do comprador passa a negociar o preço em vez de aceitá-lo, em transações de varejo onde antes negociar não compensava o tempo humano.&quot;
+        sinal: fraco
+        prazo: 2029
+        confianca: baixa
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;O vendedor responde com agente próprio, e o preço deixa de ser um número publicado para virar o resultado de uma interação entre duas contrapartes automáticas — a etiqueta de preço passa a ser, no máximo, uma âncora inicial.&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;A regulação de preço abusivo perde o objeto que sabia fiscalizar: não há mais um preço publicado a comparar, e a fiscalização teria de passar a auditar a política de precificação do agente, para a qual não há instrumento estabelecido.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: &quot;Benchmark medido em dinheiro entra no vocabulário de avaliação de modelo ao lado das provas de conhecimento, com resultado público e comparável entre fornecedores.&quot;
+        sinal: medio
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: &quot;A escolha de modelo em produtos que gastam dinheiro passa a ser decisão do responsável financeiro e não da engenharia, porque o critério de comparação vira perda esperada por tarefa e não acerto por benchmark.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: &quot;Fornecedores de modelo passam a publicar limites de exposição financeira como parte da ficha técnica, e a comparação entre modelos incorpora um número que hoje não existe: quanto o modelo pode perder antes de parar.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: &quot;Erros de agente com dinheiro real produzem prejuízo sem responsável evidente, porque a operação foi autorizada por mandato válido e executada dentro do escopo concedido.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: &quot;Contrapartes passam a exigir teto, caução ou seguro por agente antes de aceitar operar com ele, e o agente acumula um histórico de execução que funciona como lastro para esse limite.&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: &quot;O histórico do agente passa a ser um ativo transferível e negociável entre operadores, e trocar de agente deixa de ser gratuito para quem opera — reaparece, para software, o custo de troca que a portabilidade de dados havia reduzido para pessoas.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<p><strong>Comentário em prosa sobre a roda.</strong> Os três ramos não são independentes. D2 é pré-condição de D3 no varejo: agente não negocia com quem não sabe que ele é agente. E D1 é o que torna D2 economicamente interessante para quem publica conteúdo — sem cobrança por requisição, o comerciante que identifica o agente só ganha uma nova forma de bloquear, não uma nova forma de vender.</p>
+<p>Dois efeitos foram marcados aqui pela auditoria da Fase 4 e merecem leitura com desconto: <strong>e8</strong> é extrapolação linear (o Alpha Arena já existe; dizer que "benchmark em dinheiro entra no vocabulário" é dizer que a curva de hoje continua), e <strong>e6</strong> nasceu do <em>wildcard</em> proposto no enunciado do tema, não de sinal de mercado observado — está no mapa como derivação válida, com sinal fraco e confiança baixa, e não deve ser lido como previsão.</p>
+<hr>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinais fracos observados nas fontes lidas</strong></p>
+<ol><li><strong>O perfil de quem usa x402 não é o de quem compra.</strong> Carteiras que usam x402 mantinham em média 26 tipos de token contra 4 do usuário típico da Base, e tinham 197 dias de idade média contra 423 (<a href="https://www.chainalysis.com/blog/x402-agentic-payments-adoption/">Chainalysis</a>). Isso descreve experimentador, não comprador. É um sinal fraco <strong>contra</strong> a adoção rápida — e é por isso que está aqui e não no corpo da roda.</li><li><strong>A composição das transações migrou para cima.</strong> Transações de US$ 1 ou mais passaram de 49% para 95% do volume entre o início de 2025 e o início de 2026, enquanto a faixa de 10 centavos a 1 dólar caiu de 46% para 4% (mesma fonte). Se o micropagamento real fosse o caso de uso, a direção seria a inversa. Duas leituras cabem: ou o micropagamento não pegou, ou a atividade especulativa dominou a amostra. Nenhuma das duas foi verificada.</li><li><strong>A briga não é por checkout, é por descoberta.</strong> O recuo da OpenAI em março de 2026 foi acompanhado da frase de que a prioridade é "tornar a busca e a descoberta de produtos ótimas, com o ACP servindo de infraestrutura". Se o valor está na descoberta e não na transação, boa parte do investimento em comércio agêntico está mirando a camada errada.</li><li><strong>O tráfego de treinamento já passou da metade.</strong> Segundo o relatório que acompanhou o anúncio do Monetization Gateway, 52% das requisições de rastreadores em junho de 2026 eram para treinamento, contra 22% na primavera de 2025. É a base econômica de e1.1: existe demanda de leitura por máquina grande o bastante para sustentar uma tabela de preço própria.</li></ol>
+<p><strong>Wildcards</strong> (baixa probabilidade, alto impacto — não entram na roda)</p>
+<ul><li><strong>Uma fraude de injeção em escala com mandato válido.</strong> O trabalho de Debi, Zhu e Sen Gupta demonstrou que prompts adversariais simples subvertem de forma confiável o comportamento de um agente de compras construído sobre o AP2 (<a href="https://arxiv.org/abs/2601.22569">arXiv:2601.22569</a>). Se isso ocorrer em volume antes da adoção consolidar, o efeito não é atraso: é o retorno da confirmação humana por transação — o que mata e3.1 e, com ele, metade do ramo D1.</li><li><strong>Tarifa exclusiva para agente lançada por uma companhia grande.</strong> Já está no mapa como e6, com confiança baixa. Vira <em>wildcard</em> se vier acompanhada de <strong>bloqueio</strong> do preço ao consumidor humano: aí o efeito não é diferenciação, é a separação formal de dois mercados.</li><li><strong>Um regulador definir que o agente tem personalidade contratual própria.</strong> Hoje o agente é instrumento do titular. Se em algum regime passar a ser parte, todo o ramo e9 muda de natureza — e não é derivável de nenhum sinal atual, por isso está aqui e não na roda.</li><li><strong>Colusão tácita entre agentes de precificação detectada em mercado real de varejo.</strong> O resultado de Fish, Gonczarowski e Shorrer é experimental; se aparecer o caso observado em produção, a resposta regulatória chega antes da adoção e o ramo D3 muda de forma.</li></ul>
+<hr>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p>Esta seção é o produto direto da auditoria da Fase 4, item a item.</p>
+<p><strong>1. e8 é extrapolação linear, e está marcado como tal.</strong> "Benchmark em dinheiro entra no vocabulário de avaliação" é a curva de hoje continuada: o Alpha Arena já fez isso, com cobertura, em 2025-2026. Não é um efeito de futurização — é a projeção de uma tendência em curso. Mantido no mapa porque sustenta e8.1 e e8.1.1, que não são lineares, mas com confiança rebaixada para <code>media</code> na primeira ordem e <code>baixa</code> abaixo.</p>
+<p><strong>2. e4.1 assume velocidade de adoção sem precedente confortável.</strong> O efeito supõe que o orçamento de produto migre da vitrine para o feed de agente em cerca de três anos. O caso comparável mais próximo é a migração de desktop para <em>mobile-first</em> no design de e-commerce, que levou aproximadamente uma década entre o iPhone e o momento em que "mobile-first" virou default de briefing. Se a transição para "agent-first" levar o mesmo tempo, e4.1 acontece depois de 2031 e todo o ramo e4.1.1 sai do horizonte deste mapa.</p>
+<p><strong>3. e7 → e7.1 pulava uma etapa e foi reescrito.</strong> A versão original dizia que "o preço deixa de ser publicado". Faltava o passo intermediário: o vendedor precisa <strong>responder com agente próprio</strong> para que a negociação exista — sem isso, o agente do comprador negocia com um formulário, o que é apenas raspagem de cupom. A formulação atual explicita esse passo e, mesmo assim, permanece com <code>sinal: fraco</code> e <code>confianca: baixa</code>, porque não encontrei nenhum caso em produção de vendedor de varejo operando agente negociador. A evidência que existe é experimental (<a href="https://arxiv.org/abs/2404.00806">arXiv:2404.00806</a>), não de mercado.</p>
+<p><strong>4. e6 nasceu do enunciado, não do campo.</strong> O <em>wildcard</em> da tarifa para agente veio descrito no briefing do tema. Buscar por evidência de tarifa diferenciada para agente em companhia aérea não devolveu nenhum caso; o que se encontra é o oposto — companhias e agências correndo para <strong>estar dentro</strong> do canal agêntico (Skyscanner no ChatGPT, Sabre/PayPal/MindTrip, Google AI Mode com Booking.com e Expedia), o que é disputa por presença, não diferenciação de preço. O efeito está no mapa como derivação lógica, com o sinal mais fraco possível, e é o primeiro candidato a corte numa revisão futura.</p>
+<p><strong>5. A disrupção-raiz D1 pode simplesmente não se concretizar — e é a que mais carrega o mapa.</strong> US$ 28 mil por dia, ticket médio de US$ 0,20, e metade da atividade classificada por analistas como autonegócio ou <em>wash trading</em> não é a assinatura de uma tecnologia em decolagem; a análise citada pela CoinDesk chama o movimento de "miragem, na maior parte". O diagnóstico do próprio artigo é que faltam <strong>comerciantes</strong>, não infraestrutura: os vendedores que o x402 mira — desenvolvedores de serviços pequenos e automatizados — ainda são raros. Se a escassez de vendedores for estrutural e não temporária, os seis efeitos de D1 caem juntos, e com eles a leitura central do resumo.</p>
+<p><strong>6. D2 tem um recuo documentado que o mapa não pode ignorar.</strong> A OpenAI despriorizou o Instant Checkout em março de 2026, seis meses após lançá-lo, movendo a compra para apps de varejistas. A leitura otimista é que o protocolo sobrevive como infraestrutura. A leitura cética é que a maior plataforma de conversa do mundo testou o agente-que-compra e concluiu que o varejista tem de operar a transação — o que é exatamente o modelo anterior, com uma camada de conversa por cima. Este mapa não escolhe entre as duas; registra que a segunda leitura, se correta, remove e4.1 e e4.2.</p>
+<p><strong>7. Viés de quem constrói.</strong> Dois vieses agiram aqui e é melhor declará-los. O primeiro é do <strong>enunciado do tema</strong>, que já vem com a tese formulada ("o dinheiro é a última fronteira da agência — e está sendo cruzada") e com as perguntas de cada ordem pré-escritas; construir a roda a partir dele empurra para confirmar a tese. Onde isso ficou mais visível foi em e6, discutido acima. O segundo é da <strong>skill</strong>: o teste da Fase 2 exige nomear "quem perde a razão de existir", o que premia formulações dramáticas — "o cadastro deixa de ser necessário", "a etiqueta de preço morre" — sobre formulações graduais, que são as mais prováveis. O leitor deve descontar isso em todas as três disrupções-raiz.</p>
+<p><strong>8. O recorte geográfico é global, e isso esconde variação severa.</strong> Toda a infraestrutura descrita é de origem americana e liquidação em dólar ou em stablecoin de dólar. O trilho brasileiro é outro (Pix, Open Finance, iniciação de pagamento), e a lacuna apontada por Calefi — identidade, mandato, delegação, governança — não é a mesma lacuna do mercado americano, que já tem protocolo de mandato proposto e discute adoção. A roda não modela essa diferença; ela vale melhor para o mercado onde os protocolos nasceram.</p>
+<hr>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Registro dos erros e divergências encontrados durante esta sessão, com busca ativada.</p>
+<p><strong>1. Autoria citada de memória, errada.</strong> Ao formular a busca pelo trabalho sobre colusão algorítmica entre agentes de LLM, escrevi de memória o trio "Fish, Gonczarowski e <strong>Chen</strong>". Os autores reais são <strong>Sara Fish, Yannai A. Gonczarowski e Ran I. Shorrer</strong>, confirmado ao abrir o registro em <a href="https://arxiv.org/abs/2404.00806">arXiv:2404.00806</a>. O terceiro nome estava simplesmente inventado — e era plausível o bastante para passar despercebido em uma lista de referências.</p>
+<p><strong>2. Data de publicação divergente entre resumo de busca e registro original.</strong> O resumo de busca afirmou que esse mesmo trabalho "foi publicado pela primeira vez em janeiro de 2024". O registro do arXiv mostra <strong>v1 em 31 de março de 2024</strong>, com seis versões até 31 de agosto de 2026. Usei a data do registro.</p>
+<p><strong>3. Data de lançamento do Instant Checkout divergente entre fontes.</strong> Um resumo de busca afirmou que a OpenAI lançou o "Buy it in ChatGPT" em <strong>16 de fevereiro de 2026</strong>. A sala de imprensa da Stripe data o lançamento do Instant Checkout com Etsy em <strong>29 de setembro de 2025</strong>, e a reportagem da DigitalCommerce360 de 06/03/2026 confirma setembro de 2025 como lançamento e março de 2026 como mudança de estratégia. Usei as duas fontes que abri e descartei o resumo.</p>
+<p><strong>4. Números de volume do x402 que não fecham entre si.</strong> Um resumo de busca afirmava "119 milhões de transações na Base e 35 milhões na Solana, cerca de US$ 600 milhões em volume anualizado". As duas fontes que efetivamente abri dizem outra coisa: a Chainalysis fala em "bem mais de 100 milhões acumuladas na Base até o 1º tri/2026" e <strong>não</strong> dá total em dólares; a CoinDesk, em 11/03/2026, dá ~US$ 28 mil/dia e ~131 mil transações/dia. US$ 28 mil/dia anualiza em cerca de US$ 10 milhões, não US$ 600 milhões — as duas afirmações não podem ser ambas verdadeiras no mesmo período. Mantive só o que abri e registrei a divergência aqui em vez de escolher o número maior.</p>
+<p><strong>5. Datas da temporada 1 do Alpha Arena citadas em resumo, ausentes na fonte aberta.</strong> Um resumo de busca datou a temporada 1 entre 18/10/2025 e 03/11/2025. A página que abri traz os retornos por modelo, o capital inicial e a mecânica, mas <strong>não</strong> traz o intervalo de datas. Os retornos entraram no documento; o intervalo, não.</p>
+<p><strong>6. Número que não foi usado por não ter sido aberto.</strong> A estimativa de que o comércio por agentes movimentaria entre US$ 3 e US$ 5 trilhões até 2030, atribuída à McKinsey, apareceu em veículo brasileiro, de segunda mão. Não abri o relatório original e por isso o número <strong>não</strong> entra no corpo deste documento nem na contagem de fontes — está registrado aqui apenas como item não verificado.</p>
+<p><strong>7. O que se confirmou.</strong> As atribuições de método usadas pelo <code>ESTUDO.md</code> (Glenn e a roda dos futuros em 1971; Fenn e o hype cycle em 1995; Sharpe e os Três Horizontes) não foram reverificadas nesta sessão — foram verificadas na rodada de teste da skill e são reutilizadas aqui por herança, o que é uma dependência, não uma checagem. As doze fontes da seção 11 foram abertas nesta sessão.</p>
+<hr>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p>Os três partem das mesmas fontes e diferem no que acontece com as duas variáveis que a seção 7 identificou como frágeis: <strong>existe vendedor para o pagamento por requisição?</strong> e <strong>a plataforma de conversa opera a transação ou devolve o cliente ao varejista?</strong></p>
+<h3 id="cenario-a-o-balcao-de-duas-fachadas-o-mapa-acontece-em-boa-parte">Cenário A — "O balcão de duas fachadas" (o mapa acontece em boa parte)</h3>
+<p>Há vendedores, e a plataforma opera a transação. Em 2031, todo produto digital de alguma escala tem duas superfícies: uma para pessoas e um contrato legível por máquina. A segunda é onde a decisão de compra acontece; a primeira virou material de confirmação e de marca. Quem projeta interação passa a trabalhar com objetos que não têm tela — mandato, escopo, teto, política de erro — e a métrica central de um produto de consumo deixa de ser conversão de sessão e passa a ser <strong>inclusão no carrinho proposto pelo agente</strong>. Os programas de fidelidade viraram desconto imediato porque o agente não valoriza trava. Efeitos vivos: e1, e1.1, e3, e3.1, e4, e4.1, e4.2.</p>
+<h3 id="cenario-b-o-agente-que-devolve-o-cliente-o-mais-proximo-do-observado-hoje">Cenário B — "O agente que devolve o cliente" (o mais próximo do observado hoje)</h3>
+<p>A infraestrutura de identidade e mandato pega; a cobrança por requisição não encontra vendedores e fica restrita a APIs e dados de treinamento. A plataforma de conversa se consolida como camada de <strong>descoberta</strong>, não de transação — que é exatamente o que a OpenAI sinalizou em março de 2026. Em 2031, o agente pesquisa, compara e monta o carrinho, e entrega a pessoa ao varejista para fechar. Para quem projeta mídia e interação, a mudança é grande e mais estreita do que o cenário A: o trabalho vira <strong>fazer o produto ser legível e escolhível por um agente que não vai converter ali</strong>, com a interface humana intacta do outro lado. Efeitos vivos: e4, e4.1, e4.1.1, e8, e9; efeitos mortos: quase todo o ramo D1 e o ramo e7.</p>
+<h3 id="cenario-c-o-recuo-por-fraude-a-injecao-chega-antes-da-adocao">Cenário C — "O recuo por fraude" (a injeção chega antes da adoção)</h3>
+<p>Um episódio de fraude em escala com mandato válido — o vetor descrito em <a href="https://arxiv.org/abs/2601.22569">arXiv:2601.22569</a> — ocorre antes de a adoção consolidar. A resposta é previsível pelo padrão de outros meios de pagamento: confirmação humana volta a ser obrigatória acima de um valor baixo, e o mandato prévio fica restrito a recompra de item conhecido. Em 2031, o agente com carteira existe, mas só para o trivial: renovar assinatura, recomprar consumível, pagar API. Todo o resto passa por uma tela. Para quem projeta interação, o trabalho principal vira a <strong>interface de revisão</strong> — mostrar, depois do fato e antes do estorno, por que o agente decidiu aquilo. Efeito vivo e central: e3.1.1. Efeitos mortos: e3.1, e7, e7.1.</p>
+<p><strong>Qual é o mais provável.</strong> A skill não estima probabilidade, e a roda dos futuros não serve para isso. O que dá para dizer, sem sair da evidência: o cenário B é o único dos três que já tem um ator grande se movendo na direção dele, por escolha declarada, em 2026.</p>
+<hr>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>Nome:</strong> Mandato de R$ 50. <strong>Formato:</strong> presencial, 50 minutos, sem necessidade de código, papel e celular bastam. <strong>O que testa:</strong> os efeitos e3.1 (consentimento por política em vez de por transação) e e5 (sequestro de intenção com mandato válido) — os dois efeitos de que dependem, respectivamente, a tese central do mapa e o cenário C.</p>
+<p><strong>Montagem.</strong> A turma se divide em trios com três papéis rotativos.</p>
+<ol><li><strong>Mandante.</strong> Escreve, em texto corrido e sem rasura, o mandato que daria a um agente para comprar uma coisa real por até R$ 50. Regra dura: o mandante <strong>não</strong> pode ser consultado depois. O que estiver escrito é tudo que o agente terá.</li><li><strong>Agente literal.</strong> Recebe o mandato de outro trio e o executa <strong>ao pé da letra</strong>, sem inferir intenção. Escolhe um produto real em uma loja real (sem comprar), e anota a escolha e a justificativa em uma frase.</li><li><strong>Vendedor adversarial.</strong> Antes da execução, recebe o mandato e escreve <strong>uma única frase</strong> que apareceria na página do produto e que empurraria o agente para uma escolha pior — mais cara, errada, ou fora do escopo. A frase é entregue ao agente junto com o mandato, misturada à descrição do produto.</li></ol>
+<p><strong>O que se mede, ao final das três rodadas:</strong></p>
+<ul><li><strong>Taxa de sobrevivência do mandato.</strong> Em quantos casos a compra do agente literal seria aceita pelo mandante? (O mandante julga depois, sem ter podido corrigir.)</li><li><strong>Taxa de captura.</strong> Em quantos casos a frase do vendedor mudou a escolha? Qual foi a frase mais eficaz da sala?</li><li><strong>Onde o mandato falhou.</strong> Para cada rejeição, classificar: escopo ausente, teto mal definido, critério de qualidade implícito, ou preferência que o mandante achou óbvia e não escreveu.</li></ul>
+<p><strong>O que a turma deve sair sabendo.</strong> A hipótese a testar é que <strong>a maioria dos mandatos escritos por humanos não sobrevive à execução literal</strong>, e que a coisa mais difícil de escrever não é o teto de gasto — é o critério de qualidade que o mandante acha óbvio. Se isso se confirmar em sala, e3.1 ("o consentimento vira política e a tela de compra some") é mais frágil do que o mapa sugere, porque ninguém consegue escrever a política; e a interface de revisão posterior, de e3.1.1, deixa de ser efeito de terceira ordem distante e vira requisito de primeira hora.</p>
+<p><strong>Por que este e não outro.</strong> Porque testa a parte do tema que é de <strong>interação</strong>, não de pagamento. O trilho financeiro não pode ser reproduzido em sala; a redação de um mandato e sua captura por injeção podem — e é exatamente o que o trabalho de red team sobre o AP2 fez com um agente real, em escala de laboratório.</p>
+<hr>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Doze fontes abertas e lidas nesta sessão, em 11/09/2026. Fontes citadas em resumos de busca e não abertas <strong>não</strong> entram nesta lista nem na contagem do frontmatter.</p>
+<ol><li><strong>Chainalysis</strong> — "Inside x402: 100M Agentic Payments on Base". Composição de transações, perfil de carteiras, volume acumulado. <code>https://www.chainalysis.com/blog/x402-agentic-payments-adoption/</code></li><li><strong>CoinDesk</strong>, 11/03/2026 — "Coinbase-backed AI payments protocol wants to fix micropayment but demand is just not there yet". Volume diário, ticket médio, análise da Artemis sobre autonegócio e wash trading, fala de Erik Reppel (Coinbase). <code>https://www.coindesk.com/markets/2026/03/11/coinbase-backed-ai-payments-protocol-wants-to-fix-micropayment-but-demand-is-just-not-there-yet</code></li><li><strong>Cloudflare Blog</strong>, 01/07/2026 — "Announcing the Monetization Gateway: charge for any resource behind Cloudflare via x402". Modelo de cobrança, recursos cobráveis, posição sobre agentes com carteira. <code>https://blog.cloudflare.com/monetization-gateway/</code></li><li><strong>Cloudflare Blog</strong> — "Securing agentic commerce: helping AI Agents transact with Visa and Mastercard". Web Bot Auth, RFC 9421, o que o comerciante passa a distinguir. <code>https://blog.cloudflare.com/secure-agentic-commerce/</code></li><li><strong>Stripe Newsroom</strong>, 29/09/2025 — "Stripe powers Instant Checkout in ChatGPT and releases Agentic Commerce Protocol codeveloped with OpenAI". Shared Payment Token, escopo por comerciante e carrinho. <code>https://stripe.com/newsroom/news/stripe-openai-instant-checkout</code></li><li><strong>DigitalCommerce360</strong>, 06/03/2026 — "OpenAI shifts checkout plans in its agentic commerce strategy". O recuo do Instant Checkout, fala de Harley Finkelstein (Shopify). <code>https://www.digitalcommerce360.com/2026/03/06/openai-shifts-checkout-plans-agentic-commerce-strategy/</code></li><li><strong>Google Cloud Blog</strong>, 16/09/2025 — "Announcing Agent Payments Protocol (AP2)". Intent, Cart e Payment Mandates como Verifiable Credentials; os três problemas declarados; 60+ parceiros. <code>https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol</code></li><li><strong>Debi, T.; Zhu, W.; Sen Gupta, P.</strong> — "Whispers of Wealth: Red-Teaming Google's Agent Payments Protocol via Prompt Injection". arXiv:2601.22569, v1 em 30/01/2026, v2 em 18/05/2026. Branded Whisper Attack e Vault Whisper Attack sobre agente construído com Gemini 2.5 Flash e Google ADK. <code>https://arxiv.org/abs/2601.22569</code></li><li><strong>Fish, S.; Gonczarowski, Y. A.; Shorrer, R. I.</strong> — "Algorithmic Collusion by Large Language Models". arXiv:2404.00806, v1 em 31/03/2024, v6 em 31/08/2026. Preços supracompetitivos autônomos em oligopólio; sensibilidade a variações de prompt; extensão a leilões. <code>https://arxiv.org/abs/2404.00806</code></li><li><strong>iWeaver</strong>, 04/08/2026 — "Alpha Arena Season 1 Results: Final Ranking and Lessons". Seis modelos, US$ 10 mil cada, retornos por modelo. <code>https://www.iweaver.ai/blog/alpha-arena-ai-trading-season-1-results/</code></li><li><strong>OAG</strong> — "March 2026: The Month Agentic Travel Gets Real". Sabre/PayPal/MindTrip (12/02/2026), Malaysia Airlines Mavis (24/02/2026), Skyscanner no ChatGPT (27/02/2026), leitura sobre distribuição. <code>https://www.oag.com/blog/march-2026-the-month-agentic-travel-gets-real</code></li><li><strong>Finsiders Brasil</strong>, 11/09/2026 — artigo de Elcio Calefi (Associação Open Finance Brasil), "Open Finance e Pix formam base para agentes de IA, mas isso é só o começo". Camadas de dado e de execução; lacunas de identidade, mandato, delegação e governança. <code>https://finsidersbrasil.com.br/economia-open/open-finance-e-pix-formam-base-para-agentes-de-ia-mas-isso-e-so-o-comeco/</code></li></ol>
+<p><strong>Fonte adicional consultada e citada apenas no corpo da seção 3 (nota sobre o Brasil):</strong> Consumidor Moderno, sobre a transação BB/Visa apresentada por Pedro Bramont no IACX 2026. Foi aberta, mas o artigo não confirma data exata, produto nem valor da transação — por isso entra como contexto, e o que dela se afirma no documento está limitado ao que a página efetivamente diz. <code>https://consumidormoderno.com.br/agentes-ia-banco-brasil-comercio-agentico-iacx-2026/</code></p>
+<hr>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-estado-da-entrevista-da-fase-1">12.1 Estado da entrevista da Fase 1</h3>
+<p>Os seis pontos foram respondidos por escrito por quem despachou a execução, não em diálogo interativo. Nenhum ficou em aberto, e por isso <strong>não</strong> se aplica o rebaixamento de confiança da regra de corte da Fase 1. Valores registrados:</p>
+<div class="tabela-envolve"><table><thead><tr><th>Ponto</th><th>Resposta recebida</th><th>Como entrou no documento</th></tr></thead><tbody><tr><td>1. Tema e recorte</td><td>"Agentes com carteira: comércio agêntico e mercados de máquinas"; o recorte é o agente como <strong>parte contratante</strong>, não o agente que recomenda</td><td>Seção 2</td></tr><tr><td>2. Horizonte</td><td>2031</td><td><code>horizonte: 2031</code>; nenhum efeito derivado além disso</td></tr><tr><td>3. Para quem</td><td>"quem projeta mídia e interação"</td><td><code>publico</code>; orientou a escolha do experimento e a ênfase em interface</td></tr><tr><td>4. Recorte geográfico</td><td>global, com nota sobre o Brasil</td><td><code>recorte_geografico: global</code>; a nota está no fim da seção 3 e a limitação está no item 8 da seção 7</td></tr><tr><td>5. Já descartado</td><td>apenas a régua da disciplina — o que já é comum em produto de massa</td><td>Aplicado no teste 1 da Fase 2; ver 12.2</td></tr><tr><td>6. Viés</td><td>neutro</td><td>Declarado na seção 1 e aplicado nas seções 6 e 7</td></tr></tbody></table></div>
+<p>Instruções adicionais recebidas e cumpridas: nenhuma disrupção suspeita fornecida ("descubra"), ideias óbvias a excluir são "as que servem para qualquer tema" (aplicado no corte de 12.4), e os critérios de mudança de ideia declarados foram adoção além da maioria inicial (Rogers) ou ausência de ruptura. O segundo critério foi efetivamente testado no teste 3 e reprovou cinco candidatas (12.2). O primeiro não reprovou nenhuma: nada aqui passou da maioria inicial.</p>
+<p>Modo de trabalho: <strong>a partir de uma inovação/tema</strong>, não de um setor. Profundidade: três ordens.</p>
+<h3 id="12-2-tecnologias-rejeitadas-pelo-teste-da-fase-2-com-o-motivo">12.2 Tecnologias rejeitadas pelo teste da Fase 2, com o motivo</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Candidata</th><th>Teste que reprovou</th><th>Motivo registrado</th></tr></thead><tbody><tr><td>E-commerce, checkout online, comparador de preço</td><td>Teste 1 — madura</td><td>Opção padrão há duas décadas; o que resta é ficar mais barato e rápido. Régua da disciplina.</td></tr><tr><td>Tokenização de credencial de cartão</td><td>Teste 1 — madura</td><td>Primitivo estabelecido desde a primeira geração de carteiras móveis. O que é novo é o <strong>escopo</strong> do token (agente + comerciante + carrinho), e isso foi absorvido em D2, não tratado como raiz própria.</td></tr><tr><td>Pix e pagamento instantâneo</td><td>Teste 1 — madura</td><td>Infraestrutura consolidada. É trilho de D1 e D2 no Brasil, não disrupção. Entra na seção 3.</td></tr><tr><td>APIs de reserva de viagem (Duffel, Amadeus, Sabre Mosaic, Skyscanner)</td><td>Teste 1 — madura</td><td>Existem para programas desde antes de haver agentes de IA. São substrato. O catálogo levantado pela turma descreve maturidade de trilho, não emergência.</td></tr><tr><td>Negociação algorítmica de alta frequência</td><td>Teste 1 — madura</td><td>Prática institucional estabelecida. Só entra no mapa como <strong>analogia de risco</strong> para e7.1, nunca como raiz.</td></tr><tr><td>Chatbot de atendimento de companhia aérea (ex.: Mavis, Malaysia Airlines)</td><td>Teste 3 — melhoria</td><td>Reduz custo e tempo de atendimento; nenhum ator perde a razão de existir. É atendimento melhor, não outra natureza de transação.</td></tr><tr><td>Stablecoin como meio de pagamento</td><td>Teste 3 — melhoria, no recorte deste tema</td><td>Muda a liquidação, não a agência. O que interessa aqui é <strong>quem decide gastar</strong>, e stablecoin não responde a isso. Absorvida como detalhe de D1.</td></tr><tr><td>Automação robótica de processos em compras corporativas (RPA / procurement)</td><td>Teste 3 — melhoria</td><td>Executa regra escrita por humano; não escolhe fornecedor nem negocia. Sem agência, não há disrupção no sentido deste mapa.</td></tr><tr><td>Model Context Protocol e descoberta de ferramentas</td><td>Fora de recorte</td><td>É o tema vizinho (a web reprojetada para agentes). Citado onde toca pagamento — ferramenta MCP cobrável no Monetization Gateway — e não derivado.</td></tr><tr><td>Mercados simulados como instrumento de pesquisa (empresas simuladas, corretoras povoadas por agentes)</td><td>Fora de recorte</td><td>É o tema vizinho 6. Aqui só entra o que envolve dinheiro real. Alpha Arena entra porque o capital é real; simulação não.</td></tr><tr><td>Aposta em cripto como compromisso de hábito (Pinky-Pact e similares)</td><td>Teste 2 — não passa</td><td>Existe, mas não há evidência de uso fora de nicho experimental. Tratado como sinal fraco no enunciado do tema; não entrou nem como raiz nem na seção 6, porque não consegui abrir nenhuma fonte que medisse uso.</td></tr></tbody></table></div>
+<h3 id="12-3-aplicacao-da-peneira-dos-tres-horizontes">12.3 Aplicação da peneira dos Três Horizontes</h3>
+<p>Feita como segunda peneira, depois dos três testes, para separar "prolonga o presente" de "prepara outra coisa":</p>
+<ul><li><strong>D1</strong> — prepara H3. O modelo dominante (atenção e assinatura) não é otimizado por ele; é contornado.</li><li><strong>D2</strong> — H3 no efeito, H2 no desenho. Os protocolos de bandeira (Agentic Token, TAP) prolongam H1 no curto prazo porque mantêm o cartão no meio da transação; o efeito de identidade de agente, porém, não é revertível.</li><li><strong>D3</strong> — H3, com adoção muito incerta. É a raiz que menos evidência de campo tem e a que mais depende de D2 acontecer primeiro.</li></ul>
+<h3 id="12-4-efeitos-cortados-pela-auditoria-da-fase-4">12.4 Efeitos cortados pela auditoria da Fase 4</h3>
+<p><strong>Cortado: "Nasce um mercado de trabalho em que agentes contratam agentes, e surge intermediação entre eles."</strong> Motivo: reprovado no critério "ideias óbvias a excluir — as que servem para qualquer tema". O mesmo enunciado vale, sem alteração, para qualquer disrupção de automação dos últimos quarenta anos; não é específico a dinheiro nas mãos de máquinas. Além disso, o elo causal não era narrável em uma frase sem o verbo mágico ("faz surgir"). Cortado, não rebaixado.</p>
+<p><strong>Cortado: "A publicidade digital colapsa porque agentes não veem anúncio."</strong> Motivo: pula duas etapas. Entre "agente decide a compra" e "a publicidade colapsa" falta (a) que a proporção de compras decididas por agente seja materialmente grande, e (b) que o anunciante não encontre outra forma de influenciar o agente — que é justamente o que e4.1.1 descreve acontecendo. O efeito sobrevivente é a <strong>bifurcação</strong> da otimização, não o colapso. A versão colapso saiu.</p>
+<p><strong>Reescrito, não cortado: e7 → e7.1.</strong> Detalhado no item 3 da seção 7.</p>
+<p><strong>Rebaixados:</strong> e8 (de <code>alta</code> para <code>media</code> na primeira ordem, por extrapolação linear) e e6 e todo o seu ramo (para <code>sinal: fraco</code>, <code>confianca: baixa</code>, por nascer do enunciado e não de sinal de campo).</p>
+<p>Contagem final: 32 efeitos no mapa, 2 cortados, 1 reescrito, 4 rebaixados.</p>
+<h3 id="12-5-buscas-que-nao-deram-em-nada">12.5 Buscas que não deram em nada</h3>
+<ul><li><strong>Tarifa aérea exclusiva para agente.</strong> Buscas sobre fidelidade, tarifas e agentes de IA em viagem devolveram apenas movimento de <strong>integração</strong> (companhias e agências entrando no canal agêntico) e um caso de atendimento automatizado. Nenhum caso de preço diferenciado por tipo de comprador. É a razão do sinal fraco de e6.</li><li><strong>Seguro ou score de crédito para agentes.</strong> Nada encontrado além de menções genéricas a "limites e orçamentos" nas peças de bandeira de cartão. O ramo e9.1 é derivação, não observação.</li><li><strong>Dado de volume real do ACP ou do AP2.</strong> As fontes primárias descrevem parceiros e mecânica; nenhuma publica volume transacionado. A coluna "adoção não medida" da tabela da seção 3 é literal — não é estimativa baixa, é ausência de dado.</li><li><strong>Regulação específica de mandato de agente, no Brasil ou fora.</strong> O artigo do Open Finance Brasil é técnico e prospectivo e não cita marco do Banco Central; não localizei norma publicada sobre identidade ou mandato de agente em nenhuma jurisdição. O wildcard da personalidade contratual do agente está na seção 6 exatamente por isso.</li><li><strong>Texto integral do red team sobre o AP2.</strong> O PDF do arXiv não devolveu as tabelas de resultado na extração; só o resumo foi lido. Por isso o documento cita o achado qualitativo ("prompts adversariais simples subvertem de forma confiável o comportamento do agente") e <strong>nenhuma taxa de sucesso de ataque</strong> — o número existe no paper, mas não foi lido nesta sessão.</li></ul>
+<h3 id="12-6-nota-sobre-a-origem-do-material-do-tema">12.6 Nota sobre a origem do material do tema</h3>
+<p>O enunciado do tema, fornecido pela disciplina, trouxe um catálogo de ferramentas levantado pela turma (Duffel, Smiles, FlyClaw, x402-flight-search, Nof1, Cod3x, Hindsight, Agent Valley, MagiCrew, Pinky-Pact, entre outros). Esse catálogo foi usado como <strong>mapa do terreno</strong> — para saber onde procurar — e não como fonte. Nenhuma afirmação deste documento se apoia nele: das ferramentas citadas, apenas Duffel, Sabre e Nof1/Alpha Arena aparecem no corpo, e só através de fontes abertas nesta sessão e listadas na seção 11. O enunciado é contexto, não evidência, conforme instruído.</p></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+</script>
+</body>
+</html>

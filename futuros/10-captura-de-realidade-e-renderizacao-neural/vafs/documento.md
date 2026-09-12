@@ -1,0 +1,1236 @@
+---
+tema: Captura de realidade e renderização neural
+slug: captura-de-realidade-e-renderizacao-neural
+autor_login: vafs
+zona_de_interesse: Percepção e mídia sintética
+data: 2026-09-11
+horizonte: 2031
+publico: Quem projeta mídia e interação
+recorte_geografico: global
+disrupcoes_raiz: 3
+efeitos_ordem_1: 7
+efeitos_ordem_2: 12
+efeitos_ordem_3: 12
+tecnologias_citadas: [3D Gaussian Splatting, NeRF, 4D Gaussian Splatting, SuperSplat, three.js, Scaniverse, Large Geospatial Model, Polycam, TripoSR, TRELLIS 2, Hunyuan3D 2.1, Depth-Anything-V2, Move One, Move Pro, EasyMocap, Vicon, Nuke 17, Houdini 21, GSOPs, V-Ray 7, OpenUSD 26.03, KHR_gaussian_splatting, Magnific, img2threejs, model-viewer, GeoSplatting, RoboGSim]
+fontes: 17
+confianca: media
+experimento: Medido ou inventado — auditoria coletiva de uma captura da própria sala
+skill_usada: futurizacao-vafs
+publico_ok: false
+---
+
+## 1. Resumo
+
+Capturar deixou de ser o contrário de modelar: virou o caminho mais curto para o mesmo
+resultado. Em 2026 o splat gaussiano já é formato ratificado pelo Khronos, renderiza nativamente
+no Nuke 17, no V-Ray 7 e no three.js r186, e entregou cerca de 40 planos finais em um longa de
+estúdio. Este mapa separa três rupturas dentro disso — o lugar real capturado por sensor comum,
+o objeto reconstruído de uma imagem só, e o movimento humano extraído de vídeo sem marcador — e
+recusa como disrupção tanto a fotogrametria madura quanto a própria ratificação do formato, que é
+melhoria de interoperabilidade e não tira a razão de existir de ninguém. O achado que organiza a
+roda é assimétrico: captura de lugar e de movimento desloca profissão e contrato em prazo curto,
+mas captura de humano em alta fidelidade ainda exige 196 câmeras e 6 GB por quadro — ou seja,
+fortalece o estúdio em vez de dissolvê-lo. O que trava o resto é o relighting: enquanto a luz
+continuar assada no ativo, o capturado não substitui o modelado, convive com ele. No Brasil, a
+ANPD encerrou em 2025 uma tomada de subsídios sobre biometria que lista marcha e gesto como
+dado comportamental e não menciona captura 3D de ambiente uma única vez: a lacuna está
+nomeada antes de existir regra. Viés declarado: neutro.
+
+## 2. O tema
+
+O tema é a conversão de realidade em ativo 3D. Não é renderização, não é geração: é o trajeto
+pelo qual uma coisa que existe no mundo — um lugar, um objeto, um corpo em movimento — passa a
+existir como dado manipulável dentro de uma peça de mídia, sem que ninguém a tenha construído
+polígono por polígono.
+
+Onde isso encosta em mídia e interação é direto, e em três pontos. **No pipeline**: o ciclo
+modelar–texturizar–animar, que era a barreira de entrada da produção 3D, deixa de ser
+obrigatório para tudo que já existe e pode ser filmado. **Na estética**: quando a matéria-prima
+é captura, a luz, a textura e o defeito vêm de fábrica, e a decisão de direção de arte se
+desloca de *construir a aparência* para *escolher a hora e o lugar da captura*. **No direito**:
+um splat de um interior, de uma fachada ou de um corpo é um objeto novo que não se encaixa bem
+nem em foto, nem em planta, nem em dado biométrico — e os três regimes jurídicos que poderiam
+cobri-lo foram escritos para outras coisas.
+
+Por que isso merece um mapa de futuro e não um levantamento de estado da arte: porque o estado
+da arte aqui é conhecido e documentado, e não é o interessante. O interessante é que a capacidade
+chegou antes das categorias. Existe formato ratificado para guardar um splat de uma pessoa e não
+existe, em nenhum dos dois recortes geográficos deste mapa, regra que diga de quem ele é. Um
+levantamento descreveria as ferramentas; o que está em jogo é o que deixa de fazer sentido
+quando elas ficam triviais — e isso só se vê derivando efeito de efeito.
+
+Uma fronteira, para não invadir tema vizinho: o robô que treina em mundo reconstruído é o tema 9,
+distribuir XR pelo navegador é o tema 15, segmentar por conceito é o tema 11. Aqui o objeto é
+estritamente **transformar realidade em ativo 3D** — e, quando um efeito atravessa a fronteira,
+ele está marcado.
+
+## 3. Onde isso está hoje
+
+### O que já existe e funciona
+
+**O formato está resolvido.** O Khronos anunciou em 3 de fevereiro de 2026 a extensão
+`KHR_gaussian_splatting` para glTF 2.0, com Autodesk, Cesium/Bentley, Esri, Huawei, Niantic
+Spatial, NVIDIA e XGRIDS entre os participantes [5]. O press release dizia que a ratificação era
+esperada para o segundo trimestre de 2026; o README da extensão no repositório do Khronos,
+aberto hoje, diz `Complete, Ratified by the Khronos Group` [6]. A extensão define posição,
+rotação, escala, opacidade e coeficientes de harmônicos esféricos como atributos de primitiva de
+ponto, especifica o kernel `ellipse`, e deixa fora do escopo — explicitamente — compressão,
+outros kernels e renderização não-perspectiva [6]. Compressão fica para extensão de fornecedor
+(SPZ, L-GSC) [5].
+
+**As ferramentas de produção embarcaram.** O Nuke 17 (fevereiro de 2026) traz suporte nativo em
+todas as edições, com nós GeoImport, SplatRender, GeoGrade e GeoDeletePoints, e saída de
+profundidade para compor splat contra elemento CG [3]. O V-Ray 7 (janeiro de 2025) foi o
+primeiro renderizador comercial com suporte nativo, com ray tracing, sombra e reflexo, e recorte
+de splat a partir da 7.2 (dezembro de 2025) [3]. O OpenUSD 26.03 (março de 2026) adicionou o
+schema `UsdVolParticleField3DGaussianSplat` com delegate Hydra de referência [3]. O Houdini 21
+(agosto de 2025) está em *technical preview*, com o Bake GSplat SOP, e é marcado pela própria
+SideFX como não pronto para produção [3].
+
+**Há crédito de produção.** O *Superman* de 2025 foi o primeiro longa a usar 4D Gaussian
+Splatting em tela: a Framestore entregou aproximadamente 40 planos finais para as mensagens
+holográficas kryptonianas, com Bradley Cooper e Angela Sarafyan. A captura usou uma plataforma
+customizada de **192 câmeras de visão de máquina**, com uma tomada contínua de dois minutos e
+mapeamento de luz RGB combinando com a iluminação pré-planejada do diretor de fotografia; a
+manipulação criativa — campos de ruído, fatiamento do volume em pacotes de dados corrompidos —
+foi feita em Houdini com o plug-in GSOPs, e a composição em Nuke [3, e corroborado pelo
+levantamento de imprensa especializada que apontou a mesma contagem de câmeras].
+
+**A captura de consumo existe e é gratuita.** O Scaniverse, da Niantic Spatial, captura em
+smartphone comum sem custo, com camada paga de US$ 20/mês que aceita entrada de câmeras 360 da
+Insta360, DJI Osmo360, Ricoh Theta e GoPro; o processamento de uma cena leva da ordem de algumas
+horas, variando com a escala do ambiente [11]. Vários usuários podem contribuir com capturas
+para um mesmo projeto compartilhado, em momentos e aparelhos diferentes, e os envios são fundidos
+em um modelo único que se atualiza conforme novas capturas entram [10, 11].
+
+**A autoria migrou para o navegador.** O SuperSplat 3.0 da PlayCanvas (8 de setembro de 2026)
+reescreveu o editor só em WebGPU, removendo o WebGL2 e adicionando *sort-free Stochastic Alpha*;
+o three.js r186 (9 de setembro de 2026) passou a trazer renderizador nativo de splat com
+raycasting, frustum culling por malha e harmônicos esféricos dependentes de vista; o XGRIDS LCC
+Web SDK 0.6.3 adicionou WebXR para ver cena de splat em headset pelo próprio navegador [12].
+
+**A reconstrução deixou de exigir otimização por cena.** O survey de Zhang e outros dezessete
+autores, *Advances in Feed-Forward 3D Reconstruction and View Synthesis: A Survey*
+(arXiv:2507.14501, submetido em 19 de julho de 2025, última revisão em 21 de dezembro de 2025),
+nomeia a virada: os métodos tradicionais dependem de otimização iterativa computacionalmente
+intensiva numa cadeia complexa, o que limita a aplicabilidade em cenário real, e as abordagens
+feed-forward guiadas por aprendizado profundo permitem reconstrução 3D e síntese de vista
+rápidas e generalizáveis — sem otimização por cena [7].
+
+### O que existe e não funciona
+
+**Relighting.** É o limite arquitetural, não de engenharia. A iluminação das fotos originais fica
+assada nos coeficientes de harmônicos esféricos; não dá para acrescentar luz principal, remover
+sombra, mudar a hora do dia ou casar com um plate de iluminação diferente [3]. Não há passes de
+difuso, especular, sombra, oclusão de ambiente ou ID de material, porque o modelo de harmônicos
+esféricos não tem decomposição PBR [3]. A pesquisa ataca isso — o GeoSplatting (Ye, Gao, Li,
+Chen e Chen, arXiv:2410.24204, submetido em 31 de outubro de 2024, ICCV 2025) parte exatamente do
+diagnóstico de que os métodos existentes sofrem de imprecisão na estimativa de normal, o que
+degrada o transporte de luz e produz decomposição de material ruidosa, e propõe guiar o splat por
+uma malha otimizável [8]. Mas o próprio artigo registra que a separação precisa permanece
+inerentemente difícil pela dificuldade de modelar transporte de luz com precisão [8]. Isto é
+pesquisa, não produto.
+
+**Geometria mensurável.** O erro geométrico médio medido em splat gaussiano é de 7,82 cm —
+suficiente para visualização, insuficiente para medição de engenharia; o splat não substitui
+LiDAR para verificação dimensional [4]. Extração de malha limpa, mensurável e
+retopologizável continua fora do alcance do método padrão [3].
+
+**Transparência e espelho.** Espelho, vidro e superfície de água produzem artefato flutuante ou
+buraco, por restrição fundamental do *alpha blending* [3].
+
+**Movimento.** O 3DGS padrão captura cena estática. As variantes 4D exigem rig multi-câmera
+sincronizado e produzem artefato de *popping* temporal com movimento grande [3]. E o custo é
+brutal: a Infinite Realities, trabalhando em captura de humano digital em 4D, usa **196 câmeras
+de visão de máquina a 48 fps**, com aproximadamente **6 GB por quadro** a cerca de 20 milhões de
+splats na cena inteira, caindo para cerca de 6 milhões de splats por quadro depois do recorte
+[16]. O sistema pega fio de cabelo solto, poro de pele e trama de tecido — e é justamente esse
+detalhe que custa o volume de dados [16].
+
+**Objeto rígido em captura sem marcador.** A Vicon, fornecedora de mocap com marcador, é explícita:
+sistemas sem marcador vão extremamente bem com sujeito humano, porque a silhueta geral das
+pessoas é consistente apesar da variedade de tamanho e forma, mas props continuam problemáticos
+pela enorme variedade de forma, detalhe de superfície, comportamento de movimento e
+complexidade de interação [9]. A posição dela é híbrida — corpo sem marcador, prop com marcador,
+rastreando qualquer objeto rígido que acomode pelo menos três marcadores [9]. Isto é o
+incumbente descrevendo onde não vai ser substituído, e é uma evidência melhor do que um
+entusiasta descrevendo onde vai.
+
+### Quem está construindo
+
+Na camada de captura de lugar: **Niantic Spatial**, que se tornou empresa independente em maio
+de 2025 e ficou com o acervo geoespacial, descrevendo o Scaniverse como a porta de entrada para
+seus serviços de inteligência espacial e para o Large Geospatial Model — um modelo de fundação
+cujo propósito declarado é um modelo vivo do mundo com que pessoas **e máquinas** possam
+conversar, construído sobre varredura 3D, imagem de satélite, LIDAR e GPS, para produzir
+representações geometricamente precisas e legíveis por máquina de espaços do mundo real [10].
+A empresa afirma que o Scaniverse gerou uma das maiores coleções de splats gaussianos do mundo, a
+partir de milhões de objetos e lugares, sem publicar número [10]. Sobre consentimento,
+propriedade da captura e privacidade dos lugares e pessoas capturados, o material institucional
+aberto hoje não diz nada [10, 11].
+
+Na camada de objeto: **TRELLIS 2** (Microsoft, licença MIT) e **Hunyuan3D 2.1** como líderes de
+qualidade entre modelos abertos, com **TripoSR** e **Stable Fast 3D** na faixa feed-forward de
+imagem única em menos de um segundo, trocando fidelidade por velocidade.
+
+Na camada de movimento: **Move.ai**, com Move One (câmera única, modelo s2) e Move Pro
+(multi-câmera), cobrando por segundo de vídeo processado em vez de por assento — modelo que se
+encaixa em uso em rajada, uma semana de filmagem seguida de meses sem nada.
+
+Na camada de formato e infraestrutura: Khronos, Autodesk, Cesium/Bentley, Esri, NVIDIA, XGRIDS,
+PlayCanvas, three.js, SideFX, Chaos (V-Ray), Foundry (Nuke).
+
+### A nota sobre o Brasil
+
+Não encontrei, com as buscas desta rodada, nenhum projeto brasileiro de captura neural de
+patrimônio em escala nem adoção declarada de splat em produção audiovisual nacional. O que
+existe documentado é a camada anterior: um estudo publicado em *Interações* (Campo Grande) em
+2019, por Alencastro, Dantas, Silva e Jacques, digitalizou três objetos do Museu Júlio de
+Castilhos, em Porto Alegre, com dois sistemas faça-você-mesmo — triangulação a laser e
+fotogrametria — a um custo de implantação de **R$ 2.000 a R$ 3.500**, com cerca de 16 horas no
+laser e 12 na fotogrametria, concluindo que a fotogrametria era superior por ter curva de
+aprendizado menor e por gerar documentação 2D extensa de bônus [15]. Sete anos depois, o ponto
+relevante não é o número: é que a barreira que aquele artigo tentava vencer com R$ 2.000 e um
+laboratório caseiro hoje é vencida por um aplicativo gratuito em celular comum [11] — e nenhum
+marco regulatório brasileiro acompanhou isso.
+
+Do lado jurídico, o estado é de lacuna nomeada. A ANPD abriu em 2 de junho de 2025 e encerrou em
+1º de agosto de 2025 uma tomada de subsídios sobre dados biométricos, organizada em cinco blocos
+temáticos — critérios de definição, bases legais, reconhecimento facial, governança de segurança
+e proteção de titulares, com atenção a grupos vulneráveis [14]. O documento cita biometria
+tradicional (digital, íris, geometria facial, voz) e biometria **comportamental** (padrão de
+digitação, movimento ocular, **marcha**) [14]. E não menciona captura 3D, varredura de ambiente
+ou reconstrução de imagem nenhuma vez [14]. Ou seja: a marcha — que é exatamente o que captura
+sem marcador extrai de vídeo comum — já está no enquadramento da autoridade como dado
+comportamental, enquanto a técnica que a extrai em escala não está no radar do documento, e a
+regulação específica continua pendente.
+
+## 4. As disrupções-raiz
+
+As três abaixo passaram pelos três testes da Fase 2 da skill. O registro das rejeitadas — e há
+seis, incluindo duas que seria fácil promover por entusiasmo — está na seção 12.
+
+### D1 — O lugar que existe deixa de ser modelado e passa a ser capturado por sensor comum
+
+**O que rompe.** Rompe a premissa de que ter um lugar dentro de uma peça de mídia exige alguém
+construí-lo. Para todo ambiente que existe e pode ser filmado, o trajeto
+referência → modelagem → texturização deixa de ser necessário, e é substituído por
+captura → limpeza.
+
+**Teste 1 (madura?).** Não. Há implantação em produção, mas não em escala como opção padrão:
+o Houdini 21 é *technical preview* explicitamente não pronto para produção [3], e o caso
+emblemático de cinema usou uma plataforma de 192 câmeras [3], não um sensor comum. Captura por
+celular é gratuita e real [11], mas não é a escolha padrão de nenhum fluxo em escala. Não passa
+como madura.
+
+**Teste 2 (emergente?).** Sim, com folga. Fora do laboratório, em produto comercial
+(Scaniverso, Polycam), com curva de capacidade subindo — formato ratificado em 2026 [6],
+renderizador nativo no three.js em setembro de 2026 [12], editor em WebGPU no navegador [12] — e
+adoção ainda de *early adopter*.
+
+**Teste 3 (disruptiva?).** Sim, e o ator é nomeável. Perde a razão de existir o **serviço de
+modelagem de ambiente real por referência fotográfica** — a casa que recebia fotos de uma locação
+e devolvia geometria construída à mão. Não é que fique mais caro por comparação: é que o produto
+dela passa a ser obtido por um caminho que não a inclui. Perde também sentido, em parte, o
+**acervo pago de ambiente genérico**, quando capturar o ambiente específico sai mais barato do
+que licenciar um parecido.
+
+**Por que agora e não há cinco anos.** Em 2021, campo de radiância era NeRF: treinamento por
+cena, longo, e exibição fora de tempo real. O 3D Gaussian Splatting de Kerbl, Kopanas,
+Leimkühler e Drettakis (SIGGRAPH 2023, ACM ToG 42(4)) entregou síntese de vista nova em tempo
+real a 1080p para cenas completas e não limitadas [1, 2], e isso moveu a técnica de resultado de
+artigo para coisa exibível. O que fechou a janela para *agora* foi a camada chata: formato
+ratificado, schema em OpenUSD, nó nativo em software de composição, renderizador no three.js.
+Captura sem cadeia de ferramentas é demonstração; com cadeia, é pipeline.
+
+**O que ainda falta.** Relighting com decomposição de material confiável [3, 8], tratamento de
+vidro e espelho [3], e extração de malha mensurável quando o uso exige medida [3, 4]. Enquanto
+isso não fechar, o capturado não substitui o modelado — convive com ele, e a convivência é o que
+gera os efeitos de segunda ordem sobre profissão.
+
+### D2 — O objeto 3D deixa de ser construído e passa a ser inferido de uma imagem única
+
+**O que rompe.** Rompe a correspondência entre *ver* e *ter*. Uma foto de referência deixa de ser
+insumo para alguém modelar e passa a ser, ela mesma, o pedido de um objeto 3D texturizado — com
+o lado que a foto não mostrou preenchido por inferência.
+
+**Teste 1 (madura?).** Não. TRELLIS 2 e Hunyuan3D 2.1 são abertos, gratuitos e rodam em GPU
+própria, e prop isolado simples já sai útil; mas asset hero, personagem consistente e animação
+continuam dominados por humano, e o uso corrente em estúdio é com retoque manual [17]. Não é a
+opção padrão de nenhum fluxo em escala.
+
+**Teste 2 (emergente?).** Sim. E o sinal acadêmico é mais forte que o comercial: o survey de
+feed-forward documenta a virada de otimização por cena para passada única como mudança de
+paradigma já consolidada na literatura [7].
+
+**Teste 3 (disruptiva?).** Sim. Perde a razão de existir o **marketplace de asset genérico na
+faixa de baixo** — o catálogo de prop comum, kitbash e mobiliário, cujo valor era poupar horas de
+modelagem de coisa sem graça. Se uma foto devolve o prop em segundos, pagar por um parecido
+deixa de fazer sentido. E perde sentido, de modo mais interessante, a **distinção implícita entre
+o que o modelo mede e o que ele afirma**: até aqui, um asset 3D errado era um asset feio; agora
+pode ser um asset que afirma, com aparência de medida, algo falso sobre o objeto real.
+
+**Por que agora e não há cinco anos.** Porque a reconstrução saiu da otimização por cena [7]. Há
+cinco anos, tirar 3D de uma imagem exigia rodar um processo por objeto; hoje há caminho
+feed-forward em menos de um segundo (TripoSR, Stable Fast 3D) e caminho de difusão multi-vista
+com topologia mais limpa (TRELLIS, Hunyuan3D, InstantMesh). A segunda família é a que tornou o
+resultado utilizável em pipeline, não só demonstrável.
+
+**O que ainda falta.** Topologia utilizável para animação, consistência entre objetos de uma
+mesma família, e — a rigor — qualquer forma padronizada de declarar qual parte do modelo foi
+medida e qual foi inventada. Nada na extensão `KHR_gaussian_splatting` nem em glTF carrega esse
+metadado [6].
+
+### D3 — O movimento humano deixa de exigir sessão, traje e lugar
+
+**O que rompe.** Rompe a premissa de que obter dado de movimento de uma pessoa requer que essa
+pessoa compareça. Vídeo comum de uma câmera devolve movimento 3D utilizável — e vídeo comum
+existe em quantidade que nenhum estúdio de captura jamais produziu.
+
+**Teste 1 (madura?).** Não. O incumbente de marcador descreve a fronteira: markerless vai muito
+bem em corpo humano, e mal em prop, e a recomendação dele é híbrido [9]. Markerless não é opção
+padrão em escala; é opção real e crescente.
+
+**Teste 2 (emergente?).** Sim. Produto comercial com dois patamares (Move One, câmera única,
+modelo s2; Move Pro, multi-câmera), cobrança por segundo de vídeo processado, e uso declarado em
+projeto real.
+
+**Teste 3 (disruptiva?).** Sim, duas vezes. Primeiro: perde a razão de existir o **estúdio de
+mocap como lugar para trabalho de faixa média** — o volume que se alugava por dia para capturar
+locomoção e ação humana comum. A própria Vicon já não defende o volume para isso; defende o
+híbrido onde a parte dela é o prop [9]. Segundo, e mais consequente: perde a razão de existir a
+**premissa de que dado de movimento é coletado deliberadamente**. Se movimento sai de vídeo
+comum, todo arquivo de vídeo existente é, retroativamente, uma base de dado de movimento — e é
+aqui que a marcha como dado comportamental na leitura da ANPD [14] deixa de ser nota de rodapé.
+
+**Por que agora e não há cinco anos.** Porque o gargalo deixou de ser multi-câmera sincronizada.
+Captura de corpo por vídeo RGB existe em pesquisa há mais de cinco anos (EasyMocap e
+similares), mas com qualidade de protótipo e exigência de rig. A mudança é a chegada de modelo de
+câmera única que não carrega a limitação de profundidade típica dessa configuração, combinada com
+precificação por segundo processado — que é o que permite uso esporádico por equipe pequena.
+
+**O que ainda falta.** Prop e interação com objeto [9]; e, sobretudo, qualquer resposta
+institucional à segunda metade da disrupção. O NO FAKES Act, que é hoje o instrumento mais
+avançado nesse terreno, cobre voz e aparência visual — e não nomeia movimento como categoria
+própria [13].
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: O lugar que existe deixa de ser modelado e passa a ser capturado por sensor comum
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: "O passo de modelar o ambiente sai do orçamento das cenas que se passam em lugar real, substituído por captura e limpeza"
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: "O cargo de artista de ambiente se parte em duas funções, direcao de captura em campo e reparo do que a captura nao resolve, e a vaga de modelagem de entrada encolhe antes da vaga senior"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: "O curso de 3D move modelagem poligonal de oficio de entrada para fundamento historico, e a porta de entrada na industria passa a ser o campo em vez da mesa"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: "A captura de um lugar vira ativo licenciavel e aparece mercado secundario de licenca de lugar, em que quem capturou primeiro cobra de quem quer reusar"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: "O contrato de locacao passa a tratar captura volumetrica como direito separado da filmagem, e o release padrao ganha clausula de captura antes de qualquer lei tratar do assunto"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.3
+            ordem: 2
+            efeito: "Como a luz fica assada no ativo e nao ha passe de material, a hora e o clima da captura deixam de ser detalhe logistico e viram decisao de direcao de arte tomada antes da filmagem"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.3.1
+                ordem: 3
+                efeito: "A imperfeicao tipica da captura, o floater e o buraco no vidro, passa a ser usada de proposito como marca de autenticidade, e a midia se divide entre um registro capturado realista e um registro autoral estilizado"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: "Capturar um espaco privado deixa de exigir equipamento que chama atencao, porque um aparelho comum produz modelo navegavel do interior em poucos minutos de coleta"
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: "O estabelecimento comercial passa a tratar o proprio interior como informacao controlada e afixa politica de nao captura, do mesmo jeito que hoje afixa politica de nao fotografar"
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: "A categoria de espaco semipublico se desloca, e o acesso fisico a loja, lobby ou hall deixa de implicar permissao de copia do espaco"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: "A captura de interior entra no regime de dado pessoal porque revela pessoas, rotina e posse, e o operador de aplicativo de captura passa a ser tratado como controlador de dado sensivel"
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: "O consentimento deixa de ser apenas do individuo enquadrado e passa a ser reivindicado pelo espaco, formando a figura de um titular coletivo do ambiente que nenhuma lei de protecao de dados tem como categoria"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: "O navegador passa a ser lugar de autoria e de exibicao de cena capturada, e editar splat deixa de exigir estacao de trabalho ou instalacao"
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: "A distribuicao de cena capturada deixa de passar por engine e loja de aplicativo e passa a viajar como pagina, derrubando o custo de publicar midia espacial ao patamar de publicar video"
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: "A unidade de publicacao da midia espacial passa a ser o endereco e nao o aplicativo, e a curadoria de mundo 3D volta a ser feita por link e por busca em vez de vitrine de loja"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: O objeto 3D deixa de ser construido e passa a ser inferido de uma imagem unica
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: "O prop generico deixa de ser comprado em catalogo e passa a ser gerado a partir de uma foto de referencia em segundos"
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: "O marketplace de asset generico perde a faixa de baixo do catalogo e se reposiciona em asset hero rigado e garantido, passando a vender garantia e suporte em vez de geometria"
+            sinal: medio
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: "O valor em 3D migra de quem tem o arquivo para quem tem licenca verificavel de origem, e a procedencia do asset passa a ser o item auditado na entrega"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: "Como a reconstrucao preenche por inferencia o lado que a foto nao mostrou, o erro de producao muda de natureza e deixa de ser falta de asset para ser asset que afirma algo falso sobre o objeto real"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: "Em dominio com consequencia material, como peca industrial, prova judicial e patrimonio, passa a ser exigida distincao explicita entre parte medida e parte inferida do modelo, e aparece rotulo de procedencia por regiao da malha"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: "A reconstrucao deixa de exigir otimizacao por cena e passa a ser uma passada unica, tirando a producao de 3D do orcamento de render e colocando na ordem de segundos"
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: "3D deixa de ser etapa de pre-producao e passa a ser resultado de tempo de execucao, com o aplicativo reconstruindo o que precisa no momento em que precisa em vez de carregar acervo pronto"
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: "A nocao de acervo de asset perde funcao em parte da midia interativa, e o que passa a ser versionado e arquivado e o gerador mais a imagem de origem, nao o arquivo 3D resultante"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: O movimento humano deixa de exigir sessao, traje e lugar
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: "Captura de movimento deixa de exigir volume alugado, traje e sessao agendada, porque video comum de uma camera devolve movimento 3D utilizavel"
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: "O estudio de mocap deixa de vender volume e passa a vender o que a captura sem marcador nao faz, prop, objeto rigido, interacao e precisao garantida, estreitando o negocio para o topo da faixa"
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: "A animacao de personagem se reorganiza em torno de edicao de performance capturada em massa, e o animador chave vira diretor de elenco de movimento que escolhe entre muitas tomadas em vez de construir poucas"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: "Movimento corporal passa a ser extraido de video que ja existe, de acervo, de vigilancia e de rede social, sem que nenhuma pessoa tenha comparecido a uma sessao de captura"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: "Marcha e gesto entram na pratica juridica como dado biometrico comportamental de fato, e o acervo de video antigo se torna fonte retroativa de dado sensivel que nao podia ter sido consentido na epoca da gravacao"
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: "A performance de uma pessoa se torna separavel dela em tres sinais capturaveis de forma independente, movimento, aparencia e voz, cada um com seu proprio caminho tecnico de extracao"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: "O contrato de elenco passa a licenciar movimento separado da imagem, e aparece a figura do dublê de movimento cujo trabalho e vendido sem rosto associado"
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: "O direito de imagem se fragmenta em direitos sobre componentes capturaveis, e a protecao legal avanca componente a componente, a voz primeiro, a aparencia depois e o movimento por ultimo"
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+```
+
+### O que o bloco não consegue dizer
+
+**A assimetria entre as três disrupções é o achado principal, e o YAML a esconde.** Lido como
+árvore, D1, D2 e D3 parecem equivalentes. Não são. D1 e D3 deslocam profissão e contrato em
+prazo curto porque a captura barata **já funciona** para o caso comum — ambiente estático, corpo
+humano. D2 desloca menos do que parece, porque o que ela substitui bem (prop genérico) já estava
+sendo comoditizado por biblioteca gratuita havia uma década. E há uma quarta candidata que
+**não** entrou porque vai no sentido contrário: captura de humano em 4D de alta fidelidade, com
+196 câmeras e 6 GB por quadro [16], **fortalece** o estúdio de captura em vez de dissolvê-lo.
+Este é o ponto que eu esperava encontrar invertido e encontrei como está: dentro do mesmo tema,
+a mesma família técnica centraliza de um lado e descentraliza do outro, e o que decide qual dos
+dois é o sujeito capturado — lugar parado e corpo comum descentralizam, rosto de ator em
+fotorrealismo centraliza.
+
+**Há um gargalo único que governa metade da roda, e ele não aparece como nó.** É o relighting.
+Todos os efeitos de primeira ordem de D1 se sustentam com a luz assada; nenhum dos de segunda
+ordem sobre substituição de pipeline se sustenta sem decomposição de material confiável. Se o
+GeoSplatting e a linhagem de *inverse rendering* resolverem isso antes de 2029 [8], e1.1 acelera
+e e1.3 desaparece — a hora da captura deixa de ser decisão de direção de arte porque deixa de ser
+irreversível. Se não resolverem, e1.3 fica mais forte que e1.1. O mesmo gargalo, portanto,
+empurra dois efeitos em direções opostas, e um bloco YAML hierárquico não tem como expressar
+isso.
+
+**A fronteira com o tema 9 atravessa e5.1 e não tem como ser desenhada aqui.** Reconstrução em
+tempo de execução é exatamente o que sustenta simulador real2sim2real (RoboGSim, RL-GSBridge), e
+a maior pressão econômica sobre feed-forward vem de robótica, não de mídia. O efeito está na
+roda porque tem consequência para quem projeta mídia; mas quem paga pela capacidade que o torna
+possível provavelmente não é a indústria de mídia.
+
+**Nenhum prazo passa de 2031, e isso é corte, não previsão.** Três efeitos de terceira ordem —
+e1.1.1, e2.2.1 e e7.1.1 — têm mecanismo que sugere maturação depois de 2031. Eles estão datados
+em 2031 porque a regra da skill manda parar no horizonte declarado, não porque eu estime que se
+completam lá. Ler 2031 nesses três como estimativa é erro de leitura induzido pelo formato.
+
+## 6. Sinais fracos e wildcards
+
+**Reconstrução como programa, não como dado.** O `img2threejs` reconstrói o objeto de uma imagem
+de referência como modelo Three.js procedural — só código. É quase nada hoje, e muda o mapa
+inteiro se pegar: um objeto capturado que é *programa* é editável, parametrizável, diffável e
+versionável em git, o que resolve de lado o problema que relighting resolve de frente. Se a saída
+da captura for código, e4.1.1 (procedência por arquivo) e e5.1.1 (versionar o gerador) deixam de
+ser terceira ordem e viram primeira. Liga com o tema 14.
+
+**O ampliador que inventa detalhe como etapa normalizada de captura.** O Magnific amplia
+inventando detalhe que não estava no sensor. Hoje isso é ferramenta de imagem 2D; o sinal fraco é
+a sua entrada no meio do pipeline de captura, como passo de "melhoria" aplicado antes de o
+resultado ser chamado de captura. No dia em que isso for padrão de fábrica no aplicativo de
+celular, a distinção entre medido e inventado — que é a base de e4.2 e e4.2.1 — deixa de ser
+auditável pelo usuário, porque a invenção acontece antes de ele ver qualquer coisa.
+
+**Decomposição de material resolvida em tempo real.** O *inverse rendering* sobre splat tem
+linhagem ativa (GeoSplatting/ICCV 2025, AEGIR/2026, MaterialClusterGS, GS-IR/CVPR 2024), e todas
+declaram a mesma dificuldade de fundo [8]. É sinal fraco porque é pesquisa, mas é o sinal de
+maior alavancagem do mapa: ele destrava a substituição de pipeline e destrói, de uma vez, o
+argumento estético de e1.3.
+
+**Modelo geoespacial de fundação com varredura contribuída por usuário.** O Large Geospatial
+Model da Niantic Spatial já funde capturas de vários usuários em modelo único que se atualiza
+[10, 11], e a finalidade declarada inclui máquinas [10]. O sinal fraco é a passagem de
+"contribuir com um projeto compartilhado" para "alimentar um modelo global comercial", que o
+material institucional aberto não esclarece [10, 11]. Se essa passagem for o padrão, e2.2.1
+(titular coletivo do espaço) chega antes, e chega como litígio, não como política.
+
+**Metadado de procedência dentro do formato.** A extensão ratificada carrega posição, rotação,
+escala, opacidade e harmônicos esféricos — e nada sobre origem, consentimento ou quais regiões
+foram medidas [6]. Um sinal fraco a observar é a proposta de uma extensão de procedência; ela
+seria a infraestrutura de e4.2.1 e de e1.2.1 ao mesmo tempo.
+
+### Wildcard — baixa probabilidade, alto impacto
+
+**Um splat de uma pessoa, capturado sem consentimento em espaço público, vai a julgamento em
+obra comercial e o tribunal decide que não é imagem.** O raciocínio que torna isso plausível não é
+absurdo: um splat não é uma fotografia dela nem um retrato, é uma estrutura de milhões de
+primitivas derivada estatisticamente de observações; a defesa argumenta que nenhum quadro
+específico da obra reproduz a imagem da pessoa. Se essa tese vencer uma vez, em qualquer
+jurisdição relevante, o efeito é imediato e de mão dupla: abre-se um caminho para capturar
+corpos em público sem regime de imagem, e fecha-se politicamente a janela para regulação
+incremental, porque o legislador passa a ter de criar categoria nova em vez de estender a
+existente. Observe-se que o instrumento hoje mais avançado — o NO FAKES Act, S. 4591, avançado
+por unanimidade no Comitê Judiciário do Senado dos EUA em 18 de junho de 2026 e **ainda não
+lei** — fala de voz e de aparência visual, e não nomeia representação volumétrica nem movimento
+como categoria própria [13]. A brecha está aberta no texto mais novo que existe.
+
+**O wildcard inverso, igualmente improvável e de sinal oposto:** uma plataforma de captura de
+consumo sofre vazamento de acervo de interiores residenciais, e a reação regulatória trata
+varredura de ambiente como biometria por analogia, exigindo base legal para capturar qualquer
+espaço com pessoa dentro. Nesse ramo, D1 não morre, mas a camada de consumo dela sai do mercado
+de mídia e volta para o mercado profissional com contrato — exatamente o contrário do que a roda
+descreve.
+
+## 7. Contra o próprio mapa
+
+### Qual efeito é só extrapolação linear do presente
+
+**e4.1, o marketplace de asset genérico perdendo a faixa de baixo.** É a curva de hoje com outro
+nome. A pressão sobre catálogo de prop genérico não começou com reconstrução neural: começou com
+biblioteca de *scan* gratuita e com asset incluído em engine, e vem apertando essa faixa há cerca
+de uma década. A contribuição da disrupção é marginal — acelera algo que já estava acontecendo
+por outro motivo. Rebaixei a confiança para `baixa` por isso, apesar de o sinal ser `medio`:
+o movimento é bem observável, mas atribuí-lo a D2 é que é duvidoso.
+
+**e3.1, distribuição espacial pelo navegador ao custo de vídeo**, tem o mesmo defeito em outra
+chave: o efeito é verdadeiro como tendência e mal atribuído como causa, porque a queda do custo
+de publicar 3D na web vem de WebGPU e de maturidade de runtime, não de captura.
+
+### Qual efeito assume velocidade de adoção que nunca se viu em caso comparável
+
+**e3.1, outra vez, e este é o mais frágil do mapa.** Ele supõe que cena capturada passe a viajar
+como página e que publicar mídia espacial custe o que custa publicar vídeo — dentro de quatro
+anos. O caso comparável existe e argumenta contra: WebGL foi padronizado em 2011, está em todo
+navegador desde então, e 3D na web **não** se tornou forma default de publicação em quinze anos.
+Gráfico na web continuou nicho apesar de capacidade instalada universal. Supor que WebGPU mais
+splat faça em quatro anos o que WebGL não fez em quinze é assumir velocidade sem precedente no
+próprio domínio. Rebaixei e3.1 para `confianca: baixa` por essa razão, mantendo `sinal: medio`
+porque os lançamentos de setembro de 2026 são reais [12] — o que não está demonstrado é a
+conversão deles em mudança de patamar de distribuição.
+
+### Qual efeito se sustenta em analogia e não em sinal do domínio
+
+**e1.3.1, a imperfeição de captura virando estilo.** Saiu fácil demais, e saiu fácil porque é
+um padrão importado: grão de filme, ruído de fita, *lo-fi*, chiado de vinil. Recolocar esse
+padrão em splat é gerar hipótese por analogia entre domínios, e não tenho nenhum sinal
+específico de direção de arte apontando nessa direção. O efeito ficou no mapa porque a derivação
+é válida, com `sinal: fraco` e `confianca: baixa`, mas quem ler como observação de mercado está
+lendo errado: é dedução por semelhança.
+
+### Qual disrupção pode simplesmente não se concretizar, e o que cai com ela
+
+**D1 é a que mais parece sólida e a que tem o ponto de falha mais concreto.** O ponto é
+relighting, e o argumento contra é que ele pode não ser resolvível a contento dentro do
+paradigma. A literatura diz que a separação precisa entre material e iluminação é inerentemente
+difícil pela dificuldade de modelar transporte de luz [8], e as abordagens existentes sofrem de
+imprecisão na estimativa de normal que degrada a decomposição [8]. Se isso continuar assim até
+2031, D1 não morre — ela se reclassifica. Deixa de ser "o lugar passa a ser capturado em vez de
+modelado" e passa a ser "o lugar capturado entra como plate volumétrico dentro de um pipeline que
+continua sendo de modelagem". Nesse ramo caem e1.1 (a divisão do cargo não acontece; o artista de
+ambiente continua modelando e ganha uma ferramenta a mais) e, por consequência, e1.1.1. Sobrevivem
+e1.2 e e1.3, que não dependem de substituição — dependem apenas de a captura existir e ser
+irreversível.
+
+**D3 tem um ponto de falha diferente e mais institucional.** A parte técnica dela é sólida, e o
+próprio incumbente confirma [9]. O que pode não acontecer é a segunda metade: a extração em massa
+de movimento de acervo de vídeo existente. Não porque seja tecnicamente difícil, mas porque pode
+ser cortada por contrato e por termo de plataforma antes de virar prática — do mesmo jeito que
+*scraping* de imagem para treino encontrou resistência contratual antes de encontrar lei. Se isso
+acontecer, e6.2 e e6.2.1 caem, e o que resta de D3 é uma mudança de custo no mercado de mocap —
+ou seja, vira melhoria, não disrupção, e D3 deveria ter sido rejeitada no Teste 3. Assumo este
+risco de classificação explicitamente.
+
+**E a mais frágil das três, por Teste 3, é D2.** O ator que ela ameaça — marketplace de prop
+genérico — é o mais fraco dos três, e já estava ameaçado por outra coisa. Se eu tivesse de
+apostar em qual das três sai do mapa numa revisão de 2028, aposto em D2, reclassificada como
+melhoria.
+
+### Que viés entrou aqui
+
+Dois, e ambos empurram na mesma direção.
+
+**O primeiro é de seleção de fonte.** As fontes mais concretas e mais abertas deste tema são
+produzidas por quem vende a tecnologia ou por quem escreve sobre ela para um público entusiasta:
+radiancefields.com, blog de fornecedor, press release de consórcio, guia de estúdio. Mesmo
+declarando viés neutro, a massa de evidência disponível é otimista por composição, porque quem
+tentou e desistiu não publica. Compensei de propósito buscando o incumbente que perde — a Vicon
+[9] — e a medida de erro que desqualifica o uso [4], e esses dois são os contrapesos mais fortes
+do documento. Mas são dois contra quinze.
+
+**O segundo é da própria skill, e eu a escrevi.** O Teste 3 exige nomear um ator que perde a
+razão de existir, e essa exigência é produtiva contra entusiasmo genérico — mas premia a narrativa
+de substituição, porque substituição é mais fácil de nomear do que convivência. O resultado mais
+provável em 2031, olhando a evidência, é convivência: splat como plate volumétrico dentro de
+pipeline que continua de modelagem. Um teste que recompensasse convivência teria produzido uma
+roda diferente e talvez mais correta. Registro isto como limite do método, não como ressalva de
+cortesia.
+
+**E há um viés de escolha de tema, que o formato manda declarar.** Escolhi a zona "Percepção e
+mídia sintética" e, dentro dela, este tema, por achar que a passagem de mundo a dado é a
+pergunta mais interessante de mídia agora. Isso provavelmente me fez tratar a dimensão jurídica e
+de consentimento com mais generosidade analítica do que ela merece por volume de evidência: três
+efeitos de terceira ordem do mapa (e1.2.1, e2.2.1, e7.1.1) são de natureza institucional, e a
+evidência que os sustenta é uma tomada de subsídios encerrada [14] e um projeto de lei que não é
+lei [13].
+
+## 8. O que a máquina errou
+
+Os quatro primeiros são divergências verificadas nesta sessão, entre o que eu tinha de memória
+ou de resumo de busca e o que a fonte aberta efetivamente diz.
+
+**1. Número de fps divergente entre a página oficial do projeto e o resumo do próprio artigo.**
+Eu ia escrever que o 3D Gaussian Splatting entrega "≥ 100 fps a 1080p", citando a página do
+projeto da INRIA, que afirma exatamente isso [2]. Abri depois o resumo do artigo no arXiv
+(2308.04079): ele afirma "≥ 30 fps a 1080p" [1]. As duas páginas são oficiais, descrevem o mesmo
+trabalho e divergem por um fator de pouco mais de três. Optei por citar o artigo e não a página
+de divulgação, e por não usar número nenhum como âncora de argumento. O que este erro ensina não
+é que a memória falha: é que *a fonte primária e a página de divulgação da mesma fonte primária*
+podem divergir, e que "está no site oficial" não resolve.
+
+**2. O resumo de busca atribuiu a uma página fatos que não estavam nela.** O resultado de busca
+atribuiu ao artigo *The State of Gaussian Splatting in 2026* as versões de ferramenta — Nuke 17
+nativo, Houdini 21 em preview, OpenUSD 26.03 com schema, V-Ray 7 com ray tracing — e os
+aproximadamente 40 planos finais da Framestore em *Superman*. Abri a página: **nada disso estava
+lá** [4]. O que estava era outra coisa, e valiosa: o erro geométrico médio de 7,82 cm e a
+ressalva de que splat não substitui LiDAR para verificação dimensional [4]. As versões de
+ferramenta e o crédito de produção vinham de outra página, que abri em seguida [3]. Se eu tivesse
+citado a primeira, a citação seria falsa **apesar de o fato ser verdadeiro** — que é o modo de
+erro mais difícil de pegar numa correção, porque quem confere o fato acha o fato.
+
+**3. Status de padrão lido como expectativa em duas fontes, e desatualizado em seis meses.** Duas
+fontes diziam que a ratificação do `KHR_gaussian_splatting` era "esperada para o Q2 de 2026":
+uma página de panorama [4] e o próprio press release do Khronos, de 3 de fevereiro de 2026 [5].
+Eu ia escrever "ratificação esperada para o segundo trimestre". Abri o README da extensão no
+repositório do Khronos: `Complete, Ratified by the Khronos Group` [6]. A ratificação aconteceu. O
+press release não estava errado quando foi escrito — eu estaria errado ao tratá-lo como estado
+atual. Em tema que se move rápido, a fonte do status é o artefato, não o anúncio sobre o artefato.
+
+**4. "Dezenas de câmeras" — o número vago que passa por verificado.** Ia escrever que a captura
+de *Superman* usou "uma plataforma com dezenas de câmeras". Não era falso; era vago o suficiente
+para parecer checado sem ter sido. O número é **192 câmeras de visão de máquina**, com tomada
+contínua de dois minutos [3]. E o caso análogo de humano digital em 4D usa **196 câmeras a 48 fps
+com cerca de 6 GB por quadro** [16]. A imprecisão teria custado o achado mais importante deste
+mapa: é justamente essa ordem de grandeza que mostra que captura neural de humano **centraliza**
+em vez de descentralizar, e que a leitura "captura neural é com o celular" só vale para lugar
+parado e corpo comum. Vago não é meio-verificado; é não-verificado com aparência melhor.
+
+**5. Efeito plausível que a evidência derrubou.** Gerei, na primeira passada da roda, o efeito
+"seguradora e perícia passam a aceitar captura por celular como prova de estado de um imóvel, e a
+vistoria presencial vira exceção". Soa bem, tem mecanismo narrável, e seria aceito numa leitura
+rápida. A medida de 7,82 cm de erro geométrico médio e a afirmação explícita de que splat não
+substitui LiDAR para verificação dimensional [4] vão na direção contrária: o que o splat entrega
+é visualização, não medida, e perícia é medida. Cortei o efeito e pus no anexo. Foi a auditoria da
+Fase 4 que o pegou, não a geração — a geração o produziu com confiança média.
+
+**6. Fonte cujo corpo não carregou e não foi citada.** Tentei abrir a reportagem do The New Stack
+sobre a Niantic Spatial ("wants to map the 80% of the economy AI can't see"), que prometia o
+tamanho do acervo de imagens, o valor do negócio com a Scopely e a data da cisão. A página
+devolveu só navegação e formulário de newsletter, sem corpo de texto. O resumo de busca afirmava
+"mais de 30 bilhões de imagens geolocalizadas" e "US$ 3,5 bilhões". **Não usei nenhum dos dois
+números em nenhuma seção deste documento**, e a fonte não entra na contagem de 17. É o caso em
+que a informação provavelmente está certa e ainda assim não pode entrar.
+
+**7. Fonte fraca usada com ressalva em vez de descartada.** Os números de mercado de trabalho e de
+economia de asset — alta de 144% na demanda por habilidade em IA para artista 3D, prêmio salarial
+de 56%, mercado de US$ 26 bilhões em 2023 indo a US$ 91 bilhões em 2033 — vêm de material de
+recrutamento e de uma análise cuja própria citação de origem é um post de LinkedIn [17]. Não são
+verificáveis contra método publicado. Usei-os apenas como indício de direção em e1.1, e rebaixei
+e1.1 de `confianca: alta` para `media` por causa disso. Registro aqui porque a tentação era citar
+o número e deixar o leitor supor que havia pesquisa atrás.
+
+## 9. Três cenários para 2031
+
+**Provável.** O splat ganhou a briga do formato e perdeu a briga do pipeline. Em 2031, toda
+ferramenta de composição, render e web lê e escreve splat nativamente, e o glTF com
+`KHR_gaussian_splatting` é tão banal quanto um arquivo de textura — a extensão de procedência que
+se discutia em 2027 virou opcional e quase ninguém preenche. Nenhuma cena de lugar real se modela
+mais do zero: captura-se, e a equipe de ambiente passa o tempo consertando vidro, espelho e
+reflexo, e repintando luz à mão quando o plano exige hora do dia diferente daquela em que se
+capturou — porque relighting automático melhorou e continuou não confiável o bastante para plano
+fechado. O artista de ambiente não desapareceu: mudou de lugar no organograma e a vaga de entrada
+virou vaga de campo. Mocap sem marcador é o padrão de faixa média, e os volumes com marcador
+sobreviveram fazendo prop, interação e o que exige precisão garantida, exatamente como a Vicon
+dizia em 2026. Captura de humano em fotorrealismo continua coisa de plataforma com duas centenas
+de câmeras, e por isso o rosto de ator ficou mais caro e mais centralizado do que era. No
+jurídico, quase nada se resolveu: a voz tem proteção, a aparência tem proteção parcial e
+fragmentada por jurisdição, e o movimento não tem categoria própria em lugar nenhum. No Brasil, a
+ANPD publicou sua regra de biometria sem mencionar captura 3D de ambiente, e as disputas que
+apareceram foram resolvidas por contrato de locação e termo de plataforma, caso a caso.
+
+**Desejável.** O mesmo cenário técnico, com três coisas que não estavam dadas. A primeira é
+procedência no formato: uma extensão de glTF que marca, por região, o que foi medido e o que foi
+inferido, adotada porque um setor com consequência material — patrimônio, perícia, indústria —
+a exigiu primeiro, e herdada pela mídia de graça. A segunda é que a captura de espaço passou a ter
+base legal explícita, com a figura do titular do ambiente reconhecida em algum regime, de modo
+que a pergunta "de quem é o splat deste interior" tem resposta antes do litígio e não depois. A
+terceira, a mais improvável e a mais valiosa: o *inverse rendering* amadureceu o suficiente para
+que a captura entre no pipeline com material separado da luz, e com isso o capturado deixou de
+ser matéria-prima irreversível e passou a ser matéria-prima editável — o que, em vez de eliminar
+o ofício de quem trabalha com 3D, devolveu a ele controle sobre o que captura. Para chegar aqui
+precisava ter acontecido, entre 2026 e 2029, algo que não acontece espontaneamente: quem define
+padrão teria de ter tratado metadado de procedência como requisito de base e não como extensão de
+fornecedor, na mesma rodada em que tratou compressão.
+
+**Indesejável.** A captura barata virou coleta, e ninguém chamou de coleta. Em 2031, capturar
+ambiente em celular é função de fábrica de aplicativo de fotografia, o resultado sobe por padrão
+para um modelo de fundação geoespacial, e a pergunta sobre consentimento nunca foi feita porque
+cada captura individual parecia inofensiva — foto de sala, varredura de loja, escaneamento de um
+quarto para comprar móvel. O acervo agregado é outra coisa: interior de residência, rotina,
+posse, e corpo em movimento extraído do vídeo que já estava junto. A proteção legal chegou pela
+metade e na ordem errada — primeiro a voz, porque tinha lobby de música; depois a aparência de
+quem é famoso, porque tinha lobby de estúdio; o movimento nunca, porque não tinha ninguém. E o
+lado de mídia piorou junto: como o detalhe inventado pelo ampliador entrou no pipeline antes de
+o usuário ver o resultado, a distinção entre o que foi medido e o que foi alucinado deixou de ser
+auditável por quem publica, e publicar um lugar que não existe bem assim virou normal sem
+ninguém decidir isso. **O sinal precoce deste cenário é específico e observável agora:** captura
+de ambiente ligada por padrão, com envio para modelo compartilhado, num aplicativo cuja função
+principal não é captura 3D. No dia em que isso aparecer numa atualização de sistema operacional,
+o ramo indesejável está em curso — e ele chega sem anúncio, como funcionalidade.
+
+## 10. O experimento
+
+### O que é
+
+**"Medido ou inventado" — uma auditoria coletiva de uma captura da própria sala.**
+
+Uma página web, sem instalação, em três tempos. **Tempo 1, em sala:** os alunos capturam a
+própria sala de aula com os celulares que já têm, em aplicativo gratuito, e uma captura extra é
+feita de um ângulo que fica **retido** — ninguém vê, e ela não entra na reconstrução. **Tempo 2:**
+as capturas dos alunos são fundidas em um splat único no editor de navegador, e o resultado é
+carregado na página. **Tempo 3, a auditoria:** a página mostra a cena navegável e pede a cada
+pessoa que marque, clicando, as regiões que ela acredita terem sido **medidas** e as que acredita
+terem sido **inferidas** pelo sistema. Depois de todos marcarem, a página revela a verdade de
+campo, comparando a reconstrução com a captura retida, e mostra o placar: onde a turma acertou,
+onde errou, e — o dado interessante — onde a turma errou *junto*, confiando em região que o
+sistema inventou.
+
+### Que pergunta sobre o futuro ele ajuda a responder
+
+A pergunta de e4.2 e e4.2.1, que é o nó deste mapa: **quando o mundo passa a ser capturado,
+alguém consegue distinguir medida de invenção só olhando?** Se a resposta for não — e a hipótese é
+que seja não, de forma sistemática e enviesada — então rótulo de procedência não é burocracia, é
+requisito, e a ausência dele na extensão ratificada [6] é um problema de infraestrutura e não
+de política. O experimento transforma uma tese do mapa em medida feita por quatorze pessoas numa
+tarde.
+
+### Que tecnologia emergente ele usa, e por que não dá com tecnologia madura
+
+Usa splat gaussiano reconstruído a partir de captura de celular, fusão de capturas de vários
+autores num modelo único [10, 11], e renderização no navegador com editor em WebGPU [12].
+
+Não dá com tecnologia madura por uma razão que é o argumento do experimento: **fotogrametria
+clássica e escaneamento a laser não inventam.** Eles deixam buraco. Onde não houve observação, o
+resultado é ausência — e ausência é visível, honesta e inauditável como erro de confiança. A
+reconstrução neural preenche: ela produz superfície plausível onde não mediu, e é exatamente essa
+plausibilidade que não se consegue testar com tecnologia que não a produz. Um escâner a laser
+com 7,82 cm de erro conhecido [4] responde outra pergunta — quanto erro — e não esta, que é
+quanto *engano*.
+
+### O que a turma faz quando testar isso em sala
+
+Captura (dez minutos, todos ao mesmo tempo, ângulos divididos de propósito para deixar regiões
+sub-observadas); espera o processamento; marca individualmente, sem conversar; e depois discute o
+mapa de erro coletivo. A discussão tem pauta: a turma errou mais em superfície lisa ou em
+detalhe? Errou mais onde havia vidro e espelho — as falhas conhecidas do método [3] — ou nas
+regiões sub-observadas de propósito? E a pergunta que fecha: alguém mudaria de opinião sobre
+publicar esse splat como registro do espaço?
+
+### O que seria um resultado que me faria mudar de ideia
+
+Se a turma distinguir medido de inferido com acerto alto e sem viés sistemático, e1.2.1 e e4.2.1
+perdem a base e saem do mapa numa revisão: se a invenção é legível a olho nu por pessoa não
+treinada, não há demanda por rótulo de procedência, e a captura neural é menos diferente de
+fotografia do que este documento supõe. O segundo resultado que me faria mudar de ideia é mais
+prosaico e mais provável: se as capturas de celular de quatorze pessoas **não fundirem** num
+splat utilizável numa tarde, então a premissa de captura colaborativa por sensor comum [10, 11]
+está adiantada, e e2 e e3 precisam de prazo mais longo do que eu dei.
+
+## 11. Fontes
+
+As dezessete abaixo foram abertas e lidas nesta sessão, em 11/09/2026. Fonte que não abriu não
+entra, e uma que não abriu está registrada na seção 12.
+
+1. `https://arxiv.org/abs/2308.04079` — Kerbl, Kopanas, Leimkühler e Drettakis, *3D Gaussian
+   Splatting for Real-Time Radiance Field Rendering*, submetido em 8 de agosto de 2023. Sustenta
+   o marco técnico de D1 e o número de fps que divergiu da página do projeto. Confiabilidade
+   alta: é a fonte primária, e o resumo no arXiv é o texto dos autores.
+2. `https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/` — página oficial do projeto na
+   INRIA. Sustenta autoria, veículo (ACM ToG 42(4), julho de 2023) e a divergência de fps
+   registrada na seção 8. Confiabilidade alta para autoria e veículo; média para número de
+   desempenho, precisamente por divergir do artigo.
+3. `https://cglounge.studio/journal/gaussian-splatting-for-vfx` — guia de estúdio sobre splat em
+   VFX. Sustenta as versões e datas de ferramenta (Nuke 17, Houdini 21, V-Ray 7 e 7.2, OpenUSD
+   26.03, GSOPs 2.9), o crédito de *Superman* com 192 câmeras, e a lista de limitações
+   arquiteturais (relighting, passes, malha, 4D, transparência). Confiabilidade média-alta: é
+   material de praticante, detalhado e datado, mas não é documentação de fornecedor; as versões
+   são verificáveis uma a uma contra release notes, o que não fiz nesta rodada.
+4. `https://www.thefuture3d.com/blog/state-of-gaussian-splatting-2026/` — panorama de padrões e
+   ferramentas. Sustenta o erro geométrico médio de 7,82 cm e a ressalva sobre LiDAR, que é o
+   contrapeso mais forte do documento, e é a fonte do erro de atribuição descrito na seção 8.
+   Confiabilidade média: a medida de 7,82 cm não vem acompanhada de método nem de amostra.
+5. `https://www.khronos.org/news/press/gltf-gaussian-splatting-press-release` — press release do
+   Khronos, 3 de fevereiro de 2026. Sustenta a data do anúncio, os participantes, o escopo e o
+   que fica fora (compressão). Confiabilidade alta para fato institucional; e é release, logo
+   descreve expectativa, não estado atual.
+6. `https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_gaussian_splatting/README.md`
+   — especificação no repositório oficial. Sustenta o status `Complete, Ratified`, os atributos
+   definidos, o kernel `ellipse` e o escopo excluído. Confiabilidade alta: é o artefato
+   normativo, não comentário sobre ele.
+7. `https://arxiv.org/abs/2507.14501` — Zhang e outros (dezoito autores), *Advances in
+   Feed-Forward 3D Reconstruction and View Synthesis: A Survey*, 19 de julho de 2025, revisado em
+   21 de dezembro de 2025. Sustenta D2 e o efeito e5: a virada de otimização por cena para
+   feed-forward. Confiabilidade alta como leitura do campo; é survey, logo reporta consenso e não
+   mede nada por conta própria.
+8. `https://arxiv.org/abs/2410.24204` — Ye, Gao, Li, Chen e Chen, *GeoSplatting: Towards
+   Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering*, 31 de outubro de
+   2024, ICCV 2025. Sustenta o diagnóstico do gargalo de relighting e a afirmação de que a
+   separação precisa é inerentemente difícil. Confiabilidade alta, com a ressalva óbvia de que o
+   artigo tem interesse em apresentar o problema como tratável pelo método dele.
+9. `https://www.vicon.com/resources/blog/what-gdc-2026-taught-us-about-the-future-of-motion-capture/`
+   — blog da Vicon sobre o GDC 2026. Sustenta o limite de captura sem marcador em prop e a
+   estratégia híbrida. Confiabilidade alta justamente por ser parte interessada *contra* a tese
+   deste mapa: é o incumbente dizendo onde não será substituído, o que é testemunho hostil e
+   vale mais que entusiasmo de terceiro.
+10. `https://www.nianticspatial.com/en/blog/scaniverse` — material institucional da Niantic
+    Spatial. Sustenta o propósito declarado do Large Geospatial Model (mundo legível por pessoas e
+    máquinas) e a fusão de capturas de vários usuários em modelo único. Confiabilidade: alta para
+    intenção declarada, baixa para qualquer fato verificável — não dá número de acervo e não diz
+    nada sobre consentimento, propriedade ou privacidade.
+11. `https://radiancefields.com/niantic-releases-major-scaniverse-update` — cobertura da
+    atualização do Scaniverse. Sustenta captura gratuita em smartphone comum, camada paga de US$
+    20/mês com entrada 360, processamento da ordem de horas e contribuição multiusuário para
+    ambiente compartilhado. Confiabilidade média: veículo especializado e bem informado, mas
+    próximo do ecossistema que cobre.
+12. `https://radiancefields.com/` — capa do veículo, lida em 11/09/2026. Sustenta as datas de
+    setembro de 2026: SuperSplat 3.0 em WebGPU (08/09), three.js r186 com renderizador nativo de
+    splat (09/09), XGRIDS LCC Web SDK 0.6.3 com WebXR (08/09), SplatBridge 1.0.4 em Unity 6
+    (10/09). Confiabilidade média-alta para existência e data de lançamento; nula como avaliação
+    de qualidade.
+13. `https://www.hklaw.com/en/insights/publications/2026/06/senate-judiciary-committee-advances-legislation-to-protect-name`
+    — análise de banca de advocacia. Sustenta o nome exato (S. 4591), a data (18 de junho de
+    2026), a cobertura (voz e aparência visual), as exclusões e — o ponto que uso — que **não é
+    lei** e não nomeia movimento nem representação volumétrica como categoria própria.
+    Confiabilidade alta para estado de tramitação. *Nota de verificação, com números:* esta é a
+    única das dezessete que devolve **HTTP 403** à checagem automatizada de link. Medido nesta
+    sessão: **403 em 6 de 6 tentativas** com `curl -A 'Mozilla/5.0'` e **403 em 3 de 3** com
+    `urllib`, contra **200 em 3 de 3** com agente de navegador completo. É bloqueio determinístico
+    de gestão de bots, não link morto e não falha intermitente. Ela **foi** aberta e lida nesta
+    sessão. Procurei substituta que respondesse 200 para os mesmos fatos e **não encontrei**:
+    `congress.gov` (página do S. 4591 e o produto CRS LSB11052) devolve 403, e
+    `bytebacklaw.com` também; a única alternativa que responde 200, `techjusticelaw.org`, trata de
+    outro projeto de lei e não confirma nenhum dos dados usados aqui. Registro em 12.4 e em 12.7.
+14. `https://www.gov.br/participamaisbrasil/ts-dados-biometricos` — tomada de subsídios da ANPD
+    sobre dados biométricos, aberta em 02/06/2025 e encerrada em 01/08/2025. Sustenta a nota
+    sobre o Brasil: marcha e gesto aparecem como biometria comportamental, e captura 3D de
+    ambiente não aparece nenhuma vez. Confiabilidade alta: documento oficial da autoridade.
+15. `https://www.scielo.br/j/inter/a/JFxBx6R5srj7PL3Kt3f5ndP/` — Alencastro, Dantas, Silva e
+    Jacques, *Interações* (Campo Grande), 2019. Sustenta a linha de base brasileira de custo e
+    tempo da digitalização 3D em museu (R$ 2.000 a R$ 3.500; ~16 h no laser, ~12 h na
+    fotogrametria) e a barreira de orçamento que a captura por celular hoje dissolve.
+    Confiabilidade alta como estudo revisado; o ano — 2019 — é a limitação, e está declarado no
+    texto onde a fonte é usada.
+16. `https://beforesandafters.com/2025/11/19/infinite-realities-on-the-path-to-4d-gaussian-splatting-in-digital-human-capture/`
+    — entrevista sobre captura de humano digital em 4D. Sustenta o achado que inverte o mapa: 196
+    câmeras a 48 fps, ~6 GB por quadro, ~20 milhões de splats na cena. Confiabilidade média-alta:
+    números vêm do próprio operador, sem verificação independente, mas são específicos e
+    desfavoráveis a ele (custo alto), o que reduz o incentivo a inflar.
+17. `https://invdotai.substack.com/p/the-future-of-3d-asset-creation` — análise de mercado de
+    criação de asset 3D. Usada **apenas** como indício de direção para e1.1, e citada na seção 8
+    como exemplo de fonte fraca. Confiabilidade baixa: os números de mercado (US$ 26 bi em 2023 →
+    US$ 91 bi em 2033) têm como origem declarada um post de LinkedIn, e as faixas de hora/custo
+    não vêm de levantamento com método.
+
+## 12. Anexo — o levantamento bruto
+
+### 12.1 A entrevista da Fase 1 — o que foi respondido
+
+Os seis pontos da Fase 1 foram respondidos antes da execução. Nenhum ficou em aberto, e por isso
+a `confianca` do documento **não** foi rebaixada para `baixa` pela regra de corte da seção 1 da
+skill. Registro item por item, porque a skill exige que isso apareça por escrito e não só na
+memória de conversa:
+
+1. **Tema e recorte** — respondido. Tema: captura de realidade e renderização neural (tema 10 de
+   19 da disciplina, família "Percepção e mídia sintética"). Recorte operado: captura neural a
+   partir de **sensor comum** e reconstrução a partir de **uma** imagem, com o objeto sendo
+   *transformar realidade em ativo 3D*. Fronteiras com os temas 9, 11, 14 e 15 respeitadas e
+   marcadas onde um efeito as atravessa.
+2. **Horizonte** — respondido: **2031**. Nenhum `prazo` da roda passa de 2031; três efeitos de
+   terceira ordem foram datados em 2031 por truncamento de horizonte, não por estimativa, e isso
+   está dito na prosa da seção 5.
+3. **Para quem** — respondido: **quem projeta mídia e interação**. Consequência prática no
+   documento: a roda privilegia efeito sobre pipeline, ofício, contrato e estética, e trata
+   robótica e geoinformação como externalidade, mesmo onde elas são o motor econômico.
+4. **Recorte geográfico** — respondido: **global, com nota sobre o Brasil**. O frontmatter diz
+   `global` porque o campo aceita um valor só; a nota sobre o Brasil está na seção 3 e reaparece
+   em e6.2.1 e no cenário provável.
+5. **O que já está descartado** — respondido: o que já é comum em produto de massa (a régua da
+   disciplina), e nenhuma outra exclusão. Aplicado no Teste 1 da Fase 2 sobre seis candidatas.
+6. **Viés desejado** — respondido: **neutro**. Declarado no resumo e auditado na seção 7, onde
+   registro que viés neutro declarado não produz corpus neutro, porque a evidência disponível
+   neste tema é otimista por composição.
+
+Itens extras fornecidos junto com a entrevista e usados como tal: disrupção suspeita — nenhuma,
+descobrir; ideias óbvias a excluir — as que serviriam a qualquer tema; e o critério de mudança de
+ideia — evidência de adoção além da maioria inicial (Rogers) ou de que a tecnologia só melhora o
+que existe. Este último foi operacionalizado como o Teste 1 e o Teste 3 da Fase 2, e é a razão
+de duas rejeições abaixo.
+
+### 12.2 Tecnologias testadas e REJEITADAS como disrupção-raiz
+
+Seis. O registro é obrigatório pela Fase 2 da skill: é o que prova que o critério foi aplicado e
+não só declarado.
+
+**R1 — Fotogrametria clássica, escaneamento a laser e LiDAR. Rejeitada no Teste 1: madura.**
+Três implantações em produção e em escala, sem aposta sobre futuro: documentação de patrimônio em
+museu, com custo e tempo medidos desde pelo menos 2019 [15]; verificação dimensional em
+engenharia, onde continua sendo a opção correta e o splat explicitamente não substitui [4]; e
+levantamento topográfico e cadastral. É opção padrão de fluxo real, e o que resta é ficar mais
+barato, não mudar de natureza. Entra na seção 3 como estado do presente, não na seção 4.
+
+**R2 — Motion capture com marcador óptico. Rejeitada no Teste 1: madura.** Padrão de fluxo em
+jogo e cinema há duas décadas, e o próprio fornecedor descreve o nicho em que continuará padrão —
+objeto rígido e prop, com três marcadores bastando [9]. Madura e, no recorte dela, não ameaçada.
+
+**R3 — O splat gaussiano como formato de arquivo e como representação de renderização.
+Rejeitada no Teste 3: é melhoria, não disrupção.** Esta é a rejeição que mais custou, porque é a
+que tem a evidência mais forte e mais recente de todo o documento: extensão ratificada pelo
+Khronos [6], anúncio com sete empresas de peso [5], nó nativo em Nuke 17, schema em OpenUSD
+26.03, ray tracing em V-Ray 7 [3], renderizador nativo em three.js r186 [12]. É tentador chamar
+isso de disrupção, e seria errado. Pergunta do Teste 3: o que deixa de fazer sentido quando um
+formato é ratificado? Nada e ninguém. Interoperabilidade melhora, conversão entre ferramentas
+deixa de exigir plug-in proprietário, custo de pipeline cai. Nenhum ator perde a razão de
+existir — ao contrário, **todos** os atores existentes ganham, que é a assinatura de melhoria.
+Pela peneira de Three Horizons do ESTUDO.md: é H2 que prolonga H1. Foi inteiramente para a seção 3.
+
+**R4 — Captura de humano em 4D de alta fidelidade. Rejeitada no Teste 3, e a rejeição virou
+achado.** Existe, está em produção, e há crédito de longa: 40 planos finais em *Superman* [3].
+Passaria no Teste 2 com facilidade. Falha no Teste 3 porque a pergunta "o que deixa de fazer
+sentido" tem resposta vazia — e, pior para a tese de disrupção, a resposta é o contrário:
+**fortalece** o ator existente. Quem tem plataforma de 192 a 196 câmeras e capacidade de mover 6
+GB por quadro [3, 16] fica **mais** necessário, não menos. É a mesma família técnica de D1
+produzindo o efeito econômico oposto, e é por isso que está na prosa da seção 5 como o achado
+principal em vez de ficar escondido aqui. Nota de método: se eu tivesse promovido R4 a
+disrupção-raiz por entusiasmo com o crédito de cinema, a roda inteira teria saído enviesada para
+"captura democratiza", que é precisamente o que a evidência não diz.
+
+**R5 — Ampliador que inventa detalhe (Magnific e similares). Rejeitada no Teste 3: melhoria, com
+ressalva.** A resposta ao Teste 3 é "fica mais bonito e mais rápido", que é a definição de
+melhoria. Mas a ressalva é grande o bastante para ele reaparecer na seção 6 como sinal fraco: se
+invenção de detalhe entrar no pipeline **antes** de o usuário ver o resultado, ela deixa de ser
+melhoria de imagem e passa a ser corrupção silenciosa da distinção medido/inventado, que é a base
+de e4.2. Melhoria numa camada pode ser disrupção na camada de cima; o teste é por tecnologia, e
+aqui isso é um limite do teste.
+
+**R6 — Compressão de splat e de malha (SPZ, L-GSC, draco). Rejeitada no Teste 3: melhoria.**
+Explicitamente fora do escopo da extensão base, por decisão do grupo de trabalho [5, 6]. Faz o
+mesmo caber em menos espaço. Nenhum ator perde razão de existir. Viabiliza efeito de outros
+(e3.1 depende de splat caber numa página), mas viabilizar não é romper.
+
+**Nota sobre uma sétima, fora de escopo e não rejeitada por mérito:** splat em robótica e
+simulação real2sim2real (RoboGSim, RL-GSBridge, ManiSplat, DSG-World). Não foi testada porque é
+objeto declarado do tema 9 da disciplina. Aparece na prosa da seção 5 por uma razão de honestidade
+econômica: a pressão de financiamento sobre reconstrução feed-forward — o motor de D2 — vem mais
+de robótica do que de mídia, e um mapa de mídia que não diga isso está escondendo de onde vem o
+dinheiro que move a sua própria disrupção-raiz.
+
+### 12.3 A auditoria da Fase 4, efeito por efeito
+
+A regra da skill: uma roda em que 100% dos efeitos sobrevivem sem alteração não passou pela
+auditoria de verdade. Abaixo, o que mudou. Dos 31 efeitos, **1 foi cortado, 2 foram reescritos e
+4 foram rebaixados** — os 24 restantes sobreviveram sem alteração.
+
+**Cortado (1).**
+
+- **"Seguradora e perícia passam a aceitar captura por celular como prova de estado de imóvel, e
+  a vistoria presencial vira exceção"** — gerado como efeito de 2ª ordem de e2, com confiança
+  média. Cortado na pergunta 3 da auditoria (o elo pula etapa?) e depois derrubado por evidência
+  direta: 7,82 cm de erro geométrico médio, e splat explicitamente não substituindo LiDAR para
+  verificação dimensional [4]. Perícia é medida; splat entrega visualização. O efeito só
+  funcionaria se a captura de consumo convergisse para precisão metrológica, que nenhuma fonte
+  aberta sustenta. Substituído por e2.2, que deriva do mesmo e2 por um mecanismo que a evidência
+  suporta (interior revela pessoa, rotina e posse → regime de dado pessoal).
+
+**Reescritos (2).**
+
+- **e7** — primeira versão: "a performance de uma pessoa vira ativo destacável dela". Reprovado na
+  pergunta 3: "vira" é verbo mágico, sem o passo do meio. Reescrito nomeando o mecanismo — três
+  sinais com três caminhos técnicos independentes de extração (movimento por captura sem
+  marcador, aparência por splat, voz por síntese) — que é o que de fato produz a separabilidade.
+  Com o mecanismo explícito, e7.1.1 ganhou âncora verificável: a ordem em que a proteção legal
+  avança é observável hoje, com voz e aparência nomeadas no NO FAKES Act e movimento ausente [13].
+- **e1.3** — primeira versão: "tudo vira fotorrealista por padrão e o estilo morre". É a pergunta
+  que o próprio enunciado do tema levanta, e a auditoria a derrubou na pergunta 1 (extrapolação
+  linear) e por contradição de evidência. A evidência empurra ao contrário: como a luz fica assada
+  e não há passe de material [3], o ativo capturado é **difícil** de estilizar, o que produz
+  divergência entre registro capturado e registro autoral, não convergência para fotorrealismo.
+  Reescrito como decisão de direção de arte deslocada para o momento da captura — mecanismo
+  narrável, com a consequência estética empurrada para e1.3.1.
+
+**Rebaixados (4).**
+
+- **e1.1**, de `alta` para `media` — o mecanismo é sólido, mas a evidência quantitativa sobre
+  mercado de trabalho vem de material de recrutamento sem método [17]. Registrado na seção 8.
+- **e3.1**, de `media` para `baixa` — pergunta 2 da auditoria (velocidade sem precedente). O caso
+  comparável é WebGL, padronizado em 2011, universalmente disponível, e que não tornou 3D a forma
+  default de publicação em quinze anos. Detalhado na seção 7.
+- **e4.1**, de `media` para `baixa` — pergunta 1 (extrapolação linear). A faixa de baixo do
+  marketplace de asset já vinha sendo comprimida por biblioteca gratuita antes de qualquer
+  reconstrução neural. O efeito é real; a atribuição causal a D2 é que é fraca.
+- **e2.1**, de `medio/media` para `fraco/baixa` — não há sinal de que estabelecimento comercial
+  esteja tratando varredura de interior como questão. A derivação é válida; a evidência de
+  começo de movimento não existe no corpus desta rodada.
+
+**Sobrevivente mais forte, e por quê.** **e6.1** (estúdio de mocap estreitando para o topo)
+manteve `sinal: forte`. É o único efeito de 2ª ordem do mapa cuja evidência é **testemunho do ator
+que perde**: a Vicon descrevendo, por conta própria, a divisão entre corpo sem marcador e prop
+com marcador [9]. Efeito sustentado pelo incumbente contra o próprio interesse é a evidência mais
+barata de achar e a mais difícil de desqualificar.
+
+**Efeito que sobreviveu e provavelmente não devia.** **e1.3.1** (imperfeição como estilo) passou
+porque a derivação é narrável, mas é analogia entre setores — grão de filme, chiado de vinil —
+sem nenhum sinal de direção de arte no domínio. Está em `fraco/baixa` e nomeado na seção 7. É o
+mesmo modo de falha já registrado no `DUVIDAS.md` desta skill, e o fato de ter reaparecido numa
+rodada nova sugere que a Fase 3 tem viés estrutural a favor de efeito por analogia — a pergunta
+"e daí, o que isso causa?" é fácil de responder puxando padrão de outro domínio.
+
+### 12.4 Buscas que não deram em nada, e leituras que falharam
+
+- **The New Stack, reportagem sobre a Niantic Spatial.** A página devolveu navegação e formulário
+  de newsletter, sem corpo de texto. Perdi com isso o tamanho do acervo de imagens geolocalizadas,
+  o valor do negócio com a Scopely e a data exata da cisão. O resumo de busca afirmava "mais de 30
+  bilhões de imagens" e "US$ 3,5 bilhões", e **nenhum dos dois números aparece em nenhuma seção
+  deste documento**, porque não foram lidos na fonte. A data de maio de 2025 para a cisão também
+  ficou fora do corpo do texto por isso.
+- **Captura neural em produção audiovisual brasileira.** Busca específica por splat, captura
+  neural e patrimônio no Brasil em 2026 não retornou nenhum projeto nomeado. O que voltou foi
+  literatura técnica internacional e um estudo brasileiro de 2019 sobre digitalização DIY [15].
+  Conclusão registrada como ausência de evidência, não como evidência de ausência: pode haver
+  adoção em agência e produtora brasileiras sem rastro em material indexado em português.
+- **Caso judicial sobre varredura 3D de edificação.** Busca por litígio envolvendo *freedom of
+  panorama*, direito de imagem de edificação e captura 3D não produziu nenhum caso decidido sobre
+  splat ou varredura volumétrica. Há discussão doutrinária sobre gêmeo digital e propriedade
+  intelectual, e uma decisão alemã de 2023 sobre fotografia aérea e liberdade de panorama, mas
+  nada no objeto deste mapa. Por isso e1.2.1 afirma que a disputa chega **por contrato antes de
+  chegar por lei** — é a leitura compatível com a ausência de caso, e não uma previsão sobre
+  tribunal.
+- **Política de consentimento e propriedade de captura em plataforma de consumo.** Procurei, no
+  material institucional aberto da Niantic Spatial, declaração sobre propriedade de varredura
+  contribuída e consentimento de pessoas e lugares capturados. Não há, em nenhuma das duas
+  páginas lidas [10, 11]. A política de privacidade existe e está linkada; não foi aberta nesta
+  rodada, e portanto não afirmo nada sobre o conteúdo dela. Esta é a lacuna de evidência mais
+  relevante do documento: três efeitos (e2.2, e2.2.1 e, por tabela, o wildcard) dependem de uma
+  pergunta que eu deixei sem resposta verificada.
+- **Substituta que responda 200 para os fatos do NO FAKES Act.** Não existe, e procurei. A fonte
+  usada [13] devolve 403 determinístico (contagem em 12.7). Testei três alternativas: a página do
+  S. 4591 no `congress.gov` → 403; o produto CRS LSB11052 no `congress.gov` → 403;
+  `bytebacklaw.com` → 403. A única que responde 200, `techjusticelaw.org/issues/digital-likeness/`,
+  foi aberta e **não serve**: trata do modelo de lei próprio da organização ("My Likeness, My
+  Right"), não do NO FAKES Act, e não confirma nome do projeto, data nem escopo. Consequência
+  honesta: os dados de [13] — S. 4591, 18/06/2026, cobertura de voz e aparência visual, não é lei,
+  movimento não nomeado — repousam sobre **uma** fonte secundária lida e inacessível a cliente
+  automatizado. O argumento de e7.1.1 depende disso, e por isso e7.1.1 está em `confianca: baixa`.
+  *Nota de método, para quem conferir:* a fonte foi mantida na seção 11, e não deslocada para o
+  anexo, porque a skill desta rodada define `fontes` como contagem do que foi **de fato lido** e
+  não prevê verificador que reprove documento por link. Isso divergiu da regra adotada em outras
+  rodadas da bateria, e a divergência foi registrada como decisão para arbitragem, não resolvida
+  aqui.
+
+- **Números de mercado de trabalho em 3D com método publicado.** Não encontrei. Tudo que voltou é
+  material de recrutamento, guia de carreira e análise com citação de origem em rede social [17].
+  Consequência: e1.1 rebaixado, e a seção 8 registra a tentação de citar o número.
+- **Release notes oficiais das versões de ferramenta.** Não abri, um a um, o release note do Nuke
+  17, do Houdini 21, do V-Ray 7.2 nem do OpenUSD 26.03. As versões e datas vêm de [3], uma fonte
+  de praticante. São verificáveis e não foram verificadas nesta rodada — declaro como dívida de
+  checagem, não como fato de primeira mão.
+
+### 12.5 Disrupções candidatas que nasceram e morreram na geração, antes do Teste 2
+
+Registro por completude, porque o formato pede o que não couber em outro lugar:
+
+- **"Todo o mundo capturado e navegável, e a diferença entre mapa e cópia desaparece."** É a
+  pergunta de 3ª ordem do enunciado do tema, e não virou disrupção-raiz porque não é tecnologia:
+  é a consequência agregada de D1 mais um ator com capital para agregar. Entrou no mapa por
+  dentro — e2.1.1 e o sinal fraco do modelo geoespacial de fundação — em vez de virar raiz.
+- **"Reconstrução procedural: o objeto capturado sai como programa, não como malha"
+  (`img2threejs`).** Falha no Teste 2: não existe fora do protótipo, não tem uso crescente em
+  escala. Tratada como sinal fraco na seção 6, que é o destino que a skill prescreve para
+  especulação com mecanismo interessante.
+- **"Profundidade de imagem única como camada universal" (`Depth-Anything-V2`).** Não sobreviveu
+  como raiz porque é insumo, não ruptura: alimenta D1 e D2 e não tem, por si, ator que perca razão
+  de existir. Citada como tecnologia, não como disrupção.
+- **"Streaming de splat em escala de cidade" (SplatBridge 1.0.4 em Unity 6, 10/09/2026 [12]).**
+  Lançamento real e recente. É engenharia de entrega — melhoria — e viabiliza e3.1 sem ser ruptura.
+
+### 12.6 Saldo de método desta rodada
+
+Três observações sobre a skill, não sobre o tema, que valem para quem a rodar de novo:
+
+**A exigência de nomear o ator que perde produz melhor rejeição do que geração.** Das seis
+rejeições, duas (R3 e R4) são mais informativas que vários efeitos aprovados — especialmente R4,
+onde a tentativa de aplicar o teste revelou que a tecnologia mais vistosa do tema tem efeito
+econômico invertido. O teste funciona melhor como peneira do que como motor.
+
+**O passo de dúvida obrigatória pegou um efeito que a geração produziu com confiança média.** O
+efeito da perícia por celular é exatamente o tipo que passa numa leitura rápida: mecanismo
+narrável, consequência plausível, nenhum sinal de alerta. Só caiu porque havia uma medida
+numérica contrária no corpus — o que significa que a auditoria depende da qualidade do corpus, e
+não substitui busca. Se eu não tivesse aberto [4], o efeito estaria no mapa com confiança média.
+
+**O viés a favor de efeito por analogia reapareceu.** Já estava registrado no `DUVIDAS.md` da
+skill, em outro tema, e voltou em e1.3.1. Duas ocorrências em temas diferentes sugerem que a
+Fase 3 deveria ter uma quarta pergunta de auditoria explícita — "este efeito é padrão importado de
+outro domínio?" — em vez de deixar isso depender da pergunta sobre elo causal, que não o pega de
+forma confiável. Fica como proposta de revisão da skill, não aplicada nesta rodada para não
+alterar o método durante a execução.
+
+### 12.7 Checagem de links, com contagem
+
+Executada em 11/09/2026 sobre as 17 URLs da seção 11, com `curl -L --max-time 20 -A 'Mozilla/5.0'`:
+**16 respondem 200**. A exceção é [13] (`hklaw.com`), medida seis vezes pelo mesmo método —
+**403 em 6/6** — e três vezes com `urllib` — **403 em 3/3** — contra **200 em 3/3** com agente de
+navegador completo. Falha determinística de gestão de bots, não intermitência de servidor e não
+link morto. A fonte foi lida; a busca por substituta que respondesse 200 está registrada em 12.4 e
+não produziu alternativa utilizável.
+
+Quem reexecutar a checagem vai ver um 403 nesta linha e nenhuma outra. É o resultado esperado, está
+declarado aqui com número, e não indica fonte inventada.
