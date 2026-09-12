@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O navegador como console: 3D e XR sem instalação · futurizacao-jcsc (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 15 · futurizacao-jcsc (aluno)</p><h1>O navegador como console: 3D e XR sem instalação</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/jcsc/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/jcsc/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>O navegador deixou de ser um lugar onde o 3D é possível e passou a ser um lugar onde o 3D é o padrão: WebGPU está em Chrome, Edge, Firefox e Safari, com cobertura global de 87% segundo o caniuse, e o renderizador de gaussianos do PlayCanvas Engine 2.19.0 mostra 5,7× de ganho sobre WebGL 2 em cena de 35 milhões de primitivas. A leitura fácil disso é "o que era app vira link". Este mapa argumenta que a leitura fácil está errada em dois pontos verificáveis. Primeiro, a porta de bolso está fechada: o WebXR não existe no Safari do iPhone e do iPad em nenhuma versão, e a sessão <code>immersive-ar</code> está desligada e não-funcional também no visionOS — confirmado por engenheiro da Apple no fórum de desenvolvedores. Segundo, a Apple está construindo a rota concorrente, declarativa e sob seu controle: o elemento <code>&lt;model&gt;</code>, que no Safari 27 beta sai do visionOS para iOS, iPadOS e macOS. Some-se a isso que o WebXR foi proposto como área de foco do Interop 2026 e <strong>não</strong> foi selecionado entre as vinte escolhidas. O futuro que este mapa desenha para 2031, então, não é a web engolindo a loja de aplicativos: é a troca de um gargalo (aprovação editorial da loja) por três outros — a GPU de quem assiste, a permissão de sensor concedida pelo fabricante do óculos, e a aquisição de tráfego. O que era taxa de 30% vira preço de serviço; o que era "sem instalação" vira instalação transferida para o cache.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>O objeto aqui é estreito e vale delimitá-lo antes de qualquer coisa: <strong>a web como plataforma de execução de 3D e XR</strong>. Não é "captura de 3D" (tema 10 da disciplina), não é "IA local no dispositivo" em geral (tema 16 — aqui entra só a parte que roda pela mesma porta do navegador, e entra como sinal, não como assunto). É a pergunta de plataforma: quando a experiência tridimensional e imersiva executa dentro de uma aba, o que muda para quem projeta mídia e interação?</p>
+<p>Ele encosta em mídia e interação em três frentes ao mesmo tempo. Na <strong>distribuição</strong>: se uma experiência imersiva é um endereço, o ato de publicar muda de natureza — não há binário, não há revisão, não há versão aprovada. Na <strong>materialidade do meio</strong>: o que se pode fazer numa cena passa a depender do que o navegador expõe da GPU, e o shader escrito em WGSL passa a ser artefato de autoria, não só de engenharia. E na <strong>política do acesso</strong>: a GPU do espectador vira parte da obra, o que reintroduz na web uma categoria que ela havia abandonado — o requisito mínimo de hardware.</p>
+<p>Por que isso merece mapa de futuro e não levantamento de estado da arte: porque o estado da arte já está resolvido e é chato de descrever — WebGPU embarcou, os motores adotaram, funciona. O que está aberto é a <strong>estrutura de poder</strong> que sobra depois. Quatro atores disputam o mesmo ponto (o fabricante do sistema do óculos, o dono do navegador, o dono da loja e o autor), e os quatro já fizeram jogadas públicas e contraditórias entre si em 2025 e 2026. Um levantamento de estado da arte registra as jogadas. Um mapa de futuro pergunta o que elas produzem quando se compõem — e é aí que aparecem os efeitos que ninguém está olhando, como a moderação de conteúdo imersivo subindo do nível da loja para o nível do navegador e do DNS.</p>
+<h3 id="a-entrevista-etapa-1-da-skill-registrada-como-aconteceu">A entrevista (Etapa 1 da skill), registrada como aconteceu</h3>
+<p>A skill proíbe gerar conteúdo antes da entrevista e manda registrar explicitamente o que o usuário não respondeu, em vez de assumir padrão em silêncio. <strong>Registro honesto da condição desta rodada:</strong> não havia interlocutor humano disponível. As cinco respostas foram fornecidas por antecipação no briefing da rodada, e não houve possibilidade de pergunta de esclarecimento de volta — o que é uma limitação real desta execução e não uma dispensa da etapa.</p>
+<div class="tabela-envolve"><table><thead><tr><th>Pergunta da Etapa 1</th><th>Resposta recebida</th></tr></thead><tbody><tr><td>1. Horizonte temporal</td><td><strong>2031</strong></td></tr><tr><td>2. Público-alvo</td><td><strong>Quem projeta mídia e interação</strong></td></tr><tr><td>3. Recorte geográfico</td><td><strong>Global, com uma nota sobre o Brasil</strong></td></tr><tr><td>4. Descartes explícitos</td><td><strong>O que já é comum em produto de massa</strong> (a régua da disciplina). Também: ideias óbvias que serviriam para qualquer tema. Nenhuma outra exclusão.</td></tr><tr><td>5. Viés desejado</td><td><strong>Neutro</strong></td></tr></tbody></table></div>
+<p>Parâmetros adicionais declarados no briefing, fora das cinco perguntas: profundidade de três ordens; modo "a partir de uma inovação/tema", não a partir de um setor; nenhuma disrupção suspeita indicada de antemão ("descubra"); zona de interesse do autor "Criação e plataforma".</p>
+<p>O briefing também declarou o critério de falseamento do próprio pedido — <strong>o que faria mudar de ideia</strong>: evidência de que a adoção já passou da maioria inicial de Rogers, ou de que a tecnologia não rompe nada e só melhora o que existe. Esse critério foi aplicado de forma consequente e mudou o mapa: ele é a razão pela qual WebGL 2, motor exportando para web e glTF foram recusados como disrupção (seção 4), e é a razão pela qual a primeira disrupção aceita passou por rebaixamento de confiança na seção 7. A cobertura de 87% do WebGPU é, honestamente, um dado que <strong>empurra o tema para fora da janela do emergente</strong> — e o mapa diz isso em vez de esconder.</p>
+<p>O recorte geográfico é global com nota sobre o Brasil, e a nota não é decorativa: o efeito <code>e8.1.1</code> da roda existe porque a TIC Domicílios 2025 mostra que 65% dos usuários brasileiros acessam a internet exclusivamente pelo celular, proporção que sobe para 87% nas classes DE. Um mapa desta tendência escrito só com dados de parque de aparelhos do hemisfério norte chegaria a conclusões diferentes — e erradas para o público desta disciplina.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="a-camada-grafica-embarcou-com-asterisco">A camada gráfica embarcou, com asterisco</h3>
+<p>O WebGPU não está mais "chegando". A tabela de status de implementação mantida pelo próprio grupo GPU for the Web registra, em setembro de 2026: Chromium (Chrome/Edge) em macOS, Windows x86/x64 e ChromeOS desde a versão 113; Android desde a 121 para GPUs ARM, Qualcomm e Intel em Android 12+, e desde a 139 para Imagination em Android 16+; Firefox no Windows desde a 141 (julho de 2025), no macOS Apple Silicon desde a 145 e em todas as versões de macOS desde a 147; Safari na versão 26, habilitado por padrão em macOS, iOS, iPadOS e visionOS. O caniuse soma 85,72% + 1,63% = <strong>87,35%</strong> de cobertura global [2].</p>
+<p>O asterisco importa mais do que o número. A mesma tabela mostra o Linux entrando por GPU: Intel Gen12+ a partir do Chrome 144, NVIDIA com Wayland e driver 535.183.01+ a partir do 147, o resto atrás de flag. Windows ARM64 exige <code>--enable-unsafe-webgpu</code>. Samsung Xclipse é esperado por volta da versão 154. Firefox no Android segue atrás de flag, com trabalho previsto para 2026 [1]. Ou seja: a matriz de compatibilidade da mídia interativa parou de ser uma linha por navegador e virou uma linha por <strong>fornecedor de GPU e versão de driver</strong> — um regime que a web não conhecia e o console conhece bem.</p>
+<h3 id="os-motores-ja-mudaram-o-padrao-nao-so-a-opcao">Os motores já mudaram o padrão, não só a opção</h3>
+<p>O <code>WebGPURenderer</code> do three.js usa o backend WebGPU por padrão e cai para WebGL 2 quando o navegador não suporta — comportamento relatado de forma consistente pela documentação de migração, embora a página de manual específica que tentei abrir tenha retornado 404 (registro em 8 e 11). O PlayCanvas foi mais longe e publicou número: a versão <strong>2.19.0 do engine, em 3 de junho de 2026</strong>, trouxe um renderizador de gaussianos baseado em compute shader, e a medição publicada no blog compara WebGPU contra WebGL 2 no mesmo aparelho — em um M4 Max, 138,7 contra 137,2 fps com 1 milhão de gaussianos (empate), 124,1 contra 48,1 com 10 milhões (2,6×), e 75,8 contra 13,3 com 35 milhões (<strong>5,7×</strong>). Num iPhone 13 Pro Max, 77,6 contra 38,1 fps com 1 milhão (2×) e 42,4 contra 20,4 com 4 milhões. O mesmo texto declara que "o WebGPU está agora disponível para aproximadamente 85% dos usuários finais" e que o SuperSplat cai automaticamente para o renderizador WebGL 2 para o resto, com saída visual idêntica [13].</p>
+<p>O dado escondido nesse conjunto é o primeiro: <strong>em 1 milhão de gaussianos, WebGPU e WebGL 2 empatam</strong>. O ganho só aparece quando a cena é grande o bastante para saturar o caminho antigo. Isso significa que a disrupção não é "o 3D na web ficou rápido" — é "o teto de complexidade da cena subiu uma ordem de grandeza, e com ele o custo de produzir a cena".</p>
+<h3 id="a-camada-imersiva-nao-embarcou-e-a-fratura-e-geografica-de-plataforma-nao-de-pais">A camada imersiva não embarcou — e a fratura é geográfica de plataforma, não de país</h3>
+<p>O caniuse registra o WebXR Device API em 77,15% de cobertura, toda ela como <em>partial support</em>: Chrome e Edge desde a 79, Opera desde a 66. Firefox: não suportado. Safari no iOS: <strong>não suportado em nenhuma versão, da 3.2 à 26.6</strong>. Safari no macOS: desabilitado por padrão da 13 em diante [3].</p>
+<p>No Android XR o quadro é o oposto e é generoso: o Chrome do Android XR implementa Device API, <strong>módulo AR</strong>, gamepads, hit test, entrada por mão, âncoras, sensoriamento de profundidade e estimativa de luz — a documentação do Google recomenda tratar a entrada por mão como mecanismo primário e exige permissões de mapeamento 3D e rastreamento de câmera [10].</p>
+<p>No lado da Apple, o que existe é menos e é deliberado. O Safari 26.2 no visionOS passou a permitir WebXR com WebGPU: "Agora, com o Safari 26.2 no visionOS, o WebXR suporta WebGPU. Isso significa que você pode construir experiências em WebXR com todo o poder do WebGPU" [7]. Mas a sessão <code>immersive-ar</code> continua fora. A resposta de um engenheiro da Apple no fórum de desenvolvedores é explícita: sessões WebXR <code>immersive-ar</code> "não são suportadas no visionOS ou iOS", o recurso "não está em estado testável", e "mesmo que a flag esteja lá, ela é não-funcional neste momento" [21].</p>
+<h3 id="a-rota-concorrente-o-navegador-assumindo-a-renderizacao">A rota concorrente: o navegador assumindo a renderização</h3>
+<p>Enquanto o WebXR não avança nas plataformas da Apple, a Apple avança numa alternativa que ela controla. O <code>&lt;model&gt;</code> — elemento HTML que embute uma cena 3D como <code>&lt;img&gt;</code> embute uma imagem — estreou no visionOS e, no <strong>Safari 27 beta anunciado na WWDC26</strong>, passa a estar disponível em iOS, iPadOS e macOS, com atributo <code>dynamic-range-limit</code> para controle de HDR em conteúdo 3D. O mesmo anúncio traz ambientes imersivos de site inteiro via <code>&lt;model&gt;</code> e uma API JavaScript parecida com a de tela cheia, e controles interativos para fotos espaciais e panorâmicas em <code>&lt;img&gt;</code>. Os casos de uso citados são comércio: prévia de assento em bilheteria virtual, visita a quarto de hotel. Sobre WebXR, o mesmo documento traz uma única linha, e é uma correção de bug — "corrigido um problema em que viewports de WebXR não recebiam valor inicial até <code>getViewport()</code> ser chamado" [8].</p>
+<p>A especificação do <code>&lt;model&gt;</code> é publicada pelo Immersive Web Community Group e a página que abri declara apenas "This is a work in progress" [9]. É um elemento embarcado em produto antes de ser padrão — o padrão de comportamento que a web já viveu com <code>&lt;canvas&gt;</code> e com vídeo.</p>
+<h3 id="a-governanca-olhou-e-desviou">A governança olhou e desviou</h3>
+<p>O sinal mais desconfortável para a tese entusiasta deste tema está no processo, não na tecnologia. O WebXR Device API foi <strong>proposto</strong> como área de foco do Interop 2026 (issue #1021 do repositório web-platform-tests/interop, com o rótulo <code>focus-area-proposal</code>) [6]. A lista final, publicada no anúncio oficial e no README do repositório, tem vinte áreas de foco — posicionamento por âncora, consultas de estilo de contêiner, diálogos e popovers, animações guiadas por rolagem, transições de view, <code>attr()</code>, <code>contrast-color()</code>, destaques customizados, uploads e ranges no fetch, IndexedDB, JSPI para Wasm, pseudoclasses de mídia, Navigation API, registros de custom element com escopo, scroll snap, <code>shape()</code>, compatibilidade web, WebRTC, WebTransport e <code>zoom</code> — e <strong>nem WebXR nem WebGPU estão nela</strong> [4][5]. Os cinco fornecedores que decidem o Interop olharam para o WebXR em 2026 e escolheram outras vinte coisas.</p>
+<h3 id="a-porta-da-loja-absorvida-nao-derrubada">A porta da loja: absorvida, não derrubada</h3>
+<p>A previsão simples ("a experiência imersiva é um link, logo a loja morre") tem contraevidência direta, e ela vem da própria Meta. Desde o Connect 2024 o WebXR empacotado como PWA é distribuível na Meta Horizon Store via Bubblewrap, a ferramenta do Google que embala um PWA num Android App Bundle servido por Trusted Web Activity; a documentação da Meta distingue modo <code>2D</code> (site em janela, inclusive 3D em tela) de modo <code>immersive</code> (o pacote abre direto numa sessão WebXR), e afirma que o empacotamento "é uma opção de distribuição, não uma categoria de conteúdo separada" — o app web continua disponível pelo próprio site [11]. Em junho de 2025, a Meta passou a permitir que esses PWAs de WebXR usem <strong>pagamento dentro do app</strong> pela Digital Goods API, um padrão web para PWA integrar com loja de aplicativos [12].</p>
+<p>Ler isso como vitória da web é um erro de sinal. O movimento é a loja <strong>absorvendo</strong> a web como formato de empacotamento, não a web escapando da loja. E a mesma reportagem registra o que os desenvolvedores de fato queriam e não receberam: monetizar na web aberta, coisa que o navegador da Meta ainda não suporta, ao contrário do Apple Pay no Vision Pro e do Google Pay no Chrome [12].</p>
+<p>Do lado do dinheiro, o que mudou de verdade em 2026 foi regulatório e é mensurável. A página de ajuda do Google Play, para desenvolvedores em EEA, Reino Unido e Estados Unidos a partir de 30 de junho de 2026, publica taxa de serviço de 10% + 5% de cobrança para instalações novas, 20% a 25% + 5% para transações em instalações existentes, e <strong>15% a 20% para links web externos</strong> [20]. A taxa de 30% como número único deixou de existir nessas jurisdições. Fora delas, em boa parte continua valendo. (Tentei confirmar as taxas equivalentes da Apple na página de suporte do direito de compra externa nos EUA; a página não as declara — registro em 8 e 11, e por isso nenhum número da Apple entra neste mapa.)</p>
+<h3 id="o-navegador-como-runtime-de-modelo">O navegador como runtime de modelo</h3>
+<p>A quarta frente é a que o tema chama de cruzamento: a mesma porta que dá GPU ao gráfico dá GPU ao modelo. O artigo do WebLLM publica a comparação com nativo no mesmo aparelho — Llama-3.1-8B em 4 bits a <strong>41,1 tokens/s no navegador contra 57,7 no MLC-LLM nativo</strong> (71,2% retidos), e Phi-3.5-mini a 71,1 contra 89,3 (79,6% retidos), num MacBook Pro M3 Max sob Chrome Canary 133 — e nomeia a limitação de fundo: o WebGPU "não tem bibliotecas de GPU aceleradas para kernels comuns", o que obriga a gerar kernels próprios por compilação [15]. O transformers.js, que roda sobre ONNX Runtime, mantém no README o aviso de que a API WebGPU "ainda é experimental em muitos navegadores", pedindo relatório de bug — e a tagline "rode Transformers direto no seu navegador, sem precisar de servidor" [14]. Do lado da norma, o W3C publicou em <strong>22 de janeiro de 2026</strong> uma Candidate Recommendation atualizada da WebNN, pelo Web Machine Learning Working Group [17].</p>
+<p>Os dois números do WebLLM dizem coisas opostas e as duas importam: 71% a 80% do nativo é bom o bastante para valer a pena, e um M3 Max é o aparelho de quase ninguém.</p>
+<h3 id="o-custo-escondido-superficie-de-ataque">O custo escondido: superfície de ataque</h3>
+<p>Expor GPU à página tem preço de segurança, e ele está documentado em literatura revisada. O WebGPU-SPY, de Ethan Ferguson, Adam Wilson e Hoda Naghibijouybari, demonstra ataque de canal lateral em cache de GPU a partir da pilha de compute espionando atividade na pilha de renderização, e reporta <strong>precisão de 90% na identificação de site</strong> num conjunto de 100 sites populares, em GPUs Intel integradas [16].</p>
+<h3 id="o-mercado-que-ja-vive-disso">O mercado que já vive disso</h3>
+<p>Para não tratar o tema como especulação de laboratório: a imprensa setorial registra o mercado de jogo de navegador projetado de US$ 19,28 bilhões em 2026 para US$ 28,44 bilhões em 2032, lançamentos HTML5 quase triplicando ano a ano no primeiro semestre de 2025 para cerca de 15 mil títulos, Poki com 100 milhões de usuários ativos mensais (contra 10 milhões em 2020) e 122,5 milhões de visitas mensais, CrazyGames com 61,1 milhões, Unity respondendo por 55% dos lançamentos do segundo trimestre de 2025 em parte pela adoção de WebGPU no Unity 6, e 46% dos desenvolvedores citando o jogo web como resposta ao problema de descobribilidade [19].</p>
+<p>Esse último número é o que interessa mais e é o mais contraintuitivo: o motivo declarado para ir para a web <strong>não</strong> é fugir da taxa — é ser encontrado. O que sugere que o gargalo real nunca foi a aprovação da loja.</p>
+<h3 id="nota-sobre-o-brasil">Nota sobre o Brasil</h3>
+<p>A TIC Domicílios 2025, do Cetic.br, registra 157 milhões de usuários de internet no país (163 milhões, 88%, na definição ampliada) e, o dado que muda este mapa: <strong>65% acessam a internet exclusivamente pelo telefone celular</strong>, cinco pontos percentuais acima de 2024. A desagregação por classe é brutal — 87% na classe DE contra 5% na classe A, e computador em casa em 97% dos lares da classe A contra 10% na DE; fibra ou cabo em 95% dos domicílios A, 75% nos C e 60% nos DE [18].</p>
+<p>Cruzando com o que está acima: a rota "3D e IA pesados no navegador" pressupõe GPU e memória que o aparelho de entrada não tem, e pressupõe download grande que o plano de dados não comporta. O parque brasileiro majoritário é, além disso, um parque de <strong>celular</strong> — exatamente o formato onde o WebXR mais falta, seja por ausência no iOS, seja por WebGPU atrás de flag no Firefox Android.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="o-que-foi-recusado-e-por-que">O que foi recusado, e por quê</h3>
+<p>A Etapa 2 da skill exige aplicar um critério explícito de recusa por maturidade — tratar como presente, não futuro, o que já é padrão de mercado consolidado e não tem debate técnico real e atual sobre substituição no horizonte — e exige <strong>documentar o que foi cogitado e descartado</strong>, como prova de que o critério foi aplicado e não só citado. Nove candidatos foram levantados e cinco foram recusados:</p>
+<div class="tabela-envolve"><table><thead><tr><th>Candidato cogitado</th><th>Veredito</th><th>Motivo</th></tr></thead><tbody><tr><td><strong>WebGL / WebGL 2 como alvo 3D da web</strong></td><td>recusado — maduro</td><td>Baseline desde 2017, adotado por todos os motores. Não há debate sobre substituí-lo: ele é o <em>fallback</em> que todo mundo continua embarcando, inclusive o SuperSplat [13] e o three.js. Tecnologia que sobrevive como plano B não é futuro.</td></tr><tr><td><strong>Motor (Unity, Unreal) exportando para web</strong></td><td>recusado — maduro</td><td>Prática consolidada há uma década; Unity respondeu por 55% dos lançamentos web do 2T2025 [19]. O que é novo ali é o WebGPU por baixo — e esse é o candidato 1, aceito. Exportar para web, em si, é melhoria, não ruptura.</td></tr><tr><td><strong>glTF como formato de intercâmbio 3D</strong></td><td>recusado — maduro</td><td>Padrão Khronos universalmente adotado. <em>Ressalva registrada:</em> o <code>&lt;model&gt;</code> da Apple reabre a disputa com USDZ, e por isso a disputa de formato voltou ao mapa como efeito <code>e10.2</code>, não como disrupção.</td></tr><tr><td><strong><code>&lt;model-viewer&gt;</code> e AR Quick Look</strong></td><td>recusado — maduro</td><td>Em produção em comércio eletrônico desde 2019. É o estado presente do 3D em página comum, não a ruptura dele.</td></tr><tr><td><strong>Aplicativo nativo de VR em loja</strong></td><td>recusado — é o incumbente</td><td>É o Horizonte 1 do enquadramento de Sharpe: o sistema dominante cuja adequação declina. Não é candidato a disrupção; é o que as disrupções deslocam.</td></tr><tr><td><strong>PWA instalável</strong></td><td>recusado — maduro, com fatia aceita</td><td>Padrão desde 2018. A parte emergente é estreita e específica: PWA como <strong>formato de empacotamento de loja de XR</strong>, com pagamento por Digital Goods API [11][12]. Entrou como efeito <code>e4.1</code>, não como raiz.</td></tr><tr><td><strong>WebAssembly</strong></td><td>recusado — maduro</td><td>Baseline desde 2017. Habilitador, não ruptura.</td></tr></tbody></table></div>
+<p>Restaram quatro. Cada uma abaixo responde às três perguntas do formato: o que rompe, por que agora e não há cinco anos, e o que ainda falta acontecer.</p>
+<h3 id="d1-webgpu-como-alvo-primario-de-renderizacao-nao-como-fallback-invertido">D1 — WebGPU como alvo primário de renderização, não como fallback invertido</h3>
+<p><strong>O que rompe.</strong> Rompe o teto de complexidade da cena que a web podia executar, e com ele a relação entre <em>onde a mídia interativa é produzida</em> e <em>onde ela é consumida</em>. Enquanto o navegador era um alvo degradado, o 3D na web era a versão reduzida de algo feito para outro lugar; havia sempre um "de verdade" em outra plataforma. Com compute shader e acesso explícito a recurso de GPU, o pipeline deixa de ser reduzido: o mesmo caminho de renderização que roda no nativo roda na aba. O que rompe, então, não é a performance — é a hierarquia entre plataforma principal e plataforma secundária.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Em 2021 o WebGPU era especificação em rascunho, sem implementação embarcada. Hoje está em todos os quatro motores de navegador principais, com 87% de cobertura no caniuse [1][2], e o ganho é medido e publicado: 5,7× sobre WebGL 2 em 35 milhões de gaussianos [13]. E há o gesto de compromisso dos motores 3D — o <code>WebGPURenderer</code> do three.js tenta WebGPU <strong>por padrão</strong> e só depois cai para WebGL 2; o padrão inverteu de lado.</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta o Linux sair do regime por-GPU e o Firefox Android sair da flag [1]. Falta uma resposta para o fato de que, em cena pequena, WebGPU e WebGL 2 empatam [13] — ou seja, falta a disrupção valer a pena para a maioria dos projetos, não só para os grandes. E falta o parque de aparelhos de entrada, onde o fallback é permanente.</p>
+<h3 id="d2-webxr-como-cidadao-de-primeira-classe-do-sistema-do-oculos-a-experiencia-imersiva-como-url">D2 — WebXR como cidadão de primeira classe do sistema do óculos: a experiência imersiva como URL</h3>
+<p><strong>O que rompe.</strong> Rompe o monopólio da loja como porta de entrada da experiência imersiva, e rompe a ideia de que uma obra imersiva é um artefato instalado. Se a sessão imersiva se abre a partir de um endereço, o ato de publicar deixa de passar por aprovação, o ato de atualizar deixa de passar por revisão, e o ato de experimentar deixa de exigir decisão de compra ou de espaço em disco. Isso muda a forma da obra, não só o canal: um link tolera experimento de dois minutos que uma instalação não tolera.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque o hardware passou a tratar a web como cidadã de verdade, e há três gestos concretos. O Chrome do Android XR implementa o conjunto quase completo — módulo AR, mão, âncoras, profundidade, estimativa de luz [10]. O Safari do visionOS 26.2 passou a permitir WebXR <strong>com WebGPU</strong>, o que significa sessão imersiva com pipeline moderno e não com o antigo [7]. E a Meta permite empacotar WebXR como PWA na sua loja, com pagamento integrado [11][12].</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta muito, e é aqui que este mapa se separa da leitura otimista. Falta o WebXR existir no iPhone e no iPad — hoje não existe em nenhuma versão do Safari do iOS [3]. Falta <code>immersive-ar</code> sair do estado não-funcional nas plataformas da Apple, onde a flag existe e não faz nada [21]. E falta o processo de governança tratar isso como prioridade: proposto para o Interop 2026, o WebXR não entrou nas vinte áreas escolhidas [4][5][6].</p>
+<h3 id="d3-o-navegador-como-runtime-de-inferencia-a-mesma-porta-para-grafico-e-para-modelo">D3 — O navegador como runtime de inferência: a mesma porta para gráfico e para modelo</h3>
+<p><strong>O que rompe.</strong> Rompe a arquitetura econômica da mídia com IA. Quando o modelo roda no servidor, publicar experiência interativa com IA tem custo variável por espectador, e quem publica paga por atenção recebida — o que inverte a economia de mídia e exclui quem não tem caixa. Quando o modelo roda na aba, o custo variável vai a zero para quem publica e migra para o aparelho de quem assiste. Rompe também o pressuposto de que interação com IA exige rede: sem requisição, não há latência de rede, não há indisponibilidade e não há dado saindo do aparelho.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque o compute shader do WebGPU tornou a inferência viável em ordem de grandeza utilizável — o WebLLM retém 71% a 80% da velocidade nativa em modelo de 8 bilhões de parâmetros [15] — e porque há trilha de norma sendo construída para isso, com a WebNN em Candidate Recommendation atualizada em janeiro de 2026 [17]. Em 2021 a alternativa era WebAssembly em CPU, uma ordem de grandeza abaixo.</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta o transformers.js deixar de marcar WebGPU como experimental [14]. Falta resposta para o download: um modelo utilizável são centenas de megabytes a gigabytes, e a primeira visita passa a custar o que uma instalação custava. Falta, sobretudo, um número honesto para aparelho mediano — os 41 tokens/s do WebLLM são de um M3 Max [15], e não há medição pública comparável para o celular de entrada que é a maioria do parque brasileiro [18].</p>
+<h3 id="d4-3d-declarativo-o-navegador-assume-a-renderizacao">D4 — 3D declarativo: o navegador assume a renderização</h3>
+<p><strong>O que rompe.</strong> Rompe quem escreve o renderizador. Nas três disrupções anteriores, a cena é desenhada por código do autor — motor, shader, loop de renderização. No 3D declarativo, o autor entrega um ativo e uma tag, e <strong>o navegador</strong> decide como iluminar, compor e apresentar. Isso é exatamente o que aconteceu com vídeo: o Flash entregava o player, o <code>&lt;video&gt;</code> entregou o arquivo e o controle foi para o navegador. A consequência é dupla e vale nas duas direções — o 3D passa a caber em página comum, escrita por quem nunca abriria um motor; e o resultado visual deixa de ser do autor.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque saiu de proposta para produto multiplataforma em um ciclo: o <code>&lt;model&gt;</code>, que era do visionOS, está no Safari 27 beta para iOS, iPadOS e macOS, com ambientes imersivos de site inteiro e API JavaScript própria [8]. E porque o gesto tem direção estratégica legível: a mesma empresa que não implementa <code>immersive-ar</code> no WebXR [21] embarca a rota declarativa que ela controla.</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta padronização: a especificação é publicação do Immersive Web Community Group e a página declara ser trabalho em progresso [9] — elemento embarcado antes de ser padrão. Falta resolver renderização consistente entre implementações, problema já levantado na comunidade. Falta decidir o formato do ativo, com USDZ e glTF de volta à disputa. E falta a segunda implementação: enquanto for um só fornecedor, é recurso de plataforma, não capacidade da web.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;WebGPU como alvo primário de renderização, não como fallback invertido&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;Motores 3D passam a publicar na web o mesmo pipeline que publicam no nativo, e o port para web deixa de ser uma versão reduzida&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;Cena de milhões de primitivas passa a ser servida em streaming com orçamento por dispositivo, em vez de baixada inteira&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;O peso de um projeto de mídia migra de tamanho de arquivo para orçamento de GPU por sessão, e alguém passa a ter o ofício de dimensionar esse orçamento&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: &quot;O ativo 3D passa a ser servido em vez de entregue, e a posse prática da obra migra para quem hospeda&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;O shader escrito em WGSL vira artefato de autoria de mídia, e não só de engenharia gráfica&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Formação em design de interação incorpora programação de GPU como alfabetização, ao lado de CSS&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;A compatibilidade de mídia interativa deixa de ser uma linha por navegador e passa a ser uma linha por GPU e por versão de driver&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;O teste de experiência imersiva volta a exigir parque de aparelhos físicos, encarecendo justamente o que a web havia barateado&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;Surge certificação de compatibilidade por modelo de GPU, análoga ao selo de compatibilidade de console&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Todo projeto sério mantém dois renderizadores simultâneos, o moderno e o fallback, e o custo de manutenção do meio dobra&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;O fallback se torna permanente nos mercados de aparelho de entrada, e a web imersiva se estratifica por hardware em vez de por conexão&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: media
+      - id: e3
+        ordem: 1
+        efeito: &quot;A GPU exposta à página amplia ao mesmo tempo a superfície de ataque e a de identificação do aparelho&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Navegadores passam a mediar o acesso à GPU com permissão explícita ou degradação, como já fazem com câmera e microfone&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Parte das experiências 3D perde o clique-e-funciona que era o argumento central do meio&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;Modo de navegação anti-impressão-digital degrada 3D e inferência local, criando duas classes de web imersiva por escolha de privacidade&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;Projeto de mídia passa a ser avaliado por como se comporta degradado, e não apenas no melhor caso de hardware&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;WebXR como cidadão de primeira classe do sistema do óculos: a experiência imersiva como URL&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;Distribuir experiência imersiva passa a ter duas rotas simultâneas, o link aberto e o pacote de loja, e o autor escolhe caso a caso&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;A loja deixa de ser porta de entrada obrigatória e passa a ser canal comprado de pagamento, descoberta e confiança&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;A taxa de plataforma se desloca de imposto sobre distribuição para preço de serviço, e cai onde existe alternativa legal disponível&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: media
+              - id: e4.1.2
+                ordem: 3
+                efeito: &quot;O gargalo do criador migra de aprovação editorial para aquisição de tráfego, e o portal de jogo web ocupa o lugar que era da loja&quot;
+                sinal: forte
+                prazo: 2030
+                confianca: media
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;Curadoria de plataforma perde o poder de barrar e mantém o poder de não recomendar&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;Conteúdo imersivo que a loja não aceitaria reaparece pela web, e a moderação sobe do nível da loja para o do navegador, da rede e do DNS&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;O fabricante do óculos passa a governar o que se pode ver pelo navegador, via permissão de sensor e recurso desligado, em vez de pela loja&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;O que uma experiência imersiva pode fazer passa a variar por fabricante de hardware, como variava por navegador em 2010&quot;
+            sinal: forte
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Consolida-se um subconjunto seguro de WebXR que todos implementam, e o resto da capacidade fica reservado ao aplicativo nativo&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: media
+          - id: e5.2
+            ordem: 2
+            efeito: &quot;O corpo vira dado sujeito a permissão, e o design de interação imersiva passa a ser desenhado a partir da negativa do sensor&quot;
+            sinal: forte
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: &quot;Interação por olhar, mão e profundidade precisa ter equivalente sem sensor, e isso restringe a gramática expressiva do meio&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: &quot;A ausência de WebXR no iPhone e no iPad mantém o maior parque de bolso fora da rota do link durante todo o horizonte&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;Projeto de mídia imersiva nasce em duas versões desde o briefing, a imersiva no óculos e a planar ou declarativa no telefone&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;O custo de autoria imersiva não cai com a chegada da web, porque duas rotas incompatíveis têm de ser mantidas em paralelo&quot;
+                sinal: forte
+                prazo: 2031
+                confianca: media
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;A base instalada de XR na web se concentra em Android e Quest, e o repertório estético do meio se forma a partir dessa base&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;O que se vier a chamar de linguagem da web imersiva será a linguagem de um parque minoritário, apresentada como universal&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;O navegador como runtime de inferência: a mesma porta para o gráfico e para o modelo&quot;
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: &quot;A aba passa a ser o lugar onde o modelo roda, e não apenas onde a resposta do servidor aparece&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Experiência interativa com IA passa a funcionar sem rede e sem custo por uso para quem publica&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;Mídia com IA deixa de ter custo variável por espectador, o que muda quem consegue publicar em escala&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: media
+              - id: e7.1.2
+                ordem: 3
+                efeito: &quot;A alegação de que nada sai do aparelho vira argumento de produto verificável, e aparece quem se dedique a auditá-la&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: &quot;O download inicial da experiência cresce de megabytes para gigabytes, e o tempo até o primeiro quadro volta a ser o problema central do meio&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: &quot;A primeira visita passa a ser tratada como instalação disfarçada, e a expressão sem instalação perde precisão descritiva&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: media
+              - id: e7.2.2
+                ordem: 3
+                efeito: &quot;Cache e persistência local entram no escopo do design de mídia, e não apenas no da engenharia&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: &quot;A qualidade da experiência passa a depender da GPU de quem assiste, e não da infraestrutura de quem publica&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: &quot;A desigualdade de acesso deixa de ser apenas ter internet e passa a incluir ter GPU e memória suficientes&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: &quot;No Brasil, onde a maioria acessa só por celular de entrada, a rota do modelo no navegador chega depois da rota do modelo no servidor, invertendo a promessa de democratização&quot;
+                sinal: forte
+                prazo: 2030
+                confianca: media
+              - id: e8.1.2
+                ordem: 3
+                efeito: &quot;Política pública de inclusão digital passa a ter de falar de capacidade de processamento do aparelho, e não só de banda disponível&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e8.2
+            ordem: 2
+            efeito: &quot;O projeto de mídia passa a declarar requisito de hardware, como fazia o jogo vendido em caixa&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e8.2.1
+                ordem: 3
+                efeito: &quot;A web recupera uma prática que havia abandonado, o requisito mínimo, e com ela recupera a exclusão explícita de público&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;3D declarativo: o navegador assume a renderização da cena&quot;
+    efeitos:
+      - id: e9
+        ordem: 1
+        efeito: &quot;Publicar 3D na web deixa de exigir motor e passa a caber numa tag, como aconteceu com vídeo&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: &quot;O 3D entra em página comum, de comércio, notícia e documentação, por autores que nunca escreveriam WebGL&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: &quot;O volume de 3D publicado na web cresce por fora do circuito de quem faz 3D hoje, e o campo perde o controle sobre o próprio repertório&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: media
+              - id: e9.1.2
+                ordem: 3
+                efeito: &quot;Acessibilidade de cena tridimensional passa a ser responsabilidade do navegador, e surge pela primeira vez um caminho de leitor de tela para 3D&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e9.2
+            ordem: 2
+            efeito: &quot;O repertório visual do 3D na web se padroniza no que a tag permite, e a variação estética do meio cai&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e9.2.1
+                ordem: 3
+                efeito: &quot;Quem vende experiência de marca volta ao motor próprio, e as duas rotas passam a conviver em vez de uma vencer&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: media
+      - id: e10
+        ordem: 1
+        efeito: &quot;O controle do resultado visual migra do autor para o fabricante do navegador, que decide como a cena é iluminada e composta&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: &quot;A disputa por renderização idêntica entre implementações reaparece, como nos primeiros anos de CSS&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: &quot;Surge teste de conformidade visual para 3D, e alguém tem de decidir qual renderização é a correta&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e10.2
+            ordem: 2
+            efeito: &quot;O formato do ativo volta a ser disputa de plataforma depois de uma década de convergência em glTF&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e10.2.1
+                ordem: 3
+                efeito: &quot;Pipelines de produção passam a manter dois masters 3D, e o custo de autoria sobe exatamente onde a promessa era baixá-lo&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: media</code></pre>
+<h3 id="o-que-o-bloco-nao-consegue-dizer">O que o bloco não consegue dizer</h3>
+<p><strong>A roda esconde as contradições entre ramos, e elas são o achado.</strong> O bloco apresenta <code>e4</code> ("duas rotas simultâneas", que é a leitura otimista) e <code>e6</code> ("o parque de bolso fica fora") como efeitos irmãos, de igual peso. Eles não são irmãos: <code>e6</code> é uma restrição que <strong>condiciona</strong> <code>e4</code>. A rota do link só é rota de verdade onde o link abre sessão imersiva, e isso hoje exclui todo iPhone e iPad [3]. Uma roda em árvore não representa "este efeito limita aquele"; precisaria de aresta lateral.</p>
+<p><strong>A mesma coisa acontece entre D2 e D4, e ali é ainda mais forte.</strong> O 3D declarativo não é um desdobramento paralelo do WebXR — é, em parte, o <strong>substituto</strong> que um dos fabricantes está oferecendo em lugar dele. Os efeitos <code>e9</code> e <code>e10</code> são, em boa medida, o que acontece <em>se</em> <code>e5</code> e <code>e6</code> vencerem. O formato em árvore força a apresentá-los como independentes.</p>
+<p><strong>As datas de terceira ordem estão comprimidas contra o teto, e isso é artefato do horizonte pedido.</strong> Vinte e um dos vinte e seis efeitos de terceira ordem estão datados em 2031, o último ano do horizonte. Isso não significa que 2031 seja o ano provável deles; significa que o horizonte fechou ali. Três deles — <code>e5.1.1</code> (a consolidação de um subconjunto seguro de WebXR), <code>e9.2.1</code> (o retorno ao motor próprio) e <code>e10.1.1</code> (o teste de conformidade visual para 3D) — provavelmente só se consolidam <strong>depois de 2031</strong>, e estão registrados em 2031 apenas porque a skill proíbe ultrapassar o horizonte pedido sem dizê-lo. Fica dito aqui, em prosa, como manda a correção registrada em <code>DUVIDAS.md</code>.</p>
+<p><strong>A cadeia continuaria, e o corte no terceiro nível é decisão de formato, não do método.</strong> Glenn nunca fixou profundidade na Futures Wheel; o limite de três níveis é engenharia de entrega. Dois ramos deixam quarta ordem visível a olho nu e vale nomeá-los: de <code>e8.2.1</code> (a web recuperando o requisito mínimo) sairia a repolitização da acessibilidade digital como direito de hardware, com o litígio que vem com isso; e de <code>e4.2.1</code> (moderação subindo para navegador e DNS) sairia a disputa sobre quem tem legitimidade para decidir o que uma pessoa pode ver dentro do próprio campo de visão — que é a pergunta grande do tema e está a um salto de distância do que este documento pode registrar.</p>
+<p><strong><code>confianca</code> não é probabilidade.</strong> É a avaliação de quantos saltos causais e quantas premissas não verificadas separam o efeito da evidência da seção 3. Nenhum número neste bloco veio de modelo preditivo, e nenhum deveria ser lido como tal.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos-quase-invisiveis-hoje-decisivos-se-crescerem">Sinais fracos — quase invisíveis hoje, decisivos se crescerem</h3>
+<p><strong>1. O Interop 2026 olhou para o WebXR e desviou.</strong> Este é o sinal fraco mais importante do mapa e é puro processo, não tecnologia: o WebXR Device API foi formalmente proposto como área de foco do Interop 2026 e não entrou nas vinte selecionadas [4][5][6]. Interop é onde Apple, Google, Igalia, Microsoft e Mozilla combinam no que vão gastar esforço de compatibilidade no ano. Ficar de fora não é veto; é ausência de compromisso. Se em 2027 e 2028 o WebXR continuar fora, o cenário indesejável da seção 9 deixa de ser cenário e passa a ser descrição.</p>
+<p><strong>2. A Apple embarcando a rota que ela controla enquanto a padronizada não anda.</strong> O <code>&lt;model&gt;</code> sai do visionOS para iOS, iPadOS e macOS no Safari 27 beta, com ambientes imersivos e API própria [8], no mesmo ciclo em que o WebXR recebe uma correção de bug de viewport e o <code>immersive-ar</code> permanece não-funcional por decisão declarada [21]. Os dois fatos separados são notícias de release; juntos, são estratégia.</p>
+<p><strong>3. A Digital Goods API — a loja absorvendo a web, não o contrário.</strong> Pagamento dentro do app para PWA de WebXR na Meta Horizon Store [12], empacotado por Bubblewrap em Trusted Web Activity [11]. O sinal é a direção: o que parece a web entrando na loja é a loja adquirindo a web como formato de empacotamento — mantendo a posição de intermediário sem precisar mais exigir binário nativo.</p>
+<p><strong>4. A GPU virando recurso sob permissão.</strong> Ainda é detalhe de API, e o WebGPU-SPY, com 90% de precisão de identificação de site por canal lateral de cache de GPU [16], é a razão técnica pela qual isso vai crescer. O dia em que um navegador pedir autorização para acesso à GPU como pede para câmera, o "clique e funciona" — que é o argumento central deste tema — deixa de valer.</p>
+<p><strong>5. A cena 3D como fluxo em vez de arquivo.</strong> O Streamed SOG do SuperSplat decima a cena em níveis de detalhe e serve pedaços, buscando o menor primeiro e refinando até o orçamento de gaussianos daquele aparelho [13]. Hoje é otimização de carregamento. Se virar padrão, o ativo 3D deixa de ter versão canônica entregável — e aí a pergunta de posse da obra (<code>e1.1.2</code>) sai do campo da terceira ordem especulativa e entra no contrato.</p>
+<p><strong>6. O motivo declarado de ir para a web é descoberta, não taxa.</strong> 46% dos desenvolvedores citam o jogo web como resposta ao problema de descobribilidade [19]. Se esse é o motivo real, então o gargalo nunca foi a aprovação da loja, e metade da narrativa deste tema está mirando no alvo errado.</p>
+<h3 id="wildcards-baixa-probabilidade-impacto-que-reescreve-o-mapa">Wildcards — baixa probabilidade, impacto que reescreve o mapa</h3>
+<p><strong>W1 — Um fabricante de óculos desliga o WebXR por padrão, alegando privacidade de sensor.</strong> <em>(Probabilidade baixa; impacto: mata D2 inteira.)</em> Não é hipótese sem lastro: a Apple já mantém <code>immersive-ar</code> como flag que existe e não funciona, e enquadra a decisão em termos de preservação de privacidade [21]. Se um fabricante com base instalada relevante passar a exigir concessão explícita por origem para abrir sessão imersiva, a experiência imersiva volta a ter porteiro — só que o porteiro é o navegador do fabricante, e não há processo de apelação como há numa revisão de loja. Sinal precoce a monitorar: a chegada de um <em>permission prompt</em> por origem para <code>requestSession</code>.</p>
+<p><strong>W2 — Uma cadeia de exploração de driver de GPU a partir de página web chega ao uso real, e os navegadores colocam o WebGPU atrás de clique por um ano.</strong> <em>(Probabilidade baixa; impacto: para D1 e D3 ao mesmo tempo.)</em> A literatura já demonstra canal lateral funcional [16] e a fragilidade de código de driver é documentada. Uma execução de código fora do sandbox pela pilha de GPU produziria a reação que a web já teve com Java e Flash. Diferente dos outros wildcards, este teria efeito <strong>retroativo</strong>: quebraria o que já está publicado.</p>
+<p><strong>W3 — Regulador classifica o navegador do óculos como serviço essencial de plataforma e obriga paridade de WebXR.</strong> <em>(Probabilidade baixa; impacto: o inverso de W1 — confirma D2 e derruba <code>e5</code> e <code>e6</code>.)</em> É o caminho pelo qual <code>e6</code> pode falhar: a mesma pressão regulatória que abriu pagamento externo no Google Play em EEA, Reino Unido e Estados Unidos a partir de 30 de junho de 2026 [20] pode alcançar motor de navegador e paridade de API em hardware imersivo. Se o WebXR chegar ao Safari do iOS por obrigação legal e não por escolha de produto, este mapa erra na disrupção mais bem ancorada que tem.</p>
+<p><strong>W4 — O 3D declarativo é padronizado com escape hatch para WebGPU, e as duas rotas se fundem.</strong> <em>(Probabilidade média-baixa; impacto: D1 e D4 deixam de ser concorrentes.)</em> Tecnicamente é o desfecho mais elegante: uma tag para o caso comum, com acesso ao pipeline programável quando necessário — como <code>&lt;canvas&gt;</code> conviveu com <code>&lt;img&gt;</code>. Reescreveria o ramo <code>e9</code>/<code>e10</code>: a camada de motor se torna middleware opcional em vez de requisito, e a seção 9 desejável se realiza.</p>
+<p><strong>W5 — Um serviço público brasileiro de grande alcance publica experiência em WebGPU e descobre que um terço do público não consegue abrir.</strong> <em>(Probabilidade média; impacto: <code>e8.1.1</code> e <code>e8.2</code> saem da terceira ordem e entram na pauta política.)</em> Com 87% das classes DE acessando exclusivamente por celular e computador em apenas 10% desses domicílios [18], a colisão é aritmética, não hipotética. O impacto de mapa é que a discussão de requisito mínimo de hardware deixaria de ser assunto de engenharia e entraria na linguagem de política pública — com uma palavra para isso, o que hoje não existe.</p>
+<p><strong>W6 — O óculos não chega à escala pressuposta, e o meio imersivo na web vive de telefone e desktop.</strong> <em>(Probabilidade média; impacto: D2 perde relevância sem nunca ser refutada.)</em> Este é o wildcard mais chato de admitir porque é o mais banal: nada precisa ser bloqueado nem quebrado. Basta o hardware imersivo permanecer nicho. Nesse desfecho D1, D3 e D4 seguem valendo e D2 se torna um capítulo de história técnica — um padrão completo, interoperável e sem público.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="o-registro-auditavel-dos-rebaixamentos-de-confianca-etapa-4-da-skill">O registro auditável dos rebaixamentos de confiança (Etapa 4 da skill)</h3>
+<p>A skill exige que a autocrítica seja auditável e não apenas afirmada: cada efeito rebaixado deve aparecer aqui <strong>com o valor original antes do rebaixamento</strong>. Seis efeitos foram gerados com confiança acima do que sustentam e foram rebaixados:</p>
+<div class="tabela-envolve"><table><thead><tr><th>Efeito</th><th>Original</th><th>Final</th><th>Teste em que falhou</th></tr></thead><tbody><tr><td><code>e1</code> — motores publicam na web o pipeline do nativo</td><td><strong>alta</strong></td><td>media</td><td><em>Extrapolação linear.</em> O <code>WebGPURenderer</code> já tenta WebGPU por padrão; isso é presente, não futuro. E ignorei força contrária documentada: em cena de 1 milhão de gaussianos o WebGPU <strong>empata</strong> com WebGL 2 [13], então para a maioria dos projetos a migração não paga.</td></tr><tr><td><code>e2</code> — compatibilidade por GPU e driver</td><td><strong>alta</strong></td><td>media</td><td><em>Extrapolação de um presente já observável.</em> A matriz por fornecedor de GPU e versão de driver está publicada hoje [1]; eu havia apresentado como descoberta o que é estado atual. O que é futuro é apenas a generalização do efeito para a prática de produção.</td></tr><tr><td><code>e4</code> — duas rotas simultâneas de distribuição</td><td><strong>alta</strong></td><td>media</td><td><em>Já é presente, e em parte no sentido contrário.</em> PWA de WebXR em loja existe desde 2024 [11]. Além disso a leitura otimista ignora a direção do movimento observado: a loja absorvendo a web [12], não o inverso.</td></tr><tr><td><code>e5.1</code> — capacidade variando por fabricante</td><td><strong>alta</strong></td><td>media</td><td><em>Força contrária ignorada:</em> o Interop existe exatamente para reduzir divergência entre implementações, e há pressão regulatória crescente sobre plataformas de hardware. Eu tratei divergência como destino em vez de como disputa aberta.</td></tr><tr><td><code>e6</code> — iPhone e iPad fora da rota do link</td><td><strong>alta</strong></td><td>media</td><td><em>Força contrária ignorada, e é grande:</em> pressão regulatória sobre motor de navegador no iOS. A evidência atual é forte e confirmada por engenheiro da Apple [3][21], mas o efeito afirma <strong>permanência até 2031</strong>, e permanência de quatro anos é premissa sobre decisão de empresa, não leitura de dado. Mantive <code>sinal: forte</code> porque o fato presente é sólido; a confiança caiu porque a projeção não é.</td></tr><tr><td><code>e3.1</code> — acesso à GPU sob permissão</td><td>media</td><td><strong>baixa</strong></td><td><em>Taxa de adoção sem precedente.</em> Nenhum navegador jamais retrocedeu um recurso de desempenho já embarcado por causa de canal lateral — nem com Spectre, nem com WebGL. Eu assumi uma reação que a história do meio não sustenta.</td></tr></tbody></table></div>
+<p><strong>O resultado agregado é o achado desconfortável desta seção: depois da Etapa 4, nenhum dos dez efeitos de primeira ordem permaneceu em confiança <code>alta</code>, e nenhum efeito da roda inteira está em <code>alta</code>.</strong> Um mapa em que nada é altamente confiável, sobre um tema cuja base técnica é sólida e verificável, é sinal de que a solidez está na <strong>camada técnica</strong> e a incerteza toda está na <strong>camada de decisão de plataforma</strong> — que é justamente a camada onde cinco empresas decidem e nenhuma publica roadmap. Por isso o <code>confianca: media</code> do frontmatter é avaliação honesta do documento e não modéstia protocolar.</p>
+<h3 id="a-checagem-que-a-rodada-anterior-desta-skill-deixou-passar">A checagem que a rodada anterior desta skill deixou passar</h3>
+<p>O <code>DUVIDAS.md</code> do autor registra que a execução de teste da skill atribuiu <code>prazo: 2031</code> e <code>prazo: 2032</code> a efeitos de terceira ordem num mapa cujo horizonte pedido era 2030, sem aviso nenhum no texto — e que a Etapa 4 não pegou, porque olhou só para <code>confianca</code>. A correção foi aplicada aqui de forma explícita: todos os 56 valores de <code>prazo</code> do bloco YAML foram conferidos contra <code>horizonte: 2031</code> por script, e <strong>nenhum o excede</strong> (máximo encontrado: 2031). Os três efeitos que provavelmente só se consolidam depois de 2031 estão nomeados em prosa na seção 5, como manda a correção, em vez de receberem data fora do intervalo.</p>
+<h3 id="onde-este-mapa-provavelmente-esta-errado">Onde este mapa provavelmente está errado</h3>
+<p><strong>O efeito que é só extrapolação linear do presente: <code>e9.1</code></strong> ("o 3D entra em página comum por autores que nunca escreveriam WebGL"). É a história do <code>&lt;model-viewer&gt;</code> desde 2019, contada de novo com uma tag diferente. O <code>&lt;model&gt;</code> reduz o atrito, mas o atrito não era técnico: era o custo de produzir e manter um ativo 3D apresentável, que a tag não resolve. <code>e1</code> e <code>e2</code> também são extrapolações, com a diferença de que dizem coisas que o campo ainda não incorporou; <code>e9.1</code> diz uma coisa que o campo já ouviu e que não se confirmou na escala prometida.</p>
+<p><strong>O efeito que assume velocidade de adoção sem precedente comparável: <code>e7.2</code> e <code>e8</code>, juntos.</strong> Eles supõem que carregamento inicial de centenas de megabytes a gigabytes se tornará aceitável em mídia web. Toda a história do meio vai no sentido oposto — vinte anos de engenharia para reduzir o tempo até o primeiro quadro, orçamento de performance, <em>lazy loading</em>, formatos de imagem mais leves. Nenhum precedente mostra público aceitando esperar gigabytes por uma página. O caso frequentemente invocado (jogo em loja de console, 80 GB) não é comparável, porque ali a espera acontece <strong>depois</strong> da decisão de compra, e aqui teria de acontecer antes. <code>e4.1.1</code> tem problema irmão em outra dimensão: assume erosão de taxa de plataforma numa velocidade que só a regulação produziu, e produziu em duas jurisdições [20] — extrapolar isso para o mundo é extrapolar política, não tecnologia.</p>
+<p><strong>A disrupção que pode simplesmente não se concretizar: D3, o navegador como runtime de inferência.</strong> E convém ser preciso sobre o que a sustenta: dois números medidos num MacBook Pro M3 Max [15]. Não encontrei medição pública comparável em aparelho mediano, e muito menos em celular de entrada — que é a maioria do parque brasileiro [18]. Além disso o transformers.js ainda marca WebGPU como experimental no próprio README [14], e a WebNN está em Candidate Recommendation, não em Recommendation [17]. Se D3 não se concretizar, caem <code>e7</code> e <code>e8</code> inteiros — nove efeitos, um sexto da roda — e o mapa muda de assunto: deixa de ser sobre <em>computação</em> na borda e fica sendo sobre <em>distribuição</em>, com D1, D2 e D4. Curiosamente, o mapa <strong>melhoraria</strong> de confiança média, porque D3 é o ramo mais especulativo. Perderia, em troca, o cruzamento que o tema apontava como o mais interessante.</p>
+<p><strong>A disrupção que pode se concretizar e não importar: D2.</strong> É o cenário do wildcard W6, e é o mais provável dos desfechos negativos: nada é bloqueado, nada quebra, e o WebXR simplesmente amadurece sem parque. Um padrão perfeito sem público. O mapa não tem instrumento para detectar isso, porque toda a evidência da seção 3 é evidência de <strong>capacidade técnica</strong>, e nenhuma é de <strong>uso</strong>. Não encontrei nenhum dado público de quantas sessões WebXR de fato se abrem por mês em nenhum navegador. Essa ausência é a maior lacuna de evidência deste documento, e é maior que qualquer erro pontual da seção 8.</p>
+<h3 id="o-vies-que-entrou-aqui">O viés que entrou aqui</h3>
+<p>Este tema não foi escolhido por gosto — foi atribuído (tema 15 de 19). O viés clássico do formato, portanto, é fraco. Mas há um viés mais forte e mais difícil de ver, e ele entrou pelo enunciado: <strong>o tema foi descrito com uma tese embutida</strong> — "o que era app vira link" — e uma roda construída a partir de uma tese encontra a tese. Fiz três contrapesos deliberados (<code>e6</code>, <code>e5</code> e a disrupção D4 inteira, que é a <em>rota concorrente</em> controlada pelo fabricante), e recusei a leitura fácil do dado da Digital Goods API. Mas a estrutura dos primeiros ramos que gerei seguia a tese, e o que me tirou dela não foi método: foi uma contradição de fonte — a lista oficial do Interop 2026 contrariando um artigo entusiasta [4][5]. Se eu não tivesse ido conferir a lista, este mapa seria bem mais otimista e bem menos correto.</p>
+<p>Um segundo viés, de forma: <strong>meus efeitos de terceira ordem gravitam para "uma profissão se reorganiza" e "a formação se reorganiza"</strong> (<code>e1.1.1</code>, <code>e1.2.1</code>, <code>e9.1.1</code>). É o tipo mais barato de efeito de terceira ordem — sempre plausível, nunca falseável, e serviria a qualquer tema desta disciplina. O briefing pedia explicitamente para excluir ideias que servem para qualquer tema; esses três passaram do meu filtro e ficam marcados aqui como os candidatos mais fracos da roda.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Seis erros e limitações reais, nesta rodada, com o motivo da desconfiança em cada caso.</p>
+<p><strong>1. Aceitei por alguns minutos que o WebXR era área de foco do Interop 2026 — e era falso.</strong> A primeira busca sobre suporte a WebXR devolveu, em primeiro lugar, um artigo (<code>vr.org</code>) afirmando que "a proposta do Interop 2026 inclui o WebXR como área de foco" e, em outro texto do mesmo site, que a adoção de WebXR "saltou 40%". Comecei a estruturar a seção 3 com a primeira afirmação como fato favorável ao tema. Ao abrir a fonte primária — o anúncio oficial no web.dev e o <code>2026/README.md</code> do repositório <code>web-platform-tests/interop</code> — as vinte áreas de foco estão listadas e <strong>nem WebXR nem WebGPU aparecem</strong> [4][5]. O que existe é a issue #1021, uma <em>proposta</em> com o rótulo <code>focus-area-proposal</code> [6]. Pior: ao abrir a issue, o resumo automático do meu próprio leitor de páginas concluiu que ela havia sido "fechada como Done, indicando que foi aceita como área de foco" — o que contradiz diretamente a lista oficial. Tratei a lista oficial como correta e a leitura da issue como erro de interpretação de estado de projeto no GitHub. <strong>Como percebi:</strong> por desconfiar de um artigo cujo título é uma afirmação de percentual ("saltou 40%") sem fonte para o percentual. O número de 40% nunca foi confirmado em nenhuma fonte e não entra neste documento. A lição operacional: o mesmo site produziu duas das três afirmações que não consegui confirmar.</p>
+<p><strong>2. Não consegui verificar "Gestalt Village", que o enunciado do tema apresenta como o cruzamento central.</strong> O enunciado descreve um "modelo de linguagem inteiro carregado no navegador via WebGPU, sem requisição de rede" com esse nome. Fiz três buscas com combinações diferentes (nome + WebGPU + LLM + browser; nome + github; nome isolado) e o retorno foi: um vilarejo do jogo <em>Clair Obscur: Expedition 33</em>, repositórios homônimos sem relação (um motor de jogo, um ambiente de desenvolvimento, um sistema de resolução de problemas matemáticos) e projetos diversos com "village" no nome. <strong>Não usei o projeto como evidência em nenhum ponto do mapa.</strong> Ou o nome está incorreto no enunciado, ou é projeto pequeno demais para estar indexado. A função que ele cumpriria no argumento — navegador como console de IA, não só de gráficos — está sustentada por WebLLM [15] e transformers.js [14], que verifiquei.</p>
+<p><strong>3. Recusei quatro números que a busca me ofereceu com aparência de dado, porque não fecham entre si.</strong> Apareceram: "70% de suporte de navegador e 15× de ganho de performance" (<code>byteiota</code>); "~95% dos usuários têm navegador com WebGPU" (um guia de migração de three.js); "browser é 5-10× mais lento que llama.cpp, ~15-25 t/s contra ~150 t/s numa RTX 4090" (<code>9bench</code>); e a soma de cobertura de outro agregador. Os três primeiros são incompatíveis entre si e com as duas fontes que considero confiáveis: caniuse em 87,35% [2] e o blog do PlayCanvas em "aproximadamente 85%" [13] — que, essas sim, concordam. O terceiro também contradiz o artigo do WebLLM, que mede 71% a 80% do nativo [15]; pode ser que ambos estejam certos medindo coisas diferentes (transformers.js sobre ONNX contra WebLLM sobre kernels compilados), mas como não pude verificar a metodologia de nenhum dos dois lados, usei só o número revisado por pares. <strong>Como percebi:</strong> ao montar a seção 3 e ver quatro cifras de cobertura de WebGPU brigando entre 78% e 95% no mesmo mês.</p>
+<p><strong>4. Uma URL que a busca me devolveu como existente retornou 404, e por isso uma afirmação deste mapa está apenas parcialmente verificada.</strong> <code>https://threejs.org/manual/en/webgpurenderer.html</code> apareceu como primeiro resultado e respondeu 404. Abri o índice de documentação (<code>threejs.org/docs</code>), que lista a classe <code>WebGPURenderer</code> e o detector de capacidade, mas não descreve comportamento de backend. Portanto: <strong>a afirmação de que o <code>WebGPURenderer</code> usa WebGPU por padrão e cai para WebGL 2 não está sustentada em fonte primária neste documento</strong> — vem de fontes secundárias consistentes entre si, e está marcada como tal na seção 3. É uma afirmação pouco controversa e amplamente repetida, o que é exatamente a categoria em que se erra sem perceber.</p>
+<p><strong>5. Duas fontes que abri não sustentaram o que eu esperava, e por isso números saíram do mapa.</strong> (a) A página de suporte da Apple sobre o direito de compra externa nos EUA não declara taxa alguma; as cifras que circulam (26%, 21%, 15%, 5%) vêm de terceiros. <strong>Nenhum número de comissão da Apple entra neste documento</strong> — só os do Google Play, que a própria página de ajuda do Google publica [20]. (b) O PDF de principais resultados da TIC Domicílios 2025 no <code>cetic.br</code> veio como imagem e não pôde ser lido; os números brasileiros vêm da cobertura da Abranet, que os cita entre aspas [18]. É fonte secundária de um dado primário, e fica registrado que não conferi contra o relatório.</p>
+<p><strong>6. Confiei numa afirmação sobre status normativo que a própria especificação não confirma.</strong> Escrevi que o <code>&lt;model&gt;</code> é publicação de Community Group e não está na trilha de padrões do W3C. Abri a especificação em <code>immersive-web.github.io/model-element/</code> e ela não traz o boilerplate de "status deste documento" — só a frase "This is a work in progress" [9]. A afirmação sobre a trilha normativa, portanto, vem de reportagem secundária. Corrigi o texto da seção 3 para dizer o que a fonte de fato diz. <strong>Como percebi:</strong> ao conferir fonte por fonte para escrever a seção 11, percebendo que havia atribuído à especificação uma frase que ela não contém.</p>
+<p><strong>Um erro que não cometi e vale registrar porque é o erro reincidente desta skill:</strong> o <code>DUVIDAS.md</code> documenta que a rodada de teste anterior colocou prazos de 2031 e 2032 num mapa de horizonte 2030. Aqui a checagem foi feita por script contra os 56 efeitos, e nenhum prazo excede</p>
+<ol><li>Não conto isso como acerto de mérito — conto como a única coisa que a skill já sabia que</li></ol>
+<p>erra e que, desta vez, foi verificada em vez de presumida.</p>
+<p><strong>Sobre o que a máquina <em>não</em> pôde errar aqui, e é limitação da rodada, não erro:</strong> a Etapa 1 manda entrevistar e aguardar. Não havia interlocutor. As respostas vieram por antecipação, e nenhuma pergunta de esclarecimento pôde ser feita — em particular, não pude perguntar se "quem projeta mídia e interação" incluía quem decide orçamento, o que mudaria o peso relativo dos ramos de custo (<code>e2.2</code>, <code>e6.1.1</code>, <code>e10.2.1</code>) na apresentação.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-o-link-abriu-mas-so-em-metade-dos-aparelhos">Provável — "o link abriu, mas só em metade dos aparelhos"</h3>
+<p>É 2031 e o 3D pesado na web é rotina. Ninguém mais discute WebGPU: é o caminho padrão, o WebGL 2 sobreviveu como fallback permanente nos aparelhos de entrada, e a matriz de compatibilidade que uma equipe de mídia mantém é uma planilha de GPUs e versões de driver, não de navegadores. Publicar experiência imersiva por link é normal — e, onde o público está no telefone, continua não sendo possível, porque o Safari do iOS nunca implementou WebXR e a rota que a Apple ofereceu foi outra: o <code>&lt;model&gt;</code> e os ambientes declarativos, que entregam 3D bonito em qualquer página e não entregam sessão imersiva programável. Todo projeto sério nasce em duas versões, e o custo de autoria imersiva não caiu — mudou de lugar. A taxa de 30% virou memória histórica em três jurisdições e preço de tabela no resto do mundo; a loja não morreu, virou canal pago de descoberta e pagamento, e o gargalo do criador é comprar tráfego. O modelo rodando na aba existe e funciona bem em aparelho caro; em aparelho mediano, a experiência com IA continua chamando servidor, e a frase "nada sai do seu dispositivo" é recurso de nicho premium. No Brasil, quem publica mídia interativa aprendeu a declarar requisito mínimo — e a excluir público explicitamente, coisa que a web havia deixado de fazer nos anos 2000. O saldo: a plataforma abriu, a promessa de universalidade não se cumpriu, e o campo ganhou uma nova estratificação que ainda não sabe nomear.</p>
+<h3 id="desejavel-a-tag-e-o-motor-na-mesma-pagina">Desejável — "a tag e o motor na mesma página"</h3>
+<p>É 2031 e aconteceu o desfecho do wildcard W4 combinado com o W3. O 3D declarativo foi padronizado com uma saída explícita para o pipeline programável: uma tag resolve o caso comum — produto, notícia, documentação, prótese, peça de museu — e quando o autor precisa de controle, a mesma cena aceita shader próprio sem trocar de arquitetura. O <code>&lt;img&gt;</code> e o <code>&lt;canvas&gt;</code> da era espacial convivem, e a camada de motor virou middleware opcional em vez de requisito de entrada. O WebXR entrou no Interop em 2028, ganhou suíte de teste compartilhada e painel público de conformidade, e a paridade entre fabricantes deixou de ser favor: sensor de mão, profundidade e âncora funcionam igual em três hardwares diferentes, sob permissão granular que o usuário concede e revoga como concede câmera. O <code>immersive-ar</code> chegou ao telefone — por padrão, não por obrigação judicial, porque a Apple concluiu que o custo de não ter era maior. E a parte que exigiu decisão deliberada de alguém: a discussão de orçamento de GPU entrou no vocabulário de projeto ao lado de orçamento de performance, com ferramenta de medição, alvo declarado para aparelho de entrada, e o hábito de tratar o modo degradado como primeira classe em vez de sobra. Para chegar aqui foi preciso que os cinco fornecedores do Interop colocassem XR na lista, que um dos fabricantes de óculos abrisse paridade sem ser forçado, e que o campo de mídia e interação parasse de projetar para o aparelho que tem na mesa. Nenhuma das três é automática.</p>
+<h3 id="indesejavel-a-aba-virou-console-fechado">Indesejável — "a aba virou console fechado"</h3>
+<p>É 2031 e a porta que se abriu serviu para instalar um porteiro melhor. O <code>&lt;model&gt;</code> e seus equivalentes venceram como forma dominante de 3D na web — são fáceis, bonitos e o resultado visual pertence ao fabricante do navegador, que decide iluminação, composição, o que anima e o que não. O WebXR nunca saiu da divergência: cada fabricante implementa o subconjunto que lhe convém, e o que exige sensor está atrás de permissão que o fabricante concede por origem, com lista de origens confiáveis que ninguém audita — o poder de barrar que era da loja, agora sem processo de apelação. Uma cadeia de exploração de driver de GPU chegou ao uso real em 2029 e o WebGPU passou dezoito meses atrás de clique de confirmação; o "sem instalação" morreu ali, junto com os projetos que dependiam dele. E o modelo na aba cumpriu a promessa ao contrário: o download de gigabytes na primeira visita transferiu o custo da infraestrutura de quem publica para o plano de dados de quem assiste, e o meio se dividiu entre quem tem GPU e quem recebe a versão pobre — no Brasil, entre 13% e 87% das classes DE, na proporção de quem tem computador em casa. <strong>Os sinais precoces, todos monitoráveis desde hoje:</strong> o WebXR ficando fora do Interop por um terceiro ano consecutivo; o primeiro <em>permission prompt</em> por origem para abrir sessão imersiva; o primeiro CVE de escape de sandbox pela pilha de GPU a partir de página web; e o primeiro projeto de mídia relevante que publique "requisitos mínimos" sem que ninguém ache estranho.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="o-que-e">O que é</h3>
+<p><strong>"Mesmo link, três portas".</strong> Uma única URL, aberta pela turma ao mesmo tempo, na sala, cada pessoa no seu próprio aparelho. A página negocia, em ordem, três rotas de apresentação da mesma cena — uma captura em gaussianos de um espaço do CIn:</p>
+<ol><li><strong>Porta imersiva</strong> — se <code>navigator.xr</code> existir e <code>isSessionSupported('immersive-vr')</code> (ou <code>immersive-ar</code>) responder verdadeiro, oferece entrar na cena.</li><li><strong>Porta WebGPU</strong> — se não houver XR mas houver WebGPU, renderiza a cena em tela com o caminho de compute, sem limite reduzido de primitivas.</li><li><strong>Porta degradada</strong> — WebGL 2, com orçamento de gaussianos cortado; e, onde existir, a rota declarativa (<code>&lt;model&gt;</code>) como quarta variante de comparação visual.</li></ol>
+<p>Sobre as três, um quarto teste opcional e independente: um modelo pequeno carregado por WebGPU que responde perguntas sobre a cena <strong>sem nenhuma requisição de rede depois do carregamento inicial</strong>.</p>
+<p>A página é, ao mesmo tempo, a obra e o instrumento. Ela registra por visitante, sem identificar ninguém: porta obtida; <code>adapter.info</code> quando disponível; modos de sessão XR suportados; tempo até o primeiro quadro; bytes lidos da rede contra bytes vindos de cache na segunda visita; e, se a pessoa tentar o modelo, tempo de carga e tokens por segundo. Ao final, mostra o histograma da sala em tempo real.</p>
+<h3 id="que-pergunta-sobre-o-futuro-ele-ajuda-a-responder">Que pergunta sobre o futuro ele ajuda a responder</h3>
+<p><strong>Quanto da promessa "sem instalação" sobrevive ao parque real de aparelhos de uma turma brasileira?</strong> É a pergunta que a seção 3 deixa aberta e que nenhuma fonte responde: a cobertura de 87% do caniuse [2] e os "aproximadamente 85%" do PlayCanvas [13] são médias globais ponderadas por tráfego, e tráfego é ponderado por renda. Quatorze aparelhos numa sala em Recife são amostra pequena e enviesada — mas são uma amostra <em>medida</em>, e é mais do que existe hoje no documento.</p>
+<p>Secundariamente, responde a pergunta de <code>e6</code>: <strong>quantos aparelhos da sala abrem sessão imersiva?</strong> A previsão do mapa é que os iPhones sejam zero, por ausência de WebXR no Safari do iOS em qualquer versão [3], e que a taxa geral seja baixíssima por ausência de óculos.</p>
+<h3 id="que-tecnologia-emergente-ele-usa-e-por-que-nao-da-com-tecnologia-madura">Que tecnologia emergente ele usa, e por que não dá com tecnologia madura</h3>
+<p>Usa <strong>WebGPU com compute shader</strong> (renderização de gaussianos pelo caminho que o PlayCanvas 2.19.0 introduziu [13]), <strong>negociação de sessão WebXR</strong> e <strong>inferência em WebGPU</strong> no navegador.</p>
+<p>Por que não dá com tecnologia madura, ponto a ponto: (a) WebGL 2 <em>renderiza</em> gaussianos, mas por caminho de rasterização — e o objeto do experimento é justamente a diferença entre os caminhos, que só existe medindo os dois no mesmo aparelho; (b) a pergunta central é "qual porta este aparelho abre", e essa pergunta <strong>só passou a existir</strong> quando surgiram portas alternativas: em 2021 havia uma só; (c) rodar o modelo sem rede depende de compute em WebGPU — em WebAssembly, a ordem de grandeza torna a demonstração inviável em sala [15]; (d) e a variante <code>&lt;model&gt;</code> não existia em iOS e macOS antes do Safari 27 [8]. Um experimento equivalente feito com tecnologia madura só conseguiria medir uma coisa: que WebGL funciona. Isso já se sabe.</p>
+<h3 id="o-que-a-turma-vai-fazer-quando-testar-isso-em-sala">O que a turma vai fazer quando testar isso em sala</h3>
+<p>Cinco passos, quinze a vinte minutos:</p>
+<ol><li>Cada pessoa abre o link no <strong>próprio</strong> aparelho — sem trocar de aparelho, sem pedir emprestado, sem usar o do professor. O enviesamento da amostra é o dado.</li><li>Cada uma anota qual porta recebeu e o tempo até o primeiro quadro, e compara com o vizinho.</li><li>Quem tiver iPhone confirma na prática o que a seção 3 afirma em documento: sem WebXR, mesmo com WebGPU presente desde o iOS 26 [1][3]. A cena aparece; a sessão imersiva não abre.</li><li><strong>Segunda visita, com a rede desligada:</strong> quem conseguir ver a cena descobre, na prática, que a primeira visita foi uma instalação — que é o efeito <code>e7.2.1</code> da roda, transformado em experiência em vez de argumento.</li><li>A sala compara o histograma medido contra os 87% do caniuse [2], e discute a diferença.</li></ol>
+<h3 id="o-que-seria-um-resultado-que-me-faria-mudar-de-ideia">O que seria um resultado que me faria mudar de ideia</h3>
+<p>Três resultados, cada um derrubando uma parte nomeada do mapa:</p>
+<ul><li><strong>Se 90% ou mais dos aparelhos da sala abrirem a porta WebGPU e o modelo carregar em menos de 30 segundos no aparelho mediano</strong>, então <code>e8.1.1</code> (a desigualdade migrando para "ter GPU") está superestimado e o ramo de estratificação por hardware deve ser rebaixado. Seria a evidência que o briefing pediu para me fazer mudar de ideia: adoção já passada da maioria inicial.</li><li><strong>Se algum iPhone abrir sessão imersiva</strong>, <code>e6</code> está errado em fato presente — não em projeção — e a disrupção D2 é mais forte do que este mapa admite. É o teste mais barato e mais decisivo do experimento.</li><li><strong>Se a diferença visual entre a porta WebGPU e a porta degradada for imperceptível para a turma</strong> em cena de tamanho realista, então D1 é melhoria e não ruptura, e o mapa inteiro perde a raiz que sustenta <code>e1</code>, <code>e2</code> e <code>e3</code> — exatamente o critério de falseamento declarado no briefing. O empate em 1 milhão de gaussianos medido pelo PlayCanvas [13] sugere que este é o resultado mais provável dos três, e é o que mais me obrigaria a reescrever.</li></ul>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Vinte e seis fontes abertas, todas nesta rodada, em 12/09/2026. As numeradas de 1 a 21 sustentam afirmações do documento; as de 22 a 26 foram abertas e <strong>não</strong> sustentaram — ficam listadas porque o fato de não terem sustentado é informação, e porque duas delas estão citadas na seção 8.</p>
+<ol><li><strong>Implementation Status — GPU for the Web (gpuweb wiki)</strong> · <code>https://github.com/gpuweb/gpuweb/wiki/Implementation-Status</code> Sustenta: a matriz de embarque do WebGPU por navegador, plataforma e fornecedor de GPU (Chromium 113 desktop, 121 Android ARM/Qualcomm/Intel, 139 Imagination; Firefox 141 Windows, 145/147 macOS; Linux por GPU a partir do Chrome 144/147; Safari 26; Firefox Android atrás de flag). Confiabilidade: <strong>máxima para este fato.</strong> É o wiki do próprio grupo de trabalho que especifica a API — fonte primária, atualizada pelos implementadores.</li></ol>
+<ol><li><strong>caniuse — WebGPU</strong> · <code>https://caniuse.com/webgpu</code> Sustenta: cobertura global de 85,72% + 1,63% = 87,35%; iOS Safari a partir de 26.0; Firefox Android desabilitado por padrão. Confiabilidade: <strong>alta, com ressalva metodológica que importa muito neste mapa.</strong> O caniuse pondera por <em>tráfego global</em>, e tráfego é ponderado por renda — o que faz o número superestimar a cobertura em parque de aparelho de entrada. É a ressalva que motiva o experimento da seção 10.</li></ol>
+<ol><li><strong>caniuse — WebXR Device API</strong> · <code>https://caniuse.com/webxr</code> Sustenta: 77,15% de cobertura, toda como suporte parcial; Chrome/Edge 79+; <strong>Safari iOS não suportado da 3.2 à 26.6</strong>; Safari macOS desabilitado por padrão. Confiabilidade: <strong>alta</strong>, mesma ressalva de ponderação. Não cobre visionOS como plataforma separada, o que é limitação relevante aqui.</li></ol>
+<ol><li><strong>Interop 2026: Continuing to improve the web for developers — web.dev</strong> · <code>https://web.dev/blog/interop-2026</code> Sustenta: as vinte áreas de foco e as quatro investigações do Interop 2026, e a <strong>ausência</strong> de WebXR e WebGPU. Confiabilidade: <strong>alta.</strong> É o anúncio oficial conjunto. É a fonte que derrubou a afirmação falsa registrada na seção 8, item 1.</li></ol>
+<ol><li><strong>interop/2026/README.md — web-platform-tests</strong> · <code>https://raw.githubusercontent.com/web-platform-tests/interop/main/2026/README.md</code> Sustenta: confirmação independente da mesma lista de vinte áreas, direto do repositório. Confiabilidade: <strong>máxima.</strong> É o artefato de que o anúncio deriva. Abri as duas para não depender de uma só.</li></ol>
+<ol><li><strong>WebXR API (Interop 2026 Focus Area Proposal) — issue #1021</strong> · <code>https://github.com/web-platform-tests/interop/issues/1021</code> Sustenta: que o WebXR foi formalmente proposto, com o rótulo <code>focus-area-proposal</code>. Confiabilidade: <strong>alta para a existência da proposta; baixa para seu desfecho.</strong> O estado de projeto no GitHub ("closed/Done") é ambíguo e meu leitor o interpretou como aceitação, contrariando [4] e [5]. Registrado na seção 8, item 1.</li></ol>
+<ol><li><strong>WebKit Features for Safari 26.2 — webkit.org</strong> · <code>https://webkit.org/blog/17640/webkit-features-for-safari-26-2/</code> Sustenta: "Agora, com o Safari 26.2 no visionOS, o WebXR suporta WebGPU." Confiabilidade: <strong>máxima.</strong> Blog oficial do motor, sobre o próprio release.</li></ol>
+<ol><li><strong>News from WWDC26: WebKit in Safari 27 beta — webkit.org</strong> · <code>https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/</code> Sustenta: <code>&lt;model&gt;</code> chegando a iOS, iPadOS e macOS com <code>dynamic-range-limit</code>; ambientes imersivos de site via <code>&lt;model&gt;</code> + API JS no visionOS 27; controles interativos para foto espacial em <code>&lt;img&gt;</code>; e que a única menção a WebXR é correção de bug de viewport. Confiabilidade: <strong>máxima</strong> para o que foi anunciado. A leitura estratégica que faço a partir disso (seção 6, sinal 2) é minha, não da fonte.</li></ol>
+<ol><li><strong>The <code>&lt;model&gt;</code> element — Immersive Web (spec draft)</strong> · <code>https://immersive-web.github.io/model-element/</code> Sustenta: que a especificação declara "This is a work in progress". Confiabilidade: <strong>alta para a frase, insuficiente para o status normativo.</strong> A página que abri não traz boilerplate de status; a afirmação sobre trilha de padrões vem de terceiros (seção 8, item 6).</li></ol>
+<ol><li><strong>Develop for the web on Android XR — Android Developers</strong> · <code>https://developer.android.com/develop/xr/web</code> Sustenta: Chrome no Android XR com Device API, módulo AR, gamepads, hit test, entrada por mão, âncoras, profundidade e estimativa de luz; recomendação de mão como entrada primária; exigência de permissão de mapeamento 3D e câmera. Confiabilidade: <strong>máxima</strong> — documentação do implementador. É publicidade de capacidade, não medição de uso.</li></ol>
+<ol><li><strong>Progressive Web Apps — Meta Horizon OS Developers</strong> · <code>https://developers.meta.com/horizon/documentation/web/pwa-overview/</code> Sustenta: empacotamento por Bubblewrap em Trusted Web Activity; modos <code>2D</code> e <code>immersive</code>; "é uma opção de distribuição, não uma categoria de conteúdo separada"; o app web segue disponível pelo site. Não declara taxa. Confiabilidade: <strong>máxima</strong> para mecânica; silente sobre economia, e o silêncio é ele mesmo um dado.</li></ol>
+<ol><li><strong>WebXR Apps On Quest's Store Can Now Use In-App Payments — UploadVR</strong> · <code>https://www.uploadvr.com/webxr-apps-on-quest-meta-horizon-store-can-now-use-in-app-payments/</code> Sustenta: Digital Goods API habilitada para PWA de WebXR na Meta Horizon Store (jun/2025); origem em Bubblewrap no Connect 2024; e que os desenvolvedores queriam monetizar na web aberta, o que o navegador da Meta não suporta. Confiabilidade: <strong>média-alta.</strong> Imprensa setorial especializada, com histórico de acerto no nicho; não é fonte primária e não traz a taxa.</li></ol>
+<ol><li><strong>New in SuperSplat: WebGPU and Streaming Bring Huge Performance Wins — PlayCanvas Blog</strong> · <code>https://blog.playcanvas.com/new-in-supersplat-webgpu-and-streaming-bring-huge-performance-wins/</code> Sustenta: engine 2.19.0 em 03/06/2026; renderizador de gaussianos por compute; M4 Max 138,7 vs 137,2 fps (1M), 124,1 vs 48,1 (10M), 75,8 vs 13,3 (35M); iPhone 13 Pro Max 77,6 vs 38,1 (1M) e 42,4 vs 20,4 (4M); "aproximadamente 85% dos usuários finais"; fallback automático para WebGL 2; Streamed SOG com LOD. Confiabilidade: <strong>média-alta, com viés declarado.</strong> É benchmark do fornecedor sobre o próprio produto — mas publica aparelho, contagem e número dos dois lados, incluindo o <strong>empate em 1M</strong>, que é desfavorável à própria tese. Benchmark que publica o próprio empate é mais confiável que a média.</li></ol>
+<ol><li><strong>transformers.js — README (Hugging Face)</strong> · <code>https://github.com/huggingface/transformers.js</code> Sustenta: execução sobre ONNX Runtime com backends WASM e WebGPU; <code>device: 'webgpu'</code>; o aviso de que "a API WebGPU ainda é experimental em muitos navegadores"; e a tagline de rodar sem servidor. Confiabilidade: <strong>máxima</strong> para o estado declarado da biblioteca. É o mantenedor dizendo que ainda é experimental — o que vale mais que terceiros dizendo que está pronto.</li></ol>
+<ol><li><strong>WebLLM: A High-Performance In-Browser LLM Inference Engine (arXiv 2412.15803v2)</strong> · <code>https://arxiv.org/html/2412.15803v2</code> Sustenta: Llama-3.1-8B a 41,1 tok/s contra 57,7 do MLC-LLM (71,2%); Phi-3.5-mini a 71,1 contra 89,3 (79,6%); MacBook Pro M3 Max, 4 bits, Chrome Canary 133; e a limitação de o WebGPU não ter bibliotecas aceleradas para kernels comuns. Confiabilidade: <strong>alta para o número, limitada em escopo.</strong> Publica hardware, quantização e versão de navegador — o que permite auditar. Mas é <strong>um</strong> aparelho, e de topo de linha: é a razão pela qual D3 é a disrupção mais fraca deste mapa.</li></ol>
+<ol><li><strong>WebGPU-SPY: Finding Fingerprints in the Sandbox through GPU Cache Attacks (arXiv 2401.04349)</strong> · <code>https://arxiv.org/abs/2401.04349</code> Sustenta: canal lateral em cache de GPU a partir da pilha de compute espionando a de renderização; precisão de 90% na identificação de site em 100 sites populares; GPUs Intel integradas. Confiabilidade: <strong>alta.</strong> Ferguson, Wilson e Naghibijouybari. A página que abri é a de resumo no arXiv (cs.CR); o registro em anais da 19ª ACM AsiaCCS apareceu em resultado de busca e <strong>não</strong> foi aberto — portanto trato a revisão por pares como provável, não verificada aqui. Escopo restrito a GPU Intel integrada; não generalizei além disso.</li></ol>
+<ol><li><strong>Updated Candidate Recommendation: Web Neural Network (WebNN) API — W3C News</strong> · <code>https://www.w3.org/news/2026/updated-candidate-recommendation-web-neural-network-webnn-api/</code> Sustenta: CR atualizada publicada em 22/01/2026 pelo Web Machine Learning Working Group, com prazo de comentários em 22/03/2026. Confiabilidade: <strong>máxima.</strong> Anúncio normativo do próprio W3C. Usada só para status de norma — não para desempenho.</li></ol>
+<ol><li><strong>TIC Domicílios 2025 aponta redução da lacuna de acesso à internet entre classes sociais, mas diferença persiste — Abranet</strong> · <code>https://abranet.org.br/noticias/tic-domicilios-2025-aponta-reducao-da-lacuna-de-acesso-a-internet-entre-classes-sociais-mas-diferenca-persiste/</code> Sustenta: 157 milhões de usuários (163 milhões / 88% na definição ampliada); 65% acessam exclusivamente por celular (+5 p.p. sobre 2024); 87% na classe DE contra 5% na A; computador em 97% dos lares A e 10% dos DE; fibra ou cabo em 95% (A), 75% (C) e 60% (DE); a lacuna caindo de 83 p.p. em 2015 para 27 p.p. Confiabilidade: <strong>média-alta como veículo, alta como dado.</strong> Os números são do Cetic.br/NIC.br, a referência do país, e vêm citados entre aspas — mas esta é cobertura, não o relatório. Tentei o PDF primário e não deu (item 24).</li></ol>
+<ol><li><strong>Why browser games are the next billion-dollar bet — MCV/DEVELOP</strong> · <code>https://mcvuk.com/business-news/why-browser-games-are-the-next-billion-dollar-bet/</code> Sustenta: US$ 19,28 bi (2026) → US$ 28,44 bi (2032); ~15 mil títulos HTML5 no 1S2025, quase triplo ano a ano; Poki com 100 M de ativos mensais e 122,5 M de visitas, CrazyGames com 61,1 M; Unity em 55% dos lançamentos do 2T2025 em parte por WebGPU no Unity 6; 46% dos desenvolvedores citando descobribilidade. Confiabilidade: <strong>média.</strong> Imprensa setorial de referência, mas repassando projeção de mercado de terceiro não nomeado e pesquisa encomendada (Poki/Atomik). Usei para ordem de grandeza e para o dado de <em>motivação declarada</em>, não como medição.</li></ol>
+<ol><li><strong>Service fees — Google Play Console Help</strong> · <code>https://support.google.com/googleplay/android-developer/answer/112622</code> Sustenta: a partir de 30/06/2026 em EEA, Reino Unido e EUA — 10% + 5% de cobrança em instalações novas; 20% a 25% + 5% em instalações existentes; 15% a 20% para links web externos. Confiabilidade: <strong>máxima.</strong> Página de ajuda do próprio Google, que é o documento contratual de referência.</li></ol>
+<ol><li><strong>Immersive AR mode of WebXR in visionOS / Support for AR module in visionOS 2.x — Apple Developer Forums, thread 756850</strong> · <code>https://developer.apple.com/forums/thread/756850</code> Sustenta: resposta de engenheiro da Apple afirmando que sessões <code>immersive-ar</code> "não são suportadas no visionOS ou iOS", que o recurso "não está em estado testável" e que "mesmo que a flag esteja lá, ela é não-funcional neste momento". Confiabilidade: <strong>alta com ressalva de forma.</strong> Fórum oficial e resposta identificada como de engenheiro da Apple, o que é a declaração mais direta que existe publicamente — mas não é documentação e pode envelhecer sem aviso.</li></ol>
+<h3 id="abertas-e-que-nao-sustentaram-registro-honesto">Abertas e que não sustentaram (registro honesto)</h3>
+<ol><li><strong>three.js — índice de documentação</strong> · <code>https://threejs.org/docs/index.html#api/en/renderers/WebGPURenderer</code> Abri; lista a classe <code>WebGPURenderer</code>, <code>WGSLNodeBuilder</code> e o detector <code>WebGPU</code>, e <strong>não</strong> descreve backend padrão nem fallback. Não sustenta a afirmação para a qual a busquei.</li></ol>
+<ol><li><strong>three.js manual — WebGPURenderer</strong> · <code>https://threejs.org/manual/en/webgpurenderer.html</code> <strong>HTTP 404.</strong> URL oferecida pela busca como existente. Por causa dela, a afirmação sobre backend padrão e fallback do three.js está marcada na seção 3 como não verificada em fonte primária (seção 8, item 4).</li></ol>
+<ol><li><strong>TIC Domicílios 2025 — principais resultados (PDF, Cetic.br)</strong> · <code>https://cetic.br/media/analises/tic_domicilios_2025_principais_resultados.pdf</code> Abri; veio como imagem sem camada de texto e não foi possível extrair número nenhum. É a fonte primária dos dados brasileiros que usei via [18].</li></ol>
+<ol><li><strong>StoreKit External Purchase Link Entitlement (US) — Apple Developer Support</strong> · <code>https://developer.apple.com/support/storekit-external-entitlement-us/</code> Abri; a página <strong>não declara taxa alguma</strong>. Por isso nenhum percentual de comissão da Apple aparece neste documento (seção 8, item 5a).</li></ol>
+<ol><li><strong>WebGPU-SPY — PDF no arXiv</strong> · <code>https://arxiv.org/pdf/2401.04349</code> Abri; o PDF não pôde ser lido como texto. Substituído pela página de resumo [16], que trouxe título, autoria, classificação e o número de precisão.</li></ol>
+<h3 id="fontes-que-apareceram-na-busca-e-foram-deliberadamente-nao-usadas">Fontes que apareceram na busca e foram deliberadamente NÃO usadas</h3>
+<p>Registro por transparência, porque a decisão de não usar é parte do método: <code>vr.org</code> (duas matérias; afirmou que o WebXR é área de foco do Interop 2026, contrariado por [4] e [5], e um "salto de 40%" na adoção que nenhuma fonte confirma), <code>byteiota</code> ("70% de suporte, 15× de performance"), <code>webo360solutions</code>, <code>testmuai</code>, <code>9bench</code> ("5-10× mais lento que llama.cpp"), <code>vucense</code>, <code>utsubo</code>, <code>buildmvpfast</code>, <code>kanopylabs</code>, <code>swyvl</code>, <code>cinevva</code>, <code>impulsemediahub</code>, <code>dodopayments</code>, <code>tech-insider.org</code>, <code>taylancetech</code>, <code>digitalstrategyforce</code>, <code>threejsroadmap</code>, <code>localaimaster</code>, <code>egnworks</code>. Padrão comum a quase todas: data de 2026 no título, número redondo sem metodologia, e divergência entre si sobre a mesma grandeza. Nenhuma afirmação deste documento depende delas.</p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-as-respostas-da-entrevista-como-chegaram">12.1 As respostas da entrevista, como chegaram</h3>
+<p>Transcrição literal do que foi fornecido no briefing da rodada, sem edição:</p>
+<ul><li>Tema: "O navegador como console: 3D e XR sem instalação" (tema 15 de 19 da disciplina; família "Criação e plataforma").</li><li>Horizonte: 2031. Público: quem projeta mídia e interação. Recorte: global, com uma nota sobre o Brasil.</li><li>Descartado de início: o que já é comum em produto de massa (a régua da disciplina); nenhuma outra exclusão.</li><li>Disrupção suspeita: nenhuma — descubra. Viés: neutro. Ideias óbvias a excluir: as que servem para qualquer tema.</li><li>O que me faria mudar de ideia: evidência de que a adoção já passou da maioria inicial (Rogers) ou de que a tecnologia não rompe nada (só melhora o que existe).</li><li>Profundidade: três ordens. Modo: a partir de uma inovação/tema, não de um setor.</li><li>Zona de interesse do autor: "Criação e plataforma". Login do autor: jcsc. Skill usada: futurizacao-jcsc.</li></ul>
+<p>Condição desta execução, registrada porque afeta a validade: <strong>não havia interlocutor humano</strong>. Nenhuma pergunta de esclarecimento pôde ser feita. Onde faltou definição, assumi e declarei — as três assunções que fiz estão listadas em 12.6.</p>
+<h3 id="12-2-a-rodada-completa-de-buscas-com-o-que-cada-uma-rendeu">12.2 A rodada completa de buscas, com o que cada uma rendeu</h3>
+<div class="tabela-envolve"><table><thead><tr><th>#</th><th>Consulta</th><th>Rendeu</th><th>Uso</th></tr></thead><tbody><tr><td>1</td><td><code>WebGPU Safari Firefox shipped 2026 browser support status</code></td><td>O wiki gpuweb e três blogs de SEO</td><td>Levou a [1]; blogs descartados</td></tr><tr><td>2</td><td><code>WebXR support visionOS Safari Meta Quest Browser 2026 immersive-vr WebXR adoption</code></td><td>Duas matérias <code>vr.org</code> com a afirmação falsa sobre Interop</td><td><strong>Disparou a verificação</strong> que virou seção 8, item 1</td></tr><tr><td>3</td><td><code>Interop 2026 focus areas announced WebXR web-platform-tests</code></td><td>web.dev, README do repo, issue #1021, Igalia</td><td>[4], [5], [6]</td></tr><tr><td>4</td><td><code>three.js WebGPURenderer default 2026 release notes WebGL fallback</code></td><td>Guias de migração; a URL 404</td><td>Afirmação parcialmente verificada; [22], [23]</td></tr><tr><td>5</td><td><code>WebKit blog visionOS 26 Safari WebXR immersive spatial web features</code></td><td>Blogs do WebKit 26.0, 26.2, 27 beta e a categoria Spatial</td><td>[7], [8]</td></tr><tr><td>6</td><td><code>WebNN status 2026 W3C candidate recommendation Chrome implementation</code></td><td>CRD de 13/08/2026, notícia de 22/01/2026, Microsoft Learn</td><td>[17]</td></tr><tr><td>7</td><td><code>Meta Horizon Store WebXR PWA distribution 2026 browser app store fee change</code></td><td>UploadVR, docs da Meta</td><td>[11], [12]. <strong>Nada sobre mudança de taxa em 2026</strong></td></tr><tr><td>8</td><td><code>WebLLM transformers.js WebGPU in-browser LLM 2026 benchmark tokens per second</code></td><td>O artigo do WebLLM e cinco sites com números conflitantes</td><td>[14], [15]; conflitos na seção 8, item 3</td></tr><tr><td>9</td><td><code>PlayCanvas SuperSplat gaussian splatting browser 2026 engine WebGPU release</code></td><td>Blog do PlayCanvas, radiancefields</td><td>[13]</td></tr><tr><td>10</td><td><code>Apple Safari WebXR augmented reality module not supported 2026 immersive-ar</code></td><td>Quatro threads do fórum da Apple</td><td>[21]</td></tr><tr><td>11</td><td><code>App Store Google Play commission 2026 DMA Epic ruling external payments</code></td><td>Blogs de monetização; levou à ajuda do Google</td><td>[20]; números da Apple descartados</td></tr><tr><td>12</td><td><code>Brasil 2026 smartphone entrada Android baixo custo participação mercado GPU conectividade</code></td><td><strong>Quase nada útil</strong> — guias de compra de celular</td><td>Descartada inteira; substituída pela nº 13</td></tr><tr><td>13</td><td><code>Cetic.br TIC Domicílios 2025 acesso internet exclusivamente celular classes DE Brasil</code></td><td>Abranet, MobileTime, o PDF do Cetic</td><td>[18], [24]</td></tr><tr><td>14</td><td><code>Android XR Samsung Galaxy XR browser WebXR Chrome support 2026</code></td><td>Docs do Android, Wikipedia, <code>vr.org</code> de novo</td><td>[10]</td></tr><tr><td>15</td><td><code>"model element" HTML Apple proposal standardization W3C immersive-web 2026 criticism</code></td><td>Spec do ICG, issues #1 e #50, CSS-Tricks, WWDC26</td><td>[9]; as críticas de renderização consistente</td></tr><tr><td>16</td><td><code>WebGPU security vulnerabilities GPU driver attack surface fingerprinting 2026 browser</code></td><td>WebGPU-SPY (ACM e arXiv), LockedApart, um estudo de medição de privacidade</td><td>[16]</td></tr><tr><td>17</td><td><code>"Gestalt Village" browser WebGPU LLM in-browser no network request github</code></td><td><strong>Nada.</strong> Três reformulações; retorno: um jogo e repositórios homônimos</td><td>Seção 8, item 2</td></tr><tr><td>18</td><td><code>browser game discovery problem no app store traffic acquisition 2026 web games Poki CrazyGames</code></td><td>MCV/DEVELOP e guias</td><td>[19]</td></tr></tbody></table></div>
+<p><strong>A busca que não deu em nada e a ausência que mais pesa.</strong> Nenhuma consulta produziu <strong>dado de uso real de WebXR</strong> — sessões abertas por mês, aparelhos ativos, retenção. Existe farta evidência de capacidade e nenhuma de utilização. Tentei por três caminhos (adoção, telemetria de navegador, números de loja) e não achei. Está registrado como a maior lacuna do documento na seção 7, e é o que torna o wildcard W6 — o padrão perfeito sem público — impossível de refutar com o que tenho.</p>
+<h3 id="12-3-o-log-completo-dos-rebaixamentos-de-confianca-etapa-4">12.3 O log completo dos rebaixamentos de confiança (Etapa 4)</h3>
+<p>Ordem em que a Etapa 4 correu, com as três perguntas aplicadas efeito a efeito. Dez efeitos de primeira ordem foram gerados; <strong>cinco nasceram em <code>alta</code></strong> e os cinco foram rebaixados. Um de segunda ordem foi rebaixado de <code>media</code> para <code>baixa</code>. Nenhum foi elevado.</p>
+<pre><code class="lang-">e1   alta  -&gt; media   [extrapolação linear + força contrária: empate em 1M gaussianos]
+e2   alta  -&gt; media   [descreve presente documentado, não futuro]
+e4   alta  -&gt; media   [já é presente; e o movimento observado vai no sentido inverso]
+e5.1 alta  -&gt; media   [ignorou Interop e pressão regulatória como forças contrárias]
+e6   alta  -&gt; media   [fato presente sólido; projeção de 4 anos não é dado]
+e3.1 media -&gt; baixa   [assume reação de navegador sem precedente: nem Spectre, nem WebGL]
+
+Distribuição final, conferida por script:
+  1a ordem: 10 efeitos — 10 media,  0 alta, 0 baixa
+  2a ordem: 20 efeitos — 16 media,  4 baixa, 0 alta
+  3a ordem: 26 efeitos — 11 media, 15 baixa, 0 alta
+  Total: 56 efeitos. Nenhum em &#x27;alta&#x27; na roda inteira.
+
+Checagem de horizonte (a falha registrada em DUVIDAS.md):
+  56 valores de prazo conferidos contra horizonte: 2031
+  máximo encontrado: 2031 — nenhum excede
+  3a ordem por prazo: 2031 -&gt; 21 efeitos; 2030 -&gt; 5 efeitos</code></pre>
+<p>O fato de <strong>nenhum</strong> efeito ter restado em <code>alta</code> foi o achado da Etapa 4, e não estava previsto. Ele é a razão de <code>confianca: media</code> no frontmatter e está interpretado na seção 7.</p>
+<h3 id="12-4-efeitos-gerados-e-cortados-antes-do-bloco-final">12.4 Efeitos gerados e cortados antes do bloco final</h3>
+<p>Cortados por serem genéricos — servem a qualquer tema desta disciplina, e o briefing pediu para excluir exatamente isso:</p>
+<ul><li>"Surgem novas profissões na interseção entre design e engenharia." (serve para os 19 temas)</li><li>"As ferramentas se tornam mais acessíveis e a barreira de entrada cai." (serve para qualquer tema, e neste é provavelmente falso: <code>e2.2</code> e <code>e6.1.1</code> apontam custo subindo)</li><li>"A IA acelera a produção de conteúdo 3D." (é o tema 14, não este)</li><li>"Empresas precisarão se adaptar ou perder relevância."</li></ul>
+<p>Cortados por serem execução, não efeito: "engines publicam changelog de WebGPU"; "navegadores atualizam tabela de compatibilidade".</p>
+<p>Cortados por pertencerem a tema vizinho, conforme a fronteira declarada no enunciado: tudo sobre <strong>captura</strong> de gaussianos (tema 10) e tudo sobre IA local fora do navegador (tema 16). O ramo D3 foi mantido estritamente dentro da porta do navegador.</p>
+<p>Cortado por não ter como sustentar: "o navegador substitui o sistema operacional como camada de aplicação em XR". É a pergunta de terceira ordem que o próprio enunciado levanta, e é a mais interessante do tema — mas eu não tenho evidência nenhuma sobre ela, e escrevê-la como efeito datado seria inventar. Fica aqui, nomeada e sem data, como o que este mapa não alcança.</p>
+<p>Cortado por exceder o horizonte: um quarto nível em dois ramos (<code>e8.2.1</code> → direito de hardware como pauta de acessibilidade; <code>e4.2.1</code> → legitimidade sobre o que se pode ver no próprio campo de visão). Mencionados em prosa na seção 5, como a skill manda, em vez de gerados no YAML.</p>
+<h3 id="12-5-os-numeros-que-brigaram-entre-si">12.5 Os números que brigaram entre si</h3>
+<p>Registro de todas as cifras conflitantes encontradas para a mesma grandeza, porque a divergência é o dado:</p>
+<div class="tabela-envolve"><table><thead><tr><th>Grandeza</th><th>Cifras encontradas</th><th>O que usei, e por quê</th></tr></thead><tbody><tr><td>Cobertura global de WebGPU</td><td>70% (<code>byteiota</code>), ~85% (PlayCanvas [13]), 87,35% (caniuse [2]), ~95% (guia de migração three.js)</td><td><strong>87,35% e ~85%.</strong> As duas concordam e uma delas publica metodologia. 70% e 95% descartados.</td></tr><tr><td>Perda de performance de LLM no navegador contra nativo</td><td>71-80% retidos (WebLLM, revisado [15]); "5-10× mais lento", 15-25 t/s contra 150 t/s (<code>9bench</code>)</td><td><strong>71-80%.</strong> Único com aparelho, quantização e versão de navegador declarados. Pode ser que ambos estejam certos medindo pilhas diferentes; não pude verificar.</td></tr><tr><td>Ganho de WebGPU sobre WebGL 2</td><td>"15×" (<code>byteiota</code>); 1× a 5,7× dependendo da contagem de primitivas (PlayCanvas [13])</td><td><strong>1× a 5,7×,</strong> com o intervalo inteiro. O limite inferior — o empate — é o número que mudou minha leitura de D1.</td></tr><tr><td>Comissão de loja</td><td>30% (senso comum); 10%+5% a 25%+5%, e 15-20% em link externo (Google [20]); 26%/21%/15%/5% para a Apple (terceiros)</td><td><strong>Só os do Google.</strong> A página da Apple que abri não declara taxa [25].</td></tr><tr><td>Status do WebXR no Interop 2026</td><td>"é área de foco" (<code>vr.org</code>); ausente da lista oficial ([4], [5]); issue fechada como "Done" ([6])</td><td><strong>Ausente.</strong> Proposto, não selecionado.</td></tr></tbody></table></div>
+<h3 id="12-6-assuncoes-feitas-por-falta-de-interlocutor">12.6 Assunções feitas por falta de interlocutor</h3>
+<p>Três, todas declaradas conforme o briefing manda:</p>
+<ol><li><strong>"Quem projeta mídia e interação" inclui quem decide escopo e orçamento</strong>, não só quem executa. Foi por isso que mantive os efeitos de custo (<code>e2.2</code>, <code>e6.1.1</code>, <code>e10.2.1</code>) com peso igual aos efeitos de capacidade. Se o público fosse só de execução, esses ramos seriam secundários.</li><li><strong>"Nota sobre o Brasil" significa uma nota integrada aos efeitos, não um apêndice.</strong> Por isso <code>e8.1.1</code> está dentro da roda, e não numa seção separada. A alternativa — parágrafo isolado ao final — deixaria o dado brasileiro fora do que a máquina lê para gerar o infográfico.</li><li><strong>"Neutro" significa dar peso igual à evidência favorável e à contrária, não buscar meio-termo entre elas.</strong> Consequência prática: quatro dos dez efeitos de primeira ordem (<code>e3</code>, <code>e5</code>, <code>e6</code> e <code>e10</code>) são desfavoráveis à tese do enunciado. Um mapa "neutro" lido como meio-termo teria dois.</li></ol>
+<h3 id="12-7-o-que-ficaria-para-uma-segunda-rodada">12.7 O que ficaria para uma segunda rodada</h3>
+<p>Em ordem de valor, não de esforço:</p>
+<ol><li><strong>Medição de uso, não de capacidade.</strong> Toda a seção 3 é sobre o que é possível. Nada é sobre o que acontece. Sem isso, W6 é irrefutável e D2 fica sem chão empírico.</li><li><strong>Um número honesto de inferência em navegador em aparelho de entrada.</strong> Os 41 tok/s do WebLLM são de um M3 Max [15]. O que a disciplina precisa é o número num aparelho de R$ 900 — e é exatamente o que o experimento da seção 10 mediria.</li><li><strong>O relatório primário da TIC Domicílios</strong>, em vez da cobertura [18], com a desagregação por capacidade de aparelho se ela existir.</li><li><strong>A trilha do <code>&lt;model&gt;</code></strong>: verificar se há segunda implementação anunciada e em que estado estão as issues de renderização consistente. Enquanto for um fornecedor, D4 é recurso de plataforma e não capacidade da web — e essa distinção decide os ramos <code>e9</code> e <code>e10</code>.</li><li><strong>Conferir se o WebXR entra no Interop 2027.</strong> É o indicador mais baixo em custo e mais alto em sinal deste mapa inteiro: uma linha numa lista pública, uma vez por ano, que separa o cenário provável do indesejável.</li></ol></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>
