@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Captura de realidade e renderização neural · futurizacao-bvga (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 10 · futurizacao-bvga (aluno)</p><h1>Captura de realidade e renderização neural</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/bvga/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/bvga/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h3 id="d1-o-campo-de-radiancia-vira-formato-de-ativo-interoperavel">D1 — O campo de radiância vira formato de ativo interoperável</h3>
+<ul><li><code>candidato</code>: splat gaussiano como ativo de primeira classe dentro do glTF, editável no navegador e transportável entre engines, visualizadores e pipelines geoespaciais.</li><li><code>maturidade</code>: <strong>emergente</strong>. O render é maduro; o <em>formato</em> está em release candidate, sem compressão no baseline, sem suporte nativo de engine [2][3][11].</li><li><code>potencial_de_ruptura</code>: <strong>alto</strong>. Altera a cadeia de valor (originar cenário deixa de ser modelar), quem pode produzir (barreira cai para celular + navegador), a arquitetura de produto (cena capturada trafega como qualquer glTF) e a distribuição de poder (quem controla compressão e catálogo controla o tráfego).</li><li><code>o_que_rompe</code>: rompe o pressuposto de que ambiente 3D utilizável nasce de trabalho autoral especializado, e rompe o isolamento de cada capturador no seu próprio aplicativo.</li><li><code>por_que_agora</code>: RC publicado em 03/02/2026 com ratificação prevista para Q2/2026 e sete empresas relevantes assinando [2]; editor aberto e web já em uso [17]; consórcio geoespacial (OGC) empurrando por um problema técnico real de representação [3].</li><li><code>o_que_falta</code>: ratificação efetiva; <strong>uma</strong> compressão vencedora em vez de duas concorrentes; relighting e física utilizáveis [11][12]; suporte nativo em engine.</li><li><code>evidencias</code>: [1][2][3][11][12][17].</li><li><code>veredito</code>: <strong>aceita</strong>.</li></ul>
+<h3 id="d2-reconstrucao-a-partir-de-uma-imagem-so-o-3d-deixa-de-exigir-o-objeto">D2 — Reconstrução a partir de uma imagem só: o 3D deixa de exigir o objeto</h3>
+<ul><li><code>candidato</code>: geração de ativo 3D texturizado, com material PBR ou como código procedural, a partir de uma referência visual única.</li><li><code>maturidade</code>: <strong>emergente, com perna experimental</strong>. Modelos abertos existem e rodam [6][18]; a saída como código versionável é protótipo com tração de comunidade, não produto [14].</li><li><code>potencial_de_ruptura</code>: <strong>alto</strong>. Muda quem produz, o custo marginal do ativo (tende a zero), o papel do modelador e — o ponto menos discutido — a <strong>relação indexical</strong>: parte da geometria entregue nunca foi observada.</li><li><code>o_que_rompe</code>: rompe o vínculo entre ter o objeto e ter o ativo; e rompe a presunção, herdada da fotogrametria, de que um modelo 3D é registro de algo que existiu daquele jeito.</li><li><code>por_que_agora</code>: profundidade monocular robusta e 10× mais rápida que difusão [18]; geração aberta com PBR em um único passo [6]; reconstrução-como-código com 15,8 mil estrelas e licença permissiva [14].</li><li><code>o_que_falta</code>: fidelidade verificável (o próprio <code>img2threejs</code> admite espelhar o lado invisível [14]); avaliação independente — os benchmarks disponíveis são majoritariamente dos proponentes; e regime jurídico para geometria inventada que se parece com produto real de terceiro.</li><li><code>evidencias</code>: [6][14][18].</li><li><code>veredito</code>: <strong>aceita</strong>.</li></ul>
+<h3 id="d3-a-pessoa-capturavel-sem-marcador-e-sem-estudio">D3 — A pessoa capturável sem marcador e sem estúdio</h3>
+<ul><li><code>candidato</code>: aparência e movimento humanos reconstruídos a partir de câmera comum, em qualidade utilizável, sem marcador e sem cooperação necessária do capturado.</li><li><code>maturidade</code>: <strong>emergente</strong>. Há validação publicada contra padrão-ouro com erro conhecido e limite declarado [9]; não há prática consolidada nem regra.</li><li><code>potencial_de_ruptura</code>: <strong>alto</strong>. Altera normas sociais e privacidade, a cadeia de produção de animação e performance, e a distribuição de poder entre quem aparece e quem captura.</li><li><code>o_que_rompe</code>: rompe a equivalência "foto não é biometria" que sustenta boa parte da legislação atual, e rompe o contrato implícito de que ser visto em público não é ser reconstruído.</li><li><code>por_que_agora</code>: validação clínica de pose monocular publicada com n=51 e 669 ensaios [9]; litígio real em curso — Kilcher v. Cameron, maio de 2026, alegando extração de traços faciais e uso não autorizado de dado biométrico em personagem digital [16]; e um regulador brasileiro que abriu consulta sobre biometria sem ainda cobrir reconstrução 3D [5].</li><li><code>o_que_falta</code>: decisão judicial que trate um ativo volumétrico de pessoa como dado biométrico (e não como fotografia); mecanismo técnico de consentimento embutido no arquivo; qualidade rotacional ainda pior que a posicional nos sistemas monoculares [9].</li><li><code>evidencias</code>: [5][9][16].</li><li><code>veredito</code>: <strong>aceita</strong>.</li></ul>
+<hr>
+<p><strong>Rebaixados explicitamente.</strong> Fotogrametria e escaneamento a laser: <strong>antecedentes maduros</strong>. Matterport/CoStar: <strong>maduro</strong>, e evidência de que o mercado de captura já existe em escala industrial [15] — o que reforça D1 como formato, não como novidade. Renderização de splat em produto de consumo (Apple Maps, Scaniverse): <strong>excluída pela régua da disciplina</strong>, com uma ressalva registrada na seção 8 — a atribuição da técnica ao anúncio da Apple é inferência de terceiros, não declaração oficial [13].</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — O campo de radiância vira formato de ativo interoperável&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;Originar um ambiente 3D utilizável passa a custar horas de captura em campo em vez de semanas de modelagem em estúdio&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;Forma-se um mercado de bibliotecas de lugares capturados, licenciados por cena e por direito de uso, ao lado dos bancos de assets modelados&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Quem controla o catálogo de lugares capturados passa a arbitrar quais partes do mundo são baratas de representar em mídia&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;Produções separam a camada capturada (aparência fixa) da camada autoral (malha, luz, física), e a autoria se desloca para a composição entre as duas&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Crítica e ensino de mídia passam a tratar &#x27;o que foi capturado e o que foi decidido&#x27; como categoria estética explícita&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;Com splats dentro do glTF, distribuir cena capturada deixa de exigir aplicativo proprietário e passa a usar visualizador comum, com degradação para nuvem de pontos&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Plataformas de imóveis, varejo e turismo adotam a cena navegável como unidade padrão de anúncio, no lugar do par foto-mais-vídeo&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;A ausência de cena capturada vira sinal negativo: anúncio sem varredura passa a ser lido como omissão deliberada&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Surgem exigências de proveniência do ativo capturado — quando, com que sensor, sob que autorização — declaradas dentro do próprio arquivo&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;Cena sem proveniência declarada é recusada por plataformas e por peritos em disputa, e a captura passa a precisar provar a data em que ocorreu&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;A mesma varredura passa a servir a dois consumidores distintos: a mídia que a exibe e o modelo espacial que máquinas usam para se localizar&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Quem captura para uso próprio contribui, sem que isso lhe seja evidente, para um modelo agregado do mundo controlado por um terceiro&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Municípios e proprietários passam a reivindicar controle sobre a representação de seus espaços, e a disputa vira &#x27;de quem é a cópia do mundo&#x27;&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: &quot;D2 — Reconstrução a partir de uma imagem só: o 3D deixa de exigir o objeto&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;Produzir um ativo 3D utilizável deixa de depender de acesso ao objeto físico e passa a depender apenas de uma referência visual qualquer&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;O trabalho de 3D se reorganiza em torno de escolher referência, julgar resultado e corrigir erro, e não de construir geometria&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Portfólio de modelador passa a registrar julgamento — o que foi recusado e por quê — em vez de horas de malha entregue&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;Cresce a fatia de ativos cuja geometria foi inventada onde não houve observação, inclusive em reconstruções de objetos e marcas reais&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;Disputas de design e trade dress migram do produto físico para a reconstrução plausível, litigando semelhança e não cópia&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;Reconstrução entregue como código procedural, e não como malha, torna o ativo legível, versionável e comparável por diferença de texto&quot;
+        sinal: fraco
+        prazo: 2029
+        confianca: baixa
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;Equipes passam a versionar cena e objeto em repositório, com revisão por diff, como já fazem com software&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Pipelines de mídia absorvem prática de engenharia — integração contínua e teste de regressão visual — e o artista técnico se aproxima do desenvolvedor&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;D3 — A pessoa capturável sem marcador e sem estúdio&quot;
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: &quot;Registrar movimento e aparência de uma pessoa em qualidade utilizável deixa de exigir estúdio, marcador ou equipe&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;Aparência e movimento de uma pessoa viram ativo licenciável, contratado à parte do trabalho que os originou&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Contratos de trabalho e de imagem passam a discriminar captura como categoria própria, separada de uso e de reprodução&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;Reguladores passam a tratar a reconstrução volumétrica de uma pessoa como dado biométrico sensível, e não como fotografia&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;Plataformas de distribuição de 3D passam a exigir prova de consentimento para cena com pessoa identificável e a recusar o restante&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: &quot;O custo de capturar terceiros sem que percebam cai a quase zero, porque a captura é indistinguível de alguém filmando com o celular&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Espaços com público — loja, escola, consultório, transporte — passam a sinalizar e restringir varredura 3D como hoje restringem filmagem&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;O direito de não ser reconstruído entra no debate público como pauta distinta do direito de imagem&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa</code></pre>
+<p><strong>O que a estrutura não captura bem.</strong> Três coisas.</p>
+<p>Primeiro, a roda <strong>separa o que na prática é um só movimento</strong>. D1, D2 e D3 competem pelo mesmo lugar na cadeia: a origem do ativo. Quando a reconstrução por uma imagem fica boa o bastante, ela <em>concorre</em> com a captura — e o efeito e4 corrói e1, em vez de somar. A árvore não sabe representar substituição entre ramos.</p>
+<p>Segundo, ela não representa <strong>realimentação</strong>. e3.1 alimenta e3: quanto mais gente captura, melhor fica o modelo agregado, o que torna a captura mais útil, o que traz mais gente. É um laço, e a roda só desenha flechas que descem.</p>
+<p>Terceiro, os <strong>prazos são o elemento mais frágil de todo o documento</strong>. Ordem mede distância causal, não data — e a atribuição de anos aqui é uma aposta calibrada em H2/H3, não uma previsão. Onde a confiança está "baixa", leia-se: o mecanismo é plausível e o momento é chute.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinais fracos</strong> — pequenos, localizados ou ambíguos, e por isso mesmo interessantes:</p>
+<ol><li><strong>Reconstrução como programa, não como dado.</strong> O <code>img2threejs</code> devolve uma função TypeScript que monta o objeto a partir de primitivas, com hierarquia de pivôs e soquetes prontos para animação, e não um <code>.glb</code> [14]. Se isso pegar, o ativo 3D entra no regime de código — revisável, diferenciável, testável — e a discussão sobre autoria muda de "quem modelou" para "quem escreveu o gerador". É o sinal que liga este tema ao 14.</li><li><strong>Compressão ficou fora do padrão.</strong> O baseline do <code>KHR_gaussian_splatting</code> não comprime; SPZ e L-GSC concorrem como extensões [2]. A briga real não é pelo formato, é por quem controla a redução de banda — e essa briga ainda está aberta.</li><li><strong>O <em>fallback</em> para nuvem de pontos.</strong> Detalhe técnico com consequência estética: visualizador incompatível mostra a cena degradada em vez de falhar [2]. Isso permite publicar cena capturada como padrão sem esperar o parque de dispositivos.</li><li><strong>Fusão de varreduras de múltiplas pessoas num modelo só.</strong> O Scaniverse permite que vários usuários contribuam com varreduras do mesmo lugar, em tempos e aparelhos diferentes, fundidas na nuvem [4]. É colaboração — e é também agregação de contribuição individual em ativo de terceiro, sem que a página anuncie mecanismo de consentimento.</li><li><strong>Um regulador que nomeia biometria comportamental, mas não volumetria.</strong> A consulta da ANPD lista impressão digital, face, íris, voz, digitação e movimento ocular [5]. Reconstrução 3D de corpo não aparece. A lacuna é o sinal.</li></ol>
+<p><strong>Wildcard 1 (baixa probabilidade, alto impacto).</strong> Uma decisão judicial de alcance amplo declara que <strong>um splat de pessoa identificável é dado biométrico</strong>, não fotografia — com estatuto de dano presumido, como no modelo do BIPA. O gatilho plausível já está em curso: Kilcher v. Cameron alega exatamente extração de traços faciais e uso não autorizado de dado biométrico em personagem digital [16]. Se isso acontecer antes de 2029, e5/e6.2/e7.1 aceleram violentamente, e1 e e2 desaceleram (toda varredura de espaço com público vira passivo jurídico), e o mapa inteiro se reorganiza em torno de <strong>proveniência</strong> em vez de qualidade. É o único evento capaz de inverter a hierarquia de sinais deste documento.</p>
+<p><strong>Wildcard 2.</strong> A ratificação da extensão glTF <strong>falha ou é esvaziada</strong> por duas compressões incompatíveis que dividem o parque de visualizadores. Nesse caso D1 não morre, mas volta a ser o que era: splat preso ao aplicativo. e2 inteiro cai, e1 sobrevive apenas dentro de pipelines fechados, e o poder se concentra em quem já tem a base capturada — a Matterport do mundo dos splats.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p>Assumo aqui o papel de quem quer derrubar a análise acima.</p>
+<p><strong>1. Qual efeito é apenas extrapolação linear?</strong> <code>e2.1</code> — "a cena navegável vira unidade padrão de anúncio". É a história do tour 360º e do vídeo vertical contada de novo. O precedente é ruim para a tese: a Matterport digitalizou 14 milhões de espaços desde 2011 [15] e a foto continua sendo a unidade de anúncio em praticamente todo lugar. Mantive o efeito, mas com confiança <strong>média</strong> e prazo empurrado para 2030, e <code>e2.1.1</code> rebaixado a fraco/baixa.</p>
+<p><strong>2. Qual efeito assume adoção rápida demais?</strong> <code>e1</code>. A minuta original marcava 2027 e confiança alta. O caso histórico contraria: fotogrametria ficou quinze anos disponível sem deslocar a modelagem autoral, porque o gargalo nunca foi capturar — foi <strong>limpar, otimizar, iluminar e integrar</strong> o que se capturou. Os limites de hoje são os mesmos: sem geometria editável, sem participação em iluminação global, sem física, com arquivos acima de 1 GB [11], e com relighting ainda em regime de artigo [12]. <strong>Correção aplicada:</strong> <code>e1</code> foi de 2027/alta para 2028/média.</p>
+<p><strong>3. Qual disrupção-raiz pode simplesmente não acontecer?</strong> D2, na forma forte. Que modelos gerem malha bonita a partir de uma imagem está demonstrado [6]; que isso entre em produção não está. O dado mais duro do documento vai contra: 52% dos profissionais de jogos veem impacto negativo da IA generativa, a rejeição é máxima entre artistas visuais (64%), e o uso real se concentra em pesquisa e código — <strong>não em asset final</strong> [12]. Se a resistência profissional e as regras de procedência de conteúdo segurarem, D2 vira ferramenta de rascunho, e4.1 perde força e e4.2 vira nicho.</p>
+<p><strong>4. O que quebra na roda se D2 falhar?</strong> Todo o ramo e4/e5 e seus seis descendentes — 8 dos 29 efeitos. D1 e D3 sobrevivem intactos, porque dependem de sensor e de direito, não de geração.</p>
+<p><strong>5. Que contrassinais existem?</strong></p>
+<ul><li>Nenhuma engine tem suporte nativo; tudo passa por plugin de terceiro [11].</li><li>Compressão fora do baseline do padrão [2], o que é sinal de que não houve acordo.</li><li>O uso mais citado do próprio anúncio da Niantic é <strong>máquina</strong>, não mídia: modelos "que máquinas possam entender" para robôs e drones [4]. Se o consumidor final do splat for o robô, quase toda a metade estética desta roda perde relevância.</li><li>A validação de mocap monocular é explícita em dizer que <strong>não substitui</strong> multicâmera [9].</li><li>A fonte brasileira mais próxima é de 2019 e conclui a favor de fotogrametria pela curva de aprendizado [10]: no recorte de custo baixo, a técnica madura ganhou.</li></ul>
+<p><strong>6. Que barreiras foram subestimadas?</strong> Três. (a) <strong>Armazenamento e banda</strong> — cena de mais de 1 GB [11] é incompatível com anúncio em rede móvel brasileira sem a compressão que ainda não foi ratificada. (b) <strong>Iluminação</strong> — cena capturada carrega a luz do momento da captura; separar isso é problema mal-posto [12], e sem isso não se compõe capturado com autoral. (c) <strong>Trabalho</strong> — a rejeição medida no GDC [12] é barreira cultural real, não ruído; mudanças de pipeline passam por quem opera o pipeline.</p>
+<p><strong>7. Quem tem incentivo para bloquear, capturar ou redirecionar?</strong> Bloquear: sindicatos e associações de artistas, e proprietários de espaços com público. <strong>Capturar</strong>: os detentores de base já formada — Matterport/CoStar no imobiliário [15], Niantic Spatial no espaço geolocalizado [4] — para quem o padrão aberto é ótimo desde que a compressão e o catálogo sejam deles. Redirecionar: fabricantes de dispositivo, que preferem splat como recurso do sistema (render bonito no mapa) a splat como ativo exportável.</p>
+<p><strong>8. Qual viés entrou aqui?</strong> Três, declarados. (a) <strong>Viés de fonte técnica</strong>: as evidências fortes são de graphics e vision; as de adoção são corporativas ou de blog de integradora, e uma delas [11] é de empresa parceira de engine, portanto interessada — usei-a só para limitações operacionais, e triangulei com literatura [12]. (b) <strong>Viés do tema</strong>: a descrição da disciplina já sugeria as perguntas sobre privacidade e sobre a profissão de modelador; parte de D3 nasceu dessa moldura, e não de varredura independente. (c) <strong>Viés de disponibilidade linguística</strong>: busquei em português e inglês; ausência de caso brasileiro pode ser ausência de indexação, não ausência de prática.</p>
+<p><strong>Efeitos cortados nesta revisão</strong>, com motivo, preservados na seção 12: "escolas de arte 3D reduzem currículo de modelagem", "seguradoras exigem varredura em sinistro", "museus substituem visita presencial por navegação" e "o fotorrealismo vira padrão estético por inércia". Os quatro falharam no teste de mecanismo ou eram genéricos a ponto de servir a qualquer tema.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Erros efetivamente detectados durante o processo, não hipotéticos.</p>
+<ol><li><strong>Número sem origem, corrigido contra a fonte primária.</strong> Um resultado de busca afirmou que a Tomada de Subsídios da ANPD correu de 2 de junho a 2 de julho de 2025 e recebeu "mais de 1.500 contribuições". A página oficial do Participa + Brasil registra 2 de junho a <strong>1º de agosto de 2025</strong> e <strong>84 contribuições</strong> [5]. Prevaleceu a fonte oficial. O número inflado, se aceito, teria sustentado uma tese falsa sobre mobilização social em torno de biometria no Brasil.</li><li><strong>Inferência de terceiros apresentada como anúncio.</strong> Várias fontes secundárias afirmam que a Apple "levou Gaussian Splatting ao Apple Maps" no WWDC 2026. A fonte especializada é explícita: <em>"Apple did not say Gaussian Splatting by name"</em> — a atribuição é inferência a partir de contratações e de recursos anteriores [13]. Corrigido: tratado como sinal de mercado, nunca como evidência de capacidade técnica, e o número "mais de 300 cidades e marcos" é descrição do alcance atual do Flyover, não promessa de cobertura em splats.</li><li><strong>Produto anunciado tratado como validação.</strong> A primeira busca sobre mocap sem marcador foi atrás de validação publicada da <strong>Move.ai</strong>, citada na descrição do tema. Nenhuma foi encontrada nas buscas feitas. Em vez de citar o produto como se houvesse evidência, o mapa se apoia num estudo revisado por pares sobre MeTRAbs, com n, protocolo e erro declarados [9]. Nome de produto não é evidência.</li><li><strong>Alegação de fornecedor no título de um artigo.</strong> "Production-Ready PBR Material" está no <strong>título</strong> do paper do Hunyuan3D 2.1, escrito pelos próprios proponentes [6]. Sinalizado no texto; não usado como prova de prontidão para produção.</li><li><strong>Risco de excesso de classificação, no mesmo padrão que o <code>DUVIDAS.md</code> do autor descreve.</strong> A minuta inicial classificava o splat como "maduro para ambientes estáticos", apoiada em disponibilidade comercial e em existência de editor aberto. Disponibilidade e padronização <strong>não são</strong> evidência de maturidade operacional. A classificação foi corrigida para emergente, com a razão explícita: falta relighting utilizável, física, edição de geometria e suporte nativo em engine [11][12].</li><li><strong>Busca sem resultado que quase virou afirmação.</strong> Procurei projeto brasileiro de captura neural em patrimônio ou mídia e não achei. A tentação era usar a fonte de 2019 da UFRGS [10] como se falasse de splats — ela fala de fotogrametria e laser. Registrado como lacuna na seção 3 e na 12.</li></ol>
+<p>Nenhuma fonte citada nesta análise foi gerada sem abertura: as 18 da seção 11 foram efetivamente carregadas, e as afirmações atribuídas a elas vieram da leitura, não da memória.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-o-splat-virou-formato-e-o-formato-virou-infraestrutura-de-outra-coisa">Provável — o splat virou formato, e o formato virou infraestrutura de outra coisa</h3>
+<p>A extensão foi ratificada em 2026 e, depois de dois anos de briga, uma compressão se impôs de fato. Cena capturada trafega em visualizador comum e aparece com naturalidade em anúncio de imóvel, catálogo de varejo e material institucional. Mas o grande consumidor não é a mídia: é máquina. Varredura de celular alimenta os modelos espaciais que sustentam localização de robôs, drones e entrega — que era o uso declarado desde o começo [4]. Modelagem autoral não acabou; virou a camada que se põe <strong>por cima</strong> do capturado, porque o capturado continua sendo aparência sem geometria editável e com a luz do dia em que foi feito. O modelador não sumiu: mudou de função, de construir para compor e corrigir. Regulação avançou pouco e por fora: na Europa, por lei de imagem; no Brasil, por orientação da ANPD sobre biometria que menciona reconstrução volumétrica de passagem. Captura de terceiros em espaço público é rotina não discutida.</p>
+<p><em>Mecanismo dominante:</em> padronização técnica puxada por interesse geoespacial e robótico. <em>Ator decisivo:</em> consórcio de padrões e detentores de base. <em>Condição:</em> nenhuma decisão judicial ampla sobre volumetria de pessoas.</p>
+<h3 id="desejavel-a-proveniencia-chegou-junto-com-o-formato">Desejável — a proveniência chegou junto com o formato</h3>
+<p>O mesmo avanço técnico, com uma diferença construída de propósito: <strong>o ativo carrega a sua origem</strong>. Entre 2027 e 2029, a exigência de declarar sensor, data e base de autorização dentro do arquivo — pauta que hoje é sinal fraco (<code>e2.2</code>) — saiu de recomendação para requisito de publicação nas plataformas grandes, na esteira do primeiro litígio relevante sobre aparência capturada. As consequências não foram só defensivas: com proveniência, licenciar um lugar ou uma performance passou a ser operação limpa, e apareceu renda onde antes havia apropriação. Quem aparece numa cena tem meio de pedir remoção que funciona. Escolas passaram a ensinar a distinguir o que foi capturado do que foi inventado, porque o arquivo permite essa pergunta.</p>
+<p><em>O que precisou ser construído:</em> um esquema de metadados aceito por Khronos e OGC; capacidade de auditoria nas plataformas; e, no Brasil, uma resolução da ANPD que nomeasse reconstrução 3D de pessoa como dado biométrico — coisa que a consulta de 2025 não chegou a cobrir [5].</p>
+<h3 id="indesejavel-a-copia-do-mundo-ficou-com-quem-ja-tinha-a-base">Indesejável — a cópia do mundo ficou com quem já tinha a base</h3>
+<p>A ratificação saiu, mas a compressão fragmentou. Na prática, cena capturada só circula bem dentro de duas ou três plataformas, que são as mesmas que já tinham base acumulada de espaços e de rede de capturadores [4][15]. Captura individual continua fácil — e continua alimentando modelo alheio, porque publicar fora dessas plataformas dá cena pesada e degradada. Pessoas aparecem em varreduras de lojas, escolas e transporte sem qualquer mecanismo de recusa, e a distinção entre observado e inventado se perdeu: parte das cenas tem geometria preenchida por modelo generativo, sem marcação, e ninguém sabe qual parte. Litígio existe, mas só alcança quem tem advogado — o caso emblemático envolve uma atriz, não um passante [16]. O efeito sobre a mídia é estético: cenário fotorrealista barato por toda parte e uma monotonia visual que ninguém decidiu.</p>
+<p><em>Sinal precoce que teria antecipado:</em> duas extensões de compressão concorrentes disputando o mesmo baseline em 2026 [2][3], somadas à ausência, no anúncio de plataforma de captura em massa, de qualquer mecanismo de consentimento [4].</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>Nome:</strong> Varredura Cega.</p>
+<p><strong>O que é.</strong> Uma sessão de campo com duas metades, executável hoje, em uma aula, com celular e navegador.</p>
+<p><em>Metade A — o que entra sem que ninguém decida.</em> Três duplas percorrem um espaço público do campus por 4 minutos cada, capturando o <strong>lugar</strong> com um aplicativo de varredura comum. Nada é combinado com quem passa. O splat resultante é aberto no SuperSplat, no navegador [17], e anotado por uma quarta dupla que nunca esteve no local: quantas pessoas identificáveis entraram na cena; quantos objetos de terceiros (cartaz, tela de notebook, crachá, placa de carro) ficaram legíveis; quanto tempo leva para isolar e exportar uma pessoa como ativo separado.</p>
+<p><em>Metade B — capturado ou inventado.</em> Doze objetos do mesmo espaço são produzidos em duas versões: varredura real e reconstrução a partir de <strong>uma única fotografia</strong> por modelo aberto de imagem-para-3D [6] ou pelo <code>img2threejs</code> [14]. Os 24 ativos são apresentados embaralhados, em tela, a um público de 30 pessoas que não participou da captura. Cada pessoa responde, por ativo: capturado ou inventado, e com que confiança.</p>
+<p><strong>Pergunta de futuro que testa.</strong> Duas, uma por metade. (A) A captura neural se difunde como mídia ambiente ou trava na exigência de consentimento? A resposta depende de uma quantidade que ninguém mede: <strong>quantos terceiros entram por minuto de varredura casual</strong>. (B) A distinção entre o que foi observado e o que foi inventado sobrevive à percepção comum — ou já acabou?</p>
+<p><strong>Tecnologia emergente usada.</strong> Splat gaussiano editável no navegador [17]; reconstrução monocular por modelo aberto [6][14]; profundidade monocular como controle [18].</p>
+<p><strong>Por que uma solução madura não responderia.</strong> Fotogrametria clássica responderia à metade B pela metade e à metade A de jeito nenhum: ela exige dezenas de fotos deliberadas, tempo parado e enquadramento controlado — o que torna a captura <strong>visível e negociável</strong>. O objeto do experimento é justamente a captura que não se anuncia, e essa condição só existe quando a varredura é indistinguível de alguém mexendo no celular. E nenhuma técnica madura produz geometria inventada onde não houve observação, que é o que a metade B testa.</p>
+<p><strong>O que os participantes fazem.</strong> Capturam (4 min), anotam cena alheia (20 min), julgam 24 ativos (15 min), e discutem os próprios resultados antes de ver a agregação.</p>
+<p><strong>Métrica / observação.</strong></p>
+<ul><li>A1: terceiros identificáveis por minuto de varredura (contagem, com definição de "identificável" fixada antes).</li><li>A2: tempo até isolar e exportar uma pessoa a partir da cena (minutos).</li><li>B1: taxa de acerto na discriminação capturado × inventado, contra a linha de base de 50%.</li><li>B2: calibração — a confiança declarada acompanha o acerto, ou as pessoas erram com convicção?</li></ul>
+<p><strong>Qual resultado me faria mudar de ideia.</strong> Se B1 ficar <strong>acima de 80%</strong> com boa calibração, a tese de que o inventado se confunde com o capturado enfraquece muito, e <code>e4.2</code>, <code>e4.2.1</code> e boa parte do cenário indesejável precisam ser rebaixados — a percepção humana seria, ela mesma, uma barreira. Se A1 ficar <strong>abaixo de 0,5 terceiro por minuto</strong> em espaço movimentado, a urgência de D3 cai: a captura casual pega menos gente do que o mapa supõe, e <code>e7</code>/<code>e7.1</code> viram nicho. Os dois resultados são plausíveis e mensuráveis nesta escala, e qualquer um deles contraria algo que está escrito acima — que é a condição para o experimento valer.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Somente fontes efetivamente abertas e lidas nesta rodada (12/09/2026).</p>
+<ol><li><strong>3D Gaussian Splatting for Real-Time Radiance Field Rendering</strong> — Kerbl, Kopanas, Leimkühler, Drettakis (INRIA/MPI), SIGGRAPH 2023. <code>https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</code> — sustenta o desempenho de ≥100 fps a 1080p sem trade-off com qualidade, base técnica de tudo que vem depois. <em>Primária, revisada por pares: confiabilidade alta.</em></li><li><strong>Khronos Announces glTF Gaussian Splatting Extension</strong> — The Khronos Group, 03/02/2026. <code>https://www.khronos.org/news/press/gltf-gaussian-splatting-press-release</code> — sustenta o status de release candidate da <code>KHR_gaussian_splatting</code>, a ratificação prevista para Q2/2026, o <em>fallback</em> para nuvem de pontos, a ausência de compressão no baseline e a lista de contribuintes. <em>Primária de consórcio, mas interessada em anunciar consenso: alta para status formal, média para relevância de mercado.</em></li><li><strong>OGC, Khronos and Geospatial Leaders Add 3D Gaussian Splats to the glTF Asset Standard</strong> — Open Geospatial Consortium, 11/08/2025. <code>https://www.ogc.org/blog-article/ogc-khronos-and-geospatial-leaders-add-3d-gaussian-splats-to-the-gltf-asset-standard/</code> — sustenta a motivação geoespacial (feições finas e lineares), a existência de duas extensões e o detalhe do SPZ 2.0.0. <em>Primária de consórcio: confiabilidade média-alta.</em></li><li><strong>Mapping the World For Machines with Scaniverse</strong> — Niantic Spatial, 07/04/2026. <code>https://www.nianticspatial.com/en/blog/scaniverse</code> — sustenta a fusão de varreduras de múltiplos usuários, o propósito declarado de servir a máquinas e a ausência de qualquer menção a consentimento. <em>Corporativa e interessada: confiabilidade média; números de escala são auto-declarados e não verificáveis.</em></li><li><strong>Tomada de Subsídios sobre Dados Biométricos</strong> — Autoridade Nacional de Proteção de Dados (ANPD), plataforma Participa + Brasil. <code>https://www.gov.br/participamaisbrasil/ts-dados-biometricos</code> — sustenta as datas da consulta (02/06/2025 a 01/08/2025), as 84 contribuições, o escopo (biometria fisiológica e comportamental, reconhecimento facial, aplicações emergentes) e a ausência de qualquer menção a reconstrução 3D de pessoas ou de espaços. <em>Página oficial de governo: confiabilidade alta.</em></li><li><strong>Hunyuan3D 2.1: From Images to High-Fidelity 3D Assets with Production-Ready PBR Material</strong> — Tencent, arXiv:2506.15442, jun/2025. <code>https://arxiv.org/abs/2506.15442</code> — sustenta a existência de geração aberta de malha com material PBR a partir de imagem. <em>Acadêmica mas de autoria corporativa interessada; "production-ready" é alegação dos autores: confiabilidade média.</em></li><li><strong>4DGCPro: Efficient Hierarchical 4D Gaussian Compression for Progressive Volumetric Streaming</strong> — arXiv:2509.17513, set/2025. <code>https://arxiv.org/abs/2509.17513</code> — sustenta que streaming volumétrico progressivo em dispositivo móvel ainda é problema de pesquisa, sem números públicos no resumo. <em>Acadêmica, pré-publicação: confiabilidade média.</em></li><li><strong>Radiometrically Consistent Gaussian Surfels for Inverse Rendering (RadioGS)</strong> — arXiv:2603.01491, 2026. <code>https://arxiv.org/abs/2603.01491</code> — sustenta que relighting de cena capturada permanece problema mal-posto e ativo, com avanço recente (minutos para relightar, &lt;10 ms de render). <em>Acadêmica, pré-publicação: confiabilidade média.</em></li><li><strong>Validating Single-Camera Pose Estimation Against Multi-Camera Motion Capture for Accessible Biomechanical Assessment</strong> — PMC13229575. <code>https://pmc.ncbi.nlm.nih.gov/articles/PMC13229575/</code> — sustenta os números de erro do mocap monocular (n=51, 669 ensaios, RMSE 5,95 cm, 8,45°–10,98° em joelho, ICC&gt;0,93) e a ressalva de que não substitui multicâmera. <em>Acadêmica revisada: confiabilidade alta, com escopo clínico.</em></li><li><strong>Ferramentas de digitalização 3D faça-você-mesmo na preservação do patrimônio cultural</strong> — UFRGS, Museu Júlio de Castilhos, SciELO, 2019. <code>https://www.scielo.br/j/inter/a/JFxBx6R5srj7PL3Kt3f5ndP/</code> — sustenta o custo (R$ 2.000–3.500) e a conclusão pró-fotogrametria no contexto brasileiro de museu. <em>Acadêmica revisada: alta para o que afirma; datada para o estado atual.</em></li><li><strong>Unreal Engine and Gaussian Splatting: What Production Teams Need to Know in 2026</strong> — Derek Cicero, 4D Pipeline. <code>https://blog.4dpipeline.com/unreal-engine-and-gaussian-splatting-what-production-teams-need-to-know-in-2026</code> — sustenta as limitações operacionais: sem suporte nativo, splats fora do Lumen, sem geometria editável, arquivos acima de 1 GB. <em>Integradora parceira de engine, interessada: confiabilidade baixa; usada só para limitações — onde o viés do autor joga contra o próprio interesse — e triangulada com [12].</em></li><li><strong>GDC 2026 State of the Game Industry</strong> — Game Developers Conference. <code>https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/</code> — sustenta 2.300+ respondentes, 52% de percepção negativa sobre IA generativa (contra 30% e 18% nos dois anos anteriores), 64% entre artistas visuais/técnicos, 36% de uso pessoal e concentração do uso em pesquisa e código. <em>Survey de indústria com amostra autosselecionada: confiabilidade média-alta para sentimento, média para uso.</em></li><li><strong>Apple Maps Flyover Is Getting a Gaussian Splatting Upgrade</strong> — Radiance Fields, 2026. <code>https://radiancefields.com/apple-maps-flyover-is-getting-a-gaussian-splatting-upgrade</code> — sustenta o anúncio do Flyover para o outono de 2026, o alcance de 300+ cidades e marcos, e <strong>explicitamente</strong> que a Apple não nomeou a técnica. <em>Imprensa especializada: confiabilidade média; usada como sinal de mercado e como contraexemplo de atribuição indevida.</em></li><li><strong>img2threejs</strong> — repositório oficial, Apache 2.0. <code>https://github.com/img2threejs/img2threejs</code> — sustenta a saída como código procedural (não malha), a estrutura de animação, a limitação declarada sobre lados ocultos e a tração (15,8 mil estrelas, v2.0.0). <em>Primária de projeto: alta para o que o software faz; estrelas medem popularidade, não qualidade.</em></li><li><strong>CoStar Group Completes Acquisition of Matterport</strong> — Matterport/CoStar, 28/02/2025. <code>https://matterport.com/news/costar-group-completes-acquisition-of-matterport-ushering-in-a-new-era-of-3d</code> — sustenta 14 milhões de espaços, 50 bilhões de pés quadrados, 177 países. <em>Corporativa, números auto-declarados em contexto de fusão: confiabilidade média.</em></li><li><strong>Actress Sues Over AI-Generated Likeness in 'Avatar' Films (Kilcher v. Cameron)</strong> — OECD AI Incidents Monitor, mai/2026. <code>https://oecd.ai/en/incidents/2026-05-06-eb88</code> — sustenta a existência do litígio e as alegações de extração não consentida de traços faciais e uso não autorizado de dado biométrico. <em>Registro secundário de incidentes: confiabilidade média; alegação em processo, não fato julgado.</em></li><li><strong>SuperSplat</strong> — PlayCanvas, MIT. <code>https://github.com/playcanvas/supersplat</code> — sustenta a edição, otimização e publicação de splats no navegador, sem instalação, e o estado do projeto (10 mil estrelas, 748 commits). <em>Primária de projeto: alta.</em></li><li><strong>Depth Anything V2</strong> — arXiv:2406.09414. <code>https://arxiv.org/abs/2406.09414</code> — sustenta profundidade monocular robusta, faixa de 25 M a 1,3 B de parâmetros, mais de 10× mais rápido que equivalentes de difusão, e a ressalva dos autores sobre a baixa diversidade dos conjuntos de teste. <em>Acadêmica: confiabilidade alta.</em></li></ol>
+<p><em>Sobre a numeração:</em> as 18 entradas acima correspondem, uma a uma, às 18 páginas efetivamente abertas nesta rodada. Nenhuma fonte citada no corpo do texto está fora desta lista, e nenhuma entrada desta lista deixou de ser lida.</p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<p><strong>Candidatos gerados e descartados, com motivo.</strong></p>
+<div class="tabela-envolve"><table><thead><tr><th>Candidato</th><th>Maturidade</th><th>Ruptura</th><th>Veredito</th></tr></thead><tbody><tr><td>Fotogrametria clássica</td><td>madura</td><td>média</td><td>Antecedente. Quinze anos disponível sem deslocar modelagem autoral.</td></tr><tr><td>Escaneamento a laser / LiDAR profissional</td><td>madura</td><td>baixa</td><td>Antecedente caro; melhora precisão, não muda quem produz.</td></tr><tr><td>Digital twin imobiliário (Matterport)</td><td>madura</td><td>média</td><td>Antecedente [15]; prova que existe mercado de captura, não que há ruptura.</td></tr><tr><td>Render de splat em app de consumo (Apple Maps, Scaniverse)</td><td>emergindo para massa</td><td>média</td><td><strong>Excluído pela régua da disciplina.</strong> Consumir splat está virando comum; originar não.</td></tr><tr><td>NeRF</td><td>madura como pesquisa</td><td>média</td><td>Habilitadora. Provou a tese em 2020; foi superada em velocidade pelo splat.</td></tr><tr><td>Compressão SPZ / L-GSC</td><td>emergente</td><td>média</td><td>Tecnologia habilitadora, e ponto de controle de poder — virou sinal fraco 2.</td></tr><tr><td>VPS / Large Geospatial Model</td><td>emergente</td><td>alta</td><td>Dobrado em D1 (efeito e3), para não duplicar a mesma cadeia causal.</td></tr><tr><td>Vídeo volumétrico 4D em produção</td><td>experimental</td><td>média</td><td>Rebaixado: depende de rig de 36–60 câmeras; é estúdio caro, não sensor comum [7].</td></tr><tr><td>Relighting de cena capturada</td><td>experimental</td><td>média</td><td>Condição necessária de D1, não disrupção própria [12].</td></tr><tr><td>Avatar codec / persona fotorrealista</td><td>emergente</td><td>alta</td><td>Dobrado em D3; sem fonte primária aberta o bastante nesta rodada.</td></tr><tr><td>Mocap sem marcador multicâmera</td><td>madura para laboratório</td><td>baixa</td><td>Antecedente; o emergente é o <strong>monocular</strong> [9].</td></tr><tr><td>Splat em robótica / navegação</td><td>emergente</td><td>alta</td><td><strong>Fora de escopo:</strong> é o tema 9 da disciplina. Citado só como consumidor concorrente.</td></tr><tr><td>Geração de mundo inteiro por vídeo-modelo</td><td>experimental</td><td>alta</td><td>Fora do recorte: aqui o objeto é transformar realidade em ativo, não inventar realidade.</td></tr><tr><td>Marca d'água / proveniência em splat</td><td>experimental</td><td>média</td><td>Virou efeito e2.2 em vez de raiz: é resposta, não causa.</td></tr><tr><td>Reconstrução como código procedural</td><td>experimental</td><td>média-alta</td><td>Dobrado em D2 (efeito e5) e mantido como sinal fraco 1 [14].</td></tr></tbody></table></div>
+<p><strong>Caminhos causais cortados, com o motivo do corte.</strong></p>
+<ul><li><em>"Escolas de arte 3D reduzem currículo de modelagem"</em> — cortado: serviria a qualquer tema de automação, e o mecanismo pressupõe reação curricular rápida, que não é o histórico do setor.</li><li><em>"Seguradoras passam a exigir varredura 3D em sinistro"</em> — cortado como efeito; sobrevive parcialmente dentro de e2.2.1, onde o mecanismo (prova de data) é explicitável.</li><li><em>"Museus substituem visita presencial por navegação"</em> — cortado: substituição não decorre de disponibilidade; nada na evidência sustenta o mecanismo, e os contraexemplos de duas décadas de tour virtual são muitos.</li><li><em>"Tudo vira fotorrealista por padrão"</em> — pergunta que a disciplina propõe, mantida no cenário indesejável como consequência estética, mas <strong>não</strong> como efeito da roda: não consegui formular mecanismo que não fosse "porque fica fácil".</li><li><em>"Captura substitui totalmente a modelagem"</em> — cortado por contradizer a evidência de limitação: sem geometria editável, física ou luz separável, o capturado precisa do autorado [11][12].</li></ul>
+<p><strong>Buscas sem resultado útil.</strong></p>
+<ul><li>Validação independente e publicada de sistemas comerciais de mocap monocular (Move.ai nomeadamente): nada encontrado. Substituído por [9].</li><li>Projeto brasileiro de captura neural (splat/NeRF) em patrimônio, museu ou universidade, 2025–2026: nada encontrado. Único achado brasileiro relevante é de 2019 e trata de fotogrametria [10].</li><li>Números de adoção de splats em produção de jogos ou cinema (quantidade de títulos, participação em pipeline): não há dado público; só afirmações de blog de fornecedor.</li><li>Decisão judicial concluída que trate ativo volumétrico como dado biométrico: nenhuma. Só litígio em curso [16].</li><li>Cobertura de reconstrução 3D corporal nos documentos da consulta brasileira sobre biometria: ausente [5].</li></ul>
+<p><strong>Contrassinais registrados e não incorporados ao mapa.</strong></p>
+<ul><li>O uso declarado pela própria plataforma de captura em massa é <strong>máquina</strong>, não mídia [4]. Se isso dominar, metade estética deste mapa perde relevância — está no cenário provável, mas não como efeito.</li><li>19% é a fatia de geração de asset entre quem usa IA generativa em jogos, segundo leitura secundária do survey do GDC; <strong>não incorporei</strong> porque não confirmei esse recorte na fonte aberta [12], que reporta pesquisa (81%), tarefas diárias (47%), código (47%) e prototipagem (35%).</li><li>Duas compressões concorrentes num padrão recém-nascido é sinal histórico de fragmentação, não de convergência [2][3].</li></ul>
+<p><strong>Hipóteses alternativas que o mapa não adotou.</strong></p>
+<ul><li><em>Hipótese do canudo:</em> a captura neural não muda a mídia; muda só a logística de vistoria (obra, seguro, imóvel), e o efeito cultural é nulo. Compatível com [15] e com boa parte de [11].</li><li><em>Hipótese da captura de renda:</em> nada estrutural muda; os detentores de base absorvem o padrão aberto e o splat vira feature de assinatura. É o cenário indesejável em forma de tese.</li><li><em>Hipótese do teto perceptual:</em> se as pessoas distinguirem capturado de inventado com facilidade, o problema epistêmico se dissolve e sobra só o problema jurídico. O experimento da seção 10 testa exatamente isso.</li></ul>
+<p><strong>Classificações de maturidade, resumidas.</strong> Maduro: fotogrametria, laser, digital twin imobiliário, mocap multicâmera de estúdio, render de splat em app de consumo. Emergente: splat como formato interoperável, geração de 3D por imagem única, mocap monocular, modelo espacial agregado. Experimental: relighting físico de cena capturada, streaming volumétrico 4D em dispositivo móvel, reconstrução como código procedural.</p>
+<p><strong>Observações que não entraram no mapa.</strong> (a) O detalhe de engenharia mais revelador encontrado foi a correção do SPZ 2.0.0 para codificar quaternions em inteiros de 10 bits por causa de artefatos em splats alongados [3]: precisão rotacional é o gargalo tanto do splat de cena quanto do mocap monocular [9] — pode não ser coincidência, mas não tenho fonte que ligue as duas coisas, e por isso a observação fica aqui e não no corpo. (b) O <code>img2threejs</code> espelhar o lado invisível em vez de adivinhar [14] é uma decisão de projeto com consequência epistemológica: é honestidade embutida no artefato. Nenhuma das ferramentas de splat examinadas faz declaração equivalente sobre o que preencheu.</p></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Máquinas que veem qualquer coisa: visão de vocabulário aberto · futurizacao-bvga (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 11 · futurizacao-bvga (aluno)</p><h1>Máquinas que veem qualquer coisa: visão de vocabulário aberto</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/bvga/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/bvga/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h3 id="r1-o-rotulo-deixa-de-ser-artefato-de-treino-e-vira-consulta-em-tempo-de-execucao">R1 — O rótulo deixa de ser artefato de treino e vira consulta em tempo de execução</h3>
+<div class="tabela-envolve"><table><thead><tr><th>campo</th><th>conteúdo</th></tr></thead><tbody><tr><td><strong>candidato</strong></td><td>Segmentação e detecção promptável por conceito (vocabulário aberto)</td></tr><tr><td><strong>maturidade</strong></td><td>emergente</td></tr><tr><td><strong>potencial_de_ruptura</strong></td><td>alto</td></tr><tr><td><strong>o_que_rompe</strong></td><td>(a) a cadeia de valor da visão: coletar → rotular → treinar → implantar deixa de ser pré-requisito para existir um sistema; (b) quem pode produzir: define-se um detector escrevendo uma frase; (c) a forma dominante de interação com mídia: selecionar deixa de ser traçar e passa a ser nomear; (d) o papel do intermediário: a anotação deixa de ser produção e vira arbitragem</td></tr><tr><td><strong>por_que_agora</strong></td><td>A tarefa foi formalizada e medida (PCS/SA-Co, 2025-2026), o salto é grande contra o baseline (54,1 vs 24,6 cgF1; 48,8 vs 38,5 mask AP em LVIS), o modelo é aberto, e já foi anunciado dentro de produtos de massa da Meta (Edits, Meta AI, Marketplace) e num playground sem exigência técnica</td></tr><tr><td><strong>o_que_falta</strong></td><td>Fechar a distância para o humano (72,8 cgF1) e, sobretudo, resolver a ambiguidade: o próprio artigo trata polissemia, descritores subjetivos, casos de fronteira, oclusão e borrão como limitações declaradas. Falta também vencer o modelo ajustado no domínio estreito — hoje não vence</td></tr><tr><td><strong>evidencias</strong></td><td>arXiv 2511.16719 (primária, alta); ai.meta.com/blog SAM 3.1 (corporativa, média); about.fb.com anúncio (corporativa interessada, média); blog.roboflow.com (terceiro com incentivo em vender ajuste fino, média — e ainda assim declara os limites)</td></tr><tr><td><strong>veredito</strong></td><td><strong>ACEITA como disrupção-raiz</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="r2-o-documento-e-entendido-como-imagem-sem-ocr-como-etapa-separada">R2 — O documento é entendido como imagem, sem OCR como etapa separada</h3>
+<div class="tabela-envolve"><table><thead><tr><th>campo</th><th>conteúdo</th></tr></thead><tbody><tr><td><strong>candidato</strong></td><td>Compreensão de documento sem OCR (OCR-free document understanding)</td></tr><tr><td><strong>maturidade</strong></td><td>emergente, com subcategoria experimental nos casos difíceis</td></tr><tr><td><strong>potencial_de_ruptura</strong></td><td>alto</td></tr><tr><td><strong>o_que_rompe</strong></td><td>(a) arquitetura de produto: some uma etapa inteira do pipeline e com ela o gabarito de campos; (b) papel profissional: digitação e conferência mudam de natureza, não de volume; (c) barreira de acesso: extrair de documento não estruturado deixa de exigir projeto; (d) forma de interação: extração vira pergunta em linguagem</td></tr><tr><td><strong>por_que_agora</strong></td><td>Os modelos multimodais passaram a ser avaliados diretamente em processamento documental de mundo real, e não só em leitura de texto — CC-OCR V2 mede 5 capacidades em 16 subtarefas, 74 cenários, 10 categorias de documento e 32 idiomas, com 17 modelos</td></tr><tr><td><strong>o_que_falta</strong></td><td>Confiabilidade sob condição real de captura. O achado central do CC-OCR V2 é que acurácia agregada parecida esconde padrões de falha fundamentalmente diferentes conforme fatores do documento. Falta ainda ancoragem visual verificável: apontar na imagem de onde saiu cada campo</td></tr><tr><td><strong>evidencias</strong></td><td>arXiv 2605.03903 (acadêmica, alta para a existência da lacuna; não mede adoção)</td></tr><tr><td><strong>veredito</strong></td><td><strong>ACEITA como disrupção-raiz</strong>, com confiança menor que R1 — a evidência sustenta a capacidade e o problema, não a adoção</td></tr></tbody></table></div>
+<hr>
+<h3 id="r3-a-percepcao-aberta-sai-do-datacenter-e-vira-continua-na-borda">R3 — A percepção aberta sai do datacenter e vira contínua na borda</h3>
+<div class="tabela-envolve"><table><thead><tr><th>campo</th><th>conteúdo</th></tr></thead><tbody><tr><td><strong>candidato</strong></td><td>Percepção de vocabulário aberto em tempo real em dispositivo embarcado</td></tr><tr><td><strong>maturidade</strong></td><td>experimental</td></tr><tr><td><strong>potencial_de_ruptura</strong></td><td>alto</td></tr><tr><td><strong>o_que_rompe</strong></td><td>(a) normas sociais e privacidade: o dispositivo passa a procurar, não só a gravar; (b) distribuição de poder: vigiar por atributo fica mais barato do que vigiar por identidade, e cai fora do texto regulatório existente; (c) forma de interação: acessibilidade passa de "descreva isto" para "me avise quando"</td></tr><tr><td><strong>por_que_agora</strong></td><td>Três linhas convergiram e são mensuráveis: NanoOWL + EfficientViT-SAM a 47,51 FPS com 84,64% de mIoU num Jetson AGX Orin (10/2025); SAM 3.1 dobrando o vídeo para 32 FPS com multiplexação de 16 objetos (03/2026); e a re-parametrização do vocabulário aberto de volta num caminho YOLO padrão, que permite pagar o custo do vocabulário na autoria e não na inferência. E há óculos com IA em prateleira: o Meta Ray-Ban Display saiu em 30/09/2025 a partir de US$ 799, com até seis horas de bateria em uso misto</td></tr><tr><td><strong>o_que_falta</strong></td><td>O salto de plataforma. As medições que li são numa placa de desenvolvimento, não em silício de óculos; a própria fonte registra falhas catastróficas em FP16. E a autonomia anunciada é de uso misto — nada indica percepção aberta contínua dentro desse envelope</td></tr><tr><td><strong>evidencias</strong></td><td>PMC12583037 (acadêmica, alta, mas em plataforma de desenvolvimento); ai.meta.com/blog SAM 3.1 (corporativa, média); pyimagesearch YOLOE-26 (terceiro técnico, média); about.fb.com Ray-Ban Display (corporativa interessada, média — sustenta preço, data e bateria, não capacidade contínua)</td></tr><tr><td><strong>veredito</strong></td><td><strong>ACEITA como disrupção-raiz</strong>, com a menor confiança das três. É a candidata que o red team mais ataca (seção 7, itens 2 e 3)</td></tr></tbody></table></div>
+<hr>
+<h3 id="rebaixados">Rebaixados</h3>
+<ul><li><strong>DINOv3 e as características visuais sem rótulo</strong> → tecnologia habilitadora. É o que barateia R1, não o que rompe. Já tem licença comercial, usos relatados em produção (WRI, JPL) e família destilada para deploy: é infraestrutura.</li><li><strong>Detecção de vocabulário aberto em tempo real (YOLO-World, YOLOE-26)</strong> → antecedente de R3. A própria documentação recomenda o modelo fechado quando as classes são fixas e a latência aperta; a capacidade se comporta como otimização, não como ruptura autônoma.</li><li><strong>SAM 3D e o "View in Room" do Marketplace</strong> → fora de escopo por decisão do recorte (reconstrução 3D é o tema vizinho).</li></ul>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;R1 — O rótulo deixa de ser artefato de treino e vira consulta em tempo de execução&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;Pipelines de visão passam a ser especificados em texto, e a lista de classes vira parâmetro editável em produção&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;A anotação deixa de ser produção de massa e vira arbitragem de caso difícil e de fronteira conceitual&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Em auditoria de sistema de visão, o objeto de disputa migra do dataset para o prompt, e quem escreveu a frase responde pelo que a máquina viu&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;Ferramentas de mídia passam a oferecer edição por nomeação, e a seleção vira consulta em vez de traçado&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: alta
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;A perícia em seleção precisa perde valor de mercado e o valor migra para decidir o que selecionar e por quê&quot;
+                sinal: medio
+                prazo: 2031
+                confianca: media
+          - id: e1.3
+            ordem: 2
+            efeito: &quot;A ambiguidade lexical vira modo de falha de produto, porque polissemia e descritor subjetivo produzem recortes divergentes sem erro visível na tela&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.3.1
+                ordem: 3
+                efeito: &quot;Surgem vocabulários controlados de domínio, versionados como esquema de banco, para que o mesmo prompt signifique a mesma coisa entre equipes&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;O custo de começar um sistema de visão cai para perto de zero e a barreira migra de ter dados rotulados para saber nomear o que importa&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Equipes pequenas e não especialistas passam a produzir visão de nicho sem ciclo de coleta, ainda que com precisão pior que a de um modelo ajustado&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;A vantagem competitiva em visão deixa de ser o dataset proprietário e passa a ser o acesso às câmeras e o direito de olhar&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;R2 — O documento é entendido como imagem, sem OCR como etapa separada&quot;
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: &quot;A extração de dados de documento passa a ser formulada como pergunta em linguagem, não como gabarito de campos e coordenadas&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;O formulário deixa de ser desenhado em torno do que a máquina consegue ler e passa a ser desenhado em torno do que a pessoa consegue responder&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Interfaces de coleta voltam a aceitar entrada livre — foto, rascunho, áudio transcrito — porque a estruturação acontece depois da captura&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;A conferência humana se desloca de ler tudo para auditar amostra e exceção, e o erro muda de forma: em vez de caractere trocado, valor plausível inventado&quot;
+            sinal: forte
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;Setores regulados passam a exigir que o sistema aponte a região da imagem que sustenta cada campo extraído, e a ancoragem visual vira requisito de conformidade&quot;
+                sinal: medio
+                prazo: 2032
+                confianca: media
+      - id: e4
+        ordem: 1
+        efeito: &quot;A tela passa a ser lida como documento, e agentes operam interfaces por pixel onde não existe API&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;O design de interface ganha um segundo público, o agente que a lê, e legibilidade por máquina vira critério de projeto ao lado de acessibilidade&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Produtos passam a publicar affordances legíveis por agente — rótulos estáveis, estados explícitos, alvos de clique nomeados — como hoje publicam conformidade de acessibilidade&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: &quot;R3 — A percepção aberta sai do datacenter e vira contínua na borda&quot;
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: &quot;O campo de visão de um dispositivo vestível vira um fluxo consultável por conceito, em vez de uma gravação a ser revista depois&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;Acessibilidade deixa de ser descreva esta foto e vira me avise quando, com a descrição disparada por condição e não por pedido&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;A norma de consentimento em espaço público se reorganiza em torno do que o dispositivo procura, e não do que ele grava&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: &quot;O custo de vigiar por atributo cai abaixo do custo de vigiar por identidade, porque descrever é mais barato e menos regulado do que reconhecer&quot;
+            sinal: forte
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: &quot;A regulação centrada em reconhecimento facial perde eficácia como instrumento, porque o alvo se desloca do rosto para a descrição&quot;
+                sinal: medio
+                prazo: 2032
+                confianca: media</code></pre>
+<p><strong>O que a estrutura não captura bem.</strong></p>
+<p>A árvore força cada efeito a ter um pai único, e três dos nós aqui têm dois. O <code>e1.3</code> (ambiguidade como modo de falha) é tão filho de R1 quanto de R2: o valor plausível inventado do <code>e3.2</code> é a mesma patologia vista em documento. O <code>e4</code> (tela como documento) é filho de R2 na leitura que adotei, mas seria igualmente defensável pendurá-lo em R1 — reconhecer um botão por descrição é detecção de vocabulário aberto aplicada a pixels de interface. E o <code>e2.1.1</code> (acesso à câmera como vantagem) é o ponto onde R1 e R3 se encontram: só faz sentido se a percepção contínua acontecer.</p>
+<p>A roda também não representa <strong>realimentação</strong>. O caso mais importante: <code>e1.1</code> (anotação vira arbitragem) alimenta de volta a própria R1, porque as máscaras corrigidas por humanos viram dado de ajuste fino — é exatamente o fluxo que a Roboflow descreve e que a Meta referenciou no anúncio. Isso é um ciclo, não uma cadeia, e uma Futures Wheel não sabe desenhar ciclo.</p>
+<p>Por fim, a ordem mede distância causal, não data, e neste mapa isso aparece de forma incômoda: <code>e5.2</code> (vigilância por atributo) é de 2ª ordem e tem sinal forte com prazo 2030, enquanto <code>e5</code> (o fluxo consultável), que é o pai, tem confiança baixa. A leitura correta é que <code>e5.2</code> não depende de óculos — depende apenas de câmera fixa com vocabulário aberto, que já existe. Ou seja: o filho é mais provável que o pai. Isso é um sinal de que a árvore está mal enraizada ali, e está registrado como tal.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinal fraco 1 — a Roboflow como parceira de ajuste fino no anúncio do SAM 3.</strong> A ferramenta de anotação não foi citada como vítima da capacidade que dispensa anotação; foi citada como parceira dela. Se o vocabulário aberto realmente dispensasse rotulagem, essa frase não estaria no anúncio. É pequeno, é ambíguo, e aponta para o <code>e1.1</code>: o trabalho não some, muda de posto — de produzir para corrigir.</p>
+<p><strong>Sinal fraco 2 — a re-parametrização do vocabulário aberto de volta num caminho fechado.</strong> O YOLOE-26 permite que o vocabulário aberto seja "re-parametrizado de volta num caminho YOLO padrão, de modo que não se pague custo extra de inferência". Isso é discreto e muda a arquitetura do futuro: o vocabulário aberto pode acabar não sendo um modo de execução, e sim <strong>um modo de autoria</strong> — usa-se a linguagem para definir o detector, e o que vai para produção é um artefato fechado. Se este sinal vencer, R3 fica muito mais fácil e R1 fica muito menos disruptiva no dia a dia da operação.</p>
+<p><strong>Sinal fraco 3 — o placar público que não acompanha.</strong> A página primária do OSWorld que consultei em 12/09/2026 registra o melhor agente em 12,24% contra 72,36% de humanos, e anota o lançamento do OSWorld 2.0 em 26/06/2026. Fontes secundárias afirmam números dramaticamente maiores para 2026. Não consegui reconciliar (ver seção 8). Ambíguo por natureza — mas o descolamento entre o placar oficial e o discurso é, ele próprio, um sinal sobre como a adoção deste tema será narrada.</p>
+<hr>
+<p><strong>Wildcard 1 — percepção aberta contínua chega ao envelope de um óculos de consumo antes de 2029.</strong> Baixa probabilidade: a medição que li, 47,51 FPS com 84,64% de mIoU, é numa placa de desenvolvimento Jetson AGX Orin de 64 GB, não em silício de armação; e a autonomia anunciada dos óculos em prateleira é de seis horas em <strong>uso misto</strong>, não em processamento contínuo. Alto impacto: se acontecer, <code>e5</code>, <code>e5.1</code> e <code>e5.1.1</code> saltam de confiança baixa para média e antecipam em dois ou três anos, e a pergunta de consentimento deixa de ser sobre gravação e passa a ser sobre busca — o que nenhuma regra existente endereça. Quebraria a parte mais conservadora deste mapa.</p>
+<p><strong>Wildcard 2 — um regulador ou tribunal decide que descrever por atributo é tratamento de dado biométrico.</strong> Baixa probabilidade, porque o Artigo 5 do EU AI Act está redigido em torno de identificação e de categorização por atributo protegido, e "pessoa de camisa vermelha correndo" não é nenhum dos dois. Alto impacto e <strong>na direção contrária</strong> do wildcard 1: mataria <code>e5.2</code> e <code>e5.2.1</code>, que são os efeitos de sinal mais forte de R3. Se ocorrer no Brasil primeiro — plausível, dado que o PL 2338 ainda está aberto na Câmara com 37 apensados e pode incorporar o conceito — o mapa inverte regionalmente: o país com mais câmeras instaladas e menos regra vira o mais restritivo por reação.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Qual efeito é apenas extrapolação linear do presente?</strong> <code>e2</code> ("o custo de começar cai para perto de zero") e <code>e2.1</code>. São a narrativa padrão de barateamento aplicada a mais uma tecnologia — serviriam a qualquer tema e por isso caem na exclusão declarada na entrevista. Mantive <code>e2</code> porque tem mecanismo específico e não genérico: o que cai não é preço, é a <strong>precedência</strong> — não se precisa mais ter o dado antes de ter o sistema. Mas rebaixei tudo abaixo dele e cortei o neto original (ver seção 12).</p>
+<p><strong>2. Qual efeito assume adoção rápida demais?</strong> <code>e5</code> e toda R3. Comparação histórica pertinente: o Google Glass foi anunciado em 2012 e não chegou a consumo; entre a demonstração de uma capacidade vestível e o produto que fica no rosto passaram-se mais de dez anos, e o que chegou em 2025 foi um óculos com display lateral acionado sob demanda e seis horas de bateria em uso misto — precisamente o oposto de percepção contínua. A distância entre 47 FPS numa placa de desenvolvimento e percepção aberta num aro de acetato não é de engenharia incremental. Por isso <code>e5</code> ficou com confiança <strong>baixa</strong>, e não média.</p>
+<p><strong>3. Qual disrupção-raiz pode simplesmente não acontecer?</strong> R3, na forma em que está escrita. Há um caminho inteiramente plausível em que o vocabulário aberto nunca roda continuamente na borda porque <strong>não precisa</strong>: o sinal fraco 2 mostra que a linguagem pode ficar na autoria e o artefato de produção voltar a ser fechado e barato. Nesse mundo, R3 não falha — ela se dissolve, porque a pergunta "o dispositivo entende qualquer coisa?" é substituída por "o dispositivo entende as 40 coisas que alguém nomeou ontem", o que é muito menos disruptivo e muito mais provável.</p>
+<p><strong>4. O que quebra na roda se essa disrupção falhar?</strong> Caem <code>e5</code>, <code>e5.1</code>, <code>e5.1.1</code>. <strong>Não cai</strong> <code>e5.2</code>: vigilância por atributo não precisa de borda nem de óculos — precisa de câmera fixa e GPU no fim do cabo, e São Paulo já tem 20 mil câmeras com biometria instaladas. Esse é o efeito que sobrevive à morte da própria raiz, o que confirma o problema de enraizamento já admitido na seção 5.</p>
+<p><strong>5. Que contrassinais existem?</strong> Três, todos citados na seção 3 e nenhum vindo de crítico: (a) modelos leves ajustados ao domínio ainda superam largamente o vocabulário aberto em canteiro de obras; (b) a própria Roboflow declara perda de precisão, dependência de nomes comuns e custo crescente de inferência por classe adicionada; (c) o CC-OCR V2 encontra padrões de falha fundamentalmente diferentes sob variação de captura entre modelos de acurácia agregada parecida. Acrescento um quarto: SAM 3 está em ~74% do desempenho humano estimado no benchmark dos próprios autores. Em nenhum desses casos a fonte é um cético — são os próprios proponentes e a literatura de avaliação.</p>
+<p><strong>6. Que barreiras foram subestimadas?</strong> Energia e calor em R3, já tratados. E uma barreira econômica pouco discutida: <strong>o custo de inferência cresce com o tamanho do vocabulário</strong>. Um sistema de classes fixas paga um preço constante; um sistema aberto paga por conceito consultado. Isso sozinho pode manter o modelo fechado no ponto quente de produção por toda a janela até 2031, e converte <code>e1</code> num efeito de <strong>camada de autoria</strong>, não de operação. Também subestimei a barreira institucional em <code>e3</code>: setor regulado não troca pipeline auditado por pipeline probabilístico sem exigir o que só aparece em <code>e3.2.1</code> — a ancoragem visual do campo extraído —, e essa exigência pode chegar antes da adoção, travando-a.</p>
+<p><strong>7. Que ator teria incentivo para bloquear, capturar ou redirecionar a mudança?</strong> Captura, não bloqueio, é o cenário provável. Quem tem o modelo aberto, o playground, o app de edição, o marketplace e o óculos é o mesmo ator — a Meta, nas quatro pontas. Abrir o modelo é consistente com capturar a camada acima: o vocabulário aberto vira commodity e o valor migra para quem tem distribuição. E a indústria de anotação não é bloqueadora, é beneficiária: já se reposicionou como parceira de ajuste fino no próprio anúncio da capacidade que supostamente a mataria.</p>
+<p><strong>8. Que viés do pesquisador e do modelo entrou na seleção?</strong> Dois, e o segundo é o grave. <strong>Primeiro, viés de fonte:</strong> quatro das catorze fontes lidas são da Meta ou sobre produtos da Meta, e SAM 3 é o eixo do mapa. Um tema chamado "visão de vocabulário aberto" tem naturalmente um dono narrativo, e eu segui esse dono. Triangulei com a literatura de avaliação (CC-OCR V2, MEP em canteiro, borda no Jetson), mas a assimetria permanece e está declarada. <strong>Segundo, viés do próprio método:</strong> a instrução era descobrir a disrupção, não presumi-la — mas a skill pede de 2 a 4 raízes, e eu entreguei 3. Uma resposta honesta ao critério da seção 2.3 aceitaria R1 sem hesitar, aceitaria R2 com ressalva e trataria R3 como <strong>sinal forte</strong>, não como raiz. Mantive R3 como raiz porque é ali que mora o payload de interação para o público deste mapa — e essa é uma razão de interesse, não de evidência. Fica registrado como a decisão mais contestável do documento.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Erros efetivamente detectados durante a execução, com o que foi feito em cada caso.</p>
+<p><strong>1. Número de LVIS divergente entre busca e artigo.</strong> Os resultados de busca traziam 47,0 de mask AP zero-shot em LVIS para o SAM 3. Ao abrir o HTML do artigo, o valor é <strong>48,8</strong> (contra 38,5 do estado da arte anterior). Usei o valor do artigo lido e descartei o da busca. Um mapa construído sem abrir a fonte teria propagado o número errado.</p>
+<p><strong>2. Divergência não reconciliada no OSWorld.</strong> Uma fonte secundária afirmava que agentes de uso de computador saíram de 12% em abril de 2024 para 85% em junho de 2026. A página primária do benchmark, que abri em 12/09/2026, registra <strong>12,24%</strong> como melhor resultado e 72,36% para humanos, e menciona o lançamento do OSWorld 2.0 em 26/06/2026. As duas afirmações podem estar se referindo a recortes diferentes — ou a página está desatualizada. <strong>Não consegui verificar, e portanto não usei o número de 85% em lugar nenhum.</strong> O efeito <code>e4</code> ficou com confiança baixa por causa disso.</p>
+<p><strong>3. Capacidade anunciada tratada como capacidade disponível.</strong> O anúncio da Meta de novembro de 2025 diz que o SAM 3 alimentará funções no Edits e no Vibes "em breve" e que o SAM 3D já habilita o "View in Room" no Marketplace. Na primeira redação da ficha de R1 eu havia escrito que o SAM 3 "já opera em produtos de massa da Meta". Corrigi: o texto agora diz "já foi anunciado dentro de produtos", que é o que a fonte sustenta.</p>
+<p><strong>4. Números do Smart Sampa incoerentes entre si nos resultados de busca.</strong> Uma fonte falava em 3 mil foragidos presos; outra, em 418 em 2026; uma terceira, em 50 mil câmeras das quais 20 mil com biometria. Não abri nenhuma delas. Usei apenas a página da Câmara Municipal de São Paulo, que abri: 20 mil câmeras com biometria facial, custo anual acima de R$ 100 milhões, e as críticas registradas em audiência pública. Nenhum número de prisões entrou neste documento.</p>
+<p><strong>5. Sinal fraco citado pela disciplina e não encontrado.</strong> O enunciado do tema aponta o <code>ORTHOS</code> — extensão que simularia resposta emocional a manchetes — como sinal fraco e fronteira entre ver e sentir. Busquei e <strong>não encontrei nenhuma fonte</strong> sobre esse projeto. Não entrou no mapa. Registrado também na seção 12.</p>
+<p><strong>6. Fontes que não abriram e cujos dados foram descartados.</strong> Números de adoção do Be My Eyes (cerca de 1 milhão de usuários cegos e 10 milhões de voluntários) e a formação da Data Labelers Association no Quênia apareceram em busca, ambos relevantes para <code>e5.1</code> e <code>e1.1</code>. As páginas devolveram 403. <strong>Os dois efeitos permaneceram no mapa, mas rebaixados e sem citar número algum</strong>, apoiados apenas no mecanismo.</p>
+<p><strong>7. Tentação de tratar mercado em crescimento como prova de contrassinal.</strong> Resultados de busca indicam que o mercado de anotação <strong>cresce</strong>, não encolhe, e que anotadores humanos migram para controle de qualidade e casos de fronteira. Isso reforça o <code>e1.1</code> na forma corrigida. Mas as fontes são relatórios de mercado comerciais, que não abri e que têm interesse em projetar crescimento. <strong>Não citei nenhum número de mercado</strong>; o argumento aparece só como mecanismo qualitativo.</p>
+<p>O que <strong>não</strong> encontrei: nenhuma citação inventada, nenhuma autoria trocada e nenhuma fonte inexistente neste documento. Todas as catorze fontes da seção 11 foram abertas e lidas nesta execução.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-o-vocabulario-aberto-virou-a-camada-de-partida-nao-a-de-producao">Provável — o vocabulário aberto virou a camada de partida, não a de produção</h3>
+<p>Em 2031, ninguém mais começa um sistema de visão coletando imagem. Começa-se escrevendo o que se quer ver, olhando o resultado e corrigindo. O que vai para produção, porém, quase nunca é o modelo aberto: é um artefato fechado, destilado a partir do que a linguagem definiu — o caminho que o YOLOE-26 já apontava em 2026. O vocabulário aberto ficou onde o custo por conceito não dói: na autoria, na prototipagem, na cauda longa.</p>
+<p>Em mídia, a mudança é visível e banal. Selecionar por nome é o padrão nas ferramentas de edição de vídeo, e a rotoscopia manual virou perícia de exceção, cara e reservada ao que a frase não alcança. A anotação não morreu: virou revisão. Quem anotava produz menos massa e arbitra mais fronteira, com salário melhor e em menor número.</p>
+<p>Documento: o OCR não desapareceu, virou uma verificação cruzada. Os sistemas leem por pergunta e checam por reconhecimento de caractere, porque o erro plausível assustou o suficiente para que ninguém rodasse sem rede. A ancoragem visual — mostrar a região da imagem de onde saiu o número — é comum em serviço financeiro e ainda não é lei.</p>
+<p>Óculos continuam acionados sob demanda. O ator que decide o ritmo é o mesmo de 2026, e continua abrindo o modelo e fechando a distribuição.</p>
+<h3 id="desejavel-nomear-virou-uma-pratica-com-metodo-e-a-ancoragem-virou-requisito">Desejável — nomear virou uma prática com método, e a ancoragem virou requisito</h3>
+<p>O mesmo mundo técnico do cenário provável, com duas coisas construídas de propósito.</p>
+<p>A primeira: <strong>vocabulários controlados de domínio</strong> deixaram de ser improviso. Saúde, seguro, inspeção industrial e imprensa publicaram listas versionadas de frases nominais, com definição, exemplo, contraexemplo e histórico de mudança — tratadas como esquema, não como texto livre. O efeito prático é que "pessoa suspeita" não é um prompt aceitável em sistema público, porque não existe no vocabulário publicado, e o que não está no vocabulário precisa ser justificado por escrito. A disputa sobre o que a máquina vê virou uma disputa sobre um documento que se pode ler.</p>
+<p>A segunda: <strong>ancoragem visual virou requisito de conformidade</strong> antes de virar escândalo. Todo campo extraído de documento aponta para o pedaço de imagem que o sustenta, e a conferência humana passou a ser sobre a âncora, não sobre o valor. Isso tornou a auditoria barata o bastante para que setores regulados adotassem a leitura sem OCR sem perder rastreabilidade.</p>
+<p><strong>O que precisou ser construído para chegar aqui:</strong> um esforço de padronização que ninguém tinha incentivo individual para fazer — foi preciso que compradores institucionais exigissem o vocabulário e a âncora em contrato, antes de qualquer regra. E, em acessibilidade, que a descrição disparada por condição fosse desenhada com quem usa, não para quem usa: "me avise quando" só é útil se a pessoa define o "quando".</p>
+<h3 id="indesejavel-a-vigilancia-mudou-de-alvo-e-escapou-da-regra">Indesejável — a vigilância mudou de alvo e escapou da regra</h3>
+<p>O que fracassa aqui não é a tecnologia. É a regra.</p>
+<p>Em 2031, as normas escritas contra reconhecimento facial continuam em vigor e continuam sendo obedecidas — e são irrelevantes. Nenhum sistema precisa saber <strong>quem</strong> é a pessoa. Basta perguntar por atributo: "pessoa correndo perto do portão", "grupo parado há mais de dez minutos", "alguém com o rosto coberto". Não é identificação biométrica, não é categorização por atributo protegido, e portanto não cai nas proibições do Artigo 5. Descrever ficou mais barato que reconhecer, e ficou fora do texto.</p>
+<p>O Brasil é onde isso pesa mais, e por uma razão estrutural já visível em 2026: havia 20 mil câmeras com biometria facial em operação só em São Paulo, com imprecisão e viés racial documentados em audiência pública, custo anual acima de R$ 100 milhões — e o marco legal ainda parado numa comissão especial com 37 projetos apensados, sem parecer do relator. Chegou-se a 2031 com a capacidade instalada e sem a regra; quando a regra veio, mirou o rosto, e o sistema já tinha mudado de alvo.</p>
+<p>O efeito de segunda volta é o que dói em mídia e interação: <strong>a imagem passa a ser tratada como consultável por padrão</strong>. Um arquivo de vídeo deixa de ser um arquivo e vira um índice que responde a perguntas que ninguém previu quando gravou. O que sobra de privado numa foto não é o que ela mostra — é o que ninguém ainda pensou em perguntar a ela.</p>
+<p><strong>Sinal precoce que teria antecipado isto, e que já estava visível em 2026:</strong> o Artigo 5 do EU AI Act proibindo raspagem de rostos, categorização por atributo protegido e identificação remota em tempo real — e, em nenhuma das três alíneas, uma palavra sobre descrição por atributo comum. O buraco estava no texto desde o começo, à vista de quem lesse.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="o-vocabulario-um-estudio-de-camera-em-que-ninguem-treina-nada">"O Vocabulário" — um estúdio de câmera em que ninguém treina nada</h3>
+<p><strong>O que é.</strong> Uma sessão de duas horas com uma câmera apontada para um espaço real e compartilhado da turma — uma bancada, um corredor, uma mesa de laboratório. Nenhum dataset, nenhum treino. Cada participante recebe a <strong>mesma intenção escrita em português corrente</strong>, formulada de modo deliberadamente operacional e não técnico — por exemplo: <em>"avise quando houver algo fora do lugar nesta bancada"</em> — e precisa traduzi-la, sozinho e sem conversar com os outros, num conjunto de prompts de conceito para um modelo de segmentação de vocabulário aberto. Os prompts são aplicados aos <strong>mesmos quadros congelados</strong> para todos.</p>
+<p><strong>Pergunta de futuro que testa.</strong> Quando o rótulo deixa de ser decisão de treino e vira frase escrita em produção, o desacordo humano sobre o que as coisas são vira erro de sistema — ou o modelo converge apesar da variação linguística? É o teste direto do efeito <code>e1.3</code> e da necessidade do <code>e1.3.1</code>.</p>
+<p><strong>Tecnologia emergente usada.</strong> Segmentação promptável por conceito (SAM 3 / SAM 3.1, ou equivalente de vocabulário aberto), acessível sem programar pelo playground público.</p>
+<p><strong>Por que uma solução madura não responde a isto.</strong> Um detector de classes fixas torna a pergunta impossível de fazer: a lista de classes já é o acordo, fechado no treino por uma pessoa, meses antes. O desacordo fica invisível porque não há onde ele se expressar. Só num sistema em que o rótulo é escrito em tempo de execução o desentendimento entre humanos vira um artefato mensurável.</p>
+<p><strong>O que os participantes fazem.</strong> (1) Recebem a intenção e escrevem seus prompts em isolamento, com tempo fixo. (2) Os prompts são aplicados em lote aos mesmos quadros. (3) Cada participante vê primeiro apenas o próprio resultado e anota se considera que o sistema acertou. (4) Os resultados são sobrepostos e a turma vê, junta, onde divergiu. (5) Uma segunda rodada, agora com um vocabulário negociado coletivamente por quinze minutos.</p>
+<p><strong>Métrica e observação.</strong></p>
+<ul><li><strong>Principal:</strong> IoU par a par entre as máscaras produzidas por redatores diferentes para a mesma intenção, no mesmo quadro. Reporta-se a <strong>mediana</strong> e, mais importante, a <strong>cauda inferior</strong> — o percentil 10.</li><li><strong>Secundária:</strong> taxa de divergência silenciosa — proporção de pares em que os dois participantes julgaram o próprio resultado correto <strong>e</strong> o IoU entre eles ficou abaixo de 0,5. É a medida do modo de falha que interessa: dois acertos que discordam.</li><li><strong>Terceira:</strong> variação do IoU mediano entre a rodada individual e a rodada com vocabulário negociado. Mede se negociar o nome resolve, e quanto.</li><li><strong>Qualitativa:</strong> registro de quais palavras produziram a maior dispersão.</li></ul>
+<p><strong>Qual resultado faria o pesquisador mudar de ideia.</strong> Se o IoU mediano entre redatores independentes ficar <strong>acima de 0,8</strong> e a divergência silenciosa ficar <strong>abaixo de 10%</strong>, então nomear não é o gargalo: o modelo absorve a variação linguística, <code>e1.3</code> cai de confiança média para baixa, <code>e1.3.1</code> (vocabulários controlados) perde sua justificativa e deve sair do mapa, e a tese de que a responsabilidade migra para quem escreve o prompt (<code>e1.1.1</code>) enfraquece junto — porque não haveria o que disputar. Simetricamente, se a divergência silenciosa passar de 30% <strong>e</strong> a rodada negociada não reduzi-la, o problema é mais grave do que o mapa supõe: nem o vocabulário controlado resolve, e o <code>e1.3.1</code> precisa ser substituído por algo mais duro — validação por exemplar visual em vez de por texto.</p>
+<p><strong>Custo e viabilidade.</strong> Uma câmera, um playground público gratuito, uma planilha e duas horas de aula. O caro é o desenho da intenção: ela precisa ser operacional e ambígua ao mesmo tempo, como são as intenções reais. Uma intenção mal escolhida — ambígua demais ou específica demais — invalida a medição, e esse é o risco principal do experimento.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Catorze fontes, todas abertas e lidas em 12/09/2026.</p>
+<ol><li><strong>SAM 3: Segment Anything with Concepts</strong> — <code>https://arxiv.org/html/2511.16719v2</code> Sustenta: a definição da tarefa PCS; 54,1 cgF1 em SA-Co/Gold contra 24,6 do OWLv2; 48,8 mask AP zero-shot em LVIS contra 38,5 anteriores; 72,8 cgF1 de desempenho humano estimado; 30 ms por imagem com 100+ objetos em H200; a seção de limitações (polissemia, descritor subjetivo, oclusão, borrão); datas de submissão (20/11/2025) e revisão (28/03/2026). <em>Confiabilidade: alta para a capacidade técnica, com a ressalva de que o benchmark e o baseline de comparação foram escolhidos pelos próprios autores.</em></li></ol>
+<ol><li><strong>DINOv3: self-supervised learning for vision at unprecedented scale (Meta AI)</strong> — <code>https://ai.meta.com/blog/dinov3-self-supervised-vision-model/</code> Sustenta: ~1,7 bilhão de imagens e 7 bilhões de parâmetros; licença comercial; usos no World Resources Institute (erro de altura de copa de 4,1 m para 1,2 m) e no JPL; lançamento em 14/08/2025. <em>Confiabilidade: média — fonte corporativa interessada; os números de escala são verificáveis no artigo, os de impacto em produção não foram triangulados.</em></li></ol>
+<ol><li><strong>SAM 3.1: Faster and More Accessible Real-Time Video Detection and Tracking (Meta AI)</strong> — <code>https://ai.meta.com/blog/segment-anything-model-3/</code> Sustenta: multiplexação de até 16 objetos num passe; 16 → 32 FPS em H100; lançamento em 27/03/2026; código aberto no GitHub e Hugging Face. <em>Confiabilidade: média — corporativa; o mecanismo é técnico e verificável, o ganho é auto-reportado.</em></li></ol>
+<ol><li><strong>New Segment Anything Models Make it Easier to Detect Objects and Create 3D Reconstructions (Meta Newsroom)</strong> — <code>https://about.fb.com/news/2025/11/new-sam-models-detect-objects-create-3d-reconstructions/</code> Sustenta: intenção de uso em Edits, Meta AI/Vibes e "View in Room" do Marketplace; o Segment Anything Playground com modelos prontos de pixelização de rosto e placa; parceria com a Roboflow para ajuste fino; novembro de 2025. <em>Confiabilidade: baixa a média — é anúncio. Sustenta intenção e parceria, não adoção efetiva. Foi usada apenas para isso.</em></li></ol>
+<ol><li><strong>Open Vocabulary Segmentation with SAM 3 (Roboflow)</strong> — <code>https://blog.roboflow.com/open-vocabulary-segmentation/</code> Sustenta: o que a capacidade dispensa (dataset rotulado, lista de classes, treino) e o que cobra em troca — perda de precisão, dependência de nomes comuns e fronteiras claras, custo de inferência crescente com o número de classes no prompt; e a recomendação de usar modelo treinado (RF-DETR) para classes fixas com alta precisão. <em>Confiabilidade: média, e com um detalhe a favor — a fonte tem incentivo comercial em vender o caminho fácil e mesmo assim declara os limites, o que reforça o contrassinal.</em></li></ol>
+<ol><li><strong>YOLO26 Open-Vocabulary Object Detection with YOLOE-26 (PyImageSearch)</strong> — <code>https://pyimagesearch.com/2026/08/24/yolo26-open-vocabulary-object-detection-with-yoloe-26/</code> Sustenta: os três modos de prompt (texto, visual, sem prompt); LVIS minival com 40,6 AP por texto, 38,5 por prompt visual, 31,1 sem prompt; o trade-off declarado entre vocabulário aberto e modelo fechado ajustado; e a re-parametrização de volta a um caminho YOLO padrão sem custo extra de inferência — base do sinal fraco 2. <em>Confiabilidade: média — terceiro técnico, com números reportados e não reproduzidos por mim.</em></li></ol>
+<ol><li><strong>Are Open-Vocabulary Models Ready for Detection of MEP Elements on Construction Sites</strong> — <code>https://arxiv.org/abs/2501.09267</code> Sustenta: em domínio específico (componentes elétricos e hidráulicos em canteiro, capturados por câmera em robô terrestre), modelos leves ajustados ainda superam largamente os de vocabulário aberto. Aceito no 42º ISARC. <em>Confiabilidade: alta como contrassinal pontual; baixa generalidade — um domínio, um dataset.</em></li></ol>
+<ol><li><strong>CC-OCR V2: Benchmarking Large Multimodal Models for Literacy in Real-world Document Processing</strong> — <code>https://arxiv.org/abs/2605.03903</code> Sustenta: 5 capacidades, 16 subtarefas, 74 cenários, 7.093 amostras, 10 categorias de documento, 32 idiomas, 17 modelos; e o achado central — modelos com acurácia agregada parecida falham de formas fundamentalmente diferentes conforme iluminação, qualidade e método de captura. <em>Confiabilidade: alta para a existência da lacuna entre benchmark e confiabilidade prática. Não mede adoção nem custo.</em></li></ol>
+<ol><li><strong>Real-time open-vocabulary perception for mobile robots on edge devices: a systematic analysis of the accuracy-latency trade-off</strong> — <code>https://pmc.ncbi.nlm.nih.gov/articles/PMC12583037/</code> Sustenta: NanoOWL + EfficientViT-SAM a 47,51 FPS com 84,64% de mIoU num Jetson AGX Orin 64GB; YOLO-World + EfficientViT-SAM-L0 a 26,68 FPS; falhas catastróficas do EfficientViT-SAM em FP16 para alguns modelos; publicação em 21/10/2025. <em>Confiabilidade: alta e revisada por pares — com a ressalva decisiva de que a plataforma é uma placa de desenvolvimento, não silício de dispositivo vestível. É exatamente por isso que R3 tem confiança baixa.</em></li></ol>
+<ol><li><strong>OSWorld — Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</strong> — <code>http://osworld-v1.xlang.ai/</code> Sustenta: 369 tarefas; melhor agente em 12,24%; humanos acima de 72,36%; falhas concentradas em GUI grounding e conhecimento operacional; OSWorld 2.0 lançado em 26/06/2026. <em>Confiabilidade: alta como fonte primária do benchmark, com a divergência não resolvida relatada na seção 8, item 2 — pode estar desatualizada em relação ao leaderboard corrente.</em></li></ol>
+<ol><li><strong>EU AI Act, Artigo 5 — Prohibited AI Practices</strong> — <code>https://artificialintelligenceact.eu/article/5/</code> Sustenta: a proibição de criar ou ampliar bases de reconhecimento facial por raspagem não direcionada; a proibição de categorização biométrica que infira raça, opinião política, filiação sindical, crença, vida ou orientação sexual; e a proibição de identificação biométrica remota em tempo real em espaço público para fins policiais, com três exceções. E, por ausência, a lacuna que sustenta <code>e5.2</code>. <em>Confiabilidade: alta — reprodução do texto legal. É uma compilação de terceiro, não o Jornal Oficial; para uso jurídico, conferir contra a versão oficial.</em></li></ol>
+<ol><li><strong>Ficha de tramitação — PL 2338/2023 e apensados (Câmara dos Deputados)</strong> — <code>https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262</code> Sustenta: o projeto está em Comissão Especial, aguardando parecer do relator, com 37 proposições apensadas; movimentação mais recente em 02/09/2026. Não há marco legal de IA em vigor no Brasil. <em>Confiabilidade: alta — fonte oficial do Legislativo.</em></li></ol>
+<ol><li><strong>Pesquisadores e movimentos criticam implantação de sistema de reconhecimento facial em São Paulo (Câmara Municipal de São Paulo)</strong> — <code>https://www.saopaulo.sp.leg.br/blog/pesquisadores-e-movimentos-criticam-implantacao-de-sistema-de-reconhecimento-facial-em-sao-paulo/</code> Sustenta: 20 mil câmeras com biometria facial no Smart Sampa; custo anual acima de R$ 100 milhões; registro em audiência pública (19/10/2023) de imprecisão, viés racial com erro concentrado em mulheres negras e alegação de prisões ilegais. <em>Confiabilidade: alta quanto ao que foi dito em audiência pública oficial; as alegações são de participantes (Mozilla Foundation, Alqualtune Lab, vereadores), não medições independentes auditadas. Nenhum número de prisões deste caso entrou no documento.</em></li></ol>
+<ol><li><strong>Meta Ray-Ban Display: AI Glasses With an EMG Wristband (Meta Newsroom)</strong> — <code>https://about.fb.com/news/2025/09/meta-ray-ban-display-ai-glasses-emg-wristband/</code> Sustenta: lançamento em 30/09/2025 nos EUA a partir de US$ 799; até seis horas de bateria em uso misto e 30 h com o estojo; Neural Band com até 18 h; legendagem ao vivo e tradução; display lateral acionado sob demanda, não contínuo. <em>Confiabilidade: média — corporativa e interessada. Foi usada só para preço, data, autonomia e o fato de o display ser sob demanda, que são verificáveis e vão contra o interesse do anunciante.</em></li></ol>
+<p><strong>Triangulação declarada.</strong> As afirmações sobre <strong>capacidade</strong> de vocabulário aberto têm fonte corporativa (1, 2, 3, 4) e foram confrontadas com avaliação independente (7, 8, 9) e com documentação de terceiro com incentivo contrário (5, 6). As afirmações sobre <strong>adoção</strong> não têm fonte adequada neste mapa — não localizei medição independente de penetração de vocabulário aberto em produção, e por isso nenhum efeito de adoção recebeu confiança alta.</p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="candidatos-gerados-e-descartados">Candidatos gerados e descartados</h3>
+<p><strong>C1 — Características visuais auto-supervisionadas em escala (DINOv2/DINOv3).</strong> Maturidade: emergente tendendo a madura como infraestrutura. Potencial: médio. Descartado como raiz e <strong>rebaixado a tecnologia habilitadora</strong>. Motivo: tem licença comercial, família destilada para deploy em hardware modesto e usos relatados em produção (WRI, JPL). Segundo o critério 2.3, cumpre "por que agora" mas falha em "o que rompe" de forma autônoma — barateia R1, não a substitui.</p>
+<p><strong>C2 — Detecção de vocabulário aberto em tempo real (YOLO-World, YOLOE-26).</strong> Maturidade: emergente. Potencial: médio. <strong>Rebaixado a antecedente de R3.</strong> Motivo: a documentação recomenda explicitamente o modelo fechado quando classes são fixas e latência aperta, e permite re-parametrizar o vocabulário de volta a um caminho fechado. Comporta-se como otimização de um pipeline existente, não como ruptura.</p>
+<p><strong>C3 — SAM 3D e reconstrução a partir de imagem única ("View in Room").</strong> <strong>Descartado por escopo</strong>, por decisão explícita do recorte: reconstrução 3D é o tema vizinho 10. Registro aqui porque é a capacidade com evidência de produção mais concreta de todo o levantamento — está numa função de comércio ao consumidor — e uma leitura menos disciplinada do recorte a teria promovido.</p>
+<p><strong>C4 — Agentes que operam interface por pixel (computer use, GUI grounding).</strong> Maturidade: experimental. Potencial: alto. <strong>Não promovido a raiz; incorporado como efeito <code>e4</code>.</strong> Motivo duplo: o enunciado do tema situa a questão do formulário e da interface como consequência da leitura de documento, e a evidência primária que consegui abrir (12,24% contra 72,36% humano) não sustenta uma raiz — sustenta um efeito de confiança baixa. Se o número de 85% que a busca reportou for verdadeiro, esta decisão está errada e C4 deveria ser a quarta raiz deste mapa. Fica registrado como a maior fragilidade de estrutura do documento.</p>
+<p><strong>C5 — Anotação automática substituindo a indústria de rotulagem.</strong> <strong>Descartado como raiz e como efeito na forma original.</strong> Motivo: é consequência, não causa — e a forma forte da afirmação ("a indústria de anotação desaparece") é contrariada pela evidência disponível. Virou <code>e1.1</code> na forma fraca e defensável: a anotação muda de posto, de produção para arbitragem.</p>
+<p><strong>C6 — Visão computacional aplicada a resposta emocional (<code>ORTHOS</code>, citado pelo enunciado do tema).</strong> <strong>Descartado por ausência de fonte.</strong> Busquei por extensão de navegador que simulasse e visualizasse resposta emocional a manchetes com base em modelo da Meta; nada foi encontrado. Aparecem trabalhos adjacentes (análise afetiva de manchetes com Gemma-3, uma extensão chamada Emotio), mas nada que corresponda ao descrito. Não entrou no mapa, nem como sinal fraco — registrar uma fonte não encontrada como sinal seria fabricar evidência.</p>
+<h3 id="caminhos-causais-cortados">Caminhos causais cortados</h3>
+<p><strong>Cortado: <code>e2</code> → "a indústria de anotação de dados encolhe e desaparece até 2030".</strong> Teste de causalidade falhou na direção do efeito. O mecanismo proposto era "se rotular deixa de ser necessário, quem rotula perde o emprego". Mas a rotulagem não deixa de ser necessária — muda de função, e o próprio anúncio do SAM 3 traz a plataforma de anotação como <strong>parceira</strong> de ajuste fino. Indicações de mercado apontam crescimento, não encolhimento, com o papel humano migrando para controle de qualidade e caso de fronteira. Substituído por <code>e1.1</code>, reancorado em R1 em vez de <code>e2</code>.</p>
+<p><strong>Cortado: <code>e3</code> → "o PDF deixa de existir como formato até 2031".</strong> Sem mecanismo. Nada na compreensão sem OCR remove o motivo de existir de um formato de página fixa — se a máquina passa a ler qualquer layout, a pressão sobre o formato <strong>diminui</strong>, não aumenta. A afirmação era chamativa e vazia.</p>
+<p><strong>Cortado: <code>e1</code> → "modelos de classes fixas desaparecem".</strong> Contradito diretamente por três fontes lidas (5, 6, 7). O corte está refletido no cenário provável, que assume coexistência com divisão de trabalho: aberto na autoria, fechado na produção.</p>
+<p><strong>Cortado: <code>e5.1</code> → "leitores de tela são substituídos por descrição visual contínua".</strong> Recusado por falta de evidência de uso e por presumir preferência de quem eu não ouvi. O efeito ficou na forma mais modesta — a descrição deixa de ser sob demanda e passa a ser disparada por condição — e mesmo assim com confiança média, não alta.</p>
+<p><strong>Enfraquecido, não cortado: <code>e5</code> (fluxo consultável em vestível).</strong> Sobreviveu com confiança baixa. A razão de não ter sido cortado é honesta e discutível: sem ele R3 não tem efeito de primeira ordem próprio, e R3 estaria mais bem classificada como sinal forte. Ver seção 7, item 8.</p>
+<h3 id="classificacoes-de-maturidade-registradas">Classificações de maturidade registradas</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Capacidade</th><th>Maturidade</th><th>Potencial</th><th>Destino</th></tr></thead><tbody><tr><td>Segmentação promptável por conceito</td><td>emergente</td><td>alto</td><td><strong>raiz R1</strong></td></tr><tr><td>Compreensão de documento sem OCR</td><td>emergente/experimental</td><td>alto</td><td><strong>raiz R2</strong></td></tr><tr><td>Percepção aberta contínua na borda</td><td>experimental</td><td>alto</td><td><strong>raiz R3</strong> (contestada)</td></tr><tr><td>Características visuais sem rótulo (DINOv3)</td><td>emergente→madura</td><td>médio</td><td>habilitadora</td></tr><tr><td>Detecção aberta em tempo real (YOLO-World/YOLOE)</td><td>emergente</td><td>médio</td><td>antecedente</td></tr><tr><td>Agentes de interface por pixel</td><td>experimental</td><td>alto</td><td>efeito <code>e4</code></td></tr><tr><td>Classificação de imagem</td><td>madura</td><td>—</td><td>excluída pela régua</td></tr><tr><td>Detecção com classes fixas</td><td>madura</td><td>—</td><td>excluída pela régua</td></tr><tr><td>OCR tradicional</td><td>madura</td><td>—</td><td>excluída pela régua; reaparece como verificação cruzada no cenário provável</td></tr><tr><td>Reconhecimento facial em espaço público</td><td>madura</td><td>—</td><td>excluída como capacidade; entra como <strong>contexto regulatório e brasileiro</strong></td></tr></tbody></table></div>
+<h3 id="contrassinais-registrados">Contrassinais registrados</h3>
+<ol><li>Modelos leves ajustados superam largamente o vocabulário aberto em canteiro de obras (fonte 7).</li><li>A documentação de quem vende a facilidade declara perda de precisão, dependência de nomes comuns e custo de inferência crescente por classe (fonte 5).</li><li>Padrões de falha fundamentalmente diferentes entre modelos de acurácia agregada parecida em documento real (fonte 8).</li><li>SAM 3 em ~74% do desempenho humano estimado no benchmark dos próprios autores (fonte 1).</li><li>O display dos óculos em prateleira é lateral e <strong>sob demanda</strong>, não contínuo, com seis horas em uso misto (fonte 14).</li><li>Falhas catastróficas em FP16 na borda — a otimização que viabiliza é onde quebra (fonte 9).</li><li>Indícios de que o mercado de anotação cresce e que o papel humano migra para controle de qualidade (só em resultados de busca, não citado com número — ver seção 8, item 7).</li></ol>
+<h3 id="buscas-sem-resultado-ou-sem-acesso">Buscas sem resultado ou sem acesso</h3>
+<ul><li><strong><code>ORTHOS</code></strong>: nenhuma fonte localizada. Ver C6.</li><li><strong>Estudo de caso de vocabulário aberto em produção em varejo ou armazém</strong>: busca específica não retornou nenhum caso de implantação em produção em 2026 — só pesquisa e relatório de mercado. <strong>Este é o buraco de evidência mais importante deste mapa</strong>: há ampla evidência de capacidade e nenhuma de penetração. É a razão de nenhum efeito de adoção ter confiança alta.</li><li><strong>Be My Eyes</strong> (<code>bemyeyes.com/bme-ai/</code> e página da fundação): HTTP 403 nas duas tentativas. Números de usuários e voluntários apareceram em busca e <strong>não foram usados</strong>.</li><li><strong>Data Labelers Association do Quênia</strong> (Computer Weekly): HTTP 403. Não usado.</li><li><strong>Página de produto do Meta Ray-Ban Display</strong> (<code>meta.com</code>): conteúdo truncado, sem os dados. Resolvido pela sala de imprensa (fonte 14).</li><li><strong>Página original do OSWorld</strong> (<code>os-world.github.io</code>): redirect 301 para <code>osworld-v1.xlang.ai</code>, seguido manualmente. A divergência de números resultante está na seção 8, item 2.</li></ul>
+<h3 id="hipoteses-alternativas-consideradas">Hipóteses alternativas consideradas</h3>
+<p><strong>H-alt 1 — "o vocabulário aberto é uma camada de autoria, não de execução".</strong> Sustentada pelo sinal fraco 2 e pelo custo de inferência por conceito. Se verdadeira, R1 continua sendo raiz mas seus efeitos se concentram em quem <strong>constrói</strong> sistemas de visão, e quase nada muda para quem os <strong>opera</strong>. É a hipótese mais provável depois da adotada, e o cenário provável já a incorpora parcialmente.</p>
+<p><strong>H-alt 2 — "a ruptura não é a percepção, é a indexação".</strong> Nesta leitura, o que muda de fato não é a máquina ver por conceito, mas todo acervo de imagem virar consultável retroativamente por perguntas não previstas na captura. Não virou raiz porque não achei evidência de capacidade nova de indexação em escala — mas é a leitura que organiza o cenário indesejável, e é a que mais interessa a quem projeta mídia. Se o mapa fosse refeito com horizonte 2035 em vez de 2031, provavelmente esta seria a raiz principal.</p>
+<p><strong>H-alt 3 — "nada disso rompe: é a mesma automação de trabalho visual de sempre, mais barata".</strong> É a hipótese que a instrução de entrevista pediu para testar explicitamente. Foi rejeitada por um critério só, e é bom que seja o único: a precedência entre dado e sistema se inverteu. Em todo o arranjo anterior, era preciso ter o dado rotulado <strong>antes</strong> de ter o sistema; agora é possível ter o sistema antes de ter qualquer dado. Isso não é melhoria de grau. Se um leitor derrubar esse argumento, derruba o mapa inteiro.</p>
+<h3 id="observacoes-que-nao-entraram-no-mapa">Observações que não entraram no mapa</h3>
+<ul><li><strong>O motor de dados é a notícia escondida.</strong> O SAM 3 foi treinado com 4 milhões de rótulos de conceito únicos produzidos por um motor de dados escalável. A capacidade de dispensar rotulagem foi construída com uma operação de rotulagem sem precedentes. Não virou efeito porque não consegui derivar consequência com mecanismo claro, mas é a ironia estrutural do tema.</li><li><strong>"Negativos difíceis" como categoria de projeto.</strong> O que distingue o SAM 3 é, em boa medida, saber dizer <strong>não</strong> — que aquilo que se pediu não está na imagem. Para interface, isso é mais importante que a segmentação: um sistema que sempre encontra o que se pede é inútil. Não achei onde pendurar na roda.</li><li><strong>Latência assimétrica como material de design.</strong> 30 ms por imagem com 100 objetos, contra 32 FPS em vídeo com multiplexação de 16 — parado é muito mais barato que em movimento. Isso vai moldar quais interações são desenhadas, e não está representado em nenhum efeito.</li><li><strong>Uma pergunta do enunciado que este mapa não respondeu.</strong> "O que sobra de privado numa foto?" Está encostada no cenário indesejável, mas não tem efeito próprio na roda, porque eu não soube escrever o mecanismo sem cair em generalidade. Fica como dívida declarada.</li></ul></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>

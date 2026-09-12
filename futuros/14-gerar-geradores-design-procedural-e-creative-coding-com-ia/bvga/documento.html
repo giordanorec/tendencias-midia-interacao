@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerar geradores: design procedural e creative coding com IA · futurizacao-bvga (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 14 · futurizacao-bvga (aluno)</p><h1>Gerar geradores: design procedural e creative coding com IA</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/bvga/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/bvga/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Design procedural — produzir a <strong>regra</strong> em vez do artefato — tem décadas e está maduro. O que mudou entre 2025 e 2026 é quem escreve a regra: sistemas baseados em modelos de linguagem passaram a escrever programas gráficos executáveis (scripts de Blender, fábricas Three.js, programas paramétricos de CAD, shaders) e a validá-los por execução. Há benchmark público para isso desde maio de 2026 (<a href="https://arxiv.org/abs/2606.01057">3DCodeBench</a>), há sistemas multiagente que escrevem Python de Blender (<a href="https://arxiv.org/abs/2508.08228">LL3M</a>), há reconstrução de nuvem de pontos para script editável (<a href="https://arxiv.org/abs/2508.14879">MeshCoder</a>), há montagem paramétrica com verificação estrutural (<a href="https://arxiv.org/abs/2608.26238">Procedura</a>) e há um fabricante de DCC expondo a própria linguagem a agentes por protocolo (<a href="https://www.jonpeddie.com/news/sidefx-and-nvidia-bring-mcp-powered-ai-agents-to-houdini-22s-rigging-workflow-at-siggraph-2026/">Houdini 22 / MCP, SIGGRAPH 2026</a>).</p>
+<p>Deste levantamento saem <strong>três disrupções-raiz</strong>, todas emergentes e nenhuma consolidada:</p>
+<ol><li><strong>Síntese de programa gráfico guiada por execução</strong> — a IA escreve o gerador e um laço de compilar/renderizar/comparar decide se ele presta.</li><li><strong>O programa paramétrico como unidade de troca</strong> — o que circula entre ferramentas, lojas e navegadores deixa de ser binário e passa a ser código-fonte curto mais runtime.</li><li><strong>A ferramenta de autoria dirigida por agente via protocolo</strong> — o software criativo ganha uma segunda interface de primeira classe, a do agente.</li></ol>
+<p>A roda tem 32 efeitos (7 de 1ª ordem, 12 de 2ª, 13 de 3ª). A confiança geral é <strong>média</strong>, e a razão é explícita: quase toda a evidência técnica é de 2025–2026, vem de artigos e repositórios dos próprios proponentes, e o único benchmark independente que abri relata que as falhas predominantes ainda são triviais — chamada de API errada e componentes geométricos soltos ou flutuando. Existe um contrassinal cultural igualmente concreto: o projeto p5.js, referência do creative coding, escreve na política de contribuição que <strong>não aceita contribuição inteiramente gerada por IA</strong>.</p>
+<p>A afirmação do enunciado de que o 3D procedural gerado por IA seria "mil vezes mais leve que o splat" <strong>não foi sustentada</strong> por nenhuma medição que eu tenha aberto; ela foi reformulada como disputa por orçamento de banda, não como fator de compressão. Ver seção 8.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p><strong>Recorte.</strong> Não é "IA que gera imagem", nem "IA que gera 3D". É o caso específico em que o artefato produzido é <strong>um programa que produz o artefato</strong> — e em que quem escreve esse programa é um modelo. A mesma peça pode existir como malha (dado), como splat (dado) ou como função que a constrói (regra). O tema é a virada para a terceira forma e o que ela arrasta consigo.</p>
+<p><strong>Parâmetros da entrevista, confirmados antes da análise:</strong></p>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td>Tema</td><td>Gerar geradores: design procedural e creative coding com IA</td></tr><tr><td>Horizonte</td><td>2031</td></tr><tr><td>Público</td><td>quem projeta mídia e interação</td></tr><tr><td>Recorte geográfico</td><td>global, com nota sobre o Brasil</td></tr><tr><td>Descartes</td><td>o que já é comum em produto de massa (régua da disciplina). Nenhuma outra exclusão</td></tr><tr><td>Viés desejado</td><td>neutro; nenhuma disrupção suspeita a priori</td></tr><tr><td>Profundidade</td><td>três ordens</td></tr><tr><td>Modo</td><td>a partir de uma inovação/tema, não de um setor</td></tr><tr><td>Critério de mudança de ideia</td><td>evidência de que a adoção já passou da maioria inicial (Rogers), ou de que a tecnologia só melhora o que existe sem romper nada</td></tr></tbody></table></div>
+<p><strong>Duas ambiguidades resolvidas por decisão declarada, na ausência de interlocutor nesta rodada:</strong></p>
+<ul><li><em>"O que já é comum em produto de massa"</em> foi lido como: exclui a geração procedural clássica (jogos, Houdini, geometry nodes, Processing/p5) <strong>e</strong> exclui os geradores nativos de malha vendidos por crédito com plugin de engine. Os dois entram como antecedentes maduros, nunca como raiz.</li><li><em>"Global com nota sobre o Brasil"</em> foi lido como: a roda é global; o Brasil aparece onde há evidência brasileira aberta, e onde não há, o silêncio é declarado em vez de preenchido por analogia.</li></ul>
+<p><strong>Fronteiras com os temas vizinhos.</strong> Captura de realidade em 3D (splat, renderização neural) é o tema 10 e aparece aqui apenas como termo de comparação. Geração de vídeo e imagem como mídia é o tema 12 e fica fora. O objeto aqui é a regra como artefato e a máquina escrevendo a regra.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="3-1-maduro-antecedente-nao-raiz">3.1 Maduro — antecedente, não raiz</h3>
+<p><strong>Geração procedural e creative coding sem IA.</strong> Houdini vende modelagem procedural como produto central há anos; Blender tem geometry nodes; Processing/p5.js sustentam uma comunidade de ensino com mais de 800 contribuidores e uma fundação com relatório de impacto anual; <a href="https://github.com/3b1b/manim">manim</a> está em 93,8 mil estrelas com licença MIT. Nada disso depende de IA. É infraestrutura e repertório — e é a razão de o tema ter para onde ir.</p>
+<p><strong>Geração de código por modelo de linguagem, em geral.</strong> Repetível e comercial. Não é disrupção neste mapa: é a habilitadora.</p>
+<p><strong>Geradores nativos de 3D (malha/splat).</strong> Existem comercialmente, com preço por crédito, tempos de geração medidos em minutos e plugins de engine. Produzem <strong>dado</strong>, não regra. A Hunyuan3D publica versões sucessivas com PBR; a linha TRELLIS entrega imagem-para-3D. A limitação que importa para este tema é estrutural, não de qualidade: a saída é um objeto, não uma família.</p>
+<p><strong>Captura por 3D Gaussian Splatting.</strong> Madura como captura. O <a href="https://www.utsubo.com/blog/gaussian-splatting-guide">guia de 15/01/2026 da Utsubo</a> dá os números que interessam: captura típica de 5 a 15 milhões de splats ocupando 200 a 500 MB sem compressão; alvo de 20 a 200 MB para carga inicial na web; 15 a 30 MB no celular; e 30 a 45 FPS num iPhone 14 com 200 mil splats. É contra esse orçamento que a cena programada vai competir — e é um orçamento apertado, não impossível.</p>
+<h3 id="3-2-emergente-o-terreno-da-analise">3.2 Emergente — o terreno da análise</h3>
+<p><strong>O modelo escrevendo o programa gráfico.</strong> Quatro evidências independentes, todas de 2025–2026:</p>
+<ul><li><a href="https://arxiv.org/abs/2508.08228">LL3M</a> (11/08/2025) reformula a geração de forma como tarefa de escrita de código: agentes especializados planejam, recuperam, escrevem, depuram e refinam scripts Python de Blender, apoiados por uma base de recuperação da documentação da API. O resumo <strong>não traz métrica quantitativa</strong> — descreve categorias de forma e edições de estilo. Evidência média.</li><li><a href="https://arxiv.org/abs/2508.14879">MeshCoder</a> (20/08/2025) faz o caminho inverso: reconstrói objeto 3D a partir de nuvem de pontos como script Python de Blender <strong>editável</strong>. Também sem número no resumo; o problema declarado é a escassez de DSL abrangente e de dado pareado em escala.</li><li><a href="https://arxiv.org/abs/2608.26238">Procedura</a> (26/08/2026) monta o objeto como grafo de montagem de partes nomeadas unidas por restrições tipadas verificáveis por máquina ("mates"), validando cada componente por compilação, checagem de encaixe e de conectividade antes de aceitar. Reporta superar geradores nativos e agentes de código anteriores em P3D-Bench e MechBench-36, e entregar "as arestas mais nítidas". Sem limitações declaradas no resumo — o que por si é uma limitação da fonte.</li><li><a href="https://arxiv.org/abs/2601.12234">Proc3D</a> (18/01/2026) representa o modelo como grafo procedural compacto e mede o que mais importa aqui: <strong>mais de 400× de aceleração</strong> sobre abordagens que precisam regerar tudo a cada modificação, e +28% em ULIP (alinhamento entre modelo e texto). É o número mais forte que encontrei a favor da tese "regra é mais barata que dado <strong>na edição</strong>".</li></ul>
+<p><strong>A prática fora da academia.</strong> O <a href="https://github.com/img2threejs/img2threejs">img2threejs</a> (Apache 2.0, v2.0.0, 15,9 mil estrelas e 1,3 mil forks no README que abri) reconstrói o objeto de uma imagem como fábrica TypeScript de <code>THREE.Group</code>, feita de primitivas e shaders procedurais, "sem arquivo de malha". O desenho do processo é o ponto: oito passes de escultura (blockout → estrutural → forma → material → superfície → iluminação → interação → otimização), cada um gerado, renderizado deterministicamente, revisado por visão contra a referência e <strong>barrado por um portão que falha fechado</strong>. O trabalho mecânico é empurrado para scripts Python determinísticos e o token do modelo é gasto só em julgamento visual. A limitação está escrita pelos próprios autores: <em>"uma única imagem não pode revelar os lados ocultos nem garantir a geometria exata"</em>.</p>
+<p><strong>CAD como código, em produto.</strong> A Zoo publicou em <a href="https://zoo.dev/research/introducing-kcl">20/05/2025</a> a KCL, linguagem paramétrica em que <em>"o KCL <strong>é</strong> o modelo fundamental"</em> — não uma representação interna escondida atrás de uma GUI. O argumento declarado é de três pernas: texto é legível, colaborável e processável por máquina; código é intrinsecamente paramétrico; e representar geometria como texto permite reaproveitar o ecossistema de ferramentas de texto — LLMs, assistentes de código. É a tese deste tema formulada por um fornecedor, o que exige o desconto de fonte interessada.</p>
+<p><strong>Shader por linguagem natural.</strong> ShadAR (CHI 2026) e <a href="https://arxiv.org/abs/2512.08951">AI Co-Artist</a> (27/11/2025) mostram usuário exprimindo intenção visual em linguagem e recebendo GLSL, com princípios evolutivos de refinamento. Continuam demonstração e estudo com usuário, não pipeline.</p>
+<p><strong>Agente dentro da ferramenta, por protocolo.</strong> No keynote do Houdini 22, em <a href="https://www.jonpeddie.com/news/sidefx-and-nvidia-bring-mcp-powered-ai-agents-to-houdini-22s-rigging-workflow-at-siggraph-2026/">22/06/2026, no SIGGRAPH em Londres</a>, a SideFX mostrou o Apex Script Comfort Package: extensão de VS Code, painel Python dentro do Houdini e <strong>servidor MCP com validador de código</strong>. A demonstração gerou mais de 300 linhas de código funcional de rig. Dois detalhes pesam mais que o número: foi apresentado explicitamente como <em>sneak peek</em> que "potencialmente" aparecerá no Labs, canal pré-produção — não é produto; e o argumento de venda é que o código gerado permanece um script comum de posse do artista, <em>"sem criar dependência contínua do LLM"</em>. No lado da comunidade, existem vários servidores MCP para manim, publicados por indivíduos.</p>
+<h3 id="3-3-experimental">3.3 Experimental</h3>
+<p>Verificação estrutural (mates tipados, conectividade) como critério de aceite de geometria gerada; interoperabilidade que carrega a derivação junto do resultado; sandbox para conteúdo executável. Há protótipo ou proposta, não solução confiável para uso amplo.</p>
+<h3 id="3-4-cheque-temporal-three-horizons">3.4 Cheque temporal (Three Horizons)</h3>
+<ul><li><strong>H1 — sistema dominante hoje:</strong> o artefato é o entregável. Malha, textura, splat, vídeo. Loja de asset vende arquivo. Revisão de arte olha render. Pipeline procedural existe, mas concentrado em quem tem TD.</li><li><strong>H2 — transição, onde estamos:</strong> o código gerado entra no pipeline como andaime, sob desconfiança, com portão de verificação. Fabricantes de DCC abrem interface para agente em canal experimental. Comunidades escrevem as primeiras normas de aceite.</li><li><strong>H3 — lógica possível:</strong> a unidade de troca é o programa; o valor está na família e no critério de aceite, não na peça; e a ferramenta de autoria vale pelo validador, não pela interface.</li></ul>
+<h3 id="3-5-leitura-de-hype-cycle-como-heuristica-nao-como-lei">3.5 Leitura de Hype Cycle — como heurística, não como lei</h3>
+<p>O conjunto "IA escreve gerador" está, em expectativa percebida, no trecho ascendente: muita demonstração impressionante, primeiro benchmark independente, nenhum produto de produção assumido como tal pelo fabricante. O sinal mais honesto de que ainda não é planalto é a própria SideFX chamando a integração de <em>sneak peek</em>. O sinal mais honesto de que não é só barulho é o 3DCodeBench existir e apontar gargalo de <strong>dado</strong>, não de entusiasmo.</p>
+<h3 id="3-6-nota-sobre-o-brasil">3.6 Nota sobre o Brasil</h3>
+<p>Não encontrei evidência aberta de adoção de síntese de programa gráfico por IA em estúdio brasileiro. O que há de aberto e relevante é qualitativo: o estudo <a href="https://reglab.com.br/en/the-creatives-of-the-future-ai-creative-industry/"><em>The Creatives of the Future</em></a>, do Reglab, publicado em 19/05/2026, com <strong>sete</strong> profissionais criativos entrevistados por amostragem de caso extremo (coleta entre setembro e novembro de 2025), e que declara explicitamente que os resultados <strong>não são generalizáveis</strong> para a indústria criativa. É um retrato de primeiros adotantes, não medida de adoção. Registro o vazio como vazio: a nota sobre o Brasil neste mapa é uma lacuna de evidência, não um diagnóstico.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="d1-sintese-de-programa-grafico-guiada-por-execucao">D1 — Síntese de programa gráfico guiada por execução</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><strong>candidato</strong></td><td>Um modelo escreve o programa que constrói o artefato visual, e um laço executável (compilar → renderizar → comparar com a referência → barrar) decide se o programa presta</td></tr><tr><td><strong>maturidade</strong></td><td>emergente</td></tr><tr><td><strong>potencial_de_ruptura</strong></td><td>alto</td></tr><tr><td><strong>o_que_rompe</strong></td><td>(a) <em>o que é o entregável</em>: sai o dado, entra a regra; (b) <em>o custo marginal da variação</em>: uma malha é um objeto, um programa é uma família; (c) <em>o papel do profissional</em>: quem faz passa a especificar e julgar; (d) <em>quem pode produzir</em>: pipeline procedural deixa de exigir TD dedicado</td></tr><tr><td><strong>por_que_agora</strong></td><td>Modelos de código capazes de escrever programa gráfico que executa; ambiente de execução que devolve feedback de alta fidelidade; e — o fato datado — benchmark independente publicado em 31/05/2026 (3DCodeBench) avaliando 12 VLMs nessa tarefa, o que só se faz quando há o que comparar</td></tr><tr><td><strong>o_que_falta</strong></td><td>Taxa de acerto. O 3DCodeBench diz que as falhas vêm sobretudo de <strong>descasamento de API</strong>, e que renders bem-sucedidos ainda sofrem de <strong>componentes desconectados ou flutuando</strong>. Falta também dado procedural de qualidade em escala — apontado como "necessidade crítica" pelo próprio benchmark — e ambiente de execução robusto que dê realimentação fiel</td></tr><tr><td><strong>evidencias</strong></td><td>3DCodeBench (alta, independente); LL3M (média, dos proponentes, sem métrica no resumo); MeshCoder (média); Procedura (média); Proc3D, 400× em edição e +28% ULIP (média-alta em número, média em independência); img2threejs, portão em oito passes (média, repositório)</td></tr><tr><td><strong>veredito</strong></td><td><strong>aceita</strong></td></tr></tbody></table></div>
+<h3 id="d2-o-programa-parametrico-como-unidade-de-troca">D2 — O programa paramétrico como unidade de troca</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><strong>candidato</strong></td><td>O que circula entre ferramentas, lojas, navegadores e clientes deixa de ser arquivo binário e passa a ser código-fonte curto mais runtime</td></tr><tr><td><strong>maturidade</strong></td><td>emergente</td></tr><tr><td><strong>potencial_de_ruptura</strong></td><td>alto</td></tr><tr><td><strong>o_que_rompe</strong></td><td>(a) <em>formato e interoperabilidade</em>: conversão de malha dá lugar a tradução de linguagem; (b) <em>cadeia de valor</em>: vende-se família e licença de regra, não arquivo; (c) <em>custo de acesso e banda</em>: cena programada entra num orçamento onde a capturada mal cabe; (d) <em>governança</em>: ver a cena passa a significar <strong>executar</strong> código de terceiro</td></tr><tr><td><strong>por_que_agora</strong></td><td>A KCL existe como produto em que o código <strong>é</strong> o modelo, com camada gratuita e API; o Proc3D mede o ganho onde ele de fato aparece (edição, 400×); o img2threejs entrega o resultado como fábrica TypeScript diferenciável em vez de binário; e o orçamento de banda do lado capturado está documentado e é apertado (15–30 MB no celular)</td></tr><tr><td><strong>o_que_falta</strong></td><td>Nenhum formato de troca amplamente adotado carrega hoje a derivação junto do resultado. Falta runtime comum, falta modelo de segurança para conteúdo executável, e falta demonstração de que o programa gerado é editável por <strong>terceiro</strong> — não só pelo autor</td></tr><tr><td><strong>evidencias</strong></td><td>Zoo/KCL (média-baixa: fonte do fornecedor, interessada, com triangulação apenas parcial); Proc3D (média); img2threejs (média); Utsubo sobre orçamento de 3DGS (média, imprensa técnica)</td></tr><tr><td><strong>veredito</strong></td><td><strong>aceita, com a evidência mais fraca das três</strong></td></tr></tbody></table></div>
+<h3 id="d3-a-ferramenta-de-autoria-dirigida-por-agente-via-protocolo">D3 — A ferramenta de autoria dirigida por agente via protocolo</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><strong>candidato</strong></td><td>O software de criação passa a expor a própria linguagem interna a agentes por protocolo padronizado, com validador acoplado — o agente vira usuário de primeira classe</td></tr><tr><td><strong>maturidade</strong></td><td>experimental (subcategoria de emergente)</td></tr><tr><td><strong>potencial_de_ruptura</strong></td><td>alto</td></tr><tr><td><strong>o_que_rompe</strong></td><td>(a) <em>forma dominante de interação</em> com a ferramenta criativa; (b) <em>arquitetura do produto de software</em>: o valor migra da UI para API + documentação + validador; (c) <em>papel do intermediário</em>: o TD deixa de operar e passa a projetar e auditar o ambiente do agente; (d) <em>distribuição de poder</em>: quem tem documentação e corpus de exemplo tem vantagem que não se compra depois</td></tr><tr><td><strong>por_que_agora</strong></td><td>Um fabricante grande de DCC apresentou isso num keynote de SIGGRAPH em 22/06/2026, com validador de código no pacote e demonstração de 300+ linhas de rig funcional; existem servidores MCP comunitários para manim e para Houdini; e a arquitetura de recuperação sobre documentação de API já está publicada em pesquisa (BlenderRAG, no LL3M)</td></tr><tr><td><strong>o_que_falta</strong></td><td>Sair do canal experimental. É explicitamente <em>sneak peek</em> para o Labs, não produto. Faltam garantias de determinismo, política de responsabilidade sobre código gerado dentro da ferramenta, e evidência de uso repetido em produção</td></tr><tr><td><strong>evidencias</strong></td><td>Cobertura do keynote do Houdini 22 (média-alta, imprensa especializada, com o caveat de produto declarado na própria matéria); LL3M/BlenderRAG (média); ecossistema de servidores MCP de manim (baixa: repositórios individuais, sem adoção medida)</td></tr><tr><td><strong>veredito</strong></td><td><strong>aceita como experimental</strong>; se em 2028 continuar só em canal de laboratório, rebaixa-se a sinal</td></tr></tbody></table></div>
+<h3 id="candidatos-recusados">Candidatos recusados</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Candidato</th><th>Classificação</th><th>Motivo da recusa</th></tr></thead><tbody><tr><td>Geração procedural clássica (WFC, noise, geometry nodes, Houdini, p5)</td><td>maduro</td><td>Décadas de uso repetível. Antecedente e infraestrutura. Nenhuma depende de IA escrever a regra</td></tr><tr><td>Geradores nativos de malha e splat vendidos por crédito</td><td>maduro comercialmente</td><td>Produzem dado, não regra. E caem na régua de descarte: já são produto de massa por API</td></tr><tr><td>"IA escreve shader" como raiz separada</td><td>emergente, ruptura média</td><td>É a mesma capacidade estrutural de D1 aplicada a um domínio. Tratar produto/demonstração como disrupção é exatamente o erro que a skill proíbe. Rebaixado a <strong>sinal</strong></td></tr><tr><td>Captura por 3DGS / renderização neural</td><td>maduro em captura</td><td>É o tema 10. Entra aqui só como termo de comparação de orçamento</td></tr><tr><td>"Vibe coding" genérico</td><td>maduro-emergente, ruptura média para este tema</td><td>Não é específico de gráficos nem da regra como artefato. Diluiria o recorte</td></tr><tr><td>Manim como ferramenta</td><td>maduro</td><td>93,8 mil estrelas, MIT, uma década. O emergente é o agente dirigindo-a, o que já está em D3</td></tr></tbody></table></div>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — Síntese de programa gráfico guiada por execução: a IA escreve o gerador e um laço executável de verificação visual decide se ele presta&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;O entregável de um pedido de modelagem passa a ser um programa parametrizado acompanhado de especificação, e não um arquivo de geometria&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;Bibliotecas de geradores (famílias paramétricas) passam a valer mais, dentro de um estúdio, que bibliotecas de peças prontas&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Parte do mercado de assets migra de venda de arquivo para licença de gerador com limite de uso declarado&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: &quot;Abre-se disputa prática sobre titularidade da regra: quem detém o parâmetro detém a família inteira, não uma peça&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;A revisão de arte incorpora leitura de diff de código e de especificação, além do render&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;A direção de arte absorve responsabilidade por especificação executável e passa a herdar dívida técnica visual&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;O custo da enésima variação cai muito, enquanto o custo do primeiro acerto permanece alto porque o portão de qualidade é caro&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;O esforço criativo desloca-se de executar para especificar e julgar&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;Cursos de design passam a avaliar a especificação e o critério de aceite do aluno, e não apenas o artefato entregue&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Projetos passam a ser orçados por família de resultado (o gerador e seu envelope) em vez de por peça&quot;
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;Contratos de criação ganham cláusula de regeneração, definindo se e até quando o cliente pode re-rodar o gerador por conta própria&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;Uma camada de verificação executável (compilar, renderizar, comparar, barrar) torna-se pré-requisito de qualquer pipeline que aceite código gráfico gerado&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Ferramentas de autoria passam a expor conformidade visual medida como dado de primeira classe, ao lado do render&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Conformidade visual automatizada vira exigência contratual em setores com norma gráfica dura (sinalização, embalagem, bula, interface médica)&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;O gargalo desloca-se do modelo para a disponibilidade de dado procedural de qualidade e de ambientes de execução fiéis&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;Detentores de acervo procedural histórico (estúdios, fabricantes de DCC, arquivos de shader) ganham poder de barganha que não haviam buscado&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: &quot;D2 — O programa paramétrico como unidade de troca: o que circula deixa de ser binário e passa a ser código curto mais runtime&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;Parte do conteúdo 3D que hoje viaja como binário passa a viajar como código-fonte curto executado no cliente&quot;
+        sinal: fraco
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;Na web e em dispositivos leves, cena programada e cena capturada competem por orçamento de banda e memória, não por fidelidade&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Uma estética declaradamente programada volta a ser escolha de projeto assumida, e não sintoma de limitação técnica&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;Exibir conteúdo de terceiro passa a significar executar código de terceiro, e vira problema de segurança de conteúdo&quot;
+            sinal: fraco
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;Surgem sandbox, assinatura e permissão para conteúdo executável, no molde do que existe para extensão de navegador&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;Formatos de troca passam a carregar a derivação (o programa que gerou) junto do resultado, e não apenas o resultado&quot;
+        sinal: fraco
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;Interoperabilidade deixa de ser conversão de malha e vira tradução entre linguagens de descrição — e passa a falhar de outro jeito, semanticamente&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;O mercado consolida-se em poucos DSLs de fato, e a trava de fornecedor desloca-se do formato de arquivo para a linguagem&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+  - disrupcao: &quot;D3 — A ferramenta de autoria dirigida por agente via protocolo: o software criativo expõe sua linguagem interna a agentes, com validador acoplado&quot;
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: &quot;O software de criação passa a ter duas interfaces de primeira classe: a humana e a de agente&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;O valor competitivo do software desloca-se da interface para a qualidade da API, da documentação e do validador&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Documentação e corpora de exemplo tornam-se ativo licenciado e negociado, em vez de cortesia pública&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;O technical artist deixa de operar a ferramenta e passa a projetar e auditar o ambiente em que o agente opera&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;Equipes pequenas passam a sustentar pipelines procedurais antes restritos a estúdios com TD dedicado&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: &quot;Comunidades de creative coding dividem-se entre aceitar e recusar contribuição gerada, e escrevem a norma antes de qualquer regulação&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Formam-se duas trilhas de prática com públicos distintos: código como artesanato autoral e código como saída de máquina&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;Proveniência — quem escreveu a regra, e com que ajuda — passa a compor o valor da obra em arte generativa, como assinatura compõe o valor no mercado de arte&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa</code></pre>
+<p><strong>Totais:</strong> 3 disrupções, 7 efeitos de 1ª ordem, 12 de 2ª, 13 de 3ª — 32 efeitos.</p>
+<h3 id="o-que-a-estrutura-nao-captura-bem">O que a estrutura não captura bem</h3>
+<p><strong>Realimentação.</strong> A roda é uma árvore; o fenômeno não é. <code>e3.2</code> (o gargalo vira dado procedural) realimenta D1 diretamente: se o dado não aparecer, a raiz não se sustenta, e a árvore inteira que pende dela encolhe. A árvore não consegue desenhar essa seta de volta.</p>
+<p><strong>Competição entre raízes.</strong> D1, D2 e D3 aparecem lado a lado como se fossem independentes, e não são. D2 pode falhar sozinha — o programa vira andaime interno, roda uma vez, entrega malha e é descartado — sem que D1 seja afetada. Nesse caso a metade da roda que trata de formato, banda e segurança de conteúdo desaparece e o resto continua de pé. É o cenário alternativo mais plausível deste mapa, e a estrutura em árvore o esconde.</p>
+<p><strong>Sinais opostos para públicos distintos.</strong> <code>e6.2.1</code> ("equipes pequenas sustentam pipeline procedural") é oportunidade para o estúdio independente e ameaça direta para o TD sênior que vendia exatamente essa escassez. O campo <code>sinal</code> guarda um valor só e apaga essa ambivalência.</p>
+<p><strong>Ordem não é data.</strong> <code>e7</code> é efeito de 1ª ordem com prazo 2027 porque <strong>já está acontecendo</strong> — a política do p5.js existe. <code>e1.1.1</code> é de 3ª ordem com prazo 2032. Mas <code>e3</code> (1ª ordem, 2028) e <code>e4</code> (1ª ordem, 2030) mostram que a mesma ordem comporta distâncias temporais muito diferentes. A ordem mede distância causal à raiz, nada mais.</p>
+<p><strong>Ausência de contrafactual no formato.</strong> Não há campo para "o que este efeito exige que não está garantido". Os pré-requisitos ficaram na ficha de cada raiz (<code>o_que_falta</code>), separados dos efeitos que dependem deles.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<ol><li><strong>A SideFX expõe a própria linguagem a agentes e embute um validador — mas em canal de laboratório.</strong> O Apex Script MCP veio com extensão de VS Code, painel Python e validador de código, e ainda assim foi apresentado como <em>sneak peek</em> rumo ao Labs. O sinal não é a capacidade; é o fabricante tratar o agente como usuário e, no mesmo gesto, recusar-se a chamar isso de produto. E o argumento de venda escolhido — o código continua sendo um script comum do artista, <em>sem dependência contínua do LLM</em> — indica que ele já ouviu a objeção do mercado antes de lançar.</li></ol>
+<ol><li><strong>O p5.js escreve, na política de contribuição, que não aceita contribuição inteiramente gerada.</strong> O texto é curto e categórico: <em>"This project does not accept fully AI-generated contributions. AI tools may be used assistively only"</em>, com a justificativa de que o contribuidor deve entender e responder pelo que muda no código. Norma comunitária nascendo antes de qualquer regulação, no projeto que forma boa parte de quem entra em creative coding. É o contrassinal mais concreto do mapa e, ao mesmo tempo, o sinal de que a disputa é cultural e já começou.</li></ol>
+<ol><li><strong>A verificação migrando de perceptual para estrutural.</strong> O Procedura não pergunta "parece certo?"; pergunta se compila, se os encaixes tipados batem e se o grafo está conectado. É uma mudança de critério: da aprovação por render para a aprovação por propriedade verificável. Se pegar, muda o que "pronto" significa.</li></ol>
+<ol><li><strong>O benchmark declarando que o gargalo é dado, não modelo.</strong> O 3DCodeBench encerra apontando "necessidade crítica de dado de codificação procedural de alta qualidade" e de ambiente de execução robusto com realimentação fiel. Quando o instrumento de medida aponta para fora do modelo, o problema deixou de ser de escala.</li></ol>
+<ol><li><strong>Servidores MCP de manim publicados por indivíduos, em multiplicidade.</strong> Vários repositórios independentes fazendo a mesma ponte — animação matemática programática dirigida por agente. Multiplicidade descoordenada é sinal de demanda real; a ausência de qualquer adoção medida é o que o mantém fraco.</li></ol>
+<h3 id="o-que-recusei-chamar-de-sinal-fraco">O que recusei chamar de sinal fraco</h3>
+<p>Hunyuan3D, TRELLIS e congêneres são líderes de um mercado formado, com preço por crédito e plugin de engine. Chamar isso de sinal fraco seria confundir tamanho com novidade. O manim, com 93,8 mil estrelas e uma década de história, é maturidade, não indício.</p>
+<h3 id="wildcard-1-o-conteudo-chega-como-codigo-assinado-e-compila-no-cliente">Wildcard 1 — o conteúdo chega como código assinado e compila no cliente</h3>
+<p>Um motor em que o conteúdo de uma região não é baixado como pacote, mas entregue como programa curto e assinado, compilado no dispositivo no instante em que o jogador chega. Probabilidade baixa até 2031: exige determinismo entre plataformas, modelo de segurança que hoje não existe para conteúdo executável de terceiro, e um QA que ninguém sabe fazer para algo que não existe antes de ser pedido.</p>
+<p><strong>Como quebraria o mapa:</strong> colapsaria <code>e4</code> e <code>e5</code> num efeito só e traria <code>e4.2</code> (segurança de conteúdo executável) do terceiro anel para o centro da discussão. A ferramenta de autoria deixaria de ser o produto disputado — o produto passaria a ser o sandbox e o serviço de assinatura. Toda a metade da roda que hoje fala de formato e loja perderia sentido: não haveria loja de arquivo a converter em loja de gerador, porque não haveria arquivo.</p>
+<h3 id="wildcard-2-o-gerador-e-protegivel-e-a-saida-nao">Wildcard 2 — o gerador é protegível e a saída não</h3>
+<p>Uma decisão administrativa ou judicial de peso consolida o par: o <strong>programa</strong> escrito com assistência substancial de humano é obra protegível; a <strong>saída</strong> gerada por sua execução, sozinha, não é. O terreno para isso existe — o <a href="https://www.copyright.gov/ai/">relatório do U.S. Copyright Office</a> trata a copyrightabilidade de saídas de IA generativa na Parte 2, publicada em 29/01/2025 — mas a formulação exata dessa conclusão eu <strong>não</strong> verifiquei no documento (ver seção 8), e isto aqui é hipótese, não leitura.</p>
+<p><strong>Como quebraria o mapa:</strong> inverteria o incentivo econômico de uma vez. <code>e1.1.1</code> (licença de gerador) e <code>e1.1.2</code> (titularidade da regra) sairiam do terceiro anel para o primeiro, e a pergunta "quem escreveu a regra" deixaria de ser curiosidade de proveniência (<code>e7.1.1</code>) para virar questão contratual em todo projeto comercial.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Qual efeito é apenas extrapolação linear do presente?</strong> <code>e2.1</code> ("o esforço desloca-se de executar para especificar e julgar"). É a frase que toda análise de IA e trabalho criativo produz desde 2023, para qualquer tema, e por isso mesmo cai na exclusão declarada na entrevista: ideias que servem para qualquer tema devem sair. Mantive-a, mas rebaixada e amarrada a um mecanismo específico deste tema — o custo assimétrico entre o primeiro acerto e a enésima variação (<code>e2</code>) —, sem o qual ela seria genérica. Se o portão de qualidade barateasse junto com a variação, <code>e2.1</code> perderia a base e deveria cair.</p>
+<p><strong>2. Qual efeito assume adoção rápida demais?</strong> <code>e4</code> e <code>e5</code>, a perna de formato. O caso histórico que serve de régua é desconfortável: formatos de troca em 3D levam <strong>décadas</strong> para se consolidar e conviver, não anos; e o exemplo mais próximo do que <code>e5</code> propõe — carregar a derivação junto do resultado — já existe como ideia em CAD paramétrico há muito tempo e nunca virou o padrão de troca entre fabricantes. Rebaixei <code>e5</code> para confiança baixa e <code>e5.1.1</code> para 2033. Se em 2031 o padrão de troca continuar carregando só o resultado, a raiz D2 falhou, e não parcialmente.</p>
+<p><strong>3. Qual disrupção-raiz pode simplesmente não acontecer?</strong> <strong>D2.</strong> Ela depende de uma premissa que nenhuma fonte que abri sustenta: que o programa gerado seja <strong>editável por terceiro</strong>. A única evidência de editabilidade que vi é do autor editando o próprio código (Proc3D, LL3M, img2threejs). Editar código alheio, gerado por máquina, sem a especificação original, é um problema diferente e conhecidamente pior. Se ele não for resolvido, o programa vira andaime interno — gera-se, executa-se, exporta-se a malha, descarta-se o código — e o que circula continua sendo binário.</p>
+<p><strong>4. O que quebra na roda se essa disrupção falhar?</strong> Caem <code>e4</code>, <code>e5</code> e todos os seus descendentes: seis efeitos, quase um quinto da roda. Sobrevivem D1 e D3 inteiras, porque elas operam <strong>dentro</strong> do estúdio e não dependem do que circula fora. É o desenho mais provável de meio-fracasso: a IA escreve o gerador, o gerador nunca sai de casa.</p>
+<p><strong>5. Que contrassinais existem?</strong> Quatro, todos verificados:</p>
+<ul><li>A política do p5.js recusando contribuição inteiramente gerada — a comunidade que este tema mais mobilizaria está resistindo.</li><li>O 3DCodeBench relatando que as falhas predominantes são <strong>descasamento de API</strong> e <strong>componentes flutuantes</strong>. Não são falhas de gosto nem de ambição: são falhas básicas.</li><li>A integração MCP do Houdini ser <em>sneak peek</em> para canal experimental, apresentada por quem tem todo o incentivo de anunciá-la como pronta.</li><li>O mercado comercial de 3D gerado estar organizado em torno de <strong>malha</strong> com rigging e plugin de engine, não em torno de código. A cadeia de valor existente premia o arquivo. <em>(Este último veio de resultados de busca que não abri, e por isso não entra na seção 11 nem sustenta afirmação — fica como hipótese a verificar.)</em></li></ul>
+<p><strong>6. Que barreiras foram subestimadas?</strong></p>
+<ul><li><strong>Determinismo e reprodutibilidade.</strong> Um programa que gera a cena tem de gerar a mesma cena, na mesma versão da ferramenta, no mesmo hardware. Toda a promessa de "revisão por diff" (<code>e1.2</code>) desaba se a saída variar.</li><li><strong>Custo de token do portão.</strong> O laço de verificação do img2threejs tem oito passes com revisão visual em cada um. <code>e2</code> afirma que a variação fica barata, mas o portão pode ter de rodar de novo a cada variação. Não achei medição disso.</li><li><strong>Responsabilidade legal sobre código gerado dentro de ferramenta comercial.</strong> Ninguém resolveu de quem é a falha quando o script escrito pelo agente do fabricante quebra a produção do cliente.</li><li><strong>Segurança.</strong> <code>e4.2</code> está no segundo anel, mas na prática é pré-condição de <code>e4</code>: nenhuma plataforma vai distribuir conteúdo executável de terceiro antes do sandbox, não depois.</li></ul>
+<p><strong>7. Que ator teria incentivo para bloquear, capturar ou redirecionar?</strong></p>
+<ul><li><strong>Lojas de asset e marketplaces</strong>, cujo modelo é venda de arquivo por unidade: uma família paramétrica destrói a contagem de unidades. Capturam redirecionando para licença por uso, o que é <code>e1.1.1</code> — e nesse caso o efeito não é sinal de ruptura, é sinal de captura.</li><li><strong>Fabricantes de DCC</strong>, que podem abraçar D3 e usá-la para aprofundar trava de fornecedor: quanto mais o agente é bom na <em>minha</em> linguagem, menos o cliente sai. <code>e5.1.1</code> descreve exatamente esse desfecho.</li><li><strong>Provedores de modelo</strong>, para quem "gerar pixel" custa mais token por resultado e portanto vale mais — têm incentivo tênue, mas real, contra a economia de "gerar programa curto".</li><li><strong>Comunidades de prática</strong>, que já estão exercendo bloqueio normativo (p5.js) e cuja legitimidade é alta justamente onde este tema precisa dela.</li></ul>
+<p><strong>8. Que viés meu e do modelo entrou aqui?</strong> Três, declarados:</p>
+<ul><li><strong>Viés de fonte.</strong> Todo o material forte deste mapa é arXiv e GitHub — meios em que quem propõe descreve o próprio trabalho e raramente publica o que não funcionou. Dos seis artigos que abri, <strong>quatro não declaram limitação alguma no resumo</strong>. Compensei parcialmente ancorando as afirmações negativas no único benchmark independente.</li><li><strong>Viés de simetria narrativa.</strong> "Gerar pixel × gerar programa" é uma oposição elegante, e eu a herdei do enunciado do tema. O desfecho mais provável, porém, é híbrido — estrutura por programa, superfície por dado neural — e a roda não tem nenhum efeito representando o híbrido. É uma lacuna consciente, registrada no anexo.</li><li><strong>Viés de recência.</strong> Praticamente nada aqui é anterior a 2025. Um campo cuja evidência inteira cabe em dezoito meses ainda não permite distinguir tendência de safra.</li></ul>
+<p><strong>O que foi cortado ou rebaixado após esta revisão:</strong></p>
+<ul><li><strong>Cortado:</strong> "escolas de design substituem o ensino de desenho pelo ensino de sistemas até 2031". Extrapolação sem mecanismo — currículo muda por processo institucional lento, e eu não tinha evidência nenhuma de movimento curricular. Substituído por <code>e2.1.1</code>, mais estreito e falsificável (critério de avaliação, não conteúdo do curso).</li><li><strong>Cortado:</strong> "a obra passa a ser o código e um mundo inteiro cabe num prompt", vindo das perguntas de 3ª ordem do enunciado. Não consegui completar o teste de causalidade: não há mecanismo que ligue "programas curtos descrevem visual" a "a obra passa a ser o código" sem passar por uma mudança normativa que eu não sei demonstrar. O que sobrou dele, verificável, é <code>e7.1.1</code> — proveniência compondo valor.</li><li><strong>Rebaixado:</strong> <code>e4.1</code> de confiança alta para média, e reescrito. A formulação original repetia a razão "mil vezes mais leve" do enunciado; nenhuma medição comparativa direta programa × splat foi encontrada. Ficou como disputa por orçamento de banda, que é o que a evidência sustenta.</li><li><strong>Rebaixado:</strong> <code>e1.1.1</code> de média para baixa, porque, como o item 7 mostra, ele é tão compatível com captura de mercado quanto com ruptura.</li><li><strong>Rebaixado:</strong> <code>e5</code> e toda a sua descendência, pelo argumento histórico do item 2.</li></ul>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Seis erros efetivamente detectados durante o processo. Nenhum foi inventado para parecer crítico; e onde a verificação não foi possível, o limite está declarado em vez de contornado.</p>
+<p><strong>1. Número herdado do enunciado tratado como fato medido.</strong> O enunciado do tema afirma que "o 3D procedural gerado por IA é mil vezes mais leve que o splat". Eu comecei a construir um efeito de 2ª ordem em cima dessa razão. Não existe, em nada que abri, medição comparativa da mesma cena nas duas representações. O que existe é o orçamento de um dos lados: 200–500 MB sem compressão, 20–200 MB para web, 15–30 MB no celular. <strong>Correção:</strong> a razão foi descartada e <code>e4.1</code> reescrito em termos de orçamento, não de fator.</p>
+<p><strong>2. Produto quase promovido a disrupção.</strong> "IA escreve shader" chegou a figurar como quarta raiz, apoiada em ShadAR e AI Co-Artist. São demonstração e estudo com usuário, e a capacidade estrutural por trás é a mesma de D1 aplicada a um domínio. <strong>Correção:</strong> rebaixada a sinal. É exatamente o erro que a seção 2 da skill nomeia — confundir produto recente com disrupção.</p>
+<p><strong>3. Benchmark citado de memória e não confirmado.</strong> Procurei "ShaderEval" como se fosse benchmark estabelecido de geração de shader. Não confirmei sua existência em nenhuma fonte que eu tenha aberto; o que apareceu na busca foi um dataset de shaders do Shadertoy, que <strong>não abri</strong>. <strong>Correção:</strong> não citei nem um nem outro. Fica registrado no anexo como busca sem resultado.</p>
+<p><strong>4. Número do enunciado desatualizado.</strong> O briefing da disciplina afirma que o manim tem "92 mil estrelas". O repositório mostrava <strong>93,8 mil</strong> quando o abri, em 12/09/2026. A diferença é trivial e não muda nada — registro porque o número entrou no material como fato, e fatos com contador se movem.</p>
+<p><strong>5. Contagens divergentes para o mesmo repositório em agregadores de terceiros.</strong> Os resultados de busca sobre o img2threejs traziam 14,6 mil e 4,2 mil estrelas em dois agregadores distintos, enquanto o README do próprio repositório, que abri, informa 15,9 mil. <strong>Correção:</strong> usei só o README e registrei a divergência. Agregador de terceiro não é fonte de número primário.</p>
+<p><strong>6. Conclusão jurídica que eu ia parafrasear sem ler.</strong> Sobre direito autoral, abri a página do U.S. Copyright Office sobre IA e ela traz as datas e o escopo das três partes do relatório — Parte 1 em 31/07/2024, Parte 2 (Copyrightabilidade) em 29/01/2025, Parte 3 (pré-publicação) em 09/05/2025 — <strong>mas não o texto das conclusões</strong>. Eu tinha, de memória, a formulação sobre autoria humana e contribuição não-trivial. <strong>Correção:</strong> não sustentei essa formulação. O PDF da Parte 2 não foi aberto, e por isso o Wildcard 2 está declarado como hipótese, não como leitura da norma.</p>
+<p><strong>Verificação adicional, sem erro encontrado:</strong> conferi que nenhuma das treze afirmações numéricas ou de data que aparecem neste documento veio de fonte que eu não tenha aberto, e que nenhuma das seis fontes de arXiv teve autoria ou data invertida.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-o-gerador-que-nao-sai-de-casa">Provável — o gerador que não sai de casa</h3>
+<p>Estamos em 2031 e a síntese de programa gráfico virou rotina <strong>dentro</strong> dos estúdios. Pedir "um poste de rua estilo anos 50" devolve um script parametrizado e uma especificação; o pipeline roda o portão de verificação automaticamente e barra o que não fecha. O ganho real apareceu onde o Proc3D já apontava em 2026: não na primeira entrega, mas na décima variação, e sobretudo na mudança de última hora.</p>
+<p>Só que o que sai do estúdio continua sendo arquivo. O programa é andaime: gera, exporta, arquiva. A razão é prosaica — ninguém resolveu editar código gerado por outro, meses depois, sem a especificação original, e os formatos de troca continuam carregando resultado sem derivação. As lojas de asset absorveram a novidade da forma mais previsível: vendem "packs paramétricos" com um punhado de sliders expostos e o resto trancado, o que é licença de gerador pelo nome e venda de arquivo pela prática.</p>
+<p>As ferramentas de autoria ganharam interface de agente — isso pegou. Quem sustenta pipeline procedural hoje são equipes menores do que em 2026, e o technical artist virou, na maioria dos lugares, quem projeta o ambiente e audita o que o agente fez. A comunidade de creative coding seguiu dividida, e a divisão estabilizou: dois públicos, duas trilhas, pouco diálogo.</p>
+<h3 id="desejavel-a-regra-circula-e-com-procedencia">Desejável — a regra circula, e com procedência</h3>
+<p>Mesmo 2031, e o programa <strong>circula</strong>. Três coisas precisaram ser construídas, nenhuma delas automática.</p>
+<p>A primeira foi a especificação viajar junto. Não bastou entregar código; foi preciso entregar a intenção em forma legível e testável — o que tornou possível a um terceiro pegar um gerador alheio e mexer nele sem arqueologia. A segunda foi a verificação executável virar bem comum: os portões de conformidade visual deixaram de ser vantagem proprietária de cada pipeline e viraram camada compartilhada, auditável, com métrica publicada. A terceira foi cultural e veio das comunidades, não dos fabricantes: proveniência declarada — quem escreveu a regra, com que assistência, sobre qual base — virou parte do que se entrega, do jeito que crédito de fotografia é parte do que se entrega.</p>
+<p>O efeito mais visível não estava nos planos de ninguém: uma estética programada voltou a ser escolha assumida, reconhecível, defendida — não porque a máquina não desse conta do fotorrealismo, mas porque leveza, editabilidade e legibilidade viraram valores de projeto. Escolas de design passaram a avaliar especificação e critério de aceite ao lado do artefato, e a divisão entre artesanato e máquina virou repertório em vez de trincheira.</p>
+<h3 id="indesejavel-a-linguagem-como-cadeia">Indesejável — a linguagem como cadeia</h3>
+<p>2031, e a promessa se cumpriu invertida. O programa virou mesmo a unidade de troca — mas cada fabricante consolidou a <strong>sua</strong> linguagem, com o agente afinado nela, a documentação fechada e o validador acoplado ao produto. Migrar deixou de ser exportar malha, que funcionava mal mas funcionava, e passou a ser traduzir linguagem, que falha de um jeito pior: silenciosamente, semanticamente, num parâmetro que não existe do outro lado e cujo valor padrão ninguém percebe estar errado até o render final.</p>
+<p>A biblioteca de geradores de cada estúdio, que era o ativo novo, virou refém: só roda onde nasceu. Documentação e corpus de exemplo, que eram cortesia pública, viraram item de contrato. E porque o conteúdo agora executa no cliente sem que sandbox e assinatura tenham amadurecido junto, houve incidentes de segurança com conteúdo de terceiro, e a resposta das plataformas foi fechar: só código de fornecedor aprovado, o que expulsou exatamente os independentes que a tecnologia deveria ter habilitado.</p>
+<p><strong>O sinal precoce que teria antecipado isto</strong> estava visível em 2026 e passou por virtude: quando um fabricante de DCC embute o validador da própria linguagem no mesmo pacote em que abre o protocolo para o agente, ele está fazendo as duas coisas ao mesmo tempo — abrindo a porta e definindo quem passa. A frase de venda "o código continua sendo seu, sem dependência do LLM" era verdadeira quanto ao LLM e omissa quanto à linguagem.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="a-quinta-variacao">"A quinta variação"</h3>
+<p><strong>O que é.</strong> Um estúdio-experimento de duas semanas, com dois times recebendo o <strong>mesmo briefing</strong>: um objeto de cena, três variantes previstas desde o início, e uma quarta variante <strong>não prevista</strong>, entregue só no décimo dia. O time A trabalha do jeito de 2026: entrega arquivo (malha com material, por geração nativa ou modelagem assistida). O time B entrega <strong>programa mais especificação</strong>: um gerador parametrizado, produzido com síntese de programa gráfico sob portão de verificação executável.</p>
+<p>No décimo segundo dia entra o terceiro ator, que é o ponto do experimento: uma pessoa que não participou de nada recebe <strong>só o entregável</strong> de cada time — sem o autor, sem conversa — e tenta executar uma quinta alteração, escrita num bilhete de três linhas.</p>
+<p><strong>A pergunta de futuro que testa.</strong> Duas, encadeadas. (a) Quando a IA escreve o gerador, o ganho está na primeira entrega ou na enésima variação? (b) O programa entregue é editável <strong>por terceiro</strong>, ou só por quem o gerou? A segunda é a premissa de que a disrupção D2 depende inteiramente e que nenhuma fonte deste mapa sustenta.</p>
+<p><strong>Tecnologia emergente usada.</strong> Síntese de programa gráfico com portão executável — no molde do img2threejs para peça em Three.js, do LL3M para Blender, ou da KCL/Zoo para peça rígida — combinada com verificação por execução e comparação visual contra referência.</p>
+<p><strong>Por que uma solução madura não responderia à mesma pergunta.</strong> Um gerador nativo de malha responde bem à primeira entrega e às três variantes previstas; em velocidade bruta, provavelmente vence. Mas ele não produz nada que o terceiro possa editar além da própria malha, e não tem como responder à variante não prevista senão gerando de novo do zero. É exatamente esse contraste — não a qualidade do primeiro resultado — que precisa ser medido, e é por isso que o time A <strong>precisa</strong> usar a solução madura: ele é o controle, não o adversário.</p>
+<p><strong>O que os participantes farão.</strong> Time A e time B trabalham em paralelo, registrando tempo por etapa. Nos dias 1 a 9, as três variantes previstas. No dia 10, o pedido não previsto, idêntico para os dois. No dia 12, o terceiro recebe os entregáveis anonimizados e tem duas horas por entregável. Um júri cego — que não sabe qual time produziu o quê — avalia aceite visual contra o briefing.</p>
+<p><strong>Métricas e observações.</strong></p>
+<ol><li>Tempo até a variante não prevista, por time.</li><li>Tempo do terceiro até a quinta alteração aceita, por entregável — e quantos terceiros <strong>desistiram</strong>.</li><li>Taxa de aceite do júri cego, por variante.</li><li>Tamanho do entregável em bytes, e quanto disso é runtime compartilhado.</li><li>Número de rodadas do portão de verificação por variante (proxy do custo que <code>e2</code> assume constante e pode não ser).</li><li>Registro qualitativo do que o terceiro reclamou: falta de especificação, nome de parâmetro opaco, código ilegível, ou coisa nenhuma.</li></ol>
+<p><strong>O que me faria mudar de ideia.</strong> Três resultados, cada um derrubando uma parte específica deste mapa:</p>
+<ul><li>Se o time B gastar <strong>mais</strong> tempo na variante não prevista que o time A, cai <code>e2</code> — e com ela a premissa de custo assimétrico que sustenta metade de D1.</li><li>Se o terceiro falhar mais em editar o programa do que em editar a malha, cai <strong>D2 inteira</strong>, e o cenário provável desta seção 9 vira o único cenário.</li><li>Se o número de rodadas do portão crescer proporcionalmente ao número de variantes, cai a economia inteira da regra: o gerador não amortiza, e <code>e1.1</code> (biblioteca de geradores valer mais que biblioteca de peças) perde a base.</li></ul>
+<p><strong>Hipótese falsificável, em uma frase:</strong> <em>entregar o gerador em vez do artefato reduz o tempo da variação não prevista em pelo menos 50% e é editável por um terceiro sem contato com o autor.</em> Qualquer uma das duas metades pode falhar sozinha — e a segunda é a que eu aposto que falha.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Catorze fontes, todas efetivamente abertas e lidas entre 11 e 12/09/2026. Nenhuma afirmação com número ou data neste documento vem de fonte fora desta lista.</p>
+<ol><li><strong>3DCodeBench: Benchmarking Agentic Procedural 3D Modeling Via Code</strong> — <code>https://arxiv.org/abs/2606.01057</code> Submetido em 31/05/2026. Avalia 12 VLMs traduzindo texto e imagem em código procedural para software 3D. Sustenta: existe benchmark independente para a tarefa central deste mapa; as falhas predominantes são descasamento de API e componentes desconectados/flutuantes; escalonamento em tempo de teste e refino multi-turno melhoram o resultado; há "necessidade crítica" de dado procedural de qualidade e de ambiente de execução com realimentação fiel. <strong>Confiabilidade alta</strong> — é a única fonte técnica aqui que não descreve o próprio produto e a única que publica modos de falha.</li></ol>
+<ol><li><strong>Procedura: Agentic 3D Modeling with Procedural Control</strong> — <code>https://arxiv.org/abs/2608.26238</code> Submetido em 26/08/2026. Sustenta: forma 3D como programa paramétrico editável, com partes nomeadas e restrições tipadas verificáveis por máquina, validadas por compilação, checagem de encaixe e conectividade; resultados em P3D-Bench e MechBench-36. <strong>Confiabilidade média</strong> — artigo dos proponentes, sem limitação declarada no resumo.</li></ol>
+<ol><li><strong>Proc3D: Procedural 3D Generation and Parametric Editing of 3D Shapes with Large Language Models</strong> — <code>https://arxiv.org/abs/2601.12234</code> Submetido em 18/01/2026. Sustenta o número mais forte do mapa a favor de "regra é mais barata na edição": mais de 400× de aceleração sobre abordagens que regeram tudo a cada modificação, e +28% em ULIP. <strong>Confiabilidade média</strong> — números dos proponentes, sem replicação independente que eu tenha encontrado.</li></ol>
+<ol><li><strong>LL3M: Large Language 3D Modelers</strong> — <code>https://arxiv.org/abs/2508.08228</code> Submetido em 11/08/2025. Sustenta: geração de forma reformulada como escrita de código Python de Blender por equipe de agentes (planejar, recuperar, escrever, depurar, refinar), com base de recuperação sobre a documentação da API (BlenderRAG). <strong>Confiabilidade média-baixa para alegação de desempenho</strong> — o resumo não traz métrica quantitativa nenhuma.</li></ol>
+<ol><li><strong>MeshCoder: LLM-Powered Structured Mesh Code Generation from Point Clouds</strong> — <code>https://arxiv.org/abs/2508.14879</code> Submetido em 20/08/2025, revisado em 22/08/2025. Sustenta o caminho inverso (dado → regra): reconstrução de nuvem de pontos em script Python de Blender editável; e declara o gargalo — DSLs limitadas e dado pareado em escala pequena. <strong>Confiabilidade média</strong>.</li></ol>
+<ol><li><strong>AI Co-Artist: A LLM-Powered Framework for Interactive GLSL Shader Animation Evolution</strong> — <code>https://arxiv.org/abs/2512.08951</code> Submetido em 27/11/2025. Sustenta que a geração de shader por linguagem natural está em estágio de estudo com usuário, com refino evolutivo guiado. <strong>Confiabilidade baixa para adoção</strong> — o resumo não traz os números do estudo; foi por isso que essa linha virou sinal e não raiz.</li></ol>
+<ol><li><strong>img2threejs — README do repositório</strong> — <code>https://github.com/img2threejs/img2threejs</code> Apache 2.0, v2.0.0, 15,9 mil estrelas, 1,3 mil forks na leitura de 12/09/2026. Sustenta: reconstrução por código em fábrica TypeScript de <code>THREE.Group</code> sem arquivo de malha; portão de qualidade em oito passes com revisão por visão e falha fechada; trabalho mecânico em scripts determinísticos para poupar token; e a limitação declarada pelos autores de que uma imagem só não revela lados ocultos nem garante geometria exata. <strong>Confiabilidade média</strong> — documentação do próprio projeto, mas com limitação explicitada, o que é incomum e conta a favor.</li></ol>
+<ol><li><strong>manim — repositório 3b1b/manim</strong> — <code>https://github.com/3b1b/manim</code> 93,8 mil estrelas, MIT, na leitura de 12/09/2026. Sustenta a maturidade da animação matemática programática e a ressalva de compatibilidade entre versões. <strong>Confiabilidade alta para o que sustenta</strong> (fato de repositório).</li></ol>
+<ol><li><strong>p5.js — política de contribuição</strong> — <code>https://github.com/processing/p5.js/blob/main/CONTRIBUTING.md</code> Sustenta o contrassinal cultural central: <em>"This project does not accept fully AI-generated contributions. AI tools may be used assistively only"</em>, com a justificativa de responsabilidade do contribuidor pelo que muda. <strong>Confiabilidade alta</strong> — é a política, não um relato sobre ela.</li></ol>
+<ol><li><strong>Zoo — Introducing KCL</strong> — <code>https://zoo.dev/research/introducing-kcl</code> Publicado em 20/05/2025. Sustenta a tese "código é o modelo" formulada em produto, e o argumento de que representar geometria como texto permite reaproveitar o ecossistema de ferramentas de texto e LLMs. <strong>Confiabilidade baixa como evidência de futuro, média como evidência de que a aposta existe em produto</strong> — é o fornecedor defendendo a própria arquitetura. Sinalizo a limitação: não encontrei triangulação independente sobre a qualidade real do KCL gerado por IA.</li></ol>
+<ol><li><strong>SideFX e Nvidia levam agentes com MCP ao rigging do Houdini 22 no SIGGRAPH 2026 — Jon Peddie Research</strong> — <code>https://www.jonpeddie.com/news/sidefx-and-nvidia-bring-mcp-powered-ai-agents-to-houdini-22s-rigging-workflow-at-siggraph-2026/</code> Keynote de 22/06/2026, em Londres. Sustenta: Apex Script Comfort Package com extensão de VS Code, painel Python e servidor MCP com validador; demonstração de 300+ linhas de código de rig; e — decisivo para a classificação de maturidade — o enquadramento explícito como <em>sneak peek</em> rumo ao Labs, canal pré-produção, "não é uma ferramenta de produção acabada". <strong>Confiabilidade média-alta</strong> — imprensa especializada relatando keynote, e que preserva o caveat em vez de apagá-lo.</li></ol>
+<ol><li><strong>3D Gaussian Splatting: Complete Guide to Services, Use Cases &amp; Web Viewers (2026) — Utsubo</strong> — <code>https://www.utsubo.com/blog/gaussian-splatting-guide</code> Publicado em 15/01/2026. Sustenta o orçamento do lado capturado: 5–15 milhões de splats a 200–500 MB sem compressão; 5–10× de redução por formatos comprimidos; alvo de 20–200 MB na web e 15–30 MB no celular; 30–45 FPS em iPhone 14 com 200 mil splats. <strong>Confiabilidade média</strong> — imprensa técnica/consultoria, útil para ordem de grandeza, não para medida controlada.</li></ol>
+<ol><li><strong>Copyright and Artificial Intelligence — U.S. Copyright Office</strong> — <code>https://www.copyright.gov/ai/</code> Sustenta apenas: a existência e as datas das três partes do relatório (Parte 1 em 31/07/2024; Parte 2, Copyrightabilidade, em 29/01/2025; Parte 3, pré-publicação, em 09/05/2025) e o escopo declarado de cada uma. <strong>Confiabilidade alta para o que sustenta, e insuficiente para o que eu queria</strong> — a página não traz o texto das conclusões, e o PDF da Parte 2 não foi aberto. Por isso nenhuma conclusão jurídica é afirmada neste documento.</li></ol>
+<ol><li><strong>The Creatives of the Future: How Artificial Intelligence is Reshaping the Creative Industry in Brazil — Reglab</strong> — <code>https://reglab.com.br/en/the-creatives-of-the-future-ai-creative-industry/</code> Publicado em 19/05/2026; coleta entre setembro e novembro de 2025; <strong>sete</strong> entrevistados por amostragem de caso extremo. Sustenta que existe estudo qualitativo brasileiro sobre adoção de IA no setor criativo e que ele <strong>declara não ser generalizável</strong>. <strong>Confiabilidade média para o qualitativo, nula para adoção</strong> — e é por isso que a nota sobre o Brasil, na seção 3.6, é declarada como lacuna.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-classificacoes-de-maturidade-inclusive-as-que-nao-entraram">12.1 Classificações de maturidade, inclusive as que não entraram</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Candidato</th><th>Maturidade</th><th>Ruptura</th><th>Destino</th></tr></thead><tbody><tr><td>Síntese de programa gráfico guiada por execução</td><td>emergente</td><td>alto</td><td><strong>D1</strong></td></tr><tr><td>Programa paramétrico como unidade de troca</td><td>emergente</td><td>alto</td><td><strong>D2</strong> (evidência mais fraca)</td></tr><tr><td>Ferramenta de autoria dirigida por agente via protocolo</td><td>experimental</td><td>alto</td><td><strong>D3</strong></td></tr><tr><td>Verificação estrutural (mates tipados, conectividade) como critério de aceite</td><td>experimental</td><td>médio</td><td>Sinal fraco 3</td></tr><tr><td>Shader por linguagem natural</td><td>emergente</td><td>médio</td><td>Sinal; é D1 num domínio</td></tr><tr><td>Inverse procedural modeling (dado → regra)</td><td>emergente</td><td>médio</td><td>Absorvido em D1 (MeshCoder)</td></tr><tr><td>Materiais procedurais por síntese de programa (VLMaterial, MultiMat)</td><td>emergente</td><td>médio</td><td>Não aprofundado — ver 12.4</td></tr><tr><td>Geração procedural clássica (WFC, noise, geometry nodes, Houdini)</td><td>maduro</td><td>—</td><td>Antecedente</td></tr><tr><td>Creative coding (Processing, p5, nannou, css-doodle, curv, glisp)</td><td>maduro</td><td>—</td><td>Antecedente e palco do contrassinal</td></tr><tr><td>Manim</td><td>maduro</td><td>—</td><td>Antecedente; o emergente é o agente que a dirige</td></tr><tr><td>Geradores nativos de malha/splat por API</td><td>maduro comercialmente</td><td>médio</td><td>Descartado pela régua de produto de massa</td></tr><tr><td>3DGS / captura neural</td><td>maduro em captura</td><td>alto, mas é outro tema</td><td>Tema 10; aqui só como termo de comparação</td></tr><tr><td>"Vibe coding" genérico</td><td>maduro-emergente</td><td>médio</td><td>Fora do recorte</td></tr></tbody></table></div>
+<p><strong>Sobre o ecossistema citado no enunciado da disciplina</strong> — WaveFunctionCollapse, Fantasy-Map-Generator, noise-rs, Graphite, Pixel Composer, material-maker, nannou, css-doodle, glisp, curv, SHADERed, rust-gpu, triangula, msdfgen, Cavalry, Rive, satori, Remotion, pixelgen: <strong>todos lidos como o ecossistema procedural maduro ou estável</strong>, antecedente deste mapa. Nenhum depende de IA escrever a regra — é exatamente essa a linha que os separa das três raízes. Nenhum foi verificado individualmente nesta rodada, e por isso nenhum é citado como evidência.</p>
+<h3 id="12-2-caminhos-causais-cortados">12.2 Caminhos causais cortados</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Aresta proposta</th><th>Por que caiu</th></tr></thead><tbody><tr><td>D1 → "escolas de design substituem o ensino de desenho pelo ensino de sistemas até 2031"</td><td>Sem mecanismo. Currículo muda por processo institucional lento e eu não tinha evidência nenhuma de movimento curricular. Substituída por <code>e2.1.1</code></td></tr><tr><td>D2 → "a obra passa a ser o código; um mundo inteiro cabe num prompt"</td><td>O teste "se A, então B fica mais provável porque ___" não fecha sem uma mudança normativa que eu não sei demonstrar. Restou <code>e7.1.1</code></td></tr><tr><td>D1 → "o custo total de produção visual cai drasticamente"</td><td>Confunde custo de variação com custo total. <code>e2</code> registra explicitamente a assimetria: o primeiro acerto continua caro por causa do portão</td></tr><tr><td>D3 → "os fabricantes de DCC perdem relevância para agentes genéricos"</td><td>Mecanismo invertido: o validador e a documentação <strong>aumentam</strong> a dependência do fabricante. O efeito real é <code>e6.1</code> e, no cenário ruim, <code>e5.1.1</code></td></tr><tr><td>D1 → "artistas 3D perdem o emprego"</td><td>Efeito plausível e sem mecanismo demonstrável neste horizonte; e a evidência aponta para deslocamento de função (<code>e2.1</code>, <code>e6.2</code>), não para eliminação. Previsão confundida com receio</td></tr><tr><td>D2 → "3D procedural é mil vezes mais leve e vence na web"</td><td>Razão herdada do enunciado, sem medição. Ver seção 8, erro 1</td></tr></tbody></table></div>
+<h3 id="12-3-efeito-que-falta-no-mapa-e-eu-sei-que-falta">12.3 Efeito que falta no mapa, e eu sei que falta</h3>
+<p><strong>O híbrido.</strong> O desfecho mais provável, olhando a literatura de materiais procedurais, é que a estrutura venha por programa e a superfície por dado neural — e a roda não tem <strong>nenhum</strong> efeito representando isso. A oposição "gerar pixel × gerar programa", herdada do enunciado, é elegante demais para ser o que acontece. Registro a lacuna como lacuna: não inventei um efeito para tapá-la porque não tenho fonte aberta que a sustente.</p>
+<h3 id="12-4-fontes-que-apareceram-em-busca-e-nao-foram-abertas">12.4 Fontes que apareceram em busca e <strong>não</strong> foram abertas</h3>
+<p>Não sustentam nada neste documento; ficam listadas para quem retomar:</p>
+<ul><li><em>Don't Mesh with Me: Generating CSG Instead of Meshes by Fine-Tuning a Code-Generation LLM</em> (arXiv 2411.15279) — CSG por LLM afinado.</li><li><em>SceneCraft: An LLM Agent for Synthesizing 3D Scene as Blender Code</em> (arXiv 2403.01248) — antecedente de 2024 da linha do LL3M.</li><li><em>VLMaterial</em> (arXiv 2501.18623) e <em>MultiMat</em> (arXiv 2509.22151) — síntese de programa para materiais procedurais. É por aqui que se investiga o híbrido da 12.3.</li><li><em>ShadAR: LLM-driven shader generation to transform visual perception in AR</em> — CHI 2026 Extended Abstracts, DOI <code>10.1145/3772363.3799378</code>.</li><li><em>QuadGPT</em> (arXiv 2509.21420) — malha quadrilátera nativa; interessa como contra-tese (melhorar o <strong>dado</strong> em vez de trocá-lo por regra).</li><li>Comparativos comerciais de geradores nativos de 3D (3DAI Studio, Meshy, Cinevva) — sustentariam o contrassinal de cadeia de valor do item 5 da seção 7, se abertos.</li><li>Relatório de impacto 2025 da Processing Foundation.</li><li>PDF da Parte 2 do relatório do U.S. Copyright Office — <code>https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf</code>. <strong>É a lacuna mais relevante deste mapa</strong>, dado o peso de <code>e1.1.2</code> e do Wildcard 2.</li></ul>
+<h3 id="12-5-buscas-sem-resultado-util">12.5 Buscas sem resultado útil</h3>
+<ul><li><strong>"ShaderEval"</strong> como benchmark estabelecido de geração de shader: não confirmado em fonte aberta. Ver seção 8, erro 3.</li><li><strong>Medição comparativa direta, em bytes, da mesma cena como programa procedural e como 3DGS</strong>: não encontrada. É a medição que faltaria para sustentar a tese de leveza do enunciado, e seria um bom subproduto do experimento da seção 10.</li><li><strong>Dado de adoção de síntese de programa gráfico por IA em estúdio brasileiro</strong>: nada. A única fonte brasileira aberta é qualitativa, com sete entrevistados, e declara não ser generalizável.</li><li><strong>Proporção de trabalhos no Shadertoy ou no OpenProcessing com código declaradamente gerado por IA</strong>: não encontrada. Seria o melhor indicador único de onde está a adoção na comunidade — e sua ausência é, ela própria, informativa.</li><li><strong>Custo em token do portão de verificação por variante</strong>: não publicado por nenhum dos projetos. É a barreira subestimada nº 2 da seção 7.</li></ul>
+<h3 id="12-6-contrassinais-registrados">12.6 Contrassinais registrados</h3>
+<ol><li>Política do p5.js recusando contribuição inteiramente gerada (fonte aberta, alta confiabilidade).</li><li>3DCodeBench: falhas predominantes por descasamento de API e componentes flutuantes (fonte aberta).</li><li>Houdini 22 / MCP como <em>sneak peek</em> para canal experimental, pelo próprio fabricante (fonte aberta).</li><li>Quatro dos seis artigos abertos não declaram limitação alguma no resumo — contrassinal sobre a <strong>qualidade da evidência</strong>, não sobre a tecnologia.</li><li>Mercado comercial de 3D gerado organizado em torno de malha com rigging e plugin de engine (busca não aberta; hipótese a verificar, não evidência).</li></ol>
+<h3 id="12-7-hipoteses-alternativas-ao-mapa-inteiro">12.7 Hipóteses alternativas ao mapa inteiro</h3>
+<ul><li><strong>H-alt 1 — O gerador nunca sai de casa.</strong> D1 e D3 avançam, D2 falha. É o cenário provável da seção 9 e, na minha leitura, o mais bem sustentado pela evidência atual.</li><li><strong>H-alt 2 — O programa é só andaime.</strong> Gera-se código, executa-se uma vez, exporta-se malha, descarta-se o código. A "editabilidade" seria retórica de lançamento, e a metade direita da roda perderia a base. Distingue-se de H-alt 1 por um teste concreto: a métrica 2 do experimento da seção 10.</li><li><strong>H-alt 3 — Híbrido.</strong> Programa para estrutura, dado neural para superfície. Não representado na roda; ver 12.3.</li><li><strong>H-alt 4 — Captura em vez de ruptura.</strong> Tudo acontece como descrito, e os incumbentes absorvem: as lojas licenciam geradores, os fabricantes prendem pela linguagem, os provedores de modelo vendem o portão como serviço. Nesse caso a roda está tecnicamente certa e politicamente ingênua — e <code>e1.1.1</code>, <code>e5.1.1</code> e <code>e6.1.1</code> são os três efeitos que já apontam para lá.</li></ul>
+<h3 id="12-8-observacoes-de-processo-que-nao-entraram-no-mapa">12.8 Observações de processo que não entraram no mapa</h3>
+<ul><li>A evidência técnica deste tema cabe em dezoito meses (fev/2025 a ago/2026). Isso é pouco para separar tendência de safra, e é a principal razão da confiança <strong>média</strong> declarada no frontmatter.</li><li>Há assimetria de gênero de fonte que vale registrar: o lado "isto funciona" vem de arXiv e GitHub dos proponentes; o lado "isto ainda não funciona" vem de <strong>uma</strong> fonte independente (3DCodeBench) e <strong>uma</strong> política de comunidade (p5.js). Um mapa apoiado em dois pés desse tamanho merece ser refeito quando houver um terceiro.</li><li>Os três prazos mais frágeis do YAML são os de <code>e5</code> e descendentes. Se eu tivesse de apostar um efeito inteiro que não acontece até 2033, apostaria em <code>e5.1.1</code>.</li></ul></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>

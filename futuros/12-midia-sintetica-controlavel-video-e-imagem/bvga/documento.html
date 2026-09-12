@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mídia sintética controlável: vídeo e imagem · futurizacao-bvga (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 12 · futurizacao-bvga (aluno)</p><h1>Mídia sintética controlável: vídeo e imagem</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/12-midia-sintetica-controlavel-video-e-imagem/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/12-midia-sintetica-controlavel-video-e-imagem/bvga/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/12-midia-sintetica-controlavel-video-e-imagem/bvga/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h3 id="d1-o-quadro-deixa-de-ser-resultado-e-vira-superficie-editavel">D1 — O quadro deixa de ser resultado e vira superfície editável</h3>
+<div class="tabela-envolve"><table><thead><tr><th>campo</th><th>conteúdo</th></tr></thead><tbody><tr><td><code>candidato</code></td><td>Direção espacial e temporal in-context sobre material já existente: região, máscara, trajetória, ângulo, luz e parâmetro físico como argumentos da geração</td></tr><tr><td><code>maturidade</code></td><td>emergente</td></tr><tr><td><code>potencial_de_ruptura</code></td><td>alto</td></tr><tr><td><code>o_que_rompe</code></td><td>(a) a cadeia de valor da pós-produção, que hoje é uma sequência de especialidades — roto, <em>cleanup</em>, <em>matchmove</em>, compositing, <em>relighting</em>; (b) quem pode produzir, porque a barreira deixa de ser a equipe e passa a ser o julgamento; (c) o papel do intermediário técnico, cuja competência era executar o que o diretor descrevia</td></tr><tr><td><code>por_que_agora</code></td><td>A geração ficou boa o bastante para que o problema passasse a ser dirigir. O survey de 2025/26 declara a insuficiência do prompt textual; o Aleph entrega edição por instrução sobre clipe existente; o PhyParam mostra que já se condiciona em grandezas físicas nomeadas, não só em aparência</td></tr><tr><td><code>o_que_falta</code></td><td>Controlabilidade medida, não demonstrada — o VBench-2.0 e o PhyParam registram que a governança explícita do movimento ainda não é confiável. Falta também reprodutibilidade determinística e integração nativa com a <em>timeline</em> de edição</td></tr><tr><td><code>evidencias</code></td><td>ControlNet (fev/2023); survey 2507.16869; Runway Aleph (jul/2025); Firefly NAB 2026; PhyParam (jul/2026); VBench-2.0 (2025)</td></tr><tr><td><code>veredito</code></td><td><strong>aceita.</strong> Emergente, ruptura alta, "por que agora" com data, e uma condição faltante nomeada e mensurável</td></tr></tbody></table></div>
+<h3 id="d2-o-video-passa-a-ser-gerado-enquanto-e-assistido">D2 — O vídeo passa a ser gerado enquanto é assistido</h3>
+<div class="tabela-envolve"><table><thead><tr><th>campo</th><th>conteúdo</th></tr></thead><tbody><tr><td><code>candidato</code></td><td>Geração causal autoregressiva em tempo real: o quadro seguinte é produzido durante o consumo, condicionado ao que o espectador acaba de fazer</td></tr><tr><td><code>maturidade</code></td><td>experimental, tendendo a emergente</td></tr><tr><td><code>potencial_de_ruptura</code></td><td>alto</td></tr><tr><td><code>o_que_rompe</code></td><td>(a) a arquitetura de produto — o vídeo deixa de ser arquivo e vira serviço; (b) o custo marginal, que passa de banda para GPU por espectador; (c) a forma dominante de interação, porque "assistir" ganha uma alça; (d) a própria categoria jurídica de obra, que pressupõe conteúdo fixo</td></tr><tr><td><code>por_que_agora</code></td><td>VAR mostrou em 2024 que autoregressivo podia bater difusão em imagem. Em vídeo, a difusão de sequência completa impede exibir quadros conforme são produzidos; a destilação causal resolveu a qualidade (Causal Forcing, ICML 2026) e a velocidade (0,56 → 31,54 FPS, jul/2026) no mesmo ano</td></tr><tr><td><code>o_que_falta</code></td><td>Memória de longo horizonte e responsividade à ação — os dois primeiros problemas em aberto listados pelo survey de mai/2026. E um modelo econômico: custo que cresce com o uso não fecha com assinatura plana</td></tr><tr><td><code>evidencias</code></td><td>VAR (2404.02905); Causal Forcing (2602.02214, ICML 2026); AlayaRenderer-Flash (2607.18703); survey 2606.01164</td></tr><tr><td><code>veredito</code></td><td><strong>aceita.</strong> É a candidata de evidência mais recente e menor lastro de uso real — a confiança dos seus efeitos é declarada mais baixa por isso</td></tr></tbody></table></div>
+<h3 id="d3-a-entrega-deixa-de-ser-pixels-e-vira-descricao-executavel">D3 — A entrega deixa de ser pixels e vira descrição executável</h3>
+<div class="tabela-envolve"><table><thead><tr><th>campo</th><th>conteúdo</th></tr></thead><tbody><tr><td><code>candidato</code></td><td>A peça de movimento distribuída como artefato <em>stateful</em> — máquina de estados, grafo, regra, semente — resolvido no dispositivo no momento do consumo, em vez de arquivo linear renderizado na origem</td></tr><tr><td><code>maturidade</code></td><td>emergente <strong>como formato de mídia</strong>; maduro como componente de interface</td></tr><tr><td><code>potencial_de_ruptura</code></td><td>alto</td></tr><tr><td><code>o_que_rompe</code></td><td>(a) a arquitetura de produto: o entregável é o comportamento, não a gravação dele; (b) o <em>handoff</em> designer→engenheiro, que deixa de ser etapa; (c) a fronteira entre vídeo e interface; (d) a reprodutibilidade como cláusula, já que um grafo é um objeto auditável e um render não é</td></tr><tr><td><code>por_que_agora</code></td><td>O runtime provou escala em produto de massa — Duolingo reconstruiu seus personagens com Rive, ganhando arquivo menor e <em>lip sync</em> em escala — e a geração começa a caber dentro de um grafo como nó determinístico, em vez de ser uma caixa que devolve um resultado irrepetível</td></tr><tr><td><code>o_que_falta</code></td><td>Sair do repertório de micro-interação. Os trinta e poucos casos de uso listados pelo Rive são de interface; nenhum é narrativa longa. Faltam formato de intercâmbio entre ferramentas e acordo sobre quem é dono do grafo</td></tr><tr><td><code>evidencias</code></td><td>Rive — documentação de State Machine e página de casos de uso; EbSynth como precedente de propagação por quadro-chave; a lógica de grafo já dominante em pipelines de geração</td></tr><tr><td><code>veredito</code></td><td><strong>aceita, com ressalva registrada.</strong> O produto Rive é maduro e por regra da própria skill um produto maduro não vira raiz. O que é emergente — e foi o que aceitei — é o <strong>formato de entrega</strong>, fora do nicho de interface. Ver a autocrítica na seção 8</td></tr></tbody></table></div>
+<hr>
+<p><strong>Um candidato forte que foi recusado como raiz:</strong> a proveniência criptográfica obrigatória (C2PA + Art. 50 + TSE). Tem data, tem lei, tem infraestrutura e tem alto potencial de ruptura — mas não é raiz <strong>deste</strong> tema: ela é reação à mídia sintética barata, não sua causa. Entra como efeito de 1ª e 2ª ordem (e3, e3.1) e como sinal na seção 6. Rebaixar isso foi a decisão de classificação mais custosa deste mapa.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — O quadro deixa de ser resultado e vira superfície editável: direção in-context sobre material já existente&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;A pós-produção deixa de ser uma cadeia de especialidades sequenciais e passa a ser uma operação de direção sobre material já filmado.&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;O orçamento de uma produção deixa de ser dominado por horas-homem de execução técnica e passa a ser dominado por direitos, direção e supervisão.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Contratos de elenco e de produção passam a precificar o direito de dirigir uma performance já gravada — luz, ângulo, idade aparente, idioma — como item separado do cachê.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;A entrada na profissão perde seus degraus, porque as tarefas que formavam o iniciante — rotoscopia, cleanup, in-between — são as primeiras a serem dirigidas por instrução.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Escolas de animação e cinema deslocam o currículo de treino de execução para treino de julgamento visual, e passam a avaliar o aluno pelo que ele recusa, não pelo que produz.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;O custo de uma variação cai muito mais que o custo da primeira versão, e peças de comunicação passam a ser produzidas como famílias de variantes em vez de obras únicas.&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;A pesquisa de audiência migra de pré-teste para teste contínuo: a peça vencedora é descoberta em veiculação, não em sala de grupo.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;A régua de qualidade na publicidade desloca-se de acabamento para desempenho medido, e o prêmio de festival deixa de funcionar como proxy de valor comercial.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Plataformas de anúncio passam a exigir declaração de origem por variante, porque o volume de peças torna a revisão humana caso a caso inviável.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e3
+        ordem: 1
+        efeito: &quot;O registro visual perde a presunção de autenticidade: um vídeo passa a valer pelo que se sabe da sua origem, não pelo que se vê nele.&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;A proveniência vira camada de infraestrutura exigida por lei em alguns mercados, com custo de conformidade recaindo sobre quem publica, não sobre quem gera.&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: alta
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Formam-se dois ecossistemas de mídia — um com proveniência exigida na entrada, outro sem — e produtores globais passam a manter duas versões de cada peça, por jurisdição.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;A perícia audiovisual muda de objeto: deixa de analisar o pixel em busca de artefato e passa a analisar registro de captura e cadeia de custódia.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;Tribunais passam a tratar vídeo sem proveniência como indício e não como prova, invertendo na prática o ônus para quem apresenta a peça.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: &quot;D2 — O vídeo passa a ser gerado enquanto é assistido: geração causal em tempo real&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;O vídeo passa a ser produzido durante o consumo, e o espectador ganha uma alça sobre aquilo que está vendo.&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;O custo de distribuição deixa de ser banda e passa a ser computação por espectador-minuto, invertendo a economia de escala que sustenta o streaming.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Nesse formato, publicidade e microtransação voltam a ser o modelo dominante, porque assinatura plana não cobre custo marginal que cresce com o uso.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;A distinção entre jogo e vídeo deixa de ser útil como categoria de produto, de direito autoral e de classificação indicativa.&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;Órgãos de classificação indicativa passam a classificar o modelo e os seus limites em vez da obra, porque a obra não tem conteúdo fixo a examinar.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;A obra deixa de ser idêntica entre duas exibições, e a noção de versão canônica deixa de ter referente.&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;Arquivamento, crítica e citação perdem o objeto: não há cópia única a preservar, comparar ou apontar.&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Cinematecas e arquivos passam a preservar o gerador, os pesos e a semente em vez do arquivo, herdando uma dependência de infraestrutura computacional que não sabem manter por décadas.&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+  - disrupcao: &quot;D3 — A entrega deixa de ser pixels e vira descrição executável&quot;
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: &quot;A peça de movimento passa a ser entregue como programa — estado, transição, regra — resolvido no dispositivo, e não como sequência de quadros gravada na origem.&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;O handoff entre quem desenha e quem implementa deixa de existir como etapa, porque o arquivo entregue é o comportamento e não a referência do comportamento.&quot;
+            sinal: forte
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;A função de motion designer se parte em duas — quem desenha o repertório de estados e quem projeta a lógica de transição — e a segunda migra para dentro da engenharia de produto.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;Acessibilidade e desempenho deixam de ser ajustes de exportação e viram parâmetros do próprio artefato: reduzir movimento, trocar paleta ou degradar em aparelho fraco passa a ser decisão tomada no consumo.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e7
+        ordem: 1
+        efeito: &quot;A geração passa a caber dentro de um grafo determinístico como um nó, em vez de ser uma caixa que devolve um resultado irrepetível.&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Reprodutibilidade vira requisito contratual de entrega: o cliente compra o grafo e a semente, não apenas o render final.&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;Surgem disputas sobre a propriedade do pipeline: quem encomendou a peça passa a exigir o grafo, e estúdios perdem o ativo tácito que os tornava recontratáveis.&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa</code></pre>
+<p><strong>O que a estrutura não captura bem.</strong> Três coisas, e vale nomeá-las porque a árvore esconde cada uma.</p>
+<p>Primeiro, <strong>a roda é uma árvore e o mundo é um grafo</strong>. O efeito e3 (perda da presunção de autenticidade) é filho de D1 aqui, mas é igualmente filho de D2: mídia que nunca existiu como arquivo é ainda mais difícil de autenticar que mídia editada. Pendurei-o em D1 porque a edição in-context é a causa com evidência mais forte hoje, não porque a outra aresta não exista. O mesmo vale para e7, que é filho de D3 na árvore e é, em mecanismo, uma consequência conjunta de D1 e D3.</p>
+<p>Segundo, <strong>ordem não é data, e aqui isso aparece invertido de propósito</strong>. O efeito e6.1 é de 2ª ordem e tem o prazo mais curto de toda a roda (2028), porque o <em>handoff</em> designer→engenheiro já está desaparecendo em produtos que usam Rive. Já e1.1.1, de 3ª ordem, tem prazo próximo. Distância causal e distância cronológica são eixos independentes, e este mapa não os alinha.</p>
+<p>Terceiro, <strong>a roda não representa realimentação negativa</strong>. Nada nela mostra o efeito mais provável de todos: que a exigência de proveniência (e3.1) <strong>desacelere</strong> a adoção da geração controlável em contextos jornalísticos e jurídicos, atenuando e1 e e2 nesses nichos. Loops de amortecimento não cabem numa árvore de consequências, e a ausência deles enviesa o mapa na direção da aceleração. A seção 7 trata disso.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinal fraco 1 — a animação que responde, não a que toca.</strong> O Rive documenta a peça de movimento como "Graph, States, Transitions, and Layers". Isso é discreto porque parece ferramenta de UI e é, na prática, uma proposta de formato: mídia em movimento como programa. O sinal é fraco por delimitação, não por tamanho — o Duolingo reconstruiu todos os personagens nesse formato, mas nenhum dos trinta e poucos casos de uso listados pela própria empresa é narrativa. O dia em que a lista incluir um episódio, o sinal deixou de ser fraco.</p>
+<p><strong>Sinal fraco 2 — condicionar em grandeza física, não em aparência.</strong> O PhyParam (jul/2026) condiciona geração em força, massa e fricção de objeto. É um paper entre muitos, mas muda a natureza do controle: sair de "descreva o que quer ver" para "declare o que rege a cena" é a diferença entre pedir e especificar.</p>
+<p><strong>Sinal fraco 3 — a fragilidade medida da marca d'água.</strong> <em>Editing Away the Evidence</em> (mar/2026) mostra que edição semântica rotineira degrada a recuperabilidade da marca d'água robusta. É fraco porque é um paper técnico sem eco público; é importante porque a política pública que entra em vigor em agosto de 2026 depende exatamente dessa camada funcionar.</p>
+<p><strong>Sinal fraco 4 — o volume de submissão a festivais de IA.</strong> O Astana AI Film Festival recebeu <strong>8.067 filmes de 6.047 realizadores em 125 países</strong> para a edição de 1 a 3 de outubro de 2026, com fundo total de US$ 2 milhões. O Brasil aparece em 10º, com 163 filmes. É sinal fraco porque festival dedicado atrai quem já está dentro; mede oferta latente, não aceitação.</p>
+<p><strong>Contrassinal, e este pesa.</strong> O número que mais circula sobre deslocamento de emprego — 21,4% dos postos de cinema, TV e animação nos EUA, cerca de 118.500 vagas, afetados até 2026 — vem do estudo <em>Future Unscripted</em>, da CVL Economics, <strong>encomendado pelo Animation Guild e por outras entidades de artistas</strong>, com campo entre 17/nov e 22/dez/2023. É parte interessada, é previsão, e seu horizonte é agora: 2026 é o ano de verificar se aconteceu, e nenhuma fonte independente que abri o verifica. Usar esse número como evidência de futuro seria confundir projeção com medição.</p>
+<p><strong>Wildcard — um longa dirigido por uma pessoa entra em competição oficial de festival de primeira linha (Cannes, Veneza, Berlim), não em mostra paralela nem em festival dedicado a IA.</strong> Probabilidade baixa até 2031; impacto alto.</p>
+<p>O que ele quebraria no mapa: <strong>a ordem dos efeitos</strong>. Hoje a roda supõe que a mudança entra pela produção comercial — publicidade, plataforma, pós-produção — e só depois atinge a legitimação artística (e2, e2.1.1). Um longa individual em competição principal inverteria o vetor: a legitimação viria primeiro e puxaria a adoção, tornando e1.2 (perda dos degraus de entrada) muito mais rápido, porque a justificativa profissional para manter a escada — "é assim que se aprende" — perde força quando uma pessoa sozinha ganha a Palma. Também tornaria e1.1.1 (direito de dirigir performance gravada) uma disputa imediata, não futura.</p>
+<p>E o que <strong>não</strong> quebraria: nada disso afeta D2 nem D3. Um filme premiado continua sendo um arquivo linear. O wildcard testa a economia da produção, não a natureza do formato — e é útil justamente por separar as duas coisas.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Qual efeito é apenas extrapolação linear do presente?</strong> <strong>e2</strong> ("famílias de variantes em vez de obras únicas"). Publicidade já produz variantes hoje; barateamento do custo marginal produz mais variantes. Não há mecanismo novo, só uma curva de custo descendo. Mantive o efeito porque a magnitude importa, mas ele não é consequência de uma ruptura — é aritmética. <strong>Rebaixado de estruturante a mero pano de fundo</strong>: se e2 for o efeito mais visível de D1 em 2031, então D1 não era disrupção, era eficiência. Isso é um teste, não uma ressalva retórica.</p>
+<p><strong>2. Qual efeito assume adoção rápida demais?</strong> <strong>e4.1</strong> (custo de distribuição migra de banda para GPU até 2030). O paralelo histórico desmente o prazo: a passagem de broadcast para streaming levou cerca de quinze anos entre viabilidade técnica e inversão de gasto, e foi puxada por custo <strong>caindo</strong>. Aqui o custo <strong>sobe</strong> com o uso — computação por espectador-minuto não tem economia de escala do lado da demanda. Um serviço de 10 milhões de espectadores simultâneos a 30 FPS em GPU dedicada não tem precedente de preço. Prazo mantido no YAML com confiança média, mas assumo aqui que ele é o mais frágil do mapa.</p>
+<p><strong>3. Qual disrupção-raiz pode simplesmente não acontecer?</strong> <strong>D2.</strong> Toda a sua evidência é de 2026 e é de laboratório: Causal Forcing é paper de conferência, AlayaRenderer-Flash é preprint de julho, e o survey de maio lista memória de longo horizonte como problema <strong>em aberto</strong>. Não há produto de massa. É plausível que geração em tempo real fique confinada a jogos e simulação — onde já há motor, física e loop de interação — e nunca migre para o que hoje chamamos de vídeo. Nesse caso D2 não é disrupção de mídia; é otimização de renderização.</p>
+<p><strong>4. O que quebra na roda se D2 falhar?</strong> Caem e4, e5 e toda a sua descendência: seis efeitos, um terço do mapa. Sobrevivem D1 e D3, e a tese central — "o controle é a disrupção" — permanece de pé, porque D1 é a perna mais bem evidenciada. Mas a tese <strong>perde a parte interessante</strong>: sem D2, a mídia sintética controlável é um ganho de produtividade dentro da indústria existente, não uma mudança de natureza do objeto. Vale registrar: um mapa que sobrevive perdendo um terço dos efeitos sem mudar de conclusão pode estar pouco articulado, não robusto.</p>
+<p><strong>5. Que contrassinais existem?</strong> Três, todos citados na seção 3.3 e nenhum deles marginal. (a) O VBench-2.0 existe porque a métrica de aparência deixou de informar — e nele controlabilidade é dimensão separada justamente porque falha. (b) O PhyParam descreve o estado da arte como movimento "não governado confiavelmente por causas físicas explícitas": é a negação literal da palavra "controle". (c) A própria Adobe, que tem todo incentivo em vender geração, posiciona o Firefly para "preencher lacunas em produções reais" — quem vende não está prometendo o estúdio de uma pessoa. Um quarto contrassinal, metodológico: as estatísticas de adoção que mais circulam vêm de páginas comerciais de fornecedores (ver seção 8).</p>
+<p><strong>6. Que barreiras foram subestimadas?</strong> <strong>Jurídica</strong>, e por larga margem. Getty v. Stability alega 12 milhões de imagens; Disney e Universal litigam contra a Midjourney nos EUA. Se a decisão sobre dados de treino for restritiva, o custo do modelo muda de patamar e a promessa de barateamento em e1 e e2 se desfaz — não porque a técnica pare, mas porque o acervo encarece. <strong>Econômica</strong>: nada neste mapa precifica GPU. <strong>Institucional</strong>: o contrato do Animation Guild com a AMPTP não permite ao trabalhador recusar a ferramenta nem impedir o treino com seu trabalho — a convenção coletiva absorveu a mudança em vez de barrá-la, o que acelera D1 e <em>não</em> está representado na roda. <strong>Cultural</strong>: preferência declarada de público por conteúdo não sintético é medida em surveys e raramente se sustenta no comportamento; não encontrei fonte que abri capaz de sustentar essa barreira, e por isso não a usei.</p>
+<p><strong>7. Que ator teria incentivo para bloquear, capturar ou redirecionar?</strong> Bloquear: detentores de catálogo, via litígio — Disney e Universal já o fazem. Capturar: a <strong>Adobe</strong>, e o movimento já é visível. Ao agregar Runway, Luma, Kling, Veo e FLUX dentro do Firefly, ela transforma a disputa entre modelos em escolha de item dentro da sua interface: quem controla a camada de acesso fica indiferente a qual modelo vence. Redirecionar: os reguladores, ao tornarem a proveniência (e3.1) condição de circulação, empurram a adoção para dentro de plataformas capazes de arcar com conformidade — o que <strong>concentra</strong>, em vez de democratizar. O mapa supõe barreira de entrada caindo; e3.1 é a razão pela qual ela pode subir.</p>
+<p><strong>8. Que viés entrou na seleção?</strong> Quatro, e o primeiro é o mais sério. (a) <strong>O tema já vinha com a resposta</strong>: a descrição da disciplina afirma que a disrupção é o controle, e eu fui buscar evidência disso — busquei e achei, mas buscar evidência de uma tese já dada é o mecanismo padrão de viés de confirmação. Só a seção 3.3 foi construída explicitamente contra a tese. (b) <strong>Viés de fonte</strong>: arXiv publica o que funciona; o paper que mostra controle falhando só existe quando alguém constrói um benchmark para medi-lo — e benchmarks são raros e recentes. (c) <strong>Viés de recência</strong>: dei peso alto a dois preprints de julho de 2026 que nenhuma replicação independente confirmou. (d) <strong>Viés de idioma e geografia</strong>: quase toda a evidência é anglófona; sobre o Brasil consegui abrir uma peça de imprensa setorial e duas fontes secundárias sobre regulação, e nenhum dado de produção. A nota sobre o Brasil na seção 3.4 é, por isso, mais frágil que o resto do documento.</p>
+<p><strong>Efeitos cortados nesta revisão</strong> (registro completo na seção 12): três arestas caíram no teste "se A, então B se torna mais provável porque ___". A pior era "vídeo barato → colapso do jornalismo em vídeo": não consegui preencher o mecanismo sem supor que o valor do jornalismo está no custo de produzir imagem, o que é falso — está na apuração. Virou e3.2, que é mais estreito e sustentável.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Cinco erros detectados durante este trabalho. Todos foram corrigidos antes da entrega; registro-os porque o processo que os produziu continua ativo.</p>
+<p><strong>1. Atribuição de fatos a uma fonte que não os contém.</strong> O resumo de busca sobre deepfakes em tribunais apresentou, como se fossem do mesmo artigo, os casos <em>State of Washington v. Puloka</em> e <em>Huang v. Tesla</em> <strong>e</strong> o desfecho das regras federais propostas (FRE 707 e 901(c) não avançadas na reunião de maio de 2026). Ao abrir o artigo do Thomson Reuters Institute, ele é de <strong>8 de maio de 2025</strong> e <strong>não menciona</strong> FRE 707 nem 901(c). O material de 2026 vinha de outras páginas que não abri. Corrigido: cito apenas o que o artigo aberto sustenta, e retirei do mapa qualquer afirmação sobre o estado atual das regras federais.</p>
+<p><strong>2. Estatística de fornecedor apresentada como dado de mercado.</strong> A busca por taxas de adoção devolveu, nas primeiras posições, compilações do tipo "44 estatísticas de geração de vídeo por IA" hospedadas no site da <strong>Luma Labs</strong> — que vende geração de vídeo — e em blogs de outras ferramentas, com números como "41% das empresas usam IA para vídeo" e "86% de 16.000 criadores". Nenhum deles nomeia instrumento, amostra ou data de campo de forma rastreável. <strong>Não usei nenhum</strong> e não estão na seção 11. Isto é relevante para o critério de refutação que o solicitante declarou: ele pediu evidência de que a adoção passou da maioria inicial, e a evidência disponível para responder isso é, em sua maior parte, produzida por quem vende.</p>
+<p><strong>3. Número sem origem verificável, propagado como se fosse de um paper.</strong> Um resumo de busca afirmou que modelos falham "em cerca de 80% dos casos" em relações espaciais dinâmicas. Abri o VBench-2.0 e o survey de <em>interactive video world modeling</em>: <strong>nenhum dos dois apresenta esse número</strong>. Não localizei a fonte. O dado foi descartado — e a afirmação correspondente na seção 3.3 foi reescrita para usar só o que os papers abertos dizem, que é qualitativo.</p>
+<p><strong>4. Produto maduro quase promovido a disrupção-raiz.</strong> Rive é o sinal mais elegante do tema e a tentação de torná-lo raiz foi direta. Mas Rive roda em Duolingo, Figma e Spotify: é produto comercialmente utilizável, com ecossistema e problemas de engenharia conhecidos — <strong>maduro</strong>, pela régua da própria skill, que proíbe raiz madura. Reformulei D3 para a capacidade estrutural (entrega como descrição executável) e declarei explicitamente na ficha que a maturidade é dupla: madura em interface, emergente como formato de mídia. É uma correção parcial, não uma absolvição: quem discordar tem base para rebaixar D3 a tecnologia habilitadora, e o mapa perde dois efeitos de 1ª ordem.</p>
+<p><strong>5. Previsão encomendada confundida com medição.</strong> O número de 21,4% / 118.500 empregos apareceu em resultados de busca como se fosse constatação sobre 2026. É projeção da CVL Economics, encomendada por sindicatos e associações de artistas, com campo em nov–dez/2023 e horizonte "até 2026". Tratei como o que é — parte interessada, previsão a verificar — e coloquei na seção 6 como contrassinal metodológico, não como evidência de deslocamento.</p>
+<p><strong>Quatro fontes não puderam ser abertas</strong> e por isso não sustentam nada neste documento: VFX Voice, Animation World Network, o texto integral da Resolução TSE no site do TSE e a análise da agenda regulatória da ANCINE no Mattos Filho — todas devolveram HTTP 403. O conteúdo da Resolução TSE foi confirmado por duas fontes secundárias que abri, e está assim assinalado na seção 11. <strong>Nenhuma afirmação deste mapa depende de fonte que eu não tenha aberto.</strong></p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-o-instrumento-entrou-o-estudio-continuou">Provável — "O instrumento entrou; o estúdio continuou"</h3>
+<p>É 2031. O controle fino venceu como funcionalidade e perdeu como promessa de emancipação. Todo pacote de pós-produção tem edição por instrução sobre clipe filmado: remover, reacender, girar o ângulo. O trabalho que sumiu foi o de entrada — a escada de formação quebrou no primeiro degrau, e as escolas ainda não repuseram nada no lugar. Quem decide continua sendo quem decidia, com equipe menor e prazo mais curto.</p>
+<p>A geração em tempo real ficou onde já havia motor e loop: jogos, simulação, treinamento. Nunca virou formato de vídeo. A camada de acesso concentrou-se em duas ou três plataformas que agregam modelos de terceiros — a disputa entre modelos foi decidida por quem vende o acesso, não por quem treina os pesos. A proveniência funciona onde a lei obriga e evapora no resto da internet, porque o <em>screenshot</em> continua sendo o formato mais compartilhado do mundo e nenhuma marca d'água sobreviveu a ele em escala.</p>
+<p>O estúdio de uma pessoa existe, produz bem e não substituiu ninguém: virou fornecedor terceirizado dos mesmos clientes de sempre, com margem menor.</p>
+<h3 id="desejavel-o-grafo-como-entregavel">Desejável — "O grafo como entregável"</h3>
+<p>É 2031. A mudança que pegou não foi a geração — foi a <strong>reprodutibilidade</strong>. Por volta de 2028, três clientes grandes de publicidade passaram a exigir, em contrato, o grafo e a semente junto com o render, porque precisavam refazer a peça sem refazer a negociação. A exigência pegou, e arrastou o resto: se o pipeline é entregável, ele é auditável; se é auditável, dá para saber que material entrou nele; se dá para saber isso, o licenciamento de acervo vira transação e não litígio.</p>
+<p>Foi preciso construir três coisas que não existiam em 2026. Primeira, um <strong>formato de intercâmbio</strong> entre ferramentas de grafo — sem ele, "entregar o pipeline" significa entregar refém a um fornecedor. Segunda, um <strong>acordo sobre a propriedade do grafo</strong> que não transferisse ao cliente todo o ativo do estúdio; a solução foi separar repertório (do estúdio) de composição (do cliente), e ela saiu de negociação sindical, não de tecnologia. Terceira, <strong>medição pública de controlabilidade</strong> — os benchmarks de 2025-26 viraram exigência de compra, e fornecedor que não publica taxa de acerto por restrição não entra em concorrência.</p>
+<p>O efeito colateral bom foi na formação: com pipeline auditável, dá para ensinar julgamento sem passar três anos em rotoscopia. O degrau de entrada foi reconstruído em outro material.</p>
+<h3 id="indesejavel-duas-internets-e-nenhuma-prova">Indesejável — "Duas internets e nenhuma prova"</h3>
+<p>É 2031. A proveniência foi implantada como obrigação e falhou como infraestrutura. A marcação legível por máquina sobrevive na jurisdição que a exige e é removida na primeira recompressão fora dela — exatamente o que o paper de março de 2026 já media e ninguém tratou como bloqueante. O resultado não foi mídia confiável: foi um selo que separa quem pode pagar conformidade de quem não pode. Produzir para o mercado regulado exige camada jurídica; produzir fora dele, não. Concentração, não confiança.</p>
+<p>Do outro lado, a presunção de autenticidade do vídeo acabou sem que nada a substituísse. Peça de vídeo sem proveniência virou indício, e quem tem recurso para constituir cadeia de custódia — empresa, Estado, campanha grande — tem prova; quem filma com o celular na rua, não. A inversão do ônus atingiu justamente quem usava o vídeo como último recurso.</p>
+<p><strong>O sinal precoce que teria antecipado isso — e que já estava visível em 2026:</strong> a distância entre a data de aplicação da obrigação legal (2 de agosto de 2026) e o estado da tecnologia que deveria sustentá-la. No mesmo ano, a C2PA admitia na sua própria FAQ que o manifesto "pode ser separado" do arquivo, e um preprint de março mostrava que edição semântica rotineira degrada a recuperabilidade da marca d'água. A obrigação chegou antes da camada durável. Quem quisesse ver, viu — bastava ler a FAQ do padrão.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="prova-de-direcao">Prova de direção</h3>
+<p><strong>O que é.</strong> Um teste pareado e cego que mede uma coisa só: <strong>taxa de acerto de restrição</strong>. Não "o vídeo ficou bom" — se a peça cumpriu, uma a uma, restrições nomeadas antes de qualquer geração.</p>
+<p>Monta-se um <em>brief</em> de plano de 8 segundos com <strong>seis restrições verificáveis e independentes</strong>, escritas por um profissional que não participa da execução. Por exemplo: (1) a luz principal vem da esquerda alta; (2) o objeto X não aparece em nenhum quadro; (3) a câmera é a mesma cena vista 30° à direita; (4) um evento acontece entre 3,0 s e 3,5 s; (5) o efeito atinge só a região superior do quadro e nenhuma outra; (6) um adereço permanece idêntico do primeiro ao último quadro.</p>
+<p>Dois braços, mesmo <em>brief</em>, mesmos executores em ordem contrabalançada:</p>
+<ul><li><strong>Braço A (emergente):</strong> pilha de geração controlável — edição in-context sobre material filmado, propagação por quadro-chave, condicionamento espacial.</li><li><strong>Braço B (maduro):</strong> NLE + composição manual, rotoscopia, máscara à mão.</li></ul>
+<p><strong>Pergunta de futuro que testa.</strong> <em>A geração já é instrumento, ou ainda é loteria com mais botões?</em> É a pergunta de que depende D1, e por tabela todo o mapa: se a taxa de acerto por restrição não supera a execução manual, e sobretudo se ela <strong>não se repete</strong>, então "controle" é nome comercial e a disrupção-raiz D1 cai.</p>
+<p><strong>Tecnologia emergente usada.</strong> Edição de vídeo in-context por instrução e condicionamento espacial explícito — a capacidade que os benchmarks de 2025-26 dizem ainda falhar. É justamente o ponto de dúvida, e é onde o teste morde.</p>
+<p><strong>Por que uma solução madura não responde à mesma pergunta.</strong> O braço B é o controle experimental, não a resposta. Com máscara desenhada à mão, a taxa de acerto tende a 100% por construção: o artista <em>coloca</em> o pixel onde quer. O que a ferramenta madura não consegue responder é o que a pergunta exige — se é possível chegar lá <strong>por especificação</strong>, com custo e variância aceitáveis. Sem o braço A não há pergunta; sem o braço B não há régua.</p>
+<p><strong>O que os participantes fazem.</strong> De 8 a 12 profissionais de mídia em movimento, com prática declarada em ambas as pilhas. Cada um executa os dois braços com <em>briefs</em> equivalentes e ordem trocada, com teto de 90 minutos por braço. Registram-se: número de iterações até a primeira tomada aceita por eles mesmos, e o arquivo final. Três avaliadores independentes, que não sabem qual braço produziu o quê, marcam cada restrição como <strong>cumprida / parcial / não cumprida</strong> contra a lista escrita — nunca contra a impressão geral.</p>
+<p><strong>Métrica.</strong> Três números, e o terceiro é o que importa:</p>
+<ol><li><strong>Taxa de acerto por restrição</strong> (0 a 6), por braço, com concordância entre avaliadores (Krippendorff α; abaixo de 0,67 o item é descartado por ambiguidade da redação, não do resultado).</li><li><strong>Custo até o primeiro aceite</strong>: minutos e número de iterações.</li><li><strong>Índice de reprodutibilidade</strong>: a mesma especificação, no braço A, executada 5 vezes pela mesma pessoa. Mede-se a dispersão da taxa de acerto entre as cinco. É este número que separa instrumento de loteria — uma média alta com variância alta descreve uma ferramenta que <em>às vezes</em> obedece, e ninguém dirige com isso.</li></ol>
+<p><strong>O que me faria mudar de ideia — nas duas direções, declarado antes de rodar.</strong></p>
+<p><em>Falsifica D1 (e derruba a tese central deste mapa):</em> se o braço A não superar o B em taxa de acerto <strong>e</strong> o índice de reprodutibilidade mostrar dispersão maior que 1,5 restrição entre repetições da mesma especificação, então em 2026 não há instrumento — há amostragem com interface melhor. D1 deve ser rebaixada a tecnologia habilitadora, e os efeitos e1, e2 e e3 perdem a raiz.</p>
+<p><em>Confirma D1 e ainda assim me obriga a rever o mapa:</em> se o braço A superar o B <strong>e</strong> a vantagem se concentrar nas restrições 1 e 3 (luz e ângulo) mas não nas 4, 5 e 6 (tempo, região, continuidade), então o controle que existe é sobre <strong>aparência</strong>, não sobre <strong>estrutura</strong> — e a roda está errada no lugar onde supõe substituição de trabalho técnico fino (e1.2). Nesse caso a disrupção é real e menor do que este documento afirma.</p>
+<p><em>Limite honesto do desenho:</em> com 8 a 12 participantes, isto não é evidência estatística — é sonda. Serve para decidir se vale montar o estudo maior, e para expor a redação das restrições, que é onde um teste como este costuma falhar primeiro.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Somente fontes efetivamente abertas e lidas nesta rodada. Quatro tentativas retornaram HTTP 403 e não sustentam nada no documento — estão registradas na seção 12.</p>
+<ol><li><strong>ControlNet — "Adding Conditional Control to Text-to-Image Diffusion Models"</strong> (Zhang, Rao, Agrawala; 10/fev/2023) — <code>https://arxiv.org/abs/2302.05543</code> — sustenta a raiz técnica do condicionamento espacial (<em>edges, depth, segmentation, human pose</em>), as <em>zero convolutions</em> e a robustez com datasets pequenos. <strong>Alta</strong>: paper primário, amplamente replicado.</li><li><strong>VAR — "Visual Autoregressive Modeling: Scalable Image Generation via Next-Scale Prediction"</strong> (abr/2024; rev. jun/2024) — <code>https://arxiv.org/abs/2404.02905</code> — sustenta FID 18,65→1,73, IS 80,4→350,2, ~20× mais rápido, e o fato de um AR superar difusão em imagem. <strong>Alta</strong>: melhor artigo do NeurIPS 2024.</li><li><strong>"Controllable Video Generation: A Survey"</strong> (Ma et al.; v1 jul/2025, v3 jan/2026) — <code>https://arxiv.org/abs/2507.16869</code> — sustenta a taxonomia (condição única, múltipla, universal) e o diagnóstico de insuficiência do prompt textual. <strong>Média-alta</strong>: survey, não peer review confirmado.</li><li><strong>VBench-2.0</strong> (Zheng et al.; mar–ago/2025) — <code>https://arxiv.org/abs/2503.21755</code> — sustenta as cinco dimensões, com controlabilidade separada, e a conclusão sobre plausibilidade visual × realismo. <strong>Alta</strong>: benchmark com validação por anotação humana.</li><li><strong>"Causal Forcing"</strong> (Zhu, Zhao, He, Su, Li, Zhu — THU-ML; fev/2026, rev. jun/2026; ICML 2026) — <code>https://arxiv.org/abs/2602.02214</code> — sustenta o <em>gap</em> arquitetural difusão bidirecional × atenção causal e os ganhos de +19,3% / +8,7% / +16,7%. <strong>Alta</strong>: aceito em conferência de primeira linha.</li><li><strong>"Generative World Renderer at the Speed of Play"</strong> (Lin et al.; 21/jul/2026) — <code>https://arxiv.org/abs/2607.18703</code> — sustenta 0,56 → 31,54 FPS e o mundo jogável a 30 FPS. <strong>Média</strong>: preprint recente, sem replicação independente; o próprio texto não declara limitações.</li><li><strong>"Towards Interactive Video World Modeling"</strong> (Liu, Pollefeys, Tomizuka, Tewari et al.; 31/mai/2026) — <code>https://arxiv.org/abs/2606.01164</code> — sustenta os três problemas em aberto: controlabilidade condicionada a ação, memória de longo horizonte, responsividade. <strong>Média-alta</strong>: survey com autoria reconhecida.</li><li><strong>PhyParam</strong> (Li, Wen, Song et al.; 21/jul/2026) — <code>https://arxiv.org/abs/2607.18924</code> — sustenta o condicionamento em força, massa e fricção e o diagnóstico de movimento plausível não governado por causas físicas explícitas. <strong>Média</strong>: preprint recente.</li><li><strong>"Editing Away the Evidence"</strong> (Qi, Tang, Lee, Davis, Carter; 13/mar/2026) — <code>https://arxiv.org/abs/2603.12949</code> — sustenta a degradação da marca d'água robusta sob edição semântica rotineira. <strong>Média</strong>: preprint; não reporta números no resumo público.</li><li><strong>"Stylizing Video by Example"</strong> (Jamriška, Sochorová, Texler, Sýkora, Lukáč, Fišer, Lu, Shechtman; SIGGRAPH 2019, ACM TOG 38(4)) — <code>https://dcgi.fel.cvut.cz/home/sykorad/ebsynth.html</code> — sustenta a propagação por quadro-chave e o <em>blending</em> temporal. <strong>Alta</strong>: paper em conferência de referência.</li><li><strong>EbSynth — site do produto</strong> — <code>https://ebsynth.com/</code> — sustenta a disponibilidade atual, o fluxo "pinte os quadros-chave" e o plano gratuito sem limitação funcional. <strong>Média</strong>: fonte do fabricante, parte interessada; usada só para disponibilidade.</li><li><strong>Runway — "Introducing Runway Aleph"</strong> (25/jul/2025) — <code>https://runway.com/research/introducing-runway-aleph</code> — sustenta as operações declaradas: adicionar/remover/transformar objetos, gerar qualquer ângulo, modificar estilo e iluminação. <strong>Baixa-média como evidência de capacidade</strong>: alegação do próprio fabricante, sem avaliação independente. Triangulada com as fontes 3, 4 e 8, que medem os limites.</li><li><strong>Rive — documentação de State Machine</strong> — <code>https://rive.app/docs/editor/state-machine/state-machine</code> — sustenta a anatomia Graph / States / Transitions / Layers. <strong>Alta para o que sustenta</strong>: documentação primária do formato.</li><li><strong>Rive — casos de uso</strong> — <code>https://rive.app/use-cases</code> — sustenta os clientes nomeados (Duolingo, Figma, Struck), a reconstrução dos personagens do Duolingo e o fato de os 30+ casos listados serem de interface. <strong>Média</strong>: material comercial; usado também como contrassinal contra a própria tese.</li><li><strong>Kling AI — Wikipédia</strong> — <code>https://en.wikipedia.org/wiki/Kling_AI</code> — sustenta a cronologia de versões até a 3.0 (07/fev/2026). <strong>Média</strong>: terciária; usada só para datas. A página <strong>não</strong> confirma recursos de <em>motion control</em>, e por isso não os afirmei.</li><li><strong>CineD — "Adobe Firefly at NAB 2026"</strong> (Alexandra Thompson, 25/abr/2026) — <code>https://www.cined.com/adobe-firefly-at-nab-2026-from-location-scout-to-premiere-timeline-with-ai/</code> — sustenta o posicionamento declarado da Adobe ("preencher lacunas em produções reais") e os recursos anunciados. <strong>Média</strong>: imprensa especializada, usada para contexto e posicionamento, não para capacidade técnica.</li><li><strong>Comissão Europeia — FAQ: obrigações de transparência do Artigo 50 do AI Act</strong> — <code>https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act</code> — sustenta marcação legível por máquina, rotulagem de deepfake, exceções artística e editorial, aplicação em 02/ago/2026 e transição até 02/dez/2026. <strong>Alta</strong>: fonte oficial do regulador.</li><li><strong>C2PA — FAQ</strong> — <code>https://c2pa.org/faqs/</code> — sustenta as limitações admitidas: manifestos podem ser separados do ativo; a especificação central não faz atribuição a pessoas ou organizações. <strong>Alta para limitações</strong>: é o próprio padrão declarando o que não garante.</li><li><strong>Content Authenticity Initiative — "The State of Content Authenticity in 2026"</strong> (18/jan/2026) — <code>https://contentauthenticity.org/blog/the-state-of-content-authenticity-in-2026</code> — sustenta &gt;6.000 membros, Google Pixel 10, Sony PXW-Z300, CAWG 1.2. <strong>Baixa-média</strong>: material institucional de parte interessada, sem métricas de penetração real; o próprio texto é reflexivo, não quantitativo.</li><li><strong>Thomson Reuters Institute — "Deepfakes on trial"</strong> (08/mai/2025) — <code>https://www.thomsonreuters.com/en-us/posts/ai-in-courts/deepfakes-evidence-authentication/</code> — sustenta <em>State of Washington v. Puloka</em> (exclusão de vídeo "melhorado" por IA) e <em>Huang v. Tesla</em>, e o funcionamento das FRE 901(b), 104(a) e 104(b). <strong>Média-alta</strong>. ⚠️ <strong>Não</strong> sustenta nada sobre FRE 707 ou 901(c) — ver seção 8, erro 1.</li><li><strong>Jones Walker — "Two Major Lawsuits…"</strong> (Andrew R. Lee, 18/jun/2025) — <code>https://www.joneswalker.com/en/insights/blogs/ai-law-blog/two-major-lawsuits-aim-to-answer-a-multi-billion-dollar-question-can-ai-train-on.html?id=102kgkx</code> — sustenta Getty v. Stability (12 milhões de imagens alegadas, High Court de Londres) e Disney/Universal v. Midjourney. <strong>Média</strong>: análise de escritório de advocacia, de junho de 2025; o estado atual dos processos em 2026 <strong>não</strong> está coberto por esta fonte e não foi afirmado.</li><li><strong>The Animation Guild — "AI and Animation"</strong> — <code>https://animationguild.org/ai-and-animation/</code> — sustenta a citação literal do estudo CVL Economics (21,4%; ~118.500 empregos; Califórnia 39.500; Nova York 15.100; campo 17/nov–22/dez/2023). <strong>Baixa como evidência de futuro</strong>: estudo encomendado pela própria entidade e por associações de artistas — parte interessada. Usado explicitamente como contrassinal metodológico, não como dado.</li><li><strong>TELA VIVA — "Quatro tendências para a produção audiovisual em 2026"</strong> (Mariana Toledo, 08/jan/2026) — <code>https://telaviva.com.br/08/01/2026/quatro-tendencias-para-a-producao-audiovisual-em-2026/</code> — sustenta a IA entre as quatro tendências do audiovisual brasileiro e o caso Coração da Selva. <strong>Média</strong>: imprensa setorial brasileira; o caso é relato da própria produtora.</li><li><strong>IDS — "TSE aprova resolução que disciplina o uso de IA e proíbe deepfake"</strong> (18/mar/2024) — <code>https://ids.org.br/noticia/tse-aprova-resolucao-que-disciplina-o-uso-de-ia-e-proibe-deepfake-durante-as-eleicoes/</code> — sustenta os Arts. 9º-B, 9º-C, 9º-E e 23-A da Resolução TSE 23.732/2024. <strong>Média</strong>: secundária. ⚠️ O texto integral no site do TSE retornou 403; o conteúdo foi confirmado pela fonte 25.</li><li><strong>Resemble AI — "Brazil AI Bill 2338/2023 and TSE Resolution 23.732/2024"</strong> — <code>https://www.resemble.ai/laws-and-regulations/brazil-ai-bill-23382023-and-tse-resolution-237322024/</code> — confirma independentemente a rotulagem obrigatória e a proibição de deepfake na Resolução TSE, e o status do PL 2338 (Senado dez/2024, pendente na Câmara). <strong>Baixa-média</strong>: empresa do setor, material de conformidade; usada apenas como triangulação da fonte 24.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-contrato-da-rodada-registrado-antes-da-pesquisa">12.1 Contrato da rodada (registrado antes da pesquisa)</h3>
+<p>Objetivo: mapa de futuro para 2031 sobre mídia sintética dirigível (vídeo e imagem), com 2 a 4 disrupções-raiz e três ordens de efeitos. Critério de pronto: formato da seção 11 da skill validado item a item. Não entra: história gerada (tema 8), som e voz (tema 13), design procedural sem IA (tema 14), e tudo que já é comum em produto de massa. Viés: neutro. Rodada não interativa — parâmetros fixados pelo protocolo, sem interlocutor para perguntas de seguimento; isto é uma limitação metodológica real e está declarada na seção 2.</p>
+<h3 id="12-2-candidatos-gerados-e-o-veredito-de-cada-um">12.2 Candidatos gerados e o veredito de cada um</h3>
+<div class="tabela-envolve"><table><thead><tr><th>#</th><th>Candidato</th><th>Maturidade</th><th>Ruptura</th><th>Veredito</th></tr></thead><tbody><tr><td>1</td><td>Direção in-context sobre material filmado (região, ângulo, luz, física)</td><td>emergente</td><td>alto</td><td><strong>D1 — aceito</strong></td></tr><tr><td>2</td><td>Geração causal autoregressiva em tempo real</td><td>experimental</td><td>alto</td><td><strong>D2 — aceito</strong></td></tr><tr><td>3</td><td>Entrega como descrição executável (estado, grafo, regra)</td><td>emergente como formato; maduro em UI</td><td>alto</td><td><strong>D3 — aceito com ressalva</strong></td></tr><tr><td>4</td><td>Proveniência criptográfica obrigatória (C2PA + Art. 50 + TSE)</td><td>emergente</td><td>alto</td><td><strong>rebaixado a efeito</strong> (e3, e3.1): é reação à mídia sintética barata, não sua causa. Não é raiz <em>deste</em> tema</td></tr><tr><td>5</td><td>Geração de vídeo por prompt (texto→vídeo)</td><td>maduro</td><td>médio</td><td><strong>antecedente</strong>. Régua da disciplina: já é comum em produto de massa</td></tr><tr><td>6</td><td>Propagação por quadro-chave (EbSynth)</td><td>maduro</td><td>médio</td><td><strong>antecedente</strong>. SIGGRAPH 2019, produto disponível com plano gratuito</td></tr><tr><td>7</td><td>Condicionamento espacial de difusão (ControlNet)</td><td>maduro</td><td>alto historicamente</td><td><strong>tecnologia habilitadora</strong>. É a raiz de D1, não a disrupção</td></tr><tr><td>8</td><td>Upscaling e restauração (Magnific, Topaz)</td><td>maduro</td><td>baixo</td><td><strong>descartado</strong>. Melhora o que existe; não altera nenhuma das dimensões de ruptura</td></tr><tr><td>9</td><td>Acervo licenciado como diferencial (Firefly)</td><td>emergente comercialmente</td><td>médio</td><td><strong>descartado como raiz</strong>; entra como barreira jurídica na seção 7. É posicionamento de mercado, não capacidade nova</td></tr><tr><td>10</td><td>Motion design procedural por regra (Cavalry, nós)</td><td>maduro no nicho</td><td>médio</td><td><strong>descartado</strong>. É tema 14 da disciplina (procedural sem IA); fora do recorte</td></tr><tr><td>11</td><td>Vídeo programático em código (Remotion, satori)</td><td>maduro</td><td>médio</td><td><strong>absorvido em D3</strong> como instância, não como raiz separada. Não encontrei fonte primária aberta para sustentá-lo isoladamente</td></tr></tbody></table></div>
+<h3 id="12-3-caminhos-causais-cortados">12.3 Caminhos causais cortados</h3>
+<ul><li><strong>"Vídeo barato → colapso do jornalismo em vídeo".</strong> Cortado. O teste "se A, então B porque ___" exigiria supor que o valor do jornalismo está no custo de produzir imagem. Está na apuração. Substituído por e3.2 (mudança de objeto da perícia), mais estreito e com mecanismo.</li><li><strong>"Controle fino → fim da produtora como empresa".</strong> Cortado. Confunde queda de custo de execução com desaparecimento de função de coordenação, distribuição e responsabilidade contratual. O mecanismo não fecha: quem responde juridicamente pela peça continua precisando existir.</li><li><strong>"Tempo real → fim do roteiro".</strong> Cortado. Interatividade não elimina estrutura narrativa — jogos têm roteiro. Sobreviveu a parte defensável, que é e5 (perda da versão canônica).</li><li><strong>"Proveniência → fim da desinformação em vídeo".</strong> Cortado e substituído pelo seu contrário mais provável, no cenário indesejável: proveniência que separa quem paga conformidade de quem não paga, sem produzir confiança.</li><li><strong>Aresta D2 → e3 (mídia nunca-arquivo agrava o problema de autenticação).</strong> Reconhecida como válida e <strong>não representada na árvore</strong>, porque e3 já está pendurado em D1 e a estrutura não admite dois pais. Registrado na prosa da seção 5.</li></ul>
+<h3 id="12-4-buscas-e-tentativas-sem-resultado-utilizavel">12.4 Buscas e tentativas sem resultado utilizável</h3>
+<ul><li><strong>HTTP 403, não abertas, não citadas:</strong> VFX Voice (panorama VFX/animação 2026); Animation World Network (ratificação do contrato do Animation Guild); texto integral da Resolução TSE 23.732/2024 no <code>tse.jus.br</code>; Mattos Filho (Agenda Regulatória ANCINE 2026/2027). O conteúdo da Resolução TSE foi obtido por duas secundárias; os outros três não sustentam nada aqui.</li><li><strong>Busca por taxa de adoção profissional com instrumento rastreável:</strong> sem resultado utilizável. As primeiras dez posições são compilações de estatísticas hospedadas por fornecedores (Luma Labs, Pictory, Zebracat, entre outros). <strong>Isto tem consequência direta</strong>: o critério de refutação declarado pelo solicitante — evidência de que a adoção passou da maioria inicial de Rogers — <strong>não pôde ser testado com fonte independente</strong>. O mapa, portanto, não pode afirmar nem negar que a adoção passou da maioria inicial.</li><li><strong>Busca pelo número "80% de falha em relações espaciais dinâmicas":</strong> não localizado em nenhum paper aberto. Descartado.</li><li><strong>Busca por dados de produção audiovisual brasileira com IA (ANCINE, volume, emprego):</strong> sem fonte primária aberta. A nota sobre o Brasil apoia-se em regulação e em um caso de produtora, e é declaradamente a parte mais frágil do documento.</li><li><strong>Busca por crítica profissional comparativa de ferramentas de controle (Pika, EbSynth, Kling motion control) em fluxo real:</strong> sem fonte utilizável. O que aparece é conteúdo de comparação otimizado para busca, sem metodologia. É uma lacuna real: <strong>não há, nas fontes que abri, avaliação independente de controlabilidade em uso profissional</strong> — que é exatamente o vazio que o experimento da seção 10 tenta preencher.</li></ul>
+<h3 id="12-5-contrassinais-registrados">12.5 Contrassinais registrados</h3>
+<ol><li>VBench-2.0 trata controlabilidade como dimensão que precisa ser medida separadamente — porque falha.</li><li>PhyParam (jul/2026): movimento plausível "não governado confiavelmente por causas físicas explícitas".</li><li>Survey de mai/2026 lista controlabilidade condicionada a ação, memória de longo horizonte e responsividade como problemas <strong>em aberto</strong>.</li><li>A Adobe, com todo o incentivo comercial em prometer mais, posiciona o Firefly para "preencher lacunas em produções reais".</li><li>C2PA admite na própria FAQ que o manifesto pode ser separado do ativo e que a especificação central não atribui autoria.</li><li>O contrato Animation Guild/AMPTP absorve a GenAI em vez de barrá-la — contrassinal invertido: acelera D1 e não está representado na roda.</li><li>Das fontes deste mapa, as que afirmam <strong>capacidade</strong> são majoritariamente de fabricantes; as que <strong>medem</strong> são de benchmark acadêmico, e discordam entre si sobre o quanto o controle funciona.</li></ol>
+<h3 id="12-6-hipoteses-alternativas-que-nao-entraram-no-mapa">12.6 Hipóteses alternativas que não entraram no mapa</h3>
+<ul><li><strong>"A disrupção não é o controle, é o custo."</strong> Se o efeito dominante em 2031 for e2 (variantes) e não e1 (mudança da cadeia de pós-produção), então o tema deveria ter sido formulado como economia de produção, não como controle. Esta hipótese é a principal rival da tese central e o cenário Provável é, em boa parte, a descrição dela vencendo.</li><li><strong>"A disrupção é a captura da camada de acesso."</strong> Quem agrega modelos (Adobe hoje) fica indiferente a qual modelo vence e captura o valor. Não virou raiz porque é movimento de mercado, não capacidade nova — mas se esta hipótese estiver certa, todos os efeitos de barateamento e democratização do mapa estão com o sinal trocado.</li><li><strong>"O autoregressivo não substitui a difusão; hibridiza."</strong> É o que a literatura de 2026 sugere — modelos AR ganham interatividade, difusão mantém qualidade, e a combinação é o estado da arte. Se for assim, D2 não é ruptura de paradigma técnico, e sim absorção; seus efeitos permanecem, com confiança ainda menor que a declarada.</li><li><strong>"O gargalo é energia e GPU, não algoritmo."</strong> Nenhuma fonte aberta nesta rodada precifica computação. Se o custo por espectador-minuto não cair, D2 fica confinada a jogos, e4.1 se inverte e o mapa perde um terço dos efeitos. É a lacuna de evidência mais grave deste documento, e está declarada como tal.</li></ul>
+<h3 id="12-7-observacoes-de-processo">12.7 Observações de processo</h3>
+<p>A rodada correu com 24 páginas efetivamente abertas e lidas, 4 bloqueadas por 403 e cerca de 14 buscas. A regra de não citar fonte não aberta foi aplicada de forma estrita, inclusive contra o próprio interesse do mapa: três afirmações atraentes — o estado atual das regras federais de prova nos EUA, a taxa de adoção profissional e o número de falha de 80% — foram removidas por falta de fonte lida. O documento é mais pobre por isso, e mais verificável.</p></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>
