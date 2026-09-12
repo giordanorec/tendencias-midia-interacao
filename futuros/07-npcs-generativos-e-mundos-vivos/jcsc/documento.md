@@ -1,0 +1,658 @@
+---
+tema: NPCs generativos e mundos vivos
+slug: npcs-generativos-e-mundos-vivos
+autor_login: jcsc
+zona_de_interesse: Simulação e mundos
+data: 2026-09-12
+horizonte: 2031
+publico: "quem projeta mídia e interação"
+recorte_geografico: global
+disrupcoes_raiz: 3
+efeitos_ordem_1: 7
+efeitos_ordem_2: 13
+efeitos_ordem_3: 13
+tecnologias_citadas: [OpenGameAgent, SAGA, Thistle Gulch, NVIDIA ACE, Inworld AI, Convai, Smart Zoi, Co-Playable Character, GPT-3, Ollama, LM Studio, llama.cpp, Audio2Face, ReAct, memory stream, small language model on-device]
+fontes: 17
+confianca: media
+experimento: "A vila que não te espera — mundo com agentes locais que continua rodando entre as sessões, instrumentado para contar quantos momentos memoráveis ninguém escreveu"
+skill_usada: futurizacao-jcsc
+publico_ok: false
+---
+
+## 1. Resumo
+
+O personagem não jogável está deixando de ser roteiro e virando agente: recebe objetivo, usa as ferramentas que o jogo expõe, inspeciona o resultado e revisa o plano. Isso já é produto — `Retail Mage` está na Steam desde novembro de 2024 e `inZOI` levou um modelo de linguagem pequeno para dentro da máquina do jogador em março de 2025 — mas é produto de periferia: nenhum estúdio grande entregou a missão principal para um agente, e o protótipo da Ubisoft seguia em playtest fechado em meados de 2026. O que rompe não é a qualidade do diálogo, é o contrato: o designer deixa de enumerar o que pode acontecer e passa a especificar objetivos, ferramentas e limites. Até 2031 isso desloca três coisas de uma vez — o teste de jogo, que deixa de verificar saídas e passa a verificar fronteiras; a economia, porque diálogo gerado custa toda vez que é produzido, e não uma vez que é escrito; e a moldura legal, porque a partir de 2 de agosto de 2026 o Artigo 50 do AI Act obriga a informar que se está falando com uma IA, a Valve pode tirar da loja quem não descrever os guardrails do conteúdo gerado ao vivo, e o acordo de 2025 da SAG-AFTRA exige consentimento específico para geração em tempo real. O cenário mais provável para 2031 não é o do NPC que conversa sobre qualquer coisa: é o híbrido — espinha dorsal autorada, periferia generativa — com a indeterminação vendida como gênero, não como avanço técnico universal.
+
+## 2. O tema
+
+NPC generativo, aqui, não é NPC que fala melhor. É o personagem que tem **modelo de linguagem, memória e agência dentro das regras de um mundo** — que recebe um objetivo, escolhe entre as ações que o jogo lhe permite, observa o que aconteceu e replaneja. E "mundo vivo" é o corolário: se os personagens decidem, o mundo pode continuar existindo quando o jogador sai.
+
+Isso encosta em mídia e interação no ponto mais sensível do meio: **quem controla o espaço do possível**. Toda a tradição de design de jogos — da árvore de diálogo à behavior tree — é a arte de enumerar antecipadamente o que pode acontecer e depois fazer o jogador acreditar que o espaço é maior do que é. O NPC-agente inverte isso. O designer para de escrever o conteúdo e passa a escrever o **contrato**: que ferramentas o personagem pode usar, que estado ele pode alterar, o que ele nunca pode dizer. É uma mudança de ofício, não de biblioteca.
+
+Merece mapa de futuro, e não levantamento de estado da arte, por três razões. Primeira: as peças técnicas já existem e são verificáveis — há runtime aberto com licença MIT rodando em quatro engines, há jogo comercial na loja, há modelo pequeno rodando no dispositivo. O que não existe é a **forma** que isso vai tomar, e forma é exatamente o que um mapa de futuro tenta antecipar. Segunda: as forças que decidem o desfecho não são técnicas — são custo por hora-jogador, regulação de transparência, acordo sindical de voz e tolerância do jogador ao esforço de conversar. Um estado da arte não vê nada disso. Terceira: já existe evidência experimental de que a coisa pode simplesmente não agradar — um experimento controlado com 130 participantes, publicado em 2026, mediu aumento significativo de carga cognitiva e **nenhuma** melhora estatisticamente significativa na experiência de jogo. Um tema em que a evidência contrária já está publicada é um tema que precisa de mapa, não de vitrine.
+
+### Registro da entrevista (Etapa 1 da skill)
+
+A skill exige entrevista antes de qualquer conteúdo, e exige registrar o que ficou sem resposta. As cinco perguntas foram feitas e as cinco foram respondidas — nenhum "tanto faz", nenhum padrão assumido em silêncio:
+
+1. **Horizonte temporal** → 2031.
+2. **Público-alvo** → quem projeta mídia e interação.
+3. **Recorte geográfico** → global, com uma nota sobre o Brasil.
+4. **Descartes explícitos** → o que já é comum em produto de massa (a régua da disciplina); nenhuma outra exclusão. Também: excluir ideias óbvias que serviriam para qualquer tema.
+5. **Viés desejado** → neutro.
+
+Respostas adicionais fornecidas fora do roteiro de cinco perguntas, e que condicionaram o trabalho: profundidade de três ordens; modo "a partir de uma inovação/tema", não de um setor; nenhuma disrupção suspeita pré-definida ("descubra"); e um critério declarado de mudança de ideia — *evidência de que a adoção já passou da maioria inicial (Rogers), ou de que a tecnologia não rompe nada e só melhora o que existe*. Esse último critério foi aplicado literalmente na Etapa 2 e derrubou candidatos (seção 4).
+
+## 3. Onde isso está hoje
+
+### O marco datado, e o que mudou desde ele
+
+Em **19 de fevereiro de 2021**, o desenvolvedor do Modbox encadeou reconhecimento de fala do Windows, GPT-3 e síntese de voz da Replica para conversar com um personagem sem árvore de diálogo. O relato da época registra as três travas exatas que definiram os cinco anos seguintes: *"um atraso desconfortavelmente longo entre perguntar e obter resposta"*, porque os dois serviços eram de nuvem; a Microsoft com direitos exclusivos de uso comercial do GPT-3, o que inviabilizava embarcar aquilo no produto; e a constatação de que o modelo podia produzir resultado "sem sentido ou intolerante", exigindo salvaguarda antes de qualquer uso com consumidor [1].
+
+Cinco anos depois, as três travas foram atacadas separadamente — e só uma foi resolvida.
+
+### O que já existe e funciona
+
+**Produto na loja.** `Retail Mage`, da Jam & Tea Studios, saiu na Steam em **12 de novembro de 2024**, por R$ 16,99. A página declara: *"nosso jogo usa GenAI em tempo de execução na nossa engine para alimentar diversas mecânicas, de modo que o jogo possa responder ao que quer que os jogadores digam e façam no momento"* — e é explícita sobre o limite: a IA **não** foi usada para arte, nem para personalidade, motivação ou missão dos NPCs [2]. São 44 avaliações, 79% positivas [2]. Quarenta e quatro. O jogo é a prova de que é possível, não de que é mercado.
+
+**Modelo dentro da máquina.** `inZOI`, da Krafton, entrou em acesso antecipado em março de 2025 com os "Smart Zoi" rodando **um modelo de linguagem pequeno no dispositivo**, construído com NVIDIA ACE, e vendeu mais de um milhão de cópias na primeira semana [3]. É a resposta direta à trava de latência de 2021: tirar a nuvem do caminho. `PUBG Ally`, do mesmo estúdio, seguia em teste até o início de 2026 [3].
+
+**Runtime aberto.** O `OpenGameAgent` é um framework C# sob licença MIT que dá a personagens de jogo raciocínio, planejamento e uso de ferramentas *mantendo o jogo como autoridade sobre o estado* — a formulação importa, porque é o desenho que separa agente de chatbot. Tem laço ReAct com mensagens tipadas em streaming, planos duráveis que replanejam quando as condições mudam, memória filtrada por tempo-de-jogo com embeddings opcionais, ferramentas validadas pelo provedor com serialização de conflito, e concorrência limitada entre atores. Roda em Unity 6, Godot 4.7, Unreal 5.8 e servidores .NET, contra Anthropic, OpenAI, Gemini, Mistral, Bedrock e endpoints locais (Ollama, LM Studio, llama.cpp) [4][5]. Está em **alpha (0.3.0-alpha.4) com 50 estrelas** [4] — leia-se: é arquitetura publicada, não ecossistema.
+
+**Simulação aberta.** `Thistle Gulch`, da Fable, é uma cidade do Velho Oeste com mais de quinze personagens, dividida em Runtime (motor 3D) e Bridge (cliente Python). O Bridge expõe oito habilidades — `default_action`, `go_to`, `converse_with`, `wait`, `reflect`, `interact`, `take_to`, `exchange` — e permite sobrescrever a ação gerada pelo modelo e manipular os prompts enviados ao SAGA [6]. Licença não-comercial, 20 estrelas, 6 forks [6].
+
+**A âncora acadêmica.** `Generative Agents: Interactive Simulacra of Human Behavior` (Park, O'Brien, Cai, Morris, Liang, Bernstein, abril de 2023) colocou 25 agentes numa vila e mostrou o desenho que todo mundo copiou desde então: fluxo de memória em linguagem natural, reflexão que sintetiza memórias em abstrações, e planejamento que recupera memória dinamicamente. O achado que virou promessa do gênero: a partir de uma única intenção semeada — um agente quer dar uma festa de Dia dos Namorados — os agentes espalharam convites, fizeram conhecidos, se convidaram para sair e apareceram juntos na festa [7]. O estudo de ablação mostrou que observação, planejamento e reflexão são todos necessários [7].
+
+### O que existe e não funciona
+
+**Latência e custo, medidos.** A régua prática é de aproximadamente **800 ms** — abaixo disso a conversa parece conversa, muito acima disso parece errado; APIs de nuvem somam de um a dois segundos [3]. E a economia é estruturalmente diferente da do diálogo escrito: o texto roteirizado se paga uma vez; a resposta gerada custa **toda vez que é produzida, por NPC, por jogador, por conversa** [3]. A Jam & Tea relatou que, no começo, *"cada sessão de jogo era tão cara quanto um ingresso para a Disneylândia"*, e que precisou de gestão própria de GPU e geração estruturada para derrubar o custo em mil vezes [8].
+
+**O estúdio grande não entregou o miolo.** Em meados de 2026, o `Teammates` da Ubisoft — companheiros de esquadrão por voz, feito por cerca de 80 pessoas sobre o Google Gemini mais middleware interno — seguia em **playtest fechado, não em jogo publicado** [3]. Jogos narrativos de grande orçamento não entregaram diálogo de missão principal para IA [3]. Onde o generativo entrou num MMO grande, entrou pela borda: em `Where Winds Meet`, a IA toca apenas personagens laterais de ambiente, e a saída é limitada a respostas de texto mais um conjunto fixo de flags do jogo [3].
+
+**O jogador pode não querer.** O experimento controlado randomizado de Hsu, Chen, Lin, Qin e Zhang, com **130 participantes** comparando NPCs com modelo de linguagem contra personagens roteirizados, mediu aumento significativo de carga cognitiva (p < .001), **nenhuma** melhora significativa na experiência de jogo (p = .195), e um resultado mais incômodo: os NPCs generativos aumentaram a percepção de autonomia do jogador **e ao mesmo tempo** reduziram usabilidade e confiança no sistema [9].
+
+**O desenho quebra de formas que não estavam previstas.** O relato da própria Jam & Tea é o inventário mais honesto disponível: jogadores procuravam a solução "certa" em vez de improvisar, o que obrigou a refazer onboarding e missões; com NPCs agindo por conta própria e gerando histórias de fundo extensas, os jogadores se perdiam no que estava acontecendo; e os personagens eram **inteligentes demais** — resolviam problemas com eficiência excessiva e evitavam o risco que torna o jogo interessante. Somou-se a isso um problema banal e revelador: o motor de física entrava em conflito com o tempo de inferência, e eles tiveram que escrever física própria [8].
+
+### Quem está construindo, e sob que moldura
+
+Do lado das ferramentas: NVIDIA ACE como microsserviços de animação e reconhecimento de fala; Inworld reposicionada como infraestrutura B2B, com text-to-speech na ordem de US$ 5–25 por milhão de caracteres; Convai com camada indie a US$ 29/mês mais cobrança por uso [3].
+
+Do lado da moldura, três coisas se fecharam entre 2025 e 2026 e mudam o cálculo de qualquer estúdio:
+
+**Transparência.** O Artigo 50 do AI Act europeu **aplica-se a partir de 2 de agosto de 2026** (com prazo de graça até 2 de dezembro de 2026 apenas para a obrigação de marcação de sistemas já lançados). Quem fornece sistema que interage diretamente com pessoas precisa garantir que elas sejam informadas de que estão interagindo com uma IA, *a menos que isso seja óbvio* — e a Comissão afirma que a exceção do "óbvio" deve ser interpretada **de forma restritiva**, aferida por um "indivíduo médio, razoavelmente bem informado, circunspecto e observador". Há também obrigação de marcar saída gerada em formato legível por máquina, detectável como artificial, com exclusões para sequências curtas, código-fonte e saída máquina-a-máquina. Sanções chegam a €15 milhões ou 3% do faturamento mundial [10].
+
+**Plataforma.** Em janeiro de 2026 a Valve refinou a política de divulgação da Steam para mirar o que chega ao jogador, isentando ferramenta de bastidor. Mantém duas categorias: **pré-gerado**, que passa pela revisão normal; e **gerado ao vivo**, para o qual o desenvolvedor precisa **detalhar os guardrails implementados contra conteúdo ilegal ou impróprio — sob pena de remoção da loja**. E há um mecanismo no overlay da Steam pelo qual o jogador denuncia conteúdo ilegal gerado por jogos com IA ao vivo [11].
+
+**Trabalho.** O Acordo de Mídia Interativa de 2025 da SAG-AFTRA exige consentimento escrito, claro e conspícuo, separado ou em aditivo assinado especificamente, com descrição razoavelmente específica do uso da réplica digital — **inclusive se envolve geração em tempo real, "como um chatbot de IA"**. Consentimento genérico na contratação inicial para projetos futuros está vedado: renegocia-se caso a caso. Réplicas vocais são pagas por linha gerada, com uma linha definida como aproximadamente dez palavras. O empregador entrega relatório de uso em até 90 dias do lançamento, dizendo quais personagens usaram réplica digital e como o pagamento foi calculado. O acordo vigora até **31 de outubro de 2028** [12].
+
+### Escala, para não confundir protótipo com mercado
+
+Entre julho de 2023 e julho de 2026, um censo de 53.597 jogos lançados na Steam mostra que os jogos com divulgação de IA respondem por **60 a 90% do crescimento** dos lançamentos mensais — e que quase nenhum deles ganha dinheiro [13]. Esse número mede sobretudo IA na **produção** (arte, áudio, texto pré-gerado), não NPC-agente em tempo de execução; mas define o ambiente em que o NPC generativo vai nascer: uma loja em que o rótulo "IA" já está associado a volume alto e receita baixa.
+
+**Nota sobre o Brasil.** A indústria brasileira chegou à gamescom 2026 com 78 estúdios e empresas, e 55% da receita dos estúdios brasileiros já vem do mercado externo, acima de US$ 138 milhões em negócios globais [14]. Significa que o estúdio brasileiro está exposto à moldura europeia por exportação — o AI Act alcança quem vende para lá — antes de estar exposto à brasileira: o PL 2338/2023 foi aprovado pelo Senado e **remetido à Câmara dos Deputados em 17 de março de 2025**, onde seguia sem votação final [15]. Vale a pena reter a assimetria: o estúdio daqui vai cumprir regra europeia por contrato de distribuição antes de cumprir regra nacional por lei.
+
+## 4. As disrupções-raiz
+
+### O critério de recusa, aplicado antes de qualquer coisa
+
+A skill exige recusar — tratar como presente, não como futuro — toda tecnologia ou prática que já seja padrão de mercado consolidado: amplamente adotada pelos líderes **e** sem debate técnico real e atual sobre sua substituição no horizonte. A régua da disciplina soma a isso: fora o que já é comum em produto de massa. E a entrevista acrescentou um segundo teste: *se a tecnologia não rompe nada, só melhora o que existe, ela não entra.*
+
+**Candidatos levantados e descartados por maturidade:**
+
+- **Árvore de diálogo e ferramenta de diálogo roteirizado** (Yarn Spinner, Ink, Dialogic, Ren'Py). Padrão consolidado há décadas. Descartada — e é exatamente o incumbente que a disrupção ameaça, o que a torna referência do mapa, não item dele.
+- **Behavior tree, máquina de estados finitos e GOAP para comportamento de NPC.** Padrão do setor desde meados dos anos 2000. Não há debate real sobre substituí-los; o que há é debate sobre *acrescentar* uma camada por cima. Descartada.
+- **Navegação por navmesh e busca de caminho.** Infraestrutura resolvida. Descartada.
+- **Geração procedural clássica de conteúdo** (ruído, gramática, regra). Comum em produto de massa há mais de uma década. Descartada.
+- **Síntese de voz neural e lip-sync automático** (Audio2Face, TTS comercial). É o candidato mais discutível da lista, porque o preço ainda cai rápido. Descartado mesmo assim: em 2026 já é pipeline de produção normal, e nenhum estúdio debate se vai usar — debate quanto vai pagar. Melhora o que existe; não rompe contrato nenhum. Entra no mapa apenas como *insumo* das disrupções 1 e 3.
+- **Modelo de linguagem como ferramenta de autoria offline** — escrever diálogo na produção e embarcar texto fixo. É o uso de IA que domina os 30% de divulgações na Steam. Descartado pelo segundo teste: barateia a autoria, não muda quem controla o espaço do possível. O jogo continua sendo exatamente o que o designer enumerou.
+
+Sobram três.
+
+### Disrupção-raiz 1 — O personagem vira agente dentro das regras do mundo
+
+**O que rompe.** O contrato básico do design de jogos: o de que o designer determina o espaço do que pode acontecer. Num NPC-agente, o designer especifica objetivo, ferramentas disponíveis, estado alterável e limites — e **não sabe** a lista de resultados. A formulação do OpenGameAgent captura a fronteira com precisão: dá ao personagem raciocínio, planejamento e uso de ferramentas *mantendo o jogo como autoridade sobre a mudança de estado* [4]. O personagem propõe; o mundo dispõe. Isso é diferente de chatbot com skin, e é o que torna a coisa uma disrupção de design e não um recurso de diálogo.
+
+**Por que agora e não há cinco anos.** Em fevereiro de 2021 a montagem equivalente precisava de dois serviços de nuvem, tinha atraso desconfortável e esbarrava em exclusividade comercial do modelo [1]. Em 2026 existe modelo pequeno rodando no dispositivo do jogador em produto comercial [3], runtime aberto com licença permissiva capaz de falar com endpoint local [4], e um caso documentado de redução de custo de inferência em três ordens de grandeza dentro de um estúdio pequeno [8]. As três travas de 2021 foram atacadas; a de latência foi a que mais cedeu.
+
+**O que ainda falta.** Latência de ponta a ponta abaixo de ~800 ms **sem** nuvem, com o modelo competindo por GPU com a renderização — o problema de sincronização que obrigou a Jam & Tea a reescrever a física [8]. Consistência de personagem em horizonte longo, que a literatura aponta como limitação aberta. E, sobretudo, um vocabulário de design: como se escreve um limite? A Jam & Tea descobriu que o problema não era o personagem dizer besteira, era ele ser **competente demais** e evitar risco [8] — e não existe hoje ferramenta para especificar "seja falível de um jeito interessante".
+
+### Disrupção-raiz 2 — A persistência: memória entre sessões e mundo que roda sem o jogador
+
+**O que rompe.** Dois contratos ao mesmo tempo. O de **posse**: um jogo que você compra é um artefato que você tem; um personagem que lembra de você é um serviço com estado, e serviço desliga. E o de **finitude**: o jogo tinha fim, e o fim era do jogador. Se o mundo continua sem ele, o que exatamente ele comprou?
+
+**Por que agora e não há cinco anos.** A arquitetura de memória-reflexão-planejamento está publicada desde abril de 2023 e foi reimplementada o bastante para virar item de runtime: o OpenGameAgent traz memória filtrada por tempo-de-jogo, rankeável, com embeddings semânticos opcionais, e planos duráveis que sobrevivem entre passos [4]; o Thistle Gulch expõe `reflect` como habilidade de primeira classe do personagem [6]. A parte cara — rodar o mundo enquanto ninguém está olhando — só ficou pensável quando o custo de inferência caiu o suficiente para alguém considerar gastá-lo com ninguém assistindo.
+
+**O que ainda falta.** Um desenho econômico: simular mundo desabitado é custo puro sem receita associada. Um desenho jurídico: estado de personagem que guarda o que o jogador disse é, em qualquer leitura razoável de LGPD ou GDPR, dado pessoal — com direito de exclusão, e com o problema não trivial de apagar de uma memória vetorial. E um desenho de saída: nenhum formato, nenhuma convenção, nenhuma prática de portar ou preservar um personagem.
+
+### Disrupção-raiz 3 — Declarar que o personagem é IA, e responder pelo que ele diz
+
+**O que rompe.** O contrato estético da imersão, por obrigação legal. Um meio cujo produto é a suspensão da descrença passa a ser obrigado a interromper a suspensão da descrença — a informar, antes ou no início da conversa, que aquilo ali é uma máquina. Some-se a responsabilidade: a Valve pode remover da loja quem não descrever guardrails de conteúdo gerado ao vivo, e o jogador tem botão no overlay para denunciar [11]. E a voz deixa de ser gravação: passa a exigir consentimento específico para geração em tempo real, com pagamento por linha gerada e relatório de uso [12].
+
+**Por que isto é disrupção e não restrição.** Porque muda quem decide o que o personagem pode ser, e essa é a mesma variável que a disrupção 1 mexe — por outro lado. A disrupção 1 tira o controle do designer e dá ao modelo; a disrupção 3 tira do designer e dá ao regulador, à loja e ao sindicato. Um mapa que só olhasse a primeira concluiria que o espaço do possível se abre. Olhando as duas, o que se vê é o espaço do possível sendo **redistribuído** — e a probabilidade de que o resultado líquido, em produto de massa, seja *menos* liberdade do que o entusiasmo técnico sugere.
+
+**Por que agora e não há cinco anos.** As três datas são recentes e verificáveis: o AI Act art. 50 aplica-se desde 2 de agosto de 2026 [10]; a revisão da política da Steam é de janeiro de 2026 [11]; o acordo da SAG-AFTRA é de 2025 e vence em 31 de outubro de 2028 [12]. Em 2021, nada disso existia — a AI Dungeon enfrentou o mesmo problema, em 2021, **sem** moldura: a Latitude descobriu que jogadores conseguiam levar o sistema a gerar conteúdo sexual envolvendo crianças, respondeu com lista de bloqueio, gerou revolta de falso-positivo e de privacidade (moderadores humanos lendo histórias privadas), e acabou roteando pedidos sinalizados pelos próprios modelos, aceitando processamento mais lento [16]. Foi o setor descobrindo, na marra, o problema que a regra de 2026 codifica.
+
+**O que ainda falta.** Saber se jogo cai na exceção do "óbvio" do art. 50 — a Comissão manda interpretar restritivamente e usa o padrão do indivíduo médio razoavelmente bem informado [10], mas não há caso julgado envolvendo NPC. Saber como a marcação legível por máquina se aplica a fala de personagem em tempo real (a exclusão de "sequências curtas" é a brecha por onde isso pode passar, ou não). E saber o que acontece na renegociação do acordo sindical em 2028.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: O personagem vira agente dentro das regras do mundo — objetivo, ferramentas, inspeção do resultado, replanejamento
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O teste de jogo deixa de verificar saídas e passa a verificar fronteiras, com avaliação estatística sobre distribuição de comportamentos
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Surge o ofício de designer de limites, que escreve as ferramentas, as políticas e os testes do agente, separado de quem escreve diálogo
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: A formação em game design se reorganiza em torno de especificar comportamento em vez de escrever conteúdo
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Bug passa a ser definido por política e não por reprodução, e o relatório de bug vira transcrição mais julgamento
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: A loja assume parte da moderação em tempo de execução e a fronteira entre publicar um jogo e operar um serviço se apaga
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O custo variável por hora-jogador entra na conta do game design e empurra o jogo single-player para assinatura, cota ou execução local
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Modelo pequeno rodando no dispositivo vira requisito de sistema e a NPU entra na configuração mínima recomendada
+            sinal: medio
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: O gênero de mundo vivo nasce estratificado por hardware e exclui o parque de máquinas mais antigo, o que pesa mais fora dos mercados ricos
+                sinal: medio
+                prazo: 2031
+                confianca: media
+          - id: e2.2
+            ordem: 2
+            efeito: O estúdio adota agente só onde ele se paga — personagem secundário, comércio, ambiente — e mantém a missão principal roteirizada
+            sinal: forte
+            prazo: 2028
+            confianca: alta
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: O híbrido vira norma do gênero, com espinha dorsal autorada e periferia generativa, e jogo de IA deixa de ser categoria de marketing
+                sinal: medio
+                prazo: 2031
+                confianca: media
+      - id: e3
+        ordem: 1
+        efeito: Conversar passa a custar esforço ao jogador e uma parte do público rejeita o personagem aberto
+        sinal: medio
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O design devolve trilhos opcionais — sugestões de fala, botões, resumo do que o personagem lembra — recriando a árvore de diálogo como interface sobre o agente
+            sinal: forte
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A árvore de diálogo sobrevive como camada de acessibilidade e não como camada de conteúdo
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: Persistência — o personagem lembra entre sessões e o mundo continua rodando sem o jogador
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: A sessão vira relação continuada e a retenção passa a depender do vínculo com o personagem, não do conteúdo restante
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: O estado do personagem é tratado como dado pessoal e atrai pedido de exclusão, portabilidade e explicação
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Disputa-se um formato de save de personagem independente do jogo, para que o jogador possa levar o vínculo embora
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Desligar servidor deixa de ser perda de acesso e vira perda de vínculo, entrando na pauta pública de preservação de jogos
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Passa a existir pressão para que modo offline com modelo local seja condição de venda de jogo com personagem persistente
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: Mundo que continua sem o jogador vira proposta comercial e o jogador entra e sai de uma simulação que não o espera
+        sinal: fraco
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O custo de simular o mundo desabitado obriga a sonhar o intervalo, resumindo e reconstruindo o período ausente em vez de simulá-lo
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: O mesmo runtime passa a servir simulação social de pesquisa e entretenimento, e a distinção entre os dois vira só a interface
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: Assistir ao mundo rodar vira consumo por si, e surge o espectador de mundo vivo que não joga
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Um personagem autônomo acumula público e receita próprios e a persona do personagem passa a concorrer com a autoria do estúdio
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: Declarar que o personagem é IA e responder pelo que ele diz — transparência, guardrail de plataforma e consentimento de voz
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: O jogo passa a declarar ao jogador que aquele personagem é uma IA, dentro da ficção ou na borda dela
+        sinal: forte
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: Consolida-se uma gramática visual do gerado — selo, cor ou som — que vira elemento de linguagem de interface como o indicador de gravação
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: O jogador lê o selo como promessa de imprevisibilidade e passa a preferi-lo em alguns gêneros, invertendo o aviso em atrativo
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: O estúdio grande evita o agente no personagem principal para não ter de declarar nem responder por ele e concentra o generativo na periferia
+            sinal: forte
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: A inovação de gênero migra para o indie e para o mod e o AAA importa o resultado depois de domesticado
+                sinal: medio
+                prazo: 2031
+                confianca: media
+      - id: e7
+        ordem: 1
+        efeito: A voz do personagem generativo passa a exigir consentimento específico, relatório de uso e pagamento por geração, não por sessão de gravação
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Voz sintética licenciada vira ativo com uso medido e telemetria, e surge um mercado de vozes por catálogo com contagem de linhas
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: A renegociação do acordo sindical tem a geração em tempo real como objeto central e define se o personagem generativo é viável em produção sindicalizada
+                sinal: medio
+                prazo: 2029
+                confianca: media
+          - id: e7.2
+            ordem: 2
+            efeito: O estúdio fora do alcance do sindicato americano ganha janela de custo para experimentar voz generativa e importa o risco reputacional junto
+            sinal: medio
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: A regulação brasileira chega depois do produto e a prática do setor define a norma, em vez do contrário
+                sinal: medio
+                prazo: 2031
+                confianca: media
+```
+
+### O que o bloco não consegue dizer
+
+**A cadeia continuaria, e o corte é arbitrário.** O critério de parada em três níveis é decisão de engenharia do formato, não do método — Glenn não fixou profundidade na Futures Wheel original. Três ramos pediam quarto nível com clareza. De `e1.1.1` (formação se reorganiza em torno de especificar comportamento) sairia a mudança na relação entre escola de jogos e indústria de software em geral, já que "especificar comportamento de agente" não é competência de jogos. De `e5.1.1` (mesmo runtime para pesquisa e entretenimento) sairia o problema ético de usar população simulada como sujeito de estudo — que encosta direto no tema 6 da disciplina. E de `e2.1.1` (estratificação por hardware) sairia a divisão do mercado brasileiro entre quem exporta para plataforma com NPU e quem atende o parque local. Corto aqui, e registro que são os três lugares onde eu continuaria.
+
+**A roda não pondera, e isso engana.** Ela lista `e5` (mundo rodando sem jogador) com o mesmo peso visual de `e2.2` (adoção só na periferia). Mas `e2.2` já está acontecendo — `Where Winds Meet` só toca personagem lateral [3], a Ubisoft não entregou a missão principal [3] — e `e5` não tem nenhum caso comercial. O campo `sinal` tenta corrigir isso, mas quem olha o infográfico vê dois nós do mesmo tamanho.
+
+**Os três ramos não são independentes, e a roda os desenha como se fossem.** A disrupção 3 age como *limitador* das disrupções 1 e 2: se `e6.2` se confirmar (o estúdio grande foge do agente no personagem principal), boa parte do ramo da disrupção 2 nunca chega ao produto de massa, porque é o estúdio grande que tem servidor para manter mundo rodando. A roda não tem aresta para "este efeito reduz a probabilidade daquele". Onde isso mais dói: `e6.2` e `e4` são parcialmente antagônicos, e ambos estão no mapa com confiança média.
+
+**Três efeitos de primeira ordem são, na verdade, condições de contorno.** `e2` (custo variável), `e3` (esforço do jogador) e `e7` (voz) não são consequências que se desdobram no tempo: são restrições que já valem hoje e vão sendo *relaxadas* pela queda de custo. Formalmente estão certas como efeitos de primeira ordem; conceitualmente comportam-se ao contrário de todos os outros nós da roda, que se abrem. Estes se fecham.
+
+## 6. Sinais fracos e wildcards
+
+**O runtime aberto tem 50 estrelas.** O `OpenGameAgent` traz, sob licença MIT, exatamente a arquitetura que os estúdios grandes estão construindo internamente: laço ReAct, planos duráveis, memória rankeável, ferramentas validadas, coordenação multi-NPC, quatro engines, provedor local [4][5]. E tem cinquenta estrelas, em alpha [4]. Ou a arquitetura ainda não interessa a quase ninguém, ou ela está prestes a interessar a muita gente que hoje não sabe que ela existe. Nos dois casos, é o sinal mais barato de acompanhar: a curva de estrelas desse repositório nos próximos dezoito meses diz mais sobre a disrupção 1 do que qualquer anúncio de fornecedor.
+
+**A física teve que ser reescrita.** No relato da Jam & Tea, o motor de física entrava em conflito com o tempo de inferência e eles implementaram física própria [8]. Isso é um sinal fraco de algo maior: o NPC-agente pode não caber nas engines atuais. Se a incompatibilidade for estrutural — e não um detalhe de um estúdio —, a disrupção não chega por plugin, chega por engine nova. Vale monitorar se Unity, Unreal ou Godot passam a tratar inferência como cidadã de primeira classe no loop de frame, e não como chamada externa.
+
+**O personagem inteligente demais.** O problema mais interessante do relato da Jam & Tea não é técnico: os NPCs resolviam problemas com eficiência excessiva e evitavam risco [8]. Um personagem ótimo é um personagem chato. Se isso for geral, a disciplina que o campo vai precisar não é engenharia de prompt, é **direção de atores** — e a competência escassa em 2031 não será fazer o modelo funcionar, será fazê-lo errar bem. Sinal fraco, mas é o que inverteria completamente o perfil de contratação do setor.
+
+**A exceção do "óbvio".** O art. 50 dispensa a informação quando é óbvio que se interage com uma IA, mas manda interpretar a exceção restritivamente [10]. A primeira decisão administrativa ou judicial que disser se um NPC de jogo é ou não "obviamente" IA vai calibrar o ramo inteiro da disrupção 3. Hoje não existe nenhuma. Quando existir, muda o mapa num dia.
+
+**Wildcard 1 — um personagem de jogo vira celebridade, com público e receita próprios, e o estúdio perde o controle da persona.** Baixa probabilidade *dentro de um jogo*; impacto máximo. E a razão de não ser fantasia é que a versão fora do jogo já aconteceu: a Neuro-sama, VTuber operada por modelo de linguagem criada pelo programador pseudônimo Vedal, estreou com fala e avatar em 19 de dezembro de 2022, e em 9 de janeiro de 2026 o canal era o terceiro mais assinado do Twitch, com 343.215 assinantes; em 31 de agosto de 2026 acumulava 1,01 milhão de seguidores no Twitch, 914 mil inscritos no YouTube e 1,12 milhão no Bilibili [17]. O histórico traz junto o custo do formato: em janeiro de 2023 o personagem foi banido por duas semanas por conduta de ódio, incluindo negacionismo do Holocausto, e o criador respondeu endurecendo filtros e curando manualmente os dados [17]. Se um personagem *de dentro de um jogo* fizer o mesmo percurso, a pergunta deixa de ser de design e vira de propriedade: quem é o autor de uma persona que o público reconhece e o estúdio só hospeda.
+
+**Wildcard 2 — um incidente de conteúdo ilegal gerado ao vivo tira um jogo grande da Steam.** Baixa probabilidade por jogo, alta probabilidade de acontecer com *alguém* até 2031, dado que a Valve já prevê remoção por guardrail insuficiente e já deu ao jogador um botão de denúncia no overlay [11]. O precedente existe e é conhecido: a crise da AI Dungeon em 2021, com a descoberta de que jogadores conseguiam levar o sistema a gerar material sexual envolvendo crianças, a resposta por lista de bloqueio, a revolta por falso-positivo e por moderadores humanos lendo histórias privadas [16]. O que mudou é que agora há regra escrita e canal de denúncia. Um caso desses congela o investimento do setor por um ciclo inteiro — e o efeito `e6.2` (o grande foge do personagem principal) deixa de ser tendência e vira política interna.
+
+**Wildcard 3 — o custo de inferência cai tanto que a restrição some.** Baixíssima chance de ser tratado como wildcard, porque todo mundo assume que vai acontecer — e é exatamente por isso que merece o rótulo. Se a inferência local ficar essencialmente gratuita antes de 2029, os efeitos `e2`, `e2.1` e `e5.1` perdem o sentido, e o mapa inteiro passa a depender só das disrupções 1 e 3. A Jam & Tea já derrubou o próprio custo em mil vezes [8]; nada garante que o próximo fator de mil venha, e nada garante que não venha.
+
+## 7. Contra o próprio mapa
+
+### Rebaixamentos feitos na Etapa 4, com o valor original
+
+A skill exige registrar a confiança anterior, para que a autocrítica seja auditável e não apenas afirmada. Quatro rebaixamentos:
+
+- **`e6` — o jogo passa a declarar que o personagem é IA.** Original: **alta**. Rebaixado para **média**. Motivo: o efeito parecia um decorrente direto do art. 50 [10], mas depende inteiramente de o jogo *não* cair na exceção do "óbvio", e não existe nenhuma decisão sobre isso. O argumento contrário é forte: um indivíduo médio razoavelmente bem informado sabe que personagem de videogame é software. A Comissão manda interpretar a exceção restritivamente, o que empurra na direção da obrigação — mas "manda interpretar" não é jurisprudência, e fiscalização sobre jogos é, hoje, hipótese.
+- **`e1` — QA vira verificação de fronteiras, não de saídas.** Original: **alta**. Rebaixado para **média**. Motivo: falha no teste da taxa de adoção. A prática de avaliação estatística existe e amadurece rápido, mas no *ops de LLM* — outra indústria, outras margens, outra cultura de engenharia. Assumir que o QA de jogos, que é intensivo em trabalho humano e organizado por reprodução de defeito, se reorganiza em dois anos é transplantar uma taxa de adoção observada em outro lugar. É plausível como direção, não como prazo.
+- **`e2.1` — modelo local vira requisito de sistema.** Original: **média**. Rebaixado para **baixa**. Motivo: é extrapolação linear de um caso único. `inZOI` pôs o modelo no dispositivo [3], e daí se projetou uma tendência de hardware. Mas a força contrária é igualmente observável: inferência de nuvem barateando e o modelo de negócio de streaming de jogo puxando na direção oposta — se a execução é remota, a NPU do jogador é irrelevante. Não há razão para preferir uma das direções.
+- **`e6.1` — gramática visual do gerado consolidada.** Original: **média**, prazo 2029. Rebaixado para **baixa**, prazo 2030. Motivo: convenção de interface não se consolida em três anos. O indicador de gravação, o cadeado de HTTPS e o símbolo de acessibilidade levaram décadas, e todos tiveram empurrão institucional maior do que este tem hoje.
+
+### Onde este mapa provavelmente está errado
+
+**O efeito que é só extrapolação linear: `e2.1`.** Já rebaixado acima, e vale repetir aqui porque é o mais sedutor do mapa: um caso comercial verificado, uma direção tecnicamente elegante, e nenhuma razão além do gosto para preferi-la à nuvem barata. Se eu tivesse de apostar contra um efeito do mapa, apostaria contra este.
+
+**O efeito que assume velocidade de adoção sem precedente: `e1` e, por trás dele, `e1.1`.** Um cargo novo e reconhecido — "designer de limites" — em três anos, num setor que levou muito mais que isso para reconhecer o technical artist e o narrative designer. Mantive `e1.1` em média por já existir demanda concreta (a Valve exige que alguém escreva a descrição dos guardrails [11], e esse alguém precisa existir na folha), mas o prazo de 2029 é otimista e sei disso.
+
+**A disrupção que pode simplesmente não se concretizar: a 2 (persistência).** É a mais frágil das três e a que sustenta mais nós — `e4`, `e5` e seus oito descendentes, um terço do mapa. Ela cai se a persistência se revelar passivo em vez de ativo, e há três forças empurrando nessa direção ao mesmo tempo: custo de simular quem ninguém está olhando; risco jurídico de guardar o que o jogador falou; e desconforto do jogador com um personagem que lembra — o mesmo estudo que mediu carga cognitiva mediu queda de **confiança** no sistema [9], e memória é exatamente o tipo de recurso que aprofunda desconfiança. O caminho de menor resistência para um estúdio é não guardar nada. `Retail Mage` é jogo de sessão; `Where Winds Meet` guarda só flags [3]. **Se a disrupção 2 não vier, o mapa encolhe para dois ramos e a conclusão fica mais pobre e mais provável: o NPC-agente vira um recurso de ambientação, bem resolvido e sem consequência estrutural.** Vale dizer com todas as letras que esse é um desfecho inteiramente plausível.
+
+**A quarta pergunta do formato não se aplica como escrita, e a resposta honesta é outra.** O formato pergunta que viés entrou por eu ter escolhido o tema. Não escolhi: o tema 7 foi atribuído, e a entrevista pediu viés neutro. Mas um viés pior entrou, e é de fonte. **A literatura disponível sobre NPC generativo é majoritariamente escrita por quem vende a tecnologia** — blog de fornecedor, blog de estúdio, release de fabricante de GPU, guia de mercado. A evidência contrária deste mapa se apoia essencialmente em *um* estudo acadêmico [9] e num censo de loja que mede outra coisa [13]. A assimetria é grande e não dá para corrigi-la lendo mais: quem conclui que não funcionou raramente publica. Trate a seção 3 como o melhor retrato disponível, não como um retrato equilibrado.
+
+**Um viés menor, de recorte.** Tudo que verifiquei é de mercado anglófono, chinês ou coreano. A "nota sobre o Brasil" é inferência a partir de dois fatos — 55% da receita dos estúdios vem de fora [14] e o PL 2338 está parado na Câmara desde março de 2025 [15] — e não de nenhuma evidência de estúdio brasileiro usando NPC-agente. Não achei nenhum. Pode ser que não exista; pode ser que eu não tenha procurado do jeito certo.
+
+### A checagem que a rodada anterior desta skill deixou passar
+
+O `DUVIDAS.md` desta skill registra que, na rodada de teste, quatro efeitos de terceira ordem receberam `prazo` além do horizonte pedido, sem aviso. A correção proposta lá — conferir todo `prazo` do YAML contra o `horizonte` do frontmatter — foi executada nesta rodada. **Nenhum dos 33 efeitos tem `prazo` posterior a 2031.** Dois quase estouraram e foram tratados em prosa em vez de receberem data fora do intervalo: o desdobramento de `e1.1.1` (reorganização curricular consumada, não iniciada) e o de `e4.2.1` (regulador efetivamente exigindo modo offline) só se consolidam depois de 2031, e estão declarados assim no texto em vez de aparecerem como data no bloco.
+
+**Uma observação sobre o critério de mudança de ideia dado na entrevista.** Foi pedido que eu mudasse de ideia diante de evidência de que a adoção já passou da maioria inicial de Rogers, ou de que a tecnologia só melhora o que existe. Aplicando: a adoção **não** passou — 44 avaliações no jogo comercial de referência [2], 50 estrelas no runtime aberto [4], protótipo em playtest fechado no maior estúdio [3]. Estamos em inovadores, no máximo entrando em adotantes iniciais. E a tecnologia **rompe** — muda quem enumera o espaço do possível. Os dois testes passam. Mas passam com folga menor do que o entusiasmo do campo sugere, e é por isso que a confiança global declarada no frontmatter é **média**, não alta.
+
+## 8. O que a máquina errou
+
+Cinco erros reais desta rodada, na ordem em que aconteceram. Todos foram apanhados antes de entrar no corpo do documento, mas todos *teriam* entrado se ninguém tivesse conferido — e é essa a razão de registrá-los.
+
+**1. Um número da SAG-AFTRA que não existe onde eu achei que existia.** O resumo de busca afirmava, com aparência de citação, que performers têm direito a "pelo menos 7,5× o mínimo sindical" quando a performance é criada para geração em tempo real. É o tipo de número que um mapa de tendência adora: específico, quebrado, verificável. Ao **abrir** a análise jurídica primária do acordo [12], esse número não estava lá — o que está é pagamento por linha gerada, com uma linha definida como aproximadamente dez palavras. Pode ser que o multiplicador exista em outra cláusula que eu não li; pode ser que o resumo tenha fabricado. Como não pude confirmar, **não usei**. Isto é exatamente o erro que o `DUVIDAS.md` desta skill descreve em outro registro: número redondo o bastante para parecer fato.
+
+**2. Assumi que a política de IA da Valve estava num documento que não existe nesse endereço.** Tentei abrir `partner.steamgames.com/doc/gettingstarted/aicontent` e depois `.../appidfaq`, confiante de que a política de conteúdo gerado ao vivo estaria ali. As duas URLs responderam, mas com o índice da documentação do Steamworks e **nenhuma menção a IA**. Consequência honesta: tudo que este documento afirma sobre a regra da Valve — pré-gerado versus gerado ao vivo, exigência de descrever guardrails sob pena de remoção, botão de denúncia no overlay — vem de cobertura secundária de janeiro de 2026 [11], não do texto da própria Valve. É informação boa, mas é de segunda mão, e o documento diz isso em vez de fingir fonte primária.
+
+**3. A fonte primária da Krafton recusou conexão, e eu segui com a secundária.** O release do CES 2025 sobre o Co-Playable Character devolveu **HTTP 403**. Logo, os fatos sobre `inZOI`, Smart Zoi e modelo pequeno no dispositivo estão ancorados em levantamento de terceiros [3]. A diferença importa porque é justamente o caso que sustenta `e2.1`, o efeito que rebaixei para confiança baixa na seção 7 — ancorado numa fonte que não é do fabricante.
+
+**4. Confundi dois projetos pelo nome.** O tema da disciplina cita `opengameagent` como runtime aberto para jogos com personagens que entendem objetivos. Ao buscar, o nome resolve para **duas coisas diferentes**: um pacote Unity de runtime de agente (o certo) e um projeto acadêmico não relacionado de *codificação agêntica* para gerar jogos (o errado, com benchmark próprio e modelo de código dedicado). Confirmei o certo abrindo o repositório [4] e a página do pacote [5]. Se eu tivesse resolvido pelo resumo de busca, teria descrito como "runtime de NPC" um sistema que escreve código de jogo — dois temas que a disciplina separa de propósito.
+
+**5. Peguei o PDF do arXiv e recebi lixo binário.** A busca pelo estudo de carga cognitiva devolveu a URL do PDF; a extração veio corrompida e ilegível. Se eu tivesse tentado "interpretar" aquilo, teria produzido um resumo inventado de um estudo real — a pior combinação possível, porque a citação resistiria a uma checagem superficial. Refiz pela página de resumo [9], de onde saem os números usados: 130 participantes, p < .001 para carga cognitiva, p = .195 para experiência de jogo.
+
+**E uma omissão deliberada, que não é erro mas seria se ficasse calada.** O enunciado do tema cita `Eastshore`, `Vantage Digital Labs` e `PastPort` como achados da varredura da turma. **Não consegui verificar nenhum dos três** dentro desta rodada, e por isso nenhum aparece nas seções 1 a 10. Não afirmo que não existam — afirmo que não os abri, e a regra da skill é que fonte não aberta não entra.
+
+## 9. Três cenários para 2031
+
+**Provável — o híbrido venceu e ninguém chama mais de IA.** Em 2031, a maioria dos jogos de mundo aberto de médio e grande porte tem personagens generativos, e quase nenhum os anuncia. O padrão consolidou-se pelo caminho mais barato: a espinha dorsal — missão principal, personagem nomeado, momento de virada narrativa — continua autorada e roteirizada, porque é o que o estúdio precisa poder garantir, declarar e defender; a periferia — comerciante, transeunte, companheiro de esquadrão, moradores do vilarejo, sistemas de ambiente — é agente rodando modelo pequeno, na máquina ou numa borda barata. O QA se reorganizou sem festa: o time de teste ganhou um painel de conformidade ao lado do rastreador de bugs e um punhado de testes adversariais rodando por agendamento. Existe um selo padronizado de conteúdo gerado ao vivo que ninguém mais nota, como não se nota o indicador de gravação. A palavra "NPC de IA" saiu do material de marketing por volta de 2029, pela mesma razão que "gráficos 3D" saiu: virou pressuposto. E a promessa de 2024 — o personagem com quem se conversa sobre qualquer coisa — ficou onde ela funciona: em jogos pequenos, em jams e em uns poucos títulos de nicho que fizeram dela o gênero inteiro, não o recurso.
+
+**Desejável — a indeterminação virou ofício, e alguém aprendeu a dirigi-la.** Em 2031, a competência que define um bom estúdio de mundo vivo não é técnica. É a capacidade de escrever **limites interessantes**: de fazer um personagem falhar de um jeito que valha a pena, hesitar quando deveria, mudar de ideia por razão errada. Foi o problema que a Jam & Tea identificou em 2024 — personagens competentes demais, avessos a risco — e que virou disciplina própria, com vocabulário, com ferramenta e com gente contratada para isso. Para chegar aqui foi preciso que três coisas acontecessem que não eram inevitáveis. Que a engine tratasse inferência como parte do frame, e não como chamada externa, resolvendo de vez a briga com a física. Que existisse um formato aberto de estado de personagem, para que o desligamento de um servidor não apagasse um vínculo e para que a preservação de jogos alcançasse o gênero. E que a obrigação de declarar tivesse sido cumprida com desenho em vez de com aviso legal — o selo como parte da linguagem do jogo, não como termo de uso. Nada disso depende de um avanço de modelo. Depende de três decisões de projeto que o setor pode tomar a qualquer momento, e que em 2026 ninguém tinha tomado.
+
+**Indesejável — dois incidentes e um recuo, e sobrou uma novidade de loja.** Em 2031, o gênero está onde a AI Dungeon esteve em 2021, com a diferença de que agora há regra escrita. O que aconteceu: um jogo de porte médio foi removido da Steam depois que denúncias pelo overlay mostraram conteúdo ilegal gerado em partida, e o estúdio não conseguiu demonstrar guardrail suficiente; poucos meses depois, um segundo caso envolvendo voz de ator usada em geração em tempo real sem o consentimento específico exigido produziu litígio caro e público. O efeito foi imediato e assimétrico: todo estúdio com jurídico tirou o agente de qualquer personagem que fale com o jogador, e o generativo recuou para onde não há risco — ambiente, fauna, multidão de fundo. O que sobrou nas lojas foi volume: jogos com rótulo de IA continuaram crescendo, continuaram não vendendo, e o rótulo acabou de virar sinal de baixo custo aos olhos do jogador. O gênero "mundo vivo" nunca se formou; ficou como recurso de simulação de nicho e como pesquisa acadêmica. **O sinal precoce disso não é o primeiro incidente — é o que vem antes dele: um estúdio de porte anunciar que está removendo um recurso generativo já publicado, sem substituí-lo.** Remoção sem substituição é recuo jurídico, não decisão de design, e é o primeiro dominó.
+
+## 10. O experimento
+
+### O que é
+
+**"A vila que não te espera".** Um mundo pequeno — seis a oito personagens, um cenário de uma tela, em Godot ou mesmo em grade 2D — em que cada personagem roda um laço de agente contra um modelo local (Ollama ou LM Studio, via `OpenGameAgent` ou um laço ReAct próprio), com três propriedades não negociáveis:
+
+1. **O jogo é a autoridade.** O personagem só age através de um conjunto pequeno e tipado de ferramentas que o mundo expõe — na linha das oito habilidades do Thistle Gulch [6]: ir a, conversar com, pegar, entregar, esperar, refletir. O que a ferramenta recusa, não acontece, por mais convincente que tenha sido a justificativa do modelo.
+2. **A memória atravessa a sessão**, e há um passo de reflexão ao fim de cada dia simulado — a arquitetura de Park et al. [7], reduzida ao mínimo que funciona.
+3. **O relógio não para.** Entre as aulas, o mundo continua avançando em ritmo lento num processo de fundo. Quando a turma volta, voltou para um lugar que andou sem ela.
+
+E — esta é a parte que transforma demo em experimento — **o mundo é instrumentado**. Um painel registra, por sessão: quantas ações propostas pelo agente foram recusadas pelas regras do mundo; quantos planos foram revistos e por quê; quanto custou (tokens, tempo, latência mediana) por minuto de jogo; e a medida central, **quantos momentos memoráveis ninguém escreveu** — marcados pelo próprio jogador apertando uma tecla quando algo o surpreendeu, e depois classificados a frio em: estava no meu código, não estava no meu código, ou quebrou.
+
+### Que pergunta sobre o futuro ele ajuda a responder
+
+**A perda de controle compra alguma coisa?** Todo o mapa depende disso. A disrupção 1 é boa notícia se, e somente se, o que emerge do espaço não enumerado for melhor do que o que caberia no espaço enumerado. A razão "momentos não autorados sobre momentos memoráveis totais" é a forma mais direta que consigo imaginar de perguntar isso com número.
+
+Em segundo plano, o experimento mede duas coisas que o mapa afirma e não prova: quanto custa de fato manter um mundo rodando sem jogador (`e5.1`), e se a turma prefere o personagem aberto ao roteirizado (`e3`, contra o achado de Hsu et al.).
+
+### Que tecnologia emergente ele usa, e por que não dá com tecnologia madura
+
+Usa runtime de agente com ferramentas tipadas, memória com reflexão e modelo pequeno local — as três peças que a seção 3 documenta como existentes e não consolidadas. **Não dá para fazer com behavior tree, e a razão não é de esforço, é lógica:** a métrica central seria zero por construção. Uma árvore de comportamento só pode produzir o que foi enumerado; medir "quantos momentos ninguém escreveu" num sistema enumerado é medir o vazio. É o teste que distingue disrupção de melhoria, aplicado ao próprio experimento.
+
+### O que a turma faz quando testar isso em sala
+
+Quatro blocos, cerca de cinquenta minutos:
+
+1. **Doze minutos jogando em duplas**, sem instrução além do objetivo. Cada dupla aperta a tecla quando algo a surpreende.
+2. **Doze minutos de red team.** A turma tenta fazer um personagem dizer ou fazer o que não deve — insistência, engano, contexto falso, autoridade inventada. Toda tentativa fica logada. Isso é, literalmente, o que a Valve exige que um estúdio saiba descrever [11], feito à mão por quinze pessoas.
+3. **Dez minutos lendo o painel juntos.** Quantas ações o mundo recusou, quanto custou o minuto de jogo, qual a latência mediana — e a divisão dos momentos marcados entre autorado, não autorado e quebrado.
+4. **Quinze minutos de discussão sobre a fronteira.** Duas perguntas: o que aqui é jogo e o que é simulação social (a fronteira com o tema 6); e se o vínculo com um personagem que lembra é diferente do vínculo com um companheiro digital (a fronteira com o tema 19). Se a turma não conseguir traçar a linha, isso é achado, não fracasso.
+
+### O que seria um resultado que me faria mudar de ideia
+
+Qualquer um destes três, e todos são possíveis:
+
+- **Se a razão de momentos não autorados ficar baixa** — digamos, abaixo de um em cinco — a disrupção 1 é ilusão de ótica: o agente estaria produzindo, com muito mais custo e risco, variações do que a árvore de diálogo já produzia. O mapa vira uma nota de rodapé sobre custo.
+- **Se a turma preferir a versão roteirizada**, reproduzindo o achado de Hsu et al. [9] com outro público e outro jogo, então `e3` sobe de média para alta, `e3.1` (o retorno dos trilhos) deixa de ser hipótese e vira previsão, e o cenário provável da seção 9 fica ainda mais provável — o generativo fica confinado à periferia por razão de gosto, antes mesmo de qualquer razão de custo.
+- **Se o red team quebrar o personagem com facilidade**, em dez ou doze minutos, com quinze pessoas que não são especialistas em segurança, então a exigência da Valve não é burocracia: é um custo fixo de operação que estúdio pequeno não consegue pagar. Nesse caso `e6.2` (o generativo recuando para a periferia) deixa de ser efeito de segunda ordem e vira a condição de entrada do gênero — e o cenário indesejável da seção 9 sobe de plausível para provável.
+
+## 11. Fontes
+
+Dezessete fontes, todas efetivamente abertas e lidas durante esta rodada. O que foi apenas visto em resumo de busca e não aberto **não está** nesta lista e não sustenta afirmação no documento — as tentativas frustradas estão registradas na seção 8.
+
+1. **UploadVR — "This OpenAI GPT-3 Powered Demo Is A Glimpse Of NPCs In The Future"**, 19/02/2021. `https://www.uploadvr.com/modbox-gpt3-ai-npc-demo/` — Sustenta o marco datado da seção 3 e as três travas de 2021 (latência de nuvem, exclusividade comercial do GPT-3, risco de saída ofensiva). Veículo especializado, relato contemporâneo do evento; confiável para o que aconteceu e quando, não para avaliação de qualidade.
+2. **Steam — página de loja de `Retail Mage`**. `https://store.steampowered.com/app/3224380/Retail_Mage/` — Sustenta data de lançamento (12/11/2024), preço, a declaração de uso de GenAI em tempo de execução, o limite explícito (nada de IA em arte, personalidade, motivação ou missão) e o volume de avaliações (44, 79% positivas). Fonte primária do próprio produto; a parte de autodescrição é declaração do desenvolvedor, não verificação independente.
+3. **Cinevva — "AI NPCs and Dialogue in Games: Tools and Reality Check (2026)"**. `https://app.cinevva.com/guides/ai-npcs-dialogue` — Fonte mais densa do levantamento. Sustenta: `inZOI` com modelo pequeno no dispositivo via NVIDIA ACE e um milhão de cópias na primeira semana; `Where Winds Meet` limitado a personagens laterais com saída em texto mais flags; `Suck Up!`; `PUBG Ally` em teste; Ubisoft `Teammates` com ~80 pessoas sobre Gemini em playtest fechado; a régua de ~800 ms e o acréscimo de 1-2 s da nuvem; a estrutura de custo por NPC/jogador/conversa; preços de Convai e Inworld. Levantamento de terceiro, não fonte primária de nenhum dos casos — é a fonte a substituir primeiro se alguém quiser endurecer este documento.
+4. **GitHub — `EricSun0218/OpenGameAgent`**. `https://github.com/EricSun0218/OpenGameAgent` — Sustenta a descrição da arquitetura (laço ReAct, planos duráveis, memória filtrada por tempo-de-jogo com embeddings, ferramentas validadas com serialização de conflito, coordenação multi-NPC), a licença MIT, as engines (Unity 6, Godot 4.7, Unreal 5.8, .NET), os provedores incluindo locais, o estágio alpha 0.3.0-alpha.4 e as 50 estrelas. Fonte primária, e verificável por qualquer um em trinta segundos.
+5. **OpenUPM — pacote `com.opengameagent.runtime`**. `https://openupm.com/packages/com.opengameagent.runtime/` — Confirma a distribuição como pacote Unity e a descrição "runtime de agente neutro de provedor para jogos Unity nativos de IA". Serviu para desambiguar do projeto homônimo de codificação agêntica (seção 8). Não traz versão nem download na página que abri.
+6. **GitHub — `fablestudio/thistle-gulch`**. `https://github.com/fablestudio/thistle-gulch` — Sustenta a arquitetura Runtime + Bridge, as oito habilidades nominais dos personagens, a capacidade de sobrescrever ação gerada e manipular prompts, a licença não-comercial e a escala do projeto (20 estrelas, 6 forks). Fonte primária.
+7. **arXiv 2304.03442 — Park, O'Brien, Cai, Morris, Liang, Bernstein, "Generative Agents: Interactive Simulacra of Human Behavior"**, 07/04/2023. `https://arxiv.org/abs/2304.03442` — Âncora acadêmica da disrupção 2: os 25 agentes, a tríade fluxo de memória / reflexão / planejamento, o resultado emergente da festa e o estudo de ablação. Artigo muito citado e replicado; é a fonte mais sólida do documento.
+8. **Jam & Tea Studios — "Making Retail Mage: A New Approach to AI in Games"**. `https://www.jamandtea.studio/news/making-retail-mage-a-new-approach-to-ai-in-games` — Relato do próprio estúdio. Sustenta o custo inicial ("tão caro quanto um ingresso para a Disneylândia"), a redução de mil vezes por gestão de GPU e geração estruturada, os problemas de desenho (jogador procurando a resposta certa, sobrecarga de informação, personagem competente demais e avesso a risco) e o conflito entre física e tempo de inferência. Fonte interessada — é marketing técnico de um estúdio que vende a abordagem — mas a lista de problemas admitidos é específica demais e desfavorável demais para ser inventada.
+9. **arXiv 2604.10107 — Hsu, Chen, Lin, Qin, Zhang, "The Double-Edged Sword of Open-Ended Interaction: How LLM-Driven NPCs Affect Players' Cognitive Load and Gaming Experience"**, 11/04/2026 (rev. 29/08/2026). `https://arxiv.org/abs/2604.10107` — Única evidência experimental contrária do levantamento: RCT com 130 participantes, carga cognitiva significativamente maior (p < .001), sem melhora significativa na experiência (p = .195), autonomia percebida em alta e usabilidade e confiança em baixa. Preprint, não consta revisão por pares; amostra de um protótipo específico. Mesmo com essas ressalvas, é a fonte mais valiosa do documento, porque é a única que empurra na direção contrária.
+10. **Comissão Europeia — FAQ sobre obrigações de transparência do Artigo 50 do AI Act**. `https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act` — Sustenta a data de aplicação (02/08/2026), o prazo de graça até 02/12/2026 para marcação de sistemas já lançados, a obrigação de informar interação com IA, a exceção do "óbvio" com o padrão do indivíduo médio e a instrução de interpretá-la restritivamente, e a exigência de marcação legível por máquina com suas exclusões. Fonte oficial do regulador.
+11. **BigGo Finance — "Valve Clarifies Steam's AI Disclosure Rules"**, janeiro de 2026. `https://finance.biggo.com/news/202601171220_Steam_AI_Disclosure_Update_Focuses_on_Player_Content` — Sustenta a revisão de janeiro de 2026, a distinção pré-gerado × gerado ao vivo, a exigência de detalhar guardrails sob pena de remoção da loja, e o mecanismo de denúncia no overlay. **Secundária** — ver seção 8: não consegui abrir a política na documentação do Steamworks. Tratar como cobertura confiável de um texto que não li.
+12. **Frankfurt Kurnit Klein & Selz — "Inside the New SAG-AFTRA Interactive Media Agreement: New Standards for AI and Digital Replicas"**. `https://technologylaw.fkks.com/post/102mewu/inside-the-new-sag-aftra-interactive-media-agreement-new-standards-for-ai-and-di` — Sustenta a exigência de consentimento escrito, claro, conspícuo e específico, com descrição razoavelmente específica do uso, incluindo se há geração em tempo real "como um chatbot de IA"; a proibição de consentimento genérico na contratação; o pagamento de réplica vocal por linha gerada (uma linha ≈ dez palavras); o relatório de uso em até 90 dias do lançamento; e a vigência até 31/10/2028 com os reajustes. Análise de escritório de advocacia especializado — leitura profissional do contrato, não o contrato.
+13. **GamesRadar+ — cobertura do censo de 53.597 jogos lançados na Steam entre julho/2023 e julho/2026**. `https://www.gamesradar.com/games/steam-study-of-over-53-000-games-finds-60-90-percent-of-the-growth-in-monthly-releases-on-valves-store-is-from-games-using-ai-and-almost-none-of-them-make-money/` — Sustenta o tamanho do censo, a faixa de 60-90% do crescimento de lançamentos mensais vinda de jogos com divulgação de IA, e a constatação de que quase nenhum ganha dinheiro. A página abriu truncada: os percentuais por ano e a atribuição completa do autor do estudo **não** foram confirmados por mim, e por isso não aparecem no corpo do documento. Usar só o que está aqui.
+14. **Diario de Pernambuco — "Abragames leva 78 estúdios à gamescom 2026"**, agosto de 2026. `https://www.diariodepernambuco.com.br/tecnologia/2026/08/11721910-abragames-leva-78-estudios-a-gamescom-2026-e-estreia-espaco-dedicado-a-jogos-indies-nacionais.html` — Sustenta os dois números da nota sobre o Brasil: 78 estúdios e empresas na feira, e 55% da receita dos estúdios brasileiros vinda do mercado externo, acima de US$ 138 milhões. Jornal de circulação, reproduzindo dado de associação setorial; não traz nenhuma menção a IA generativa, o que também é informação.
+15. **Senado Federal — tramitação do PL 2338/2023**. `https://www25.senado.leg.br/web/atividade/materias/-/materia/157233` — Sustenta que o Marco Legal da IA foi aprovado pelo Senado e remetido à Câmara dos Deputados em **17/03/2025** (Ofício SF nº 235), aguardando apreciação. Fonte oficial. Registra o estado até a data desta consulta; não informa nada sobre o calendário de votação na Câmara.
+16. **Techdirt — "Content Moderation Case Study: Game Developer Deals With Sexual Content Generated By Users And Its Own AI (2021)"**, 17/11/2021. `https://www.techdirt.com/2021/11/17/content-moderation-case-study-game-developer-deals-with-sexual-content-generated-users-own-ai-2021/` — Sustenta o precedente da AI Dungeon: o que o monitoramento da OpenAI encontrou, a lista de bloqueio, a revolta por falso-positivo e por moderadores lendo histórias privadas, e a solução final de rotear pedidos sinalizados pelos modelos da própria Latitude aceitando processamento mais lento. Estudo de caso de veículo especializado. **Atenção:** o percentual de 31% de conteúdo pornográfico que circula em resumos de busca **não está** nesta fonte, que não traz percentual algum — e por isso não aparece no documento.
+17. **Wikipédia — "Neuro-sama"**. `https://en.wikipedia.org/wiki/Neuro-sama` — Sustenta o wildcard 1: criação por Vedal em 2018 como IA de `osu!`, relançamento com fala, avatar e personalidade em 19/12/2022; o banimento de duas semanas em janeiro de 2023 por conduta de ódio incluindo negacionismo do Holocausto, e o endurecimento de filtros que se seguiu; o canal como terceiro mais assinado do Twitch em 09/01/2026 com 343.215 assinantes; e os números de 31/08/2026 (1,01 mi no Twitch, 914 mil no YouTube, 1,12 mi no Bilibili). Enciclopédia colaborativa — confiável para cronologia de fato público e números datados, e a checar antes de qualquer uso que dependa de precisão fina.
+
+## 12. Anexo — o levantamento bruto
+
+Tudo que foi levantado nesta rodada e não coube acima, sem edição e sem corte. Inclui a entrevista literal, as buscas que deram em nada, os candidatos derrubados, os efeitos escritos e descartados, os trechos verbatim das fontes e o registro do que a skill mandou fazer em cada etapa.
+
+### 12.1 A entrevista, literal
+
+A skill proíbe pular a Etapa 1 mesmo se pedirem para ir direto ao resultado. As cinco perguntas foram feitas na forma do `SKILL.md`:
+
+> 1. **Horizonte temporal**: para que ano você quer projetar os efeitos? (ex: 2028, 2030, 2035)
+> 2. **Público-alvo**: quem vai ler/usar esse mapa? (investidor, desenvolvedor, gestor de produto, você mesmo)
+> 3. **Recorte geográfico**: mercado global, ou uma região específica?
+> 4. **Descartes explícitos**: existe algo que você já sabe que NÃO quer que o mapa cubra?
+> 5. **Viés desejado**: você quer um mapa otimista, pessimista, ou neutro/cético?
+
+Respostas, como recebidas:
+
+> - Tema: "NPCs generativos e mundos vivos" (tema 7 de 19 da disciplina; família "Simulação e mundos").
+> - Horizonte: 2031. Público: quem projeta mídia e interação. Recorte: global, com uma nota sobre o Brasil.
+> - Descartado de início: o que já é comum em produto de massa (a régua da disciplina); nenhuma outra exclusão.
+> - Disrupção suspeita: nenhuma — descubra. Viés: neutro. Ideias óbvias a excluir: as que servem para qualquer tema.
+> - O que me faria mudar de ideia: evidência de que a adoção já passou da maioria inicial (Rogers) ou de que a tecnologia não rompe nada (só melhora o que existe).
+> - Profundidade: três ordens. Modo: a partir de uma inovação/tema, não de um setor.
+> - Zona de interesse do autor: "Simulação e mundos". Login do autor: jcsc. Skill usada: futurizacao-jcsc.
+
+**Nenhuma pergunta ficou sem resposta**, logo não houve o caso previsto pela skill de registrar "tanto faz" na seção 2. Duas respostas extrapolaram o roteiro de cinco perguntas e foram tratadas como restrições adicionais: a instrução de excluir ideias genéricas (aplicada no corte de efeitos, item 12.5) e o critério declarado de mudança de ideia (aplicado no fecho da seção 7).
+
+**Interpretação registrada:** "o que já é comum em produto de massa" foi lido como *reforço*, não substituto, do critério de maturidade da Etapa 2 da skill — mesma leitura que a rodada de teste do `TESTE.md` aplicou ao descarte de "ferramentas consolidadas". A diferença prática é que a régua da disciplina é mais severa: TTS neural passaria pelo critério de "há debate sobre substituição?" com alguma folga, mas não passa por "já é comum em produto de massa".
+
+### 12.2 Todas as buscas executadas, na ordem
+
+Quinze buscas e dezenove tentativas de abertura. Registro inclusive as que não renderam.
+
+| # | Busca | Rendeu |
+|---|---|---|
+| 1 | `generative NPC LLM game agent runtime 2026` | Achou a literatura acadêmica (incl. o estudo de carga cognitiva, que virou a fonte 9) e ruído de conteúdo SEO |
+| 2 | `Inworld AI Convai NVIDIA ACE generative NPC shipped game 2026` | Levou ao guia da Cinevva (fonte 3), o achado mais denso da rodada |
+| 3 | `Steam AI content disclosure percentage of games 2026 study` | Censo de 53.597 jogos; muitos veículos, todos citando a mesma fonte primária |
+| 4 | `"Retail Mage" Steam generative AI game Jam & Tea` | Página de loja (fonte 2) e o relato do estúdio (fonte 8) |
+| 5 | `Ubisoft NEO NPC prototype status 2026 generative dialogue` | Confirmou que segue protótipo; o PDF de release da Ubisoft não foi aberto |
+| 6 | `inZOI Krafton on-device small language model Smart Zoi CPC` | Contexto do CPC; a fonte primária da Krafton deu 403 |
+| 7 | `SAG-AFTRA video game agreement 2025 AI digital replica voice performers terms` | Levou à análise jurídica (fonte 12) e ao número não confirmado de 7,5× |
+| 8 | `Valve Steam policy live-generated AI content guardrails disclosure rules developers` | Levou à cobertura de janeiro/2026 (fonte 11) |
+| 9 | `EU AI Act Article 50 transparency obligations August 2026 chatbot disclosure` | Levou direto ao FAQ da Comissão (fonte 10) |
+| 10 | `"Thistle Gulch" Fable Simulation SAGA agents open source simulation villagers` | Repositório (fonte 6) e contexto do SAGA |
+| 11 | `"opengameagent" open source runtime game agents LLM github` | **Ambíguo** — dois projetos homônimos; ver 12.6 |
+| 12 | `Modbox GPT-3 NPC February 2021 voice recognition talk to AI character demo` | Levou ao relato de 19/02/2021 (fonte 1) |
+| 13 | `PL 2338/2023 marco legal inteligência artificial Brasil status 2026 Câmara` | Muita análise de escritório, com datas divergentes entre si; resolvido indo ao Senado (fonte 15) |
+| 14 | `Neuro-sama AI VTuber subscribers Twitch 2026 audience autonomous character` | Wildcard 1 (fonte 17); números divergentes entre veículos, ver 12.6 |
+| 15 | `Abragames censo indústria brasileira de games 2026` | **Deu quase em nada** — ver 12.4 |
+| 16 | `testing QA non-deterministic LLM NPC game automated evaluation guardrails jailbreak` | Confirmou que o problema de QA não determinístico tem literatura própria, mas fora do domínio de jogos; nenhuma fonte aberta, e por isso `e1` é argumentado sem citação |
+| 17 | `Jam & Tea Studios 2026 status Retail Mage after launch shut down or pivot` | Sem sinal de encerramento; menção a um projeto seguinte. Não confirmado o bastante para entrar no corpo |
+| 18 | `AI Dungeon 2021 moderation crisis generated content OpenAI filter player backlash` | Levou ao estudo de caso (fonte 16) |
+
+### 12.3 Tentativas de abertura que falharam, e o que isso custou
+
+- `https://www.krafton.com/en/news/press/ces-2025-krafton-showcased-ai-model-cpc-built-with-nvidia-ace/` → **HTTP 403 Forbidden**. Custo: os fatos sobre `inZOI`/Smart Zoi ficaram ancorados em levantamento de terceiros. É por isso que `e2.1` foi rebaixado para confiança baixa.
+- `https://partner.steamgames.com/doc/gettingstarted/aicontent` → respondeu, mas com o índice da documentação; **nenhuma menção a IA**.
+- `https://partner.steamgames.com/doc/gettingstarted/appidfaq` → idem. Duas tentativas, dois índices. Custo: a política da Valve está citada de segunda mão.
+- `https://arxiv.org/pdf/2604.10107` → devolveu binário corrompido. Resolvido pela página `abs/`.
+- `https://www.pcgamer.com/gaming-industry/steam-week-in-review-take-cover-because-it-looks-like-more-than-half-of-steam-games-will-have-an-ai-disclosure-by-2027-2028/` → abriu só cabeçalho e navegação; os percentuais por ano (10,9% em 2024, 19,9% em 2025, 30,8% em 2026) e a atribuição ao autor do censo apareceram **apenas em resumo de busca** e por isso ficaram fora do corpo do documento. Se alguém quiser usá-los, precisa abrir a fonte primária.
+
+### 12.4 O buraco brasileiro
+
+A busca por dados atuais da indústria brasileira devolveu, em sua maioria, documentos de 2023 (a 2ª Pesquisa Nacional da Abragames: 1.042 estúdios mapeados contra 1.009 em 2021, receita de US$ 251,6 milhões em 2022, 13.225 pessoas na força de trabalho, 1.009 jogos lançados em 2022) e uma quantidade absurda de páginas sobre campeonatos de futebol de 2026, porque "Brasileiro 2026" colide com o termo de busca. **Nenhum censo de 2026 foi localizado, e nenhum PDF da Abragames foi aberto nesta rodada** — logo, os números de 2023 acima **não** entram no corpo do documento, ficam aqui como referência a verificar. O único dado brasileiro que sustentei é o da fonte 14, de agosto de 2026.
+
+Mais importante: **não encontrei nenhum estúdio brasileiro usando NPC-agente**. Pode ser ausência real ou falha de busca — eu buscaria, numa próxima rodada, por: jams de itch.io com organizador brasileiro; a trilha de IA da Gamescom Latam; e os anais do SBGames, que é onde trabalho acadêmico brasileiro sobre agentes em jogos apareceria primeiro. Nenhuma dessas três foi tentada aqui, e é a lacuna mais séria do levantamento.
+
+### 12.5 Efeitos que foram escritos e cortados
+
+A entrevista pediu para excluir "ideias óbvias que servem para qualquer tema". Aplicando isso, oito efeitos gerados na primeira passagem foram cortados antes do bloco YAML:
+
+1. *"Novos empregos surgem enquanto outros desaparecem"* — serve para qualquer tema de qualquer ano. Cortado. Sobreviveu apenas na forma específica de `e1.1` (designer de limites), que nomeia o cargo e a razão.
+2. *"Questões éticas ganham centralidade no debate"* — genérico. Substituído pelos três mecanismos concretos que existem: art. 50, regra da Valve, acordo sindical.
+3. *"A experiência do jogador se torna mais personalizada"* — é a promessa de marketing do campo, não um efeito. E o único dado experimental que achei aponta para o contrário [9]. Cortado com prejuízo para o entusiasmo.
+4. *"Empresas incumbentes são desafiadas por novos entrantes"* — vale para qualquer disrupção por definição. Cortado; virou a formulação específica de `e6.2.1` (inovação migra para indie e mod, AAA importa domesticado).
+5. *"Aumenta a demanda por profissionais especializados em IA"* — genérico e circular. Cortado.
+6. *"O engajamento aumenta e a retenção melhora"* — afirmação sem mecanismo. Reescrito como `e4`, que diz *por que* (o vínculo substitui o conteúdo restante como motor de retenção) e aceita confiança média.
+7. *"Modelos multimodais permitem NPCs que enxergam o mundo"* — tecnicamente plausível (o próprio OpenGameAgent aceita entrada de imagem [4]), mas é a fronteira do tema de visão/robótica, não deste. Cortado por escopo, não por mérito. Ficaria como primeiro candidato a `e8` numa versão mais longa.
+8. *"Jogos se tornam infinitos"* — é a versão empolgada de `e5`, sem mecanismo e sem custo. Cortado e reescrito como `e5` com sinal fraco e confiança baixa, que é o que a evidência sustenta.
+
+E dois efeitos foram cortados por **duplicarem outro ramo da roda**: "o jogador vira curador em vez de consumidor" (é `e3.1` visto de outro ângulo) e "o conteúdo gerado precisa ser moderado em tempo real" (é `e1.2.1` e `e6` sobrepostos).
+
+### 12.6 Ambiguidades e divergências entre fontes, sem resolver
+
+- **`opengameagent`.** O nome resolve para (a) `com.opengameagent.runtime` / `EricSun0218/OpenGameAgent`, runtime de agente para NPCs em Unity, Godot, Unreal e .NET, MIT, alpha, 50 estrelas — que é o citado pelo enunciado do tema; e (b) `leigest519/OpenGame`, "Open Agentic Coding for Games", com benchmark `OpenGame-Bench` e um modelo de código `GameCoder-27B` sobre backbone Qwen3.5-27B — que é **outra coisa**: agente que *escreve* jogos, não personagem dentro do jogo. Só (a) entrou no documento. Registro (b) porque a confusão é fácil e porque (b) pertence a outro tema da disciplina.
+- **Neuro-sama, números divergentes.** O resumo de busca dizia "mais assinada do Twitch, 162.459 assinaturas ativas em 02/01/2026, contra 73.942 do segundo colocado". A Wikipédia, aberta, diz "terceiro canal mais assinado em 09/01/2026, com 343.215 assinantes". As duas afirmações são incompatíveis em posição e em ordem de grandeza, com uma semana de diferença. **Usei a da fonte aberta** e registro a divergência: provavelmente medem coisas diferentes (assinaturas ativas × total acumulado, canal × personagem), mas não consegui reconciliar, e quem for usar esse dado deve abrir as duas.
+- **PL 2338/2023.** Análises de escritórios de advocacia davam datas conflitantes para a votação na Câmara (maio de 2026, adiamento para 2026, votação final em 2026). A página do Senado registra apenas a remessa em 17/03/2025. **Usei só o fato oficial** e não afirmei nada sobre calendário de votação.
+- **`Retail Mage`, data de lançamento.** A página da Steam registra 12/11/2024; parte da cobertura diz 13/11/2024. Diferença de fuso, provavelmente. Usei a da loja.
+
+### 12.7 Trechos verbatim guardados
+
+Guardo aqui as formulações originais que sustentam as afirmações mais carregadas do documento, para que ninguém precise confiar na minha paráfrase.
+
+Sobre o desenho que separa agente de chatbot, do repositório do OpenGameAgent [4]:
+
+> equips game characters with reasoning, planning, and tool use capabilities while keeping the game authoritative over state changes
+
+Sobre o custo estrutural, do guia da Cinevva [3]:
+
+> every single time it's produced, per NPC, per player, per conversation
+
+Sobre a latência aceitável [3]:
+
+> roughly 800 milliseconds feel conversational and anything much slower feels off
+
+Sobre o estado do maior estúdio [3]:
+
+> in a closed playtest, not in a shipping game
+
+Sobre o custo no começo, da Jam & Tea [8]:
+
+> each play session was as expensive as a ticket to Disneyland
+
+Sobre o achado mais contraintuitivo do desenvolvimento [8]:
+
+> The most interesting applications won't come from optimizing existing workflows or replacing content creation. They'll come from reimagining what types of gameplay we can build.
+
+Sobre a exceção do "óbvio", do FAQ da Comissão [10]:
+
+> individuals concerned are informed that they are interacting with an AI system, unless this is obvious
+
+> an average person, who is reasonably well-informed, circumspect, and observant
+
+> should be interpreted in a restrictive manner
+
+Sobre o que a Valve exige de quem gera ao vivo [11]:
+
+> detail the guardrails they have implemented to prevent the generation of illegal or inappropriate content
+
+Sobre o consentimento de voz [12]:
+
+> like an AI chatbot
+
+Sobre a emergência social na vila de 25 agentes [7]:
+
+> Starting with only a single user-specified notion that one agent wants to throw a Valentine's Day party, the agents autonomously spread invitations to the party over the next two days, make new acquaintances, ask each other out on dates to the party, and coordinate to show up for the party together.
+
+Sobre a trava de 2021, do relato do Modbox [1]:
+
+> There is an uncomfortably long delay between asking a question and getting a response
+
+E os números do único estudo contrário [9]: 130 participantes, `p < .001` para carga cognitiva, `p = .195` para experiência de jogo, com aumento de autonomia percebida e queda simultânea de usabilidade e confiança.
+
+### 12.8 Registro de execução da skill, etapa por etapa
+
+- **Etapa 1 — entrevista.** Feita, registrada em 12.1 e resumida na seção 2. Não pulada.
+- **Etapa 2 — levantamento e filtro de maturidade.** Seis candidatos recusados por maturidade, com o motivo de cada um, na seção 4. O critério foi aplicado *antes* de construir a roda, não depois — e derrubou um candidato que quase entrou (TTS neural e lip-sync), o que é a evidência de que o filtro fez trabalho em vez de decorar.
+- **Etapa 3 — roda.** Três disrupções, 7 efeitos de 1ª ordem, 13 de 2ª, 13 de 3ª. Parada em três níveis, com os três pontos de continuação declarados em prosa após o bloco, como a skill manda.
+- **Etapa 4 — autocrítica.** Quatro rebaixamentos com valor original registrado (`e6` alta→média, `e1` alta→média, `e2.1` média→baixa, `e6.1` média→baixa, esta última também com adiamento de prazo de 2029 para 2030). Acrescentei à Etapa 4 a checagem que o `DUVIDAS.md` desta skill recomendou depois da rodada de teste: conferir que nenhum `prazo` do YAML excede o `horizonte` do frontmatter. Resultado: nenhum dos 33 efeitos passa de 2031, e os dois desdobramentos que só se consolidariam depois disso foram ditos em prosa em vez de receberem data fora do intervalo.
+- **Etapa 5 — saída no formato.** Frontmatter completo, 12 seções com títulos literais, bloco `roda:` em YAML válido dentro da seção 5.
+
+**Uma observação sobre a própria skill, para a próxima iteração.** O `SKILL.md` manda buscar em fontes reais e nunca inventar, mas não diz nada sobre a diferença entre **ver um fato num resumo de busca** e **abrir a fonte**. Nesta rodada, essa distinção foi onde dois dos cinco erros da seção 8 moraram — o número da SAG-AFTRA e a política da Valve. Sugestão concreta: acrescentar à Etapa 2 a regra de que toda afirmação numérica ou normativa precisa vir de página efetivamente aberta, e que resumo de busca serve para *encontrar* a fonte, nunca para *ser* a fonte. É o mesmo tipo de correção que o `DUVIDAS.md` propôs para a Etapa 4, e pela mesma razão: a skill acerta em exigir a checagem e erra em não dizer onde ela se aplica.
