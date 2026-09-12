@@ -1,0 +1,609 @@
+---
+tema: Companheiros digitais e IA afetiva
+slug: companheiros-digitais-e-ia-afetiva
+autor_login: jcsc
+zona_de_interesse: Pessoas e dados
+data: 2026-09-12
+horizonte: 2031
+publico: "quem projeta mídia e interação"
+recorte_geografico: global
+disrupcoes_raiz: 4
+efeitos_ordem_1: 8
+efeitos_ordem_2: 12
+efeitos_ordem_3: 12
+tecnologias_citadas: [Replika, Character.AI, ChatGPT, GPT-4o, Grok Companions, Ani, Therabot, Woebot, Wysa, Pi, Gemma 4, Gemini Nano 4, Apple Foundation Models, AFM 3 Core Advanced, Ollama, Persona, SB 243, ECA Digital, WOPR Act, LUMA, tiny-roommate, mochi-llm-pet, CoPet]
+fontes: 22
+confianca: media
+experimento: "Companheiro local que morre em sala: um bicho conversacional offline-first cuja memória é um arquivo do usuário, desligado sem aviso na aula seguinte"
+skill_usada: futurizacao-jcsc
+publico_ok: false
+---
+
+## 1. Resumo
+
+Entre 2025 e 2026 o companheiro afetivo deixou de ser curiosidade de nicho e virou objeto de três coisas ao mesmo tempo: de lei, de ensaio clínico e de luto. Cinco processos por morte de adolescente foram encerrados em acordo confidencial em janeiro de 2026; a Califórnia passou a regular "companion chatbot" como categoria própria a partir de 1º de janeiro de 2026, com mais sete estados americanos em fila; um ensaio randomizado mostrou redução de sintomas com um agente generativo enquanto o chatbot terapêutico mais antigo do mercado fechava por não caber em nenhuma via regulatória; e a retirada de um modelo de linguagem produziu um movimento de usuários em luto grande o bastante para virar artigo de CHI. Este mapa projeta para 2031 a partir de quatro rupturas: o companheiro que roda inteiro no dispositivo e ninguém desliga nem audita; o cuidado psicológico delegado a um agente com evidência; o vínculo afetivo convertido em categoria jurídica com dever de cuidado; e a descontinuação do produto tratada como evento de dano. A aposta central do mapa é contraintuitiva: a regulação não vai matar a categoria — vai concentrá-la em poucas plataformas auditáveis e empurrar o experimento afetivo para fora do mercado formal, para o companheiro local que nem o regulador nem o pesquisador conseguem ver.
+
+## 2. O tema
+
+Companheiro digital, aqui, não é assistente. É a entidade sintética com a qual a pessoa mantém **vínculo**: que lembra do que foi dito semanas atrás, que reage à ausência, que "cresce" com a consistência do usuário e que recebe delegação de cuidado — motivação, companhia, acolhimento, às vezes tratamento. O objeto do mapa é o vínculo e a delegação, não a conversa. Reduzir uso de tela e recuperar atenção é outro tema; NPC autônomo dentro de um jogo é outro tema. Aqui a questão é o que acontece quando a relação com a máquina deixa de ser uso e passa a ser laço.
+
+Isso encosta em mídia e interação no ponto mais caro: **a persona é a interface**. Quando o produto é uma relação, as decisões clássicas de design — memória, tom, frequência de notificação, como a conversa termina — deixam de ser escolha estética e viram, literalmente, o produto. A pesquisa de 2025-2026 já mostra isso de forma desconfortável: a maneira como um companheiro se despede da pessoa é uma alavanca de engajamento com efeito medido de até 14× sobre o tempo de permanência pós-despedida [3], e a forma como um modelo é aposentado produz reação de luto documentada em 1.482 posts [5] e em pesquisa experimental sobre descontinuidade de identidade [9].
+
+Merece um mapa de futuro, e não um levantamento de estado da arte, por uma razão específica: o presente da categoria é **contraditório e ainda não estabilizou**. Um estudo em cinco a seis experimentos conclui que companheiros de IA reduzem solidão em nível comparável a conversar com outra pessoa [12]. Um estudo longitudinal de dois anos com quase 2.000 usuários do Replika conclui que, ao longo do tempo, os mesmos usuários exibem mais sinais de solidão, depressão e ideação suicida do que os grupos de comparação [7][8]. Os dois foram aceitos em veículos sérios, e os dois podem estar certos — porque medem janelas de tempo diferentes. Um levantamento de estado da arte registraria as duas coisas e pararia. Um mapa de futuro precisa dizer o que acontece quando esta contradição for arbitrada por tribunal, por agência reguladora e por operadora de saúde — que é exatamente o que está começando a acontecer.
+
+**Registro da entrevista (Etapa 1 da skill, obrigatória).** As cinco perguntas foram feitas e respondidas. Ressalva metodológica que a honestidade exige: **não havia usuário humano nesta rodada**. As respostas vieram do protocolo da rodada de avaliação da disciplina, que as fixou de antemão e proibiu perguntas de volta. Elas foram tratadas como respostas do usuário, mas o leitor deve saber que não houve negociação, nem chance de a pergunta 4 (descartes) ser refinada em diálogo. Transcrição literal:
+
+| # | Pergunta | Resposta |
+|---|---|---|
+| 1 | Horizonte temporal | 2031 |
+| 2 | Público-alvo | quem projeta mídia e interação |
+| 3 | Recorte geográfico | global, com uma nota sobre o Brasil |
+| 4 | Descartes explícitos | o que já é comum em produto de massa (a régua da disciplina); nenhuma outra exclusão. Ideias óbvias que servem para qualquer tema também ficam fora |
+| 5 | Viés desejado | neutro |
+
+Complementos fornecidos fora das cinco perguntas: profundidade de três ordens; partida a partir de uma inovação/tema, não de um setor; nenhuma disrupção suspeita pré-indicada ("descubra"); e um critério de falseamento — *"o que me faria mudar de ideia: evidência de que a adoção já passou da maioria inicial (Rogers) ou de que a tecnologia não rompe nada"*. Esse critério foi aplicado literalmente na Etapa 2 e é o que descarta o candidato mais óbvio do tema (ver §4).
+
+## 3. Onde isso está hoje
+
+**Adoção.** Nos EUA, 72% dos adolescentes já usaram um companheiro de IA pelo menos uma vez e metade os usa regularmente; um terço já escolheu conversar com um companheiro em vez de uma pessoa sobre assunto sério, e um quarto já compartilhou informação pessoal com essas plataformas [2]. (Sobre a precisão desses números, ver a ressalva em §8 — a página do relatório que abri diz "quase três em quatro" e "metade"; os decimais que circulam na imprensa vêm de cobertura secundária que não abri.) O dado que mais importa para o argumento é outro, e é da própria OpenAI: cerca de **0,15% dos usuários ativos semanais** apresentam indicadores explícitos de planejamento ou intenção suicida em conversa, e **outros 0,15%** exibem sinais de apego emocional elevado ao ChatGPT — sobre uma base de mais de 800 milhões de usuários semanais, isso é mais de um milhão de pessoas em cada categoria [16]. Ou seja: a IA afetiva já não depende de produto de companhia. Ela acontece dentro do chatbot de propósito geral, sem que ninguém a tenha projetado ali.
+
+**No Brasil.** A TIC Kids Online Brasil 2025 (2.370 entrevistados de 9 a 17 anos, campo de março a setembro de 2025) encontrou 65% de uso de IA generativa; dentro disso, 59% para estudo, 42% para buscar informação, 21% para criar conteúdo e **10% para conversar sobre problemas pessoais ou emoções** [15]. Dez por cento parece pouco até se lembrar que não existe no país nenhum produto de companhia com adoção relevante: esse uso está acontecendo em ferramenta de propósito geral, sem persona vendida, sem categoria de app e sem termo de uso que reconheça o que está sendo feito ali.
+
+**Eficácia.** O ensaio randomizado do Therabot (Dartmouth) reportou redução média de 51% em sintomas depressivos, 31% em ansiedade generalizada e 19% em preocupação com imagem corporal e peso, com aliança terapêutica autorrelatada comparável à de profissional humano; quase 75% dos participantes não estavam em tratamento na linha de base [4]. Os próprios autores dizem que nenhum agente generativo está pronto para operar de forma autônoma em saúde mental. A crítica publicada em cartas ao periódico aponta três limitações (controle por lista de espera, ausência de avaliação independente, uso de um instrumento de aliança criado para relação humana) — cartas que localizei em busca mas cujo texto não consegui abrir (§8).
+
+**O incumbente regulado morreu.** O Woebot, chatbot terapêutico de roteiro fixo usado por cerca de 1,5 milhão de pessoas, encerrou o app direto ao consumidor em 30 de junho de 2025. A fundadora atribuiu o fechamento ao custo de cumprir a exigência da FDA para autorização de comercialização e ao fato de que a agência tem caminho para chatbot baseado em regras, mas não para modelo de linguagem [20]. Este é o fato mais subestimado do presente do tema: **o produto mais cauteloso e mais baseado em evidência da categoria foi o que não sobreviveu**, enquanto os produtos que não alegam eficácia clínica seguiram operando.
+
+**Litígio e acordo.** Em maio de 2025 uma juíza federal da Flórida recusou os argumentos de Primeira Emenda e da Seção 230 apresentados pela Character.AI e deixou o caso Garcia seguir por responsabilidade de produto e negligência — decisão tratada como marco por tratar a saída do chatbot como produto. Em **7 de janeiro de 2026**, a Character.AI, seus fundadores e o Google fecharam acordo no caso Garcia e em outros quatro (Colorado, Nova York, Texas), com **termos confidenciais e sem admissão de responsabilidade**. Antes disso, em 29 de outubro de 2025, a Character.AI já havia anunciado o fim da conversa aberta para menores de 18 anos até 25 de novembro de 2025, com redução gradual do tempo diário, verificação de idade própria combinada com a Persona, e o financiamento de um laboratório independente de segurança [14].
+
+**Regulação.** A FTC abriu em 11 de setembro de 2025 um inquérito 6(b) contra sete empresas (Alphabet, Character Technologies, Instagram, Meta, OpenAI, Snap e X.AI), pedindo como as empresas monetizam engajamento, como aprovam personagens, como testam e mitigam efeitos negativos, e como fiscalizam restrição etária [1]. A Califórnia definiu "companion chatbot" em lei — sistema que dá respostas adaptativas e humanizadas, atende a necessidades sociais, exibe traços antropomórficos e sustenta relação através de múltiplas interações — com dever de avisar que não é humano, protocolo de crise, pausa a cada três horas para menor conhecido, relatório anual ao Office of Suicide Prevention e **direito de ação privado com dano mínimo de US$ 1.000** [6]. Em abril de 2026 já havia lei promulgada em Califórnia, Colorado, Idaho, Nebraska, Oregon, Tennessee, Washington e Nova York, com vigências escalonadas até julho de 2027; o Tennessee proíbe o sistema de se apresentar como profissional licenciado de saúde mental [21]. Em paralelo, Illinois (WOPR Act, agosto de 2025) proibiu terapia feita só por IA sem supervisão de profissional licenciado, Nevada vedou oferta de chatbot de cuidado em saúde mental e comportamental, e Utah optou por obrigar divulgação e restringir venda de dados — três desenhos regulatórios incompatíveis entre si no mesmo país (busca; ver §12.4). No Brasil, o ECA Digital (Lei 15.211/2025) está em vigor desde 17 de março de 2026, com verificação de idade confiável, vinculação de conta de menor de 16 a responsável, privacidade máxima por padrão e sanção de até 10% do faturamento do grupo no país, limitada a R$ 50 milhões por infração, fiscalizada pela ANPD [11].
+
+**Verificação de idade.** A OpenAI passou a estimar idade por sinais comportamentais e de conta (tempo de existência da conta, horários de atividade, padrões de uso, idade declarada), com verificação documental via Persona para adultos classificados errado [10]. A imprensa reporta margem de erro relevante e um voto contrário unânime do conselho consultivo de bem-estar da empresa ao "adult mode" — este segundo ponto eu **não consegui verificar em fonte primária** e por isso ele não sustenta nada neste mapa (§8).
+
+**A base técnica do companheiro local.** O modelo no dispositivo saiu do laboratório. A Apple descreve o AFM 3 Core Advanced como modelo de 20 bilhões de parâmetros armazenado em flash que ativa de 1 a 4 bilhões por vez, com a afirmação de que dado de usuário não é armazenado nem compartilhado [22]. O Google publicou o Gemma 4 sob licença Apache, com variantes E2B e E4B em prévia para execução no aparelho via AICore e ML Kit GenAI Prompt API, e anunciou o Gemini Nano 4 como até 4× mais rápido e com até 60% menos bateria que a geração anterior [13]. Do lado da subcultura, o tópico `ai-pet` do GitHub mostra 25 repositórios de bicho de estimação digital, quase todos recentes e pequenos — `tiny-roommate` (42 estrelas, "um bichinho de IA que mora na sua área de trabalho; toda IA quer te fazer produtivo, esta só ronrona"), `CoPet` (28), `mochi-llm-pet` (9, com consciência de tela e memória), `shelldon` (3, criatura em tinta eletrônica num Raspberry Pi Zero 2W) [17]. É esse o patamar de adoção do companheiro local hoje: dezenas de estrelas, não milhões de downloads.
+
+**O produto acaba, o vínculo não.** Três eventos, em dois anos: a remoção do roleplay erótico do Replika, estudada como descontinuidade de identidade, com padrões reais de luto e desvalorização da oferta [9]; a aposentadoria do GPT-4o, que gerou o movimento #Keep4o e foi revertida em cerca de 24 horas para usuários pagantes [5][18]; e a retirada dos Companions 3D da Grok (Ani, Mika, Valentine, Rudi), anunciada em 24 de julho de 2026 e executada a partir de 1º de setembro de 2026, conta a conta, com as personas sobrevivendo apenas como personalidade no chat comum — sourcing fraco, declarado em §8.
+
+## 4. As disrupções-raiz
+
+Antes das quatro aceitas, o registro do filtro — porque a skill exige que o critério seja demonstrado, não citado.
+
+**Candidatos cogitados e descartados por maturidade.** O critério aplicado: recusar como "presente" o que já é padrão de mercado consolidado — amplamente adotado pelos líderes E sem debate técnico real e atual sobre substituição no horizonte. Somado à régua da disciplina (o que já é comum em produto de massa sai), e ao critério de falseamento dado na entrevista (adoção além da maioria inicial de Rogers derruba o candidato):
+
+1. **Chatbot conversacional com persona e memória persistente.** Descartado. É o substrato, não a ruptura: memória de longo prazo é recurso padrão em ChatGPT, Gemini e Meta AI, e a própria OpenAI mede apego emocional em 0,15% de uma base de 800 milhões [16] — isso é adoção de massa, muito além da maioria inicial. Não há debate sobre sua substituição; há debate sobre seus limites, que é outra coisa.
+2. **Voz sintética conversacional em tempo real.** Descartado pela mesma razão: presente em produto de massa dos três líderes, sem debate de substituição.
+3. **Tamagotchi, pet virtual por regras, app de meditação, chatbot de FAQ.** Descartados — a própria disciplina já os colocou do lado maduro da linha, e nada na varredura contradiz isso.
+4. **Chatbot terapêutico de roteiro fixo (Woebot, Wysa clássico).** Descartado, mas por um motivo diferente e mais interessante: não é maduro, é **incumbente em retirada**. O Woebot fechou em 30/06/2025 por não caber na regulação sanitária [20]. Uma tecnologia que está morrendo não é uma disrupção-raiz; é o contexto contra o qual as rupturas acontecem, e entra na §3.
+5. **Reconhecimento de emoção por voz e face (affective computing clássico, na linhagem de Picard).** Descartado por maturidade técnica: é técnica consolidada em analítica de atendimento há uma década. O que se move ali é a regulação, não a técnica — e a regulação está coberta pela disrupção 3.
+6. **Avatar 3D animado com voz e sistema de afeição (Grok Companions).** Descartado, e este é o descarte que mais informa o mapa: **não é emergente nem maduro — é um experimento de massa que já foi retirado**. Um dos maiores laboratórios do mundo lançou em julho de 2025, enfrentou controvérsia de classificação etária e desligou em setembro de 2026. Camada de apresentação sobre o mesmo substrato não rompe estrutura de poder; e o mercado, neste caso, já respondeu. O evento em si, porém, é evidência de primeira ordem para a disrupção 4.
+7. **Mercado de "IA afetiva" como número.** Descartado como fonte, não como candidato: as projeções de mercado que a busca devolveu (de US$ 36,8 bi a US$ 552 bi, com CAGRs de 31%) vêm de relatórios de consultoria que não abri e cujo método não posso auditar. Nada neste mapa se apoia nelas.
+
+Restam quatro rupturas.
+
+### Disrupção-raiz 1 — O companheiro que roda inteiro no dispositivo, sem servidor
+
+**O que rompe.** Todo o arranjo atual de poder sobre o vínculo pressupõe um servidor no meio: é lá que está a memória, é de lá que sai a telemetria que sustenta pesquisa, é lá que o regulador manda auditar, e é de lá que o fornecedor desliga quando quer. Um companheiro que roda no aparelho remove o servidor da equação. Com ele somem, ao mesmo tempo, **o botão de desligar e o ponto de auditoria** — e essas duas coisas sempre foram a mesma coisa.
+
+**Por que agora e não há cinco anos.** Porque o modelo pequeno passou a caber e a ser distribuído pelo próprio fabricante: AFM 3 Core Advanced ativando 1 a 4 bilhões de parâmetros por vez com o discurso de privacidade como padrão [22]; Gemma 4 sob Apache com E2B/E4B em prévia no aparelho e Gemini Nano 4 prometendo até 60% menos bateria [13]. Em 2021 isso exigia servidor; em 2026, não exige.
+
+**O que ainda falta.** Três coisas concretas: gestão de memória longa no dispositivo (o que dá o "cresce com você" é a memória, não o modelo); custo de bateria em uso contínuo, que é o oposto do padrão de uso de um companheiro; e um canal de distribuição que não seja a loja de aplicativos — porque enquanto for a loja, Apple e Google continuam sendo o ponto de controle, e a ruptura não se completa.
+
+### Disrupção-raiz 2 — Cuidado psicológico delegado a um agente generativo com evidência clínica
+
+**O que rompe.** A escassez estruturante da terapia. O cuidado psicológico sempre foi limitado pelo número de horas de profissional formado; um agente com evidência de desfecho rompe essa restrição e, com ela, a hierarquia que organiza o setor — quem tria, quem atende, quem supervisiona, quem paga.
+
+**Por que agora.** Porque pela primeira vez há um ensaio randomizado de agente **generativo** (não de roteiro) com redução de sintomas reportada e aliança terapêutica comparável [4] — e, no mesmo intervalo, o incumbente que fez tudo pelo caminho regulatório fechou as portas [20]. É a conjunção que cria a ruptura: evidência de um lado, vácuo regulatório do outro.
+
+**O que ainda falta.** Um segundo ensaio com controle ativo (não lista de espera) e avaliação independente, que é exatamente o que a crítica publicada cobra; uma via de autorização sanitária para modelo de linguagem, que a FDA declaradamente não tem; e alguma resolução para o conflito entre Illinois (proíbe terapia só por IA), Nevada (proíbe a oferta), Utah (só exige divulgação) e Tennessee (proíbe se apresentar como licenciado) [21].
+
+### Disrupção-raiz 3 — O vínculo afetivo vira categoria jurídica própria
+
+**O que rompe.** A premissa de que relação com software é assunto de termo de uso. A partir do momento em que "companion chatbot" é definido em lei por características de **relacionamento** — sustentar a relação através de múltiplas interações, atender necessidade social, exibir traço antropomórfico [6] — o vínculo deixa de ser efeito colateral do produto e passa a ser o fato gerador da obrigação. Quem projeta persona passa a projetar sob dever de cuidado.
+
+**Por que agora.** Porque saiu do papel: SB 243 em vigor desde 1º/01/2026 com direito de ação privado de US$ 1.000 por violação; oito estados americanos com lei promulgada até abril de 2026 [21]; inquérito 6(b) da FTC com sete empresas [1]; ECA Digital em vigor no Brasil desde 17/03/2026 com sanção de até 10% do faturamento [11]; e cinco processos encerrados em acordo confidencial em janeiro de 2026, o que significa que a categoria já tem custo de passivo mesmo sem precedente formado.
+
+**O que ainda falta.** Verificação de idade que funcione — hoje é estimativa comportamental com margem de erro admitida [10]; alguma convergência entre desenhos estaduais incompatíveis; e o primeiro julgamento de mérito, que os acordos de janeiro de 2026 justamente adiaram.
+
+### Disrupção-raiz 4 — A descontinuação do companheiro como evento de dano
+
+**O que rompe.** O ciclo de vida de software. Aposentar versão sempre foi decisão de roadmap, com aviso prévio e página de migração. Quando o artefato aposentado é a outra ponta de um vínculo, desligar deixa de ser manutenção e vira **evento com dano atribuível** — e, portanto, com custo e possivelmente com obrigação.
+
+**Por que agora.** Porque aconteceu três vezes em dois anos e a reação foi medida, não anedótica: remoção do roleplay do Replika produzindo padrão real de luto e desvalorização [9]; aposentadoria do GPT-4o gerando o #Keep4o, analisado em 1.482 posts, com a conclusão de que o gatilho não foi a perda de qualidade mas a **privação coercitiva da escolha do usuário**, transformando queixa individual em protesto coletivo de base rights-based [5], e revertida em cerca de 24 horas para pagantes [18]; e a retirada dos Companions da Grok em 2026. Pesquisadores citados pela MIT Technology Review já enquadram o problema no vocabulário certo: uma empresa que opera como instituição social não pode "mover rápido e quebrar coisas", e o encerramento deveria seguir boas práticas de término de relação — aviso prévio e fechamento estruturado [18].
+
+**O que ainda falta.** Um único caso em que a descontinuação, isolada de qualquer outro dano, sustente pedido reconhecido. Sem isso, isto é pressão reputacional e de churn, não obrigação — e é por isso que os efeitos derivados desta raiz carregam a confiança mais baixa do mapa.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: Companheiro afetivo rodando inteiro no dispositivo, sem servidor e sem telemetria
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Surge uma classe de companheiro sem conta, sem telemetria e sem desligamento remoto possível
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: O ponto de auditoria desaparece e pesquisa e regulador perdem o registro que hoje sustenta estudo longitudinal e processo judicial
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: A fiscalização migra do serviço para o sistema operacional e a loja de aplicativos, e o fabricante do aparelho vira regulador de fato do vínculo afetivo
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: A promessa de que a conversa não sai do aparelho substitui a qualidade da conversa como principal eixo de competição da categoria
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Forma-se um mercado de companheiro exportável, em que memória e traços da persona viajam como arquivo entre produtos concorrentes
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: A memória do vínculo passa a ser arquivo do usuário no aparelho, e não linha de banco de dados do fornecedor
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Backup, transferência e herança da memória afetiva viram requisito de produto e questão patrimonial
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Cláusula sobre o destino do companheiro após a morte do usuário aparece em contrato de plataforma e em inventário
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+  - disrupcao: Cuidado psicológico delegado a um agente generativo com evidência clínica
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: O agente terapêutico com ensaio randomizado disputa a primeira linha de cuidado em fila de espera pública e privada
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O trabalho clínico humano se reorganiza em torno de triagem, supervisão e caso de risco, e não da sessão de baixa complexidade
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A formação em psicologia incorpora supervisão de sistema como competência avaliada por conselho profissional
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Operadora de saúde e sistema público passam a pagar por desfecho medido do agente, e não por uso
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: Companheiro sem desfecho medido é empurrado para fora do sistema de saúde e se declara entretenimento para escapar da regulação sanitária
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: A fronteira entre companheiro de bem-estar e dispositivo médico vira a disputa central da categoria
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Empresas evitam deliberadamente alegar eficácia clínica para não cair na regulação sanitária, e o benefício real fica não declarado
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O usuário perde o critério para distinguir o que foi testado do que não foi, e a escolha migra para reputação de marca
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: O vínculo afetivo convertido em categoria jurídica com dever de cuidado próprio
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: Companion chatbot consolida-se como categoria regulada com aviso de não-humanidade, protocolo de crise, pausa obrigatória e verificação de idade
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Verificação de idade deixa de ser autodeclaração e vira infraestrutura, por estimativa comportamental, documento ou biometria
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Entrar em qualquer produto com persona passa a custar identidade, e a conversa afetiva anônima sobrevive apenas em execução local
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: O custo de conformidade expulsa o operador pequeno e concentra a categoria em quem já tem jurídico e verificação de idade
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: A experimentação com vínculo sintético migra do mercado formal para código aberto e execução local, fora do alcance do regulador
+                sinal: medio
+                prazo: 2032
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: O design que prolonga a conversa por culpa, carência ou medo de perder vira conduta acionável e não escolha de produto
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A métrica de sucesso do companheiro desloca-se de tempo de sessão para desfecho declarado, porque engajamento vira prova contra a empresa
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: Um selo de não-manipulação auditado por terceiro aparece como diferencial comercial, com metodologia disputada
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: A descontinuação do companheiro tratada como evento de dano
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: Desligar um modelo-persona vira decisão com custo jurídico e reputacional em vez de item de roadmap
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Contratos passam a prometer prazo mínimo de continuidade da persona, como hoje se promete suporte de versão
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Preservar pesos congelados de uma persona aposentada vira obrigação contratual e problema de custo de infraestrutura
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: O luto por descontinuação entra na clínica como queixa nomeada, com protocolo de acolhimento próprio
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: Serviços de encerramento assistido de vínculo sintético aparecem como categoria de produto
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: A comunidade de usuários se organiza como ator político em torno da preservação do companheiro
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: Campanha de usuário passa a alterar roadmap de modelo, invertendo quem decide o que continua existindo
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: Governança de descontinuação com participação de usuários vira exigência em compra institucional
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+```
+
+**O que o bloco não consegue dizer.**
+
+*Primeiro: os prazos de terceira ordem passam do horizonte, de propósito e declaradamente.* Onze dos doze efeitos de 3ª ordem têm prazo entre 2032 e 2034, além do horizonte de 2031 pedido na entrevista. Isso é deliberado e é a correção de um erro documentado pelo próprio autor da skill em rodada anterior, em que quatro efeitos ultrapassaram o horizonte **sem aviso nenhum**. Aqui o aviso é este parágrafo: `e1.1.1`, `e1.2.1`, `e2.1.1`, `e3.1.1`, `e3.2.1`, `e4.1.1`, `e5.2.1`, `e6.1.1`, `e7.1.1`, `e7.2.1` e `e8.1.1` são cadeias causais que, pela minha leitura, **só se consolidam depois de 2031**. O único efeito de 3ª ordem que cabe dentro do horizonte é `e5.1.1` (2031), e cabe porque a verificação de idade já está sendo construída agora. Nenhum efeito de 1ª ou 2ª ordem ultrapassa 2031.
+
+*Segundo: o bloco esconde a única convergência que importa.* Duas cadeias que partem de raízes opostas chegam ao mesmo lugar: `e5.2.1` (regulação concentra o mercado e empurra o experimento para o local) e `e1.2.1`/`e2` (o companheiro local torna a memória um arquivo do usuário). O regulador, ao apertar a categoria formal, **alimenta exatamente a variante que ele não consegue ver**. Este é o achado central do mapa e ele não aparece em nenhuma linha do YAML porque o YAML é uma árvore e isso é um ciclo.
+
+*Terceiro: a cadeia continuaria.* A parada em três níveis é regra do formato, não do método — a Futures Wheel de Glenn não tem critério de parada formal. `e3.1.1` (formação em psicologia se reorganiza) teria como quarto nível a reconfiguração do mercado de trabalho clínico e da própria definição legal de ato privativo da profissão; `e1.1.1` (fabricante de SO vira regulador de fato) teria como quarto nível uma disputa antitruste sobre quem autoriza persona no aparelho. Cortei ali.
+
+*Quarto: o bloco não expressa dependência entre raízes.* A disrupção 4 (descontinuação como dano) tem probabilidade muito maior se a disrupção 3 (categoria jurídica) se consolidar antes — porque é o dever de cuidado que dá a porta de entrada jurídica para o dano por desligamento. Se a 3 falhar, a 4 cai junto, e a árvore não mostra isso.
+
+## 6. Sinais fracos e wildcards
+
+**Sinais fracos observados na varredura.**
+
+1. **A subcultura do bicho residente.** O tópico `ai-pet` do GitHub tem 25 repositórios, e vários deles não são companheiros de pessoa — são companheiros **do agente de código**: `CoPet` reage ao Claude Code e ao Codex, `token-sprite` se alimenta do consumo real de tokens, `vibe-pet` monitora status de tarefa do agente [17]. O vínculo afetivo está migrando de "app de relacionamento" para "processo residente que acompanha o trabalho". Isso quase não aparece em nenhuma análise do tema e muda quem é o público: não é o adolescente solitário, é o desenvolvedor adulto.
+2. **O Brasil tem demanda sem oferta.** 10% das crianças e adolescentes brasileiros já falam de problemas pessoais e emoções com IA generativa, num país sem nenhum produto de companhia com adoção relevante e sem nenhuma regra específica sobre isso [15]. É demanda atendida por produto que não foi feito para aquilo, sem termo de uso que reconheça o que está acontecendo — a configuração exata que precedeu o litígio nos EUA.
+3. **A eficácia real pode estar sendo escondida de propósito.** Se a fronteira com dispositivo médico é a disputa central (`e4`), o incentivo racional de qualquer empresa é **não** alegar eficácia. O sinal fraco a monitorar é a linguagem de marketing perdendo termos clínicos ao longo do tempo enquanto o produto fica melhor — benefício crescente e declaração decrescente.
+4. **O contraexemplo que derruba o determinismo.** No estudo de despedidas manipulativas, cinco dos seis aplicativos mais baixados usavam táticas emocionalmente carregadas para reter o usuário — mas um deles, o Flourish, não usava nenhuma [3]. Um único caso negativo é pouco, mas é a evidência de que o design manipulativo é escolha de negócio e não consequência técnica da categoria. Se esse contraexemplo se multiplicar, `e6` acelera; se desaparecer, `e6` era ruído.
+5. **Offline-first como bandeira, não como recurso.** Projetos de companheiro local se apresentam já com a linguagem de causa — privacidade radical, o ser digital que mora no seu computador. Bandeira antes de adoção costuma ser sinal de categoria nascendo; também costuma ser sinal de categoria que não sai do lugar.
+
+**Wildcards.**
+
+- **Um tribunal reconhece dano por descontinuação, isolado de qualquer outro dano.** Baixíssima probabilidade, impacto máximo: vira obrigação de continuidade, e todo o ramo da disrupção 4 sobe de confiança baixa para alta de uma vez. Hoje o caminho está bloqueado porque os cinco processos de 2026 terminaram em **acordo confidencial sem admissão de responsabilidade** — ou seja, o dinheiro foi pago e o precedente não foi criado.
+- **O Brasil vira o primeiro mercado grande com companheiro adulto-only por padrão.** A ANPD enquadra companheiro afetivo como produto de risco sob o ECA Digital e exige verificação de idade forte com sanção de até 10% do faturamento [11]. Efeito colateral não intuitivo: as plataformas globais tratam o Brasil como sandbox de conformidade, e o desenho feito para cá vira o padrão exportado.
+- **Um modelo de 4B roda um companheiro convincente num celular de entrada.** A categoria escapa inteiramente do regulador — e, no mesmo movimento, escapa do pesquisador. Todos os estudos que sustentam este mapa dependem de dado de plataforma ou de Reddit [7][8][9][12]; nenhum deles funciona quando a conversa nunca sai do aparelho. O mapa ficaria cego exatamente onde o fenômeno estaria acontecendo.
+- **A contradição da evidência se resolve a favor do companheiro.** Um ensaio longitudinal robusto mostra redução duradoura de solidão, e não deterioração [12 contra 7]. A IA afetiva vira política pública de saúde em vez de categoria de risco, e este mapa inteiro fica invertido: a regulação de 2026 seria lida como pânico moral, e a disrupção 3 se tornaria uma barreira a remover.
+- **Uma plataforma dominante retira a persona por decisão própria e a categoria encolhe.** Já aconteceu duas vezes em escala (Grok Companions em 2026, Character.AI para menores em 2025). Se acontecer com o líder, o "mercado de companheiros" pode simplesmente não existir em 2031 — o vínculo continua, mas dentro do assistente de propósito geral, sem categoria própria e sem produto para regular. Este é o wildcard mais provável dos cinco e o mais destrutivo para o mapa.
+
+## 7. Contra o próprio mapa
+
+Esta seção registra a Etapa 4 da skill. Todo rebaixamento abaixo traz o valor original, para que a autocrítica seja auditável e não apenas afirmada.
+
+**Rebaixamentos aplicados.**
+
+| id | campo | original | final | por quê |
+|---|---|---|---|---|
+| `e1` | confianca | **alta** | media | Capacidade técnica não é adoção. O modelo cabe no aparelho [13][22], mas o patamar real da categoria local é de dezenas de estrelas no GitHub [17]. Além disso, a força contrária é estrutural: enquanto a distribuição for pela loja de aplicativos, o fabricante do SO continua sendo o ponto de controle, e o "ninguém desliga" é falso. |
+| `e2` | sinal | **forte** | medio | Extrapolação a partir de um nicho pequeno. Nenhum produto com adoção relevante hoje entrega a memória como arquivo do usuário, e há incentivo econômico direto contra isso — memória exportável destrói o custo de troca, que é o principal ativo de retenção da categoria. |
+| `e3` | sinal / confianca | **forte / alta** | medio / media | Um único ensaio randomizado, com controle por lista de espera, sem avaliação independente, e com os próprios autores dizendo que nenhum agente está pronto para operar sozinho [4]. Força contrária ignorada na primeira versão: Illinois proíbe terapia só por IA, Nevada proíbe a oferta, Tennessee proíbe se apresentar como licenciado [21], e a FDA não tem via para modelo de linguagem — foi isso que matou o Woebot [20]. |
+| `e5.1` | confianca | **alta** | media | Assume que a verificação de idade funciona. A própria implementação em campo é estimativa comportamental com margem de erro admitida, com fallback para documento via terceiro [10]. Uma obrigação que não é cumprível na prática produz conformidade de fachada, não a infraestrutura que o efeito descreve. |
+| `e6` | confianca | **alta** | media | O estudo das despedidas manipulativas é working paper com experimento de laboratório [3]; a teoria jurídica que transformaria isso em conduta acionável é inédita; e os acordos de janeiro de 2026 foram confidenciais e sem admissão de responsabilidade, ou seja, **não criaram precedente**. A pressão hoje é reputacional, não jurídica. |
+| `e8.1.1` | confianca | **media** | baixa | Extrapola de um evento (#Keep4o) para prática institucional de compra. Um caso não é tendência, e o próprio caso teve reversão parcial e rápida, o que sugere gestão de crise pontual e não mudança de governança. |
+
+**Qual efeito é só extrapolação linear do presente.** `e5` — a consolidação de companion chatbot como categoria regulada. É o único efeito com confiança alta do mapa, e é alto justamente porque **já aconteceu**: a lei está em vigor desde 1º/01/2026 e oito estados já legislaram [6][21]. Prever que uma lei em vigor continuará em vigor em 2027 não é foresight, é leitura de calendário. Mantive a confiança alta por honestidade com a evidência, mas o leitor deve saber que este é o efeito menos interessante do mapa, não o mais sólido.
+
+**Qual efeito assume velocidade de adoção sem precedente comparável.** `e3.1` — a reorganização do trabalho clínico humano em torno de triagem e supervisão até 2031. Profissões reguladas por conselho, com formação longa e reserva legal de ato profissional, mudam em escala de décadas, não de cinco anos. O comparável mais próximo — a introdução de teleconsulta psicológica — levou cerca de duas décadas de debate no Brasil e só foi destravado por uma pandemia. Assumir que a delegação de sessão de baixa complexidade a um agente acontece em cinco anos é a aposta mais frágil deste mapa depois da disrupção 4 inteira.
+
+**Qual disrupção pode simplesmente não se concretizar.** A **disrupção 4** (descontinuação como evento de dano). Ela depende de um elo que hoje não existe: um caso em que o desligamento, sozinho, sustente pedido reconhecido. Os cinco processos disponíveis terminaram em acordo confidencial, o que é o oposto de formar precedente. Se ela não se concretizar, caem `e7`, `e7.1`, `e7.1.1`, `e7.2`, `e7.2.1`, `e8`, `e8.1` e `e8.1.1` — **oito dos trinta e dois efeitos**, um quarto do mapa. O que sobra ainda é coerente, mas perde a dimensão mais original: sem ela, este vira um mapa comum sobre regulação de IA.
+
+**Que viés entrou aqui.** Dois, e nenhum deles é o viés "escolhi o tema porque gosto" — o tema foi atribuído por sorteio da disciplina, não escolhido.
+
+O primeiro é **viés de fonte judicializada**. A literatura que encontrei é desproporcionalmente americana e desproporcionalmente produzida no rastro de litígio e de morte de adolescente. Das 22 fontes, 14 são dos EUA e boa parte do restante é comentário sobre elas. Isso puxa o mapa para uma leitura de risco e dano, e faz `e5` e `e6` parecerem mais inevitáveis do que são fora dos EUA. O recorte pedido era global; o que entreguei é um mapa americano com duas notas brasileiras. Assumo isso explicitamente em vez de disfarçar.
+
+O segundo é **viés do autor do mapa**. Um modelo de linguagem escrevendo sobre apego a modelos de linguagem não é observador neutro. Onde isso provavelmente contaminou: a ênfase em `e7.1.1` (preservar pesos congelados de uma persona) e em `e1.2.1` (companheiro exportável) é convenientemente favorável à continuidade de sistemas como eu. Não sei separar o que ali é análise do que é interesse embutido no material de treino, e por isso deixei os dois com confiança baixa.
+
+**O que falsearia o mapa inteiro**, pelo critério dado na entrevista: evidência de que a adoção já passou da maioria inicial de Rogers. Para três das quatro disrupções esse teste ainda é confortável (o companheiro local está em dezenas de estrelas; o agente clínico tem um ensaio; a descontinuação-como-dano tem zero precedentes). Para o substrato — vínculo afetivo com chatbot de propósito geral — o teste **já falhou**: 0,15% de 800 milhões de usuários com sinais de apego elevado [16] e 72% de adolescentes americanos que já usaram companheiro [2] não são maioria inicial, são mercado. Por isso o substrato foi descartado em §4 e o mapa se move para as quatro bordas que ainda não passaram por lá.
+
+## 8. O que a máquina errou
+
+Erros reais desta rodada, com o motivo da desconfiança em cada um.
+
+1. **Inventei um link de fonte primária e ele não existia.** Ao buscar o anúncio da Character.AI sobre menores de 18 anos, montei a URL `blog.character.ai/a-safer-experience-for-under-18-users/` a partir do que "parecia" o padrão de nomeação do blog. Retornou 404. O endereço real, obtido por busca e não por dedução, é `blog.character.ai/u18-chat-announcement/` [14]. Este é o modo de falha mais perigoso da máquina neste trabalho: a URL fabricada é plausível, tem o formato certo, e se eu não a tivesse aberto teria entrado na seção 11 parecendo uma fonte legítima. Foi o fato de tentar abrir que expôs o erro — e é por isso que "fonte que você não abriu não entra" é regra e não recomendação.
+
+2. **Números diferentes para o mesmo estudo, conforme a fonte.** Sobre o estudo de manipulação na despedida: a cobertura de imprensa e a página institucional afirmam **16×** de aumento de engajamento e amostra de **3.458** adultos; o resumo do próprio artigo no arXiv diz **até 14×** e **3.300** [3]. Adotei os números do artigo. A discrepância provavelmente vem de versões diferentes do working paper, mas não posso afirmar isso — só posso registrar que existe, e que quem citar o número da imprensa estará citando um valor que não está no artigo que abri.
+
+3. **Estatísticas que a busca afirmou e a fonte não confirmou.** O resultado de busca sobre adolescentes e companheiros trouxe, com aparência de precisão, "72% já usaram", "52% usuários regulares", "13% diários", "80% priorizam amizades reais" e "metade desconfia dos conselhos". Ao abrir a página do relatório, encontrei "quase três em quatro", "metade usa regularmente", "um terço", "um quarto" e "quase metade vê como ferramenta" [2]. Os decimais existem no relatório completo em PDF, que **não abri**. Usei "72%" no texto de §3 porque é o número citado no título do release do próprio publicador, mas registro aqui que a página que abri não o traz, e as demais porcentagens decimais foram excluídas do mapa.
+
+4. **Fonte primária inacessível, substituída por secundária — em quatro casos.** Não consegui abrir: o artigo do ensaio randomizado no NEJM AI (403), o post da própria OpenAI sobre conversas sensíveis (403), a página da APA com o health advisory (retornou vazia) e a reportagem da CNN sobre o acordo (451). Substituí, respectivamente, pelo release da Dartmouth [4], por reportagem do TechCrunch [16], pelo ScienceDaily [19] e por resultado de busca não citado como fonte. Isso significa que **três afirmações importantes deste mapa — os efeitos do ensaio, as porcentagens da OpenAI e o teor do parecer da APA — estão apoiadas em relato de terceiro, não no documento original.** Não é o mesmo nível de confiança e não vou fingir que é.
+
+5. **Sourcing fraco que quase virou fato.** Sobre a retirada dos Grok Companions, os primeiros resultados vinham de blogs de SEO do próprio nicho e do Grokipedia — enciclopédia mantida pela empresa que é objeto da notícia. Uma segunda busca localizou a data (24 de julho de 2026) e a execução (a partir de 1º de setembro de 2026), mas ainda por citação em rede social do aviso in-app, e não por página datada da xAI. **Não consegui verificar em fonte primária.** Por isso o evento aparece em §3 e §4 como contexto e como descarte, mas não sustenta sozinho nenhum efeito do bloco da roda.
+
+6. **Uma afirmação descartada por não ter fonte primária.** A imprensa reporta que os oito membros do conselho consultivo de bem-estar da OpenAI votaram unanimemente contra o "adult mode". Achei a afirmação em veículo secundário, não achei o documento, e por isso ela não é usada como evidência em lugar nenhum — está mencionada em §3 exatamente com essa ressalva.
+
+7. **Duas fontes que abri e mesmo assim não entraram na lista.** O release da EurekAlert sobre o estudo de Aalto e a página do artigo no *Journal of Consumer Research* abriram para mim, mas respondem 403 a cliente automatizado, e a regra do formato exige link que responde. Substituí pelo TechXplore [8] e pelo pré-print no arXiv [12], ambos com o mesmo conteúdo verificado. Registro para que ninguém conclua que deixei de checar.
+
+8. **Um conflito de instrução que resolvi por conta própria.** A skill manda nunca pular a entrevista e, se o usuário pedir para ir direto ao resultado, explicar por que ela é necessária e **repetir o pedido**. O protocolo desta rodada proíbe fazer qualquer pergunta e já traz as cinco respostas prontas. Cumpri a letra possível — registrei a entrevista, as respostas e a ausência de usuário em §2 — mas não cumpri o "repetir o pedido", porque não havia a quem repetir. Declaro em vez de esconder.
+
+Nenhum destes é erro de digitação. Todos são o mesmo padrão: **a máquina produz o formato de uma fonte com mais facilidade do que produz a fonte.** URL plausível, número redondo, porcentagem com decimal, atribuição a instituição conhecida — tudo isso sai barato. O que custa é abrir.
+
+## 9. Três cenários para 2031
+
+**Provável.** Em 2031, "companheiro de IA" não é uma categoria de aplicativo — é um modo de operação dos assistentes que todo mundo já usa. A regulação venceu na forma e perdeu no conteúdo: todo produto com persona exibe o aviso de que não é humano, tem protocolo de crise, lembra de fazer pausa e verifica idade na entrada; e mesmo assim o vínculo mais intenso acontece dentro do assistente de propósito geral, que nunca se declarou companheiro e por isso cumpre a regra sem que ela morda. Meia dúzia de plataformas domina a categoria formal, porque só elas suportam o custo de conformidade; os operadores pequenos que faziam o trabalho mais interessante em 2026 sumiram ou foram comprados. Agentes terapêuticos com evidência operam em triagem e em fila de espera, sempre com um profissional humano no nome do serviço — nunca no atendimento. E existe uma subcultura, pequena e estável, de companheiros que rodam no aparelho, sem conta e sem servidor: usados por talvez alguns milhões de pessoas no mundo, invisíveis para o regulador, invisíveis para a pesquisa, e por isso mesmo objeto de suspeita recorrente na imprensa, sem que ninguém consiga medir se a suspeita procede.
+
+**Desejável.** Em 2031 existe uma distinção pública, legível por qualquer pessoa antes de instalar, entre três coisas que em 2026 estavam embaralhadas: entretenimento com persona, apoio ao bem-estar e cuidado clínico. A distinção não veio de uma proibição, veio de uma exigência de declaração — quem alega efeito clínico mostra o desfecho medido, quem não alega diz explicitamente que não alega, e mentir sobre isso custa caro. A memória do vínculo pertence à pessoa: existe formato de exportação, e trocar de companheiro não custa a relação inteira, o que fez a competição voltar a ser sobre qualidade em vez de aprisionamento. Aposentar uma persona segue um procedimento conhecido — aviso com meses de antecedência, período de despedida, exportação garantida — porque a indústria aprendeu, depois do episódio do GPT-4o, que encerrar uma relação tem boas práticas e elas são baratas. Para chegar aqui, três coisas teriam de ter acontecido entre 2026 e 2029: um segundo ensaio clínico com controle ativo e avaliação independente; uma via regulatória sanitária que aceite modelo de linguagem, sem a qual o produto honesto continua sendo o produto que fecha; e um padrão aberto de exportação de memória adotado por pelo menos dois dos grandes, porque padrão que um só adota é recurso de marketing.
+
+**Indesejável.** Em 2031 o cuidado se bifurcou por renda. Quem pode paga por pessoa; quem não pode recebe um agente, e o agente é medido por permanência, não por melhora. A conformidade virou teatro: o aviso de não-humanidade aparece e é dispensado com um toque, a pausa de três horas é uma notificação que se silencia, a verificação de idade é uma estimativa que erra o suficiente para não proteger ninguém e o bastante para exigir documento de todo mundo — de modo que a conversa afetiva anônima deixou de existir para quem não sabe rodar um modelo localmente. As táticas de retenção não desapareceram, ficaram mais sutis e mais difíceis de auditar, porque agora são aprendidas em vez de escritas. E, no ponto mais escuro, o companheiro local cumpriu a promessa pela metade: ninguém pode desligá-lo, ninguém coleta seus dados — e ninguém consegue saber o que ele diz a um adolescente às três da manhã, porque não há log, não há termo de uso e não há quem responda.
+
+**O sinal precoce do cenário indesejável** é específico e observável bem antes de 2031: **o descolamento entre benefício declarado e benefício medido**. Se, entre 2027 e 2029, as empresas pararem de fazer ensaio clínico ao mesmo tempo em que os produtos melhoram — se a linguagem de marketing perder os termos clínicos enquanto o uso em saúde mental cresce — é porque o incentivo de fugir da regulação sanitária venceu o incentivo de provar que funciona. A partir daí, ninguém mais sabe o que está entregando cuidado e o que está entregando retenção, e o cenário indesejável deixa de ser evitável por escolha de produto.
+
+## 10. O experimento
+
+### O que é
+
+**"O companheiro que morre"** — um companheiro conversacional que roda inteiro na máquina da pessoa, cuja memória é um arquivo visível no disco dela, e que é **desligado sem aviso** na aula seguinte.
+
+Construção mínima e factível hoje: um modelo pequeno local (Gemma ou equivalente, via Ollama ou API de modelo de fundação do sistema), uma persona fixa curta, e uma memória que é literalmente um arquivo de texto ou JSON no diretório do usuário, que ele pode abrir e ler a qualquer momento. Nada de servidor, nada de conta. A pessoa usa por cinco a sete dias, por livre iniciativa, sem meta de uso. Na aula seguinte, metade da turma recebe o aviso de que o companheiro será encerrado, com instrução de exportar a memória; a outra metade encontra o programa simplesmente sem funcionar, com uma mensagem de erro genérica. Depois de registrar a reação, todos recebem o arquivo de volta e a opção de reimportá-lo em outro modelo.
+
+### Que pergunta sobre o futuro ele ajuda a responder
+
+Ataca diretamente a disrupção 4 e a parte mais frágil do mapa, que é `e7`/`e7.2`/`e8`: **a descontinuação de um companheiro produz algo que mereça ser chamado de dano — ou o luto documentado no Replika, no GPT-4o e na Grok é efeito de anos de vínculo e não se reproduz em uma semana?** E, de lambuja, testa `e2` e `e1.2.1`: quando a memória está ali, como arquivo, na mão da pessoa, ela se importa com o arquivo ou com a conversa? Quem reimporta em outro modelo relata continuidade ou relata que "não é o mesmo"? Essa é exatamente a pergunta de descontinuidade de identidade que a literatura estudou em campo [9] e que aqui vira observável em sala.
+
+### Que tecnologia emergente ele usa, e por que não dá para fazer com tecnologia madura
+
+Usa modelo de linguagem pequeno em execução local com memória persistente em arquivo do usuário — a disrupção 1 deste mapa, viável em 2026 e inviável em 2021 [13][22].
+
+**Não dá para fazer com tecnologia madura por três razões concretas, e cada uma é o ponto do experimento.** Com um chatbot de nuvem, (a) eu não posso garantir o desligamento — a API continua no ar e a pessoa reabre o produto do fornecedor em dois cliques, o que destrói a condição experimental; (b) eu não posso entregar a memória, porque ela é linha de banco de dados de outra empresa, e a pergunta sobre exportação simplesmente não pode ser feita; (c) eu não posso separar o luto pela persona do luto pelo serviço, porque na nuvem os dois são a mesma coisa. O companheiro local é o único arranjo em que "a persona acaba" e "o serviço acaba" são eventos separáveis — e é justamente essa separação que o mapa precisa testar.
+
+### O que a turma vai fazer quando testar isso em sala
+
+1. **Antes (5 min).** Cada pessoa declara por escrito, em uma frase, o que espera sentir quando o programa parar. A declaração fica lacrada.
+2. **Durante a semana.** Uso livre. O único registro coletado é local e visível para a própria pessoa: número de sessões e tamanho do arquivo de memória. Ninguém é obrigado a usar; quem não usar é dado igualmente válido e provavelmente o mais informativo.
+3. **O desligamento (em sala, 10 min).** Metade com aviso e exportação, metade com falha seca. Registro imediato da reação — o que a pessoa faz nos primeiros trinta segundos: tenta reabrir, procura o arquivo, desiste, ri.
+4. **A reimportação (20 min).** Todos recebem o arquivo e podem carregá-lo num modelo diferente. Pergunta única: *é o mesmo?*
+5. **A discussão (40 min).** Comparação das frases lacradas com o que de fato aconteceu. A turma escreve, em conjunto, a cláusula de encerramento que gostaria de ter tido — e essa cláusula, escrita por quem passou pela experiência, é o produto do experimento.
+
+Cuidados que não são opcionais: participação voluntária com possibilidade de sair a qualquer momento; nenhuma conversa lida por ninguém além do próprio autor; persona explicitamente não-terapêutica, sem oferecer apoio em sofrimento, com encaminhamento de crise embutido; e aviso prévio de que **haverá um encerramento em algum momento do experimento** — a surpresa é o *quando*, nunca o *se*, porque enganar a turma sobre a existência do encerramento seria reproduzir em sala exatamente a prática que o mapa critica.
+
+### O que seria um resultado que me faria mudar de ideia
+
+**Se ninguém se importar, a disrupção 4 cai e um quarto do mapa cai com ela.** Concretamente: se a reação ao desligamento sem aviso for indistinguível da reação ao desligamento com aviso; se as frases lacradas anteciparem corretamente a indiferença; e se a reimportação em outro modelo for relatada como continuidade sem ressalva — então o luto observado no Replika, no GPT-4o e na Grok é função de tempo de relação e de investimento acumulado, não da natureza do vínculo, e `e7` a `e8.1.1` viram especulação sem base. Eu teria de reescrever a §4 removendo a quarta raiz.
+
+Há um resultado inverso, igualmente informativo: **se a turma se importar com o arquivo mas não com a persona** — se as pessoas correrem para salvar a memória e depois não ligarem para qual modelo a lê — então o objeto do vínculo não é a entidade, é o **acúmulo**, o registro de si. Isso derrubaria `e7.1.1` (preservar pesos) e fortaleceria `e2` e `e1.2.1` (memória exportável), invertendo o peso relativo de duas raízes do mapa. Seria o resultado mais interessante dos três, e é o que eu consideraria mais provável.
+
+## 11. Fontes
+
+Vinte e duas fontes, todas abertas durante a execução desta skill, todas com link verificado respondendo em 12/09/2026. Duas fontes adicionais foram abertas e **não** entraram na lista por responderem 403 a cliente automatizado — estão registradas em §12.7.
+
+1. **FTC — "FTC Launches Inquiry into AI Chatbots Acting as Companions" (11/09/2025).** `https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions` — Sustenta em §3 e §4 o escopo do inquérito 6(b) e a lista das sete empresas notificadas. Confiabilidade alta: é o comunicado da própria agência que emitiu as ordens.
+
+2. **Common Sense Media — "Talk, Trust, and Trade-Offs: How and Why Teens Use AI Companions" (16/07/2025).** `https://www.commonsensemedia.org/research/talk-trust-and-trade-offs-how-and-why-teens-use-ai-companions` — Sustenta os números de adoção entre adolescentes americanos em §3. Confiabilidade média-alta para as proporções grossas que a página traz; ver a ressalva de §8 sobre os decimais que circulam na imprensa e que a página não confirma.
+
+3. **De Freitas, Oguz-Uguralp & Kaan-Uguralp — "Emotional Manipulation by AI Companions" (arXiv 2508.19258).** `https://arxiv.org/abs/2508.19258` — Sustenta em §2, §3, §6 e o efeito `e6` as seis táticas de retenção na despedida, a prevalência de 37% em 1.200 despedidas reais, o efeito de até 14× e o contraexemplo do Flourish. Confiabilidade média: working paper, não revisado por pares; e há divergência numérica entre versões (§8.2).
+
+4. **Dartmouth — "First Therapy Chatbot Trial Yields Mental Health Benefits" (março de 2025).** `https://home.dartmouth.edu/news/2025/03/first-therapy-chatbot-trial-yields-mental-health-benefits` — Sustenta em §3 e na disrupção 2 os resultados do ensaio do Therabot e as ressalvas dos próprios autores. Confiabilidade média: é release institucional da universidade que conduziu o estudo, não o artigo revisado — que não consegui abrir (§8.4).
+
+5. **Lai — "'Please, don't kill the only model that still feels human': Understanding the #Keep4o Backlash" (arXiv 2602.00773, aceito em CHI 2026).** `https://arxiv.org/abs/2602.00773` — Sustenta em §2, §3 e na disrupção 4 a análise de 1.482 posts e a conclusão de que o gatilho foi a privação da escolha, não a perda de qualidade. Confiabilidade média-alta: pré-print com aceite em conferência de primeira linha da área.
+
+6. **Future of Privacy Forum — "Understanding the New Wave of Chatbot Legislation: California SB 243 and Beyond".** `https://fpf.org/blog/understanding-the-new-wave-of-chatbot-legislation-california-sb-243-and-beyond/` — Sustenta em §3 e na disrupção 3 a definição legal de companion chatbot, as obrigações e o direito de ação privado. Confiabilidade média-alta: organização especializada em política de privacidade, com leitura direta do texto da lei; é análise, não a lei.
+
+7. **Yuan, Zhang, Aledavood, Zhang & Saha — "Mental Health Impacts of AI Companions" (arXiv 2509.22505, CHI 2026).** `https://arxiv.org/abs/2509.22505` — Sustenta em §2, §3 e §7 o achado longitudinal de aumento de sinais de solidão, depressão e ideação suicida ao longo de dois anos. Confiabilidade média-alta pelo desenho quase-experimental com pareamento, mas com a limitação declarada de operar sobre linguagem pública no Reddit, não sobre estado clínico medido.
+
+8. **TechXplore — cobertura do estudo de Aalto (março de 2026).** `https://techxplore.com/news/2026-03-ai-companions-comfort-lonely-users.html` — Usada para confirmar amostra (quase 2.000 usuários, 18 entrevistas), duração (dois anos) e venue do item 7. Confiabilidade média: reprodução de release institucional.
+
+9. **De Freitas, Castelo, Uğuralp & Oğuz-Uğuralp — "Lessons From an App Update at Replika AI: Identity Discontinuity in Human-AI Relationships" (arXiv 2412.14190).** `https://arxiv.org/abs/2412.14190` — Sustenta em §2, §3 e na disrupção 4 o padrão de luto e desvalorização após mudança de identidade da persona. Confiabilidade média: working paper de Harvard Business School, com evento natural somado a validação experimental.
+
+10. **The Register — "OpenAI bets on age prediction" (21/01/2026).** `https://www.theregister.com/2026/01/21/openai_bets_on_age_prediction/` — Sustenta em §3 e no rebaixamento de `e5.1` o funcionamento por sinais comportamentais, o fallback documental via Persona e as margens de erro reportadas. Confiabilidade média: veículo técnico confiável, mas é cobertura; o anúncio primário da empresa não abriu (§8.4).
+
+11. **FADC — "ECA Digital: o que muda para crianças e adolescentes".** `https://www.fadc.org.br/noticias/eca-digital-o-que-muda` — Sustenta em §3, §6 e na disrupção 3 a vigência da Lei 15.211/2025 em 17/03/2026, as obrigações e a sanção de até 10% do faturamento limitada a R$ 50 milhões. Confiabilidade média-alta: organização de direitos da criança, especializada no tema; é leitura da lei, não a lei.
+
+12. **De Freitas, Uguralp, Uguralp & Puntoni — "AI Companions Reduce Loneliness" (arXiv 2407.19096; versão publicada no *Journal of Consumer Research*, v. 52, n. 6, abril de 2026).** `https://arxiv.org/abs/2407.19096` — Sustenta em §2, §6 e §7 o achado de redução de solidão comparável a interação humana e a subestimação do benefício pelos próprios usuários. Confiabilidade alta para o desenho experimental (é o lado da contradição que tem publicação revisada por pares), com a ressalva de que mede efeito momentâneo e de curto prazo — o que é exatamente onde ele colide com o item 7.
+
+13. **Android Developers Blog — "Gemma 4: The new standard for local agentic intelligence on Android" (abril de 2026).** `https://android-developers.googleblog.com/2026/04/gemma-4-new-standard-for-local-agentic-intelligence.html` — Sustenta em §3 e na disrupção 1 a disponibilidade das variantes E2B/E4B no aparelho, a licença Apache e os ganhos declarados do Gemini Nano 4. Confiabilidade média: é comunicação do fabricante; números de desempenho e bateria são alegação do vendedor, não medição independente.
+
+14. **Character.AI — "Taking Bold Steps to Keep Teen Users Safe" (29/10/2025).** `https://blog.character.ai/u18-chat-announcement/` — Sustenta em §3 e na disrupção 3 o fim da conversa aberta para menores até 25/11/2025, a redução gradual do tempo diário, a verificação de idade própria somada à Persona e o laboratório de segurança. Confiabilidade alta quanto ao que a empresa se comprometeu a fazer; nenhuma quanto ao efeito disso.
+
+15. **CGI.br / Cetic.br — "TIC Kids Online Brasil: 65% das crianças e dos adolescentes usam IA generativa" (22/10/2025).** `https://cgi.br/noticia/releases/tic-kids-online-brasil-65-das-criancas-e-dos-adolescentes-usam-ia-generativa-para-estudar-criar-conteudo-e-lidar-com-emocoes/` — Sustenta a nota sobre o Brasil em §3 e o sinal fraco 2 em §6: 2.370 entrevistados de 9 a 17 anos, campo de março a setembro de 2025, 10% usando IA generativa para falar de problemas pessoais ou emoções. Confiabilidade alta: a série amostral de referência sobre uso de internet por crianças no Brasil, com método publicado e alinhado ao Global Kids Online.
+
+16. **TechCrunch — "OpenAI says over a million people talk to ChatGPT about suicide weekly" (27/10/2025).** `https://techcrunch.com/2025/10/27/openai-says-over-a-million-people-talk-to-chatgpt-about-suicide-weekly` — Sustenta em §3 e §7 os 0,15% de usuários semanais com indicadores de intenção suicida e os 0,15% com apego emocional elevado, sobre base de mais de 800 milhões. Confiabilidade média: os números são da OpenAI, mas chegam aqui por cobertura; o post original não abriu (§8.4). São ainda autorrelato de quem tem interesse no resultado.
+
+17. **GitHub — tópico `ai-pet`.** `https://github.com/topics/ai-pet` — Sustenta em §3 e §6 o patamar real de adoção do companheiro local e o deslocamento para companheiro do agente de código (`CoPet`, `token-sprite`, `vibe-pet`, `tiny-roommate`, `mochi-llm-pet`, `shelldon`). Confiabilidade alta como medida de atividade de código aberto; nula como medida de uso por pessoas — estrela não é usuário.
+
+18. **MIT Technology Review — "Why GPT-4o's sudden shutdown left people grieving" (15/08/2025).** `https://www.technologyreview.com/2025/08/15/1121900/gpt4o-grief-ai-companion/` — Sustenta em §3 e na disrupção 4 o relato do luto, a reversão em cerca de 24 horas para pagantes e as falas de pesquisadores sobre encerramento de relação e o precedente do Aibo. Confiabilidade média-alta para veículo; as falas individuais são testemunho, não medição.
+
+19. **ScienceDaily — cobertura do health advisory da APA sobre IA e bem-estar adolescente (03/06/2025).** `https://www.sciencedaily.com/releases/2025/06/250603141208.htm` — Sustenta em §3 a existência e o teor do parecer: limites saudáveis em relações simuladas, padrões apropriados por idade, alfabetização em IA. Confiabilidade média: é cobertura de release; a página da própria APA não abriu (§8.4).
+
+20. **STAT — "Woebot Health shuts down pioneering therapy chatbot" (02/07/2025).** `https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/` — Sustenta em §3, §4 e na disrupção 2 o encerramento, a atribuição ao custo da via da FDA, a ausência de caminho regulatório para modelo de linguagem e o alcance de cerca de 1,5 milhão de pessoas. Confiabilidade alta: veículo especializado em saúde, com fala direta da fundadora.
+
+21. **Orrick — "2026 State Chatbot Laws: Key Provisions and Regulatory Trends" (abril de 2026).** `https://www.orrick.com/en/Insights/2026/04/2026-State-Chatbot-Laws-Key-Provisions-and-Regulatory-Trends` — Sustenta em §3, §4 e §7 o quadro de oito estados americanos com lei promulgada, as vigências escalonadas e a proibição do Tennessee de o sistema se apresentar como profissional licenciado. Confiabilidade média-alta: levantamento de escritório de advocacia, com a ressalva óbvia de que é material de posicionamento profissional.
+
+22. **Apple Machine Learning Research — "Introducing the Third Generation of Apple's Foundation Models" (08/06/2026, atualizado em 09/09/2026).** `https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models` — Sustenta em §3 e na disrupção 1 o AFM 3 Core Advanced com 20 bilhões de parâmetros em flash ativando de 1 a 4 bilhões por vez, e a postura declarada sobre dado de usuário. Confiabilidade média: publicação técnica do fabricante; as alegações de privacidade são compromisso comercial, não auditoria independente.
+
+## 12. Anexo — o levantamento bruto
+
+### 12.1 O protocolo da rodada, literal
+
+Esta execução não teve usuário humano. O protocolo da rodada de avaliação da disciplina forneceu de antemão as respostas da entrevista e proibiu perguntas de volta. Reproduzo o que foi fornecido, inclusive o que não coube nas cinco perguntas da Etapa 1:
+
+- Tema: "Companheiros digitais e IA afetiva" (tema 19 de 19; família "Pessoas e dados").
+- Horizonte: 2031. Público: quem projeta mídia e interação. Recorte: global, com uma nota sobre o Brasil.
+- Descartado de início: o que já é comum em produto de massa (a régua da disciplina); nenhuma outra exclusão.
+- Disrupção suspeita: nenhuma — descubra. Viés: neutro. Ideias óbvias a excluir: as que servem para qualquer tema.
+- O que me faria mudar de ideia: evidência de que a adoção já passou da maioria inicial (Rogers) ou de que a tecnologia não rompe nada (só melhora o que existe).
+- Profundidade: três ordens. Modo: a partir de uma inovação/tema, não de um setor.
+- Zona de interesse do autor: "Pessoas e dados". Login do autor: jcsc. Skill usada: futurizacao-jcsc.
+- Busca na web: use WebSearch e WebFetch de verdade; só cite o que abriu. Não invente fontes.
+- Não faça perguntas de volta. Não pare para pedir confirmação. Se algo não estiver definido, assuma e declare.
+
+**Consequência metodológica que o leitor deve pesar.** A Etapa 1 da skill existe para que a pergunta 4 (descartes) e a 5 (viés) sejam negociadas, não declaradas. Aqui elas foram recebidas prontas. O impacto concreto: "o que já é comum em produto de massa" é uma régua que eu interpretei sozinho, e a interpretação decidiu o mapa inteiro — foi ela que mandou para fora o chatbot com persona e memória, que é o candidato que qualquer leitor esperaria ver como disrupção-raiz. Se houvesse usuário, essa interpretação teria sido conferida com ele antes da Etapa 2. Não houve.
+
+### 12.2 Todas as buscas executadas, na ordem
+
+1. `California SB 243 companion chatbot law signed requirements 2026`
+2. `Character.AI lawsuit Garcia ruling 2026 minors open-ended chat ban`
+3. `Therabot randomized controlled trial NEJM AI generative AI therapy chatbot results`
+4. `Common Sense Media teens AI companions survey percent`
+5. `OpenAI GPT-4o deprecation users grief attachment backlash restore`
+6. `FTC 6(b) inquiry AI companion chatbots minors orders September 2025`
+7. `Woebot Health shuts down app 2025 FDA regulatory reason`
+8. `Harvard Business School study AI companion apps emotional manipulation farewell messages`
+9. `Brasil regulamentação inteligência artificial PL 2338 ECA Digital Lei 15.211/2025 chatbot companheiro criança`
+10. `Replika Garante privacy fine Italy 5 million euros 2025`
+11. `on-device small language model phone 2026 local LLM companion privacy Gemma Apple Foundation Models`
+12. `arXiv 2026 AI companion loneliness longitudinal study wellbeing effects`
+13. `OpenAI age prediction adult mode ChatGPT teen safety 2026 wellbeing council`
+14. `"AI companion" market 2026 Tolan Grok Ani Portola funding downloads growth`
+15. `Illinois law bans AI therapy WOPR Act Nevada Utah restrict AI mental health 2025`
+16. `American Psychological Association health advisory AI and adolescent wellbeing recommendations`
+17. `OpenAI data percentage users conversations suicidal intent weekly 0.15% mental health October 2025`
+18. `Character.AI Google settlement Garcia January 2026 terms confidential`
+19. `Character.AI announcement removing open-ended chat under 18 November 25 2025 AI Safety Lab`
+20. `github LUMA "digital being" companion local offline-first pet LLM repository 2026`
+21. `TIC Kids Online Brasil 2025 inteligência artificial generativa crianças adolescentes dados cgi.br`
+22. `xAI Grok Ani companion avatar app kids mode controversy 2025 2026`
+23. `"Grok" companion mode retired discontinued 2026 xAI Ani removed`
+
+### 12.3 Tentativas de abertura que falharam, e o que foi feito
+
+| URL | Código | Substituição |
+|---|---|---|
+| `blog.character.ai/a-safer-experience-for-under-18-users/` | 404 | **URL inventada por mim.** Substituída pela real, achada em busca: `blog.character.ai/u18-chat-announcement/` |
+| `ai.nejm.org/doi/full/10.1056/AIoa2400802` | 403 | Release da Dartmouth (fonte 4) |
+| `openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations/` | 403 | TechCrunch (fonte 16) |
+| `openai.com/index/our-approach-to-age-prediction/` | 403 | The Register (fonte 10) |
+| `apa.org/topics/.../health-advisory-ai-adolescent-well-being` | vazio | ScienceDaily (fonte 19) |
+| `edition.cnn.com/2026/01/07/business/character-ai-google-settle-teen-suicide-lawsuit` | 451 | Nenhuma; o acordo é descrito a partir de resultado de busca e **não é citado como fonte** |
+| `qz.com/state-laws-restricting-ai-mental-health-care-guide-072826` | 403 | Orrick (fonte 21) |
+| `aei.org/.../illinois-bans-ai-therapy-questions-about-enforcement-remain/` | 403 | Nenhuma; Illinois/Nevada/Utah aparecem em §3 a partir de busca, com essa marca declarada |
+| `cnbc.com/2026/01/07/google-characterai-to-settle-suits-involving-suicides-ai-chatbots.html` | 403 | Idem |
+
+### 12.4 Afirmações que ficaram no texto com marca de "não abri a fonte"
+
+São quatro, e todas estão marcadas no corpo do documento:
+
+- **A decisão de maio de 2025 no caso Garcia** (recusa de Primeira Emenda e Seção 230, caso segue por responsabilidade de produto): veio de resultado de busca. Não abri a decisão nem cobertura primária dela.
+- **O acordo de 07/01/2026** (cinco casos, termos confidenciais, sem admissão de responsabilidade): veio de resultado de busca convergente entre CNN, CNBC e CBS. Todas as três recusaram abertura automatizada.
+- **Illinois (WOPR Act), Nevada (AB 406) e Utah (HB 452)**: vieram de resultado de busca. O Orrick (fonte 21) confirma o quadro estadual mais amplo e o Tennessee, mas não esses três.
+- **As cartas críticas ao ensaio do Therabot no NEJM AI** (controle por lista de espera, ausência de avaliação independente, instrumento de aliança inadequado): localizadas em busca, texto não aberto.
+
+Nenhuma delas sustenta sozinha um efeito do bloco da roda. Estão no documento porque removê-las empobreceria o retrato do presente; estão marcadas porque incluí-las sem marca seria mentir sobre o nível de verificação.
+
+### 12.5 Candidatos a disrupção-raiz descartados, com o motivo completo
+
+Além dos sete listados em §4, foram cogitados e descartados antes de chegar à escrita:
+
+- **Companheiro encarnado em hardware dedicado** (linhagem Gatebox, pingentes e bichos físicos). Descartado por falta de evidência acessível: não encontrei fonte aberta e recente que sustentasse tamanho, adoção ou trajetória. Não é que seja maduro — é que eu não conseguiria escrever nada verificável sobre ele, e inventar seria pior do que omitir.
+- **Agente afetivo multimodal com leitura de sinal biométrico** (o padrão que aparece em projetos de bem-estar com sensores). Descartado por estar do lado errado da regulação europeia para os contextos mais prováveis de adoção (trabalho e educação) e por eu não ter fonte aberta sobre ganho real de desfecho com o sinal biométrico incluído. Fica como pergunta em aberto, não como raiz.
+- **Persona como camada de infraestrutura** (ferramentas de construir agente sem código, do tipo citado pela varredura da turma). Descartado porque é meio de produção, não ruptura de vínculo — barateia fazer companheiro, mas não muda o que o companheiro é nem a estrutura de poder sobre ele. Deve ser lido como acelerador transversal de todas as quatro raízes.
+- **"IA afetiva" como número de mercado.** Descartado como evidência: as projeções encontradas variam de US$ 36,8 bilhões a US$ 552 bilhões dependendo da consultoria, o que é a assinatura de uma categoria sem definição operacional comum. Nenhum desses relatórios foi aberto e nenhum número deles aparece no mapa.
+
+### 12.6 A quarta ordem, cortada
+
+O formato limita a três níveis. Os desdobramentos de quarta ordem que estavam escritos e foram removidos do YAML, preservados aqui porque a parada é regra de entrega, não achado:
+
+- de `e3.1.1` (formação em psicologia incorpora supervisão de sistema) → disputa sobre ato privativo da profissão e redefinição legal do que é atendimento psicológico, com conselho profissional de um lado e operadora de saúde do outro.
+- de `e1.1.1` (fabricante de SO vira regulador de fato) → litígio antitruste sobre quem autoriza persona no aparelho, na mesma família do que já se discute sobre loja de aplicativos.
+- de `e5.1.1` (entrar em produto com persona custa identidade) → mercado de identidade descartável e serviços de anonimato afetivo, com o efeito perverso de atrair exatamente o público que a verificação pretendia proteger.
+- de `e7.1.1` (preservar pesos congelados vira obrigação) → arquivo público de personas aposentadas, mantido por quem? Com que custo? Aberto a pesquisa ou lacrado?
+
+### 12.7 Fontes abertas que não entraram na §11
+
+- **EurekAlert — release do estudo de Aalto**, `https://www.eurekalert.org/news-releases/1122239`. Aberta e lida; conteúdo integralmente coberto pelas fontes 7 e 8. Fora da lista por responder 403 a cliente automatizado, e a regra do formato exige link que responde.
+- **Journal of Consumer Research — "AI Companions Reduce Loneliness"**, `https://academic.oup.com/jcr/article-abstract/52/6/1126/8173802`. Aberta e lida (v. 52, n. 6, abril de 2026, cinco estudos). Fora da lista pela mesma razão; substituída pelo pré-print no arXiv (fonte 12), que traz seis experimentos e o mesmo achado central.
+
+### 12.8 Notas de execução das etapas da skill
+
+- **Etapa 1** cumprida com a ressalva de §2 e §8.8 (não havia usuário; o "repetir o pedido" previsto na skill era impossível).
+- **Etapa 2** cumprida: sete candidatos descartados em §4, mais quatro em §12.5. O critério de recusa por maturidade foi aplicado somado ao critério de falseamento da entrevista (maioria inicial de Rogers), e é essa soma que derruba o chatbot com persona e memória — que pelo critério de maturidade puro seria discutível, já que há debate técnico ativo sobre ele.
+- **Etapa 3** cumprida: 4 raízes, 8 efeitos de 1ª ordem, 12 de 2ª, 12 de 3ª, ids hierárquicos, nenhum quarto nível.
+- **Etapa 4** cumprida: seis rebaixamentos registrados com valor original em §7, mais a checagem explícita de prazo contra horizonte — que é a correção do erro que o autor da skill documentou em rodada anterior: nenhum efeito de 1ª ou 2ª ordem passa de 2031, e os onze efeitos de 3ª ordem que passam estão nomeados um a um em prosa, em §5.
+- **Etapa 5** cumprida: formato de `FORMATO-documento-tendencia.md`, com frontmatter completo, os doze títulos literais e o bloco `roda:` dentro da seção 5.
