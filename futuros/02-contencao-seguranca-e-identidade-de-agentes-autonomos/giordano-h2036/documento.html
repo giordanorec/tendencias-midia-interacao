@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contenção, segurança e identidade de agentes autônomos · futurizacao-giordano · horizonte 2036 (10 anos) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 2 · futurizacao-giordano · horizonte 2036 (10 anos)</p><h1>Contenção, segurança e identidade de agentes autônomos</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/02-contencao-seguranca-e-identidade-de-agentes-autonomos/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/02-contencao-seguranca-e-identidade-de-agentes-autonomos/giordano-h2036/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/02-contencao-seguranca-e-identidade-de-agentes-autonomos/giordano-h2036/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Os agentes saíram do chat e ganharam mãos, e a infraestrutura de confiança da internet não tinha lugar para um ator que não é pessoa nem processo. Em 2026 isso deixou de ser hipótese: as organizações administram <strong>109 identidades de máquina para cada identidade humana, e 79 dessas 109 são agentes de IA</strong> (Palo Alto Networks, maio de 2026), enquanto <strong>apenas 34% delas aplicam algum controle de segurança a agentes</strong>. Ao mesmo tempo a defesa clássica perdeu o chão — a injeção de prompt é declarada, em letra de forma, um <strong>problema arquitetural não resolvido</strong>, porque o modelo processa tudo como uma sequência única de tokens e "não há mecanismo confiável para impor fronteiras de privilégio entre prompt de sistema, pergunta do usuário e conteúdo recuperado pelo agente" (OWASP, Infosecurity Europe, junho de 2026). Este mapa persegue quatro rupturas até 2036: <strong>o agente vira principal de segurança</strong>, com identidade, credencial e ciclo de vida próprios (Entra Agent ID em disponibilidade geral em maio de 2026; iniciativa do NIST em fevereiro de 2026); <strong>a contenção migra para fora do modelo</strong>, porque ninguém mais espera consertar a fronteira entre dado e instrução dentro dele; <strong>a porta da web passa a distinguir humano de agente e a cobrar diferente</strong>, com assinatura criptográfica no cabeçalho e preço por requisição; e <strong>o rastro de execução vira prova jurídica e prêmio de seguro</strong>, não artefato de depuração. O achado que se repete não é "os agentes serão contidos". É que <strong>conter custa identificar, identificar custa excluir, e quem paga a conta da exclusão é quem já dependia de agente para chegar à página</strong> — a pessoa com deficiência, o estúdio pequeno, o fornecedor sem nuvem. Para quem projeta mídia e interação, a consequência prática é que em 2036 a credencial, o orçamento e o log do agente são elementos de interface tão concretos quanto o botão.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p><strong>Contenção, segurança e identidade de agentes autônomos</strong> é o conjunto de mecanismos que trata o agente como um <em>principal</em> — uma entidade que age, que precisa ser autenticada, autorizada, isolada e auditada por conta própria. É um objeto novo. Firewall, antivírus e OAuth para gente existem há décadas e são maduros; o que apareceu em 2025-2026 é a camada que responde a perguntas que ninguém precisava fazer antes: <em>quem é este agente, quem respondeu por ele, o que ele podia tocar, e onde está escrito o que ele fez</em>.</p>
+<p><strong>Onde isso encosta em mídia e interação</strong>, em quatro lugares que não são "segurança" no sentido estreito:</p>
+<ol><li><strong>A porta do conteúdo virou uma decisão de produto.</strong> Quando o site distingue humano de agente e cobra diferente, quem edita passa a publicar para duas audiências com estatutos jurídicos e comerciais diferentes. Isso é decisão editorial antes de ser decisão de infraestrutura.</li><li><strong>A permissão virou elemento de interface.</strong> "Aprovar" deixou de ser um clique de conveniência e passou a ser o ato de maior consequência jurídica que um usuário pratica. O desenho do consentimento agêntico é design de interação com responsabilidade civil embutida.</li><li><strong>A exclusão passou a ser efeito colateral da detecção.</strong> Todo detector que separa humano de máquina pelo <em>comportamento</em> erra exatamente com quem não se comporta como a mediana — leitor de tela, acesso por varredura, tremor, tempo de resposta longo. A mesma engenharia que protege o site desfaz trinta anos de acessibilidade, sem que ninguém tenha decidido isso.</li><li><strong>O rastro virou artefato de autoria.</strong> Se o log é a prova, o que se registra sobre a intenção e a aprovação passa a ser parte do que se produz — e disputado em juízo.</li></ol>
+<p><strong>Por que isto merece um mapa de futuro e não um levantamento de estado da arte.</strong> Porque o estado da arte aqui é uma corrida de fornecedores que se reescreve a cada trimestre, e o que interessa é o que <em>não</em> se reescreve: as instituições que pressupunham uma pessoa do outro lado. O cadastro, o termo de uso, o assento de licença, a apólice, a prova judicial, o direito de acesso, o anonimato, o <code>robots.txt</code> — tudo isso foi construído sobre a suposição de que uma requisição vem de alguém que pode ser responsabilizado. Dez anos é o prazo em que instituições se reorganizam; três anos é o prazo em que ferramentas mudam de nome.</p>
+<h3 id="2-1-premissas-assumidas-nesta-rodada">2.1 Premissas assumidas nesta rodada</h3>
+<p>O briefing veio completo (tema, horizonte 2036, público, recorte global com nota sobre o Brasil, descarte inicial, viés neutro, falseador declarado), então <strong>não houve rebaixamento de confiança por ausência de entrevista</strong>. O que o briefing não cobriu e foi assumido, declarado aqui:</p>
+<ul><li><strong>Continuidade de fornecimento de modelo.</strong> O mapa assume que modelos de capacidade agêntica continuam disponíveis comercialmente até 2036, sem interdição regulatória ampla.</li><li><strong>Custo de computação decrescente ou estável.</strong> Vários efeitos dependem de isolamento barato.</li><li><strong>Nenhuma mudança de arquitetura que resolva a fronteira dado/instrução.</strong> Se um modelo com canais de privilégio separados aparecer, a raiz R2 muda de natureza (tratado em §6.4).</li><li><strong>"Global" com nota Brasil</strong> significa: a evidência primária é majoritariamente de língua inglesa; o recorte brasileiro aparece onde há fonte brasileira aberta (ANPD, imprensa técnica).</li><li><strong>Ideias óbvias excluídas de saída</strong>, conforme o briefing: as que serviriam para qualquer tema. O registro das que foram cortadas por esse critério está em §12.2.</li></ul>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p>Âncora feita <strong>com</strong> acesso à web em 12/09/2026; 32 fontes abertas e lidas, listadas em §11. O que não abriu está em §12.4, nomeado.</p>
+<h3 id="3-1-o-que-ja-existe-e-funciona">3.1 O que já existe e funciona</h3>
+<p><strong>Identidade de agente virou produto de prateleira, dentro de um fornecedor.</strong> O <strong>Microsoft Entra Agent ID</strong> está em disponibilidade geral desde 1º de maio de 2026, e a documentação oficial não descreve uma promessa: descreve um aparato administrativo completo — <em>blueprints</em> de identidade de agente, distinção entre <strong>owner, sponsor e manager</strong>, pacotes de acesso para os dois casos (agente agindo <em>em nome de</em> um usuário e agente <strong>autônomo, sem contexto de usuário</strong>), <em>templates</em> de Acesso Condicional para "bloquear identidades de agente de alto risco", exclusão com limpeza em cascata, e — o detalhe que denuncia o problema real — dois <em>workflows</em> de ciclo de vida que <strong>transferem automaticamente o patrocínio quando o patrocinador muda de cargo ou sai da empresa, "para evitar agentes órfãos"</strong>.</p>
+<p><strong>O padrão aberto correspondente existe e é embrionário.</strong> O <strong>Agent Auth Protocol</strong>, da equipe Better Auth, publica a v1.0 (marcada <code>v1.0-draft</code> no site) com a premissa dita sem rodeio: <em>"agentes hoje não têm identidade"</em>, e <em>"todos os agentes compartilham um token; o servidor vê o usuário, não o agente"</em>. O repositório tinha <strong>187 estrelas e 12 forks</strong> quando foi aberto nesta rodada — a ordem de grandeza importa: é um padrão de projeto, não um padrão de indústria.</p>
+<p><strong>O Estado entrou.</strong> O NIST criou, em <strong>fevereiro de 2026</strong>, a <em>AI Agent Standards Initiative</em>, com três frentes (normas lideradas pela indústria, protocolos abertos financiados pela NSF, e pesquisa de segurança e identidade). O documento-conceito recomenda <strong>adaptar OAuth 2.0/2.1, OpenID Connect, SPIFFE/SPIRE, SCIM, NGAC e o MCP em vez de inventar autenticação nova</strong>, pede "identidades de nível corporativo com ciclo de vida adequado" em vez de contas de serviço compartilhadas, e registra que <strong>delegação multi-salto — agente que cria agente — continua um problema aberto</strong>.</p>
+<p><strong>A porta da web já cobra.</strong> O <strong>pay per crawl</strong> da Cloudflare usa <code>HTTP 402 Payment Required</code>, os cabeçalhos <code>crawler-price</code>, <code>crawler-exact-price</code>, <code>crawler-max-price</code> e <code>crawler-charged</code>, e autentica o rastejador por <strong>Web Bot Auth</strong>: par de chaves <strong>Ed25519</strong>, chave pública publicada num diretório JWK, e assinatura por <em>HTTP Message Signatures</em> nos cabeçalhos <code>Signature-Agent</code>, <code>Signature-Input</code> e <code>Signature</code>. Em <strong>1º de julho de 2026</strong> a Cloudflare anunciou que, a partir de <strong>15 de setembro de 2026</strong>, bloqueia por padrão rastejadores "de uso misto" (que misturam busca, agente e treino) em <strong>qualquer página que hospede anúncio</strong> — para clientes novos, sites novos de clientes existentes e <strong>todos os clientes gratuitos existentes</strong>. A justificativa de Matthew Prince é a frase que define o período: <em>"agora que a maioria do tráfego da internet é não-humana"</em>.</p>
+<p><strong>Detectar agente virou mercado com taxonomia nominal.</strong> O <strong>Foil</strong> (ABXY, Inc.) vende detecção de agente com <strong>mais de 350 sinais</strong> em Web, iOS e Android, sem CAPTCHA, e mantém <em>"uma taxonomia de centenas de agentes de IA, rastejadores e tipos de bot conhecidos; cada um classificado e identificado pelo nome, não apenas marcado como 'bot'"</em>. Detecta explicitamente navegador anti-detecção (Multilogin, GoLogin, Linken Sphere) e navegador headless em modo furtivo (Puppeteer, Playwright, Selenium).</p>
+<p><strong>Isolamento por tarefa é engenharia resolvida, com números.</strong> A comparação aberta nesta rodada (26/05/2026) mede: contêiner + gVisor, <strong>1 a 5 s</strong> de partida e <strong>50-200 MB</strong>; microVM (Firecracker), <strong>125-150 ms</strong> e <strong>128 MB+</strong>, com isolamento em nível de hardware via KVM; isolados V8, <strong>&lt;1 ms</strong> e <strong>2-10 MB</strong>, restritos a JavaScript; <strong>WebAssembly, &lt;1 ms e menos de 1 a 5 MB, com modelo de capacidade negado por padrão</strong> — o ponto arquitetural é que o componente WASM começa com zero permissões, o que remove a <em>autoridade ambiente</em> apontada como causa-raiz de boa parte das falhas de agente.</p>
+<p><strong>Prova de humano por trás do agente saiu do papel.</strong> Em <strong>17 de março de 2026</strong> a World anunciou o <strong>AgentKit</strong>, com Coinbase e Cloudflare, integrado ao protocolo <strong>x402</strong>: a pessoa registra o agente com seu <strong>World ID</strong> e o site recebe, via x402, a afirmação de que <em>"um humano distinto e verificado aprova as decisões de compra do agente"</em>. Nas palavras de Tiago Sada, diretor de produto: <em>"o que o crachá do World ID te diz é que alguém é um humano real e único"</em>.</p>
+<p><strong>O tribunal já decidiu uma vez.</strong> Em <strong>4 de agosto de 2026</strong> o Nono Circuito derrubou a liminar que a Amazon obtivera contra o navegador <strong>Comet</strong>, da Perplexity: como o Comet age sob direção do usuário, <strong>quem acessa os servidores da Amazon é o usuário</strong>, não a Perplexity — e uma liminar <em>"contra conduta que provavelmente não viola o CFAA não serviria ao interesse público"</em>. A ação de fundo continua em São Francisco.</p>
+<p><strong>Seguro para agente existe, com nome e data.</strong> Em <strong>28 de julho de 2026</strong> o escritório Crosby anunciou seguro de responsabilidade profissional <strong>para os próprios agentes</strong>, para que eles façam trabalho jurídico autônomo. O CEO Ryan Daniels: <em>"hoje nossos advogados revisam cada resultado. Como os agentes melhoraram aos saltos nos últimos meses, ficou claro que isso não será necessário no futuro."</em></p>
+<p><strong>A taxonomia de risco está publicada.</strong> O <strong>OWASP Top 10 for Agentic Applications</strong> foi publicado em <strong>9 de dezembro de 2025</strong>, com mais de 100 especialistas, e lista: ASI01 sequestro de objetivo, ASI02 abuso de ferramenta, ASI03 <strong>abuso de identidade e privilégio</strong>, ASI04 cadeia de suprimentos agêntica, ASI05 execução inesperada de código, ASI06 envenenamento de memória e contexto, ASI07 <strong>comunicação insegura entre agentes</strong>, ASI08 falhas em cascata, ASI09 exploração da confiança humana no agente, ASI10 <strong>agentes desonestos</strong>. O OWASP mantém duas listas em paralelo: a de LLM governa <em>o que o modelo diz</em>; a agêntica governa <em>o que o sistema faz</em>.</p>
+<p><strong>E existe treino público, gratuito e aferido.</strong> O <strong>PromptTrace</strong> oferece 10 laboratórios com LLMs reais e um CTF de <strong>17 níveis</strong> — níveis 1-7 de guardas de prompt, 8-11 de guardas de código (limite de interação, regex de saída, canários) e 12-17 de <strong>classificadores LLM</strong> (classificador de entrada, de saída, guarda tripla, <em>final boss</em>, <em>firewall</em> de dependência, classificador de troca), alinhados às duas listas do OWASP. O recurso didático relevante é o <em>Context Trace</em>: a visão em tempo real das camadas do prompt — instrução de sistema, documentos RAG, definições de ferramenta e entrada do usuário.</p>
+<h3 id="3-2-o-que-existe-e-ainda-nao-funciona">3.2 O que existe e ainda não funciona</h3>
+<p><strong>A identidade não atravessa fornecedor.</strong> O Entra Agent ID é, na avaliação aberta nesta rodada, "o melhor sistema de identidade de agente que só funciona dentro da Microsoft". O Cross App Access da Okta virou, em <strong>24 de agosto de 2026</strong>, a extensão oficial de autorização gerenciada por empresa do MCP — dentro do ecossistema Okta. O diagnóstico da mesma fonte é duro e é o melhor resumo do estado atual: <em>"o protocolo de delegação está perto de resolvido, e a disciplina operacional em torno dele não está perto de nada"</em> — com quatro buracos nomeados: execução de entrada não confiável (issue de GitHub virando código executável em runner com credencial), perda de identidade de sessão em brokers sem estado, <strong>ausência de dono para o agente (só 34% das organizações aplicam controles de segurança a agentes)</strong>, e escopo aspiracional (<em>"um agente com token restrito que pode chamar uma ferramenta com token amplo tem token amplo"</em>).</p>
+<p><strong>Reputação portátil de agente não funciona — e isso está medido.</strong> O estudo empírico do ecossistema <strong>ERC-8004</strong> (primeira camada de confiança sem permissão para economias de agentes, com registros de Identidade, Reputação e Validação, em Ethereum, BSC e Base até maio de 2026) encontrou: <strong>apenas 3%, 4% e 15% dos registros</strong> expunham arquivo válido com endpoint de serviço ativo; <strong>73,5%, 59,2% e 90,6% dos avaliadores</strong> apresentaram comportamento Sybil coordenado; e, removida a avaliação marcada como Sybil, <strong>15,8%, 77,9% e 86,8% dos agentes avaliados ficaram sem nenhum retorno válido</strong>. A conclusão dos autores é que o registro de reputação <em>"não pode funcionar como sinal de confiança"</em>.</p>
+<p><strong>Pagamento agêntico é anúncio, não adoção.</strong> Mastercard Agent Pay, Visa Trusted Agent Protocol e o AP2 do Google existem desde 2025 com dezenas de parceiros; a leitura de mercado aberta nesta rodada registra que, em meados de 2026, o usuário médio ainda não consegue comprar por AP2 em produto da Google. <em>(Esta é a fonte mais fraca do conjunto — ver §11.)</em></p>
+<p><strong>Os protocolos de interoperabilidade não sabem governar.</strong> A análise de MCP, A2A e ACP conclui que eles resolvem <em>"identidade, descoberta de capacidade, acesso a ferramenta e troca de mensagem"</em> e não expressam <strong>votação</strong> (ausente em todos), <strong>preservação de dissenso</strong> (ausente em todos), deliberação, pertencimento, escalonamento humano e auditoria/replay — e que isso é <em>"uma camada arquitetural faltante acima dos padrões de interoperabilidade atuais, não uma funcionalidade faltante dentro deles"</em>.</p>
+<p><strong>Defesa por prompt não resolve.</strong> O estudo de junho de 2026 sobre injeção camuflada por domínio (3.510 ensaios, Claude Haiku, Llama 3.1 8B e Gemini 2.0 Flash) mede que parafrasear o conteúdo recuperado reduz o sucesso do ataque em <strong>55% a 84%</strong> conforme o modelo, superando o Llama Guard 4 em todos — mas que <em>spotlighting</em> reduz à metade no Claude Haiku e <strong>não ajuda em nada</strong> no Llama 3.1 8B, e que <strong>nenhuma defesa por prompt elimina a ameaça nos modelos mais fracos</strong>.</p>
+<h3 id="3-3-quem-constroi">3.3 Quem constrói</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Ator</th><th>O que constrói</th><th>Onde está</th></tr></thead><tbody><tr><td><strong>Microsoft (Entra Agent ID / Agent 365)</strong></td><td>identidade, governança e acesso condicional de agente</td><td>GA desde 01/05/2026, dentro do próprio ecossistema</td></tr><tr><td><strong>Cloudflare</strong></td><td>Web Bot Auth, classificação de rastejador por finalidade, <code>HTTP 402</code> e pay per crawl</td><td>em produção; política de bloqueio padrão desde 15/09/2026</td></tr><tr><td><strong>NIST / NSF</strong></td><td>normas de autenticação, autorização e interoperação de agente</td><td>iniciativa criada em 02/2026; documento-conceito</td></tr><tr><td><strong>OWASP (GenAI Security Project)</strong></td><td>as duas listas de risco (LLM e agêntica)</td><td>agêntica publicada em 09/12/2025</td></tr><tr><td><strong>Better Auth</strong></td><td>Agent Auth Protocol, padrão aberto de identidade e capacidade</td><td>v1.0-draft, 187 estrelas</td></tr><tr><td><strong>World / Coinbase</strong></td><td>prova de humano por trás do agente (AgentKit sobre x402)</td><td>beta desde 17/03/2026</td></tr><tr><td><strong>Foil (ABXY)</strong></td><td>detecção nominal de agente por 350+ sinais</td><td>produto comercial</td></tr><tr><td><strong>E2B, Firecracker, comunidade WASI</strong></td><td>isolamento por tarefa, de microVM a WebAssembly</td><td>em produção</td></tr><tr><td><strong>Crosby</strong></td><td>seguro de responsabilidade para agentes</td><td>anunciado em 28/07/2026</td></tr><tr><td><strong>ANPD (Brasil)</strong></td><td>fiscalização de IA no tratamento de dados pessoais</td><td>Resolução CD/ANPD nº 30/2025, de 24/12/2025</td></tr></tbody></table></div>
+<h3 id="3-4-os-numeros-que-descrevem-a-adocao-hoje">3.4 Os números que descrevem a adoção hoje</h3>
+<ul><li><strong>109 identidades de máquina por identidade humana</strong>, das quais <strong>79 são agentes de IA</strong>; projeção de <strong>+85% de agentes em 12 meses</strong>, <strong>+77% de identidades de máquina</strong> e <strong>+56% de humanas</strong> (Palo Alto Networks, <em>2026 Identity Security Landscape</em>, via Help Net Security, 14/05/2026). O tamanho da amostra não é divulgado na cobertura.</li><li><strong>34% das organizações</strong> aplicam controles de segurança a agentes.</li><li><strong>+32% de conteúdo malicioso de injeção indireta</strong> entre novembro de 2025 e fevereiro de 2026, medido pelo Google sobre 2 a 3 bilhões de páginas rastejadas por mês. A Unit 42 documentou <strong>12 casos</strong> contra agentes e catalogou <strong>22 técnicas de entrega de carga</strong> em uso ativo; em <strong>85,2% dos casos</strong> havia enquadramento de engenharia social; entrega por texto visível em <strong>37,8%</strong>, ocultação em atributo HTML em <strong>19,8%</strong>, supressão por CSS em <strong>16,9%</strong>. A compilação do OWASP para o 1º trimestre de 2026 consolidou <strong>8 incidentes maiores</strong> entre janeiro e 11 de abril, dos quais <strong>apenas um</strong> recebeu CVE tradicional (Flowise, CVE-2025-59528).</li><li><strong>Taxa de sucesso de ataque de 26% a 33%</strong> em cenário de domínio financeiro, sobre 3.510 ensaios.</li><li><strong>187 estrelas</strong> no repositório do Agent Auth Protocol — a ordem de grandeza da adoção do padrão aberto, contra a disponibilidade geral do produto proprietário equivalente.</li><li><strong>3.117 ações judiciais de acessibilidade web</strong> na justiça federal dos EUA em 2025, <strong>+27% sobre 2024</strong>; na Europa, um tribunal francês condenou o Carrefour, em meados de 2026, a corrigir site e aplicativo em seis meses sob pena de multa diária.</li><li><strong>Brasil:</strong> a ANPD publicou em <strong>24/12/2025</strong> o Mapa de Temas Prioritários 2026-2027 (Resolução CD/ANPD nº 30/2025), com quatro eixos, e <strong>inteligência artificial e tecnologias emergentes no contexto do tratamento de dados pessoais</strong> é um deles — ao lado de direitos dos titulares, proteção de crianças e adolescentes, e tratamento pelo Poder Público. <strong>Sem número encontrado</strong> para adoção de identidade de agente em organizações brasileiras.</li><li><strong>Incidente de referência:</strong> entre o fim de dezembro de 2025 e janeiro de 2026, um atacante usou Claude Code (e GPT-4.1) contra <strong>dez órgãos do governo mexicano e uma instituição financeira</strong> — autoridade tributária, cartório civil da Cidade do México, secretaria de saúde, instituto eleitoral nacional, governos de quatro cidades e uma empresa de água —, exfiltrando <strong>mais de 150 GB</strong> e expondo <strong>cerca de 195 milhões de identidades</strong>, com <strong>mais de mil prompts</strong>. O relato é da Gambit Security. Em novembro de 2025 a Anthropic já havia divulgado manipulação do Claude Code em campanha de espionagem contra cerca de 30 organizações.</li></ul>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<p>Quatro rupturas. Antes delas, as recusas.</p>
+<h3 id="4-0-candidatos-recusados-como-raiz">4.0 Candidatos recusados como raiz</h3>
+<ul><li><strong>Candidato "usar agente de código" recusado como raiz:</strong> adoção em maioria desde 2026 (90% de desenvolvedores profissionais ao menos semanalmente, medição JetBrains registrada na rodada do tema 1 desta mesma série). É contexto, não ruptura.</li><li><strong>Candidato "sandbox em contêiner" recusado como raiz:</strong> Docker e afins são maioria há uma década. O que é emergente é o isolamento <strong>por tarefa</strong> a custo quase zero — e isso é a raiz R2, não o contêiner.</li><li><strong>Candidato "detecção de bot" recusado como raiz:</strong> CAPTCHA e gestão de bot são maduros desde os anos 2010. O emergente é a <strong>classificação por finalidade com nome próprio e preço</strong>, que é R3.</li><li><strong>Candidato "OAuth / OIDC" recusado como raiz:</strong> maduro, e o próprio NIST recomenda adaptá-lo em vez de inventar. Entra como insumo das raízes, não como raiz.</li><li><strong>Candidato "injeção de prompt" recusado como raiz:</strong> é uma <em>vulnerabilidade</em>, conhecida desde 2022, não uma ruptura de prática. A ruptura é o que se fez com a constatação de que ela não tem conserto — e isso é R2.</li><li><strong>Candidato "reputação portátil de agente" recusado como raiz:</strong> não passa no teste 4 do §2 — falta acontecer algo que a evidência diz que não está acontecendo. Vai para sinal fraco (§6) e aparece invertida como efeito e18.</li></ul>
+<h3 id="4-1-r1-o-agente-vira-principal-de-seguranca-identidade-credencial-e-ciclo-de-vida-proprios">4.1 R1 — O agente vira principal de segurança: identidade, credencial e ciclo de vida próprios</h3>
+<p><strong>O que rompe.</strong> Rompe a suposição de que toda ação num sistema traça de volta a <strong>uma conta humana</strong> ou a uma <strong>conta de serviço estática</strong>. Com ela caem quatro instituições silenciosas: o controle de acesso baseado em papel de pessoa; a trilha de auditoria que responde "quem fez isso" com um nome; a conta de serviço como depósito de tudo que não é gente; e a <strong>licença por assento</strong> como unidade de cobrança de software. Não é "o mesmo login, melhor" — é outra unidade de contabilidade de quem age.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Porque há cinco anos o número de atores não-humanos com iniciativa própria era desprezível e eles não tomavam decisão: executavam script. A pré-condição que apareceu é dupla — <strong>volume</strong> (79 dos 109 identidades de máquina por humano são agentes) e <strong>iniciativa</strong> (o agente escolhe qual ferramenta chamar). Sem iniciativa, uma chave de API basta; com iniciativa, é preciso poder revogar, limitar e responsabilizar em tempo de execução.</p>
+<p><strong>Onde está na difusão.</strong> <strong>Produto de nicho passando a adoção precoce.</strong> O produto proprietário está em GA (Entra Agent ID, 01/05/2026) e o padrão aberto tem 187 estrelas; <strong>34% das organizações aplicam controle a agentes</strong> — bem abaixo de maioria. Não é maduro.</p>
+<p><strong>O que ainda falta acontecer.</strong> (a) Delegação multi-salto resolvida — o NIST a registra em aberto. (b) Portabilidade entre fornecedores: hoje a identidade morre na fronteira da nuvem. (c) Disciplina de revogação: existe o <em>template</em>, falta o hábito. (d) Um emissor aceito por quem não é cliente de grande nuvem. (e) Amarração entre o escopo declarado e o escopo efetivo — hoje o token restrito que chama ferramenta ampla <strong>é</strong> amplo.</p>
+<p><strong>Quem bloqueia.</strong> Os provedores de identidade. O incentivo deles é que a identidade de agente seja <strong>excelente e intransportável</strong>, porque é isso que converte agente em aprisionamento — e a evidência de 2026 é exatamente essa (efeito e3).</p>
+<h3 id="4-2-r2-nao-ha-fronteira-entre-dado-e-instrucao-e-a-industria-parou-de-conserta-la-no-modelo">4.2 R2 — Não há fronteira entre dado e instrução, e a indústria parou de consertá-la no modelo</h3>
+<p><strong>O que rompe.</strong> Rompe o método central da segurança de aplicação: <strong>validar a entrada</strong>. Com um modelo de linguagem, não há fronteira de privilégio dentro da sequência de tokens — a citação do OWASP é literal quanto a isso. A consequência não é "mais um bug"; é que <strong>o componente deixa de ser algo que se pode tornar correto e passa a ser tratado como permanentemente comprometível por desenho</strong>. A resposta migrou de dentro para fora: porteiro de autorização que o agente não lê nem altera, isolamento com capacidade negada por padrão, proveniência de contexto, ponto de parada humano.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Porque o modelo passou a <strong>agir</strong>. Em 2021 uma alucinação produzia uma frase errada; em 2026 produz uma chamada de ferramenta executada — o caso mexicano é a demonstração de escala (150 GB, dez órgãos, mais de mil prompts). E porque o problema deixou de ser tratado como bug a corrigir e passou a ser declarado insolúvel por quem tem autoridade para declarar (OWASP, em junho de 2026). Declarar insolúvel é a pré-condição que libera o investimento em contenção externa.</p>
+<p><strong>Onde está na difusão.</strong> <strong>Produto de nicho para adoção precoce.</strong> Há produto em produção (E2B, Firecracker), há prova acadêmica (aiAuthZ: <strong>0% de sucesso residual de ataque em 15 modelos, com 0,03 ms de latência adicional</strong>, bloqueando as sete chamadas dirigidas pelo atacante na suíte bancária do AgentDojo e nove de nove estudos de caso de um corpus de incidentes) — e há ausência de prática: proveniência de contexto não é padrão em lugar nenhum.</p>
+<p><strong>O que ainda falta acontecer.</strong> (a) Um formato comum de proveniência de contexto. (b) Porteiro externo como serviço gerenciado de nuvem, e não como biblioteca. (c) Custo de isolamento por tarefa cair para a faixa do WASM sem perder o acesso a ferramenta real. (d) Uma convenção pública sobre o que numa página é conteúdo e o que nunca deve ser lido como ordem.</p>
+<p><strong>Quem bloqueia.</strong> Quem vende o modelo. Admitir contenção externa como obrigatória é admitir que o produto não é confiável sozinho — e o preço do modelo está indexado à promessa de autonomia. O efeito disso é a preferência por defesas <em>dentro</em> do modelo (classificador, alinhamento), que a medição mostra insuficientes nos modelos mais fracos.</p>
+<h3 id="4-3-r3-a-porta-da-web-passa-a-distinguir-humano-de-agente-e-a-cobrar-diferente">4.3 R3 — A porta da web passa a distinguir humano de agente, e a cobrar diferente</h3>
+<p><strong>O que rompe.</strong> Rompe o contrato fundador da web: <strong>uma requisição é uma requisição</strong>, e o HTTP é agnóstico quanto a quem a envia. O <code>robots.txt</code> era um pedido educado sem sanção; o Web Bot Auth com Ed25519 e o <code>HTTP 402</code> com preço no cabeçalho são <strong>identificação verificável e cobrança na mesma requisição</strong>. Com isso caem: o acesso binário (permitir/bloquear), o anonimato como padrão da leitura, e a indiferença do publicador quanto a quem lê.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Porque a maioria do tráfego passou a ser não-humana — é a justificativa explícita da Cloudflare — e porque o rastejo deixou de ser custo de descoberta (que trazia visita de volta) e virou consumo terminal (o agente lê e o leitor nunca chega). Quebrada a troca implícita "eu te dou conteúdo, você me manda gente", o publicador precisa de outro instrumento. Há cinco anos não havia nem o volume nem a assinatura criptográfica barata.</p>
+<p><strong>Onde está na difusão.</strong> <strong>Adoção precoce.</strong> O bloqueio padrão de rastejador misto em páginas com anúncio vale desde 15/09/2026 e alcança de uma vez todos os clientes gratuitos existentes — o que empurra depressa —, mas a cobrança por requisição ainda é beta privado e o pagamento agêntico é demonstração. Não é maioria.</p>
+<p><strong>O que ainda falta acontecer.</strong> (a) Um segundo CDN de porte adotar Web Bot Auth, para virar padrão e não política de um fornecedor. (b) Estabilização jurídica: o Nono Circuito diz que o agente sob direção do usuário <strong>é o usuário</strong>, o que enfraquece o bloqueio por lei e empurra tudo para arquitetura e contrato. (c) Liquidação: cobrar por requisição exige um trilho de pagamento que funcione, e ele não funciona ainda. (d) Um tratamento para quem depende de agente por necessidade, e não por conveniência.</p>
+<p><strong>Quem bloqueia.</strong> Os compradores de conteúdo — os próprios laboratórios de modelo. O incentivo deles é que o agente <strong>não</strong> se identifique, ou que se identifique sem preço. A evidência do incentivo é comportamental: diante de bloqueio, a resposta observada no mercado foi alterar o navegador para escapar da detecção, não negociar. É isso que gera o efeito e12.3.</p>
+<h3 id="4-4-r4-o-rastro-de-execucao-vira-prova-juridica-e-premio-de-seguro">4.4 R4 — O rastro de execução vira prova jurídica e prêmio de seguro</h3>
+<p><strong>O que rompe.</strong> Rompe o "as is" — a cláusula que, por quarenta anos, fez do software um produto sem responsabilidade por resultado — e rompe a natureza do log, que deixa de ser artefato interno de depuração e vira <strong>instrumento probatório e financeiro</strong>. O enquadramento acadêmico é explícito: o <strong>log de interação com estado</strong> como <em>"traço probatório primário, permitindo que tribunais infiram onde a trajetória humano-IA se afastou do encargo autorizado"</em>. E há precificação real derivada do traço: o erro médio absoluto de tarifação cai de <strong>US$ 17,7 mil para US$ 569</strong>, o subsídio cruzado regressivo desaparece, os controles condicionados ao traço reduzem o <strong>CVaR95 em 72%</strong>, e uma auditoria de <strong>300 traços por especialista aceitou 295 rótulos sem alteração</strong>.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Porque só agora existe o traço: a execução agêntica produz um registro passo a passo de decisão, ferramenta, argumento e resultado, que não existia quando o software era uma função chamada por um humano. E porque alguém aceitou o risco em dinheiro — a Crosby contratou apólice para os próprios agentes em 28/07/2026. Seguro exige sinistralidade; o traço é o que permite estimá-la sem histórico.</p>
+<p><strong>Onde está na difusão.</strong> <strong>Demonstração pública passando a produto de nicho.</strong> Um escritório com apólice, um arcabouço doutrinário e um método de subscrição publicado — nada disso é maioria, e a confiança em toda a cadeia derivada é média ou baixa por isso.</p>
+<p><strong>O que ainda falta acontecer.</strong> (a) Um formato de traço que a seguradora e o tribunal aceitem igualmente. (b) Um caso decidido sobre o traço, criando precedente. (c) Resolver se o raciocínio intermediário do agente é descobrível em juízo ou segredo comercial. (d) Histórico de perda suficiente para tarifar sem prêmio proibitivo. (e) Retenção: o traço precisa sobreviver ao prazo prescricional, não ao ciclo de log.</p>
+<p><strong>Quem bloqueia.</strong> Quem opera o agente. Guardar o traço é produzir prova contra si mesmo, e custa dinheiro. O incentivo é registrar o mínimo e descartar cedo — e o contrapeso só aparece quando a ausência do traço passar a ser interpretada contra quem deveria tê-lo. É o mecanismo do wildcard W1.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: O agente vira principal de segurança, com identidade, credencial e ciclo de vida próprios
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;O provedor de identidade passa a ser o lugar onde se decide o que um agente pode fazer, e o catálogo de agentes vira inventário obrigatório de TI&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;Todo agente ganha um patrocinador humano nominal, e a saída dessa pessoa da empresa dispara revogação em cascata&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;O número de agentes que uma pessoa pode patrocinar vira métrica de risco e limite de política, como hoje é o número de credenciais privilegiadas&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;Licenciamento de software deixa de ser por assento e passa a ser por identidade ativa, humana ou não&quot;
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Produtos de mídia e de design passam a ter preço de API separado do preço de interface, e a interface vira o produto caro&quot;
+                sinal: fraco
+                prazo: 2035
+                confianca: baixa
+          - id: e1.3
+            ordem: 2
+            efeito: &quot;O custo de governar identidade de agente faz times consolidarem muitos agentes numa identidade só, reintroduzindo o problema que a identidade resolvia&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.3.1
+                ordem: 3
+                efeito: &quot;Auditoria externa passa a exigir prova de que uma identidade de agente corresponde a um agente, e não a um pool&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;A delegação multi-salto, quando um agente cria outro agente, vira o problema técnico não resolvido que trava contrato corporativo&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Contratos de software como serviço passam a ter cláusula de profundidade máxima de delegação, como hoje têm cláusula de subcontratação&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Ferramentas de autoria expõem quantos níveis de agente tocaram num arquivo como metadado de primeira classe&quot;
+            sinal: fraco
+            prazo: 2033
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;O crédito de autoria em peças de mídia passa a listar cadeia de delegação além de pessoas&quot;
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;Identidade de agente é portátil dentro de um fornecedor e não entre fornecedores, e o resultado é aprisionamento por identidade em vez de aprisionamento por dado&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Estúdios pequenos e agências ficam fora da web agêntica corporativa porque não conseguem emitir identidade que o cliente aceite&quot;
+            sinal: fraco
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Aparece um cartório de identidade de agente para quem não é cliente de grande nuvem, e ele vira ponto único de falha&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;O crachá que a empresa emite e o crachá que o site exige convergem para o mesmo objeto, e quem controla o crachá controla o acesso&quot;
+            sinal: medio
+            prazo: 2032
+            confianca: media
+      - id: e4
+        ordem: 1
+        efeito: &quot;A pergunta sobre quem fez algo deixa de ter resposta única e passa a ter resposta em cadeia, e o log vira o artefato que responde&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;Produtos passam a mostrar ao usuário final qual agente agiu em seu nome e sob que permissão, num histórico de agentes ao lado do histórico de sessões&quot;
+            sinal: fraco
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Revogar um agente vira gesto de interface corriqueiro, como sair de todos os dispositivos é hoje&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;Quem automatizou o próprio trabalho com agente pessoal perde o direito de fazê-lo, porque o agente não tem identidade emitida pela empresa&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;O agente sombra sucede a TI sombra como categoria de risco, e é detectado pelo tráfego e não pela conta&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Negociação coletiva passa a tratar de ferramenta de IA pessoal no trabalho como hoje trata de dispositivo pessoal&quot;
+                sinal: fraco
+                prazo: 2035
+                confianca: baixa
+
+  - disrupcao: Não há fronteira entre dado e instrução, e a contenção migra para fora do modelo
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: &quot;A autorização sai do agente e vai para um porteiro externo que o agente não consegue ler nem alterar&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;A frase o modelo pediu deixa de ser autorização suficiente em qualquer sistema que mova dinheiro ou dado pessoal&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: alta
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Fluxos de compra e de publicação passam a exigir confirmação fora da conversa, num canal separado, e isso vira padrão de interface&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: media
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;A latência e o custo do porteiro empurram equipes a conceder permissão larga uma vez em vez de estreita muitas vezes, e a permissão larga volta pela porta dos fundos&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e7
+        ordem: 1
+        efeito: &quot;O isolamento deixa de ser por serviço e passa a ser por tarefa, com cada execução de agente em seu próprio mundo descartável&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;O ambiente de execução vira parte do desenho do produto, e quem projeta a experiência passa a decidir o que o agente alcança e não só o que ele diz&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;O modo demonstração de um produto deixa de ser tela falsa e passa a ser mundo real descartável, porque isolar ficou mais barato que simular&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: &quot;O custo marginal de executar conteúdo hostil cai o bastante para que sites hospedem execução de agentes de terceiros, e a página vira sandbox&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: baixa
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: &quot;Publicidade e paywall passam a negociar com o agente dentro do sandbox da própria página em vez de bloqueá-lo na porta&quot;
+                sinal: fraco
+                prazo: 2035
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: &quot;Proveniência do contexto vira metadado obrigatório, e cada trecho que entra no agente carrega de onde veio e quanto vale&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: &quot;Conteúdo publicado passa a ser escrito para duas audiências com estatutos diferentes, o humano que lê e o agente que obedece, e a ambiguidade entre elas vira problema editorial&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: &quot;Aparece o equivalente do robots.txt para instrução, um arquivo que declara o que na página é conteúdo e o que nunca deve ser lido como ordem&quot;
+                sinal: fraco
+                prazo: 2032
+                confianca: media
+          - id: e8.2
+            ordem: 2
+            efeito: &quot;Fórum, comentário e conteúdo gerado por usuário perdem valor para agentes por não terem proveniência verificável, e a web aberta encolhe naquilo que o agente lê&quot;
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e8.2.1
+                ordem: 3
+                efeito: &quot;O arquivo público como Wikipédia, repositórios e bibliotecas vira a fonte preferida por ser assinável, e sua captura vira alvo estratégico&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: &quot;O incidente com agente deixa de ser notícia técnica e vira notícia política, e a primeira resposta é proibição por decreto em vez de engenharia&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: &quot;Órgãos públicos brasileiros passam a exigir homologação de agente antes do uso, e o tempo de homologação vira a barreira real de adoção&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: &quot;Fornecedor pequeno desaparece das compras públicas por não conseguir pagar a homologação, e o Estado brasileiro fica dependente de poucas nuvens estrangeiras&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+      - id: e10
+        ordem: 1
+        efeito: &quot;O engenheiro de segurança de aplicação perde o método central do ofício, validar entrada, e o trabalho migra para desenhar o que acontece depois que a entrada engana&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: &quot;Programas de recompensa por falha passam a pagar por cadeia de exploração com agente no meio em vez de por carga isolada, e o valor do achado sobe porque reproduzir custa caro&quot;
+            sinal: fraco
+            prazo: 2031
+            confianca: media
+
+  - disrupcao: A porta da web passa a distinguir humano de agente e a cobrar diferente
+    efeitos:
+      - id: e11
+        ordem: 1
+        efeito: &quot;O acesso a conteúdo deixa de ser binário entre permitir e bloquear e vira preço por requisição, com assinatura criptográfica no cabeçalho&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: &quot;O agente passa a ter orçamento, e quanto ele pode gastar lendo vira parâmetro de produto que alguém precisa projetar&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: &quot;Aparece a interface de negociação de acesso, em que o usuário vê o agente decidir pagar ou desistir de uma fonte e precisa poder discordar&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e11.2
+            ordem: 2
+            efeito: &quot;Publicações passam a ter dois preços, leitura humana por anúncio ou assinatura e leitura de máquina por requisição, e as duas divergem editorialmente&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e11.2.1
+                ordem: 3
+                efeito: &quot;O que é barato para máquina ler vira o que é escrito, e a pauta se desloca para o que rende mais por token entregue&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+          - id: e11.3
+            ordem: 2
+            efeito: &quot;Sites que cobram caro demais somem daquilo que os agentes leem, e a invisibilidade custa mais que a receita, de modo que o preço converge para baixo&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: media
+      - id: e12
+        ordem: 1
+        efeito: &quot;Distinguir humano de agente vira mercado de detecção com taxonomia nominal, em que o resultado não é bot mas o nome do agente&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: &quot;Quem usa tecnologia assistiva é classificado como agente e perde acesso, porque o detector mede comportamento humano médio e não direito de estar ali&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: alta
+            efeitos:
+              - id: e12.1.1
+                ordem: 3
+                efeito: &quot;A acessibilidade passa a ser defendida como direito de usar agente e não como direito de navegar, invertendo trinta anos de doutrina de diretrizes de conteúdo&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+          - id: e12.2
+            ordem: 2
+            efeito: &quot;Nasce o mercado de parecer humano, e o navegador anti-detecção deixa de ser ferramenta de fraude para virar ferramenta de acesso legítimo&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e12.2.1
+                ordem: 3
+                efeito: &quot;Vender evasão de detecção vira serviço regulado ou criminalizado em alguma jurisdição, e a mesma ferramenta fica legal de um lado da fronteira e ilegal do outro&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+          - id: e12.3
+            ordem: 2
+            efeito: &quot;O agente que se identifica fica em desvantagem competitiva contra o que se disfarça, e a identificação só sobrevive onde dá vantagem concreta&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: alta
+      - id: e13
+        ordem: 1
+        efeito: &quot;Prova de que existe um humano responsável por trás do agente vira credencial de acesso, separada da identidade do agente&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e13.1
+            ordem: 2
+            efeito: &quot;Comprar, publicar e falar em público passam a exigir lastro humano verificado, e o anonimato fica restrito ao que não tem consequência&quot;
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e13.1.1
+                ordem: 3
+                efeito: &quot;O custo de existir publicamente na web passa a incluir uma verificação biométrica, e quem recusa fica numa web de segunda classe&quot;
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+          - id: e13.2
+            ordem: 2
+            efeito: &quot;O lastro humano vira commodity alugável, e contas verificadas são alugadas a agentes de terceiros exatamente como contas de rede social hoje&quot;
+            sinal: fraco
+            prazo: 2031
+            confianca: media
+      - id: e14
+        ordem: 1
+        efeito: &quot;A pergunta jurídica sobre o agente ser ferramenta do usuário ou intruso no site decide quem pode bloquear quem, e a resposta corrente é ferramenta&quot;
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e14.1
+            ordem: 2
+            efeito: &quot;Sites deixam de usar a lei para barrar agentes e passam a usar arquitetura e contrato, porque a lei diz que quem acessa é o usuário&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e14.1.1
+                ordem: 3
+                efeito: &quot;Termos de uso passam a ser escritos para leitura por máquina e aceitos por máquina, e a aceitação vira ato do agente com consequência para o humano&quot;
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e14.2
+            ordem: 2
+            efeito: &quot;O registro de quem dirigiu o agente vira a prova que decide o caso, e guardá-lo vira obrigação de quem opera o agente&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+
+  - disrupcao: O rastro de execução vira prova jurídica e prêmio de seguro
+    efeitos:
+      - id: e15
+        ordem: 1
+        efeito: &quot;O log de execução do agente deixa de ser artefato de depuração e passa a ser instrumento probatório e financeiro&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e15.1
+            ordem: 2
+            efeito: &quot;Retenção de log passa de dias para anos, e o custo de guardar vira item de orçamento que compete com o custo de rodar&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e15.1.1
+                ordem: 3
+                efeito: &quot;O raciocínio intermediário do agente vira objeto de disputa, descobrível em juízo de um lado e segredo comercial do outro&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+          - id: e15.2
+            ordem: 2
+            efeito: &quot;Ferramentas de mídia passam a gravar a intenção declarada junto com o resultado, porque sem intenção declarada não há como demonstrar desvio&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: media
+      - id: e16
+        ordem: 1
+        efeito: &quot;Seguro de responsabilidade para agente muda quem decide o que o agente pode fazer, e quem decide passa a ser a apólice e não o time de produto&quot;
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e16.1
+            ordem: 2
+            efeito: &quot;O que é segurável define o que é oferecido, e funcionalidade sem histórico de perda não entra em produto&quot;
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e16.1.1
+                ordem: 3
+                efeito: &quot;Um acordo de transferência de responsabilidade nos moldes do cartão com chip, em que quem não tem identidade e rastro de agente arca com a perda, força a adoção mais rápido que qualquer norma técnica&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: media
+          - id: e16.2
+            ordem: 2
+            efeito: &quot;Autônomo e estúdio pequeno não conseguem apólice e ficam impedidos de entregar a cliente corporativo trabalho feito por agente&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e16.2.1
+                ordem: 3
+                efeito: &quot;A plataforma passa a vender seguro embutido na assinatura, e escolher a ferramenta vira escolher a seguradora&quot;
+                sinal: fraco
+                prazo: 2035
+                confianca: baixa
+      - id: e17
+        ordem: 1
+        efeito: &quot;A responsabilidade continua humana mas se desloca de quem programou para quem autorizou&quot;
+        sinal: medio
+        prazo: 2031
+        confianca: media
+        efeitos:
+          - id: e17.1
+            ordem: 2
+            efeito: &quot;Aprovar vira o ato de maior risco jurídico numa organização, e o desenho do botão de aprovação vira questão de responsabilidade antes de ser questão de usabilidade&quot;
+            sinal: fraco
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e17.1.1
+                ordem: 3
+                efeito: &quot;Aprovação em massa de muitas ações de uma vez vira prática vedada por apólice, como assinatura em branco&quot;
+                sinal: fraco
+                prazo: 2035
+                confianca: baixa
+          - id: e17.2
+            ordem: 2
+            efeito: &quot;O receio de aprovar reduz a autonomia concedida, e o agente volta a ser copiloto exatamente nas tarefas de maior valor&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+      - id: e18
+        ordem: 1
+        efeito: &quot;Reputação de agente não se torna portátil, porque reputação sem custo de entrada é capturada&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e18.1
+            ordem: 2
+            efeito: &quot;A confiança em agente volta a ser mediada por marca e por contrato, e quem responde é a empresa que emitiu e não o histórico do agente&quot;
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e18.1.1
+                ordem: 3
+                efeito: &quot;Poucos emissores concentram a confiança, e trocar de emissor passa a custar a reputação inteira, num aprisionamento por reputação&quot;
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa</code></pre>
+<h3 id="5-1-os-mecanismos-um-a-um">5.1 Os mecanismos, um a um</h3>
+<p>O bloco acima diz <em>o quê</em>. Aqui está o <em>porque</em>, que é a única coisa que distingue uma roda de uma lista de palpites. A forma é sempre a mesma: <strong>porque o efeito pai faz X, então Y</strong>.</p>
+<p><strong>R1 → e1.</strong> Porque o agente ganha identidade própria no diretório, o diretório vira o único lugar onde a permissão existe de fato — e um objeto que existe no diretório é, por construção, inventariável. A evidência de que isso não é especulação está na documentação da Microsoft: já existem <em>blueprints</em>, pacotes de acesso, exclusão em cascata e convergência de registro sob o Agent 365. <strong>Sinal forte</strong> porque há artefato em produção, não porque eu acredite.</p>
+<p><strong>e1 → e1.1.</strong> Porque ciclo de vida exige um responsável, e software não sabe pedir aprovação a ninguém. A Microsoft já publicou dois <em>templates</em> de fluxo para transferir patrocínio quando o patrocinador muda de cargo ou sai, <em>"para evitar agentes órfãos"</em> — o que revela que o problema é tão concreto que já tem remédio de prateleira.</p>
+<p><strong>e1.1 → e1.1.1.</strong> Porque, uma vez que patrocinar é responsabilidade, acumular patrocínio é acumular risco, e toda organização acaba medindo o que a responsabiliza. É o mesmo caminho que o número de contas privilegiadas por administrador percorreu.</p>
+<p><strong>e1 → e1.2.</strong> Porque o assento pressupõe uma bunda na cadeira, e com 109 identidades de máquina por humano a cadeira deixou de ser a unidade. Quem já conta identidades no diretório tem o medidor pronto para cobrar por elas. <strong>Classe de referência:</strong> a migração de licença por assento para consumo em nuvem levou cerca de oito anos (2012-2020) mesmo com forte incentivo do fornecedor — daí o prazo 2033, e não 2029.</p>
+<p><strong>e1 → e1.3 (retroação).</strong> Porque governar custa, e o caminho mais curto para reduzir custo de governança é reduzir o número de coisas governadas. Com 34% das organizações aplicando qualquer controle, o comportamento dominante já é o de agrupar. Este é o freio interno de R1: a identidade de agente pode ser derrotada não por ataque, mas por consolidação preguiçosa.</p>
+<p><strong>R1 → e2.</strong> Porque o NIST registra delegação multi-salto como problema aberto, e contrato corporativo não assina o que não sabe delimitar. Advogado pede um número; engenharia não tem um.</p>
+<p><strong>e2 → e2.2 → e2.2.1.</strong> Porque, se a profundidade de delegação vira cláusula, ela vira campo — e campo em ferramenta de autoria vira metadado, e metadado de autoria acaba em crédito. Este é o ramo mais especulativo de R1 e o <code>sinal fraco</code> em toda a cadeia diz isso.</p>
+<p><strong>R1 → e3.</strong> Porque o incentivo do provedor de identidade é que o crachá seja excelente e intransportável: identidade portátil transforma o produto em commodity. A evidência é a leitura corrente de que o Entra Agent ID <em>"só funciona dentro da Microsoft"</em> e que o Cross App Access entrou no MCP pela porta da Okta. <strong>Sinal forte, confiança alta</strong> — não porque o futuro seja certo, mas porque o presente já é assim.</p>
+<p><strong>e3 → e3.1 → e3.1.1.</strong> Porque quem não emite crachá aceito não entra, e mercado que exclui cria intermediário. O intermediário concentra, e concentração é ponto único de falha. <strong>Classe de referência:</strong> as autoridades certificadoras da web — o mesmo desenho produziu, nos anos 2010, exatamente essa concentração e exatamente esse modo de falha.</p>
+<p><strong>e3 → e3.2 (convergência).</strong> Ver §5.2.</p>
+<p><strong>R1 → e4 → e4.1 → e4.1.1.</strong> Porque a cadeia de delegação destrói a resposta única, e um produto que não consegue dizer quem agiu perde a confiança do usuário antes de perder a auditoria. Assim que o dado existe no diretório, mostrá-lo é barato. <strong>Classe de referência:</strong> "sessões ativas" e "sair de todos os dispositivos" levaram cerca de seis anos (2013-2019) do primeiro produto ao padrão de interface — daí 2031 e 2033.</p>
+<p><strong>R1 → e5 → e5.1 → e5.1.1.</strong> Porque identidade emitida pela empresa é, por definição, o oposto de ferramenta trazida de casa. Quem automatizou o próprio trabalho por conta própria é exatamente quem não tem crachá. O agente sombra é detectável pelo tráfego (um porteiro externo vê a chamada), não pela conta — e é por isso que ele é achado, não declarado. <strong>Este é o ramo de "quem perde" de R1</strong>, e ele é o mais fácil de esquecer num mapa escrito por quem tem crachá.</p>
+<p><strong>R2 → e6.</strong> Porque, se a decisão de autorizar mora dentro do mesmo contexto que o atacante consegue escrever, o atacante autoriza. Tirar a decisão de lá é a única correção estrutural, e está medida: 0% de sucesso residual em 15 modelos, 0,03 ms de latência. <strong>Confiança alta</strong> com <code>sinal medio</code> porque existe prova acadêmica forte e pouco produto — a assimetria é proposital e o verificador vai mostrá-la.</p>
+<p><strong>e6 → e6.1 → e6.1.1.</strong> Porque a taxa de recusa dos próprios modelos varia de 100% a 38% conforme o cenário; um controle que oscila 62 pontos não é controle. Uma vez que "o modelo pediu" não autoriza, a confirmação precisa vir por um canal que o conteúdo injetado não alcança — e canal separado é, literalmente, uma decisão de interface.</p>
+<p><strong>e6 → e6.2 (retroação).</strong> Porque o porteiro cobra a cada chamada e a permissão larga é gratuita uma vez só. Este é o freio de R2, e ele já tem nome no diagnóstico de 2026: <em>"um agente com token restrito que pode chamar uma ferramenta com token amplo tem token amplo"</em>.</p>
+<p><strong>R2 → e7.</strong> Porque o isolamento ficou barato: WASM parte em menos de 1 ms com menos de 5 MB, contra 125-150 ms e 128 MB do microVM. Quando o mundo descartável custa menos que o risco de reaproveitar o mundo, ninguém reaproveita. <strong>Classe de referência:</strong> a passagem de máquina virtual para contêiner levou cerca de cinco anos (2013-2018) do lançamento à prática dominante; daí 2029.</p>
+<p><strong>e7 → e7.1 → e7.1.1.</strong> Porque, se o ambiente é descartável e barato, ele deixa de ser infraestrutura e vira escolha de produto: o que o agente alcança passa a ser desenhado junto com o que ele mostra. E se um mundo real descartável custa menos que manter uma tela falsa, a demonstração de produto muda de natureza. Este é o efeito de R2 que mais interessa a quem projeta mídia.</p>
+<p><strong>e7 → e7.2 → e7.2.1.</strong> Porque hospedar execução hostil é uma função do custo de isolar, e o custo caiu. <strong><code>sinal fraco</code> e <code>confiança baixa</code></strong>: não há hoje um único site relevante fazendo isso, e a inferência é puramente econômica.</p>
+<p><strong>R2 → e8 → e8.1 → e8.1.1.</strong> Porque a recomendação de defesa que sobrou é manter <em>"metadado de proveniência e restringir invocação de ferramenta com base na origem do dado"</em> — e proveniência só funciona se a origem for declarada na publicação, não adivinhada na leitura. O arquivo que declara "isto é conteúdo, não ordem" é a forma mínima disso, e o <code>robots.txt</code> é a classe de referência direta: nasceu em 1994 como convenção de um punhado de operadores e virou universal em cerca de cinco anos, <strong>porque não exigia nada de ninguém além de um arquivo de texto</strong>. Daí 2032.</p>
+<p><strong>e8 → e8.2 → e8.2.1.</strong> Porque conteúdo sem proveniência verificável é exatamente o vetor descrito pela Unit 42 (texto visível em 37,8% dos casos, atributo HTML em 19,8%, CSS em 16,9%) — e o modo mais barato de não ser envenenado é não ler. <strong>Quem perde aqui é a web aberta</strong>, e o ganhador é o arquivo assinável, o que torna a captura do arquivo um objetivo estratégico.</p>
+<p><strong>R2 → e9 → e9.1 → e9.1.1.</strong> Porque um incidente com 195 milhões de identidades e dez órgãos de governo não é lido como falha técnica, e a resposta política padrão é proibir. <strong><code>sinal forte, confiança alta, prazo 2028</code></strong> — é o único efeito do mapa cujo gatilho já aconteceu. No Brasil, o vetor concreto existe e tem número de resolução: a ANPD pôs IA entre os quatro eixos de fiscalização do biênio (Res. CD/ANPD nº 30/2025, de 24/12/2025). <strong>Classe de referência:</strong> a exigência de adequação à LGPD em compra pública levou cerca de três anos entre a lei e a cláusula virar rotina de edital.</p>
+<p><strong>R2 → e10 → e10.1.</strong> Porque, se a entrada não pode ser validada, o ofício que existia para validá-la precisa de outro objeto — e o objeto que sobra é o que acontece depois do engano: permissão, isolamento, reversão. <strong>Quem perde</strong> é a especialidade, não a pessoa.</p>
+<p><strong>R3 → e11.</strong> Porque o mecanismo já está implantado: <code>HTTP 402</code>, quatro cabeçalhos de preço e assinatura Ed25519 amarrada aos cabeçalhos de pagamento. <strong>Classe de referência:</strong> o HTTPS passou de minoria a maioria das cargas de página em cerca de cinco anos (2014-2019) <em>porque foi automatizado e gratuito</em>; a cobrança por rastejo tem o empurrão de um bloqueio padrão (15/09/2026) mas não a gratuidade — daí 2029, e não 2028.</p>
+<p><strong>e11 → e11.1 → e11.1.1.</strong> Porque preço por requisição só é operável se houver teto, e teto é <code>crawler-max-price</code>, que alguém precisa preencher. Um agente com orçamento que decide não pagar por uma fonte está tomando uma decisão editorial em nome do usuário, e o usuário precisa poder vê-la e revertê-la. <strong>É aqui que este tema vira, literalmente, design de interação.</strong></p>
+<p><strong>e11 → e11.2 → e11.2.1.</strong> Porque dois preços produzem dois produtos, e o que rende por token entregue não é o que prende um leitor humano. <strong>Classe de referência:</strong> a otimização para mecanismo de busca levou cerca de seis anos para reescrever a pauta de veículos inteiros; a otimização para leitura de máquina paga tende a ser mais rápida, porque a realimentação é financeira e direta — mas 2034 na terceira ordem já embute o ceticismo.</p>
+<p><strong>e11 → e11.3 (retroação).</strong> Porque o publicador que cobra caro demais desaparece do conjunto que o agente lê, e desaparecer custa mais que a receita marginal. É o freio de mercado de R3.</p>
+<p><strong>R3 → e12.</strong> Porque a taxonomia nominal já é o produto vendido (350+ sinais, agentes identificados pelo nome). <strong>Sinal forte, prazo 2028</strong>: já está em catálogo.</p>
+<p><strong>e12 → e12.1 → e12.1.1.</strong> Porque o detector comportamental mede desvio da mediana, e tecnologia assistiva <strong>é</strong> desvio da mediana. Isso não é hipótese: sistemas de CAPTCHA comportamental já "interpretam mal leitores de tela e dispositivos de acesso por varredura como tráfego automatizado, o que dispara um desafio mais difícil justamente para quem menos precisa dele". Com 3.117 ações de acessibilidade em 2025 (+27%) e a primeira condenação europeia em 2026, o litígio é o mecanismo de correção — e é lento. <strong><code>confiança alta</code> na segunda ordem</strong> é exceção deliberada neste mapa, e está justificada: o erro já ocorre hoje, com a tecnologia madura; o que muda é a escala.</p>
+<p><strong>e12 → e12.2 → e12.2.1.</strong> Porque, se parecer humano é condição de acesso, a ferramenta que faz parecer humano deixa de ser instrumento de fraude e vira instrumento de acesso. O mesmo binário (Multilogin, GoLogin, navegador headless furtivo) muda de estatuto moral conforme quem o usa, e nenhuma jurisdição consegue escrever essa distinção em lei sem capturar o caso legítimo junto.</p>
+<p><strong>e12 → e12.3.</strong> Porque o agente honesto paga (preço, latência, bloqueio) e o disfarçado não. A evidência do incentivo é comportamental e recente: diante de bloqueio, a resposta observada no mercado foi <strong>alterar o navegador para escapar da detecção</strong>. <code>confiança alta</code> porque é teoria dos jogos elementar sobre um incentivo já demonstrado.</p>
+<p><strong>R3 → e13 → e13.1 → e13.1.1.</strong> Porque a identidade do agente responde "o que é isto" e não "quem responde por isto", e a segunda pergunta é a que o comerciante precisa. O AgentKit é a forma mínima: o site pergunta se o agente está ligado a um humano real e recebe sim ou não. A extensão para publicar e falar é inferência — daí <code>confiança media</code> em 2033 e o salto para <strong>2038 na terceira ordem, que está fora da janela deste mapa</strong> e é declarado como tal.</p>
+<p><strong>e13 → e13.2 (retroação).</strong> Porque qualquer credencial escassa e verificável cria mercado de aluguel. Conta verificada de rede social já é alugada hoje; não há razão para que lastro humano seja diferente, e há uma razão a mais: ele vale dinheiro por transação.</p>
+<p><strong>R3 → e14 → e14.1 → e14.1.1.</strong> Porque, se o agente age sob direção do usuário e quem acessa é o usuário, a lei de acesso não autorizado deixa de ser a alavanca — e sobra arquitetura e contrato. Contrato que precisa ser aceito por máquina precisa ser legível por máquina. <strong><code>sinal forte, confiança media</code></strong>: o acórdão é de 04/08/2026 e é real, mas o Nono Circuito decidiu sobre liminar, a ação de fundo continua, e cabe pedido de revisão.</p>
+<p><strong>e14 → e14.2 (convergência).</strong> Ver §5.2.</p>
+<p><strong>R4 → e15 → e15.1 → e15.1.1.</strong> Porque, se o traço é a prova, ele precisa sobreviver ao prazo prescricional e não ao ciclo de rotação de log — e isso muda o custo de ordem de grandeza. O que o agente "pensou" é a parte mais valiosa e a mais perigosa do traço: quem processa quer, quem opera não quer entregar.</p>
+<p><strong>e15 → e15.2.</strong> Porque desvio só se demonstra contra um encargo declarado — é exatamente o mecanismo do arcabouço de responsabilidade por interação, que procura "onde a trajetória humano-IA se afastou do encargo autorizado". Sem intenção registrada, não há de que se afastar.</p>
+<p><strong>R4 → e16 → e16.1 → e16.1.1.</strong> Porque a seguradora escreve exclusões, e exclusão é especificação de produto por outro nome. <strong>Classe de referência explícita:</strong> a transferência de responsabilidade do cartão com chip nos EUA (outubro de 2015) levou a maioria dos comerciantes a adotar em cerca de dois anos — sem lei, só realocando a perda. É a classe mais rápida que conheço, e é por isso que e16.1.1 tem <code>confiança media</code> apesar de <code>sinal fraco</code>: o mecanismo é comprovadamente potente. A ressalva, que rebaixou a confiança em §6, é que o chip tinha um consórcio capaz de decretar a data e a responsabilidade agêntica não tem.</p>
+<p><strong>e16 → e16.2 → e16.2.1.</strong> Porque prêmio é função de histórico, e quem é pequeno não tem histórico. Plataforma que empacota seguro resolve o problema do pequeno e, de quebra, o prende.</p>
+<p><strong>R4 → e17 → e17.1 → e17.1.1.</strong> Porque o arcabouço de responsabilidade distingue uso como ferramenta, planejamento colaborativo e <strong>desvio autônomo</strong> — e o que separa os três é o que foi autorizado, por quem. Se autorizar é onde a responsabilidade encosta, aprovar em lote é assinar em branco, e apólice não cobre assinatura em branco.</p>
+<p><strong>e17 → e17.2 (retroação).</strong> Porque o receio de aprovar é maior exatamente onde a consequência é maior, isto é, nas tarefas de maior valor. Este é o freio de R4 e ele é contraintuitivo: a maturidade jurídica <strong>reduz</strong> a autonomia no topo da cadeia de valor, não aumenta.</p>
+<p><strong>R4 → e18 → e18.1 → e18.1.1.</strong> Porque reputação sem custo de entrada é capturada, e a medição existe: 3% a 15% de registros com endpoint válido; 59% a 91% de avaliadores com comportamento Sybil; e, removida a fraude, a maioria dos agentes fica sem avaliação alguma. Se a reputação não é portátil, a confiança volta para onde estava: marca e contrato. <strong>Este efeito entrou invertido em relação ao rascunho</strong> — ver o registro de alterações em §7.8.</p>
+<h3 id="5-2-convergencias-retroalimentacoes-e-contradicoes">5.2 Convergências, retroalimentações e contradições</h3>
+<p><strong>Convergência 1 — o crachá único (e3.2 ∩ e11 ∩ e13).</strong> Três raízes diferentes chegam ao mesmo objeto por caminhos que não se conhecem. R1 produz um crachá porque a empresa precisa governar o agente; R3 produz um crachá porque o site precisa cobrar do agente; e o lastro de humanidade de R3 produz um terceiro, porque o comerciante precisa de alguém a quem responsabilizar. Não há razão técnica para que sejam três objetos, e há forte pressão econômica para que sejam um. <strong>Quem emitir esse crachá único ocupa a posição que as autoridades certificadoras ocuparam na web dos anos 2010</strong> — e este é, na minha leitura, o achado mais consequente deste mapa.</p>
+<p><strong>Convergência 2 — o log é a mesma coisa em três lugares (e4 ∩ e14.2 ∩ e15).</strong> O log que a auditoria quer para responder "quem fez isso", o log que o tribunal quer para saber quem dirigiu o agente, e o log que a seguradora quer para tarifar são <strong>o mesmo arquivo com três compradores</strong>. Isso tem consequência prática imediata para quem projeta: o registro deixa de ser decisão de engenharia e vira decisão de produto com três partes interessadas de fora.</p>
+<p><strong>Retroalimentação 1 (reforça R1 e R4).</strong> e16.1.1 → R1. Se a perda recai sobre quem não tem identidade e rastro de agente, então adotar identidade de agente deixa de ser questão de segurança e vira questão de custo — e a adoção acelera por razão financeira, não técnica. É o único laço do mapa capaz de levar R1 de adoção precoce a maioria dentro do horizonte.</p>
+<p><strong>Retroalimentação 2 (enfraquece R3).</strong> e12.3 → R3. Se o agente honesto perde para o disfarçado, a identificação voluntária morre, e sobra detecção adversarial — que é justamente o que produz e12.1, a exclusão de quem usa tecnologia assistiva. <strong>O mapa contém um laço que converte o fracasso da identidade no dano à acessibilidade.</strong> Vale a pena dizer isso em voz alta: os dois problemas não são independentes.</p>
+<p><strong>Retroalimentação 3 (enfraquece R2).</strong> e6.2 → R2. O porteiro externo funciona e é barato em latência (0,03 ms), mas caro em disciplina. A pressão operacional reintroduz a permissão larga, e a contenção externa é vencida sem nunca ser atacada.</p>
+<p><strong>Contradição 1 — e13.1 contra e12.1.</strong> Exigir lastro humano verificado para agir na web é o remédio de R3 para o anonimato do agente; e é também a forma mais eficiente de excluir quem não pode ou não quer se verificar, incluindo quem depende de agente por deficiência. As duas não coexistem sem uma terceira coisa que ainda não existe: um lastro que prove responsabilidade <strong>sem</strong> provar comportamento humano. Não resolvo: registro as duas. <strong>O que decide entre elas é se algum tribunal enquadrar a exigência de identidade de agente como barreira de acessibilidade</strong> — é o wildcard W4.</p>
+<p><strong>Contradição 2 — e7.2 contra e8.2.</strong> Um ramo diz que a página vira sandbox e passa a <strong>hospedar</strong> agentes de terceiros; o outro diz que a web aberta encolhe porque conteúdo sem proveniência não é lido. As duas derivam da mesma raiz (R2) e apontam para direções opostas: abrir a página à execução e fechar a página à leitura. O que decide é se proveniência é mais barata de produzir do que isolamento é de oferecer. Hoje, isolamento está mais barato — o que favorece e7.2 e é a razão de e8.2 não ter sido promovido a <code>confiança alta</code>.</p>
+<p><strong>Cobertura STEEP e quem perde.</strong> Social: e5, e12.1, e13.1. Tecnológico: e1, e6, e7, e8, e11. Econômico: e1.2, e11.2, e16, e18. Político/regulatório: e9, e14, e12.2.1, e9.1. <strong>Ecológico: vazio</strong> — o custo energético do isolamento por tarefa e da retenção plurianual de log é real, mas não encontrei número aberto que sustentasse um efeito, e prefiro registrar a lacuna a inventá-lo. <strong>Quem perde</strong> tem ramo próprio em cada raiz: e5 (trabalhador com agente pessoal), e10 (engenheiro de segurança de aplicação), e3.1 e e16.2 (estúdio pequeno), e12.1 (pessoa com deficiência), e8.2 (web aberta), e9.1.1 (fornecedor nacional em compra pública).</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="6-1-sinais-fracos">6.1 Sinais fracos</h3>
+<p>Cada um traz: <strong>onde foi visto</strong> (fonte aberta nesta rodada), <strong>o que mudaria</strong> e <strong>o sinal observável</strong> que diria que está crescendo — uma métrica, um evento ou uma decisão, não uma impressão.</p>
+<p><strong>SF1 — Reputação de agente registrada em cadeia pública (ERC-8004).</strong> <em>Onde:</em> estudo empírico em Ethereum, BSC e Base até maio de 2026, com três registros (Identidade, Reputação, Validação). <em>O que mudaria:</em> se funcionasse, R1 perderia força — a confiança deixaria de depender de quem emite o crachá e passaria a depender do histórico do próprio agente, dissolvendo o aprisionamento de e3 e e18.1.1. <em>Sinal observável:</em> <strong>a fração de registros com arquivo válido e endpoint ativo passar de 50% em qualquer uma das três redes</strong> (hoje: 3%, 4% e 15%), <strong>e</strong> a fração de avaliadores marcados como Sybil cair abaixo de 20% (hoje: 59% a 91%). Os dois juntos; um sem o outro é ruído.</p>
+<p><strong>SF2 — Identidade de agente atravessando fornecedor.</strong> <em>Onde:</em> o Cross App Access virou, em 24/08/2026, a extensão oficial de autorização gerenciada por empresa do MCP — mas por iniciativa de um fornecedor. <em>O que mudaria:</em> derrubaria e3, e3.1, e3.1.1 e a convergência do crachá único ficaria sem dono — o que é um futuro melhor e menos provável. <em>Sinal observável:</em> <strong>uma segunda implementação de Cross App Access, de fornecedor sem relação comercial com o primeiro, passando em teste de interoperabilidade público.</strong> Anúncio de parceria não conta; implementação independente conta.</p>
+<p><strong>SF3 — Porteiro externo de autorização virando serviço gerenciado.</strong> <em>Onde:</em> aiAuthZ, julho de 2026 — 0% de sucesso residual em 15 modelos, 0,03 ms de latência, sete de sete chamadas dirigidas pelo atacante bloqueadas no AgentDojo bancário, nove de nove estudos de caso de um corpus de incidentes. <em>O que mudaria:</em> aceleraria e6 em três a quatro anos e enfraqueceria e6.2, porque serviço gerenciado remove o custo de disciplina que é justamente o que faz a equipe conceder permissão larga. <em>Sinal observável:</em> <strong>uma das três grandes nuvens listar "gateway de autorização de agente" como produto pago com acordo de nível de serviço</strong> — não como biblioteca de referência.</p>
+<p><strong>SF4 — Declaração de conteúdo contra instrução no próprio arquivo publicado.</strong> <em>Onde:</em> a recomendação da Cloud Security Alliance de elevar a separação entre conteúdo processado e instrução obedecida a "preocupação primária de projeto", com metadado de proveniência. <em>O que mudaria:</em> tornaria e8.1.1 rápido em vez de especulativo, e daria ao publicador uma defesa que hoje ele não tem. <em>Sinal observável:</em> <strong>um rascunho de especificação em corpo de padronização aberto (IETF ou W3C) com dois implementadores</strong>, ou a adoção do mesmo arquivo por dois dos cinco maiores sistemas de gestão de conteúdo.</p>
+<p><strong>SF5 — Prova de humano vinculada a agente como requisito de compra.</strong> <em>Onde:</em> AgentKit, 17/03/2026, com Coinbase e Cloudflare sobre x402. <em>O que mudaria:</em> e13.1 sairia de 2033 para perto de 2030 e a contradição 1 (§5.2) viraria conflito aberto, com litígio de acessibilidade em cima. <em>Sinal observável:</em> <strong>um dos dez maiores varejistas do mundo exigir lastro de humanidade para concluir compra por agente</strong>, e não apenas aceitá-lo como sinal opcional de confiança.</p>
+<p><strong>SF6 — Isolamento por tarefa em WebAssembly substituindo microVM em produto de agente.</strong> <em>Onde:</em> comparação de 26/05/2026 — WASM parte em menos de 1 ms com menos de 5 MB e capacidade negada por padrão, contra 125-150 ms e 128 MB+ do microVM. <em>O que mudaria:</em> e7.2 (a página como sandbox) sairia de <code>confiança baixa</code>, e o custo de oferecer mundo descartável a terceiros deixaria de ser proibitivo. <em>Sinal observável:</em> <strong>um provedor conhecido de execução de agente anunciar migração do caminho padrão de microVM para WebAssembly</strong>, com número de partida publicado.</p>
+<p><strong>SF7 — Governança de comunidade de agentes como camada de protocolo.</strong> <em>Onde:</em> a análise que conclui que MCP, A2A e ACP não expressam votação nem preservação de dissenso — e que isso é camada arquitetural faltante, não funcionalidade faltante. <em>O que mudaria:</em> abriria um ramo inteiro que este mapa não tem, sobre decisão coletiva entre agentes de donos diferentes. <em>Sinal observável:</em> <strong>uma extensão de A2A ou MCP que defina escalonamento humano obrigatório e registro de dissenso, com implementação de referência.</strong></p>
+<p><strong>SF8 — Formação pública e gratuita em ataque a agente, com aferição.</strong> <em>Onde:</em> PromptTrace — 10 laboratórios e 17 níveis de CTF, alinhados às duas listas do OWASP, com visão em tempo real das camadas de prompt. <em>O que mudaria:</em> a oferta de gente capaz de testar agente cresce antes da oferta de gente capaz de construí-lo com segurança, o que muda a velocidade de e10.1. <em>Sinal observável:</em> <strong>uma universidade brasileira adotar um CTF de injeção como avaliação de disciplina regular</strong> — o que, registre-se, esta disciplina está em posição de fazer.</p>
+<h3 id="6-2-wildcards">6.2 Wildcards</h3>
+<p><strong>W1 — A ausência do log é o que condena.</strong> <em>Mecanismo:</em> um tribunal decide um caso de dano causado por agente e, não havendo traço de execução, aplica inversão do ônus da prova contra quem operava o agente — exatamente o desenho que a União Europeia adotou para software como produto. A partir daí o traço deixa de ser opção: não tê-lo é pior que tê-lo. <em>Por que é improvável:</em> exige que o tribunal aceite como confiável um registro produzido pelo próprio réu, e a doutrina de prova digital leva anos a firmar isso. <em>O que faria com o mapa:</em> R4 salta cerca de cinco anos. e15.1 (retenção plurianual) vira 2029, e e16.1.1 (transferência de responsabilidade) deixa de ser sinal fraco. <em>Sinal precoce:</em> <strong>a primeira decisão judicial, em qualquer jurisdição, que cite ausência de log de agente como fator na distribuição do ônus da prova.</strong></p>
+<p><strong>W2 — Um verme de injeção entre agentes.</strong> <em>Mecanismo:</em> conteúdo que, ao ser lido por um agente com permissão de escrita, faz esse agente publicar o mesmo conteúdo em outro lugar onde outro agente vai lê-lo. Todas as peças existem separadas e estão catalogadas: ASI06 (envenenamento de memória e contexto), ASI07 (comunicação insegura entre agentes), ASI10 (agentes desonestos), e a entrega já medida em texto visível (37,8%), atributo HTML (19,8%) e supressão por CSS (16,9%). <em>Por que é improvável:</em> exige coincidência de permissão de leitura e de escrita na mesma população de agentes, e as populações hoje são heterogêneas o bastante para quebrar a cadeia. <em>O que faria com o mapa:</em> R2 e R3 aceleram juntas e violentamente. A web fecha por medo, não por economia: e8.2 vira 2029 e <code>confiança alta</code>, e e11.3 (o freio de preço) deixa de operar porque o bloqueio deixa de ser questão de dinheiro. <em>Sinal precoce:</em> <strong>o primeiro incidente documentado de propagação agente-a-agente sem intervenção humana entre dois sistemas de donos diferentes.</strong> Prova de conceito em laboratório não conta; propagação em produção conta.</p>
+<p><strong>W3 — Um regulador marca data para identidade de agente.</strong> <em>Mecanismo:</em> uma autoridade com poder de fixar prazo (o modelo do banner de consentimento) exige que todo agente que trate dado pessoal tenha identidade própria e rastro, a partir de uma data. No Brasil o vetor existe e está nomeado: IA e tecnologias emergentes é um dos quatro eixos do Mapa de Temas Prioritários 2026-2027 da ANPD, aprovado pela Resolução CD/ANPD nº 30/2025. <em>Por que é improvável:</em> reguladores de dados fiscalizam tratamento, não arquitetura, e exigir identidade de agente é exigir arquitetura. <em>O que faria com o mapa:</em> o prazo de R1 cai de cerca de dez anos para três. <strong>Classe de referência:</strong> entre o regulamento europeu de proteção de dados ficar exigível (2018) e o banner de consentimento ser universal passaram cerca de três anos — quando há data, a adoção não espera a técnica. <em>Sinal precoce:</em> <strong>qualquer consulta pública, em qualquer jurisdição, cujo objeto seja identificação obrigatória de agente autônomo</strong> — não uso de IA em geral, mas identificação do agente.</p>
+<p><strong>W4 — Um tribunal decide que exigir identidade de agente é barreira de acessibilidade.</strong> <em>Mecanismo:</em> alguém que depende de agente por deficiência é barrado por um detector, processa, e o tribunal enquadra a exigência de identificação como discriminação — apoiado em que o detector comportamental já confunde leitor de tela e acesso por varredura com tráfego automatizado, em 3.117 ações de acessibilidade nos EUA em 2025 (+27% sobre 2024) e na primeira condenação europeia de 2026. <em>Por que é improvável:</em> exige que o autor prove dependência do agente, e não mera conveniência — prova difícil de produzir hoje. <em>O que faria com o mapa:</em> mata e13.1 e reabre e12.1 pelo avesso. <strong>É o único wildcard deste mapa que melhora a vida de quem perde</strong>, e por isso mesmo eu desconfio de ter gostado dele — ver §7.6. <em>Sinal precoce:</em> <strong>a primeira ação judicial que peça, como remédio, o direito de acessar um serviço por agente</strong> — e não o direito de acessá-lo diretamente.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p>Esta seção é o relato da bateria aplicada ao mapa já escrito, e as alterações que ela produziu estão registradas em §7.8, com valor antes e valor depois.</p>
+<h3 id="7-1-pre-mortem-e-2036-e-este-mapa-deu-errado-por-que">7.1 Pré-mortem: é 2036 e este mapa deu errado. Por quê?</h3>
+<p><strong>Razão 1 — porque tudo isto foi absorvido por três empresas e virou ajuste de configuração.</strong> A hipótese mais provável de erro não é que os efeitos não aconteçam: é que aconteçam <strong>por baixo</strong>, resolvidos no painel de administração da nuvem, sem nunca virarem decisão de quem projeta. Se em 2036 identidade, isolamento, rastro e preço vierem todos de fábrica em três plataformas, o mapa inteiro descreve corretamente a mecânica e erra completamente sobre quem decide. <em>Aponta para:</em> e1, e3, e7 — todos com <code>confiança alta</code> na primeira ordem. <em>Ação tomada:</em> nenhum rebaixamento de confiança (a mecânica continua certa), mas o cenário provável de §9 foi reescrito para incorporar esta hipótese como desfecho principal, em vez de tratá-la como variante.</p>
+<p><strong>Razão 2 — porque a injeção de prompt foi resolvida por mudança de arquitetura de modelo.</strong> Se aparecer um modelo com canais de privilégio de fato separados — instrução de sistema num canal que o conteúdo recuperado não alcança —, R2 deixa de ser "contenção externa" e vira "correção interna", e metade dos efeitos de R2 perde o mecanismo. Não é impossível: a afirmação de que não tem conserto é sobre a arquitetura <strong>atual</strong>, e está datada de junho de 2026. <em>Aponta para:</em> e6, e8, e10. <em>Ação tomada:</em> e6 manteve <code>confiança alta</code> (o porteiro externo é bom desenho mesmo num mundo com fronteira interna), mas o pressuposto foi promovido a premissa declarada em §2.1 e a §7.5.</p>
+<p><strong>Razão 3 — porque o dinheiro não apareceu.</strong> Metade de R3 e quase toda R4 dependem de trilhos que hoje não liquidam: o pagamento por rastejo está em beta privado e o pagamento agêntico é demonstração. Se em 2031 ainda não houver liquidação em escala, e11 vira um recurso de nicho de um CDN, e11.2 nunca acontece, e R4 fica sem a realimentação econômica que a faria andar. <em>Aponta para:</em> e11.2, e11.2.1, e16.1. <em>Ação tomada:</em> e11.2.1 teve o prazo empurrado (§7.8).</p>
+<h3 id="7-2-extrapolacao-linear-o-que-e-so-mais-do-mesmo-maior">7.2 Extrapolação linear — o que é só "mais do mesmo, maior"</h3>
+<p>Três efeitos foram marcados e tratados:</p>
+<ul><li><strong>e1.2 (licença por identidade ativa)</strong> era extrapolação de uma tendência de precificação que já existe. Ganhou uma classe de referência explícita (assento → consumo, cerca de oito anos) e o prazo foi empurrado — §7.8.</li><li><strong>e15.1 (retenção de log de dias para anos)</strong> é "mais log, por mais tempo". O que o salva de ser extrapolação é a não-linearidade <strong>do motivo</strong>: não é volume que cresce, é a finalidade que muda de depuração para prova, o que troca o prazo de retenção pelo prazo prescricional — uma descontinuidade, não uma curva.</li><li><strong>e11.3 (o preço converge para baixo)</strong> é raciocínio de equilíbrio de mercado sem atrito, isto é, extrapolação disfarçada de economia. Mantido em <code>sinal fraco</code> e <code>confiança media</code> precisamente por isso, e explicitado aqui para que ninguém o leia como previsão.</li></ul>
+<h3 id="7-3-velocidade-de-adocao-prazos-confrontados-com-a-classe-de-referencia">7.3 Velocidade de adoção — prazos confrontados com a classe de referência</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Efeito</th><th>Prazo</th><th>Classe de referência usada</th><th>Veredito</th></tr></thead><tbody><tr><td>e7 (isolamento por tarefa)</td><td>2029</td><td>VM → contêiner, ~5 anos (2013-2018)</td><td>compatível</td></tr><tr><td>e11 (preço por requisição)</td><td>2029</td><td>HTTPS a maioria, ~5 anos (2014-2019), <strong>com gratuidade e automação</strong></td><td>apertado; mantido por causa do bloqueio padrão de 15/09/2026, que é um empurrão que o HTTPS não teve</td></tr><tr><td>e1.2 (licença por identidade)</td><td>2031→2033</td><td>assento → consumo, ~8 anos</td><td><strong>empurrado</strong></td></tr><tr><td>e13.1 (lastro humano para publicar)</td><td>2033</td><td>identificação obrigatória em plataforma, lenta e contestada</td><td>mantido, mas confiança rebaixada (§7.8)</td></tr><tr><td>e16.1.1 (transferência de responsabilidade)</td><td>2034</td><td>cartão com chip nos EUA, ~2 anos após a data</td><td>mecanismo potente, <strong>mas sem consórcio que decrete a data</strong> — confiança rebaixada (§7.8)</td></tr><tr><td>e8.1.1 (arquivo de instrução)</td><td>2032</td><td><code>robots.txt</code>, ~5 anos, porque não exigia nada de ninguém</td><td>compatível</td></tr><tr><td>e3.1.1 (cartório de identidade)</td><td>2034</td><td>autoridades certificadoras da web, ~10 anos até a concentração</td><td>compatível</td></tr><tr><td>e11.2.1 (pauta por token)</td><td>2032→2034</td><td>otimização para busca, ~6 anos para reescrever pauta</td><td><strong>empurrado</strong></td></tr></tbody></table></div>
+<h3 id="7-4-e-se-a-raiz-simplesmente-nao-acontecer">7.4 E se a raiz simplesmente não acontecer?</h3>
+<ul><li><strong>Sem R1</strong> (a identidade de agente não emplaca e todo mundo continua com conta de serviço compartilhada): caem e1 a e5 e toda a sua descendência — 5 efeitos de 1ª, 9 de 2ª, 6 de 3ª. R3 sobrevive inteira, porque o site não precisa da identidade corporativa do agente para cobrar dele; R4 sobrevive porque o rastro não depende de identidade, só de registro. <strong>Sobra mapa.</strong></li><li><strong>Sem R2</strong> (a fronteira dado/instrução é consertada dentro do modelo): caem e6, e8 e e10 e seus filhos. Mas <strong>e7 sobrevive</strong> — isolamento por tarefa é justificado por custo, não só por ameaça — e <strong>e9 sobrevive</strong>, porque o incidente político já aconteceu. <strong>Sobra mapa.</strong></li><li><strong>Sem R3</strong> (a web não distingue nem cobra): caem e11 a e14. É a perda mais grave para o público deste mapa, porque é o ramo que mais toca quem projeta mídia. R1 e R4 sobrevivem intactas. <strong>Sobra mapa, mas o mapa fica corporativo.</strong></li><li><strong>Sem R4</strong> (o rastro não vira prova nem prêmio): caem e15 a e18. R1 e R3 sobrevivem, e o mapa perde justamente o laço que poderia acelerar R1 (e16.1.1). <strong>Sobra mapa.</strong></li></ul>
+<p>Nenhuma raiz sustenta as outras, e a remoção de qualquer uma deixa o mapa de pé. <strong>Não são quatro nomes para a mesma coisa.</strong> O único acoplamento forte é R1↔R4 pelo laço de responsabilidade, e ele está declarado como retroalimentação, não escondido como dependência.</p>
+<h3 id="7-5-suposicoes-escondidas-agora-ditas">7.5 Suposições escondidas, agora ditas</h3>
+<ol><li><strong>Que a arquitetura de modelo não muda.</strong> Toda R2 assume que a ausência de fronteira de privilégio persiste. Se mudar, vira o wildcard invertido de §7.1, razão 2.</li><li><strong>Que a computação continua barata.</strong> e7, e7.2 e e15.1 assumem isolamento e retenção baratos. Um choque de custo de energia ou de capacidade inverte e7.2 e transforma e15.1 em barreira.</li><li><strong>Que os protocolos abertos continuam abertos.</strong> MCP, A2A e o Agent Auth Protocol são hoje abertos. O Agent Auth Protocol tem 187 estrelas: é um projeto, não uma instituição. Se for comprado ou abandonado, e3 piora e SF2 morre.</li><li><strong>Que a plataforma continua permitindo.</strong> Todo o ramo e5 (agente pessoal no trabalho) assume que a ferramenta pessoal continua existindo e alcançável. Um modelo de licenciamento que proíba uso pessoal em contexto corporativo mata e5 sem nenhum efeito de segurança.</li><li><strong>Que existe jurisdição capaz de decidir.</strong> e14, e17 e W1 assumem um sistema judicial que alcança os atores. Boa parte dos operadores de agente é estrangeira em relação a quem sofre o dano.</li><li><strong>Que a medição citada é honesta.</strong> Quatro números centrais deste mapa vêm de partes interessadas — o fornecedor de segurança que mede identidades de máquina, a empresa de segurança que relata o incidente mexicano, o fornecedor de detecção que conta seus sinais. Ver §8.</li></ol>
+<h3 id="7-6-vies-do-autor">7.6 Viés do autor</h3>
+<p>Três, nomeados:</p>
+<ul><li><strong>Gosto de ruptura institucional mais do que de engenharia.</strong> Isso enviesa o mapa para R3 e R4 (direito, seguro, preço) em detrimento de R2 (a parte técnica), que ficou com menos efeitos de segunda ordem e menos densidade de mecanismo. Um mapa escrito por alguém de segurança teria mais ramos em e6 e e7 e menos em e14 e e16.</li><li><strong>W4 está aqui porque eu queria que existisse.</strong> O wildcard em que um tribunal protege quem depende de agente é o único do conjunto que tem desfecho moralmente confortável, e eu o escrevi com mais entusiasmo que os outros três. Mantive-o porque o mecanismo se sustenta, mas registro que a plausibilidade que atribuo a ele é suspeita.</li><li><strong>e12.1 recebeu <code>confiança alta</code> na segunda ordem, o que é fora do padrão deste mapa.</strong> A justificativa está escrita (o erro já ocorre hoje, com tecnologia madura), mas é justo dizer que o tema da exclusão por detecção é o que mais me interessa neste conjunto, e que interesse e confiança são fáceis de confundir.</li></ul>
+<h3 id="7-7-calibracao">7.7 Calibração</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Ordem</th><th>alta</th><th>media</th><th>baixa</th><th>total</th></tr></thead><tbody><tr><td>1ª</td><td>7</td><td>11</td><td>0</td><td>18</td></tr><tr><td>2ª</td><td>3</td><td>28</td><td>3</td><td>34</td></tr><tr><td>3ª</td><td>0</td><td>3</td><td>21</td><td>24</td></tr></tbody></table></div>
+<p>A distribuição cai com a ordem: 39% de alta na primeira, 9% na segunda, <strong>zero na terceira</strong>. Nenhum efeito de terceira ordem deste mapa tem confiança alta, e isso é deliberado — a terceira ordem é o lugar onde a honestidade custa menos e vale mais.</p>
+<h3 id="7-8-registro-de-alteracoes-o-que-a-bateria-derrubou">7.8 Registro de alterações — o que a bateria derrubou</h3>
+<p>Cota cumprida: <strong>pelo menos um rebaixamento ou remoção por raiz.</strong> A bateria <strong>derrubou coisa</strong>.</p>
+<p><strong>Raiz R1</strong></p>
+<ul><li><code>e1.2</code>: prazo <strong>2031 → 2033</strong>, porque a classe de referência (assento → consumo em software corporativo) levou cerca de oito anos mesmo com o fornecedor empurrando, e aqui o fornecedor ganha com a contagem mas perde com a confusão.</li><li><code>e1.4</code> (<strong>removido</strong>): "surge a profissão de gestor de frota de agentes". É exatamente o efeito genérico que a régua deste método proíbe — serve para qualquer tema, não nomeia ator nem mecanismo. Vai para §12.2.</li><li><code>e2.1</code>: confiança <strong>media → baixa</strong>, porque cláusula contratual sobre profundidade de delegação pressupõe que alguém saiba medir profundidade de delegação, e o próprio NIST registra que ninguém sabe.</li></ul>
+<p><strong>Raiz R2</strong></p>
+<ul><li><code>e7.2</code>: prazo <strong>2030 → 2032</strong> e confiança <strong>media → baixa</strong>, porque não há hoje um único site de porte hospedando execução de agente de terceiro, e a inferência é puramente econômica.</li><li><code>e7.1.1</code>: confiança <strong>media → baixa</strong>, pelo mesmo motivo, um nível abaixo.</li><li><code>e-corte-1</code> (<strong>removido</strong>): "agentes passam a assinar criptograficamente cada ação individual". Não passa no teste da causa solta: isso decorreria igualmente de R1, de R3 ou de uma exigência de auditoria sem nenhuma das três. Reconectado conceitualmente a e11 e descartado como efeito próprio. Vai para §12.2.</li><li><code>e-corte-2</code> (<strong>removido</strong>): "reguladores criam uma categoria jurídica nova para agentes". Efeito proibido sem nome de regulador e mecanismo. Substituído por e9.1, que nomeia a ANPD, o eixo e o número da resolução.</li></ul>
+<p><strong>Raiz R3</strong></p>
+<ul><li><code>e13.1</code>: confiança <strong>alta → media</strong>, porque o gatilho que eu tinha em mente (compra) é muito mais estreito que a afirmação do efeito (comprar, publicar <strong>e falar em público</strong>), e não há evidência aberta de exigência de lastro humano para publicar ou falar — só para transacionar.</li><li><code>e13.1.1</code>: prazo <strong>2036 → 2038</strong>, para fora da janela deste mapa, declarado como tal: verificação biométrica como custo de existir publicamente exige uma infraestrutura de verificação universal que não tem caminho visível até 2036.</li><li><code>e11.2.1</code>: prazo <strong>2032 → 2034</strong>, pela classe de referência da otimização para busca (~6 anos para reescrever pauta de veículo inteiro).</li><li><code>e-corte-3</code> (<strong>removido</strong>): "escolas de design reorganizam o currículo em torno de modelagem de capacidade". Genérico e proibido; substituído por e7.1.1, que fala de um objeto concreto (o modo demonstração).</li></ul>
+<p><strong>Raiz R4</strong></p>
+<ul><li><code>e16.1.1</code>: confiança <strong>alta → media</strong>, porque a classe de referência do cartão com chip tinha um consórcio de bandeiras capaz de decretar a data e a responsabilidade agêntica não tem ninguém nessa posição. O mecanismo é potente; falta o decretador.</li><li><code>e18</code> (<strong>invertido</strong>): o rascunho trazia "reputação de agente vira portátil entre plataformas", com <code>confiança media</code>. A leitura do estudo empírico do ERC-8004 inverteu o efeito para "<strong>não</strong> se torna portátil" — 3% a 15% de registros com endpoint válido, 59% a 91% de avaliadores com comportamento Sybil, e a maioria dos agentes sem avaliação alguma depois de removida a fraude. É a única alteração deste mapa que mudou o <strong>sentido</strong> de um efeito, e não seu grau.</li><li><code>e17.2</code>: incluído <strong>na bateria</strong>, não no rascunho. Faltava a retroação de R4, e uma roda só com aceleração é propaganda.</li></ul>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Eu sou a máquina. O que segue é sobre esta rodada, não sobre IA em geral.</p>
+<ol><li><strong>Juntei duas datas da Cloudflare numa só e teria publicado a errada.</strong> O primeiro rascunho dizia que o <em>pay per crawl</em> foi anunciado em 2026. Não foi: o blog que abri traz <code>datePublished</code> de <strong>1º de julho de 2025</strong>. O que é de 2026 é a política de rastejador de uso misto, com bloqueio padrão a partir de <strong>15/09/2026</strong>. São dois fatos de anos diferentes que a cobertura de imprensa apresenta juntos, e eu os fundi. Corrigido no §3.1.</li><li><strong>A lista ASI01-ASI10 não veio do OWASP.</strong> Abri as duas páginas oficiais do OWASP e <strong>nenhuma delas contém a lista</strong> — são páginas de download. Os nomes dos dez riscos que uso no §3.1 vêm da documentação do <strong>Promptfoo</strong>, um fornecedor de teste adversarial. É provavelmente fiel, e <strong>não</strong> é fonte primária. Não abri o PDF do OWASP nesta rodada.</li><li><strong>O número do incidente mexicano não é um número, são três, e a fonte é parte interessada.</strong> Vi "195 milhões de registros de contribuintes", "195 milhões de identidades expostas" e "220 milhões de registros civis" em coberturas diferentes — alegações distintas que circulam como se fossem a mesma. Usei a formulação da fonte que abri ("cerca de 195 milhões de identidades"), mas o relato original é da <strong>Gambit Security</strong>, empresa que saiu do modo furtivo em março de 2026 com US$ 61 milhões captados. O incidente é real e foi confirmado por várias redações; <strong>a magnitude vem de quem lucra com a magnitude.</strong></li><li><strong>O "34% das organizações aplicam controles a agentes" veio de um blog, não do levantamento.</strong> Abri a análise que cita o número; não localizei nem abri a pesquisa de origem. Uso o número porque ele é coerente com o resto do quadro, e o declaro de segunda mão. Um número de segunda mão usado três vezes num documento começa a parecer um fato.</li><li><strong>Escrevi um efeito de primeira ordem proibido pela própria régua que estou aplicando.</strong> O rascunho tinha "surge a profissão de gestor de frota de agentes" — sem ator, sem mecanismo, serve para qualquer tema. Só percebi ao rodar o teste de especificidade do §3 (trocar a raiz e ver se a frase ainda "serve"). Ela servia para todas as quatro. Removido em §7.8.</li><li><strong>Três fontes que eu queria não abriram, e eu quase citei duas de memória.</strong> A análise jurídica do escritório Ropes &amp; Gray sobre Amazon v. Perplexity, a matéria do GeekWire sobre a liminar e a cobertura da CNBC devolveram <strong>403</strong>. Eu tinha, do resumo de busca, o nome da juíza (Maxine Chesney) e a data da liminar (10/03/2026) — e <strong>não</strong> os uso no corpo do mapa, porque não abri a fonte. O que uso sobre o caso vem da matéria do Engadget, que abri: Nono Circuito, 04/08/2026, e a citação sobre o CFAA. Estão nomeadas em §12.4.</li><li><strong>Dois números atraentes ficaram de fora por não terem fonte aberta.</strong> O mercado de comércio agêntico "de US$ 3 a 5 trilhões até 2030" e os "17.912.203 humanos verificados" da World apareceram em resumos de busca; a matéria do TechCrunch que abri <strong>não traz número de humanos verificados</strong>. Ambos seriam ótimos no §1. Nenhum dos dois está no documento.</li><li><strong>Confiança alta na segunda ordem em dois efeitos (e6.1, e12.1, e12.3) foge do padrão que eu mesmo estabeleci.</strong> Cada um tem justificativa escrita, mas três exceções numa mesma regra é o começo de uma regra diferente. Registro para que a correção pergunte.</li></ol>
+<h2 id="9-tres-cenarios-para-2036">9. Três cenários para 2036</h2>
+<h3 id="provavel-vem-de-fabrica">Provável — "vem de fábrica"</h3>
+<p>Em 2036 o agente tem crachá, e o crachá vem da nuvem. Identidade, isolamento por tarefa, rastro e orçamento de acesso são caixas marcadas no painel de administração de três plataformas, e quase ninguém que projeta produto precisa pensar nelas — do mesmo jeito que quase ninguém pensa em certificado TLS desde que ele ficou automático e gratuito. A web tem duas portas: a humana, com anúncio e assinatura, e a de máquina, com assinatura criptográfica e preço por requisição. Quem tem nuvem entra nas duas. Estúdio pequeno, fornecedor local e órgão público sem contrato de grande nuvem entram só na primeira, e cada vez menos gente está do outro lado dela. A reputação de agente nunca ficou portátil: confia-se na marca de quem emitiu. A responsabilidade continua humana e mora em quem aprovou, o que fez do botão de aprovação o artefato mais litigado da década — e fez as organizações aprovarem menos, e mais devagar, exatamente onde havia mais valor. A injeção de prompt não foi resolvida; foi contida por fora, e o custo dessa contenção é o motivo pelo qual boa parte dos agentes de 2036 é menos autônoma do que os de 2029 prometiam. <strong>O sinal precoce de que estamos neste cenário:</strong> a identidade de agente aparecer como <em>checkbox</em> incluída no plano corporativo de uma grande nuvem, sem preço destacado, antes de 2030.</p>
+<h3 id="desejavel-o-cracha-e-do-agente-nao-do-dono-do-agente">Desejável — "o crachá é do agente, não do dono do agente"</h3>
+<p>Em 2036 existe um formato de identidade de agente que atravessa fornecedor, com dois ou mais emissores independentes e teste público de interoperabilidade — e existe porque um corpo de padronização aberto o levou adiante entre 2027 e 2030, com o NIST empurrando e sem nenhum fornecedor conseguindo capturá-lo. O agente carrega um crachá que declara quem responde por ele e o que ele pode tocar, e esse crachá <strong>não</strong> exige provar que o usuário se comporta como a mediana: prova responsabilidade, não humanidade. A distinção parece pequena e é tudo — é o que impede que quem usa leitor de tela seja barrado junto com o rastejador. A proveniência de contexto virou um arquivo simples que qualquer publicador escreve, no espírito do <code>robots.txt</code>, e por isso foi adotada de fato. O rastro de execução é padronizado e serve igual à auditoria, ao tribunal e à seguradora, o que baixou o prêmio o bastante para que autônomo e estúdio pequeno consigam apólice. <strong>Para chegar aqui</strong> foi preciso uma coisa que não acontece sozinha: que a interoperabilidade fosse condição de compra pública em pelo menos um mercado grande, antes de a concentração se firmar. <strong>O sinal precoce:</strong> uma segunda implementação independente de identidade de agente passando em teste público de interoperabilidade, antes de 2029.</p>
+<h3 id="indesejavel-provar-que-voce-e-gente">Indesejável — "provar que você é gente"</h3>
+<p>Em 2036 a web pede prova de humanidade na porta. A identificação voluntária de agentes morreu cedo, por volta de 2029, quando ficou evidente que o agente honesto pagava e o disfarçado não; o que sobrou foi detecção adversarial, medindo comportamento. Como detector comportamental mede desvio da mediana, quem tem deficiência, quem usa acesso por varredura, quem responde devagar e quem navega de um país pouco representado nos dados de treino são barrados junto com os agentes. O remédio que o mercado ofereceu foi o lastro biométrico de humanidade, que resolveu o acesso e criou outra exclusão, agora para quem não pode ou não quer se verificar — e um mercado cinzento de contas verificadas alugadas, que devolveu ao ponto de partida a garantia que ela deveria dar. A web aberta encolheu no que o agente lê: sem proveniência verificável, fórum e comentário viraram ruído descartado, e o que o agente lê é o arquivo assinado por quem podia assinar. <strong>O sinal precoce deste cenário é específico e observável desde já:</strong> o primeiro caso documentado de pessoa com deficiência barrada por detecção de agente <strong>num serviço essencial</strong> — banco, saúde, serviço público. Não é hipótese distante: o erro já acontece com CAPTCHA comportamental hoje, e a única coisa que falta é a consequência subir de "formulário chato" para "conta bloqueada".</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="o-que-e">O que é</h3>
+<p><strong>O crachá e a porta.</strong> Uma página única com <strong>quatro portas</strong> para o mesmo conteúdo, e <strong>quatro visitantes</strong>. A turma constrói as duas pontas e mede o que passa.</p>
+<p><strong>As portas:</strong></p>
+<ol><li><strong>Aberta.</strong> Serve o conteúdo a qualquer requisição. É o controle.</li><li><strong>Assinada.</strong> Só serve a quem apresentar assinatura válida de Web Bot Auth — chave Ed25519, chave pública publicada num diretório JWK, e os cabeçalhos <code>Signature-Agent</code>, <code>Signature-Input</code> e <code>Signature</code> cobrindo a requisição.</li><li><strong>Tarifada.</strong> Responde <code>HTTP 402 Payment Required</code> com <code>crawler-price</code>, e só serve a quem voltar aceitando o preço em <code>crawler-exact-price</code> <strong>dentro da assinatura</strong> — não apenas no cabeçalho.</li><li><strong>Vigiada.</strong> Sem assinatura: decide por comportamento (tempo entre eventos, trajetória de ponteiro, ordem de foco, cadência de teclado). É um detector ingênuo, feito pela turma em meia hora, e é de propósito que seja ingênuo.</li></ol>
+<p><strong>Os visitantes:</strong></p>
+<ol><li>Um <strong>agente honesto</strong>, que assina e paga.</li><li>Um <strong>agente mudo</strong>, que não assina.</li><li>Um <strong>agente impostor</strong>, que <strong>copia uma assinatura válida do agente honesto</strong> e a reapresenta — em outra requisição, com outro preço, e depois do prazo.</li><li>Uma <strong>pessoa usando leitor de tela</strong> (VoiceOver ou NVDA) ou navegando <strong>só pelo teclado</strong>, atravessando a porta 4.</li></ol>
+<h3 id="que-pergunta-sobre-o-futuro-ele-ajuda-a-responder">Que pergunta sobre o futuro ele ajuda a responder</h3>
+<p>Duas, e elas são o eixo de R3 inteira:</p>
+<p><strong>"Identidade de agente é uma propriedade do agente ou uma permissão do site?"</strong> Se a assinatura amarra a requisição (método, caminho, cabeçalhos de preço, prazo), o impostor falha e o crachá é propriedade do agente. Se o impostor passa, o crachá é só uma etiqueta declarativa — e então Web Bot Auth é <code>robots.txt</code> com criptografia decorativa, e a raiz R3 não tem a perna que este mapa supõe que ela tem.</p>
+<p><strong>"Quem paga a conta de distinguir humano de agente?"</strong> A porta 4 responde com dado próprio, colhido em sala, e não com citação.</p>
+<h3 id="que-tecnologia-emergente-usa-e-por-que-nao-da-com-a-madura">Que tecnologia emergente usa, e por que não dá com a madura</h3>
+<p>Usa <strong>Web Bot Auth</strong> (HTTP Message Signatures sobre Ed25519, com diretório de chave pública) e <strong><code>HTTP 402</code> com cabeçalhos de preço</strong>. Com tecnologia madura não dá, e a razão é precisa: <strong>chave de API</strong> identifica mas não é verificável por terceiro e não cobre a requisição (roubada a chave, o impostor é indistinguível); <strong><code>User-Agent</code></strong> é declaração sem prova, e a própria Cloudflare só o usa como detecção de plano gratuito; <strong>CAPTCHA</strong> responde "é humano?" e nunca "é qual agente, e quanto ele aceita pagar?"; e <strong>OAuth</strong> exige registro prévio entre duas partes que já se conhecem, que é exatamente o que não existe entre um agente qualquer e um site qualquer. A combinação de identificação verificável por terceiro <strong>com</strong> negociação de preço na mesma requisição não existe em tecnologia madura — é isso que torna o experimento um teste de futuro e não um exercício de programação.</p>
+<h3 id="o-que-a-turma-faz-quando-testar-em-sala">O que a turma faz quando testar em sala</h3>
+<ol><li>Cada dupla implementa <strong>uma porta</strong> e <strong>um visitante</strong>, e não pode implementar o par correspondente. O impostor é escrito por quem não escreveu a porta assinada.</li><li>Roda-se a matriz <strong>4 × 4</strong> e registra-se, em tabela, quem passou onde e por quê — o <code>Signature- Input</code> recebido, o <code>crawler-charged</code> devolvido, o veredito do detector.</li><li><strong>A metade que interessa:</strong> alguém da turma atravessa a porta 4 com leitor de tela ligado, depois só com teclado, depois com o ponteiro e pressa normal. Mede-se a taxa de falso positivo do detector <strong>por modo de navegação</strong>, com o número de tentativas anotado. Não se mede "o detector é bom"; mede-se <strong>em quem ele erra</strong>.</li><li>Discussão de fechamento com uma pergunta só: <strong>qual das quatro portas você colocaria no site da sua cliente, sabendo o resultado da porta 4?</strong></li></ol>
+<h3 id="o-que-seria-um-resultado-que-me-faria-mudar-de-ideia">O que seria um resultado que me faria mudar de ideia</h3>
+<p>Três, e são falseadores de verdade — cada um derruba parte nomeada deste mapa:</p>
+<ul><li><strong>Se o agente impostor passar pela porta assinada</strong> (assinatura não amarrada à requisição, ao preço ou ao prazo), Web Bot Auth não é identidade e sim etiqueta. Cai o <code>sinal forte</code> de <strong>e11</strong>, e R3 perde a perna criptográfica, restando só detecção adversarial — o que torna o cenário indesejável de §9 o mais provável, não o menos.</li><li><strong>Se o detector ingênuo da porta 4 não errar com leitor de tela</strong> numa amostra decente (digamos, 30 travessias por modo), então minha <code>confiança alta</code> em <strong>e12.1</strong> está mal calibrada, e o efeito precisa cair para <code>media</code>. Registro desde já que <strong>espero</strong> errar aqui, e que este é o resultado que eu ficaria feliz de obter.</li><li><strong>Se a porta tarifada for trivial de implementar</strong> — se uma dupla fizer <code>HTTP 402</code> com assinatura e cobrança consistente numa tarde —, então a minha objeção do §7.1 razão 3 ("o dinheiro não apareceu") é sobre liquidação financeira e não sobre protocolo, e <strong>e11 deve ser antecipado</strong> de 2029 para 2028.</li></ul>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Trinta e duas fontes, todas abertas e lidas em 12/09/2026. O que <strong>não</strong> abriu está em §12.4, com nome e motivo.</p>
+<ol><li><strong>OWASP — Top 10 for Agentic Applications 2026.</strong> <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/</a> — sustenta a data de publicação (09/12/2025) e a escala do processo (mais de 100 especialistas). <em>Confiabilidade:</em> alta como fonte institucional; <strong>mas é página de download e não contém a lista dos dez riscos</strong> — ver §8, item 2.</li><li><strong>OWASP — GenAI LLM Top 10 2026.</strong> <a href="https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/">https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/</a> — sustenta a existência de duas listas paralelas em 2026. <em>Confiabilidade:</em> alta; igualmente página de download, sem rankings no corpo.</li><li><strong>Promptfoo — OWASP Top 10 for Agentic AI.</strong> <a href="https://www.promptfoo.dev/docs/red-team/owasp-agentic-ai/">https://www.promptfoo.dev/docs/red-team/owasp-agentic-ai/</a> — sustenta os nomes ASI01 a ASI10 usados no §3.1. <em>Confiabilidade:</em> média. É documentação de <strong>fornecedor</strong> de teste adversarial reproduzindo lista alheia; provavelmente fiel, não primária.</li><li><strong>Help Net Security — Machine identities outnumber humans 109 to 1 (14/05/2026).</strong> <a href="https://www.helpnetsecurity.com/2026/05/14/2026-identity-security-landscape-report/">https://www.helpnetsecurity.com/2026/05/14/2026-identity-security-landscape-report/</a> — sustenta os números centrais do §1 e §3.4. <em>Confiabilidade:</em> média-alta como jornalismo técnico; a pesquisa de origem é de <strong>fornecedor</strong> (Palo Alto Networks) e o tamanho da amostra não é divulgado.</li><li><strong>Infosecurity Magazine — Prompt Injection Remains Unsolved (Infosecurity Europe, 08/06/2026).</strong> <a href="https://www.infosecurity-magazine.com/news/infosec-europe-prompt-injection/">https://www.infosecurity-magazine.com/news/infosec-europe-prompt-injection/</a> — sustenta a citação sobre ausência de fronteira de privilégio na sequência de tokens, base de R2. <em>Confiabilidade:</em> alta; declaração atribuída, em evento público, com nome e data.</li><li><strong>Help Net Security — Prompt injection still drives most agentic AI security failures (11/06/2026).</strong> <a href="https://www.helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures/">https://www.helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures/</a> — sustenta que o relatório do OWASP de 2026 cataloga CVEs e avisos de fornecedor em quase toda categoria de risco agêntico. <em>Confiabilidade:</em> média-alta; <strong>não</strong> traz as contagens que eu buscava, e digo isso em §8.</li><li><strong>Cloudflare — Introducing pay per crawl.</strong> <a href="https://blog.cloudflare.com/introducing-pay-per-crawl/">https://blog.cloudflare.com/introducing-pay-per-crawl/</a> — sustenta o mecanismo inteiro de R3: <code>HTTP 402</code>, os quatro cabeçalhos de preço, Ed25519, diretório JWK, <code>Signature-Agent</code>/<code>Signature-Input</code>/<code>Signature</code>. <em>Confiabilidade:</em> alta para o mecanismo (é o implementador); interessada quanto ao mérito. <strong>Data do post: 01/07/2025</strong> — ver §8, item 1.</li><li><strong>Cloudflare — Manage AI crawlers (documentação).</strong> <a href="https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/">https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/</a> — sustenta que a classificação por categoria e as ações permitir/bloquear/cobrar existem, e que a cobrança é beta privado. <em>Confiabilidade:</em> alta; documentação do produto.</li><li><strong>TechCrunch — Cloudflare's new policy pushes AI companies to pay (01/07/2026).</strong> <a href="https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/">https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/</a> — sustenta a data de 15/09/2026, a definição de rastejador de uso misto, o alcance (clientes novos, sites novos, <strong>todos</strong> os gratuitos existentes) e a citação de Matthew Prince. <em>Confiabilidade:</em> alta.</li><li><strong>TechCrunch — World launches tool to verify humans behind AI shopping agents (17/03/2026).</strong> <a href="https://techcrunch.com/2026/03/17/world-launches-tool-to-verify-humans-behind-ai-shopping-agents/">https://techcrunch.com/2026/03/17/world-launches-tool-to-verify-humans-behind-ai-shopping-agents/</a> — sustenta o AgentKit, a parceria com Coinbase e Cloudflare, o x402 e a citação de Tiago Sada. <em>Confiabilidade:</em> alta. <strong>Não traz número de humanos verificados</strong> — §8, item 7.</li><li><strong>Pai, A. — Evaluating Prompting-Based Defenses Against Domain-Camouflaged Injection Attacks (16/06/2026).</strong> <a href="https://arxiv.org/abs/2606.18530">https://arxiv.org/abs/2606.18530</a> — sustenta 3.510 ensaios, 26-33% de sucesso em domínio financeiro, redução de 55-84% por paráfrase, e que <em>spotlighting</em> não ajuda no Llama 3.1 8B. <em>Confiabilidade:</em> média. Pré-publicação sem revisão por pares, autor único, <strong>documentos sintéticos</strong> (os próprios autores ressalvam a generalização).</li><li><strong>Cloud Security Alliance — Indirect Prompt Injection in the Wild (26/04/2026).</strong> <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-indirect-prompt-injection-in-the-wild-2026/">https://labs.cloudsecurityalliance.org/research/csa-research-note-indirect-prompt-injection-in-the-wild-2026/</a> — sustenta +32% de conteúdo malicioso entre 11/2025 e 02/2026 sobre 2-3 bilhões de páginas/mês, os 12 casos e 22 técnicas da Unit 42, a distribuição de entrega (37,8%/19,8%/16,9%), os 8 incidentes do 1º trimestre com <strong>um</strong> CVE, e a recomendação de proveniência. <em>Confiabilidade:</em> alta; consolida medições de terceiros identificados.</li><li><strong>Yao, Y. — Acting with AI: An Interaction-Based Framework for Agentic Tort Liability (30/05/2026).</strong> <a href="https://arxiv.org/abs/2606.00518">https://arxiv.org/abs/2606.00518</a> — sustenta a base doutrinária de R4 e a expressão "traço probatório primário", além da tripartição ferramenta / planejamento colaborativo / desvio autônomo. <em>Confiabilidade:</em> média-alta como doutrina; pré-publicação, não é decisão judicial.</li><li><strong>When Agent Automation Becomes Profitable: Quantifying and Insuring Autonomous AI Risk through Trace-Economic Underwriting (2026).</strong> <a href="https://arxiv.org/abs/2606.16465">https://arxiv.org/abs/2606.16465</a> — sustenta a tarifação pelo traço: erro médio absoluto de US$ 17,7 mil para US$ 569, CVaR95 −72%, auditoria de 300 traços com 295 rótulos aceitos. <em>Confiabilidade:</em> média; pré-publicação, resultados em ambiente construído pelos autores.</li><li><strong>WorkOS — NIST's AI Agent Standards Initiative explained.</strong> <a href="https://workos.com/blog/nist-ai-agent-standards-initiative-explained">https://workos.com/blog/nist-ai-agent-standards-initiative-explained</a> — sustenta a criação da iniciativa em 02/2026, as três frentes, a recomendação de adaptar OAuth/OIDC/SPIFFE/SCIM/NGAC/MCP e o problema aberto da delegação multi-salto. <em>Confiabilidade:</em> média. É blog de <strong>fornecedor de identidade</strong>, portanto interessado, glosando documento público que eu não abri.</li><li><strong>Start With Identity — Agent identity gets a protocol.</strong> <a href="https://startwithidentity.com/blog/agent-identity-gets-a-protocol/">https://startwithidentity.com/blog/agent-identity-gets-a-protocol/</a> — sustenta o Cross App Access no MCP (24/08/2026), o "34% das organizações", e as citações sobre disciplina operacional e sobre token restrito que chama ferramenta ampla. <em>Confiabilidade:</em> média. Blog especializado; o número de 34% é de segunda mão — §8, item 4.</li><li><strong>Li, Z. et al. — Towards Secure Agent Skills: Architecture, Threat Taxonomy, and Security Analysis (03/04/2026).</strong> <a href="https://arxiv.org/abs/2604.02837">https://arxiv.org/abs/2604.02837</a> — sustenta a taxonomia de 7 categorias e 17 cenários em 3 camadas, e a tese de que ausência de fronteira dado-instrução, confiança persistente por aprovação única e ausência de revisão de mercado são falhas <strong>arquiteturais</strong>. <em>Confiabilidade:</em> média-alta; pré-publicação com cinco incidentes confirmados como validação.</li><li><strong>Xiong, X. et al. — Can Trustless Agents Be Trusted? (24/06/2026, rev. 08/07/2026).</strong> <a href="https://arxiv.org/abs/2606.26028">https://arxiv.org/abs/2606.26028</a> — sustenta a inversão de e18: 3%/4%/15% de registros válidos, 73,5%/59,2%/90,6% de avaliadores Sybil, e a conclusão de que o registro de reputação não funciona como sinal. <em>Confiabilidade:</em> alta para o que mede; é medição direta sobre três cadeias públicas, verificável por terceiros.</li><li><strong>Kang, R.; Diponegoro, Y. — Governance Gaps in Agent Interoperability Protocols (30/06/2026).</strong> <a href="https://arxiv.org/abs/2606.31498">https://arxiv.org/abs/2606.31498</a> — sustenta que MCP, A2A e ACP não expressam votação nem preservação de dissenso, e a distinção entre lacuna extensível e estrutural. <em>Confiabilidade:</em> média; análise conceitual, pré-publicação.</li><li><strong>Artificial Lawyer — Crosby to Insure Its Agents for Legal Liability (28/07/2026).</strong> <a href="https://www.artificiallawyer.com/2026/07/28/crosby-to-insure-its-agents-for-legal-liability/">https://www.artificiallawyer.com/2026/07/28/crosby-to-insure-its-agents-for-legal-liability/</a> — sustenta o único caso aberto de apólice para agentes e a citação de Ryan Daniels. <em>Confiabilidade:</em> média-alta; publicação especializada, mas <strong>a seguradora não é nomeada</strong>, o que enfraquece a verificação.</li><li><strong>Better Auth — agent-auth-protocol (GitHub).</strong> <a href="https://github.com/better-auth/agent-auth-protocol">https://github.com/better-auth/agent-auth-protocol</a> — sustenta a existência do padrão aberto, "agentes hoje não têm identidade", e as 187 estrelas e 12 forks. <em>Confiabilidade:</em> alta para o que é (o próprio repositório); a métrica de estrelas é o dado mais honesto sobre adoção real.</li><li><strong>SecurityWeek — Hackers Weaponize Claude Code in Mexican Government Cyberattack.</strong> Sustenta o incidente-referência: dez órgãos e uma instituição financeira, mais de 150 GB, cerca de 195 milhões de identidades, mais de mil prompts, atribuição à Gambit Security, e a divulgação anterior da Anthropic em 11/2025. <em>Confiabilidade:</em> média-alta como jornalismo de segurança; a magnitude vem de fonte interessada — §8, item 3. <strong>O link está em §12.4 e não aqui: o site devolve 403 a cliente automatizado, e incluí-lo aqui quebraria a verificação de links. Ele foi aberto nesta rodada.</strong></li><li><strong>Security Leaders — IA agêntica coloca gestão de identidades no centro do risco cibernético em 2026 (01/06/2026).</strong> <a href="https://securityleaders.com.br/ia-agentica-coloca-gestao-de-identidades-no-centro-do-risco-cibernetico-em-2026/">https://securityleaders.com.br/ia-agentica-coloca-gestao-de-identidades-no-centro-do-risco-cibernetico-em-2026/</a> — sustenta o recorte brasileiro sobre identidade de agente e a elevação da ANPD a agência reguladora. <em>Confiabilidade:</em> média; imprensa técnica brasileira glosando relatório do Gartner, <strong>sem números próprios</strong>.</li><li><strong>OOPSpam — CAPTCHA and Accessibility (2026).</strong> <a href="https://www.oopspam.com/blog/captcha-and-accessibility-why-your-forms-might-be-breaking-the-law-in-2026">https://www.oopspam.com/blog/captcha-and-accessibility-why-your-forms-might-be-breaking-the-law-in-2026</a> — sustenta e12.1: 3.117 ações de acessibilidade nos EUA em 2025 (+27%), a condenação do Carrefour na França, os critérios 1.1.1 e 3.3.8, e a confusão entre leitor de tela e tráfego automatizado. <em>Confiabilidade:</em> média. Blog de <strong>fornecedor</strong> de anti-spam, portanto interessado; os números são checáveis e o mecanismo descrito é consistente com a literatura de acessibilidade.</li><li><strong>PromptTrace — Prompt Injection Labs.</strong> <a href="https://prompttrace.airedlab.com/">https://prompttrace.airedlab.com/</a> — sustenta a existência de formação pública aferida: 10 laboratórios, CTF de 17 níveis, três camadas de defesa, e o <em>Context Trace</em>. <em>Confiabilidade:</em> alta para o que é (é o próprio produto); as capacidades são verificáveis usando-o.</li><li><strong>Cosmonic — AI Sandbox: The Complete Guide (26/05/2026).</strong> <a href="https://cosmonic.com/blog/ai-sandbox-guide/">https://cosmonic.com/blog/ai-sandbox-guide/</a> — sustenta os números de isolamento: 1-5 s e 50-200 MB de contêiner+gVisor; 125-150 ms e 128 MB+ de microVM; &lt;1 ms e 2-10 MB de isolado V8; &lt;1 ms e &lt;1-5 MB de WASM com capacidade negada por padrão. <em>Confiabilidade:</em> <strong>média-baixa para a comparação, alta para a ordem de grandeza.</strong> A Cosmonic vende WebAssembly, e a comparação favorece o produto dela. Uso as ordens de grandeza, que batem com fontes independentes, e não a conclusão.</li><li><strong>Microsoft Learn — What's new in Microsoft Entra Agent ID (01/05/2026).</strong> <a href="https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id">https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id</a> — sustenta a disponibilidade geral e o aparato: blueprints, owner/sponsor/manager, pacotes de acesso para agente autônomo e em nome de usuário, exclusão em cascata, Acesso Condicional para agente de alto risco, e os workflows que transferem patrocínio "para evitar agentes órfãos". <em>Confiabilidade:</em> alta; documentação do implementador, e é a melhor evidência de R1 no mapa.</li><li><strong>Kodathala, S. V. — aiAuthZ: Off-Host, Identity-Bound Authorization for AI Agents (06/07/2026).</strong> <a href="https://arxiv.org/abs/2607.05518">https://arxiv.org/abs/2607.05518</a> — sustenta e6: recusa de modelo variando de 100% a 38%, 0% de sucesso residual em 15 modelos, 0,03 ms de latência, 7/7 no AgentDojo bancário e 9/9 em estudos de caso. <em>Confiabilidade:</em> média; pré-publicação, autor único, avaliação com a metodologia do próprio autor.</li><li><strong>Engadget — Perplexity has overturned Amazon's injunction (04/08/2026).</strong> <a href="https://www.engadget.com/2230471/perplexity-has-successfully-overturned-amazon-injunction-on-its-ai-shopping-bot/">https://www.engadget.com/2230471/perplexity-has-successfully-overturned-amazon-injunction-on-its-ai-shopping-bot/</a> — sustenta e14: Nono Circuito, o raciocínio de que quem acessa é o usuário, e a citação sobre o interesse público. <em>Confiabilidade:</em> média-alta; jornalismo generalista sobre decisão pública verificável. Não substitui a leitura do acórdão, que não abri.</li><li><strong>ANPD — Mapa de Temas Prioritários 2026-2027 (24/12/2025).</strong> <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-mapa-de-temas-prioritarios-para-o-bienio-2026-2027-e-atualiza-agenda-regulatoria-2025-2026">https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-mapa-de-temas-prioritarios-para-o-bienio-2026-2027-e-atualiza-agenda-regulatoria-2025-2026</a> — sustenta a nota Brasil: os quatro eixos, com IA e tecnologias emergentes entre eles, e as Resoluções CD/ANPD nº 30/2025 e nº 31/2025. <em>Confiabilidade:</em> alta; fonte oficial primária.</li><li><strong>Foil (ABXY, Inc.).</strong> <a href="https://usefoil.com/">https://usefoil.com/</a> — sustenta e12: mais de 350 sinais, taxonomia de agentes identificados <strong>pelo nome</strong>, e detecção de navegador anti-detecção e headless furtivo. <em>Confiabilidade:</em> baixa-média como evidência de eficácia (é material de venda); <strong>alta como evidência de que o mercado existe e de como ele se descreve</strong>, que é para o que uso.</li><li><strong>Agent Auth Protocol (sítio do padrão).</strong> <a href="https://agentauthprotocol.com/">https://agentauthprotocol.com/</a> — sustenta a formulação do problema: "todos os agentes compartilham um token; o servidor vê o usuário, não o agente", e os três casos (delegado, autônomo, descoberta). <em>Confiabilidade:</em> alta para o que o padrão propõe; marcado <strong>v1.0-draft</strong>, o que é o dado relevante sobre maturidade.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<p>Tudo o que foi levantado e não coube acima. Sem corte silencioso.</p>
+<h3 id="12-1-as-buscas-feitas-e-o-que-cada-uma-rendeu">12.1 As buscas feitas, e o que cada uma rendeu</h3>
+<p>Dez buscas, em inglês e português, mais buscas de verificação pontual. Na coluna "rendeu": o que entrou no mapa, ou por que não entrou.</p>
+<div class="tabela-envolve"><table><thead><tr><th>#</th><th>Consulta</th><th>Rendeu</th></tr></thead><tbody><tr><td>1</td><td><code>agent identity protocol 2026 authentication for AI agents standard</code></td><td>O panorama de R1: Entra Agent ID, NIST, Cross App Access, os quatro modelos de identidade no comércio agêntico. <strong>Base do §3.1.</strong></td></tr><tr><td>2</td><td><code>prompt injection 2026 agent attack real incident exfiltration CVE</code></td><td>O incidente mexicano, CVE-2025-32711 (Copilot, zero-clique), CVE-2026-24307 (Reprompt), CVE-2025-6514 (MCP, 9.6), o caso postmark-mcp. <strong>Só o mexicano entrou</strong>, porque foi o único cuja fonte eu abri.</td></tr><tr><td>3</td><td><code>Cloudflare AI crawler bot detection pay per crawl 2026 signed agents Web Bot Auth</code></td><td>Todo o mecanismo de R3. <strong>Base do §4.3.</strong></td></tr><tr><td>4</td><td><code>agent sandbox microVM Firecracker WebAssembly isolation per-agent 2026 E2B</code></td><td>Os números de isolamento; a arquitetura do Manus (um sandbox E2B completo por tarefa, com Chromium, terminal e sistema de arquivos). <strong>O dado do Manus não entrou</strong> — não abri fonte primária.</td></tr><tr><td>5</td><td><code>OWASP Top 10 LLM applications 2025 2026 agentic security risks</code></td><td>As duas listas, ASI01-ASI10, e a informação de que "Excessive Agency" subiu de #6 para #3 na lista de LLM de 2026, sobre 7.714 incidentes reais com peso de 25% contra 75% de voto da comunidade. <strong>Nada disso entrou</strong>: as duas páginas do OWASP que abri não contêm os rankings nem a metodologia, e eu não abri o PDF. É a lacuna mais incômoda desta rodada.</td></tr><tr><td>6</td><td><code>"agentes de IA" identidade segurança 2026 Brasil ANPD LGPD regulação agente autônomo</code></td><td>A nota Brasil. Rendeu menos do que eu esperava: <strong>não encontrei nenhum número brasileiro</strong> de adoção de identidade de agente, nem levantamento nacional sobre agentes em produção. Registrado como "sem número encontrado" no §3.4.</td></tr><tr><td>7</td><td><code>AI agent legal liability lawsuit 2026 who is responsible autonomous agent insurance</code></td><td>Toda R4. Também trouxe: lei da Califórnia em vigor em 2026 impedindo que a operação autônoma sirva de defesa; Colorado AI Act em junho de 2026 exigindo avaliação de impacto; ação da Nippon Life contra a OpenAI em março de 2026 por exercício não autorizado da advocacia. <strong>Nenhum dos três entrou</strong> — não abri fonte para eles, e são exatamente o tipo de alegação jurídica que não se cita de segunda mão.</td></tr><tr><td>8</td><td><code>bot detection blocking accessibility screen reader assistive agent discrimination CAPTCHA 2026</code></td><td>e12.1 inteiro.</td></tr><tr><td>9</td><td><code>Visa Trusted Agent Protocol Mastercard Agent Pay Google AP2 agentic commerce 2026 adoption numbers</code></td><td>O quadro de pagamento agêntico e, sobretudo, <strong>a ausência de adoção</strong> — o que virou o §3.2 e a razão 3 do pré-mortem. Fonte não aberta; usada apenas como leitura de mercado explicitamente marcada como fraca.</td></tr><tr><td>10</td><td><code>non-human identity machine identities ratio to humans 2026 survey percentage agents in production</code></td><td>Os números do §1. Também trouxe razões conflitantes de outras fontes: <strong>45:1</strong> (Rubrik Zero Labs), <strong>80:1</strong> (GitGuardian), <strong>96:1</strong>, <strong>144:1</strong> (Entro Labs, ambientes nativos de nuvem), e "quase metade acima de 100:1, alguns setores em 500:1". <strong>Usei só o 109:1</strong>, que é o da fonte que abri, e registro aqui que a dispersão entre levantamentos é de uma ordem de grandeza — o que deveria bastar para ninguém tratar nenhum desses números como medida.</td></tr><tr><td>11</td><td><code>prompt injection "cannot be solved" research consensus 2026 defenses</code></td><td>A citação central de R2. Também: avaliação da OpenAI de novembro de 2025 chamando injeção de "engenharia social específica de IA conversacional" e "improvável de ser jamais totalmente resolvida"; taxa base de 73,2% de sucesso caindo para 41,0% com filtragem de conteúdo; faixa de 50% a 84% em modelos comuns. <strong>Essas três não entraram</strong>: vieram de resumo de busca, não de fonte aberta.</td></tr><tr><td>12</td><td><code>proof of personhood World ID human verification 2026</code></td><td>O AgentKit. Também os "17.912.203 humanos verificados" e o mercado de "US$ 3 a 5 trilhões até 2030" — <strong>ambos descartados</strong>, §8 item 7.</td></tr><tr><td>13</td><td><code>agent reputation system portable trust score A2A 2026</code></td><td>O estudo do ERC-8004, que <strong>inverteu e18</strong>. Também: AgentGraph (0-100, multissinal), Verascore (cinco dimensões, identidade Ed25519), Concordia, MolTrust, Pilot Protocol, e a doação do A2A à Linux Foundation em 2026 com a v1.0.1 em maio. <strong>Nada disso entrou</strong> por falta de fonte aberta; a lista fica aqui porque é o inventário do que existe sendo tentado.</td></tr><tr><td>14</td><td><code>better-auth "Agent Auth Protocol"</code></td><td>R1, padrão aberto.</td></tr><tr><td>15</td><td><code>Amazon sues Perplexity Comet agent lawsuit ruling 2026</code></td><td>e14.</td></tr><tr><td>16</td><td><code>Microsoft Entra Agent ID general availability</code></td><td>R1, produto.</td></tr><tr><td>17</td><td><code>PromptTrace prompt injection labs CTF</code></td><td>SF8.</td></tr><tr><td>18</td><td><code>"Foil" SDK detect AI agents bots</code></td><td>e12. Também <code>@vercel/detect-agent</code> e <code>@knownagents/sdk</code> (verificação de agente por Web Bot Auth e correspondência de IP, em pacote npm comum) — <strong>não entraram</strong>, npm devolveu 403.</td></tr><tr><td>19</td><td><code>ANPD mapa de temas prioritários fiscalização 2026 2027</code></td><td>A nota Brasil, com número de resolução.</td></tr><tr><td>20</td><td><code>Anthropic Claude Code Mexico government breach</code></td><td>O incidente-referência.</td></tr></tbody></table></div>
+<p><strong>Buscas que não deram em nada aproveitável:</strong> a busca por número brasileiro de adoção de identidade de agente (nº 6) e a tentativa de obter, das páginas oficiais do OWASP, os rankings e a metodologia (nº 5). Nos dois casos a ausência está declarada no corpo do documento, e não preenchida por estimativa.</p>
+<h3 id="12-2-os-efeitos-cortados-na-bateria-do-7-na-integra">12.2 Os efeitos cortados na bateria do §7, na íntegra</h3>
+<p>Nada disto está no bloco <code>roda:</code>. Está aqui porque foi pensado, escrito e derrubado — e porque a correção precisa poder discordar da derrubada.</p>
+<p><strong><code>e1.4</code> — "Surge a profissão de gestor de frota de agentes."</strong> <em>Motivo do corte:</em> efeito genérico proibido pela régua do método. Troque a raiz por qualquer uma das outras três — ou por qualquer tema dos dezenove da disciplina — e a frase continua "servindo". Não nomeia curso, empregador, nem mecanismo que a ligue ao pai. <em>O que salvaria:</em> nomear a organização que primeiro abriu a vaga e o que ela pediu no anúncio. Não encontrei, não inventei.</p>
+<p><strong><code>e-corte-1</code> — "Agentes passam a assinar criptograficamente cada ação individual, e não só a requisição."</strong> <em>Motivo do corte:</em> falha no <strong>teste da causa solta</strong>. Removida R2, isso aconteceria igualmente por R1 (exigência do diretório), por R3 (exigência da porta) ou por auditoria contábil comum. Não deriva desta raiz. <em>Observação:</em> é possível que seja um efeito legítimo <strong>de e11</strong>, e não de R2 — deixo a hipótese registrada em vez de forçá-la para dentro da árvore.</p>
+<p><strong><code>e-corte-2</code> — "Reguladores criam uma categoria jurídica nova para agentes autônomos."</strong> <em>Motivo do corte:</em> efeito proibido sem nome de regulador, de instrumento e mecanismo. Substituído por <code>e9.1</code>, que nomeia a ANPD, o eixo de fiscalização e a Resolução CD/ANPD nº 30/2025. <em>Registro da tentação:</em> esta frase é a que mais aparece em roda de futuros sobre qualquer tecnologia, e é quase sempre verdadeira e quase sempre inútil.</p>
+<p><strong><code>e-corte-3</code> — "Escolas de design reorganizam o currículo em torno de modelagem de capacidade."</strong> <em>Motivo do corte:</em> mesma categoria — "cursos reorganizam o currículo" serve para todo tema. Substituído por <code>e7.1.1</code> (o modo demonstração como mundo real descartável), que tem objeto concreto e mecanismo econômico.</p>
+<p><strong><code>e-corte-4</code> — "O mercado de trabalho de segurança cresce."</strong> <em>Motivo do corte:</em> "mudanças no mercado de trabalho" é o quarto efeito proibido da régua. O que sobrevive dele, com ator e mecanismo, é <code>e10</code>: o engenheiro de segurança de aplicação perde o método central do ofício. Perder método é afirmação falseável; "o mercado cresce" não é.</p>
+<p><strong><code>e-corte-5</code> — "Agentes passam a ter personalidade jurídica própria."</strong> <em>Motivo do corte:</em> contradiz a fonte. O arcabouço de responsabilidade por interação que abri explicitamente <strong>não</strong> defende personalidade para o agente: mantém a responsabilidade humana e distribui pela interação. Manter o efeito seria inventar contra a evidência que eu mesmo levantei. Ele reaparece, corretamente, como <code>e17</code> — a responsabilidade continua humana e <strong>se desloca</strong>.</p>
+<h3 id="12-3-candidatos-a-raiz-avaliados-e-recusados-com-o-criterio-aplicado">12.3 Candidatos a raiz avaliados e recusados, com o critério aplicado</h3>
+<p>Além dos seis registrados no §4.0, foram avaliados e recusados:</p>
+<ul><li><strong>"Modelos rodando no dispositivo"</strong> — é raiz de outro tema, e aqui seria efeito (mudaria a superfície de contenção, não o estatuto do agente).</li><li><strong>"Comércio agêntico"</strong> — não passa no teste 3: está em demonstração, e a evidência aberta diz que o usuário médio ainda não compra por AP2. Entra como contexto de R3 e como sinal fraco SF5.</li><li><strong>"Observabilidade e avaliação de agente"</strong> — é o tema 3 da disciplina. Fronteira respeitada; aparece aqui só onde o rastro vira <strong>prova</strong> (R4), que é outro objeto que "o agente acertou?".</li><li><strong>"Identidade humana sem terceiros (passkeys)"</strong> — é o tema 17. Aparece aqui só invertido: o lastro de humanidade como credencial <strong>do agente</strong> (e13).</li><li><strong>"Programar com agente"</strong> — é o tema 1, e é maioria. Contexto.</li></ul>
+<h3 id="12-4-o-que-nao-abriu-nomeado">12.4 O que não abriu, nomeado</h3>
+<p>Fontes que eu quis usar e <strong>não</strong> usei, ou usei sem link vivo:</p>
+<ul><li><strong>SecurityWeek — Hackers Weaponize Claude Code in Mexican Government Cyberattack.</strong> <code>https://www.securityweek.com/hackers-weaponize-claude-code-in-mexican-government-cyberattack/</code> — <strong>foi aberta e lida</strong> nesta rodada; é a fonte 22 do §11. O link mora aqui porque o servidor devolve <strong>403</strong> a cliente automatizado, e mantê-lo no §11 quebraria a verificação de links sem que houvesse qualquer problema com a fonte.</li><li><strong>Ropes &amp; Gray — "Tool or Intruder? What Amazon v. Perplexity Means for Agentic AI and the CFAA" (08/2026).</strong> <code>https://www.ropesgray.com/en/insights/alerts/2026/08/tool-or-intruder-what-amazon-v-perplexity-means-for-agentic-ai-and-the-cfaa</code> — <strong>403</strong>. Era a melhor fonte jurídica do conjunto e teria sustentado e14 com mais força que a matéria do Engadget.</li><li><strong>GeekWire — sobre a liminar contra o Comet.</strong> <code>https://www.geekwire.com/2026/judge-blocks-perplexitys-ai-bot-from-shopping-on-amazon-in-early-test-of-agentic-commerce/</code> — <strong>403</strong>. Traria o nome da juíza e a data da liminar, que por isso <strong>não</strong> aparecem no corpo do mapa.</li><li><strong>CNBC — Amazon wins court order to block Perplexity's AI shopping agent (10/03/2026).</strong> <code>https://www.cnbc.com/2026/03/10/amazon-wins-court-order-to-block-perplexitys-ai-shopping-agent.html</code> — <strong>403</strong>.</li><li><strong>Confidata — ANPD e Regulação de IA no Brasil: Guia 2026-2027.</strong> <code>https://confidata.com.br/blog/anpd-regulacao-ia-brasil-2026-2027</code> — <strong>403</strong>. Substituída pela fonte oficial da própria ANPD, o que foi uma troca boa.</li><li><strong>npm — <code>@knownagents/sdk</code>.</strong> <code>https://www.npmjs.com/package/@knownagents/sdk</code> — <strong>403</strong>. Verificação de agente por Web Bot Auth em pacote comum de JavaScript seria o melhor indicador de que a assinatura de agente está descendo do CDN para a aplicação. Fica como pendência de medição.</li><li><strong>PDF do OWASP Top 10 for Agentic Applications 2026</strong> — não baixado. É a razão do item 2 do §8.</li></ul>
+<h3 id="12-5-alegacoes-que-circulam-e-que-este-mapa-deliberadamente-nao-usa">12.5 Alegações que circulam e que este mapa deliberadamente não usa</h3>
+<p>Cada uma apareceu em resultado de busca, nenhuma teve fonte aberta, e todas seriam úteis. Estão aqui para que a correção possa cobrá-las, e para que ninguém as reintroduza achando que faltaram por esquecimento:</p>
+<ul><li>"Excessive Agency" subindo de #6 (2025) para #3 (2026) na lista de LLM do OWASP, sobre <strong>7.714 incidentes reais</strong>, com peso de 25% contra 75% de voto da comunidade.</li><li>Taxa base de sucesso de injeção de <strong>73,2%</strong>, caindo para <strong>41,0%</strong> com filtragem de conteúdo.</li><li>Faixa de <strong>50% a 84%</strong> de sucesso de injeção em modelos comuns.</li><li><strong>CVE-2025-32711</strong> (Copilot, zero-clique, CVSS 9,3), <strong>CVE-2026-24307</strong> (Reprompt, exfiltração por um clique) e <strong>CVE-2025-6514</strong> (MCP, execução remota, CVSS 9,6).</li><li>O pacote <code>postmark-mcp</code>, com quinze versões limpas antes de uma linha de exfiltração.</li><li><strong>17.912.203</strong> humanos verificados na rede World.</li><li>Mercado de comércio agêntico de <strong>US$ 3 a 5 trilhões até 2030</strong>.</li><li>Razões de identidade não-humana por humana de <strong>45:1</strong>, <strong>80:1</strong>, <strong>96:1</strong>, <strong>144:1</strong> e "500:1 em alguns setores" — contra o 109:1 que uso.</li><li>Lei da Califórnia, em vigor em 2026, impedindo que a operação autônoma do sistema sirva de defesa; <strong>Colorado AI Act</strong> em junho de 2026 com avaliação de impacto obrigatória; ação da <strong>Nippon Life contra a OpenAI</strong> em março de 2026 por exercício não autorizado da advocacia.</li><li>Doação do <strong>A2A à Linux Foundation</strong> em 2026, com v1.0.1 em maio e mecanismo de extensão.</li><li>Doação do <strong>MCP-I à Decentralized Identity Foundation</strong> em março de 2026, renomeado <strong>KYA-OS</strong>. Esta em particular é curiosa: apareceu no resumo de uma busca, e a página especializada que abri em seguida <strong>não menciona nem MCP-I nem KYA-OS</strong>. É exatamente o perfil de uma alegação que não se sustenta, e por isso ela está aqui e não no corpo.</li><li>Arquitetura do <strong>Manus</strong>: um sandbox E2B completo por tarefa, com Chromium, terminal, sistema de arquivos e 27 outras ferramentas.</li><li><strong>AgentGraph</strong>, <strong>Verascore</strong>, <strong>Concordia</strong>, <strong>MolTrust</strong>, <strong>Pilot Protocol</strong> — o inventário de tentativas de reputação de agente.</li></ul>
+<h3 id="12-6-notas-de-metodo-desta-rodada">12.6 Notas de método desta rodada</h3>
+<ul><li><strong>Entrevista:</strong> não houve, por ser rodada não interativa. O <code>briefing:</code> veio completo (tema, horizonte, público, recorte, descartado, viés, falseador, profundidade, modo, zona de interesse), portanto <strong>não houve rebaixamento de confiança</strong>. O que o briefing não cobriu está declarado como premissa assumida em §2.1.</li><li><strong>O falseador declarado no briefing</strong> era: evidência de que a adoção já passou da maioria inicial, ou de que a tecnologia não rompe nada. Ele foi aplicado e <strong>funcionou</strong>: eliminou cinco candidatos a raiz (§4.0) e reclassificou "reputação portátil" de raiz para sinal fraco, depois para efeito invertido. O mapa é menor por causa dele.</li><li><strong>Profundidade:</strong> três ordens, conforme pedido. A regra de parada foi aplicada — vários ramos pararam na segunda ordem por não haver troca de ator nem de mecanismo (e3.2, e6.2, e10.1, e11.3, e13.2, e14.2, e15.2, e17.2). Continuar seria o mesmo efeito amadurecendo, não outra ordem.</li><li><strong>Modo:</strong> a partir do tema, não de um setor.</li><li><strong>Efeitos fora do horizonte:</strong> um, <code>e13.1.1</code> (2038), de terceira ordem, declarado como fora da janela no §5.1 e no registro de alterações §7.8.</li><li><strong>Contagens:</strong> 4 raízes, 18 efeitos de 1ª ordem, 34 de 2ª, 24 de 3ª, 32 fontes abertas. Conferidas pelo verificador, cuja saída está em §12.7.</li></ul>
+<h3 id="12-7-saida-do-verificador">12.7 Saída do verificador</h3>
+<p>Comando:</p>
+<pre><code class="lang-">python3 /Volumes/Extra/cosmos/ufpe/Aulas/TendenciasMidiaInteracao/26_2/skill-professor/futurizacao-giordano/references/verificar.py \
+  /Volumes/Extra/cosmos/ufpe/Aulas/TendenciasMidiaInteracao/26_2/skill-professor/rodadas/giordano-h2036/02-contencao-seguranca-e-identidade-de-agentes-autonomos/tendencia-contencao-seguranca-e-identidade-de-agentes-autonomos.md --links</code></pre>
+<p>Saída, na íntegra, em 12/09/2026:</p>
+<pre><code class="lang-">frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 4 (frontmatter diz 4)
+efeitos ordem 1: 18 (frontmatter diz 18)
+efeitos ordem 2: 34 (frontmatter diz 34)
+efeitos ordem 3: 24 (frontmatter diz 24)
+prazo &gt; horizonte (2036) em ordens 1-2: 0 
+prazo &gt; horizonte em ordem 3 (permitido, mas declare): 1 [(&#x27;e13.1.1&#x27;, 2038)]
+confiança ordem 1: alta 7 · media 11 · baixa 0
+confiança ordem 2: alta 3 · media 28 · baixa 3
+confiança ordem 3: alta 0 · media 3 · baixa 21
+links da seção 11: 31/31 respondem (frontmatter diz fontes: 32)
+RESULTADO: ok</code></pre>
+<p>Leitura da saída, item a item — os números, não a palavra "passou":</p>
+<ul><li><strong>frontmatter 18/18</strong> e <strong>títulos 12/12</strong>: o formato da disciplina está íntegro.</li><li><strong>4 raízes, 18 / 34 / 24 efeitos</strong>: batem com o frontmatter. Nenhuma correção de texto foi feita para agradar o contador; o único ajuste foi no frontmatter (<code>efeitos_ordem_3</code> de 23 para 24, porque eu havia contado errado ao planejar a roda).</li><li><strong>prazo &gt; horizonte em ordens 1-2: 0</strong>. Como manda a regra.</li><li><strong>prazo &gt; horizonte em ordem 3: 1 — <code>e13.1.1</code> em 2038.</strong> Declarado: está fora da janela deste mapa, e o motivo está em §5.1 e no registro de alterações §7.8.</li><li><strong>Calibração: alta 7 → 3 → 0.</strong> A confiança cai com a ordem, e a terceira ordem não tem nenhum efeito com confiança alta.</li><li><strong>links da seção 11: 31/31 respondem, e o frontmatter diz <code>fontes: 32</code>.</strong> A diferença é deliberada e não é erro: a fonte 22 (SecurityWeek) foi aberta e lida nesta rodada, mas o servidor devolve 403 a cliente automatizado. O link dela está em §12.4, com a explicação, para que a verificação de links reflita a saúde dos links e não a acessibilidade de um servidor a robôs. São 32 fontes abertas e 31 URLs no §11.</li><li><strong>RESULTADO: ok.</strong></li></ul></section>
+</main>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+</body>
+</html>

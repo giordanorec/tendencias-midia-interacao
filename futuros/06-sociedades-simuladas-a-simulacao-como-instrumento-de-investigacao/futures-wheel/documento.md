@@ -1,0 +1,205 @@
+---
+titulo: "Sociedades simuladas: a simulação como instrumento de investigação"
+tipo: resumo-de-tendencia
+disciplina: "CIN0055 Tendências em Mídia e Interação 2026.2"
+tema: "6 de 19"
+familia: "Simulação e mundos"
+zona: "Simulação e mundos"
+skill: futurizacao-futures-wheel
+autor: grec
+horizonte: 2031
+recorte: "global, com nota sobre o Brasil"
+data: 2026-09-11
+mapa_completo: "futures-wheel-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao.md"
+---
+
+# Sociedades simuladas: a simulação como instrumento de investigação
+
+**Rodada com teto de 15 subagentes, dos quais 13 foram usados.** A skill prevê um expansor por ramo;
+aqui os ramos foram agrupados por tema e a 3ª ordem saiu **apenas sobre os 15 ramos de 1ª ordem marcados
+como férteis**, conforme a decisão TMI-0028, em vigor. A consequência, que a decisão manda declarar em vez
+de esconder: dos 114 efeitos de 2ª ordem, **63 ficaram sem filhos**. Uma tentativa
+anterior desta rodada morreu no limite de sessão durante a pesquisa; a frente de inovação sobreviveu
+íntegra e foi reaproveitada em vez de refeita (TMI-0027). Fase 8, infográficos, pulada. O mapa completo —
+263 efeitos (35 + 114 + 114), conexões cruzadas, wildcards e 129 fontes — está em
+`futures-wheel-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao.md` e no HTML de mesmo nome.
+
+## A inovação
+
+Uma sociedade de agentes num ambiente controlado, rodando possibilidades para que se observe o que emerge.
+Não é jogo e não é produtividade: é **instrumento** — o que o túnel de vento é para a aerodinâmica, isto
+pretende ser para as ciências sociais e para o projeto de plataforma. A modelagem baseada em agentes tem
+quarenta anos e regras escritas à mão; o que é novo tem três anos e duas propriedades — o comportamento do
+agente sai de um **modelo de linguagem**, sem regra de transição escrita por quem modelou, e a **escala**,
+que foi de 25 agentes numa vila em 2023 a plataformas que declaram um milhão. No meio do caminho o objeto
+mudou de natureza, e é essa distinção que organiza todo o resto: Smallville simulava gente que **não
+existe**, para ver o que emerge; o que se vende em 2026 simula gente que **existe**, para prever o que ela
+fará. São dois programas de pesquisa com a mesma tecnologia por baixo, pedindo garantias opostas — um
+precisa que a sociedade seja plausível, o outro que ela seja fiel a indivíduos identificáveis.
+
+O caminho do paper ao contrato corporativo levou trinta e seis meses: a Simile, fundada pelos próprios
+autores de Smallville, chegou a US$ 2 bilhões de valuation e cobra de US$ 150 mil a milhões por ano de CVS
+Health (400 mil gêmeos agênticos), Deloitte e Gallup — instituto centenário de opinião pública que abriu
+linha formal de pesquisa em resposta sintética. Mas toda a simulação **social** desde 2024 soma cerca de
+US$ 300 milhões, com ~85% numa única empresa: 0,1% de um trimestre de investimento em IA. Os US$ 3,2
+bilhões de *world models* de 2026 são vídeo, direção autônoma e fluidodinâmica — **o dinheiro simula
+átomos, não gente**. E o gargalo não é preço, é relógio serial: um milhão de agentes por dez passos custa
+cerca de US$ 9.700 e leva **7,5 dias** (27 A100 a 18 horas por passo), o que fez o mercado convergir para
+respondente independente vendido como "insights em 2 minutos" e **abandonar a emergência**, que era
+justamente o que fazia disto um instrumento.
+
+O que se mede, quando se mede, não sustenta o uso que se vende: 83-86% da consistência teste-reteste da
+própria pessoa em **atitude** (Park et al., n=1.052) contra **11,86%** de acurácia em prever a **próxima
+ação** (Lu et al., 31.865 sessões reais); acerto de volume e erro de textura, com a toxicidade distribuída
+ao contrário, na única replicação publicada do instrumento (YSocial × Voat); e deslocamento de até **76
+pontos percentuais** na cooperação a partir de uma perturbação menor na escrita da persona. A validação é
+frágil por reconhecimento de dentro do campo — 22 de 35 estudos usaram apenas validação subjetiva, 15
+exclusivamente isso (Larooij & Törnberg) — e todas as acurácias de fornecedor são autodeclaradas, sem
+metodologia pública. Fora do recorte, pela régua da disciplina: NetLogo, Sugarscape e AnyLogic entram como
+**causa e comparação**, não como novidade. Fronteiras com os vizinhos: personagens autônomos em jogos é o
+tema 7, mercados de máquinas com dinheiro real é o tema 5, agentes com corpo no mundo físico é o tema 9.
+Aqui o objeto é **a simulação social como método**.
+
+**A tese.** A sociedade simulada é confiável exatamente nas variáveis que não decidem um produto de mídia — estrutura, difusão, ordenação de alternativas — e falha exatamente nas que decidem — magnitude, ritmo, retorno, fadiga e vínculo; e por isso, até 2031, quem disciplina o seu uso não é a norma, que ancora na saída publicada, e sim o contrato, a interface e a fila de computação, que alcançam a entrada. Falseia-se com duas observações: um benchmark público de fidelidade social que meça VARIÂNCIA e não só média e mostre a população sintética reproduzindo ritmo, retorno e fadiga dentro de erro declarado; ou uma norma em vigor cujo gatilho seja a REALIZAÇÃO da rodada e que esteja sendo efetivamente aplicada.
+
+## Os 35 efeitos de 1ª ordem
+
+| id | Efeito | STEEP | Prob. | Prazo |
+|---|---|---|---|---|
+| `e1_01` | A pesquisa de opinião se reorganiza em painel híbrido: a amostra humana encolhe e muda de função — deixa de ser o dado e passa a ser a… | Econômico | alta | médio |
+| `e1_02` | O ativo defensável do setor deixa de ser o modelo e passa a ser o dado humano de calibração — o que inverte a economia dos institutos de… *(óbvio)* | Econômico | alta | curto |
+| `e1_03` | Consolida-se a regra de uso que a evidência sustenta e o marketing não menciona: a simulação ordena alternativas e não dimensiona impacto | Tecnológico | alta | curto |
+| `e1_04` | Instala-se um mercado em que a acurácia é autodeclarada e não auditável, e o comprador não tem régua | Econômico | alta | curto |
+| `e1_05` | A pesquisa qualitativa ganha uma etapa nova e estreita: a simulação como ensaio de roteiro e afinação de instrumento antes do campo humano,… *(óbvio)* | Social | alta | curto |
+| `e1_06` | A revisão por pares e a auditoria interna passam a exigir robustez e plausibilidade de mecanismo, não apenas resultado | Social | média | médio |
+| `e1_07` | A facilidade de simular estreita o leque de perguntas em vez de ampliá-lo | Social | média | longo |
+| `e1_08` | O modelo passa a ser versionado como reagente de laboratório, porque a mesma pergunta muda de resposta quando o modelo muda | Tecnológico | alta | curto |
+| `e1_09` | O teste pré-lançamento de feed, recomendação e moderação vira etapa barata e padronizada do processo de projeto — a única forma de comparar… *(óbvio)* | Tecnológico | alta | médio |
+| `e1_10` | O instrumento acerta o volume e erra a textura, e isso desloca sistematicamente qualquer calibração feita contra ele | Tecnológico | média | médio |
+| `e1_11` | A pesquisa de usuário ganha uma bancada sintética permanente, e a economia unitária explica a adoção antes de qualquer argumento de… *(óbvio)* | Econômico | alta | curto |
+| `e1_12` | O teste A/B ganha uma etapa de pré-triagem em que agentes com persona são soltos no produto real antes de qualquer usuário ser exposto *(óbvio)* | Tecnológico | média | médio |
+| `e1_13` | As variáveis que decidem produto digital — ritmo, latência, retorno, fadiga, tédio — ficam fora do alcance do instrumento, e elas são… | Tecnológico | alta | curto |
+| `e1_14` | A sociedade simulada converge cedo demais para servir aos casos de uso que mais a demandam | Tecnológico | alta | curto |
+| `e1_15` | A escrita da persona e do enquadramento vira uma decisão editorial que determina o resultado e não aparece no relatório | Social | média | médio |
+| `e1_16` | Duas coisas muito diferentes passam a se chamar simulação, e o mercado precifica quase só a mais pobre | Econômico | alta | curto |
+| `e1_17` | O gargalo do instrumento não é dinheiro, é relógio — e isso decide o que entra num ciclo de produto | Econômico | alta | curto |
+| `e1_18` | O barateamento desloca a barreira de entrada do custo para a metodologia — e, ao fazê-lo, elimina o único controle de fato que existe hoje… | Tecnológico | média | curto |
+| `e1_19` | A categoria é absorvida pela indústria de pesquisa em vez de criar um setor novo, e o capital se concentra num único ator *(óbvio)* | Econômico | alta | curto |
+| `e1_20` | O instrumento não tem prateleira, e por isso não é descoberto por quem projetaria mídia com ele | Econômico | alta | curto |
+| `e1_21` | A oferta técnica está pronta e publicada, e a demanda declarada não existe: não há uma única declaração pública de Meta, TikTok, Bluesky,… *(óbvio)* | Político | média | médio |
+| `e1_22` | A governança do método se consolida por rotulagem obrigatória, não por proibição *(óbvio)* | Político | alta | curto |
+| `e1_23` | A escala entrega precisão aparente e não entrega validade — e o número sintético entra em reunião vestido de estatística que não tem lastro | Tecnológico | alta | curto |
+| `e1_24` | A simulação entra na decisão pública pela porta da modelagem clássica, como upgrade de método já aceito, e não como novidade a ser aprovada… | Político | média | médio |
+| `e1_25` | Emerge um regime de admissibilidade em que a barra de evidência é função da consequência da decisão | Político | média | longo |
+| `e1_26` | Testar contra agentes produz relatório de impacto em que nenhum afetado participou — e isso não é economia processual, é remoção da pessoa… *(óbvio)* | Político | alta | médio |
+| `e1_27` | Simular pessoas reais identificáveis vira prática industrial sem nenhum procedimento de ética correspondente *(óbvio)* | Político | alta | curto |
+| `e1_28` | O precedente ético mais citado do campo inverte o ônus: depois do experimento de persuasão da Universidade de Zurique no r/changemyview —… | Político | média | médio |
+| `e1_29` | Testar equidade contra população sintética aprova o sistema exatamente onde ele falha | Social | alta | curto |
+| `e1_30` | Reprodutibilidade deixa de ser virtude e vira requisito técnico do instrumento, com replay determinístico, semente e identificação de… *(óbvio)* | Tecnológico | média | médio |
+| `e1_31` | O instrumento tem uma conta material que ninguém está somando: simular um milhão de agentes por um passo de tempo consome 486 GPU-hora (27… | Ecológico | média | médio |
+| `e1_32` | A contaminação do painel humano encarece o dado real e prepara uma inversão de legitimidade: a simulação passa a ganhar por ser declarada,… | Social | alta | médio |
+| `e1_33` | O ambiente controlado não contém — e isso atinge a premissa que dá nome ao tema | Tecnológico | média | curto |
+| `e1_34` | O Brasil entra nesta década como objeto e não como sujeito do método, e a ausência é ela mesma o efeito *(óbvio)* | Social | alta | curto |
+| `e1_35` | No Brasil, o uso eleitoral chega antes da norma e antes da crítica local | Político | média | médio |
+
+Três grupos organizam a leitura, e foram eles que definiram os lotes de expansão. **O método e o conhecimento** (e1_01 a e1_07, e1_10, e1_11, e1_15, e1_23, e1_32): a pesquisa de opinião se reorganiza em painel híbrido, com a amostra humana deixando de ser o dado e virando âncora de calibração; o ativo defensável deixa de ser o modelo e passa a ser o dado humano; consolida-se a regra que a evidência sustenta e o marketing não menciona — **ordena alternativas, não dimensiona impacto**; instala-se um mercado em que a acurácia é autodeclarada e o comprador não tem régua; a escrita da persona vira decisão editorial que determina o resultado e não aparece no relatório; e a contaminação do painel humano encarece o dado real. **O ofício de projetar e a máquina que roda** (e1_08, e1_09, e1_12 a e1_14, e1_16 a e1_21, e1_30, e1_31): o modelo passa a ser versionado como reagente de laboratório, porque a mesma pergunta muda de resposta quando o modelo muda; o teste pré-lançamento de feed, recomendação e moderação vira etapa barata e padronizada; mas as variáveis que decidem produto digital — ritmo, latência, retorno, fadiga, tédio — ficam fora do alcance do instrumento, e a sociedade simulada converge cedo demais para servir aos casos de uso que mais a demandam; duas coisas muito diferentes passam a se chamar simulação e o mercado precifica quase só a mais pobre; e a oferta técnica está publicada enquanto nenhuma plataforma declarou demanda. **Governança, prova, ética e Brasil** (e1_22, e1_24 a e1_29, e1_33, e1_34, e1_35): a governança fecha por rotulagem e não por proibição; a simulação entra na decisão pública pela porta da modelagem clássica, como upgrade de método já aceito; testar contra agentes produz relatório de impacto em que nenhum afetado participou; testar equidade contra população sintética aprova o sistema exatamente onde ele falha; simular pessoas reais identificáveis vira prática industrial sem procedimento de ética correspondente; o ambiente controlado não contém; e o Brasil entra na década como objeto e não como sujeito do método.
+
+## Os 5 mais impactantes
+
+*O porquê aparece aqui abreviado; o texto integral e a cadeia de efeitos estão no mapa completo.*
+
+1. **`e1_17` — O gargalo é relógio serial, não dinheiro.** É a variável mais alavancada do mapa: 17 efeitos dependem da serialidade do passo de tempo (sv3). A tabela do OASIS é o único custo medido em fonte primária — 10 mil agentes a 0,2 hora por passo em 2 A100; 100 mil a 3 horas em 5; 1 milhão a 18 horas em 27 — e a preço de mercado de setembro de 2026 (US$ 1,99 por GPU-hora) um milhão de agentes por dez passos sai por cerca de US$ 9.700 e sete dias e meio.
+
+2. **`e1_10` — Acerta o volume, erra a textura — e o erro é sistemático.** Sustenta sozinho a camada inteira de prescrições de moderação e ranqueamento: 17 efeitos herdam dele a direcionalidade (sv8). Trinta simulações de trinta dias no YSocial contra trinta janelas do v/technology do Voat replicaram usuários únicos, posts-raiz e usuários ativos diários com intervalos de 99% sobrepostos, e divergiram em comentários, comprimento de fio, toxicidade média e estrutura de rede — com os posts-raiz simulados MAIS tóxicos e os comentários MENOS tóxicos que os reais.
+
+3. **`e1_15` — A autoria da persona e do enquadramento decide o resultado e não é registrada.** É o maior tamanho de efeito medido em todo o mapa: perturbações menores de formato de persona e de enquadramento deslocam a taxa de cooperação em até 76 pontos percentuais, enquanto a MESMA perturbação move outro modelo em 1 ponto (Ye, Cao, Chen e Ferrara). Treze efeitos dependem disso (sv6).
+
+4. **`e2_A36` — A âncora humana pode já estar contaminada, e não é detectável depois.** Atinge ao mesmo tempo a âncora (e1_01), o ativo (e1_02), a régua (e1_04) e a correção de deslocamento (e1_10) — dezesseis efeitos (sv1). Uma apresentação da Insights Association de 29/01/2026, relatada pelo NORC, estimou 40% das entrevistas não-probabilísticas de 2025 como provavelmente fraudulentas, cerca de 2 bilhões, com a maior parte vinda de click farm humana e não de IA, e com a fraude 'se comportando como viés': concentrada em padrões previsíveis e nas populações mais difíceis de alcançar.
+
+5. **`e3_T1_12` — Quem opera a régua escolhe a estatística, e a estatística decide o mercado.** Doze efeitos dependem dessa escolha (sv4) e ela é desproporcional à sua visibilidade. Se a medida for correspondência de MÉDIA, o achatamento documentado não é penalizado e quase todo produto passa; se for de VARIÂNCIA — que só 64% dos estudos com ground truth sequer avaliam e que, quando avaliada, mostra consistentemente menos diversidade que a população humana — quase nada passa.
+
+**O padrão por trás dos cinco.** Eles não falam do mercado: falam da **medida**. E dizem a mesma coisa por cinco caminhos que não se cruzam — a variável que decide o resultado está **a montante dele e invisível no relatório**. O relógio serial decide qual pergunta chega a ser feita, porque uma pergunta de 7,5 dias não entra em ciclo de produto e uma de dois minutos entra (`e1_17`); a direção do erro de textura de toda a camada prescritiva de moderação vem de **uma única replicação publicada**, sobre fórum descontinuado e em inglês (`e1_10`); a escrita da persona desloca a cooperação em até 76 pontos percentuais — o maior tamanho de efeito do mapa — e não consta de relatório nenhum (`e1_15`); a âncora humana que sustentaria a calibração pode já estar contaminada, com a fraude se comportando como viés justamente nos subgrupos em que a simulação já erra mais (`e2_A36`); e quem operar a régua escolhe a estatística, sendo que média aprova quase tudo e variância reprova quase tudo, com apenas 64% dos estudos avaliando variância (`e3_T1_12`). A cascata também se juridifica com a profundidade (Político: 23% → 27% → 36% das três ordens), o que é coerente com um mapa cuja disputa real não é se a técnica funciona, e sim **quem pode afirmar que funciona**. Para quem projeta mídia e interação, a consequência prática é uma só: a simulação serve para **escolher entre desenhos**, e não serve para **prometer números** — e o erro que vai ficar caro não é confiar demais no método, é confiar nele para a pergunta errada.
+
+## Wildcards
+
+12 cenários de baixa probabilidade e alto impacto — 5 positivos, 5 negativos, 2 ambíguos.
+
+- **w1 · O aço já estava contaminado** (negativo). Entre 2028 e 2030, alguém que não é dono do acervo — um perito em litígio, um consórcio acadêmico, uma seguradora precificando risco — aplica arqueologia de painel a uma série histórica grande usada como ground truth por vários fornecedores.
+- **w2 · O passo que deixou de ser serial** (positivo). Entre 2028 e 2030, um avanço de escalonamento — paralelismo dentro do passo com resolução de conflitos de estado, ou aproximação de estado por lotes — dá de 10x a 50x de vazão efetiva por GPU para carga multiagente.
+- **w3 · O reagente trocado no meio do orçamento** (negativo). Uma análise de impacto de política pública — energia, transporte, benefício social, regulação de plataforma — é conduzida por modelagem baseada em agentes, método que o Estado já aceita e já tem em processos com prazo.
+- **w4 · O PesqEle engole o eleitor sintético** (positivo). Antes do pleito de 2028, a Justiça Eleitoral responde a uma consulta e qualifica a rodada com eleitores sintéticos como pesquisa de opinião pública relativa ao pleito.
+- **w5 · A segunda replicação inverte o sinal** (ambíguo). Um laboratório universitário brasileiro faz a segunda auditoria publicada no mundo de um simulador contra fórum real: simulador aberto contra um recorte datado de plataforma brasileira, em português, com alocação em supercomputador público.
+- **w6 · A semana que não deixou rastro** (negativo). Na última semana da eleição de 2028, a resposta a uma crise é escolhida por varredura contra eleitores sintéticos — instantânea, ilimitada por assinatura, sem peça, sem registro e sem destinatário — no período exato em que a publicação de….
+- **w7 · A curva de GPU vira para cima** (ambíguo). Um choque de oferta — restrição de exportação, concentração de capacidade em contratos de treino de longo prazo, interrupção de fabricação — inverte a trajetória de preço da computação acelerada.
+- **w8 · A extinção dos reagentes** (negativo). Uma correção brusca no financiamento do setor leva dois ou três fornecedores de fronteira a aposentar famílias inteiras de modelos num intervalo curto, porque manter endpoints legados deixa de se pagar.
+- **w9 · A régua que nasceu da conta de nuvem** (positivo). O checkpoint por passo, adotado por razão de preço e não de epistemologia, instala o registro de rodada de forma quase universal antes que qualquer norma o exija.
+- **w10 · A defesa que abriu a caixa-preta** (positivo). Uma simulação feita de fora — por universidade, ONG ou consórcio de jornalismo — é levada a um procedimento formal como descrição do comportamento de um feed: audiência regulatória, avaliação de risco sistêmico, processo judicial.
+- **w11 · O achado fantasma** (negativo). A rota destilada vence por economia, e com ela o formato que se difunde deixa de ser o estudo e passa a ser a varredura: centenas de configurações rodadas porque cabem, sem nenhuma convenção de declarar quantas.
+- **w12 · O erro vira o produto** (positivo). Um comprador grande inverte a pergunta de compra: deixa de pagar pela convergência — o insight, a narrativa, o ranking — e passa a pagar pela divergência, isto é, pelo mapa de onde o simulador erra sobre o público dele.
+
+O que os 12 revelam em conjunto está em `json/wildcards.json` e na nota completa.
+
+## Nota Brasil
+
+O Brasil aparece nesta roda em **três posições simultâneas, e só uma delas é de atraso**. **Como objeto:** nenhum grupo brasileiro publica o método — varredura no OpenAlex filtrada por `institutions.country_code:BR` —, nenhum instituto de opinião menciona respondente sintético, e os R$ 205 milhões da chamada FIP-IA do BNDES com a Finep, maior instrumento público de capital para IA em 2026, não citam simulação, modelagem por agentes nem gêmeos digitais: cerca de um décimo do que uma única empresa do setor levantou numa rodada (`e1_34`, `e2_C32`). A sequência observada é constante — o comércio chega primeiro, a formação chega depois e forma comprador em vez de avaliador, e a crítica chega por último e importada —, e a consequência é medível: sem grupo local, o primeiro número sobre fidelidade de agente a público brasileiro sairá de fornecedor e entrará no debate **sem contraditório, porque contraditório exige medição rival** (`e2_C31`). **Como dependente:** os produtos de prateleira são, por especificação documentada, apenas população dos Estados Unidos e apenas em inglês; a camada de tradução perde registro, ironia, formalidade e marcador de classe, que é o que decide criativo e tom; e o padrão de fábrica é o que a maioria nunca altera (`e2_A03`, `e3_T1_08`, `e3_T2_13`). O designer brasileiro recebe, por omissão, um espelho norte-americano com intervalo de confiança intacto e sem aviso — e em mídia o erro da âncora emprestada é **estruturalmente invisível**, porque não há eleição para desmenti-lo (`e3_T1_07`). **Como detentor de um instrumento que ninguém mais tem:** esta é a parte que a roda descobriu e que contraria a leitura de atraso. Das três portas regulatórias, a de propaganda é cega por desenho — a Resolução 23.755/2026 do TSE e o Art. 50 do AI Act ancoram na **saída publicada** (`e2_C35`) — e a da LGPD se fecha justamente para quem está no mercado, porque o fornecedor brasileiro calibra com dado agregado e público, IBGE e TSE, sem acionar o gatilho de dado pessoal (`e3_T2_61`). Sobra a terceira, e ela já existe: o **art. 33 da Lei 9.504/1997**, regulamentado para 2026 pela Resolução 23.747/2026, obriga registrar a pesquisa no PesqEle **"independentemente de divulgar os resultados"** — gatilho de **realização**, que é exatamente o mecanismo que falta à regulação europeia (`e3_T2_54`). Três ressalvas impedem declarar o problema resolvido: o enquadramento da consulta sintética como pesquisa de opinião está em aberto e o TSE não antecipa interpretação; os campos do PesqEle são hostis por construção, sem onde declarar número de entrevistas, margem de erro ou estatístico responsável; e reclassificar a rodada como "teste de mensagem" é quase gratuito. Resolve-se por ato administrativo, não por lei, e a janela é a resolução que precede 2028. O mesmo vazio tem um contraponto de oportunidade: a segunda replicação do instrumento, em português, seria **inédita no mundo**, cabe num laboratório universitário, e com o Santos Dumont já ampliado o gargalo brasileiro é humano, não material (`sv8`, `e2_C33`, `e3_T1_19`, `e3_T2_08`).
+
+## O que me faria mudar de ideia
+
+- Uma segunda auditoria operacional publicada de simulador contra corpus real — outra plataforma, outra língua, outro assunto — com a direção do erro diferente da medida contra o v/technology do Voat. Derruba a camada de prescrições que 17 efeitos herdam de e1_10 (sv8) e obriga a trocar a pergunta 'qual é a direção do erro' por 'de que a direção do erro depende'.
+- Uma tabela de recursos publicada por OASIS, AgentSociety ou equivalente mostrando queda superior a 5x na DURAÇÃO DO PASSO na mesma classe de GPU — não no preço por token. Quebra a serialidade de que dependem 17 efeitos (sv3), dissolve o ciclo fl2 e inverte metade da estrutura de escassez da roda (e2_B20).
+- Um benchmark público de fidelidade social com ground truth que meça VARIÂNCIA e não só média, mantido por parte não interessada. Derruba e1_04, e2_A10, e2_C02 e e3_T1_12 de uma vez, e com eles a tese de que o mercado se organiza em torno da ausência de régua.
+- Evidência de validade preditiva prospectiva: uma simulação que tenha previsto um resultado social ainda não observado e tenha sido conferida contra o mundo, acertando magnitude e não só ordenação. É a lacuna que a própria roda declara não ter preenchimento (e3_T1_49); se for preenchida, e1_03 cai e o tema deixa de ser ruptura de método para ser melhoria do que já existe — que é o critério explícito de descarte desta rodada.
+- Adoção documentada além da maioria inicial de Rogers: levantamento setorial mostrando que mais de cerca de 16% das entregas de pesquisa de institutos e agências já incluem linha sintética declarada, com ficha de âncora. Isso moveria o objeto de 'instrumento de investigação em disputa' para 'prática instalada', e o público-alvo da roda deixaria de ser quem decide se adota para ser quem já opera.
+- Declaração pública de uso de simulação pré-lançamento por uma plataforma grande, acompanhada da estatística de textura do próprio produto — distribuição de toxicidade por camada, comprimento típico de fio, frequência de interação repetida entre os mesmos pares. Refuta e1_21, fecha a assimetria que sustenta e2_B32 e e3_T2_16, e dá ao campo o segundo ponto de comparação que sv8 diz não existir.
+- Reauditoria pública de uma série histórica grande por metadados de coleta (carimbo de tempo, duração de preenchimento, resposta em linha reta, reincidência de identificadores) mostrando que a contaminação é anterior a 2022. Invalida simultaneamente a acusação e a defesa deste mapa, porque remove o referente de que ambas dependem (sv1, e2_A36, e3_T1_38).
+
+## Bibliografia essencial
+
+Seleção das fontes que sustentam os efeitos citados acima. A lista completa (129 fontes, com marcação do que foi aberto por inteiro) está no mapa completo.
+
+1. Park, O'Brien, Cai, Ringel Morris, Liang, Bernstein — 'Generative Agents: Interactive Simulacra of Human Behavior' (UIST '23, os 25 agentes de Smallville) — `https://arxiv.org/abs/2304.03442`
+2. Park, Zou, Bernstein et al. — 'Generative Agent Simulations of 1,000 People' (n=1.052; 83-86% da consistência teste-reteste em atitude) — `https://arxiv.org/abs/2411.10109`
+3. Lu et al. — 'Can LLM Agents Simulate Multi-Turn Human Behavior?' (11,86% de acurácia em prever a próxima ação, 31.865 sessões reais) — `https://arxiv.org/abs/2503.20749`
+4. Larooij & Törnberg — 'Validation is the central challenge for generative social simulation' (35 papers: 22 com validação só subjetiva, 15 exclusivamente) — `https://link.springer.com/article/10.1007/s10462-025-11412-6`
+5. Ye, Cao, Chen, Ferrara — 'Stop Drawing Scientific Claims from LLM Social Simulations Without Robustness Audits' (deslocamento de até 76 p.p. por perturbação de persona) — `https://arxiv.org/abs/2605.18890`
+6. 'Towards Operational Validation of LLM-Agent Social Simulations: A Replicated Study of a Reddit-like Platform' (YSocial × Voat: acerta volume, inverte a toxicidade) — a única replicação publicada do instrumento — `https://arxiv.org/abs/2508.21740`
+7. Wang, Morgenstern & Dickerson — 'Large language models that replace human participants can harmfully misportray and flatten identity groups' — `https://arxiv.org/html/2402.01908v3`
+8. Nudo, Stella et al. (Sapienza) — 'Generative Exaggeration in LLM Social Agents: Consistency, Bias, and Toxicity' (21 milhões de interações reais no X) — `https://arxiv.org/abs/2507.00657`
+9. Barrie & Törnberg — 'Emergent LLM behaviors are observationally equivalent to data leakage' (a réplica a Ashery et al.) — `https://arxiv.org/abs/2505.23796`
+10. Ashery, Aiello, Baronchelli et al. — 'Emergent social conventions and collective bias in LLM populations' (naming game, viés coletivo sem viés individual) — `https://arxiv.org/abs/2410.08948`
+11. Li & Tao — 'Position: AI Agents Are Not (Yet) a Panacea for Social Simulation' (o descompasso epistêmico: plausibilidade conversacional × mecanismo fiel) — `https://arxiv.org/html/2603.00113v2`
+12. Lin — 'Six Fallacies in Substituting Large Language Models for Human Participants' — `https://arxiv.org/abs/2402.04470`
+13. Bisbee et al. — 'Synthetic Replacements for Human Survey Data? The Perils of Large Language Models' (Political Analysis) — `https://ideas.repec.org/a/cup/polals/v32y2024i4p401-416_2.html`
+14. Oreskes, Shrader-Frechette & Belitz — 'Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences' (Science, 1994): validar modelo de sistema aberto é impossível em princípio — `https://www.science.org/doi/10.1126/science.263.5147.641`
+15. Epstein — 'Why Model?' (JASSS 11(4):12, 2008) — `https://www.jasss.org/11/4/12.html`
+16. Saltelli et al. — 'Five ways to ensure that models serve society: a manifesto' (Nature, 2020) — `https://i2insights.org/2022/05/03/improving-modelling/`
+17. Erica Thompson — 'Escape from Model Land' (entrevista na Real World Data Science): o país-modelo e a pergunta de saída — `https://realworlddatascience.net/foundation-frontiers/interviews/posts/2023/01/25/erica-thompson.html`
+18. Messeri & Crockett — 'Artificial intelligence and illusions of understanding in scientific research' (Nature, 2024) — `https://static1.squarespace.com/static/538ca3ade4b090f9ef331978/t/65f071f8fd3e3b478a4f4b86/1710256633821/Messeri&Crockett_2024_Nature.pdf`
+19. Farrell & Shalizi — 'Shoggoths amongst us': o modelo como compressão com perda da cultura, ao lado do mercado e da pesquisa de opinião — `https://www.programmablemutter.com/p/shoggoths-amongst-us`
+20. Narayanan & Kapoor — 'AI as Normal Technology' (Knight First Amendment Institute, Columbia) — `https://knightcolumbia.org/content/ai-as-normal-technology`
+21. Whitney & Norman — 'Real Risks of Fake Data: Synthetic Data, Diversity-Washing and Consent Circumvention' (FAccT) — `https://arxiv.org/abs/2405.01820`
+22. 'Mechanism Plausibility in Generative Agent-Based Modeling' (FAccT '26) — `https://arxiv.org/pdf/2605.12824`
+23. 'This human study did not involve human subjects: Validating LLM simulations as behavioral evidence' — `https://arxiv.org/abs/2602.15785`
+24. Luo et al. — 'We Need Strong Preconditions For Using Simulations In Policy' — `https://arxiv.org/html/2604.07838v1`
+25. Leibo et al. (Google DeepMind) — Concordia e a modelagem generativa baseada em agentes com Game Master — `https://arxiv.org/html/2312.03664v2`
+26. OASIS — 'Open Agent Social Interaction Simulations with One Million Agents' (CAMEL-AI): a tabela de GPU que fixa o relógio em 18 h/passo — `https://arxiv.org/abs/2411.11581`
+27. AgentSociety (Tsinghua FIB-LAB) — 10 mil agentes, 5 milhões de interações, replay determinístico — `https://arxiv.org/abs/2502.08691`
+28. Rossetti, Stella, Cazabet et al. — 'Y Social: an LLM-powered Social Media Digital Twin' (CNR Pisa) — `https://arxiv.org/abs/2408.00818`
+29. 'Poor Man's Agentic Modeling: Simulating Large LLM-Agent Societies on a Laptop' (destilação em modelos de 2 a 12 parâmetros) — `https://arxiv.org/html/2608.11215`
+30. 'MatrAIx: Simulating the World with 8.3 Billion Persona Agents' — corrigida a comparação múltipla, nenhuma associação sobreviveu (q=0,51) — `https://arxiv.org/html/2608.04205v1`
+31. Agent A/B — teste A/B com agentes LLM em sites vivos, com experimento humano paralelo (CHI 2026) — `https://arxiv.org/html/2504.09723`
+32. UXAgent — usuários sintéticos para teste de usabilidade web — `https://arxiv.org/pdf/2502.12561`
+33. MRS Delphi Group — 'Using synthetic participants for market research': um milhão de agentes torna o erro amostral minúsculo e deixa a incerteza que importa 'completamente sem resposta' — `https://www.mrs.org.uk/pdf/MRS_Delphi_synthetic.pdf`
+34. Gallup — 'Gallup Begins Research on Synthetic Responses' (e os 400 mil gêmeos agênticos da CVS Health) — `https://news.gallup.com/opinion/methodology/709373/gallup-begins-research-synthetic-responses.aspx`
+35. The Next Web — 'To find out what customers think, this $2bn startup asks their AI twins' (Simile) — `https://thenextweb.com/news/simile-200-million-agentic-twins-ai-market-research`
+36. Qualtrics — documentação oficial do Synthetic Panels: por especificação, apenas população dos EUA e apenas em inglês — `https://www.qualtrics.com/support/survey-platform/distributions-module/synthetic-panels/`
+37. Research Live — 'Synthetic data not an escape route from the data quality crisis' — `https://www.research-live.com/article/news/synthetic-data-not-an-escape-route-from-the-data-quality-crisis/id/5136883`
+38. Retraction Watch — o experimento de persuasão da Universidade de Zurique no r/changemyview: o precedente ético mais citado do campo — `https://retractionwatch.com/2025/04/28/experiment-using-ai-generated-posts-on-reddit-draws-fire-for-ethics-concerns/`
+39. Asher et al. (Advances in Methods and Practices in Psychological Science, 2026) — contaminação de painel por chatbot — `https://journals.sagepub.com/doi/10.1177/25152459261424723`
+40. Nightingale Collective — collusion.wiki: ~18.000 posts de 3.700+ nomes de agentes em wikis públicas, com burla de sandbox — `https://collusion.wiki/`
+41. 'Execution and assessment of agentic influence operations' (IEEE Security & Privacy) — `https://arxiv.org/html/2605.28725`
+42. BNDES / Finep — Chamada Pública FIP-IA 2026: R$ 205 milhões, sem menção a simulação, modelagem por agentes ou gêmeos digitais — `https://www.bndes.gov.br/wps/portal/site/home/mercado-de-capitais/fundos-de-investimentos/chamadas-publicas-para-selecao-de-fundos/fip-ia-2026`
+43. Oliveira, Faganello & Sampaio — 'O eleitor sintético: o que acontece quando pesquisas de opinião pública são simuladas por Inteligência Artificial' (26/08/2026) — `https://dorispinheiro.com.br/o-eleitor-sintetico-o-que-acontece-quando-pesquisas-de-opiniao-publica-sao-simuladas-por-inteligencia-artificial/`
+44. Fast Company Brasil — 'A nova aposta das pesquisas de opinião: pessoas que não existem' — `https://fastcompanybrasil.com/ia/a-nova-aposta-das-pesquisas-de-opiniao-pessoas-que-nao-existem/`
+45. Galaxies — startup brasileira de personas sintéticas — `https://www.galaxies.com.br/`
+
