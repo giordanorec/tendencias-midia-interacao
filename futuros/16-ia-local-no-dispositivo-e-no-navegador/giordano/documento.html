@@ -566,10 +566,14 @@ RESULTADO: ok</code></pre>
 <p><strong>Os dois prazos fora do horizonte, declarados.</strong> <code>e2.1.1</code> (museus exigirem o arquivo do modelo na aquisição) está em <strong>2032</strong>, um ano além da janela deste mapa, porque a classe de referência — a preservação institucional de arte em software — levou cerca de quinze anos entre o problema aparecer e existir prática. <code>e12.1.1</code> (réplicas locais e não comerciais de parentes mortos) está em <strong>2032</strong> porque depende de <code>e12.1</code>, que já está em 2031, e de mudança jurídica que ainda não começou. Os dois ficam no mapa porque os sinais precoces deles já existem; ambos estão anotados na prosa da seção 5 como fora da janela.</p>
 <p><strong>Calibração.</strong> A confiança cai monotonicamente com a ordem: 46% de alta na primeira ordem, 17% na segunda, 0% na terceira. Isso é o que o método pede, e foi obtido pelos rebaixamentos registrados na seção 7, não por desenho inicial — a primeira versão tinha 8 de 13 efeitos de primeira ordem em confiança alta.</p></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

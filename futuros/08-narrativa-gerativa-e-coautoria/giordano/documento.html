@@ -679,10 +679,14 @@ RESULTADO: ok</code></pre>
 <p>Os três efeitos de 3ª ordem que passam do horizonte estão declarados, como a §3.8 da skill exige: <strong>e2.2.1</strong> (a tipografia sai da arte, 2032), <strong>e3.2.1</strong> (a loja vira o ponto de regulação da tradução, 2032) e <strong>e9.2.1</strong> (quem indica fica mais conhecido que quem escreve, 2032). Os três são efeitos de terceira ordem de cadeias cujo primeiro elo é de 2028 ou 2029; pela classe de referência 2 — três a quatro anos para um regime de declaração saturar — eles não cabem em 2031, e preferi declará-los fora da janela a comprimir o prazo para fazer o número fechar.</p>
 <p>Uma observação sobre a linha de calibração, porque ela merece leitura e não só conferência: a distribuição cai como deve (alta 3 → 1 → 0), mas a ausência de qualquer <code>baixa</code> na primeira ordem é o ponto em que este mapa está mais bem-comportado do que deveria. Ver a seção 7.7.</p></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

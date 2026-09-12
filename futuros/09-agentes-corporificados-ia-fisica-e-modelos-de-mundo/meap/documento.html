@@ -373,10 +373,14 @@
 <p>All six phases executed in order. Phase 1 with answers supplied rather than collected, there being no interlocutor — recorded in 12.1 along with the three questions I could not ask and the assumptions adopted in their place. Phase 2 with the classification written out explicitly (section 3 and 12.2); the triage confirmation the skill requires could not be requested and is recorded as an open item. Phase 3 with three roots, each carrying what it breaks, why now and what is missing. Phase 4 with hierarchical IDs, signal by order, horizon year and confidence, respecting 2-to-5 first-order effects per root and more than three branches at depth 3. Phase 5 with the four destructive tests applied one by one and a numeric summary. Phase 6 with the twelve literal section titles, scenarios in the past tense and the raw annex.</p>
 <p>The skill operates in English and the body of this document is in English, with section titles and frontmatter keys in Portuguese, following the skill's own language note. <code>publico_ok: false</code> — this document has not been reviewed by a human.</p></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

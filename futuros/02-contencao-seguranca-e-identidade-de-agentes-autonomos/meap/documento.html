@@ -300,10 +300,14 @@
 <h3 id="g-paths-not-taken">G. Paths not taken</h3>
 <ul><li>The technical detail of <strong>how</strong> an agent proves <em>user delegation</em> rather than merely its own identity — signed mandates, verifiable credentials — is the pivot of the whole 4.1 disruption and got one line (e2). A second map could be built on that alone.</li><li><strong>Multi-agent systems</strong> — agents supervising agents, and containment across a fleet — was touched only in e3 and belongs closer to theme 1.</li><li><strong>The state as an actor</strong>: government agents, and agent identity as a public-sector credential, was excluded by the audience cut (people who design media and interaction) and is a visible gap.</li><li><strong>China</strong>, whose agent ecosystem barely appears in the English-language corpus that this map was built from. Treat every geographic claim here as an assertion about the Atlantic web.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

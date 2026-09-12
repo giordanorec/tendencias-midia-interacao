@@ -313,10 +313,14 @@
 <h3 id="12-4-buscas-que-nao-deram-em-nada-e-limites-do-levantamento">12.4 Buscas que não deram em nada, e limites do levantamento</h3>
 <ul><li><strong>Fonte que recusou acesso:</strong> <code>inovativos.com.br</code> devolveu HTTP 403 no artigo que traz o número de 19.100 humanoides embarcados no 1º semestre de 2026 (+272%). O dado <strong>não</strong> entrou em lugar nenhum do documento além deste registro.</li><li><strong>Busca sem retorno útil:</strong> procurei um laudo público de incidente robótico cuja causa-raiz tivesse sido atribuída formalmente ao ambiente de simulação — o wildcard central deste mapa. <strong>Não encontrei nenhum.</strong> O caso mais próximo é a investigação do NTSB sobre os ônibus escolares, em que o diagnóstico publicado aponta para o banco de validação, não para um laudo oficial sobre o simulador. Essa ausência é informação: em setembro de 2026, o wildcard 1 ainda <strong>não</strong> aconteceu.</li><li><strong>Assimetria geográfica não corrigida:</strong> nenhuma fonte primária de laboratório chinês foi aberta, num campo em que a China responde por 54% das instalações industriais mundiais. Declarado na §7, item 7.</li><li><strong>Números não resolvidos:</strong> densidade robótica brasileira (18 vs. "menos de 50") e média global (141 vs. 151) divergem entre fontes; o coeficiente da correlação simulado-real nunca foi publicado por quem a afirma. Nenhum dos três foi resolvido nesta rodada.</li><li><strong>Ferramentas de busca e leitura de página estavam disponíveis</strong> neste ambiente e foram usadas em todas as afirmações factuais do documento. Não houve <code>fontes: 0</code> nem rebaixamento de confiança por falta de sourcing.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

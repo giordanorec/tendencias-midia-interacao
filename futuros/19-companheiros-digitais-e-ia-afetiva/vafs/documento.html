@@ -369,10 +369,14 @@
 <h3 id="12-6-caminhos-abandonados">12.6 Caminhos abandonados</h3>
 <ul><li><strong>Um quarto candidato a disrupção-raiz</strong> foi considerado e descartado antes de entrar: <em>"o companheiro deixa de ser um produto e vira uma camada do sistema operacional"</em>. É plausível e talvez até provável (é o cenário provável da seção 9), mas não passa no Teste 3 com um ator nomeável: o que ele derruba é "o aplicativo de companheiro", que este mesmo mapa já classificou como categoria madura em vias de absorção. Derrubar algo maduro que já estava saindo não é ruptura — é conclusão de um movimento em curso. Virou cenário, não raiz.</li><li><strong>Uma roda alternativa organizada por ator</strong> (usuário / plataforma / regulador / profissional de saúde) chegou a ser esboçada e foi abandonada: produz efeitos mais organizados e menos causais, porque cada ramo vira uma lista do que aquele ator faz, e não uma cadeia do que decorre de quê. O modo declarado na Fase 1 foi "a partir de uma inovação/tema", e a roda por ator contradiz esse modo.</li><li><strong>Não usei o Hype Cycle</strong> para posicionar nada, apesar de ele estar no <code>ESTUDO.md</code>. Motivo: a própria crítica registrada lá (Dedehayir &amp; Steinert, 2016; e o levantamento de que só cerca de um quinto das tecnologias percorre o ciclo inteiro) torna o posicionamento qualitativo sem valor argumentativo aqui, e o documento já tem a régua maduro/emergente/disruptivo fazendo o mesmo trabalho com critério explícito. O <strong>Three Horizons</strong>, esse sim, foi usado implicitamente como segunda peneira: D1 e D2 são H2 empurrando para H3; D3 é candidata a H3 puro, e é por isso mesmo a mais frágil.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

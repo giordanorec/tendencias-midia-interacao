@@ -723,10 +723,14 @@ RESULTADO: ok</code></pre>
 <p>Leitura da saída, item a item:</p>
 <ul><li><strong>18/18 campos e 12/12 títulos:</strong> o documento está no formato da disciplina, sem desvio.</li><li><strong>4 raízes, 20 / 23 / 14 efeitos:</strong> batem com o frontmatter.</li><li><strong>Nenhum efeito de 1ª ou 2ª ordem passa de 2031;</strong> os dois de 3ª ordem que passam (<code>e11.1.1</code> e <code>e17.1.1</code>, ambos em 2032) estão declarados na §5.4, como a skill exige.</li><li><strong>Calibração:</strong> 7/11/2 na primeira ordem, 4/14/5 na segunda, 0/0/14 na terceira. A confiança cai com a ordem e nenhuma confiança alta sobrevive à terceira — é o que a skill pede, e a justificativa das sete altas de primeira ordem está em §7.9.</li><li><strong>32/32 links respondem</strong>, e o número bate com o campo <code>fontes</code> do frontmatter. As três fontes que não respondem estão fora da §11, na §12.4.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

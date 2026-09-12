@@ -392,10 +392,14 @@
 <h3 id="12-5-caminhos-abandonados">12.5. Caminhos abandonados</h3>
 <ul><li><strong>Ramo "captura para treino de robô e modelo de mundo".</strong> Cortado por fronteira com o tema 9, apesar de ser um dos usos que mais puxam investimento hoje (a maior captação do setor é de uma empresa de direção autônoma).</li><li><strong>Ramo "distribuição e compressão de splat na web".</strong> Cortado por fronteira com o tema 15, embora a disputa por codec esteja registrada como sinal fraco na seção 6, porque a dimensão de poder que ela carrega pertence a este tema.</li><li><strong>Ramo "reconstrução amodal e o que o modelo infere do lado oculto".</strong> Absorvido dentro de <code>e7</code> em vez de virar disrupção própria; sozinho, é mecanismo, não ruptura.</li><li><strong>Ramo "captura neural e acessibilidade".</strong> Levantado e não desenvolvido por falta de evidência: descrição de ambiente para pessoa com deficiência visual a partir de mapa 3D persistente é plausível e não achei nada concreto em 2026 que sustentasse derivação. Fica anotado como lacuna para quem retomar o tema.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

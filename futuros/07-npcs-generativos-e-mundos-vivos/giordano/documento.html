@@ -545,10 +545,14 @@ RESULTADO: ok</code></pre>
 <p>Dois números desta saída merecem ser lidos com desconfiança, e não com alívio:</p>
 <ul><li><strong><code>confiança ordem 1: baixa 0</code>.</strong> O verificador aceita, porque só exige que a confiança caia com a ordem. Mas zero efeitos de primeira ordem com confiança baixa é o sinal, discutido em 7.7, de que talvez eu não tenha posto na primeira ordem nada que pudesse estar errado.</li><li><strong><code>links da seção 11: 20/20</code>.</strong> Isto mede que as páginas respondem, <strong>não</strong> que sustentam o que eu disse que sustentam. A fonte que me obrigou a mais correções nesta rodada (a análise do <em>Teammates</em>) respondia 200 na primeira tentativa também — e eu tinha lido errado o que estava nela. Ver 12.5.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

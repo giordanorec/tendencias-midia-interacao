@@ -428,10 +428,14 @@
 <p><strong>Sobre <code>robots.txt</code> na era da IA.</strong> Há indício, em levantamentos de setembro de 2026, de que publicadores passaram a <strong>bloquear bots de treino e permitir bots de resposta</strong> — com <code>PerplexityBot</code> e <code>ChatGPT-User</code> aparecendo mais em regras de permissão que de bloqueio, presumivelmente porque devolvem tráfego. É um comportamento economicamente coerente e consistente com D3, e teria sido bom material para <code>e5.1</code>, mas não abri a fonte. Fica como pista para quem for continuar.</p>
 <p><strong>Termos e entidades varridos que não renderam material próprio:</strong> "machine-readable web" (só devolve conteúdo de marketing), "AI crawler robots.txt" (redundante com o que já havia), "agentic readiness" fora dos dois produtos já citados (uma dúzia de checadores comerciais gratuitos, todos isca para consultoria, nenhum com metodologia publicada), Hacker News e discussões em W3C/IETF além do rascunho do Web Bot Auth (não alcançados nesta janela — é a varredura que eu faria primeiro numa segunda rodada).</p></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

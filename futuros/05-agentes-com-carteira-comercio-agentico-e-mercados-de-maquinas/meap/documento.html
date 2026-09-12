@@ -414,10 +414,14 @@
 <h3 id="12-7-contagens-declaradas-para-conferencia">12.7. Contagens declaradas, para conferência</h3>
 <ul><li>Disrupções-raiz: <strong>3</strong> (4.1, 4.2, 4.3). Candidatas rejeitadas: <strong>3</strong>.</li><li>Efeitos de 1ª ordem: <strong>10</strong> — <code>e1 e2 e3 e4 e10</code> (raiz 4.1, cinco, no limite máximo da skill); <code>e5 e6 e7</code> (raiz 4.2, três); <code>e8 e9</code> (raiz 4.3, dois, no mínimo da skill).</li><li>Efeitos de 2ª ordem: <strong>14</strong> — <code>e1.1 e1.2 e1.3 e2.1 e3.1 e4.1 e10.1 e5.1 e5.2 e6.1 e7.1 e8.1 e8.2 e9.1</code>.</li><li>Efeitos de 3ª ordem: <strong>11</strong> — <code>e1.1.1 e1.2.1 e1.3.1 e2.1.1 e3.1.1 e5.1.1 e5.2.1 e7.1.1 e8.1.1 e8.2.1 e9.1.1</code>.</li><li>Ramos com profundidade 3: <strong>11</strong> (exigência da skill: no mínimo 3).</li><li>Fontes abertas e citadas na seção 11: <strong>13</strong>. Páginas tentadas e falhadas: <strong>5</strong>.</li><li>Confiança global: <strong>media</strong> — justificada pela combinação de infraestrutura datada e verificável com volume comercial não demonstrado e regra de responsabilidade inexistente.</li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>

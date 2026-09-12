@@ -756,10 +756,14 @@ RESULTADO: ok</code></pre>
 <p><strong>Leitura da saída, item a item:</strong></p>
 <ul><li><strong><code>frontmatter: 18/18 campos</code></strong> e <strong><code>títulos literais: 12/12</code></strong> — o documento está no formato da disciplina, sem título trocado.</li><li><strong><code>raízes: 4</code>, <code>ordem 1: 21</code>, <code>ordem 2: 26</code>, <code>ordem 3: 16</code></strong> — batem com o frontmatter. Os contadores foram corrigidos <strong>no frontmatter</strong>, não no texto: a primeira execução acusou <code>ordem 3: 16 (frontmatter diz 15)</code>, porque eu havia contado a terceira ordem da raiz A a menos. O erro era meu, na contagem à mão; o texto estava certo.</li><li><strong><code>prazo &gt; horizonte em ordens 1-2: 0</code></strong> — nenhum efeito de primeira ou segunda ordem escapa da janela de 2031, como a regra exige.</li><li><strong><code>prazo &gt; horizonte em ordem 3: 2 [('e3.1.1', 2032), ('e17.2.1', 2032)]</code></strong> — permitido, e declarado por extenso na §5.4 com o motivo.</li><li><strong><code>confiança ordem 1: alta 4 · media 15 · baixa 2</code> / <code>ordem 2: alta 0 · media 14 · baixa 12</code> / <code>ordem 3: alta 0 · media 0 · baixa 16</code></strong> — a distribuição cai com a ordem. Nenhuma terceira ordem acima de baixa.</li><li><strong><code>links da seção 11: 29/29 respondem</code></strong> — os vinte e nove endereços foram testados antes de serem escritos, com o mesmo método do verificador, e nenhum foi incluído sem responder. As quatro fontes que <strong>não</strong> abriram estão na §12.4 e fora da seção 11, de propósito.</li><li><strong><code>RESULTADO: ok</code></strong></li></ul></section>
 </main>
-<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico"></iframe></dialog>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
 <script>
-document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor]'); if(!a) return; e.preventDefault();
-  var v = document.getElementById('visor'); document.getElementById('visor-frame').src = a.getAttribute('href'); v.showModal(); });
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
 </body>
 </html>
