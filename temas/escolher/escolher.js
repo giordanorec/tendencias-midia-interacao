@@ -297,6 +297,8 @@ function prazoDoc(login, tabela = DATAS) {
 }
 const fmtDia = (d) => `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}`;
 
+/* atrasos relevados pelo professor (login → data da apresentação): não aparecem como "entrega atrasada" nem descontam. */
+const ATRASO_RELEVADO = { hfm: "17/09" };   // 17/09: o prazo da véspera não tinha ficado claro (decisão do professor)
 function pintarDocs() {
   const eu = ALUNOS.find((a) => a.login === EU);
   if (eu?.doc_url && !$("#doc-url").value) $("#doc-url").value = eu.doc_url;
@@ -305,6 +307,7 @@ function pintarDocs() {
   const com = ALUNOS.filter((a) => a.doc_url);
   $("#lista-docs").innerHTML = com.length ? com.map((a) => {
     const pzA = prazoDoc(a.login); const em = a.doc_em ? new Date(a.doc_em) : null;
+    if (ATRASO_RELEVADO[a.login]) return `<li><span><span class="quem">${esc(a.login)}</span> · <a href="${esc(a.doc_url)}" target="_blank" rel="noopener">${esc(a.doc_url.replace(/^https?:\/\//, "")).slice(0, 60)}</a></span><span class="n-testes">${em ? fmtDia(em) : ""} · atraso relevado</span></li>`;
     const tarde = pzA && em && em > pzA;
     return `<li><span><span class="quem">${esc(a.login)}</span> · <a href="${esc(a.doc_url)}" target="_blank" rel="noopener">${esc(a.doc_url.replace(/^https?:\/\//, "")).slice(0, 60)}</a></span><span class="n-testes">${em ? fmtDia(em) : ""}${tarde ? ' <span class="atrasado">· entrega atrasada</span>' : ""}</span></li>`;
   }).join("") : `<li class="mudo">Nenhum ainda.</li>`;

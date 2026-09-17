@@ -98,12 +98,24 @@
           '<a class="botao botao--principal" href="/temas/escolher/?tema=' + t.n + '">Quero este tema</a>' +
           '<a class="botao botao--linha" href="/materiais/temas-tendencias-2026-2/#tema-' + t.n + '">Ler no documento</a>' +
           (t.objeto ? '<p class="objeto">aqui o objeto é <b>' + esc(t.objeto) + "</b></p>" : "") +
+          '<div class="tema__futuros" data-n="' + t.n + '" hidden></div>' +
         "</div>" +
       "</div>" +
       '<div class="folio"><span>' + esc(f.nome) + " · " + esc(f.sub) + "</span><span>" + pad2(idx + 5) + "</span></div>" +
     "</section>";
   }
   $("#temas").innerHTML = D.temas.map(cenaTema).join("");
+
+  /* ---- 3b. futuros abertos à turma: mapas do professor e confrontos (aparecem no dia da aula do tema) ---- */
+  fetch("/futuros/abertos.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (ab) {
+    ab.forEach(function (a) {
+      var el = $('.tema__futuros[data-n="' + a.n + '"]'); if (!el) return;
+      var confs = a.confrontos.map(function (c) { return '<a class="botao botao--linha" href="' + c.url + '">Confronto: mapa de ' + esc(c.login) + ' × professor</a>'; }).join("");
+      el.innerHTML = '<p class="kick">Apresentado em ' + a.aberto_em.slice(8, 10) + "/" + a.aberto_em.slice(5, 7) + ' · aberto à turma</p>' +
+        '<a class="botao botao--principal" href="' + a.url + '">Mapas de futuro deste tema</a>' + confs;
+      el.hidden = false;
+    });
+  }).catch(function () {});
 
   /* abas, ordens, ver-mais, copiar (delegação) */
   document.addEventListener("click", function (e) {

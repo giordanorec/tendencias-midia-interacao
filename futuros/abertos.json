@@ -1,0 +1,30 @@
+[
+ {
+  "n": 4,
+  "slug": "04-a-internet-agentica-quando-o-usuario-e-uma-maquina",
+  "titulo": "A internet agêntica: quando o usuário é uma máquina",
+  "url": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/",
+  "aberto_em": "2026-09-17",
+  "confrontos": [
+   {
+    "login": "hfm",
+    "url": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/confronto-hfm/",
+    "aberto_em": "2026-09-17"
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "slug": "08-narrativa-gerativa-e-coautoria",
+  "titulo": "Narrativa gerativa e coautoria",
+  "url": "/futuros/08-narrativa-gerativa-e-coautoria/",
+  "aberto_em": "2026-09-17",
+  "confrontos": [
+   {
+    "login": "yrv",
+    "url": "/futuros/08-narrativa-gerativa-e-coautoria/confronto-yrv/",
+    "aberto_em": "2026-09-17"
+   }
+  ]
+ }
+]

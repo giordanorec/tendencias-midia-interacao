@@ -18,7 +18,7 @@ function hojeRecife() {
 export default async function middleware(req) {
   const url = new URL(req.url);
   const p = url.pathname;
-  if (p.startsWith('/futuros/entrar') || p === '/futuros/liberados.json' || p === '/futuros/futuros.css') return;
+  if (p.startsWith('/futuros/entrar') || p === '/futuros/liberados.json' || p === '/futuros/abertos.json' || p === '/futuros/futuros.css') return;
   const senha = process.env.FUTUROS_SENHA || '';
   if (senha) {
     const esperado = await sha256(senha + '|tmi-futuros');

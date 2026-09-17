@@ -448,3 +448,7 @@ h2.sec { font-size: var(--t-cena); max-width: 22ch; margin-bottom: clamp(16px, 3
   .varr__seg, .nivel__seg { transform: none !important; }
   #funil { display: none; }
 }
+
+/* futuros abertos (17/09) */
+.tema__futuros { margin-top: var(--s-4); padding-top: var(--s-3); border-top: 1px solid var(--hairline-strong); display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; }
+.tema__futuros .kick { width: 100%; margin: 0 0 var(--s-1); }
