@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Movimento 3 — o projeto-experimento — Tendências em Mídia e Interação</title>
+<meta name="description" content="Movimento 3: ideias, experimento, teste com a turma, registro e apresentação final.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/temas/escolher/escolher.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal">
+      <a href="/#agora">Agora</a>
+      <a href="/#jornada">Etapas</a>
+      <a href="/#calendario">Calendário</a>
+      <a href="/temas/">Temas</a>
+      <a href="/temas/escolher/">Escolher</a>
+      <a href="/experimento/" aria-current="page">Experimento</a>
+      <a href="/materiais/">Materiais</a>
+      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho">
+  <p class="rotulo">Etapa 3 · Movimento 3 · vale 4,0</p>
+  <h1 style="margin-top:var(--s-4)">O projeto-experimento</h1>
+  <p class="olho">Depois de mapear o futuro do seu tema (movimento 2), você constrói <strong>algo pequeno que já dá para fazer hoje</strong> e que ajuda a entender esse futuro. O caminho tem quatro entregas, nesta página: as <strong>ideias</strong>, o <strong>experimento</strong>, o <strong>registro</strong> do teste com a turma e a <strong>apresentação final</strong>. O enunciado completo está em <a href="/materiais/movimento-3-experimento/">Movimento 3 — o projeto-experimento</a>.</p>
+  <div class="nota" style="margin-top:var(--s-5)">
+    <strong>Os prazos são individuais</strong> e seguem a ordem sorteada das apresentações: as ideias vencem uma semana depois da sua apresentação de tendência; o experimento, na véspera do seu teste; o registro, na véspera da sua apresentação final. Entre e veja as suas datas.
+  </div>
+</section>
+
+<section class="estreita doc-corpo" id="app">
+  <div class="painel-login" id="bloco-login">
+    <p class="rotulo">Passo 0</p>
+    <h2>Entre com o seu login do CIn</h2>
+    <p class="mudo" style="margin-top:var(--s-2)">O mesmo da página de escolha e do Hiper Deep Research (<code>grec</code> ou <code>grec@cin.ufpe.br</code>). Sem senha.</p>
+    <form id="form-login" class="linha" style="margin-top:var(--s-4)">
+      <input id="login" class="campo" type="text" autocomplete="username" placeholder="seulogin" required>
+      <button class="botao botao--principal" type="submit">Entrar</button>
+    </form>
+    <p id="erro-login" class="erro" hidden></p>
+  </div>
+
+  <div id="bloco-app" hidden>
+    <p class="eu">Você está como <b id="eu-login"></b> · <button class="link" id="sair" type="button">sair</button></p>
+
+    <div class="bloco" id="bloco-datas">
+      <p class="rotulo">As suas datas</p>
+      <h2>Onde você está no movimento 3</h2>
+      <p id="minhas-datas" class="janela">as suas datas aparecem aqui depois de entrar</p>
+    </div>
+
+    <div class="bloco" id="bloco-ideias">
+      <p class="rotulo">Passo 1 · uma semana depois da sua apresentação, 23h59</p>
+      <h2>Entregue as suas ideias</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Faça um <strong>brainstorming</strong> a partir do que você produziu no movimento 2 — o seu mapa de futuro, o confronto com o mapa do professor e a conversa da aula. As ideias precisam <strong>explorar o tema que você escolheu</strong> e ser um <strong>experimento sobre para onde as coisas estão indo</strong>: algo pequeno, que dá para fazer hoje com tecnologia emergente, e que responde uma pergunta sobre o futuro. Entregue um documento (Google Docs, Markdown no GitHub ou Drive) com duas partes: <strong>como você fez o brainstorming</strong> (método, com quem ou com que IA, quantas ideias saíram) e <strong>três ideias selecionadas</strong>, cada uma com: o que é, a pergunta sobre o futuro, a tecnologia emergente que usa, e o que você espera observar quando a turma usar.</p>
+      <p class="mudo" style="margin-top:var(--s-2)">Depois da entrega, o assistente da disciplina publica aqui uma <strong>pré-análise</strong> de cada ideia (viável? complexa o bastante? alinhada com o tema?) e o professor comenta no grupo do WhatsApp. É a partir disso que você escolhe qual ideia vira o experimento.</p>
+      <p id="ideias-prazo" class="janela"></p>
+      <form id="form-ideias" class="linha" style="margin-top:var(--s-3)">
+        <input id="ideias-url" class="campo" type="url" placeholder="https://…/ideias-seu-tema" required>
+        <button class="botao botao--principal" type="submit">Salvar o link</button>
+      </form>
+      <p id="ok-ideias" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-5)">Ideias entregues e pré-análises</h3>
+      <ul class="skills" id="lista-ideias"><li class="mudo">Nenhuma ainda.</li></ul>
+    </div>
+
+    <div class="bloco" id="bloco-exp">
+      <p class="rotulo">Passo 2 · véspera do seu teste, 23h59</p>
+      <h2>Entregue o link do experimento</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Um experimento acessível a quem não é da turma, com <code>README.md</code> (o que é, a pergunta sobre o futuro, a tecnologia emergente e por que não dá com tecnologia madura, como usar, o que você espera que aconteça). Os testes são presenciais, de 22/10 a 12/11, dois por aula, na mesma ordem das apresentações.</p>
+      <p id="exp-prazo" class="janela"></p>
+      <form id="form-exp" class="linha" style="margin-top:var(--s-3)">
+        <input id="exp-url" class="campo" type="url" placeholder="https://…/experimento-seu-tema" required>
+        <button class="botao botao--principal" type="submit">Salvar o link</button>
+      </form>
+      <p id="ok-exp" class="ok" hidden></p>
+      <h3 style="margin-top:var(--s-5)">Experimentos entregues</h3>
+      <ul class="skills" id="lista-exps"><li class="mudo">Nenhum ainda.</li></ul>
+    </div>
+
+    <div class="bloco" id="bloco-registro">
+      <p class="rotulo">Passo 3 · véspera da sua apresentação final, 23h59</p>
+      <h2>O registro do teste</h2>
+      <p class="mudo" style="margin-top:var(--s-2)">Um <code>REGISTRO.md</code> no mesmo repositório do experimento, em três partes: o que a turma fez que você não esperava; o que você mudou por causa disso; o que decidiu não mudar, e por quê. Feche com uma linha: a pergunta sobre o futuro ficou mais clara, mais confusa, ou mudou? Não precisa de link novo — vale o mesmo do experimento.</p>
+    </div>
+
+    <div class="bloco" id="bloco-nota">
+      <p class="rotulo">Como os 4,0 se dividem</p>
+      <h2>A nota do movimento 3</h2>
+      <ul class="lista-simples" style="margin-top:var(--s-3)">
+        <li><b>1,5</b> — experimento entregue e acessível, com README, na véspera do teste</li>
+        <li><b>1,0</b> — teste com a turma (aconteceu, a turma conseguiu usar, você observou em vez de conduzir)</li>
+        <li><b>1,0</b> — <code>REGISTRO.md</code>: o que mudou e o que não mudou, com motivo</li>
+        <li><b>0,5</b> — apresentação final</li>
+      </ul>
+      <p class="mudo" style="margin-top:var(--s-3)">As ideias não valem ponto: são a condição para o professor te orientar antes de você construir. Atraso no experimento perde 0,3 por aula; sem experimento acessível na véspera, o teste vai para a última vaga livre.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2</p></div></footer>
+<script src="/assets/hub.js"></script>
+<script src="./experimento.js"></script>
+</body>
+</html>

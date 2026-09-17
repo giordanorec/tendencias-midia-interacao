@@ -82,7 +82,7 @@ async function carregar() {
       api("tmi_aula_feedback?select=de,para,data,puxou_discussao,mapa_fundamentado,contra_mapa,experimento_claro,ficou,comentario,criado_em&order=criado_em.desc"),
     ]);
   } catch (e) { console.error(e); return; }
-  pintarTemas(); pintarSkills(); pintarFeedback(); await pintarSorteio(); pintarDocs(); pintarExps(); pintarAula();
+  pintarTemas(); pintarSkills(); pintarFeedback(); await pintarSorteio(); pintarDocs(); pintarAula();
 }
 
 function janela() {
@@ -320,28 +320,7 @@ $("#form-doc").addEventListener("submit", async (ev) => {
   carregar();
 });
 
-/* ---------------- experimento (movimento 3): prazo = véspera do teste ---------------- */
-function pintarExps() {
-  const eu = ALUNOS.find((a) => a.login === EU);
-  if (eu?.exp_url && !$("#exp-url").value) $("#exp-url").value = eu.exp_url;
-  const pz = prazoDoc(EU, DATAS_TESTE); const i = ORDEM.findIndex((l) => l.aluno === EU);
-  $("#exp-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (você testa em ${DATAS_TESTE[i]} e apresenta a final em ${DATAS_FINAL[i]})` : "o seu prazo aparece aqui depois do sorteio de segunda 14/09";
-  const com = ALUNOS.filter((a) => a.exp_url);
-  $("#lista-exps").innerHTML = com.length ? com.map((a) => {
-    const pzA = prazoDoc(a.login, DATAS_TESTE); const em = a.exp_em ? new Date(a.exp_em) : null;
-    const tarde = pzA && em && em > pzA;
-    return `<li><span><span class="quem">${esc(a.login)}</span> · <a href="${esc(a.exp_url)}" target="_blank" rel="noopener">${esc(a.exp_url.replace(/^https?:\/\//, "")).slice(0, 60)}</a></span><span class="n-testes">${em ? fmtDia(em) : ""}${tarde ? ' <span class="atrasado">· entrega atrasada</span>' : ""}</span></li>`;
-  }).join("") : `<li class="mudo">Nenhum ainda.</li>`;
-}
-$("#form-exp").addEventListener("submit", async (ev) => {
-  ev.preventDefault();
-  try {
-    await api(`tmi_alunos?login=eq.${encodeURIComponent(EU)}`, { method: "PATCH", body: JSON.stringify({ exp_url: $("#exp-url").value.trim(), exp_em: new Date().toISOString() }) });
-    const pz = prazoDoc(EU, DATAS_TESTE); const tarde = pz && new Date() > pz;
-    $("#ok-exp").textContent = tarde ? "Salvo — depois do seu prazo, então fica registrado como entrega atrasada." : "Salvo. É este link que a turma vai abrir no dia do teste."; $("#ok-exp").hidden = false;
-  } catch (e) { alert("Não deu para salvar: " + e.message.slice(0, 160)); }
-  carregar();
-});
+/* experimento (movimento 3): mudou para /experimento/experimento.js em 17/09 */
 
 /* ---------------- feedback das aulas de apresentação ---------------- */
 function pintarAula() {

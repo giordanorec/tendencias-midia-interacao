@@ -30,6 +30,23 @@ Três exigências, sem exceção:
 
 ---
 
+## Antes de construir: as ideias
+
+Uma semana depois da sua apresentação de tendência (23h59), você entrega na [página do
+movimento 3](/experimento/) um documento de **ideias**, em duas partes:
+
+1. **Como você fez o brainstorming** — método, com quem ou com que IA, quantas ideias saíram.
+   O ponto de partida é o que você produziu no movimento 2: o seu mapa, o confronto com o mapa
+   do professor e a conversa da aula.
+2. **Três ideias selecionadas**, cada uma com: o que é, a pergunta sobre o futuro, a tecnologia
+   emergente que usa, e o que você espera observar quando a turma usar. As ideias precisam
+   explorar o tema que você escolheu e ser um experimento sobre para onde as coisas estão indo.
+
+O assistente da disciplina publica na mesma página uma pré-análise de cada ideia — viável para
+um aluno fazer no prazo? complexa o bastante para valer o movimento? alinhada com o tema? — e
+o professor comenta no grupo do WhatsApp. É com isso que você escolhe qual ideia vira o
+experimento. As ideias não valem ponto; são a condição para a orientação.
+
 ## O calendário
 
 A ordem dos testes **repete a ordem das apresentações de tendência**. Quem apresentou primeiro
@@ -47,8 +64,7 @@ ordem foi sorteada.
 | 03/12 | Publicação da galeria pública de experimentos · encerramento. |
 | 10/12 | Margem (08/12 é feriado em Recife). |
 
-A sua data de teste e a de apresentação final aparecem na [página de escolha](/temas/escolher/),
-assim que a ordem estiver definida.
+A sua data de teste, a de apresentação final e os seus prazos aparecem na [página do movimento 3](/experimento/).
 
 ---
 
@@ -72,7 +88,7 @@ Quem está na plateia registra o feedback na página de escolha, no mesmo dia. �
 
 ### Antes do teste (véspera, 23h59)
 
-O link do experimento acessível, salvo na página de escolha, com um `README.md` que diga:
+O link do experimento acessível, salvo na [página do movimento 3](/experimento/), com um `README.md` que diga:
 
 - o que é, em um parágrafo;
 - a pergunta sobre o futuro;
