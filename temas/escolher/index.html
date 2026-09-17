@@ -157,7 +157,7 @@
     <div class="bloco" id="bloco-aula" hidden>
       <p class="rotulo">Depois de cada aula de apresentação</p>
       <h2>Feedback para quem apresentou</h2>
-      <p class="mudo" style="margin-top:var(--s-2)">Em cada aula, dois colegas apresentam. Até 23h59 do mesmo dia, responda quatro perguntas de sim ou não e deixe um comentário curto para cada um. Isso registra que você estava na aula e é a outra metade do "feedback dado aos colegas" da nota — a primeira foi a rodada cruzada das skills.</p>
+      <p class="mudo" style="margin-top:var(--s-2)">Em cada aula, dois colegas apresentam. Até 23h59 do mesmo dia, responda quatro perguntas de sim ou não, diga o que ficou para você e deixe um comentário curto para cada um. Isso registra que você estava na aula e é a outra metade do "feedback dado aos colegas" da nota — a primeira foi a rodada cruzada das skills.</p>
       <form id="form-aula" class="pilha" style="margin-top:var(--s-4)">
         <label class="rot">Aula de <select id="aula-data" class="campo" required><option value="">— escolha a data —</option></select></label>
         <label class="rot">Quem apresentou <select id="aula-para" class="campo" required><option value="">— escolha o colega —</option></select></label>
@@ -167,6 +167,8 @@
           <label><input type="checkbox" id="aula-contra"> Ela <strong>mostrou onde o próprio mapa pode estar errado</strong> (a seção "Contra o próprio mapa")?</label>
           <label><input type="checkbox" id="aula-exp"> Deu para entender <strong>que experimento</strong> sai daí e que pergunta ele responde?</label>
         </div>
+        <label class="rot">O que ficou para você desta apresentação? — o que você lembra, o que levou consigo (até 300 caracteres)
+          <textarea id="aula-ficou" class="campo" maxlength="300" rows="3" required></textarea></label>
         <label class="rot">Um comentário para quem apresentou — até 300 caracteres
           <textarea id="aula-coment" class="campo" maxlength="300" rows="3"></textarea></label>
         <button class="botao botao--principal" type="submit" style="align-self:flex-start">Enviar o feedback</button>

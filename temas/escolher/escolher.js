@@ -79,7 +79,7 @@ async function carregar() {
       api("tmi_alunos?select=login,skill_url,skill_em,doc_url,doc_em,exp_url,exp_em&order=login.asc"),
       api("tmi_skill_feedback?select=de,para,tema,perguntou,recusou_maduro,duvidou,formato,comentario,criado_em&order=criado_em.desc"),
       api("tmi_troca?select=id,de,para,status,criado_em,respondido_em&order=criado_em.asc"),
-      api("tmi_aula_feedback?select=de,para,data,puxou_discussao,mapa_fundamentado,contra_mapa,experimento_claro,comentario,criado_em&order=criado_em.desc"),
+      api("tmi_aula_feedback?select=de,para,data,puxou_discussao,mapa_fundamentado,contra_mapa,experimento_claro,ficou,comentario,criado_em&order=criado_em.desc"),
     ]);
   } catch (e) { console.error(e); return; }
   pintarTemas(); pintarSkills(); pintarFeedback(); await pintarSorteio(); pintarDocs(); pintarExps(); pintarAula();
@@ -362,7 +362,7 @@ function pintarAula() {
   $("#lista-aula").innerHTML = meus.length ? meus.map((f) => {
     const m = [["puxou a discussão", f.puxou_discussao], ["mapa com fonte", f.mapa_fundamentado], ["contra o próprio mapa", f.contra_mapa], ["experimento claro", f.experimento_claro]]
       .map(([r, v]) => (v ? `<b>✓ ${r}</b>` : `✗ ${r}`)).join(" · ");
-    return `<li><span><span class="marcas">${m}</span>${f.comentario ? `<br>${esc(f.comentario)}` : ""}</span><span class="n-testes">de ${esc(f.de)} · aula de ${(f.data || "").slice(8, 10)}/${(f.data || "").slice(5, 7)}</span></li>`;
+    return `<li><span><span class="marcas">${m}</span>${f.ficou ? `<br><b>Ficou:</b> ${esc(f.ficou)}` : ""}${f.comentario ? `<br>${esc(f.comentario)}` : ""}</span><span class="n-testes">de ${esc(f.de)} · aula de ${(f.data || "").slice(8, 10)}/${(f.data || "").slice(5, 7)}</span></li>`;
   }).join("") : `<li class="mudo">Nada ainda.</li>`;
 }
 $("#aula-data")?.addEventListener("change", pintarAula);
@@ -374,7 +374,7 @@ $("#form-aula")?.addEventListener("submit", async (ev) => {
   try {
     await api("tmi_aula_feedback?on_conflict=de,para,data", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" },
       body: JSON.stringify({ de: EU, para, data: `2026-${mm}-${dd}`, puxou_discussao: $("#aula-puxou").checked, mapa_fundamentado: $("#aula-fund").checked,
-        contra_mapa: $("#aula-contra").checked, experimento_claro: $("#aula-exp").checked, comentario: $("#aula-coment").value.trim().slice(0, 300) }) });
+        contra_mapa: $("#aula-contra").checked, experimento_claro: $("#aula-exp").checked, ficou: $("#aula-ficou").value.trim().slice(0, 300), comentario: $("#aula-coment").value.trim().slice(0, 300) }) });
     $("#ok-aula").textContent = `Enviado para ${para}. Registrado como presença na aula de ${d}.`; $("#ok-aula").hidden = false;
     $("#form-aula").reset();
   } catch (e) { alert("Não deu para enviar: " + e.message.slice(0, 160)); }
