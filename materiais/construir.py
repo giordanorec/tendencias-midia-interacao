@@ -3,6 +3,9 @@
 Sem dependência: um conversor Markdown mínimo, para o subconjunto que estes documentos usam
 (títulos, parágrafos, listas, tabelas, citações, código cercado, negrito/itálico/código/links).
 Rode: python3 materiais/construir.py   (da raiz do repositório)"""
+import importlib.util as _ilu, os as _os
+_m = _ilu.spec_from_file_location("menu", _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "skill-professor", "infograficos", "menu.py")); menu = _ilu.module_from_spec(_m); _m.loader.exec_module(menu)
+NAV = menu.nav("/materiais/")
 import re, html, unicodedata, pathlib, sys
 
 RAIZ = pathlib.Path(__file__).resolve().parent
@@ -149,18 +152,7 @@ CASCA = """<!DOCTYPE html>
 <header class="topo">
   <div class="pagina topo__interno">
     <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
-    <nav aria-label="Principal">
-      <a href="/#agora">Agora</a>
-      <a href="/#jornada">Jornada</a>
-      <a href="/#calendario">Calendário</a>
-      <a href="/#temas">Temas</a>
-      <a href="/futuros/">Futuros</a>
-      <a href="/materiais/" aria-current="page">Materiais</a>
-      <a href="/galeria/">Galerias</a>
-      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
-    </nav>
+    {NAV}
   </div>
 </header>
 <main id="conteudo">
@@ -220,16 +212,7 @@ INDICE = """<!DOCTYPE html>
 <header class="topo">
   <div class="pagina topo__interno">
     <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
-    <nav aria-label="Principal">
-      <a href="/#agora">Agora</a>
-      <a href="/#jornada">Jornada</a>
-      <a href="/#calendario">Calendário</a>
-      <a href="/#temas">Temas</a>
-      <a href="/futuros/">Futuros</a>
-      <a href="/materiais/" aria-current="page">Materiais</a>
-      <a href="/galeria/">Galerias</a>
-      <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-    </nav>
+    {NAV}
   </div>
 </header>
 <main id="conteudo">
@@ -268,9 +251,9 @@ for s, r, d in DOCS:
     titulo, olho, corpo = converter(md)
     olho_html = "".join(f'<p class="olho">{inline(o)}</p>' for o in olho)
     dest = RAIZ / s; dest.mkdir(exist_ok=True)
-    (dest / "index.html").write_text(CASCA.format(titulo=html.escape(titulo), descricao=html.escape(d), slug=s,
+    (dest / "index.html").write_text(CASCA.format(NAV=NAV, titulo=html.escape(titulo), descricao=html.escape(d), slug=s,
         rotulo=r, olho=olho_html, corpo=corpo, lista=lista), encoding="utf-8")
     itens.append(f'<li><a href="/materiais/{s}/"><span><span class="docs__titulo">{html.escape(titulo)}</span><span class="docs__texto">{html.escape(d)}</span></span><span class="docs__meta">{r}</span></a></li>')
     print(f"ok  /materiais/{s}/  ← {titulo!r}  ({len(corpo)} chars)")
-(RAIZ / "index.html").write_text(INDICE.format(itens="".join(itens)), encoding="utf-8")
+(RAIZ / "index.html").write_text(INDICE.format(NAV=NAV, itens="".join(itens)), encoding="utf-8")
 print("ok  /materiais/")

@@ -18,7 +18,7 @@
 <header class="topo">
   <div class="pagina topo__interno">
     <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
-    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/temas/">Temas</a><a href="/materiais/">Materiais</a><a href="/futuros/" aria-current="page">Futuros</a></nav>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
   </div>
 </header>
 <main id="conteudo">
@@ -441,5 +441,6 @@ document.addEventListener('click', function(e){ var a = e.target.closest('a[data
   v.showModal(); });
 document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
 </script>
+<script src="/assets/hub.js"></script>
 </body>
 </html>
