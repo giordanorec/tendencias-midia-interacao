@@ -25,12 +25,16 @@ export default async function middleware(req) {
     const cookie = req.headers.get('cookie') || '';
     if (cookie.split(';').some(c => c.trim() === 'tmi_prof=' + esperado)) return;
   }
+  // Confronto com o mapa de um aluno (/futuros/<tema>/confronto-<login>/) só abre com a chave
+  // "<tema>/confronto-<login>" em liberados.json — o tema aberto não o abre junto (17/09/2026).
+  const c = p.match(/^\/futuros\/(\d{2}-[a-z0-9-]+)\/confronto-([a-z0-9]+)(\/|$)/);
   const m = p.match(/^\/futuros\/(\d{2}-[a-z0-9-]+)(\/|$)/);
   if (m) {
+    const chave = c ? c[1] + '/confronto-' + c[2] : m[1];
     try {
       const r = await fetch(new URL('/futuros/liberados.json', req.url));
       const lib = await r.json();
-      const data = lib[m[1]];
+      const data = lib[chave];
       if (data && hojeRecife() >= data) return;
     } catch (e) { /* sem lista: fica fechado */ }
   }
