@@ -71,3 +71,9 @@
 .resumo h2 { font-size: var(--t-lg); margin-top: var(--s-6); }
 .resumo li, .resumo p { font-size: var(--t-md); line-height: 1.5; }
 .mudo { color: var(--fg-muted); font-size: var(--t-xs); }
+
+/* capa do tema fechado (17/09) */
+.capa-tema { display: grid; grid-template-columns: minmax(220px, 1fr) 2fr; gap: var(--s-6); align-items: start; margin-top: var(--s-6); }
+.capa-tema img { width: 100%; border-radius: 16px; display: block; }
+.capa-tema h2 { margin-top: 0; }
+@media (max-width: 760px) { .capa-tema { grid-template-columns: 1fr; } }

@@ -154,6 +154,7 @@ CASCA = """<!DOCTYPE html>
       <a href="/#jornada">Jornada</a>
       <a href="/#calendario">Calendário</a>
       <a href="/#temas">Temas</a>
+      <a href="/futuros/">Futuros</a>
       <a href="/materiais/" aria-current="page">Materiais</a>
       <a href="/galeria/">Galerias</a>
       <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
@@ -224,6 +225,7 @@ INDICE = """<!DOCTYPE html>
       <a href="/#jornada">Jornada</a>
       <a href="/#calendario">Calendário</a>
       <a href="/#temas">Temas</a>
+      <a href="/futuros/">Futuros</a>
       <a href="/materiais/" aria-current="page">Materiais</a>
       <a href="/galeria/">Galerias</a>
       <button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>

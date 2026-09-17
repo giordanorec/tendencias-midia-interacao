@@ -201,3 +201,19 @@
 
 /* URLs longas em código ou link não podem alargar a página no celular. */
 .prosa code, .prosa a { overflow-wrap: anywhere; }
+
+/* grade dos 19 temas (home e /futuros/) — 17/09 */
+.temas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s-4); margin-top: var(--s-6); }
+.tema-card { display: grid; grid-template-rows: auto 1fr auto; gap: var(--s-2); border: var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+.tema-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+.tema-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; background: #F6F1E6; }
+.tema-card--fechado img { filter: saturate(.55); opacity: .85; }
+.tema-card .corpo { padding: var(--s-3) var(--s-4) 0; }
+.tema-card .n { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--fg-muted); }
+.tema-card h3 { margin: var(--s-1) 0 0; font-size: var(--t-md); line-height: 1.25; }
+.tema-card .frase { margin: var(--s-2) 0 0; font-size: var(--t-sm); color: var(--fg-muted); line-height: 1.4; }
+.tema-card .meta { padding: 0 var(--s-4) var(--s-3); font-size: var(--t-xs); color: var(--fg-muted); display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.tema-card .meta b { color: var(--fg); }
+.tema-card .estado { font-weight: 600; }
+.tema-card .estado--aberto { color: var(--brand); }
+.tema-card--vazio { opacity: .55; }

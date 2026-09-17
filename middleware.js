@@ -18,7 +18,9 @@ function hojeRecife() {
 export default async function middleware(req) {
   const url = new URL(req.url);
   const p = url.pathname;
-  if (p.startsWith('/futuros/entrar') || p === '/futuros/liberados.json' || p === '/futuros/abertos.json' || p === '/futuros/futuros.css') return;
+  // Públicos: a entrada, os json de estado, o css, o índice dos 19 temas e o index de cada tema (capa quando fechado; completo quando aberto).
+  if (p.startsWith('/futuros/entrar') || p === '/futuros/liberados.json' || p === '/futuros/abertos.json' || p === '/futuros/temas.json' || p === '/futuros/futuros.css') return;
+  if (/^\/futuros\/?$/.test(p) || /^\/futuros\/\d{2}-[a-z0-9-]+\/?$/.test(p)) return;
   const senha = process.env.FUTUROS_SENHA || '';
   if (senha) {
     const esperado = await sha256(senha + '|tmi-futuros');

@@ -95,7 +95,7 @@
         "</div>" +
         "</div>" +
         '<div class="tema__acoes rv" data-d="4">' +
-          '<a class="botao botao--principal" href="/temas/escolher/?tema=' + t.n + '">Quero este tema</a>' +
+          '<a class="botao botao--principal" href="/futuros/" data-pagina-tema="' + t.n + '">Página do tema</a>' +
           '<a class="botao botao--linha" href="/materiais/temas-tendencias-2026-2/#tema-' + t.n + '">Ler no documento</a>' +
           (t.objeto ? '<p class="objeto">aqui o objeto é <b>' + esc(t.objeto) + "</b></p>" : "") +
           '<div class="tema__futuros" data-n="' + t.n + '" hidden></div>' +
@@ -107,12 +107,13 @@
   $("#temas").innerHTML = D.temas.map(cenaTema).join("");
 
   /* ---- 3b. futuros abertos à turma: mapas do professor e confrontos (aparecem no dia da aula do tema) ---- */
-  fetch("/futuros/abertos.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (ab) {
-    ab.forEach(function (a) {
+  fetch("/futuros/temas.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (lista) {
+    lista.forEach(function (a) {
+      var b = $('[data-pagina-tema="' + a.n + '"]'); if (b) b.href = a.url;
       var el = $('.tema__futuros[data-n="' + a.n + '"]'); if (!el) return;
+      var quem = a.apresenta ? "<b>" + esc(a.apresenta) + "</b> apresenta em " + a.data.slice(8, 10) + "/" + a.data.slice(5, 7) + " · " : "";
       var confs = a.confrontos.map(function (c) { return '<a class="botao botao--linha" href="' + c.url + '">Confronto: mapa de ' + esc(c.login) + ' × professor</a>'; }).join("");
-      el.innerHTML = '<p class="kick">Apresentado em ' + a.aberto_em.slice(8, 10) + "/" + a.aberto_em.slice(5, 7) + ' · aberto à turma</p>' +
-        '<a class="botao botao--principal" href="' + a.url + '">Mapas de futuro deste tema</a>' + confs;
+      el.innerHTML = '<p class="kick">' + quem + esc(a.estado) + '</p>' + (a.aberto ? '<a class="botao botao--linha" href="' + a.url + '">' + a.mapas + ' mapas de futuro deste tema</a>' + confs : "");
       el.hidden = false;
     });
   }).catch(function () {});
