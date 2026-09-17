@@ -11,7 +11,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 11,
+  "mapas": 12,
   "roda": null,
   "confrontos": []
  },
@@ -27,7 +27,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 11,
+  "mapas": 12,
   "roda": null,
   "confrontos": []
  },
@@ -43,7 +43,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 11,
+  "mapas": 12,
   "roda": null,
   "confrontos": []
  },
@@ -59,7 +59,7 @@
   "aberto_em": "2026-09-17",
   "apresenta": "hfm",
   "data": "2026-09-17",
-  "mapas": 11,
+  "mapas": 12,
   "roda": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {
@@ -88,7 +88,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 11,
+  "mapas": 12,
   "roda": null,
   "confrontos": []
  },
@@ -104,7 +104,7 @@
   "aberto_em": null,
   "apresenta": "vafs",
   "data": "2026-10-01",
-  "mapas": 11,
+  "mapas": 12,
   "roda": null,
   "confrontos": []
  },
@@ -120,7 +120,7 @@
   "aberto_em": null,
   "apresenta": "bvga",
   "data": "2026-10-01",
-  "mapas": 11,
+  "mapas": 12,
   "roda": null,
   "confrontos": []
  },
@@ -136,7 +136,7 @@
   "aberto_em": "2026-09-17",
   "apresenta": "yrv",
   "data": "2026-09-17",
-  "mapas": 11,
+  "mapas": 12,
   "roda": "/futuros/08-narrativa-gerativa-e-coautoria/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {
@@ -165,7 +165,7 @@
   "aberto_em": null,
   "apresenta": "mjbo",
   "data": "2026-09-24",
-  "mapas": 8,
+  "mapas": 9,
   "roda": null,
   "confrontos": []
  },
@@ -325,7 +325,7 @@
   "aberto_em": null,
   "apresenta": "jlsn",
   "data": "2026-09-22",
-  "mapas": 6,
+  "mapas": 7,
   "roda": null,
   "confrontos": []
  }

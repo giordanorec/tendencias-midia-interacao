@@ -77,3 +77,10 @@
 .capa-tema img { width: 100%; border-radius: 16px; display: block; }
 .capa-tema h2 { margin-top: 0; }
 @media (max-width: 760px) { .capa-tema { grid-template-columns: 1fr; } }
+
+/* confronto na página do tema (17/09, tarde) */
+.fonte--confronto .prancha--larga { margin: var(--s-4) 0 0; max-width: 100%; }
+.fonte--confronto .prancha--larga img { aspect-ratio: 3/2; }
+.perguntas-sala { margin: var(--s-4) 0 0; padding-left: 1.4em; font-family: var(--font-serif); font-size: var(--t-md); line-height: 1.5; max-width: 80ch; }
+.perguntas-sala li { margin: var(--s-2) 0; }
+.mudo { color: var(--fg-muted); font-size: var(--t-xs); }
