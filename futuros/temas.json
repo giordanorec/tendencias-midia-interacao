@@ -12,6 +12,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 11,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -27,6 +28,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 11,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -42,6 +44,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 11,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -57,10 +60,19 @@
   "apresenta": "hfm",
   "data": "2026-09-17",
   "mapas": 11,
+  "roda": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {
     "login": "hfm",
-    "url": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/confronto-hfm/"
+    "url": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/confronto-hfm/",
+    "imagem": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/confronto-hfm/confronto-resumo.jpg",
+    "perguntas": [
+     "Essa concentração de poder é previsão para 2031 ou fato já acontecido?",
+     "Se o programa faz a tarefa e não volta ao site, quem conta que ela foi concluída?",
+     "Que prova, vinda de fora de quem vende a tecnologia, mostraria que as pessoas querem delegar?",
+     "Se nenhuma rede de programas conversando entre si existir, o problema de segurança some?",
+     "Vence quem segue regras claras, quem controla a lista, ou ninguém consegue conferir?"
+    ]
    }
   ]
  },
@@ -77,6 +89,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 11,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -92,6 +105,7 @@
   "apresenta": "vafs",
   "data": "2026-10-01",
   "mapas": 11,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -107,6 +121,7 @@
   "apresenta": "bvga",
   "data": "2026-10-01",
   "mapas": 11,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -122,10 +137,19 @@
   "apresenta": "yrv",
   "data": "2026-09-17",
   "mapas": 11,
+  "roda": "/futuros/08-narrativa-gerativa-e-coautoria/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {
     "login": "yrv",
-    "url": "/futuros/08-narrativa-gerativa-e-coautoria/confronto-yrv/"
+    "url": "/futuros/08-narrativa-gerativa-e-coautoria/confronto-yrv/",
+    "imagem": "/futuros/08-narrativa-gerativa-e-coautoria/confronto-yrv/confronto-resumo.jpg",
+    "perguntas": [
+     "O que provaria, em 2031, que o rascunho virou descartável?",
+     "Quem publica mais: quem nunca escreveu ou quem já publicava muito?",
+     "Se cada leitor tem sua versão, dá para repetir a mesma história?",
+     "Declarar o uso de máquina vira obrigação ou vira segredo, se custa vendas?",
+     "Se a máquina parar de repetir um erro corrigido, o que sobra do argumento?"
+    ]
    }
   ]
  },
@@ -142,6 +166,7 @@
   "apresenta": "mjbo",
   "data": "2026-09-24",
   "mapas": 8,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -157,6 +182,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -172,6 +198,7 @@
   "apresenta": "vjmm",
   "data": "2026-09-22",
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -187,6 +214,7 @@
   "apresenta": "jgpt",
   "data": "2026-09-29",
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -202,6 +230,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 12,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -217,6 +246,7 @@
   "apresenta": "kvv",
   "data": "2026-09-29",
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -232,6 +262,7 @@
   "apresenta": "jcsc",
   "data": "2026-10-06",
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -247,6 +278,7 @@
   "apresenta": "meap",
   "data": "2026-10-06",
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -262,6 +294,7 @@
   "apresenta": null,
   "data": null,
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -277,6 +310,7 @@
   "apresenta": "alpa2",
   "data": "2026-09-24",
   "mapas": 7,
+  "roda": null,
   "confrontos": []
  },
  {
@@ -292,6 +326,7 @@
   "apresenta": "jlsn",
   "data": "2026-09-22",
   "mapas": 6,
+  "roda": null,
   "confrontos": []
  }
 ]

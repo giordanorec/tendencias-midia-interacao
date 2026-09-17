@@ -112,8 +112,14 @@
       var b = $('[data-pagina-tema="' + a.n + '"]'); if (b) b.href = a.url;
       var el = $('.tema__futuros[data-n="' + a.n + '"]'); if (!el) return;
       var quem = a.apresenta ? "<b>" + esc(a.apresenta) + "</b> apresenta em " + a.data.slice(8, 10) + "/" + a.data.slice(5, 7) + " · " : "";
-      var confs = a.confrontos.map(function (c) { return '<a class="botao botao--linha" href="' + c.url + '">Confronto: mapa de ' + esc(c.login) + ' × professor</a>'; }).join("");
-      el.innerHTML = '<p class="kick">' + quem + esc(a.estado) + '</p>' + (a.aberto ? '<a class="botao botao--linha" href="' + a.url + '">' + a.mapas + ' mapas de futuro deste tema</a>' + confs : "");
+      var confs = a.confrontos.map(function (c) {
+        var qs = (c.perguntas || []).map(function (q) { return "<li>" + esc(q) + "</li>"; }).join("");
+        return '<div class="tema__confronto">' + (c.imagem ? '<a href="' + c.url + '"><img loading="lazy" src="' + c.imagem + '" alt="Dois mapas do mesmo futuro: ' + esc(c.login) + ' e o professor"></a>' : "") +
+          '<p class="kick">Confronto: mapa de ' + esc(c.login) + ' × mapa do professor</p>' + (qs ? '<ol class="tema__perguntas">' + qs + "</ol>" : "") +
+          '<a class="botao botao--linha" href="' + c.url + '">Resumo, imagem e confronto completo</a></div>';
+      }).join("");
+      var roda = a.roda ? '<a class="tema__roda" href="' + a.url + '"><img loading="lazy" src="' + a.roda + '" alt=""></a>' : "";
+      el.innerHTML = '<p class="kick">' + quem + esc(a.estado) + '</p>' + (a.aberto ? roda + '<a class="botao botao--principal" href="' + a.url + '">' + a.mapas + ' mapas de futuro deste tema</a>' + confs : "");
       el.hidden = false;
     });
   }).catch(function () {});
