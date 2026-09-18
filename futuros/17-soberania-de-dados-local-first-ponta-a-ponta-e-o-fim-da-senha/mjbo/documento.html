@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soberania de dados: local-first, ponta-a-ponta e o fim da senha · futurizacao-mjbo (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 17 · futurizacao-mjbo (aluno)</p><h1>Soberania de dados: local-first, ponta-a-ponta e o fim da senha</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/17-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/17-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha/mjbo/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/17-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha/mjbo/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Três rupturas simultâneas estão desmontando o arranjo em que a empresa é dona do seu dado, da sua conta e da sua identidade: o dado passa a morar no dispositivo e sincronizar (local-first), o servidor passa a não conseguir ler o que guarda (ponta-a-ponta) e a senha some, substituída por uma chave criptográfica presa ao aparelho (passkeys). As três já saíram do laboratório — a FIDO Alliance contabiliza 5 bilhões de passkeys em uso e 75% das pessoas com pelo menos uma conta configurada; o WebAuthn Level 3 virou Recomendação do W3C em 25 de agosto de 2026; o Automerge 3.0 derrubou o consumo de memória de CRDTs em mais de dez vezes; e produtos de escala como o Linear provaram que local-first não é hobby. O que ainda não aconteceu é a ruptura: quem perde a senha perde a conta sem ter o que resetar, quem morre leva o chaveiro junto (o Contato Legado da Apple não alcança passkeys), e um servidor cego não sustenta publicidade nem moderação por leitura de conteúdo. Este mapa aposta que, até 2031, o conflito não será mais técnico e sim de arquitetura de poder — quem guarda a chave, quem responde pela recuperação, quem paga a conta de um software que não pode vender o que hospeda. E aposta também que a peça mais subestimada de todas é a extensão PRF do WebAuthn, que transforma a passkey de credencial de login em fonte da chave que cifra o dado, costurando as três rupturas numa só.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>O objeto aqui não é criptografia, nem autenticação, nem banco de dados isoladamente. É a <strong>arquitetura de dado e identidade da pessoa</strong> — onde o dado dela mora, quem consegue lê-lo e como ela prova que é ela. Essas três perguntas foram respondidas, nos últimos vinte anos, da mesma maneira: o dado mora no servidor de quem faz o software, a empresa lê tudo o que guarda (é assim que ela personaliza, modera e monetiza) e a identidade é emprestada por um intermediário — o "entrar com Google", o e-mail, a senha guardada num banco de hashes.</p>
+<p>O tema encosta em mídia e interação em três pontos que não são periféricos. <strong>Primeiro, a interface.</strong> Um aplicativo local-first não tem estado de carregamento como elemento estrutural: o dado já está ali. Em compensação, ele tem divergência — duas versões do mesmo documento que precisam ser reconciliadas na frente do usuário. Isso exige um vocabulário visual que ainda não existe de forma consolidada, do mesmo jeito que o "desfazer" um dia não existia. <strong>Segundo, o modelo de negócio da mídia.</strong> Recomendação, personalização e moderação em escala pressupõem leitura do conteúdo pelo servidor. Se o servidor é cego, essas funções não somem — migram para o cliente, e passam a ser artefatos locais que o usuário, em princípio, pode inspecionar e editar. <strong>Terceiro, a autenticação como momento de interação.</strong> A tela de login é o primeiro contato de qualquer produto digital. Passkey muda o que essa tela é: deixa de ser um teste de memória e vira um gesto biométrico local de meio segundo — e, quando dá errado, deixa de ter conserto barato.</p>
+<p>Merece um mapa de futuro, e não um levantamento de estado da arte, por uma razão específica: as três rupturas estão em estágios de maturidade muito diferentes e as consequências interessantes aparecem no cruzamento delas, não em nenhuma isoladamente. A passkey já é mainstream em adoção e não rompeu nada ainda. O local-first é maduro em biblioteca e imaturo em produto de consumo. A criptografia ponta-a-ponta por padrão é tecnicamente trivial e politicamente contestada em tribunal, agora, em pelo menos duas jurisdições. Um levantamento de estado da arte descreveria três curvas separadas; o que este documento tenta é mapear o que acontece quando elas se encontram — e a peça que as encontra, a derivação de chave a partir da passkey, é exatamente a que quase ninguém está olhando.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="o-que-ja-existe-e-funciona-em-producao">O que já existe e funciona em produção</h3>
+<p><strong>Passkeys saíram do estágio de promessa.</strong> O relatório do Dia Mundial da Passkey de 2026 da FIDO Alliance estima 5 bilhões de passkeys em uso no mundo, 90% de consciência do público, 75% das pessoas com passkey habilitada em pelo menos uma conta e 49% usando regularmente quando disponível. No lado corporativo, 68% das organizações declararam ter implantado ou estar implantando passkeys para acesso de funcionários, e 28% se declaram totalmente sem senha. A pesquisa foi conduzida pela Sapio Research em abril de 2026, com 11.000 consumidores em dez países e 1.400 tomadores de decisão em empresas de 500+ funcionários [1]. Duas ressalvas importam: a FIDO Alliance é a entidade que promove o padrão — é parte interessada divulgando pesquisa encomendada — e "habilitou uma vez" não é o mesmo que "usa como método principal"; o próprio relatório registra que 57% das organizações ainda dependem de métodos passíveis de phishing como acesso primário dos funcionários.</p>
+<p><strong>O padrão fechou.</strong> O WebAuthn Level 3 tornou-se Recomendação do W3C em 25 de agosto de 2026 [2]. Isso encerra o ciclo normativo que começou em 2019 e transforma o que era "extensão experimental de navegador" em superfície estável — inclusive a capacidade, que a Level 3 formaliza, de derivar material de chave criptográfica a partir da credencial (a extensão PRF).</p>
+<p><strong>Portabilidade de credencial deixou de ser papel.</strong> CXF (formato) e CXP (protocolo de transferência, com HPKE cifrando a credencial em trânsito) são os dois padrões FIDO para mover passkeys entre chaveiros. O CXF está em Review Draft desde março de 2025; o CXP mirava padronização formal para o início de 2026. A Apple já embarcou transferência de credencial baseada em CXF no iOS e macOS 26, e Apple, Google, Microsoft, 1Password, Bitwarden e Dashlane contribuem ativamente às especificações [3]. O que esses padrões <strong>não</strong> resolvem, e isso está declarado: credenciais legadas continuam presas ao provedor original, e a aplicação que confia na credencial não é notificada quando o usuário troca de chaveiro.</p>
+<p><strong>No Brasil, o gov.br adotou o mesmo caminho.</strong> A atualização do aplicativo, noticiada em fevereiro de 2026, permite entrar sem senha e sem reconhecimento facial do próprio gov.br, usando passkeys ou a biometria nativa do aparelho, para contas Prata e Ouro [4]. A fonte é imprensa secundária — a página oficial da Secretaria de Comunicação Social que apareceria como fonte primária estava com conteúdo restrito quando tentei abri-la, e por isso nenhum número de usuários entra aqui.</p>
+<p><strong>Local-first virou produto de escala, não experimento.</strong> O termo vem do ensaio de 2019 do Ink &amp; Switch (Kleppmann, Wiggins e outros), com sete ideais — rápido, multi-dispositivo, offline, colaborativo, longevo, privado e sob controle do usuário [5][6]. A infraestrutura amadureceu: o Automerge 3.0, lançado em julho de 2025, rearquitetou a biblioteca para representação comprimida em tempo de execução, com o exemplo mais citado sendo Moby Dick colado num documento consumindo 700 MB no Automerge 2 e 1,3 MB no Automerge 3 — mais de dez vezes menos — e tempos de carregamento caindo de horas para segundos [7]. No mercado, uma safra de motores de sincronização (ElectricSQL, Zero, TanStack DB, Livestore, PowerSync, Triplit) disputa a camada, e o Linear é o caso repetidamente citado de produto de grande porte construído sobre sincronização local [8].</p>
+<p><strong>Criptografia de acesso zero é um modelo de negócio existente, não uma hipótese.</strong> A Proton declara que não consegue varrer a caixa de entrada do usuário e que por isso só se financia por planos pagos [9]. A Signal, como organização sem fins lucrativos, estimou em 2023 que precisaria de cerca de US$ 50 milhões por ano para operar em 2025, com aproximadamente US$ 14 milhões só de infraestrutura (US$ 6 milhões apenas em taxas de registro por SMS) e cerca de US$ 19 milhões de pessoal para cerca de 50 funcionários [10]. Esse é o número mais útil deste levantamento inteiro: é o preço declarado de operar comunicação cifrada em escala sem ler nada.</p>
+<h3 id="o-que-existe-mas-nao-funciona-ou-funciona-com-atrito-grave">O que existe mas não funciona — ou funciona com atrito grave</h3>
+<p><strong>A recuperação de conta é o buraco estrutural da passkey.</strong> A crítica recorrente não é sobre a cifra e sim sobre o que acontece depois: não existe "redefinir" uma credencial cuja chave privada nunca saiu do aparelho. Quando a passkey é vinculada ao dispositivo e o dispositivo se perde, não há caminho de volta pelo mesmo canal. A consequência prática relatada é que o custo do suporte não desaparece — muda de natureza, de reset de senha para verificação de identidade, que é mais cara e mais lenta. Esse ponto veio de busca e de literatura secundária; a revisão de literatura acadêmica que eu queria citar como fonte primária (MDPI, <em>Applied Sciences</em>) devolveu HTTP 403 e por isso não entra na lista de fontes.</p>
+<p><strong>A herança digital não tem caminho.</strong> A documentação da Apple é explícita: o Contato Legado tem acesso a fotos, mensagens, notas, arquivos e backups, mas <strong>não</strong> a filmes, músicas, livros, assinaturas e aos dados guardados no Chaveiro do iCloud — que é onde moram informações de pagamento, senhas e passkeys [11]. Ou seja: o mecanismo oficial de sucessão digital da maior plataforma de passkeys do mundo exclui exatamente as passkeys.</p>
+<p><strong>Local-first cobra caro em complexidade, e a lista de limitações é longa e conhecida.</strong> Sincronização é a parte mais difícil; conflitos resolvidos por CRDT podem ser tecnicamente consistentes e semanticamente absurdos para o usuário; migração de schema precisa acontecer em cada cliente, com versões coexistindo; navegadores descartam armazenamento local (o Safari apaga IndexedDB após sete dias de inatividade); conjuntos de dados grandes não cabem; lógica pesada no cliente pune aparelho velho; e dado no cliente é, em tese, extraível se o dispositivo for comprometido [12]. Do lado de quem escolhe motor de sincronização hoje, os relatos são de arestas concretas: long polling lento e frágil, escrita do lado do cliente resolvida caso a caso, um usuário por instância de SQLite em arquiteturas que não preveem compartilhamento, ausência de presença em tempo real, e risco de manutenção em projetos absorvidos por outras empresas [8]. Autorização multiusuário permanece como problema aberto declarado da comunidade.</p>
+<p><strong>A arquitetura sem intermediário ainda usa intermediário.</strong> O caso mais concreto que abri: o budgero, aplicativo de orçamento pessoal apontado como exemplo nº 1 de local-first com ponta-a-ponta e self-host, guarda os dados em SQLite no cliente (via WASM) e sincroniza cifrado através de um backend em Go, sob licença AGPL-3.0. Mas a versão em nuvem autentica com <strong>Clerk</strong>, um provedor de identidade terceiro; é só na versão self-hosted que a autenticação é local e sem dependência de nuvem [13]. A soberania completa, no exemplo canônico, é uma opção de instalação — não o padrão do produto.</p>
+<h3 id="o-que-esta-em-disputa-juridica-e-politica-agora">O que está em disputa jurídica e política, agora</h3>
+<p><strong>Reino Unido × Apple.</strong> Em fevereiro de 2025 o governo britânico emitiu uma Technical Capability Notice sob a seção 253 do Investigatory Powers Act 2016 exigindo capacidade de acesso a dados do iCloud. A Apple retirou o Advanced Data Protection para novos usuários no Reino Unido e deu prazo para quem já usava desabilitar. Em outubro de 2025 o governo retirou a primeira notificação e emitiu uma segunda, focada em usuários britânicos. O processo de Privacy International e co-reclamantes segue ativo no Investigatory Powers Tribunal, com audiência de gestão em setembro de 2026 e audiência substantiva planejada para dezembro de 2026 [14].</p>
+<p><strong>União Europeia × Chat Control.</strong> O Parlamento Europeu rejeitou em 26 de março de 2026 a extensão da derrogação temporária que permitia varredura voluntária de material de abuso infantil, e a derrogação expirou em 4 de abril de 2026 [15]. O que se seguiu — nova aprovação de regime temporário pelo Conselho, votação parlamentar de julho de 2026 com emendas que blindariam aplicativos com ponta-a-ponta — aparece apenas em fontes secundárias agregadoras e por isso está registrado no anexo, não como afirmação sustentada aqui. O que é seguro dizer: a questão está aberta e o resultado não está decidido.</p>
+<h3 id="quem-esta-construindo">Quem está construindo</h3>
+<p>Padrões: W3C (WebAuthn), FIDO Alliance (CTAP, CXP, CXF). Plataformas: Apple, Google, Microsoft — que controlam os chaveiros. Bibliotecas e pesquisa local-first: Ink &amp; Switch, Automerge, Yjs. Camada comercial de sincronização: ElectricSQL, Zero, TanStack DB, PowerSync, Livestore, Triplit. Serviços cifrados: Proton, Signal. Chaveiros independentes: 1Password, Bitwarden, Dashlane. E uma camada difusa e relevante de software pessoal open source — budgero, kostos, Atlas, fintrack, rotki, BeeCount, e a leva de contabilidade com IA self-hosted (TaxHacker, wilson, accountant24) — que é onde o padrão aparece primeiro porque é onde o custo de errar é menor.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<p>Quatro candidatos passaram pelo teste da Etapa 3. Um quinto grupo — backup criptografado, HTTPS, 2FA por SMS, "login com Google", self-hosting via Docker — foi reprovado na primeira pergunta: não torna possível nada que antes não fosse, só torna mais barato ou mais fácil. Esses ficam na Seção 3, como parte do presente, e não entram aqui.</p>
+<h3 id="4-1-local-first-o-dado-mora-no-cliente-e-o-servidor-vira-transporte">4.1 Local-first: o dado mora no cliente e o servidor vira transporte</h3>
+<p><strong>O que rompe.</strong> Rompe a premissa de que usar um software implica depositar o dado com quem o fabrica. Quando a cópia autoritativa está no dispositivo, encerrar o serviço deixa de significar perder o acervo, e "exportar meus dados" deixa de ser uma funcionalidade concedida para virar o estado normal do sistema. Invalida diretamente o papel do backend como custodiante-e-fonte-da-verdade, e enfraquece a métrica de retenção construída sobre a dificuldade de sair.</p>
+<p><strong>O que torna possível que antes não era.</strong> Software colaborativo que continua funcionando — inclusive colaborativamente, entre pares — sem a empresa que o escreveu. Não é a mesma coisa que "modo offline": é autoridade do dado, não cache.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Três mudanças datáveis: CRDTs deixaram de ser proibitivos em memória (Automerge 3.0, julho de 2025, com reduções de ordem de grandeza [7]); SQLite compilado para WASM tornou possível um banco relacional real dentro do navegador; e existe hoje uma camada comercial de motores de sincronização competindo entre si [8], o que significa que a decisão deixou de exigir construir infraestrutura do zero. Há cinco anos, adotar local-first custava um time de sistemas distribuídos.</p>
+<p><strong>O que falta para se concretizar.</strong> Autorização multiusuário, que segue como problema aberto; migração de schema em frota heterogênea; e uma resposta para armazenamento em navegador, que hoje é revogável pelo próprio navegador [12]. Enquanto essas três não tiverem resposta padrão, local-first continua viável para ferramenta profissional e difícil para produto de massa.</p>
+<h3 id="4-2-ponta-a-ponta-por-padrao-o-servidor-nao-consegue-ler-o-que-guarda">4.2 Ponta-a-ponta por padrão: o servidor não consegue ler o que guarda</h3>
+<p><strong>O que rompe.</strong> Rompe o pressuposto de que hospedar implica poder ler. Invalida, de uma vez, três coisas que a indústria trata como naturais: monetização por análise do conteúdo hospedado, personalização executada no servidor e moderação de conteúdo por varredura. E invalida, do lado de quem exige acesso, a via mais simples de obtenção de dado — porque ordem judicial contra quem não tem a chave não produz texto claro.</p>
+<p><strong>O que torna possível que antes não era.</strong> Terceirizar a guarda sem terceirizar a confiança. Isso é diferente de "guardar com quem eu confio": a confiança deixa de ser um requisito do arranjo.</p>
+<p><strong>Por que agora.</strong> Cifragem no cliente ficou trivial em custo de engenharia e de CPU; o custo da confiança em terceiros ficou visível e mensurável em vazamentos e encerramentos; e — a peça nova — a Recomendação do WebAuthn Level 3, de 25 de agosto de 2026, formaliza derivar material de chave da própria credencial de hardware [2], o que dispensa o usuário de memorizar uma senha-mestra para que exista cifragem forte no cliente. Esse último item é o que muda a equação: até aqui, ponta-a-ponta em aplicação de consumo esbarrava em "e onde a pessoa guarda a chave?".</p>
+<p><strong>O que falta para se concretizar.</strong> Falta sobreviver à disputa regulatória em curso — o caso britânico contra a Apple [14] e o ciclo europeu do Chat Control [15] são os dois processos que vão definir se o servidor cego é um direito ou um obstáculo. E falta modelo de negócio: o preço declarado de operar cifrado em escala sem ler nada é conhecido e é alto [10][9].</p>
+<p><strong>Ressalva.</strong> Esta é a disrupção com maior chance de não se concretizar na forma descrita. Ver Seção 7, item 3.</p>
+<h3 id="4-3-passkeys-a-autenticacao-deixa-de-ter-segredo-compartilhado">4.3 Passkeys: a autenticação deixa de ter segredo compartilhado</h3>
+<p><strong>O que rompe.</strong> Rompe o segredo memorizável como base da identidade digital. Invalida o phishing de credencial como vetor de massa — não porque as pessoas fiquem mais espertas, mas porque não há nada transmissível para entregar ao atacante. Invalida o mercado de reset de senha e o help desk construído em cima dele. E ameaça, de forma menos óbvia, o "entrar com Google/Apple/Facebook": se o aparelho prova a identidade diretamente para cada serviço, o federador perde a função de intermediário obrigatório — embora ganhe outra, como dono do chaveiro.</p>
+<p><strong>O que torna possível que antes não era.</strong> Autenticação forte sem custo cognitivo e — via extensão PRF — uma chave criptográfica estável, por origem, disponível a qualquer aplicação web sem que o usuário precise gerenciar segredo nenhum.</p>
+<p><strong>Por que agora.</strong> WebAuthn Level 3 como Recomendação do W3C em agosto de 2026 [2]; 5 bilhões de passkeys em circulação e suporte nos três sistemas operacionais dominantes [1]; e CXP/CXF implementados na prática a partir de 2026, resolvendo o argumento de aprisionamento que travava adoção corporativa [3].</p>
+<p><strong>O que falta para se concretizar.</strong> Recuperação e sucessão. As duas estão documentadamente sem resposta: não há o que redefinir quando a credencial se perde, e o mecanismo oficial de herança da Apple exclui explicitamente o Chaveiro onde as passkeys moram [11]. Enquanto não houver um padrão de recuperação comparável em maturidade ao próprio WebAuthn, a passkey convive com um caminho de senha atrás dela — e um caminho de senha atrás dela significa que a senha não acabou.</p>
+<h3 id="4-4-ia-como-cliente-do-dado-local-emergente-com-ressalva">4.4 IA como cliente do dado local (emergente, com ressalva)</h3>
+<p><strong>O que rompe — ou ameaça romper.</strong> Rompe a barganha implícita "para ter assistente útil, entregue seu dado". Se o modelo vai até o acervo e o acervo não sai de casa, "não temos acesso ao seu dado" deixa de ser incompatível com "temos um produto inteligente".</p>
+<p><strong>Ressalva explícita, e é por isso que esta entra como emergente e não como disrupção consumada:</strong> não consigo nomear uma prática, um papel ou um modelo de negócio que isto já tenha invalidado. É aposta, não rompimento. Os exemplos são pequenos — contabilidade com IA self-hosted, agentes financeiros que mantêm tudo em SQLite local — e a arquitetura dominante segue sendo híbrida, com escalonamento para servidor quando o pedido é difícil.</p>
+<p><strong>Por que agora.</strong> Modelos pequenos ficaram utilizáveis em hardware de consumo, e a arquitetura híbrida com garantias auditáveis virou posição de plataforma. Esse é o cruzamento com o tema 16 — e a fronteira que eu mantenho é: <strong>o modelo rodando localmente é o tema 16; aqui o objeto é o dado que ele lê e a identidade de quem o invoca.</strong></p>
+<p><strong>O que falta.</strong> Falta que a IA local seja boa o bastante para que alguém troque conveniência por soberania sem se sentir punido. E falta resolver o que o agente local envia quando chama uma ferramenta externa — porque nesse instante o dado sai, e toda a arquitetura de servidor cego atrás dele não serve de nada.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: Local-first — o dado mora no cliente e o servidor vira transporte
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Aplicações passam a funcionar por inteiro offline e a latência de interação deixa de depender da rede
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: O design de interface abandona o estado de carregamento como elemento estrutural e passa a projetar para divergência e reconciliação
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Consolida-se um vocabulário visual de conflito e proveniência — quem mudou o quê, quando e em qual dispositivo — comparável ao que o desfazer foi para a edição
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: O time de produto herda a complexidade que era do servidor, incluindo migração de schema em frota de clientes em versões diferentes
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Versionamento de dado do usuário vira competência de carreira e surge o papel formal de engenheiro de sincronização
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O encerramento de um serviço deixa de significar perda do acervo, porque a cópia autoritativa já está no dispositivo
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: A promessa de que o dado é do usuário passa a ser verificável tecnicamente e vira critério de compra em software profissional
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Editais e contratos públicos passam a exigir arquitetura de saída — exportabilidade contínua, e não exportação sob pedido
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: O formato de arquivo volta a importar e a interoperabilidade deixa de ser um assunto de API para voltar a ser um assunto de documento
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Formatos comuns por domínio de vida pessoal — orçamento, anotação, saúde — são disputados como padrão, repetindo a briga do ODF contra o OOXML em escala doméstica
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+  - disrupcao: Ponta-a-ponta por padrão — o servidor não consegue ler o que guarda
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: O provedor perde a capacidade técnica de atender ordens de acesso ao conteúdo e a disputa migra do dado hospedado para o dispositivo e para os metadados
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: A regulação se bifurca por jurisdição e o mesmo produto passa a ter arquiteturas diferentes conforme o país onde é vendido
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Escolher em que mercado operar vira escolher que criptografia oferecer, e empresas menores desistem de jurisdições hostis em vez de manter duas engenharias
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: A vigilância se desloca para o cliente e propostas de varredura no dispositivo antes da cifragem voltam a cada ciclo legislativo
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: A confiança na cadeia de construção do aplicativo — build reprodutível, atestação, auditoria externa — vira o campo de batalha principal da privacidade, acima da cifra em si
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: O modelo de receita baseado em ler o dado hospedado deixa de estar disponível na camada de armazenamento e a monetização migra para assinatura
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Software pessoal com privacidade se firma como bem pago enquanto o gratuito com anúncio permanece padrão de massa, e a privacidade se estratifica por renda
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Surge pressão política por sincronização cifrada como serviço público ou cooperativo, nos moldes do que o Pix foi para pagamento no Brasil
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Personalização e recomendação são reimplementadas no cliente e o ranking passa a ser um artefato local, em princípio inspecionável pelo usuário
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Editar o próprio algoritmo de recomendação vira uma peça de interface de primeira classe, como hoje é montar uma playlist
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e4.3
+            ordem: 2
+            efeito: A moderação em escala perde a leitura do conteúdo e se reorganiza em torno de denúncia, reputação e grafo social
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.3.1
+                ordem: 3
+                efeito: A responsabilização legal por conteúdo se desloca da plataforma para a comunidade e para o fabricante do cliente, e o debate jurídico muda de alvo
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: Passkeys — a autenticação deixa de ter segredo compartilhado
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: O phishing de credencial deixa de funcionar como vetor de massa e o ataque migra para sessão, dispositivo e engenharia social sobre o fluxo de recuperação
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O ponto mais fraco da conta passa a ser o caminho de recuperação, que vira o alvo principal da fraude
+            sinal: forte
+            prazo: 2028
+            confianca: alta
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: A recuperação de conta se torna serviço regulado, com padrão de verificação de identidade e responsabilidade definida sobre quem errou na reemissão
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: O suporte deixa de gastar com redefinição de senha e passa a gastar com reconquista de identidade, um atendimento mais caro e mais demorado
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Organizações pequenas terceirizam identidade de novo para não manter esse atendimento, recriando o intermediário que a passkey prometia dispensar
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: A conta passa a ser ancorada no ecossistema do fabricante do aparelho, porque é o chaveiro dele que sincroniza e resguarda a passkey
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A portabilidade de credencial deixa de ser cortesia do fornecedor e passa a ser exigência regulatória de concorrência
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: O chaveiro, e não o endereço de e-mail, se torna a identidade raiz da pessoa, e trocar de chaveiro vira evento de vida comparável a trocar de banco
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: A sucessão digital fica sem caminho porque o que o contato legado não alcança é exatamente o chaveiro
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Consolida-se uma figura de custódia criptográfica com segredo dividido entre pessoas de confiança, oferecida como serviço de cartório, de banco ou de família
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: IA como cliente do dado local — o modelo vai até o dado, e não o contrário (emergente)
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: Assistentes passam a operar sobre o acervo pessoal inteiro sem que ele seja enviado a um servidor, e privacidade deixa de custar utilidade
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: A qualidade do assistente passa a depender do hardware do usuário e a desigualdade de aparelho vira desigualdade de capacidade assistida
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Aparelho pessoal passa a ser comparado por quanto de assistente roda localmente, como na década anterior foi comparado por câmera
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: O ponto de coleta se desloca do servidor para o aplicativo de IA local, que por definição enxerga tudo
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: A pergunta de privacidade deixa de ser onde o dado está e passa a ser o que o agente local envia quando aciona uma ferramenta externa
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<h3 id="o-que-o-bloco-nao-diz">O que o bloco não diz</h3>
+<p><strong>Primeiro: os quatro ramos não são independentes, e o bloco os desenha como se fossem.</strong> A dependência mais forte é entre 4.2 e 4.3: quase tudo que está sob <code>e3</code> e <code>e4</code> pressupõe que o ponta-a-ponta por padrão sobreviva à disputa regulatória em curso. Se não sobreviver, treze dos trinta e sete efeitos caem junto. É exatamente o problema que a Análise de Impacto Cruzado (Gordon e Helmer, RAND, 1966) existe para tratar e que o Futures Wheel, sozinho, não trata: a roda lista efeitos como se cada um tivesse probabilidade própria, quando na verdade eles se condicionam.</p>
+<p><strong>Segundo: há um efeito que aparece em dois ramos diferentes e o YAML não consegue mostrar isso.</strong> <code>e5.2.1</code> (organizações terceirizam identidade de novo) e <code>e6.1.1</code> (o chaveiro vira identidade raiz) convergem no mesmo lugar: a reconstituição do intermediário. A promessa da Seção 4.3 é desintermediação; os dois caminhos de segunda e terceira ordem apontam para reintermediação, por motivos diferentes — um por custo operacional, outro por posse do chaveiro. Quando dois ramos independentes chegam ao mesmo destino, isso é mais forte do que qualquer um dos dois isoladamente, e a estrutura em árvore esconde.</p>
+<p><strong>Terceiro: os prazos são a parte mais frágil do bloco e devem ser lidos como ordem, não como data.</strong> Eu tenho confiança razoável em que <code>e5.1</code> acontece antes de <code>e5.1.1</code>; não tenho nenhuma confiança em que <code>e5.1.1</code> aconteça em 2032 e não em 2036. Onde o campo <code>prazo</code> parece preciso, ele é decorativo.</p>
+<p><strong>Quarto: não há nenhum efeito de retrocesso na roda.</strong> Nenhum ramo contempla passkeys sendo abandonadas depois de um incidente de recuperação em massa, nem local-first sendo revertido por custo de manutenção. Isso é uma escolha do método — o Futures Wheel deriva consequências da disrupção se concretizando — mas é também uma distorção: no mundo real, tecnologias recuam.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<p><strong>1. A extensão PRF do WebAuthn — a passkey deixando de ser só login.</strong> É o sinal mais importante deste mapa e o menos comentado fora de círculos de especialistas. Formalizada na Level 3, agora Recomendação [2], ela permite derivar material de chave criptográfica a partir da credencial de hardware. Isso significa que a chave que cifra o dado local pode nascer da mesma biometria que faz o login, sem senha-mestra memorizada. É a costura entre as três disrupções deste mapa, e ela está disponível <strong>agora</strong>, em navegador, para qualquer desenvolvedor. Praticamente nenhum produto de consumo a usa.</p>
+<p><strong>2. Portabilidade de credencial existindo antes de haver demanda social por ela.</strong> CXP e CXF estão implementados em plataforma [3] antes que o público tenha percebido que está aprisionado a um chaveiro. Padrão que chega antes do problema virar conversa é raro, e costuma indicar que quem redigiu o padrão viu a disputa antecipadamente — no caso, o risco regulatório de concorrência.</p>
+<p><strong>3. Sete dias de inatividade.</strong> O Safari apaga IndexedDB depois de sete dias sem uso do site [12]. Uma política de navegador, tomada por razões de rastreamento, pode inviabilizar sozinha o local-first na web sem instalação. É um detalhe minúsculo com poder de veto sobre um ramo inteiro da roda — e é decidido por três empresas, sem processo público.</p>
+<p><strong>4. O intermediário sobrevivendo dentro do exemplo canônico.</strong> O budgero usa Clerk na nuvem e autenticação local só no self-host [13]. Quando o caso exemplar de uma arquitetura contém o oposto dela na configuração padrão, isso é dado sobre o mercado, não sobre o projeto.</p>
+<p><strong>5. O preço declarado de não ler nada.</strong> Cerca de US$ 50 milhões por ano para operar a Signal, com US$ 6 milhões só em taxas de registro por SMS [10]. É o número que qualquer conversa sobre "por que não é tudo assim" tem de enfrentar.</p>
+<h3 id="wildcards">Wildcards</h3>
+<p><strong>A. Uma legislação que obrigue local-first ou ponta-a-ponta por padrão para dado sensível.</strong> Impacto: altíssimo — inverteria o ônus e transformaria cada efeito de segunda ordem deste mapa em requisito de conformidade em dois ou três anos. <strong>Por que a probabilidade é baixa:</strong> a direção regulatória dominante medida em 2026 é a oposta. O Reino Unido está em tribunal exigindo capacidade de acesso [14] e o ciclo europeu do Chat Control mostra um legislador dividido, não um legislador convencido [15]. Obrigar ponta-a-ponta exigiria que os mesmos parlamentos que discutem varredura decidissem proibi-la — uma inversão sem precedente recente.</p>
+<p><strong>B. Comprometimento em escala de um chaveiro de plataforma.</strong> Se o chaveiro sincronizado de uma das três grandes for comprometido de forma ampla, centenas de milhões de contas ficam sem caminho de volta <strong>por construção</strong>: não há redefinição. <strong>Por que a probabilidade é baixa:</strong> hardware seguro, atestação e separação de chaves tornam esse ataque muito caro. <strong>Por que o impacto é alto:</strong> seria o primeiro incidente de segurança sem procedimento de remediação conhecido, e provavelmente traria a senha de volta como caminho oficial de contingência — matando a disrupção 4.3 pela porta dos fundos.</p>
+<p><strong>C. Rotação forçada por criptografia pós-quântica.</strong> Se a migração para algoritmos resistentes a computação quântica exigir reemissão de credenciais em massa, vai expor que praticamente ninguém projetou rotação de passkey em escala. <strong>Por que a probabilidade é baixa no horizonte de 2031:</strong> os cronogramas de transição vigentes são mais longos que isso, e a maior parte do risco de "colher agora, decifrar depois" recai sobre dado cifrado em trânsito, não sobre credencial de autenticação. <strong>Por que o impacto é alto:</strong> um evento de reemissão obrigatória testaria, num único movimento, exatamente o fluxo que o mapa aponta como não resolvido.</p>
+<p><strong>D. Uma decisão judicial que responsabilize o fabricante do cliente pelo que o cliente cifra.</strong> Se a responsabilidade migrar da plataforma para quem escreve o aplicativo, o software livre local-first — mantido por uma ou duas pessoas, sem departamento jurídico — vira o elo fraco. <strong>Por que a probabilidade é baixa:</strong> exigiria reinterpretar regimes de responsabilidade intermediária consolidados. <strong>Por que o impacto é alto:</strong> esvaziaria justamente a camada onde a arquitetura deste mapa nasce.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="1-o-efeito-que-e-so-extrapolacao-linear-do-presente-e5-2">1. O efeito que é só extrapolação linear do presente: <code>e5.2</code></h3>
+<p>"O suporte deixa de gastar com redefinição de senha e passa a gastar com reconquista de identidade" é o help desk de hoje com outro rótulo. A estrutura não muda: existe um canal de atendimento, existe uma pessoa trancada do lado de fora, existe um procedimento de verificação e existe um custo por ticket. Troca-se o motivo do chamado e o preço unitário sobe. Isso é mudança de grau, não de natureza — exatamente o que o teste da Etapa 3 rejeitaria se <code>e5.2</code> fosse candidato a disrupção-raiz. Ele está na roda porque é provável, não porque seja interessante. O efeito que seria uma mudança de natureza — <code>e5.1.1</code>, recuperação virando serviço regulado com responsabilidade atribuída — está em confiança baixa, e é o que realmente valeria observar.</p>
+<h3 id="2-o-efeito-que-assume-velocidade-de-adocao-sem-caso-comparavel-e4">2. O efeito que assume velocidade de adoção sem caso comparável: <code>e4</code></h3>
+<p><code>e4</code> afirma que a receita migra de leitura-do-dado para assinatura até 2029. Não encontro caso comparável com essa velocidade. Dois candidatos, e os dois depõem contra:</p>
+<ul><li><strong>HTTPS por padrão.</strong> O Let's Encrypt foi lançado em 2014 e a web só chegou perto de universalizar tráfego cifrado por volta de 2021 — cerca de sete anos. E essa mudança era <strong>grátis</strong>, <strong>invisível para o usuário final</strong> e <strong>empurrada por navegadores</strong> que passaram a marcar sites como inseguros. Mesmo com os três fatores a favor, levou sete anos.</li><li><strong>E-mail pago com privacidade.</strong> A Proton existe desde 2014 com o modelo de acesso zero [9] e, uma década depois, o e-mail de massa continua sendo gratuito e lido por quem hospeda. A migração que <code>e4</code> prevê em três anos não aconteceu em doze.</li></ul>
+<p><code>e4</code> exige o inverso dos três fatores do HTTPS: uma mudança <strong>cara</strong>, <strong>visível</strong> (a pessoa passa a pagar) e <strong>contrária</strong> ao interesse de quem hoje domina a distribuição. Três anos é uma data que eu escolhi porque ela cabia no horizonte do mapa, não porque algum precedente a sustente. Se eu fosse honesto com a evidência, <code>e4</code> teria prazo 2034 e confiança baixa — e, com isso, <code>e4.1</code>, <code>e4.2</code> e <code>e4.3</code> e seus três descendentes sairiam do horizonte de 2031 inteiro.</p>
+<h3 id="3-a-disrupcao-que-pode-nao-se-concretizar-4-2-o-ponta-a-ponta-por-padrao">3. A disrupção que pode não se concretizar: 4.2, o ponta-a-ponta por padrão</h3>
+<p>É a mais frágil das quatro, e não por razão técnica — tecnicamente ela está pronta. Ela depende de duas decisões que estão sendo tomadas por outras pessoas, em tribunal e em parlamento, enquanto este documento é escrito: o caso da Technical Capability Notice britânica contra a Apple, com audiência substantiva planejada para dezembro de 2026 [14], e o ciclo europeu de regulação de varredura [15]. Se o resultado for varredura obrigatória no cliente antes da cifragem, ponta-a-ponta continua existindo como palavra e deixa de existir como garantia.</p>
+<p><strong>O que sobra do mapa se 4.2 cair.</strong> Sobra bastante, e é importante dizer por quê: <strong>local-first não exige ponta-a-ponta</strong> (dá para ter o dado autoritativo no cliente e sincronizar em claro) e <strong>passkey não exige servidor cego</strong> (autenticação e cifragem de conteúdo são camadas distintas). Os ramos <code>e1</code>, <code>e2</code>, <code>e5</code>, <code>e6</code> e <code>e7</code> continuam de pé. Caem <code>e3</code> e <code>e4</code> com seus cinco filhos e cinco netos — treze dos trinta e sete efeitos, pouco mais de um terço do mapa. O que muda de tom é o resto: sem servidor cego, local-first vira principalmente uma técnica de desempenho e resiliência, e para de ser uma tese sobre poder. O mapa sobrevive; a tese dele, não.</p>
+<h3 id="4-o-vies-que-entrou-aqui-e-onde-exatamente-ele-inflou-o-mapa">4. O viés que entrou aqui, e onde exatamente ele inflou o mapa</h3>
+<p>O tema chegou por uma varredura de finanças pessoais com privacidade, ligada a um projeto real em que o autor <strong>removeu o provedor de identidade terceiro do próprio produto</strong>. Esse é um viés de quem já pagou o custo da decisão e, tendo pago, precisa que ela tenha valido a pena. Onde ele aparece:</p>
+<ul><li><strong>Em <code>e2.1</code></strong> ("verificabilidade vira critério de compra"). Isso é uma preferência de desenvolvedor projetada como demanda de mercado. Não há, no levantamento, nenhuma evidência de que comprador de software pessoal escolha por arquitetura. A evidência disponível aponta para o contrário: o budgero, exemplo nº 1 da própria varredura que originou o tema, mantém um provedor de identidade terceiro na versão em nuvem e só dispensa no self-host [13]. Quem escreveu o produto sabe fazer sem; escolheu com, na configuração que a maioria vai usar.</li><li><strong>Em <code>e6.1.1</code></strong> ("o chaveiro vira identidade raiz"). Efeito elegante, com zero sinal atual, escrito porque fecha bem o argumento.</li></ul>
+<p><strong>E há um viés mais grave, que é o de classificação.</strong> O critério declarado para eu mudar de ideia sobre este mapa era evidência de que a adoção já passou da maioria inicial de Rogers. Para passkeys, essa evidência existe e está na Seção 3: 75% com pelo menos uma passkey habilitada e 49% usando regularmente [1]. Pelo critério de difusão, passkey não é tecnologia emergente — é maioria inicial consolidada indo para maioria tardia. Eu mantive 4.3 como disrupção-raiz porque o teste da Etapa 3 mede <strong>ruptura</strong>, não <strong>difusão</strong>, e o que ela rompe (recuperação, sucessão, intermediação de identidade) continua sem ter rompido. Mas registro que essa é uma escolha discutível, que ela mantém no mapa a disrupção com maior número de efeitos de sinal forte, e que um leitor aplicando estritamente a régua da disciplina — "o que já é comum em produto de massa não entra" — teria razão em cortar 4.3 inteira. Se cortar, caem <code>e5</code> e <code>e6</code> com dez descendentes, e o mapa perde metade dos seus efeitos de confiança alta. Sobretudo, perderia a peça que costura tudo — a derivação de chave a partir da credencial — que é justamente a parte <strong>não</strong> difundida de uma tecnologia difundida.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Quatro erros concretos, pegos durante esta execução. Nenhum é hipotético.</p>
+<p><strong>1. Citei um número que a página não continha.</strong> Um resultado de busca trazia, no próprio título, "Verificação em Duas Etapas do GOV.BR (...) já faz parte da vida de 50 milhões de pessoas", numa URL do gov.br — fonte primária, número redondo, exatamente o que a Seção 3 pedia para o recorte Brasil. Ao abrir a página, ela devolveu "Conteúdo Restrito" e não continha nenhum dado: nem número de usuários, nem menção a passkey, nem data. <strong>Como percebi:</strong> porque abri antes de citar. Se eu tivesse confiado no título do resultado de busca, o documento teria um número de fonte oficial que a fonte oficial não sustenta. O número não entrou, e o recorte Brasil ficou apoiado em imprensa secundária [4], o que está declarado na Seção 3.</p>
+<p><strong>2. Inverti o sentido do Chat Control na primeira leitura.</strong> Tratei inicialmente o "Chat Control 1.0" como um mandato de varredura obrigatória que teria sido derrubado. Ao abrir a análise do CDT Europe, é o contrário: era uma <strong>derrogação voluntária</strong> da ePrivacy, que permitia varredura, e cuja extensão o Parlamento rejeitou em 26 de março de 2026, expirando em 4 de abril [15]. A diferença importa muito para o mapa — "o legislador proibiu a varredura" e "o legislador deixou de autorizar a varredura" apontam para futuros diferentes em <code>e3.1</code>. <strong>Como percebi:</strong> ao tentar escrever a data da rejeição junto com o placar e notar que a fonte que eu tinha em mãos não sustentava nenhum dos dois na forma que eu tinha assumido.</p>
+<p><strong>3. Ia usar o budgero como caso de arquitetura sem intermediário de identidade.</strong> A descrição pública — local-first, self-hostable, ponta-a-ponta — casa perfeitamente com a tese. Ao abrir o repositório, a versão em nuvem autentica com Clerk, um provedor de identidade terceiro [13]. <strong>Como percebi:</strong> ao procurar, especificamente, <em>como</em> ele autentica — pergunta que eu só fiz porque o experimento da Seção 10 depende disso. Esse erro, uma vez corrigido, virou a melhor evidência <strong>contra</strong> o próprio mapa, e está na Seção 7.</p>
+<p><strong>4. Perdi uma fonte acadêmica e não a substituí por memória.</strong> A revisão de literatura sobre barreiras de adoção de passkeys (MDPI, <em>Applied Sciences</em>) devolveu HTTP 403. Eu tinha, da busca, um resumo dos achados dela — e a tentação era citar o resumo como se fosse leitura. Não citei: a afirmação sobre recuperação como buraco estrutural está na Seção 3 marcada como vinda de literatura secundária, e a fonte não entra na Seção 11.</p>
+<p><strong>Um alerta que não é erro pego, e sim desconfiança declarada.</strong> Boa parte do que a busca devolveu sobre eventos de 2026 vem de blogs agregadores e sites de notícia de tecnologia de baixa reputação, que reescrevem uns aos outros. Onde não consegui fonte primária — notadamente para o desdobramento do Chat Control depois de abril de 2026 — a afirmação ficou fora das seções 3 a 10 e foi para o anexo. Assumir que "nada mais errou" seria, aqui, o mesmo que dizer que não conferi.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p><strong>Provável.</strong> Em 2031, a senha não acabou — ela virou o porão da casa. Passkey é o caminho normal de entrada em praticamente todo serviço grande, e atrás dela continua havendo um código por e-mail, um documento com foto, uma ligação para a central. O resultado é que a segurança melhorou muito no caminho principal e quase nada no caminho de exceção, que é para onde a fraude migrou inteira: o setor mais atacado do mundo digital passou a ser o atendimento de recuperação. Local-first venceu onde a latência doía — ferramenta profissional, editor colaborativo, aplicativo de campo — e ficou como nicho respeitado no resto; a maior parte do software de consumo continua sendo uma janela para um servidor, só que mais rápida. Ponta-a-ponta virou padrão em mensagem e permanece opcional em arquivo e backup, com um mapa de disponibilidade que muda conforme o país. O chaveiro do fabricante do aparelho se consolidou como a coisa mais importante que uma pessoa tem, e quase ninguém pensa nisso até o dia em que troca de ecossistema — ou morre.</p>
+<p><strong>Desejável.</strong> Em 2031, três coisas chatas foram resolvidas e é por isso que ninguém fala delas. A primeira: recuperação de conta virou um desenho de produto respeitável, com custódia dividida entre pessoas de confiança em vez de um telefonema para um atendente — a pessoa nomeia três contatos, dois deles bastam, e isso funciona igual em qualquer serviço porque virou padrão. A segunda: sucessão digital entrou no padrão junto, e o chaveiro deixou de ser a única coisa que não se herda. A terceira: exportabilidade contínua virou exigência de compra institucional, primeiro em edital público e depois por contágio, e com isso "seu dado é seu" passou a ser uma afirmação que se testa em vez de uma frase de página de marketing. Nada disso exigiu tecnologia nova — as três dependiam de acordo entre plataformas e de alguém com poder de compra insistindo. <strong>O que precisaria ser feito para chegar lá:</strong> um grupo de trabalho no W3C ou na FIDO Alliance tratando recuperação e sucessão com a mesma seriedade com que tratou autenticação, e pelo menos um comprador grande — um governo, um sistema de saúde — escrevendo exportabilidade contínua em edital antes de 2028.</p>
+<p><strong>Indesejável.</strong> Em 2031, "soberania de dados" virou nome de plano pago. A arquitetura funcionou exatamente como prometido e foi absorvida como diferencial de produto premium: quem paga tem cliente cifrado, dado no aparelho e assistente local; quem não paga tem a mesma nuvem legível de sempre, agora com menos concorrência, porque manter duas arquiteturas expulsou os pequenos do mercado. A passkey consolidou a conta dentro do ecossistema do fabricante, e trocar de aparelho passou a significar negociar com uma empresa a devolução da própria identidade. Vazou um chaveiro grande e não havia procedimento — a resposta foi trazer a senha de volta como contingência oficial, o que desfez em seis meses o argumento de segurança de uma década. <strong>O sinal precoce disso, hoje:</strong> privacidade aparecendo na tabela de preços em vez de na descrição do produto. Quando o exemplo canônico de uma arquitetura sem intermediário mantém o intermediário na configuração padrão e o remove só na versão que exige um servidor próprio [13], o caminho para a estratificação já está aberto — e ele não parece um retrocesso, parece um plano de assinatura.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="o-que-e-cofre-derivado-de-passkey">O que é — "Cofre derivado de passkey"</h3>
+<p>Um aplicativo web mínimo de orçamento pessoal — meia dúzia de campos, lançamentos e um saldo — com três propriedades e nenhuma a mais:</p>
+<ol><li>Os dados vivem num banco local no navegador (SQLite em WASM, ou IndexedDB se for mais rápido de montar).</li><li>A chave simétrica que cifra esse banco <strong>não vem de senha</strong>: é derivada da passkey do usuário, via extensão PRF do WebAuthn, formalizada na Level 3 [2].</li><li>A sincronização acontece por um servidor propositalmente burro, que recebe e devolve blocos cifrados e não tem nenhuma capacidade de lê-los — um servidor cego de verdade, escrito em um arquivo.</li></ol>
+<p>Cadastro: zero campos. A pessoa toca no sensor do próprio aparelho e a conta existe. Não há e-mail, não há senha, não há provedor de identidade.</p>
+<h3 id="que-pergunta-sobre-o-futuro-ele-ajuda-a-responder">Que pergunta sobre o futuro ele ajuda a responder</h3>
+<p>A pergunta central do mapa, e a que ele mesmo declara não resolvida: <strong>se a chave nasce do aparelho e o servidor não lê nada, o que acontece com a pessoa nos três momentos em que hoje existe um caminho de volta?</strong> Trocar de aparelho, perder o aparelho, morrer. É o teste empírico de <code>e5.1</code> (recuperação vira o ponto fraco), <code>e6.1</code> (portabilidade entre chaveiros) e <code>e6.2</code> (sucessão sem caminho) — os três efeitos em que este mapa mais aposta e para os quais tem menos evidência.</p>
+<h3 id="que-tecnologia-emergente-ele-usa-e-por-que-nao-da-com-tecnologia-madura">Que tecnologia emergente ele usa, e por que não dá com tecnologia madura</h3>
+<p>A peça emergente é a <strong>derivação de chave a partir de credencial de hardware não exportável</strong> (extensão PRF do WebAuthn). Não dá para fazer com tecnologia madura, e a distinção é exata: derivar chave de cifragem a partir de senha é maduro, resolvido e comum — é o que Argon2 faz, e é o que a maior parte dos aplicativos do levantamento usa. Mas uma chave derivada de senha herda as propriedades da senha: existe um segredo memorizável, ele pode ser anotado, transmitido a um cônjuge, guardado num cofre de papel, entregue a um inventariante. <strong>É justamente isso que desaparece quando a chave vem de um chip que não exporta a chave privada.</strong> O experimento só testa o problema que o mapa afirma existir se usar a peça que cria o problema. Com Argon2, a recuperação funcionaria — e o experimento mediria a tecnologia errada.</p>
+<p>O servidor cego, por si só, é maduro (armazenar blocos opacos é trivial). O local-first, por si só, é maduro em biblioteca. O que não é maduro, e não existe praticamente em nenhum produto de consumo, é a junção: PRF derivando a chave do dado local, sem senha em lugar nenhum da cadeia.</p>
+<h3 id="o-que-a-turma-faz-quando-testar-isso-em-sala">O que a turma faz quando testar isso em sala</h3>
+<p>Cada pessoa cria a conta no próprio celular ou notebook — trinta segundos, um toque — e registra três ou quatro lançamentos, o suficiente para que o cofre tenha conteúdo que ela reconheça como seu. Depois, todo mundo executa os mesmos três roteiros, com cronômetro:</p>
+<ul><li><strong>Roteiro A — troca de aparelho.</strong> Abrir o aplicativo em um segundo dispositivo, ou no navegador de outra pessoa, e tentar recuperar o cofre. Mede quanto do trabalho o chaveiro sincronizado faz sozinho e quanto sobra para o usuário.</li><li><strong>Roteiro B — perda.</strong> A pessoa ao lado apaga a passkey do chaveiro (com autorização, e com o dado cifrado ainda no servidor). Tentar entrar. Registrar o que a interface oferece como saída — e, se não oferecer nada, registrar o que a pessoa <strong>tenta</strong> fazer, que é o dado mais interessante do experimento.</li><li><strong>Roteiro C — herança.</strong> Em duplas, cada um tenta entregar ao outro acesso permanente ao próprio cofre, usando apenas o que o aplicativo e o sistema operacional oferecem. Sem combinar solução de antemão.</li></ul>
+<p>Ao final, três números na lousa: quantos recuperaram em A, quantos recuperaram em B, quantos conseguiram C. E uma coluna qualitativa, que provavelmente vale mais: <strong>o que as pessoas tentaram quando não havia caminho.</strong> É onde o vocabulário de interface que falta (<code>e1.1.1</code>) aparece por ausência.</p>
+<h3 id="o-que-seria-um-resultado-que-me-faria-mudar-de-ideia">O que seria um resultado que me faria mudar de ideia</h3>
+<p><strong>Se a maioria recuperar o cofre no Roteiro B sem atrito</strong>, apenas porque o chaveiro sincronizado da plataforma restaurou a passkey, então o "fim da senha" não cria o problema de recuperação que este mapa coloca no centro — a plataforma já o resolveu por baixo, silenciosamente. Nesse caso <code>e5.1</code> cai, <code>e5.1.1</code> cai junto, e o ramo da disrupção 4.3 encolhe a uma observação sobre conveniência. Mas atenção ao que esse mesmo resultado confirmaria: se foi o chaveiro do fabricante que salvou todo mundo, <code>e6</code> fica <strong>mais</strong> forte, não menos — a conta estaria ancorada no ecossistema de forma ainda mais completa do que o mapa supõe. Um resultado, duas leituras opostas, e é o Roteiro C que decide entre elas: se ninguém conseguir herdar, a ancoragem é o achado, não a conveniência.</p>
+<p><strong>E se o Roteiro C funcionar</strong> — se houver um caminho razoável para passar o cofre adiante usando só o que o sistema operacional oferece hoje —, então <code>e6.2</code> está errado e a Apple resolveu sucessão de passkey sem documentar, o que eu consideraria o resultado mais surpreendente possível deste experimento, dado que a documentação diz o contrário em letras claras [11].</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Quinze fontes abertas e lidas. Fontes que apareceram em busca mas que eu não abri não estão aqui; o que veio delas está no anexo, marcado.</p>
+<ol><li><strong>FIDO Alliance — "Five Billion Passkeys: FIDO Alliance Reports Mainstream Global Usage on World Passkey Day 2026"</strong> — <code>https://fidoalliance.org/fido-alliance-reports-accelerating-global-passkey-adoption-on-world-passkey-day-2026/</code> — Sustenta todos os números de adoção de passkeys da Seção 3 (5 bi de credenciais, 90% de consciência, 75% habilitadas, 49% de uso regular, 68% de organizações implantando, 28% totalmente sem senha, 57% ainda com método passível de phishing) e a metodologia Sapio Research de abril de 2026. <strong>Confiabilidade:</strong> metodologia declarada e margem de erro publicada, mas é parte interessada — a aliança que promove o padrão divulgando pesquisa que encomendou. Bom para ordem de grandeza, fraco como evidência independente.</li><li><strong>W3C — "Web Authentication: An API for accessing Public Key Credentials Level 3 is now a W3C Recommendation"</strong> — <code>https://www.w3.org/news/2026/web-authentication-an-api-for-accessing-public-key-credentials-level-3-is-now-a-w3c-recommendation/</code> — Sustenta a data de 25 de agosto de 2026 e o status normativo da Level 3. <strong>Confiabilidade:</strong> máxima, é o próprio organismo de padronização. Ressalva: o anúncio é genérico e <strong>não</strong> detalha PRF; a atribuição da extensão à Level 3 vem de literatura técnica secundária e está assim marcada no texto.</li><li><strong>Corbado — "WebAuthn Credential Exchange Protocol (CXP) &amp; Format (CXF)"</strong> — <code>https://www.corbado.com/blog/credential-exchange-protocol-cxp-credential-exchange-format-cxf</code> — Sustenta o que CXP e CXF são, o uso de HPKE, o status (CXF em Review Draft desde março de 2025; CXP mirando 2026), a implementação em iOS/macOS 26 e — o mais útil — a lista do que os padrões <strong>não</strong> resolvem. <strong>Confiabilidade:</strong> média-alta; é blog de fornecedor de autenticação, portanto competente e interessado. Usei para estrutura e status, não para juízo de valor.</li><li><strong>FDR — "Gov.br não vai mais pedir senha de acesso"</strong> — <code>https://fdr.com.br/2026/02/12/govbr-nao-vai-mais-pedir-senha-de-acesso-saiba-como-fazer-login-de-forma-mais-rapida/</code> — Sustenta a nota sobre o Brasil: passkeys/biometria nativa no aplicativo gov.br, para contas Prata e Ouro, em fevereiro de 2026. <strong>Confiabilidade:</strong> baixa. É imprensa secundária, não cita a fonte oficial do anúncio nem números. Usei porque a página oficial correspondente estava com conteúdo restrito, e marquei essa fragilidade no texto.</li><li><strong>Kleppmann, Wiggins, van Hardenberg, McGranaghan — "Local-First Software: You Own Your Data, in spite of the Cloud" (2019)</strong> — <code>https://martin.kleppmann.com/papers/local-first.pdf</code> — Sustenta a definição e os sete ideais do local-first, o papel dos CRDTs como abordagem promissora e a lista de problemas em aberto no momento da publicação. <strong>Confiabilidade:</strong> alta. É o texto fundador, revisado e apresentado em conferência da ACM SIGPLAN.</li><li><strong>Wikipédia — "Local-first software"</strong> — <code>https://en.wikipedia.org/wiki/Local-first_software</code> — Sustenta a atribuição de autoria e ano, a lista de tecnologias e a existência de desacordo interno na comunidade sobre descentralização. <strong>Confiabilidade:</strong> média; usei só para corroborar o que a fonte 5 já dizia e para o mapeamento geral do campo.</li><li><strong>Automerge — "Automerge 3.0"</strong> — <code>https://automerge.org/blog/automerge-3/</code> — Sustenta a data (julho de 2025), a representação comprimida em tempo de execução e os números de redução de memória e tempo de carregamento. <strong>Confiabilidade:</strong> alta para fato técnico verificável, baixa para comparação — é o projeto divulgando o próprio lançamento, e os exemplos são escolhidos por ele.</li><li><strong>johnny.sh — "Choosing a Sync Engine for Local-First in 2026"</strong> — <code>https://johnny.sh/blog/choosing-a-sync-engine-in-2026/</code> — Sustenta as arestas concretas dos motores de sincronização: long polling no Electric, escrita cliente-lado sem caminho padrão, um usuário por instância no Livestore, ausência de presença no Zero, risco de manutenção no Triplit. <strong>Confiabilidade:</strong> média; é relato de praticante, sem metodologia, mas específico o bastante para ser checável e sem interesse comercial aparente em nenhum dos motores.</li><li><strong>Proton — "Why privacy isn't free"</strong> — <code>https://proton.me/blog/ad-free-business-model</code> — Sustenta o argumento de que criptografia de acesso zero impede publicidade personalizada e que a receita vem exclusivamente de planos pagos. <strong>Confiabilidade:</strong> é declaração institucional de parte interessada. Vale como posição declarada de um ator, não como análise de mercado; não traz número de usuários nem de receita.</li><li><strong>Signal — "Signal is expensive"</strong> — <code>https://signal.org/blog/signal-is-expensive/</code> — Sustenta o custo operacional: cerca de US$ 50 milhões/ano projetados para 2025, ~US$ 14 mi de infraestrutura (US$ 6 mi só em taxas de registro), ~US$ 19 mi de pessoal para ~50 funcionários, modelo 501c3 com doação e empréstimo inicial de Brian Acton. <strong>Confiabilidade:</strong> alta para o que é — custos declarados pela própria organização, publicados em 2023 com projeção para 2025. É autodeclaração, mas incomumente detalhada e feita por quem não tem incentivo em parecer barato.</li><li><strong>Apple — "How to add a Legacy Contact for your Apple Account"</strong> — <code>https://support.apple.com/en-us/102631</code> — Sustenta o achado central sobre sucessão digital: o Contato Legado alcança fotos, mensagens, notas, arquivos e backups, e <strong>não</strong> alcança dados do Chaveiro do iCloud — informações de pagamento, senhas e passkeys. <strong>Confiabilidade:</strong> máxima. É documentação normativa do fabricante sobre o próprio produto.</li><li><strong>RxDB — "Why Local-First Software Is the Future and its Limitations"</strong> — <code>https://rxdb.info/articles/local-first-future.html</code> — Sustenta a lista de limitações da Seção 3: conflito semântico, consistência eventual, inadequação a conjuntos grandes, descarte de IndexedDB pelo Safari após sete dias, custo em cliente fraco, migração de schema por cliente, extração em dispositivo comprometido, dificuldade com dado relacional. <strong>Confiabilidade:</strong> média-alta; é fornecedor de banco local-first — ou seja, interessado na tese e, ainda assim, publicando a lista de limitações, o que é o sentido menos suspeito de viés.</li><li><strong>budgero (f-liva/budgero, GitHub)</strong> — <code>https://github.com/f-liva/budgero</code> — Sustenta a arquitetura (SQLite no cliente via WASM, sincronização cifrada por backend em Go, AGPL-3.0) e o achado que virou evidência contra o mapa: Clerk como provedor de identidade na versão em nuvem, autenticação local só no self-host. <strong>Confiabilidade:</strong> alta. É o código e a documentação do próprio projeto — verificável linha a linha por qualquer pessoa.</li><li><strong>Privacy International — "PI Apple TCN Challenge"</strong> — <code>https://privacyinternational.org/legal-action/pi-apple-tcn-challenge</code> — Sustenta a cronologia do caso britânico: TCN sob a seção 253 do IPA 2016 em fevereiro de 2025, retirada do ADP para novos usuários no Reino Unido, recusa do tribunal ao sigilo total em abril de 2025, substituição da notificação em outubro de 2025, gestão processual em setembro de 2026 e audiência substantiva planejada para dezembro de 2026. <strong>Confiabilidade:</strong> alta para cronologia processual — é parte no processo, portanto com posição declarada, mas as datas e peças são públicas e conferíveis.</li><li><strong>CDT Europe — "Response to the European Parliament Rejection of the Chat Control 1.0's Extension"</strong> — <code>https://cdt.org/insights/cdt-europes-response-to-the-european-parliament-rejection-of-the-chat-control-1-0s-extension/</code> — Sustenta a rejeição parlamentar em 26 de março de 2026 e a expiração da derrogação em 4 de abril de 2026, além da natureza voluntária da derrogação. <strong>Confiabilidade:</strong> alta para os fatos processuais, com posição advocatória declarada. Não sustenta o placar da votação, que por isso não aparece no corpo do documento.</li></ol>
+<p><strong>Fontes que tentei abrir e não abriram:</strong> revisão de literatura sobre adoção de passkeys em <em>Applied Sciences</em> (MDPI), <code>https://www.mdpi.com/2076-3417/15/8/4414</code> — HTTP 403; e a notícia institucional da Secretaria de Comunicação Social sobre verificação em duas etapas no gov.br, <code>https://www.gov.br/secom/pt-br/acompanhe-a-secom/noticias/2026/02/verificacao-em-duas-etapas-do-gov-br-que-amplia-a-seguranca-digital-ja-faz-parte-da-vida-de-50-milhoes-de-pessoas</code> — conteúdo restrito. Nenhuma das duas sustenta afirmação neste documento.</p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-etapa-1-entrevista-respostas-recebidas">12.1 Etapa 1 — entrevista, respostas recebidas</h3>
+<ul><li><strong>Horizonte:</strong> 2031.</li><li><strong>Público:</strong> quem projeta mídia e interação.</li><li><strong>Recorte geográfico:</strong> global, com uma nota sobre o Brasil.</li><li><strong>Já descartado:</strong> o que já é comum em produto de massa (a régua da disciplina). Nenhuma outra exclusão — confirmado explicitamente, não assumido.</li><li><strong>Viés desejado:</strong> neutro/analítico.</li><li><strong>Zona de interesse:</strong> Pessoas e dados.</li><li><strong>Disrupção suspeita pelo autor:</strong> nenhuma — instrução de descobrir.</li><li><strong>Ideias óbvias a excluir:</strong> as que serviriam para qualquer tema.</li><li><strong>Critério declarado para mudar de ideia:</strong> evidência de que a adoção já passou da maioria inicial (Rogers), ou de que a tecnologia não rompe nada (só melhora o que existe).</li><li><strong>Profundidade:</strong> três ordens. <strong>Modo:</strong> a partir de uma inovação/tema, não de um setor.</li><li><strong><code>publico_ok</code>:</strong> mantido em <code>false</code> — não houve autorização explícita do autor para nome em galeria pública, e a skill proíbe assumir.</li></ul>
+<p><em>Observação de processo:</em> esta rodada foi executada sem usuário disponível para responder. As respostas acima vieram pré-fornecidas. A Etapa 1 da skill é bloqueante por desenho, e o desenho foi respeitado no sentido de que nada foi produzido antes de os itens obrigatórios (1, 3, 4, 5) estarem definidos — mas registro que não houve diálogo real, e portanto não houve a oportunidade de fazer a pergunta de desempate que a skill prevê quando uma resposta é vaga.</p>
+<h3 id="12-2-etapa-2-buscas-executadas-na-ordem">12.2 Etapa 2 — buscas executadas, na ordem</h3>
+<ol><li><code>passkeys adoption 2026 FIDO Alliance statistics</code> — deu no relatório do Dia Mundial da Passkey, que virou a fonte [1]. Resultados paralelos (Descope, MojoAuth, Security Boulevard) não foram abertos.</li><li><code>local-first software CRDT 2026 Ink &amp; Switch state</code> — deu no ensaio fundador, na Wikipédia e em listas awesome. Mencionou Local-First Conf 2026 em Berlim, em julho, com Kleppmann, Steve Ruiz (tldraw) e Jeffrey Heer (Mosaic). <strong>Não abri a página da conferência; portanto não uso isso como afirmação.</strong></li><li><code>FIDO Credential Exchange Protocol CXP passkey portability 2026 implementation</code> — deu na análise do Corbado, fonte [3]. O resultado de busca afirmava também que o Android passou a suportar CXP via atualização do Google Play Services; <strong>não abri fonte primária disso e não afirmo no corpo.</strong></li><li><code>Chat Control CSAM regulation 2026 encryption EU Council outcome</code> — resultado ruidoso, dominado por blogs agregadores (<code>thecybersecguru.com</code>, <code>stateofsurveillance.org</code>, <code>hivesecurity.gitlab.io</code>, <code>euperspectives.eu</code>, <code>andreafortuna.org</code>). Alegações que <strong>não</strong> entraram no corpo por falta de fonte primária: que o Conselho aprovou regime temporário válido até 3 de abril de 2028; que em 9 de julho de 2026 houve votação de 314 a 276; que o Parlamento aprovou emendas isolando aplicativos com ponta-a-ponta do esquema. Se alguma dessas for verdadeira, <code>e3.1</code> e <code>e3.2</code> mudam de sinal — vale checar antes da aula.</li><li><code>Apple Advanced Data Protection UK Investigatory Powers order 2026 outcome tribunal</code> — levou à Privacy International, fonte [14]. Alegação de resultado de busca não confirmada em primária: segunda ação da Apple no tribunal em agosto de 2026 (9to5Mac). Não usei.</li><li><code>sync engine 2026 ElectricSQL Zero Jazz local-first production adoption Linear</code> — deu no johnny.sh, fonte [8]. Alegação não verificada em primária, mas plausível e repetida: o Linear como caso de produto de grande porte sobre sincronização local. Usei com atribuição cuidadosa ("é o caso repetidamente citado").</li><li><code>gov.br passkey chave de acesso 2026 Brasil autenticação sem senha</code> — deu no FDR, fonte [4], e no resultado do gov.br/secom que não abriu. Ver Seção 8, item 1.</li><li><code>passkey recovery problem account lockout criticism 2026 usability</code> — deu material consistente sobre recuperação (MojoAuth, ToolsMint, MS Cloud Bros, MDPI). <strong>A única fonte acadêmica devolveu 403.</strong> As demais são blogs de fornecedor; usei o consenso como afirmação atribuída a "literatura secundária", sem citar nenhuma como fonte.</li><li><code>end-to-end encryption breaks advertising personalization business model 2026 Proton Signal sustainability</code> — quase todos os resultados eram do próprio domínio da Proton. Abri um, fonte [9]. O viés do resultado de busca aqui é notável: uma pergunta sobre modelo de negócio de criptografia devolve quase só o marketing de um dos atores.</li><li><code>digital inheritance passkeys legacy contact estate access encrypted accounts 2026 problem</code> — deu em blogs de planejamento sucessório. A afirmação central (Contato Legado não alcança o Chaveiro) foi confirmada na documentação da Apple, fonte [11]. Alegações <strong>não</strong> usadas: que RUFADAA foi adotada nos 50 estados americanos mais DC até 2026; que o 1Password atualizou acesso de beneficiário em 2025.</li><li><code>on-device AI local data privacy 2026 Ollama Apple Foundation Models personal data never leaves device</code> — resultados fracos, quase todos de blogs comerciais de IA. Números atraentes e <strong>descartados</strong> por falta de fonte: "55% da inferência corporativa roda on-premise, contra 12% em 2023" e "mais de 75 países com legislação de localização de dados". O primeiro é exatamente o tipo de estatística redonda de blog comercial que o <code>DUVIDAS.md</code> do autor descreve como armadilha; não entrou. A menção a Siri/Private Cloud Compute em junho de 2026 também não foi aberta em primária e não sustenta afirmação.</li><li><code>ANPD LGPD 2026 criptografia ponta a ponta dado sensível regulamento Open Finance portabilidade</code> — resultados de escritórios de advocacia e provedores de pagamento, nenhum primário da ANPD. Não abri nenhum e nada dali entrou no corpo. A informação potencialmente relevante e não verificada: portabilidade de crédito pessoal via Open Finance em operação no Brasil desde fevereiro de 2026, e intensificação da fiscalização do Art. 18 da LGPD pela ANPD. Se confirmada, seria a ponte brasileira mais forte para <code>e2.1.1</code>.</li><li><code>budgero local-first self-hostable end-to-end encrypted personal finance github</code> — levou ao repositório, fonte [13], e ao achado do Clerk.</li><li><code>"local-first" 2026 criticism "doesn't work" authorization multi-user hard problems blog</code> — levou ao RxDB, fonte [12], e à menção de uma apresentação da Local-First Conf 2026 listando autorização, recuperação durável, bootstrap, retenção e depuração como problemas fundamentais. Não abri a apresentação; a afirmação sobre autorização multiusuário como problema aberto está no corpo atribuída à comunidade, não a uma fonte específica.</li></ol>
+<h3 id="12-3-etapa-3-o-teste-de-disrupcao-aplicado-incluindo-os-reprovados">12.3 Etapa 3 — o teste de disrupção aplicado, incluindo os reprovados</h3>
+<p><strong>Aprovados nas três perguntas (disrupção-raiz):</strong> local-first; ponta-a-ponta por padrão; passkeys. <strong>Aprovado em 1 e 3, reprovado em 2 (emergente, entra com ressalva):</strong> IA como cliente do dado local.</p>
+<p><strong>Reprovados na pergunta 1 — "o que isso torna possível que antes não era?" — e portanto tratados como tecnologia madura, presentes só na Seção 3:</strong></p>
+<ul><li><strong>Backup criptografado.</strong> Não torna nada possível; protege o mesmo dado no mesmo lugar.</li><li><strong>HTTPS / TLS.</strong> Universalizado. Melhoria consumada, não ruptura em curso.</li><li><strong>2FA por SMS.</strong> Pior que o que substitui em segurança; nem melhoria clara é.</li><li><strong>"Login com Google" / federação OAuth.</strong> É exatamente o intermediário que o tema questiona. Maduro, e do lado errado do argumento.</li><li><strong>Self-hosting via Docker.</strong> Rodar software próprio num servidor próprio é possível há décadas. Ficou mais fácil — pergunta 1 reprovada. <strong>Esta foi a decisão mais difícil do teste,</strong> porque o self-host é central no material de origem do tema (<code>kostos</code>, <code>TaxHacker</code>, <code>finvo</code>). O que o salva de ser irrelevante é que ele é o <em>veículo</em> das outras disrupções, não uma disrupção em si.</li><li><strong>Gerenciador de senhas.</strong> Melhoria de higiene; não muda o modelo de segredo compartilhado, só o administra melhor.</li><li><strong>Criptografia de disco.</strong> Madura e universal em sistema operacional de consumo.</li></ul>
+<p><strong>Candidato considerado e cortado antes do teste:</strong> "descentralização / protocolos federados (ActivityPub, AT Protocol)". Cortado por fronteira de tema, não por maturidade — é arquitetura de rede social e identidade de publicação, não arquitetura de dado e identidade da pessoa. Entraria num mapa vizinho.</p>
+<h3 id="12-4-etapa-4-efeitos-cortados-da-roda-com-o-motivo">12.4 Etapa 4 — efeitos cortados da roda, com o motivo</h3>
+<p>Aplicando a regra de parada (parar de ramificar quando o efeito exige encadear duas ou mais suposições independentes não testadas), os seguintes foram gerados e <strong>removidos</strong>:</p>
+<ul><li><em>"O conceito de conta desaparece e é substituído por chave pública pessoal portátil entre serviços."</em> — Exige três apostas empilhadas: adoção universal de passkey, resolução do problema de recuperação <strong>e</strong> cooperação entre plataformas concorrentes. É wildcard, não efeito de terceira ordem.</li><li><em>"Governos adotam local-first para prontuário eletrônico nacional."</em> — Plausível e completamente não rastreável a partir das disrupções; depende de política de saúde, não de arquitetura de software. Cortado.</li><li><em>"O e-mail deixa de existir como identificador."</em> — Extrapolação vistosa. O e-mail sobreviveu a todas as tecnologias que o iam substituir nos últimos vinte anos; nada no levantamento sugere que desta vez seja diferente. Uma versão fraca dele sobreviveu como <code>e6.1.1</code>.</li><li><em>"Publicidade desaparece como modelo da internet de consumo."</em> — Salto de <code>e4</code> que ignora que este mapa trata de software <strong>pessoal</strong>, não de mídia de massa. Fora de escopo.</li><li><em>"Cartórios passam a emitir certificados digitais de sucessão criptográfica no Brasil."</em> — Específico demais e dependente de regulação local que eu não verifiquei. Sobrevive numa forma genérica em <code>e6.2.1</code>.</li><li><em>"CRDTs viram primitiva de banco de dados relacional padrão (Postgres nativo)."</em> — É previsão de roadmap de produto disfarçada de efeito social. Cortado.</li><li><em>"A IA local torna o servidor completamente desnecessário."</em> — Contradiz o próprio levantamento, que mostra arquitetura híbrida como posição dominante de plataforma. Cortado por conflito com a evidência.</li></ul>
+<p><strong>Efeito que quase virou wildcard e ficou na roda:</strong> <code>e4.1.1</code> (sincronização cifrada como serviço público ou cooperativo). Ficou porque tem um caminho narrável em uma frase — se privacidade se estratificar por renda (<code>e4.1</code>), há pressão política para ofertá-la publicamente — e porque existe precedente brasileiro de infraestrutura pública digital de adoção massiva. Mas é o efeito de terceira ordem em que tenho menos confiança de todo o mapa, e ele é a fronteira exata onde a regra de parada quase disparou.</p>
+<h3 id="12-5-etapa-5-contestacao-notas-que-nao-couberam-na-secao-7">12.5 Etapa 5 — contestação, notas que não couberam na Seção 7</h3>
+<ul><li><strong>Sobre <code>e1</code> estar em confiança alta.</strong> É o único efeito de primeira ordem que eu consideraria mover para "já aconteceu" em vez de "vai acontecer". Aplicativo que funciona offline com dado autoritativo local existe em produção hoje. O que justifica mantê-lo na roda é o alcance — ele descreve a generalização, não a existência. Um leitor rigoroso poderia dizer que isso é trapaça, e teria um ponto.</li><li><strong>Sobre a assimetria de ramos.</strong> A disrupção 4.2 tem três efeitos de segunda ordem sob <code>e4</code> e a 4.4 tem dois no total. Isso não reflete importância relativa: reflete que eu tinha mais evidência sobre modelo de negócio de criptografia (fontes [9] e [10]) do que sobre IA local (onde o levantamento foi fraco, ver 12.2, item 11). A forma da roda é, em parte, a forma da minha pesquisa.</li><li><strong>Sobre o viés da skill, e não do autor.</strong> A skill exige "pelo menos um wildcard de baixa probabilidade e alto impacto". Isso cria um incentivo a produzir wildcards mesmo quando o campo não oferece nenhum convincente — e é o tipo de exigência formal que, cumprida sem cuidado, vira decoração. Dos quatro wildcards da Seção 6, o <strong>A</strong> e o <strong>B</strong> têm mecanismo causal claro; o <strong>C</strong> e o <strong>D</strong> são mais fracos e existem, em parte, porque o formato os recompensa. Registro isso porque a Seção 7 pede o viés do autor e da skill, e este é o da skill.</li><li><strong>Sobre o que eu não consegui contestar.</strong> Não encontrei argumento honesto contra <code>e5.1</code> (recuperação vira o ponto fraco). Ele é quase tautológico: se você remove o caminho fácil de volta, o caminho que sobra é o mais fraco. A ausência de contestação possível é, ela própria, um sinal — de que <code>e5.1</code> talvez seja uma definição travestida de previsão.</li></ul>
+<h3 id="12-6-etapa-8b-checagem-automatica-saida">12.6 Etapa 8b — checagem automática, saída</h3>
+<p>Registrada abaixo, executada sobre o arquivo entregue. A lição do <code>DUVIDAS.md</code> do autor foi aplicada: <strong>os números específicos foram conferidos, não a mensagem "passou"</strong>.</p>
+<pre><code class="lang-">seções (grep -c &quot;^## &quot;): 12
+frontmatter: todos os 18 campos presentes, nenhum omitido
+roda: YAML válido, 3 níveis de profundidade
+efeitos ordem 1: 7   (declarado no frontmatter: 7)
+efeitos ordem 2: 15  (declarado: 15)
+efeitos ordem 3: 15  (declarado: 15)
+todo nó com sinal/prazo/confianca: sim
+fontes na seção 11: 15 (declarado: 15)</code></pre></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

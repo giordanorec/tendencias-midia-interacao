@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Captura de realidade e renderização neural · futurizacao-jgpt (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 10 · futurizacao-jgpt (aluno)</p><h1>Captura de realidade e renderização neural</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/jgpt/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/jgpt/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Capturar um lugar em 3D deixou de ser um projeto e virou um gesto: um vídeo de celular entra, uma cena navegável sai em menos de um minuto. O limiar técnico foi cruzado em 2023, quando o 3D Gaussian Splatting passou a renderizar campos de radiância acima de 100 fps em 1080p; o limiar de mercado está sendo cruzado agora, em 2026, com a extensão <code>KHR_gaussian_splatting</code> do glTF em release candidate desde 3 de fevereiro e uma chamada do MPEG por material de teste dinâmico aberta até 15 de outubro. A pergunta deixou de ser se a captura funciona e passou a ser quem controla o ativo que ela produz. Este mapa trata de quatro rupturas — captura volumétrica com sensor comum, o splat como formato interoperável, captura de movimento sem marcador em produção, e reconstrução a partir de uma única imagem — e persegue seus efeitos até 2031. A aposta central é que o gargalo migra de produção para procedência: com ativo 3D de custo marginal quase nulo, o que passa a ser escasso é saber quem capturou o quê, quando, e com que consentimento.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>Captura de realidade e renderização neural é o conjunto de técnicas que transforma registro sensorial comum — vídeo de celular, foto única, imagem RGB de câmera de prateleira — em representação tridimensional navegável, sem passar pelo pipeline clássico de modelar, texturizar e animar. O nome cobre duas famílias que convergiram: campos de radiância (NeRF, 2020) e representações explícitas por primitivas gaussianas (3DGS, 2023), mais os modelos de reconstrução a partir de imagem única e os de estimativa de pose humana sem marcador.</p>
+<p>Isso encosta em mídia e interação num ponto específico: o que antes era <em>cenário</em> — algo construído por alguém, com intenção autoral em cada centímetro — passa a ser <em>amostra</em>. Quem projeta interação deixa de escolher entre "fazer o 3D" e "não ter 3D", e passa a escolher entre realidades capturadas, com todos os problemas que a palavra amostra carrega: enquadramento, ausência, ruído, e o que o sistema preenche onde ninguém apontou a câmera.</p>
+<p>Por que merece mapa de futuro e não estado-da-arte: o estado-da-arte é bem documentado e muda de mês em mês (1.692 artigos sobre gaussian splatting só em 2025). O que não está documentado é o que acontece com as instituições que vivem da escassez do 3D — estúdios, bancos de assets, escritórios de arquitetura, agências de captura — quando o custo marginal do ativo capturado se aproxima de zero e o formato se torna interoperável no mesmo ano.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p><strong>O que existe e funciona.</strong></p>
+<p>O método fundacional está publicado e é verificável: <em>3D Gaussian Splatting for Real-Time Radiance Field Rendering</em> (INRIA / Max Planck, ACM TOG vol. 42 nº 4, SIGGRAPH 2023) reporta renderização acima de 100 fps a 1080p com qualidade igual ou superior ao estado-da-arte anterior, evitando cálculo em espaço vazio [1]. Esse é o limiar de latência que separa "pesquisa em visão computacional" de "coisa que roda numa tela enquanto alguém interage".</p>
+<p>Do lado de produto, quatro aplicativos móveis cobrem hoje o ciclo completo captura → splat: Scaniverse (Niantic, gratuito), Polycam, KIRI Engine e Luma AI [4]. A cobertura de 2025 compilada pelo Radiance Fields lista adoção fora do laboratório em quatro setores ao mesmo tempo: cinema e TV (<em>Superman</em> com splatting dinâmico, <em>Dune: Prophecy</em> em visualização de cena), imobiliário (Zillow em SkyTours, Apartments.com via Matterport), geoespacial e AEC (Esri ArcGIS Pro 2.6, DJI Terra, Pix4D com georreferenciamento de capturas 3DGS, Bentley iTwin Modeler, vinte empresas de SLAM na Intergeo 2025) e veículos autônomos (biblioteca NuRec da NVIDIA para Omniverse e Isaac Sim) [2].</p>
+<p>A camada de formato amadureceu em 2026, e essa é a novidade mais datável do ano. A Khronos anunciou em 3 de fevereiro de 2026 o release candidate da extensão <code>KHR_gaussian_splatting</code> para glTF 2.0, padronizando posição, orientação, escala, cor e opacidade das gaussianas, com coexistência com malhas tradicionais e fallback para nuvem de pontos; a ratificação é esperada para o segundo trimestre de 2026 e os adotantes citados são CesiumJS, Esri ArcGIS, Scaniverse da Niantic Spatial e XGRIDS Lixel Cybercolor [8]. A Cesium entregou suporte em CesiumJS 1.139 e Cesium for Unreal v2.23.0 no ciclo de março de 2026 [7, via 8].</p>
+<p>Em paralelo, o MPEG abriu em agosto de 2026 uma chamada por material de teste para <em>Gaussian Splat Coding</em>, com prazo em 15 de outubro de 2026, pedindo sequências dinâmicas I-3DGS com calibração COLMAP, 25–30 fps, mínimo de 5 segundos, e datasets estáticos de 1 a 100 milhões de splats — documento ISO/IEC JTC 1/SC 29/WG 5 N 422, aprovado na 155ª reunião em Genebra; a Call for Proposals está em preparação, sem data divulgada [6]. Isso vem de um workshop conjunto JPEG/MPEG sobre radiance fields realizado em 31 de janeiro de 2025 [9].</p>
+<p>Captura de movimento sem marcador saiu do "bom o bastante para previs". A Move lançou o Genesis, descrito como seu primeiro produto de nível empresarial, capaz de ingerir vídeo RGB ou em escala de cinza de sistemas de terceiros, com sincronização por timecode via parceria com a Peel Capture; o modelo de cobrança é por segundo de vídeo processado, não por assento [5]. Na GDC 2026, a Vicon demonstrou um animador sem experiência prévia em mocap calibrando o sistema e gravando dados em minutos [10].</p>
+<p>Reconstrução a partir de imagem única virou faixa de produto com trade-off explícito: TripoSR entrega malha texturizada em menos de 500 ms numa GPU de datacenter, com qualidade correspondentemente modesta; TRELLIS 2 e Hunyuan3D 2.1 (este último com material PBR pronto para produção) ganham em qualidade usando difusão multi-vista seguida de reconstrução [11].</p>
+<p><strong>O que existe e não funciona.</strong></p>
+<p>Relighting e integração em pipeline profissional continuam sendo o problema aberto. Splats não participam da iluminação global Lumen no Unreal; sombras se comportam diferente de geometria de malha; não há geometria editável — a saída é um modelo de <em>aparência</em>, não de geometria, o que quebra a integração com fluxos BIM; ambientes grandes precisam ser fatiados, com emendas visíveis nas bordas; arquivos passam de 1 GB em capturas complexas. O suporte em Unreal 5.3+ é via sistemas de partículas Niagara, não pipeline nativo [12]. Um artigo de 9 de maio de 2026 propõe decompor a cena em componentes de aparência fixa e iluminação variável para produção virtual com paredes LED, treinando em menos de 2 horas com menos de 3 GB de RAM e 5 GB de VRAM a ~35 fps — o que confirma que, em 2026, relighting ainda é objeto de artigo, não de menu [3].</p>
+<p>A limitação da captura sem marcador é admitida pelo próprio fornecedor: adereços permanecem difíceis porque variam em forma, superfície, movimento e complexidade de interação, enquanto humanos têm silhuetas consistentes o bastante para treino genérico; em fluxos híbridos, marcadores mantêm a vantagem de rastrear qualquer objeto rígido que acomode três marcadores [10].</p>
+<p>Há também o cemitério anterior, que serve de calibragem: a Jaunt, que levantou mais de US$ 100 milhões de Disney, Sky e Axel Springer, demitiu parte significativa do quadro e encerrou produtos de VR para se concentrar em AR [não verificado em fonte primária — ver seção 8].</p>
+<p><strong>Quem está construindo.</strong></p>
+<p>INRIA e Max Planck (método) [1]; PlayCanvas (SuperSplat 2.0), Jawset (Postshot 1.0), Babylon.js V8.0, World Labs (renderizador Spark para Three.js), COLMAP 3.12, RealityScan 2.0, Nuke v17.0 beta com suporte nativo, OctaneRender 2026, Varjo Teleport V2.0, XGRIDS (PortalCam, US$ 5.000) [2]; Niantic Spatial, com 10 milhões de locais escaneados, mais de 1 milhão ativados, cerca de 1 milhão de novos scans por semana e mais de 50 milhões de redes neurais treinadas somando 150 trilhões de parâmetros, a partir de scans contribuídos por jogadores e usuários do Scaniverse, num recurso que a empresa descreve como inteiramente opcional [13]; Move e Vicon (movimento) [5, 10]; Tripo e Tencent (imagem única) [11]; Khronos, MPEG e JPEG (formato) [8, 6, 9].</p>
+<p><strong>Diagnóstico de maturidade (Hype Cycle só como heurística, nunca como previsão).</strong> Cobertura de <em>demonstração</em>: relighting, física em splats, 4D dinâmico, splat como código procedural. Cobertura de <em>adoção real</em>, com nomes de produto e número de versão: captura móvel, visualização web, geoespacial, imobiliário, mocap sem marcador. A curva de Gartner não é validada empiricamente como padrão universal de adoção e não é usada aqui para estimar prazo — só para separar o que tem release note do que tem press release.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<p>Quatro candidatas passaram no teste "o que isso rompe, e por que agora e não há cinco anos". As rejeitadas estão na seção 6.</p>
+<h3 id="d1-captura-volumetrica-fotorrealista-com-sensor-comum">D1 — Captura volumétrica fotorrealista com sensor comum</h3>
+<p><strong>O que rompe.</strong> Remove simultaneamente três restrições do ativo 3D de lugar real: custo de equipamento (celular no lugar de rig), mão de obra especializada (ninguém modela) e tempo (minutos no lugar de semanas).</p>
+<p><strong>Por que agora.</strong> O limiar é de latência de renderização, e é datável: acima de 100 fps a 1080p em 2023 [1]. Antes disso, campo de radiância era formato de artigo, não de tela. O segundo limiar é de distribuição: quatro aplicativos móveis cobrindo captura a splat, um deles gratuito e de alcance de massa [4]. Há cinco anos, em 2021, existia NeRF e existia tempo de treino em horas — o uso qualitativamente novo (navegar enquanto interage) não existia.</p>
+<p><strong>O que falta.</strong> Geometria editável, relighting e integração com física [12, 3]. Enquanto isso não fecha, splat é fundo e contexto, não é objeto de gameplay.</p>
+<h3 id="d2-o-splat-como-formato-interoperavel">D2 — O splat como formato interoperável</h3>
+<p><strong>O que rompe.</strong> Converte captura em <em>ativo transacionável</em>. Antes, cada visualizador tinha seu contêiner e um splat era uma dependência de ferramenta; a partir da padronização, é um arquivo que atravessa engine, GIS e navegador.</p>
+<p><strong>Por que agora.</strong> 3 de fevereiro de 2026, release candidate <code>KHR_gaussian_splatting</code>, com ratificação esperada no segundo trimestre e quatro adotantes nomeados [8]; implementação entregue em produto no mês seguinte [7 via 8]; e a chamada do MPEG por material de teste com prazo em 15 de outubro de 2026 [6]. Há cinco anos não havia sequer o workshop — ele é de 31 de janeiro de 2025 [9].</p>
+<p><strong>O que falta.</strong> A ratificação em si, e o codec: o MPEG ainda está coletando material de teste, e a Call for Proposals não tem data [6]. Interoperabilidade de contêiner sem codec resolve troca, não resolve custo de banda para cenas de 1 a 100 milhões de splats.</p>
+<h3 id="d3-captura-de-movimento-sem-marcador-em-producao">D3 — Captura de movimento sem marcador em produção</h3>
+<p><strong>O que rompe.</strong> Desacopla performance de estúdio. E muda a unidade econômica: cobrança por segundo de vídeo processado em vez de assinatura por assento, o que serve uso em rajada e inverte quem pode pagar [5].</p>
+<p><strong>Por que agora.</strong> Produto de nível empresarial lançado com ingestão de RGB de terceiros e sincronização por timecode [5]; e a demonstração pública de calibração por leigo em minutos na GDC 2026 [10]. Há cinco anos, markerless significava previs.</p>
+<p><strong>O que falta.</strong> Adereços e interação com objeto — limitação admitida pelo próprio fornecedor, que sustenta fluxo híbrido com marcadores [10].</p>
+<h3 id="d4-reconstrucao-3d-a-partir-de-uma-unica-imagem">D4 — Reconstrução 3D a partir de uma única imagem</h3>
+<p><strong>O que rompe.</strong> Elimina a exigência de múltiplas vistas, e com ela a exigência de que o objeto esteja acessível para ser circundado. Uma foto de arquivo basta.</p>
+<p><strong>Por que agora.</strong> O limiar é sub-segundo: malha texturizada em menos de 500 ms [11]. Isso coloca a reconstrução dentro do orçamento de tempo de uma <em>interação</em>, não de um <em>job</em>. E há uma faixa alta com material PBR declarado pronto para produção [11].</p>
+<p><strong>O que falta.</strong> A qualidade da faixa rápida é modesta, e a faixa boa é multi-vista por difusão — ou seja, a rede inventa as vistas que faltam [11]. O que isso significa epistemicamente é o assunto do efeito e5.2 e da seção 9.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: Captura volumétrica fotorrealista com sensor comum
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O custo marginal de um ativo 3D de lugar real cai a quase zero e o gargalo do projeto migra de produção para curadoria.
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Acervos de lugar viram camada de busca, e procurar um endereço passa a devolver cena navegável em vez de fotografia.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Presença deixa de ser binária e vira nível de detalhe negociado por banda e por preço, com versões pobres e ricas do mesmo lugar.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: A aparência de espaços privados e de pessoas circula sem cadeia de consentimento, porque capturar deixou de ser distinguível de fotografar.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Forma-se um direito de nao ser reconstruido, distinto do direito de imagem bidimensional, porque a reconstrucao expoe angulos que ninguem autorizou.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O 3D deixa de ser feito e passa a ser escolhido, e o trabalho do modelador migra para direcao de captura, limpeza e decimacao.
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Fotorrealismo vira o padrao de fabrica e estilo passa a custar mais caro que realidade.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: O nao-fotorrealista vira marca de autoria e de orcamento alto, como o desenho a mao depois da fotografia.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: O splat como formato interoperavel
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: Cena capturada atravessa engine, GIS e navegador sem reconstrucao, e vira ativo transacionavel em vez de dependencia de ferramenta.
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Formam-se mercados de cena capturada, com licenciamento por local, ao lado dos mercados de modelo por objeto.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A licenca de lugar passa a ser negociada por quem administra o espaco fisico, e nao por quem apontou a camera.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Procedencia vira metadado exigido no proprio arquivo, declarando quem capturou, quando e sob que autorizacao.
+            sinal: medio
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: Splat sem procedencia passa a ser recusado por plataforma, como hoje se recusa trilha sonora sem licenca.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: Captura de movimento sem marcador em producao
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: Performance deixa de exigir estudio e movimento passa a ser cobrado por segundo de video processado, nao por diaria de volume.
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Acervo audiovisual existente vira fonte de animacao, porque qualquer video antigo pode ser lido como movimento.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O gesto de uma pessoa identificavel passa a ser reivindicado como bem proprio, separado da imagem e da voz.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Interacao com objeto continua sendo o gargalo e sustenta um mercado hibrido de marcador mais markerless por mais tempo que o previsto.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Adereco instrumentado, que se anuncia ao sensor, vira categoria de produto de cena vendida junto com o software.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: Reconstrucao 3D a partir de uma unica imagem
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: Qualquer imagem vira entrada de pipeline 3D dentro do orcamento de tempo de uma interacao, e nao de um job de producao.
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Interfaces passam a gerar o objeto 3D na hora em vez de busca-lo num catalogo previamente montado.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: O catalogo de assets perde funcao e o que se vende passa a ser o gerador, nao o ativo.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: O detalhe que a rede inventa nas faces nao observadas vira objeto de disputa factual e juridica.
+            sinal: medio
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Laudo, seguro e documentacao passam a exigir marcacao explicita do que foi medido contra o que foi inferido.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<p><strong>O que o bloco não diz sozinho.</strong></p>
+<p>O bloco esconde que D1 e D2 não são independentes: a captura barata sem formato comum produz ilhas, e o formato comum sem captura barata produz um padrão sem conteúdo. É o encontro dos dois em 2026 que dá o fio inteiro — e é por isso que e1 e e3 têm o mesmo prazo e a mesma confiança, embora venham de raízes diferentes.</p>
+<p>Também esconde uma assimetria entre os ramos jurídicos e os técnicos. Os efeitos e1.2.1, e3.2.1 e e4.1.1 dependem de decisão humana coletiva, não de capacidade técnica — e decisão coletiva tem prazo muito menos previsível que curva de hardware. Todos estão marcados como confiança baixa por isso, não por falta de mecanismo.</p>
+<p>E esconde a diferença de natureza entre e2.1 e e5.2. O primeiro é um efeito estético: o default muda, o gosto se reorganiza em torno dele. O segundo é epistêmico: passa a haver imagem tridimensional que <em>parece</em> medida e não é. Esse é o efeito de segunda ordem mais consequente do mapa e o menos discutido nas fontes que li.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Candidatas emergentes rejeitadas como raiz (Etapa 2), que ficam no radar.</strong></p>
+<ul><li><em>Relighting de splats.</em> Existe em artigo com números respeitáveis — treino em menos de 2 horas, menos de 3 GB de RAM, ~35 fps [3] — mas em 2026 é um artigo, não um menu, e a documentação de produção diz o contrário [12]. Falha no teste "isso já habilita um uso qualitativamente novo?". Se virar recurso de engine, D1 deixa de ser fundo e vira objeto, e toda a subárvore de e2 acelera.</li><li><em>Splats 4D / dinâmicos.</em> O MPEG ainda está coletando material de teste para isso [6], e <em>Superman</em> usou splatting dinâmico em produção [2] — sinal contraditório: uso de ponta sem base comum. Ainda não é raiz porque não há pipeline reproduzível fora do caso de ponta.</li><li><em>Marca d'água e rastreabilidade de splat.</em> Há uma linha de pesquisa consistente em watermarking de 3DGS (GaussianMarker, GuardSplat, WATER-GS, SecureGS, entre outros levantados na busca). Não é raiz — não remove restrição, cria uma. Mas é o mecanismo técnico de que e3.2 depende, e sua existência prévia é o que torna e3.2 plausível.</li><li><em>Reconstrução como código procedural em vez de malha.</em> O <code>img2threejs</code> citado pela turma reconstrói o objeto como programa Three.js, não como dado. Não encontrei fonte verificável sobre adoção. Se pegar, quebra o pressuposto de todo o ramo e3: o ativo deixa de ser arquivo e vira função, e "licenciar um lugar" passa a significar licenciar um gerador.</li><li><em>Física em splats.</em> Limitação declarada [12]. Sem ela, splat nunca é gameplay.</li></ul>
+<p><strong>Rejeitadas como maduras (não entram, nem no radar).</strong> Fotogrametria clássica, escaneamento a laser, mocap óptico com marcadores, streaming de vídeo, visualização 3D no navegador via <code>model-viewer</code>. Todas passam no teste inverso: se sumissem amanhã, existem substitutos equivalentes e o campo não voltaria a 2021.</p>
+<p><strong>Caso de fronteira, declarado.</strong> Splat em anúncio imobiliário de massa (Zillow SkyTours, Apartments.com) [2] está no limite de "já é comum em produto de massa" — que é o corte da disciplina. Mantive a raiz D1 porque o que é de massa ali é <em>ver</em>, não <em>capturar</em>; mas se em 2027 capturar for tão comum quanto ver, D1 vira maduro e este mapa envelhece por inteiro.</p>
+<p><strong>Wildcard 1 (baixa probabilidade, alto impacto): o splat de uma pessoa.</strong> Um splat de corpo inteiro de alguém identificável, capturado em espaço público sem consentimento, é usado em peça comercial de alcance nacional, e a decisão judicial resultante conclui que direito de imagem bidimensional não cobre reconstrução volumétrica. O impacto não é o caso: é que toda a indústria descobre no mesmo dia que seus acervos capturados têm passivo retroativo. Aceleraria e1.2.1 e e3.2 em anos.</p>
+<p><strong>Wildcard 2: o corpus de scans muda de dono.</strong> A Niantic Spatial acumula 10 milhões de locais, cerca de 1 milhão de scans novos por semana, mais de 50 milhões de redes treinadas [13]. Se um acervo desse porte for vendido, vazado, ou tornado obrigatório para interoperabilidade de algum outro sistema, a pergunta "quem é dono da cópia do mundo" deixa de ser filosófica e vira uma linha de balanço. O consentimento original — o clique opcional de escanear um local público [13] — não foi dado para o segundo dono.</p>
+<p><strong>Wildcard 3, na direção contrária: o codec não sai.</strong> Se a Call for Proposals do MPEG empacar [6] e a ratificação da Khronos atrasar além do segundo trimestre [8], a interoperabilidade fica no contêiner e não no peso. Cenas de 100 milhões de splats a mais de 1 GB [12] não circulam, e todo o ramo e3 desaba para uso local.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Extrapolação linear.</strong> O efeito e2 ("o 3D deixa de ser feito e passa a ser escolhido") é, em boa medida, o presente com mais volume. O deslocamento do modelador para limpeza e decimação já acontece desde a fotogrametria, há uma década — a diferença de grau é real, mas a descontinuidade não é. Mantive confiança alta porque a mudança de custo é documentável, mas reconheço: se este mapa tem um efeito que não precisava de disrupção nenhuma para acontecer, é esse. O mesmo vale, em menor grau, para e1.1 — busca de lugar já vem migrando para imersivo desde antes dos splats.</p>
+<p><strong>2. Velocidade de adoção nunca vista.</strong> O prazo de e3 (2027) pressupõe que um padrão ratificado em meados de 2026 vire prática comum de troca em cerca de um ano. Não há caso comparável que sustente isso. O próprio glTF, ratificado em 2015 na versão 1.0, levou anos até virar o formato de entrega padrão da web 3D; o USD levou mais ainda; e o codec que dá viabilidade de banda a esse tráfego sequer tem CfP publicada [6]. Rebaixei a confiança de e3.2 para baixa por causa disso — procedência exigida no arquivo depende de uma segunda rodada de padronização que ainda não começou. E3 fica com confiança alta porque a implementação já apareceu em produto um mês após o RC [8], mas o leitor deve ler esse prazo como o mais frágil do mapa.</p>
+<p><strong>3. Se as disrupções não vingarem.</strong></p>
+<ul><li><em>Se D1 não vingar</em> (a qualidade de captura por celular estacionar fora da faixa de 30–100 cm em que há paridade [4], e relighting continuar sem solução [12, 3]): splat fica como fundo de anúncio imobiliário e visualização geoespacial, um nicho bem pago. Caem e1, e2 e suas seis derivadas. Sobra e1.2 em escala reduzida — a privacidade é problema mesmo com qualidade média, porque para reconhecer um lugar não é preciso fotorrealismo.</li><li><em>Se D2 não vingar</em> (ratificação atrasa, MPEG empaca): cai todo o ramo e3, cinco efeitos. E, mais grave, a subárvore de e1 perde metade da força, porque acervo que não circula não vira camada de busca. Este é o ponto único de falha mais importante do mapa.</li><li><em>Se D3 não vingar</em> (markerless estaciona no gargalo dos adereços, que a própria Vicon admite [10]): caem e4 e derivadas, exceto e4.2, que na verdade <em>é</em> o cenário de não vingar — deixei o efeito no mapa justamente por isso, ele é a hipótese de fracasso transformada em efeito.</li><li><em>Se D4 não vingar</em> (imagem única continuar num trade-off em que rápido é ruim e bom é multi-vista [11]): caem e5 e derivadas. Mas e5.2 sobrevive por outro caminho, porque a invenção de faces não observadas também existe em difusão multi-vista — que é literalmente gerar vistas que não foram capturadas.</li></ul>
+<p><strong>4. Viés do autor.</strong> A skill manda perguntar ao usuário se ele escolheu o tema por gostar dele e se isso infla o otimismo. <strong>Não foi possível perguntar</strong>: esta execução é não-interativa. O que foi declarado de antemão é viés neutro. Registro, então, o viés que consigo auditar — o meu: as fontes mais fáceis de encontrar sobre este tema são de fornecedores e de publicações de nicho que cobrem lançamentos, e essas fontes têm interesse estrutural em declarar 2026 "o ponto de inflexão". A frase "2026 é o ponto de inflexão em que o Gaussian Splatting deixa de ser curiosidade de pesquisa e vira ferramenta de produção" aparece em [12], que é blog de uma empresa de pipeline. Descontei isso ao escrever a seção 3, preferindo datas e números de versão a adjetivos, mas o conjunto do mapa provavelmente ainda está mais rápido do que a realidade será.</p>
+<p><strong>O que a contestação mudou.</strong> Duas confianças rebaixadas (e3.2 e e5.2, de média para baixa), um efeito reconhecido como extrapolação linear (e2) sem rebaixamento mas com ressalva escrita, e um efeito (e4.2) mantido deliberadamente como a hipótese de fracasso de sua própria raiz.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p><strong>O erro principal, e ele é específico.</strong> Ao buscar o recorte brasileiro, encontrei nos resultados de busca uma página nacional, <code>budovisuals.com.br/gaussian-splatting-master/</code>, apresentada pelo buscador com um resumo convincente sobre adoção brasileira em imobiliário e drone. Eu tinha, naquele momento, uma frase pronta na cabeça sobre o mercado brasileiro se formar via cursos e operadores de drone. Ao abrir a URL, ela devolveu <strong>HTTP 404</strong>. O material que sustentaria a nota sobre o Brasil não existe na forma em que o buscador o resumiu. Isso é exatamente o modo de falha que a Etapa 1 da skill existe para pegar: o resumo de busca é persuasivo o suficiente para virar citação sem que ninguém abra o link. <strong>Consequência para este documento: a nota sobre o Brasil foi cortada.</strong> Não há, aqui, afirmação sobre adoção brasileira — e a ausência é deliberada, não esquecimento. O que sobrou verificável sobre o Brasil no tema é genérico (LGPD se aplica a imagem e localização, o que é verdade e não informa nada) e não merece linha.</p>
+<p><strong>Segundo erro, de enquadramento.</strong> Minha primeira lista de disrupções-raiz tinha o Large Geospatial Model da Niantic como quinta raiz. Ao aplicar o teste da Etapa 2, ele não passa: não remove restrição nova, é <em>consequência</em> de D1 aplicada em escala. Virou o wildcard 2 e material da seção 6. Ter quase promovido a consequência mais impressionante do mapa a causa dele é o tipo de erro que infla a contagem de raízes e esvazia a roda.</p>
+<p><strong>Terceiro, de datação.</strong> Ao compilar a seção 3 misturei sem perceber duas ordens de tempo: a cobertura de 2025 [2] e a de 2026 [8, 6, 7]. Isso produziu, num rascunho, a frase de que a Esri "acabou de adicionar" suporte — quando ArcGIS Pro 2.6 é de 2025 e a adoção do <code>KHR_gaussian_splatting</code> é de 2026. Corrigido separando explicitamente os anos no texto.</p>
+<p><strong>Fonte citada sem verificação primária, declarada como tal.</strong> O caso Jaunt (mais de US$ 100 milhões levantados, demissões, saída de VR) veio de resumo de busca sobre matérias do UploadVR e Road to VR; <strong>não abri essas matérias</strong>. Está marcado no corpo da seção 3 como não verificado e <strong>não entra na seção 11</strong>. Uso-o apenas como calibragem retórica, não como evidência.</p>
+<p><strong>Limitação de processo, registrada por obrigação da Etapa 4.</strong> O item 4 da autocontestação exige perguntar ao usuário sobre o próprio viés, e a skill proíbe inventar a resposta por ele. A execução foi não-interativa: a pergunta não foi feita, e a resposta <em>não foi fabricada</em>. O documento é, nesse ponto específico, incompleto por desenho da rodada.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p><strong>Provável.</strong> Em 2031, capturar um lugar virou tão banal quanto filmá-lo, e ninguém mais chamava aquilo de tecnologia. O padrão da Khronos foi ratificado no meio de 2026 e o codec do MPEG saiu com alguns anos de atraso, tempo suficiente para que cada plataforma grande acumulasse seu próprio acervo antes que a troca ficasse barata. O resultado não foi um mapa único do mundo, foram cinco mapas parciais que não conversam direito, cada um exigindo que se capture de novo o que o vizinho já tinha. Modeladores não desapareceram: viraram diretores de captura e faxineiros de nuvem de pontos, profissão mais numerosa e pior paga que a anterior. Fotorrealismo virou o default de fábrica e o estilo, um item de orçamento. A privacidade seguiu resolvida do jeito de sempre — caso a caso, depois do fato, por quem tinha advogado. Relighting continuou parcialmente resolvido; splat continuou sendo mais fundo que objeto.</p>
+<p><strong>Desejável.</strong> Em 2031, procedência era um campo do arquivo, não uma promessa institucional. O que tornou isso possível foi uma sequência que precisou de decisão deliberada em três pontos: a ratificação de 2026 incluiu, ainda como opcional, campos de origem e autorização, em vez de deixá-los para uma extensão futura; o trabalho de marca d'água em 3DGS, que em 2026 era só uma linha de artigos, foi absorvido pelas ferramentas de captura antes de virar exigência legal; e as plataformas de distribuição passaram a recusar splat sem procedência com a mesma naturalidade com que recusam trilha sem licença — o que só funcionou porque recusaram <em>cedo</em>, quando o passivo acumulado ainda era pequeno. O efeito colateral bom foi econômico: com procedência rastreável, licenciar um lugar virou negócio de quem administra o lugar, e o dinheiro da captura passou a circular onde o espaço existe, não só onde o servidor está.</p>
+<p><strong>Indesejável.</strong> Em 2031, a cópia do mundo tinha dono, e não era quem mora nele. Dois ou três acervos absorveram o resto por aquisição e por efeito de rede, e o acesso ao ativo tridimensional de um lugar passou a ser mediado por quem nunca esteve lá. Como as capturas foram feitas em espaço público, e como o consentimento original tinha sido dado para uma empresa que depois mudou de mãos, não havia a quem reclamar; e como boa parte do detalhe era inferida pela rede e não medida, discutir a exatidão de uma reconstrução virou discussão técnica que só o proprietário do modelo podia arbitrar. Fachadas de lojas e de casas apareciam em cenários comerciais sem que ninguém precisasse pedir. <strong>O sinal precoce disso já era visível em 2026, e estava escrito em números públicos:</strong> cerca de um milhão de scans novos por semana entrando num acervo privado [13], ao mesmo tempo em que o padrão de troca nascia sem campo obrigatório de procedência [8]. Quem quisesse ver, via.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> <em>Três celulares, um lugar, um visualizador.</em> Três pessoas capturam, independentemente e sem combinar percurso, o mesmo espaço do CIn — um corredor ou o hall, algo com vidro, brilho e gente passando. Cada uma usa um aplicativo diferente entre Scaniverse, Polycam e Luma AI [4]. Os três resultados são exportados e abertos no mesmo visualizador web, alinhados, e comparados lado a lado. Depois, uma quarta captura é feita só com <strong>uma foto</strong>, por reconstrução a partir de imagem única [11], do mesmo canto.</p>
+<p><strong>Que pergunta sobre o futuro ele responde.</strong> Se o efeito e5.2 é real — se há diferença observável, a olho nu, entre o que foi <em>medido</em> e o que foi <em>inferido</em>. E se essa diferença é estável entre ferramentas ou é idiossincrasia de cada uma. É a versão de bancada da pergunta "de quem é a cópia do mundo": antes de discutir posse, vale saber se as três cópias são sequer a mesma coisa.</p>
+<p><strong>Que tecnologia emergente usa, e por que não dá com tecnologia madura.</strong> Usa captura volumétrica neural por sensor comum (D1) e reconstrução por imagem única (D4). Não dá com fotogrametria clássica porque ela <em>falha</em> honestamente onde não tem dado — produz buraco, não invenção. É justamente a capacidade de preencher plausivelmente o não observado que se quer flagrar, e essa capacidade é o que há de novo.</p>
+<p><strong>O que a turma faria testando em sala.</strong> Cada pessoa tenta apontar, nas três capturas projetadas, onde acha que a cena está errada — e só depois se revela qual região cada uma cobriu com a câmera. A hipótese a derrubar: as pessoas acertam onde há buraco geométrico e erram sistematicamente onde há detalhe inventado com confiança. Se a turma não conseguir distinguir medido de inferido, o efeito e5.2.1 (exigir marcação do que foi medido) deixa de ser burocracia e vira requisito.</p>
+<p><strong>O que mudaria a opinião do autor.</strong> Se as três capturas convergirem — mesma geometria, mesmas ausências, erros nos mesmos lugares — então o ativo capturado é mais objetivo do que este mapa supõe, e5.2 perde força, e a discussão volta a ser sobre posse em vez de sobre verdade. Se divergirem muito, e o splat de imagem única for indistinguível dos outros à primeira vista, e5.2 sobe de confiança baixa para média e passa a ser o efeito mais importante do documento.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Só entram aqui as fontes efetivamente abertas e lidas nesta sessão. Resultados de busca não abertos não constam.</p>
+<ol><li><strong>3D Gaussian Splatting for Real-Time Radiance Field Rendering</strong> — <code>https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</code> Sustenta o limiar de latência da disrupção D1 (&gt;100 fps a 1080p) e a datação do método (ACM TOG vol. 42 nº 4, SIGGRAPH, julho de 2023). Confiabilidade alta: página oficial do grupo de pesquisa autor, artigo revisado por pares.</li></ol>
+<ol><li><strong>Gaussian Splatting Year End Wrap Up (Radiance Fields)</strong> — <code>https://radiancefields.substack.com/p/gaussian-splatting-year-end-wrap</code> Sustenta toda a lista de adoção industrial de 2025 (cinema, imobiliário, geoespacial, veículos autônomos), lançamentos de software com número de versão, hardware e o volume de 1.692 artigos. Confiabilidade média-alta: publicação de nicho especializada, muito específica em nomes e versões — mas é cobertura de lançamento, com viés estrutural de entusiasmo.</li></ol>
+<ol><li><strong>Relightable Gaussian Splatting for Virtual Production Using Image-Based Illumination</strong> — <code>https://arxiv.org/abs/2605.09024</code> Sustenta que relighting em 2026 ainda é objeto de pesquisa e fornece os números de custo de treino (&lt;2 h, &lt;3 GB RAM, &lt;5 GB VRAM, ~35 fps). Submetido em 9 de maio de 2026. Confiabilidade média: preprint arXiv, sem revisão por pares confirmada.</li></ol>
+<ol><li><strong>Best 3DGS Apps 2026 / comparativos de captura móvel (Polyvia3D, THE FUTURE 3D)</strong> — <code>https://www.polyvia3d.com/guides/best-gaussian-splatting-apps</code> Sustenta a existência de quatro aplicativos móveis maduros cobrindo o ciclo completo e a afirmação de paridade de qualidade na faixa de 30–100 cm. Confiabilidade baixa-média: conteúdo comercial de guia, sem metodologia declarada; usado apenas para fatos de existência de produto, não para desempenho comparativo.</li></ol>
+<ol><li><strong>Move — Genesis / produtos de mocap markerless</strong> — <code>https://move.ai/products</code> Sustenta D3: produto de nível empresarial, ingestão de RGB de terceiros, timecode via Peel Capture, cobrança por segundo de vídeo processado. Confiabilidade média para fatos de produto, baixa para desempenho: é material do próprio fornecedor.</li></ol>
+<ol><li><strong>MPEG Calls for Dynamic Gaussian Splat Test Material (Radiance Fields)</strong> — <code>https://radiancefields.com/mpeg-calls-for-dynamic-gaussian-splat-test-material-ahead-of-a-coding-call-for-proposals</code> Sustenta D2 do lado do codec: chamada aberta em agosto de 2026, prazo 15 de outubro de 2026, requisitos técnicos (I-3DGS, COLMAP, 25–30 fps, 1 a 100 milhões de splats), documento ISO/IEC JTC 1/SC 29/WG 5 N 422, 155ª reunião em Genebra, CfP sem data. Confiabilidade alta: reporta documento normativo identificável.</li></ol>
+<ol><li><strong>Cesium Brings KHR_gaussian_splatting Support to CesiumJS and Unreal Engine</strong> — <code>https://radiancefields.com/cesium-brings-khr_gaussian_splatting-support-to-cesiumjs-and-unreal-engine</code> Sustenta a implementação em produto (CesiumJS 1.139, Cesium for Unreal v2.23.0, ciclo de março de 2026). <strong>Ressalva honesta: não abri esta página diretamente</strong> — os dados vieram confirmados de forma cruzada pelo comunicado da Khronos [8], que nomeia Cesium entre os adotantes. Tratar os números de versão como de confiabilidade média.</li></ol>
+<ol><li><strong>Khronos Announces glTF Gaussian Splatting Extension (comunicado oficial)</strong> — <code>https://www.khronos.org/news/press/gltf-gaussian-splatting-press-release</code> Sustenta o núcleo de D2: data de 3 de fevereiro de 2026, escopo técnico da extensão, fallback para nuvem de pontos, adotantes (CesiumJS, Esri ArcGIS, Scaniverse, XGRIDS) e ratificação esperada no 2º trimestre de 2026. Confiabilidade alta: comunicado primário do consórcio que publica o padrão — com o viés previsível de um anúncio.</li></ol>
+<ol><li><strong>Joint JPEG/MPEG Workshop on Radiance Fields — Proceedings</strong> — <code>https://jpeg.org/items/20250128_RF_workshop_proceedings.html</code> Sustenta a datação do início do esforço de padronização (workshop em 31 de janeiro de 2025) e a justificativa declarada de interoperabilidade. Confiabilidade alta: página oficial do comitê JPEG.</li></ol>
+<ol><li><strong>What GDC 26 Revealed About the Future of Motion Capture (Vicon)</strong> — <code>https://www.vicon.com/resources/blog/what-gdc-2026-taught-us-about-the-future-of-motion-capture/</code> Sustenta D3 e, mais importante, a <strong>limitação admitida</strong> (adereços, silhuetas inconsistentes, vantagem residual de marcadores em objeto rígido com três marcadores) e a demonstração de calibração por leigo. Confiabilidade média-alta para a limitação justamente por ser admissão contra o interesse comercial do próprio autor.</li></ol>
+<ol><li><strong>Best AI 3D Model Generators in 2026 (Cinevva)</strong> — <code>https://app.cinevva.com/guides/ai-3d-model-generators</code> Sustenta D4: TripoSR em menos de 500 ms com qualidade modesta, TRELLIS 2 e Hunyuan3D 2.1 superiores via difusão multi-vista, Hunyuan3D 2.1 com PBR declarado pronto para produção. Confiabilidade baixa-média: guia comercial comparativo, sem benchmark reprodutível; os números de latência batem com o artigo original do TripoSR, os juízos de qualidade não foram verificados de forma independente.</li></ol>
+<ol><li><strong>Unreal Engine and Gaussian Splatting: What Production Teams Need to Know in 2026 (4D Pipeline)</strong> — <code>https://blog.4dpipeline.com/unreal-engine-and-gaussian-splatting-what-production-teams-need-to-know-in-2026</code> Sustenta as limitações de pipeline: ausência de participação no Lumen, sombras divergentes, falta de geometria editável, fatiamento de cenas grandes com emendas, arquivos acima de 1 GB, suporte via Niagara em Unreal 5.3+. Confiabilidade média: blog de empresa de pipeline, com o viés de entusiasmo apontado na seção 7 — as limitações, por serem contra o interesse do autor, são o que há de mais confiável ali.</li></ol>
+<ol><li><strong>Building a Large Geospatial Model to Achieve Spatial Intelligence (Niantic)</strong> — <code>https://www.nianticspatial.com/blog/largegeospatialmodel</code> Sustenta a escala do acervo (10 milhões de locais, 1 milhão ativados, ~1 milhão de scans por semana, 50 milhões de redes, 150 trilhões de parâmetros) e a formulação do consentimento ("completamente opcional", local público, clique explícito). Publicado em 12 de novembro de 2024 — <strong>portanto os números são de 2024, não de 2026</strong>, e devem ser lidos como piso, não como estado atual. Confiabilidade alta para os fatos declarados, baixa para neutralidade: é a empresa descrevendo o próprio consentimento.</li></ol>
+<p><em>(A contagem do frontmatter registra 12 fontes lidas; a entrada 7 está listada por completude do rastro, com a ressalva de verificação declarada acima.)</em></p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<p>Sem corte. O que não estiver aqui não pode ser processado depois.</p>
+<h3 id="12-1-condicoes-desta-rodada">12.1 Condições desta rodada</h3>
+<p>Execução não-interativa, em 18 de setembro de 2026. A Etapa 0 da skill é bloqueante e exige entrevista; como não havia interlocutor, os parâmetros foram fornecidos previamente pelo despacho da rodada e tratados como respostas de entrevista, não como defaults silenciosos: tema "Captura de realidade e renderização neural" (tema 10 de 19, família "Percepção e mídia sintética"); horizonte 2031; público "quem projeta mídia e interação"; recorte global com nota sobre o Brasil; descartado de início o que já é comum em produto de massa; viés neutro; disrupção suspeita nenhuma; profundidade três ordens; modo "a partir de uma inovação"; <code>autor_login</code> jgpt.</p>
+<p><strong>Dois desvios em relação ao que foi pedido, ambos declarados:</strong></p>
+<ol><li>A nota sobre o Brasil <strong>não foi entregue</strong>, pelo motivo documentado na seção 8 (a única fonte nacional específica que os resultados de busca ofereceram devolveu HTTP 404 quando aberta). Preferi a ausência à afirmação não sustentada. Isso é uma lacuna real do documento, não uma escolha editorial.</li><li>A pergunta sobre viés do autor (Etapa 4, item 4) não foi feita nem fabricada.</li></ol>
+<h3 id="12-2-todas-as-buscas-executadas-na-ordem">12.2 Todas as buscas executadas, na ordem</h3>
+<ol><li><code>3D Gaussian Splatting 2026 adoption state of the art neural rendering</code> — deu o artigo fundacional e o balanço de fim de ano. Aproveitado.</li><li><code>Luma AI Polycam Scaniverse gaussian splatting consumer app 2026</code> — deu os comparativos de aplicativo móvel. Aproveitado com ressalva de confiabilidade.</li><li><code>3D scanning privacy law likeness rights gaussian splatting captured without consent 2026</code> — <strong>busca sem o resultado procurado.</strong> Não devolveu nenhuma legislação, caso judicial ou regulação sobre reconstrução volumétrica sem consentimento. Devolveu, em vez disso, uma linha inteira de pesquisa técnica em marca d'água e esteganografia de 3DGS (GaussianMarker / NeurIPS 2024, WATER-GS, SecureGS, GuardSplat, GuardMarkGS, e um artigo de 2025 perguntando se marca d'água protege mesmo), mais HumanSplat, que reconhece risco de violação de privacidade e pede marco ético e legal. <strong>Esse vazio é achado, não fracasso:</strong> em 2026 existe resposta técnica em abundância e resposta jurídica em falta. É a evidência direta por trás de e1.2.1 e do wildcard 1.</li><li><code>markerless motion capture RGB video 2026 Move.ai production adoption animation industry</code> — deu Move Genesis e Vicon. Aproveitado.</li><li><code>single image to 3D model 2026 TripoSR Hunyuan3D quality benchmark production use</code> — deu o comparativo de geradores e algumas referências de arXiv não abertas (UniLat3D, 3D Arena, FlexiDreamer, ReplicateAnyScene, um protocolo de juiz VLM para qualidade de malha). Aproveitado parcialmente.</li><li><code>volumetric video company shut down failed Jaunt 8i Metastage economics niche</code> — deu o caso Jaunt e indicou que 8i e Metastage seguem ativas. <strong>Nenhuma dessas páginas foi aberta</strong>; material descartado da seção 11 e usado só como calibragem na seção 3.</li><li><code>MPEG JPEG standard gaussian splatting radiance field codec compression 2026 interoperability</code> — deu o esforço de Gaussian Splat Coding, a estratégia a partir do formato I-3DGS, e a primeira menção ao KHR. Aproveitado.</li><li><code>Khronos KHR_gaussian_splatting glTF extension release candidate 2026 Cesium</code> — confirmou datas e adotantes. Aproveitado.</li><li><code>Niantic Spatial large geospatial model scans user-contributed 2026 world map</code> — deu o LGM, os 30 bilhões de imagens de dez anos de jogadores, e o lançamento da plataforma global. Aproveitado com correção de datação (ver 12.4).</li><li><code>gaussian splatting limitations relighting editing not production pipeline 2026 problems artists</code> — deu o conjunto de limitações de pipeline e a linha de pesquisa em relighting. Aproveitado; foi a busca mais produtiva para a seção 7.</li><li><code>Brasil gêmeo digital patrimônio escaneamento 3D LGPD imagem de prédio direito 2026</code> — devolveu literatura acadêmica brasileira sobre gêmeos digitais em patrimônio (PARC Unicamp, Patrimônio e Memória UNESP, ENTAC/ANTAC), um relatório de LGPD nos tribunais, um guia comercial de biometria facial em condomínio, e a plataforma Rio Verde 360° em Goiás. <strong>Nada disso é sobre captura neural.</strong> É sobre digitalização de patrimônio por métodos clássicos e sobre LGPD em geral. Descartado.</li><li><code>"gaussian splatting" Brasil 2026 estúdio captura 3D imobiliário empresa brasileira</code> — devolveu um curso brasileiro em plataforma de infoproduto, uma página de estúdio brasileiro (que deu 404), e uma plataforma de nuvem com página traduzida para português que não é evidência de mercado brasileiro. Descartado. <strong>Fim da tentativa de nota sobre o Brasil.</strong></li></ol>
+<h3 id="12-3-paginas-abertas-que-nao-renderam">12.3 Páginas abertas que não renderam</h3>
+<ul><li><code>https://www.geekwire.com/2026/from-pokemon-go-to-physical-ai-niantic-spatial-unveils-its-global-3d-mapping-platform/</code> — <strong>HTTP 403.</strong> Teria sido a melhor fonte para o lançamento da plataforma global da Niantic Spatial em 2026 e para o modelo de negócio. Sem ela, o wildcard 2 se apoia no blog da própria empresa [13], que é de 2024.</li><li><code>https://thenewstack.io/niantic-spatial-scaniverse-world-models/</code> — abriu, mas devolveu só formulário de newsletter e diretório; o corpo da matéria não veio. Nada aproveitado.</li><li><code>https://budovisuals.com.br/gaussian-splatting-master/</code> — <strong>HTTP 404.</strong> Ver seção 8.</li></ul>
+<h3 id="12-4-correcoes-feitas-durante-o-processo">12.4 Correções feitas durante o processo</h3>
+<ul><li><strong>Datação da Niantic.</strong> O resultado de busca sugeria números de 2026 ("30 bilhões de imagens em dez anos", matéria da PetaPixel de 16 de março de 2026, que não foi aberta). A página que abri [13] é de 12 de novembro de 2024. Os números citados neste documento são, portanto, de 2024, e estão marcados como piso no texto da fonte 13. Os 30 bilhões de imagens <strong>não</strong> entraram no corpo do documento por não terem sido verificados em página aberta.</li><li><strong>Esri.</strong> ArcGIS Pro 2.6 com suporte a 3DGS é de 2025 [2]; a adoção do <code>KHR_gaussian_splatting</code> é de 2026 [8]. Confundidos num rascunho da seção 3, separados na versão final.</li><li><strong>Contagem de raízes.</strong> Caiu de 5 para 4 ao rejeitar o LGM como raiz (ver seção 8).</li></ul>
+<h3 id="12-5-efeitos-gerados-e-cortados">12.5 Efeitos gerados e cortados</h3>
+<ul><li><em>"O turismo virtual substitui parte do turismo físico."</em> Cortado: extrapolação linear pura, sem mecanismo novo, e prometida há três décadas por toda tecnologia de imagem imersiva.</li><li><em>"Seguradoras passam a exigir captura volumétrica em sinistro."</em> Cortado como efeito próprio e <strong>absorvido</strong> por e5.2.1, que diz a coisa mais interessante (a exigência não é de capturar, é de marcar o que foi medido).</li><li><em>"O splat vira prova judicial."</em> Cortado da roda: é caso de uso, não efeito estrutural, e depende inteiramente de e5.2. Sobrevive dentro dele.</li><li><em>"Museus perdem o monopólio da reprodução do acervo."</em> Cortado: efeito real, mas é instância de e3.1.1 (licença de lugar migra para quem administra o espaço) num setor específico. Manter os dois seria contar duas vezes.</li><li><em>"Educação usa captura de realidade para aulas de campo."</em> Cortado: aplicação, não efeito. Não muda restrição de ninguém.</li><li><strong>Quarto nível tentado e abandonado, por regra do formato.</strong> Sob e1.2.1 havia um fio legítimo — <em>"o direito de não ser reconstruído entra em conflito com registro jornalístico de espaço público"</em>. Três níveis é o teto da disciplina; o desdobramento foi realocado como material do wildcard 1. Registrado aqui para que não se perca.</li></ul>
+<h3 id="12-6-candidatas-a-disrupcao-raiz-testadas-e-o-veredito-de-cada-uma">12.6 Candidatas a disrupção-raiz testadas e o veredito de cada uma</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Candidata</th><th>Veredito</th><th>Motivo</th></tr></thead><tbody><tr><td>Captura volumétrica com sensor comum</td><td><strong>raiz D1</strong></td><td>limiar de latência datável (2023) + distribuição móvel de massa</td></tr><tr><td>Splat como formato interoperável</td><td><strong>raiz D2</strong></td><td>RC em 3/2/2026, implementação em produto em 3/2026, CfP do MPEG em curso</td></tr><tr><td>Mocap sem marcador em produção</td><td><strong>raiz D3</strong></td><td>produto enterprise + mudança de unidade econômica (por segundo, não por assento)</td></tr><tr><td>Reconstrução por imagem única</td><td><strong>raiz D4</strong></td><td>sub-segundo põe reconstrução dentro do orçamento de uma interação</td></tr><tr><td>Large Geospatial Model</td><td>rejeitada</td><td>consequência de D1 em escala, não remove restrição nova → wildcard 2</td></tr><tr><td>Relighting de splats</td><td>emergente</td><td>artigo, não menu; produção diz o contrário → seção 6</td></tr><tr><td>Splats 4D / dinâmicos</td><td>emergente</td><td>uso de ponta sem base reproduzível; MPEG ainda coleta material</td></tr><tr><td>Marca d'água / procedência de 3DGS</td><td>emergente</td><td>cria restrição em vez de remover; vira mecanismo de e3.2</td></tr><tr><td>Reconstrução como código procedural</td><td>sinal fraco</td><td>nenhuma fonte verificável de adoção; alto impacto se pegar</td></tr><tr><td>Física em splats</td><td>emergente</td><td>limitação declarada; sem ela splat não é gameplay</td></tr><tr><td>Fotogrametria clássica</td><td><strong>maduro</strong></td><td>substituível, não muda restrição do campo</td></tr><tr><td>Escaneamento a laser</td><td><strong>maduro</strong></td><td>idem; caro e estável há mais de uma década</td></tr><tr><td>Mocap óptico com marcadores</td><td><strong>maduro</strong></td><td>continua vencendo em objeto rígido, mas dentro do mesmo jogo</td></tr><tr><td>Streaming de vídeo</td><td><strong>maduro</strong></td><td>piso, não disrupção</td></tr><tr><td>3D e AR no navegador (<code>model-viewer</code>)</td><td><strong>maduro</strong></td><td>infraestrutura absorvida; e é o tema 15, não este</td></tr></tbody></table></div>
+<h3 id="12-7-fronteira-com-os-temas-vizinhos-como-resolvida-aqui">12.7 Fronteira com os temas vizinhos, como resolvida aqui</h3>
+<p>O tema 9 (agentes corporificados, modelos de mundo) apareceu com força nas buscas — NVIDIA NuRec para Omniverse e Isaac Sim [2], e a moldura de "2026, o ano do World Model" com três camadas (LLM, World Foundation Model, Large Geospatial Model) [busca 9]. <strong>Deixado de fora do mapa</strong>: aqui o objeto é transformar realidade em ativo 3D para mídia e interação humana, não treinar política de robô. O tema 15 (distribuição de 3D e XR pelo navegador) toca e3, e a fronteira adotada foi: o <em>formato</em> e o <em>mercado</em> do ativo capturado são deste mapa; o <em>transporte e o runtime</em> são do 15. O tema 11 (ver e segmentar por conceito) não apareceu nas buscas e não foi perseguido.</p></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

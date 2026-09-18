@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentes corporificados, IA física e modelos de mundo · futurizacao-hfm (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 9 · futurizacao-hfm (aluno)</p><h1>Agentes corporificados, IA física e modelos de mundo</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/hfm/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/hfm/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>A IA ganhou corpo, mas o que mudou de fato não foi o corpo: foi o lugar onde ela aprende. Até aqui, o mundo de treino era escrito à mão — física programada, cena montada, regra declarada. A ruptura em curso é o <strong>modelo de mundo gerativo</strong>: um modelo que <em>produz</em> o ambiente em vez de renderizá-lo, e um <strong>agente generalista</strong> que atravessa mundos sem acesso ao código de nenhum deles. Em 2026 isso já é produto aberto (NVIDIA Cosmos 3, 31/05/2026, pesos no Hugging Face), já é agente que joga treze jogos comerciais e generaliza para mundos gerados por outro modelo (SIMA 2, DeepMind), e já é política de robô que controla um humanoide inteiro por instrução em linguagem (Gemini Robotics 2, 30/07/2026). Também já é falha: a Waymo recolheu quase 4.000 carros em 18/06/2026 porque o software não reconheceu placa de interdição de rampa — erro de distribuição, não de mecânica. Daí saem três disrupções-raiz: o mundo de treino deixa de ser escrito e passa a ser gerado; a instrução em linguagem natural vira a interface de comando de qualquer corpo; e a responsabilidade pela falha desloca-se do dispositivo para o currículo em que ele aprendeu. Para quem projeta mídia e interação, a consequência mais direta não é robô na rua: é que <strong>projetar um mundo passa a ser projetar um currículo de treino</strong>, e que o ambiente construído terá dois públicos de leitura — pessoas e agentes. A confiança geral deste mapa é média: a evidência de capacidade é forte e aberta, a de adoção produtiva é fraca (19,1 mil humanoides embarcados no 1º semestre de 2026, a maior parte em ambiente cercado), e a evidência de que os modelos de mundo sustentam estado persistente é, hoje, negativa.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>O tema é o <strong>agente com corpo e o mundo em que ele aprende</strong>. Corpo aqui é qualquer coisa que age sobre matéria e sofre consequência dela: braço manipulador, humanoide, drone, veículo, avatar num mundo 3D com física. Mundo é o lugar onde a política de controle é treinada e avaliada antes de tocar o real — historicamente um simulador escrito por engenheiros (MuJoCo, Isaac Sim, AirSim, MetaDrive), e agora, cada vez mais, um <strong>modelo de mundo</strong>: uma rede treinada em vídeo que gera o próximo estado do ambiente dada uma ação.</p>
+<p>Onde isso encosta em mídia e interação, sem metáfora:</p>
+<ol><li><strong>A ferramenta é a mesma.</strong> Isaac Sim roda sobre pipeline de renderização de jogo; AirSim nasceu sobre Unreal e Unity; SIMA 2 é treinado em jogos comerciais (Valheim, No Man's Sky, Teardown) e avaliado em mundos gerados pelo Genie 3. O motor de jogo já é o instrumento de pesquisa em robótica. Quem sabe construir mundo digital já domina a infraestrutura da IA física, e na maior parte das vezes não sabe disso.</li><li><strong>A interface mudou de natureza.</strong> Quando o comando vira linguagem natural e o executor tem corpo, o objeto de design deixa de ser a tela e passa a ser a <strong>negociação entre a intenção dita e o efeito físico</strong>. Isso é problema de interação, não de mecânica.</li><li><strong>O ambiente ganha um segundo leitor.</strong> Sinalização, iluminação, textura, affordance — tudo o que o design do espaço construído resolve para olhos humanos passa a ser também entrada de percepção de máquina. O recall da Waymo de junho de 2026 é exatamente isso: uma placa que um humano lê e um modelo não leu.</li></ol>
+<p>Por que isso merece mapa de futuro e não levantamento de estado da arte: porque o estado da arte está mudando de <em>tipo</em>, não de <em>grau</em>. O item maduro da área (ROS, planejamento de trajetória, SLAM, controle) está resolvido e não gera pergunta interessante. A pergunta interessante é causal e ainda aberta: se o aprendizado migra para um mundo que uma IA inventou, <strong>o que passa a ser um erro, e de quem é a culpa quando ele acontece?</strong> Levantamento de estado da arte não responde isso; roda dos futuros pelo menos organiza a cadeia.</p>
+<p>Limite de escopo desta análise, declarado: simulação de <em>sociedades</em> e multidão é outro tema; captura fotogramétrica do mundo real em 3D é outro tema; segmentação e visão de propósito geral é outro tema. Aqui o objeto é o agente corporificado e o mundo de treino dele. Pela régua da disciplina, também fica de fora o que já é comum em produto de massa — o que exclui, por exemplo, assistente de faixa, aspirador com SLAM e braço industrial de trajetória fixa.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="3-1-o-que-ja-existe-e-funciona">3.1 O que já existe e funciona</h3>
+<p><strong>Modelo de mundo como produto aberto.</strong> A NVIDIA lançou o Cosmos 3 em 31/05/2026, na GTC Taipei, descrito como omnimodelo aberto que entende e gera texto, imagem, vídeo, som ambiente e <strong>ação</strong>, sobre arquitetura <em>mixture-of-transformers</em> que emparelha um transformador de raciocínio com um de geração. Pesos no Hugging Face, código no GitHub. A empresa formou a Cosmos Coalition com Agile Robots, Black Forest Labs, Generalist, LTX, Runway e Skild AI, e cita Doosan, LG, Samsung e Li Auto entre usuários. A plataforma original (arXiv 2501.03575, 77+ autores da NVIDIA) já era open-weight com licença permissiva e trazia pipeline de curadoria de vídeo, modelos pré-treinados, exemplos de pós-treino e tokenizadores de vídeo. <em>Fato observado.</em></p>
+<p><strong>Agente generalista que atravessa mundos.</strong> O SIMA 2 (DeepMind, arXiv 2512.04797, 04/12/2025, 65+ autores) roda sobre Gemini 2.5 flash-lite e deixou de ser um mapeamento direto de pixels para ações: forma um plano interno, raciocina em linguagem e executa. Foi treinado em treze jogos comerciais (Valheim, Satisfactory, Goat Simulator 3, Hydroneer, No Man's Sky, Space Engineers, Wobbly Life, Eco, ASKA, The Gunk, Steamworld Build, Road 96, Teardown) e avaliado em ambientes inéditos — MineDojo e mundos <strong>gerados pelo Genie 3</strong>. Demonstra auto-melhoria: usa o Gemini para gerar tarefas e atribuir recompensa, aprendendo habilidade nova sem demonstração humana. <em>Fato observado.</em></p>
+<p><strong>Política de robô por linguagem.</strong> Em 30/07/2026 a DeepMind publicou Gemini Robotics 2 (VLA que converte visão e linguagem em controle motor, incluindo controle de corpo inteiro de humanoide: andar, equilibrar, agachar, manipular com mão de cinco dedos), Gemini Robotics ER 2 (raciocínio incorporado, planejamento multietapa, coordenação multi-robô, disponível via Gemini API e AI Studio) e Gemini Robotics On-Device 2 (versão leve para rodar no próprio hardware do robô). A Physical Intelligence publicou o π0 (31/10/2024): VLM de 3 bilhões de parâmetros com saída contínua de ação por <em>flow matching</em>, treinado em 8 embodiments distintos, com pesos e código do π0 e do π0-FAST liberados no repositório <code>openpi</code>; a linha seguiu para π0.5 e π*0.6, este último aprendendo por experiência própria em deployment, não só por demonstração. <em>Fato observado.</em></p>
+<p><strong>Corpo comprado em volume.</strong> No 1º semestre de 2026 foram embarcados cerca de <strong>19.100 humanoides</strong> no mundo, alta de 272% sobre os 5,1 mil do mesmo período de 2025, segundo a Smart Analytics Global: AGIBOT 8.400 unidades (44%), Unitree 5.900 (31%), Galbot 900, UBTECH 700, Leju 600. Mais de 70% dos embarques foram para aplicação industrial e comercial. <em>Fato observado, fonte de mercado — ver ressalva em 3.3.</em></p>
+<p><strong>Horas de operação, não só demonstração.</strong> A Agility Robotics declara mais de 65.000 horas operacionais do Digit em nove instalações de clientes, com GXO, Schaeffler, Toyota Motor Manufacturing Canada e Mercado Libre nomeados. A Figure declara piloto de onze meses do Figure 02 na planta da BMW em Spartanburg: mais de 1.250 horas, mais de 90.000 peças movimentadas, ciclo de 84 segundos, dez horas por dia, cinco dias por semana, com o Figure 03 passando agora a sequenciamento logístico. <em>Fato observado — todos são números declarados pelo próprio fabricante.</em></p>
+<p><strong>Autonomia veicular como o caso mais maduro.</strong> A Waymo declara mais de 170 milhões de milhas autônomas e opera serviço comercial em 14 áreas metropolitanas dos EUA. É o único ponto da área com escala de uso público real e com <strong>regulação em funcionamento</strong>. <em>Fato observado.</em></p>
+<h3 id="3-2-o-que-existe-e-nao-funciona">3.2 O que existe e não funciona</h3>
+<p><strong>O modelo de mundo não guarda o mundo.</strong> O trabalho de Jinpeng Lu e 10 coautores (arXiv 2606.20545, 18/06/2026) testou 9.600 vídeos de 23 modelos, em quatro paradigmas de controle, e introduziu o WRBench — o primeiro benchmark diagnóstico que trata movimento de câmera como intervenção sobre observabilidade. Achado central: os sistemas atuais mantêm o mundo como um <em>tracking shot</em>; ao voltar a um alvo que saiu de quadro, retomam-no no estado em que foi abandonado, em vez de fazer o evento avançar enquanto não era visto. E a falha <strong>reincide em todas as famílias de modelo, em todos os paradigmas de controle e em todos os incrementos de escala</strong>. Não é problema de qualidade visual nem de número de parâmetros. <em>Fato observado — esta é a evidência mais desconfortável do mapa, e é contra o entusiasmo do tema.</em></p>
+<p><strong>O que falta não é política, é supervisão.</strong> Karcini, Mehrban, Nguyen e colegas (Motoniq.ai, Stanford, ETH Zurich, TU Darmstadt; arXiv 2606.06556, 04/06/2026) argumentam que reduzir aprendizado de robô a escala de política é erro de diagnóstico: faltam motor de dado físico com autorrotulagem incorporada, <em>retargeting</em> que preserve a tarefa entre corpos diferentes, modelos de mundo fundados em física (que prevejam consequência de ação, não futuro visualmente plausível) e laços de melhoria contínua em deployment. <em>Inferência de terceiros, argumentada e com revisão de literatura, não medição.</em></p>
+<p><strong>O reality gap não fechou.</strong> A revisão de Elie Aljalbout e 11 coautores, aceita no <em>Annual Review of Control, Robotics, and Autonomous Systems</em> 2026 (arXiv 2510.20808), registra resultados promissores em locomoção, navegação e manipulação por randomização de domínio, real-to-sim, abstração de estado/ação e co-treino sim-real — e conclui que os desafios persistem, distinguindo <em>visual gap</em> (renderizado × real) de <em>dynamic gap</em> (motor de física, propriedade de objeto, controle). <em>Fato observado, em revisão por pares.</em></p>
+<p><strong>A falha de distribuição já custou dinheiro.</strong> Em 18/06/2026 a Waymo recolheu quase 4.000 robotáxis — o sexto recall da empresa — após pelo menos 13 episódios de entrada em zona de obra em rodovia (6 em Phoenix em abril, 7 em São Francisco em maio). Causa declarada pela própria empresa: os veículos "não reconheceram e passaram por placas de fechamento de rampa", com o software "priorizando evitar outros riscos da via e/ou falhando em reconhecer a zona de obra". A operação em rodovia foi suspensa voluntariamente em 19/05/2026. Somam-se a investigação da NHTSA sobre ultrapassagem de ônibus escolar parado (20 episódios relatados só pela rede de Austin), o atropelamento de uma criança de 9 anos em zona escolar em Santa Monica em 23/01/2026, com ferimentos leves, e a determinação do administrador da NHTSA para que desenvolvedores entregassem planos de remediação até o fim de julho de 2026 quanto a interferência em cena de emergência. <em>Fato observado.</em></p>
+<p><strong>O gargalo é dado de ação, não modelo.</strong> Dado sensório-motor pareado com ação não existe em escala de internet. Teleoperação tem lei de escala cara — cada demonstração exige um robô — e produz demonstração mais lenta, mais rígida e menos diversa, porque força o operador à cinemática, à latência e ao ponto de vista da máquina. Para tarefa única, cena única e mesmos objetos, o retorno de demonstrações adicionais achata na casa das centenas baixas; onde o eixo de <em>diversidade</em> dobra, ninguém mapeou. <em>Inferência de analistas de mercado sobre trabalhos técnicos — confiança média.</em></p>
+<h3 id="3-3-a-linha-da-regulacao-que-e-onde-a-coisa-trava">3.3 A linha da regulação, que é onde a coisa trava</h3>
+<p>A ISO 10218 foi revisada em fevereiro de 2025, depois de cerca de oito anos de trabalho: incorporou a ISO/TS 15066 (colaborativos), acrescentou requisitos de cibersegurança ligados à segurança, orientações sobre carga/descarga manual e efetuadores, e novas classificações de robô com métodos de ensaio. A versão anterior excluía por definição robôs sobre plataforma móvel — o que deixava humanoides de fora; a nova permite incluí-los, <strong>mas os riscos de mobilidade do humanoide continuam fora do escopo da norma</strong>, e aplicações fora de ambiente industrial também. O motivo é físico: a 10218 pressupõe robô estaticamente estável, isto é, que permanece de pé quando a energia cai; humanoide de pernas é dinamicamente estável. A norma que trataria disso, ISO 25785-1, seguia como <em>working draft</em> em janeiro de 2026, com publicação esperada para 2026 ou 2027. Não existe norma única de segurança de humanoide: a conformidade hoje é uma pilha remendada de ISO, OSHA e regulação europeia. <em>Fato observado, com a ressalva de que o dado sobre a 25785-1 vem de fonte secundária especializada, não da ISO.</em></p>
+<h3 id="3-4-quem-esta-construindo">3.4 Quem está construindo</h3>
+<p>Plataforma e modelo de mundo: NVIDIA (Cosmos, Isaac Sim, IsaacLab, Newton/Warp, PhysX). Agente e política: DeepMind (SIMA 2, Gemini Robotics 2/ER 2/On-Device 2), Physical Intelligence (π0, π0.5, π*0.6, openpi), Skild AI, Generalist. Corpo: AGIBOT, Unitree, Figure, Agility, UBTECH, Galbot, Leju, Tesla. Veículo: Waymo, Apollo, Zoox, Tesla. Camada aberta de simulação e controle, que é a que a turma efetivamente varreu: MuJoCo, Genesis, habitat-sim/habitat-lab, MetaDrive, AirSim, drake, MoveIt 2, OMPL, pinocchio, OpenVINS, Lanelet2, MAVLink, RT-Thread.</p>
+<h3 id="3-5-nota-sobre-o-brasil">3.5 Nota sobre o Brasil</h3>
+<p>A densidade é o dado, e ele é duro: o Brasil registra cerca de <strong>7 robôs para cada mil trabalhadores</strong>, contra cerca de mil por dez mil na Coreia do Sul — informação de Ismael Secco, coordenador do Instituto SENAI de Sistemas de Manufatura, em janeiro de 2026. O país está, portanto, do lado importador desta tendência: consome corpo e modelo produzidos fora, e a discussão sobre substituição de trabalho físico chega aqui com atraso e com base de automação muito menor. Isso tem uma consequência não óbvia e mais interessante que a lamentação: como a base instalada de automação rígida é pequena, o Brasil tem <strong>menos legado a desinstalar</strong> — o salto para agente aprendido não precisa passar pela etapa de célula robótica programada. Não há, nas fontes que abri, evidência de que esse salto esteja ocorrendo. <em>Fato observado quanto à densidade; o resto é hipótese prospectiva de baixa confiança.</em></p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<p>Critério aplicado, conforme a skill: tecnologia madura não entra; entra o que tem sinal observável, ruptura identificável, condição ainda não resolvida e cadeia causal plausível. Ficaram <strong>fora</strong> da raiz, por serem maduros: ROS/ROS 2, SLAM, planejamento de trajetória (MoveIt 2, OMPL), dinâmica de corpo rígido (pinocchio, drake), simulação física escrita à mão (MuJoCo, PhysX), e condução autônoma em domínio delimitado — esta última já opera em escala comercial regulada, e melhoria de cobertura geográfica não é ruptura.</p>
+<h3 id="d1-o-mundo-de-treino-deixa-de-ser-escrito-e-passa-a-ser-gerado">D1 — O mundo de treino deixa de ser escrito e passa a ser gerado</h3>
+<p><strong>O que rompe.</strong> Rompe a autoria do ambiente. No simulador clássico, alguém escreve a física, modela a cena e declara as regras; o ambiente é auditável porque é código. No modelo de mundo, o ambiente é a saída de uma rede treinada em vídeo: ninguém escreveu aquela cena, e não há linha de código a inspecionar quando ela está errada. O que era engenharia de software vira condicionamento de modelo.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Três condições se juntaram. Primeira: modelos de vídeo com controlabilidade suficiente para aceitar ação como entrada e devolver estado — é exatamente o que o Cosmos 3 declara ao unir raciocínio, geração de mundo e previsão de ação num só sistema. Segunda: <strong>pesos abertos</strong> — Cosmos é open-weight com licença permissiva, o que tira a capacidade das mãos de um único laboratório. Terceira: prova de que agente treinado em mundo gerado transfere — o SIMA 2 foi avaliado em mundos do Genie 3, não só em jogos escritos. Em 2021 nenhuma das três existia.</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta o modelo de mundo manter estado persistente. O WRBench mostra que não mantém, e que escalar não resolveu. Enquanto o mundo "esquece" o que sai de quadro, treinar tarefa longa nele é treinar numa física que não existe. Falta também um método aceito de auditoria: os benchmarks de consistência física são de 2026, são muitos e não convergem.</p>
+<h3 id="d2-a-instrucao-em-linguagem-natural-vira-a-interface-de-comando-de-qualquer-corpo">D2 — A instrução em linguagem natural vira a interface de comando de qualquer corpo</h3>
+<p><strong>O que rompe.</strong> Rompe a fronteira entre programar e pedir, e com ela a divisão entre software com corpo e software sem corpo. Se o mesmo tipo de agente segue instrução num jogo, num simulador e numa planta, <strong>o jogo, o simulador e a fábrica passam a ser o mesmo tipo de lugar para a IA</strong> — diferem em consequência, não em natureza. Rompe também quem projeta o comportamento: deixa de ser quem escreve a rotina e passa a ser quem escreve o currículo de treino e as instruções.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque a política deixou de mapear pixel em ação e passou a planejar em linguagem antes de agir — é a diferença declarada entre SIMA 1 e SIMA 2 — e porque isso chegou ao corpo real: o Gemini Robotics 2 controla humanoide inteiro por VLA, e o π0 já demonstrou uma política única sobre 8 embodiments diferentes. Há cinco anos, política de robô era treinada por tarefa e por corpo.</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta dado. O gargalo migrou do modelo para o dado de ação sincronizado, que não existe em escala de internet e cuja coleta por teleoperação escala mal e enviesa. Falta também memória: a própria DeepMind declara que o SIMA 2 tropeça em tarefa longa de muitas etapas, tem janela de contexto limitada por exigência de latência, memória curta das próprias interações e dificuldade com ação precisa de baixo nível. Instrução em linguagem resolve o "o quê"; não resolveu o "como", milímetro a milímetro.</p>
+<h3 id="d3-a-responsabilidade-desloca-se-do-dispositivo-para-o-mundo-em-que-ele-aprendeu">D3 — A responsabilidade desloca-se do dispositivo para o mundo em que ele aprendeu</h3>
+<p><strong>O que rompe.</strong> Rompe a cadeia de prestação de contas da engenharia de segurança, que foi construída para defeito de peça e falha de função. Quando a causa da falha é <strong>distribucional</strong> — a situação não estava no treino, ou estava mal representada —, não há peça defeituosa a trocar nem função a corrigir: há um currículo a refazer. E rompe a definição de produto acabado, porque uma máquina que continua aprendendo em deployment (π*0.6) não tem versão final.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque a falha já aconteceu em escala regulada e com causa declarada pela própria empresa: a Waymo recolheu quase 4.000 veículos em junho de 2026 e descreveu o erro como não reconhecimento de placa e priorização errada de risco — isto é, um erro de percepção e de política, não de freio. Um recall de software com corpo, contado como recall de veículo. Há cinco anos não havia frota autônoma comercial grande o bastante para que o instrumento regulatório fosse acionado dessa forma.</p>
+<p><strong>O que ainda falta acontecer.</strong> Falta a norma. A ISO 10218:2025 admite humanoide mas deixa de fora justamente o risco de mobilidade dele; a ISO 25785-1, que trataria de robô dinamicamente estável, ainda era rascunho em janeiro de 2026. E falta jurisprudência: responsabilidade em acidente com veículo autônomo permanece zona cinzenta. Enquanto isso, a resposta prática do mercado é cercar o robô — o que segura a adoção e, de quebra, atrasa a coleta de dado.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: O mundo de treino deixa de ser escrito e passa a ser gerado por um modelo de mundo
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Construir ambiente de treino deixa de ser escrever física e vira condicionar um modelo por texto, imagem e vídeo
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Estúdio de jogo e laboratório de robótica passam a comprar a mesma infraestrutura de mundo
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Formação em design de mundo e formação em robótica convergem em disciplinas comuns
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Acervo de vídeo do mundo físico vira ativo de treino e entra em disputa por licenciamento
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Direito de imagem de espaços e de corpos filmados entra na pauta regulatória da IA física
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: A qualidade de um mundo passa a ser medida por consistência física e persistência de estado, não por realismo visual
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Forma-se um mercado de auditoria e benchmark de mundos sintéticos
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Certificação de ambiente sintético vira pré-requisito de compra pública de sistema autônomo
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Equipes de teste de jogo migram para validação de mundos de treino
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Testar mundo se formaliza como ocupação com trilha própria de qualificação
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+  - disrupcao: A instrução em linguagem natural vira a interface de comando de qualquer corpo
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: Comandar máquina com corpo passa a ser dizer o objetivo em vez de programar a rotina
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O projeto de interação passa a tratar o corpo do agente como elemento de interface, e não como embalagem
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Ambientes públicos passam a ser desenhados para leitura simultânea por pessoas e por agentes
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Empresas param de programar tarefa e passam a escrever currículo de treino e critério de aceitação
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: A gestão do trabalho físico se reorganiza em torno de quem escreve o currículo, não de quem opera a máquina
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: Habilidade aprendida num mundo passa a ser reaproveitada em outro sem reprogramação
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: O jogo comercial vira fonte legítima e disputada de dado de treino para máquina física
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Termos de uso de mundos digitais passam a regular agentes automáticos como classe própria de participante
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: O custo marginal de dar corpo a um software cai e aparece hardware genérico barato para tarefas variadas
+            sinal: medio
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Trabalho físico de baixa variabilidade deixa de ser a fronteira de custo das operações
+                sinal: fraco
+                prazo: 2034
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: O gargalo do campo desloca-se do modelo para o dado de ação sincronizado com percepção
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Teleoperação vira indústria de coleta de dado, com trabalho humano remunerado para ensinar máquina a se mover
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Forma-se uma camada de trabalho invisível de treinamento físico, com as mesmas disputas que a moderação de conteúdo teve
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: Bases de demonstração viram ativo negociado e se concentram em poucos detentores
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: A concentração de dado físico vira questão de política industrial em países importadores de automação, inclusive o Brasil
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+  - disrupcao: A responsabilidade pela falha desloca-se do dispositivo para o mundo em que ele aprendeu
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: A investigação de acidente passa a examinar o ambiente e o currículo de treino, e não apenas o dispositivo
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: O recall de software em máquina com corpo se firma como instrumento regulatório rotineiro
+            sinal: forte
+            prazo: 2028
+            confianca: alta
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: A noção de produto acabado se dissolve para máquinas que continuam aprendendo depois de vendidas
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: Seguradoras passam a exigir registro auditável do que foi simulado antes da operação
+            sinal: medio
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Rastreabilidade do treino vira cláusula contratual padrão em operação com autonomia física
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: A norma técnica de segurança fica atrás da máquina real porque foi escrita para corpo estaticamente estável
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Implantação de humanoide permanece presa a ambiente cercado enquanto a norma de estabilidade dinâmica não fecha
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: O espaço construído se divide entre zonas legíveis por agente e zonas onde o agente é proibido
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: Quem certifica segurança passa a precisar de competência em aprendizado de máquina, além de mecânica
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: A engenharia de segurança absorve estatística de distribuição como saber obrigatório de formação
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa</code></pre>
+<h3 id="o-que-o-bloco-nao-consegue-dizer">O que o bloco não consegue dizer</h3>
+<p><strong>A roda separa três disrupções que na prática se alimentam.</strong> O efeito <code>e5</code> (o gargalo é dado) é o que mais empurra <code>e1</code> (gerar mundo em vez de escrevê-lo): gera-se mundo <em>porque</em> falta dado real, não por elegância técnica. E <code>e7.1</code> (humanoide preso em ambiente cercado) realimenta <code>e5</code> negativamente: robô cercado coleta menos dado de mundo aberto, o que atrasa a generalização que justificaria descercá-lo. Esse laço de realimentação é o mecanismo mais importante do mapa e é justamente o que uma árvore não representa.</p>
+<p><strong>Uma cadeia foi interrompida por falta de evidência.</strong> Tentei derivar, de <code>e4.2</code> (corpo barato), um efeito de segunda ordem sobre deslocamento de emprego com número — quanto trabalho, em que setor, em que prazo. Não há base: os números de implantação disponíveis são declarados pelo próprio fabricante, referem-se a horas de operação e a peças movimentadas, e nenhuma fonte que abri mede posto de trabalho substituído. O efeito ficou em <code>e4.2.1</code>, redigido como mudança de fronteira de custo, e não como substituição de emprego. É deliberado.</p>
+<p><strong>Os prazos são ordenações, não datas.</strong> <code>prazo: 2029</code> significa "depois do que está em 2028 e antes do que está em 2030 nesta mesma cadeia". Tratar como data é erro de leitura.</p>
+<p><strong>Confiança baixa em toda a terceira ordem é a resposta esperada, não uma falha.</strong> Dos 14 efeitos de terceira ordem, 14 estão em <code>confianca: baixa</code>. Isso é o método funcionando: se algum estivesse em "alta", seria sinal de que eu confundi consequência sistêmica com extrapolação confortável.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<p><strong>O corpo entrando no raciocínio, não só na execução.</strong> O ROSClaw, tal como a turma o descreveu, conecta o raciocínio do modelo a capacidades reais de robô mantendo consciência do corpo físico do agente — isto é, a restrição física deixa de ser filtro a jusante do plano e vira parte do modelo de execução. Se isso se generalizar, a separação entre "planejar" e "poder" desaparece, e o design de interação ganha um objeto novo: a negociação entre o que foi pedido e o que aquele corpo específico consegue. Não abri fonte primária sobre o ROSClaw nesta rodada; registro como sinal fraco declaradamente não verificado.</p>
+<p><strong>Auto-melhoria sem demonstração humana.</strong> O SIMA 2 gera as próprias tarefas e as próprias recompensas via Gemini e aprende habilidade nova do zero num ambiente novo. Está em ambiente virtual, é limitado e é um único sistema. Mas é o mecanismo que, se atravessar para o corpo real, dissolve <code>e5</code> inteiro — o gargalo de dado deixa de existir. É o sinal fraco de maior alavancagem do mapa, e o mais fácil de superinterpretar.</p>
+<p><strong>Avaliação virando o produto.</strong> Em poucos meses de 2026 apareceram WRBench, WorldModelBench, Physics-IQ, PhyGround, CRONOS, VideoPhy-2, PhyGenBench, WBench. Quando a medição prolifera antes da consolidação, é sinal de que ninguém confia nas alegações de capacidade — inclusive quem as faz. Historicamente, o campo que constrói régua antes de construir consenso demora mais do que o discurso sugere.</p>
+<p><strong>O enxame como forma, e não como número.</strong> O wildcard que a turma trouxe sem querer — telemetria avançada de enxame de drones para resgate em incêndio — aponta para uma corporificação que não é humanoide e não é veículo: muitos corpos baratos, descartáveis e coordenados, em ambiente onde nenhum humano deveria estar. É o caso em que a régua de segurança não trava, porque o dano do erro recai sobre a máquina. Pode ser a primeira corporificação a escapar do cercado — e o debate público está olhando para o outro lado.</p>
+<h3 id="wildcard">Wildcard</h3>
+<p><strong>Um acidente grave cuja causa-raiz seja localizada no simulador, e não no robô.</strong> Baixa probabilidade até 2031, alto impacto. O cenário: uma investigação oficial conclui que um ambiente de treino — gerado por modelo, e portanto sem código a auditar — representava mal uma classe de situação, e que o fabricante do robô não tinha como saber. O precedente técnico já existe em forma branda: o recall da Waymo de junho de 2026 tem causa declarada de percepção e priorização, não de mecânica; ninguém, porém, foi responsabilizado pelo ambiente de treino. O impacto seria imediato sobre <code>e6.2</code> e <code>e2.1</code>: exigência de auditoria de mundo sintético como condição de operação, e possivelmente a exigência de que o ambiente de treino seja inspecionável — o que, num modelo de mundo gerativo, é uma exigência hoje tecnicamente irrealizável.</p>
+<p><strong>Não é previsão.</strong> É o evento que, se ocorrer, reorganiza o mapa; e é o único item deste documento cuja função é justamente não acontecer.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="qual-efeito-e-so-extrapolacao-linear-do-presente">Qual efeito é só extrapolação linear do presente</h3>
+<p><code>e4.2</code> — "o custo marginal de dar corpo a um software cai e aparece hardware genérico barato". É a curva de embarques de humanoide (272% ao ano) projetada para frente, e curva de crescimento percentual sobre base minúscula não é evidência de nada: 19,1 mil unidades no mundo, num semestre, é ruído estatístico ao lado de qualquer categoria de equipamento industrial. Rebaixei a confiança para <code>baixa</code> por isso. O mesmo vale, em menor grau, para <code>e4</code>: transferir habilidade entre corpos é declarado pelo π0 sobre 8 embodiments que a própria Physical Intelligence escolheu — não é transferência para um corpo arbitrário.</p>
+<h3 id="qual-efeito-assume-velocidade-de-adocao-sem-caso-comparavel">Qual efeito assume velocidade de adoção sem caso comparável</h3>
+<p><code>e3.1.1</code> — "ambientes públicos passam a ser desenhados para leitura simultânea por pessoas e por agentes", em 2033. Não há caso comparável de reprojeto de espaço construído nessa velocidade. A adaptação de calçadas a cadeira de rodas, com lei, orçamento e movimento social organizado, levou décadas e segue incompleta. Sete anos para adaptar ambiente a um leitor não humano, sem lei e sem pressão de público, é otimismo. Mantive o efeito porque a versão fraca dele já ocorre — sinalização de zona de obra sendo repensada depois do recall da Waymo é literalmente isto —, mas com <code>sinal: fraco</code> e <code>confianca: baixa</code>.</p>
+<h3 id="qual-disrupcao-pode-simplesmente-nao-se-concretizar">Qual disrupção pode simplesmente não se concretizar</h3>
+<p><strong>D1, e ela é a espinha do mapa.</strong> A evidência mais forte que abri é contra ela: o WRBench mostra que os modelos de mundo atuais não sustentam estado persistente, que a falha atravessa 23 modelos e quatro paradigmas de controle, e que <strong>escalar não resolveu</strong>. Se essa limitação for estrutural à abordagem gerativa por vídeo — e não uma etapa —, então o modelo de mundo fica como gerador de dado sintético e de variação visual, útil, e a simulação escrita à mão continua sendo onde a política é de fato treinada. Nesse caso <code>e1</code>, <code>e2</code> e toda a cadeia abaixo deles caem, e o mapa encolhe a D2 e D3, que sobrevivem sozinhas — a interface em linguagem natural e o deslocamento da responsabilidade não dependem de o mundo ser gerado. É o meu cenário alternativo mais provável, e diria que a chance de D1 não se concretizar até 2031 é substancial, na faixa de um terço.</p>
+<h3 id="que-vies-entrou-aqui">Que viés entrou aqui</h3>
+<p>Três, e são identificáveis.</p>
+<p><strong>Viés de fonte de fornecedor.</strong> As capacidades mais impressionantes deste documento — Cosmos 3 "liderando oito benchmarks", Gemini Robotics "mais que dobrando a generalização", os números de horas da Figure e da Agility — vêm de material publicado por quem vende o produto, sem revisão independente. A página do Gemini Robotics que abri <strong>não traz uma única métrica numérica, data de versão ou limitação declarada</strong>. Tratei isso como alegação, não como fato de eficácia, mas o tom entusiasmado do campo vaza para dentro do texto, e provavelmente vazou.</p>
+<p><strong>Viés de escolha de tema.</strong> A zona de interesse declarada é "Simulação e mundos", o que predispõe a ver o simulador como protagonista. Um mapa escrito por alguém da zona de trabalho e organização provavelmente teria posto <code>e5.1.1</code> (a camada de trabalho invisível de treinamento físico) na primeira ordem, e o modelo de mundo como detalhe técnico. Essa seria uma leitura igualmente defensável da mesma evidência.</p>
+<p><strong>Viés do agente que escreveu.</strong> Fui instruído a partir de uma descrição de tema que já afirmava qual é a disrupção-raiz ("a IA sai da tela e ganha corpo... e a técnica que permite isso é o simulador"). Isso é ancoragem. Tentei compensar procurando deliberadamente evidência contrária — foi assim que cheguei ao WRBench e ao paper do reality gap —, mas a estrutura de D1 ainda reproduz a formulação de quem me deu a tarefa.</p>
+<h3 id="uma-contestacao-que-o-mapa-perdeu-e-eu-registro">Uma contestação que o mapa perdeu e eu registro</h3>
+<p>Argumentei comigo mesmo que a disrupção real seria "o humanoide", não "o mundo de treino". Rejeitei: forma de corpo não é ruptura, é escolha de embodiment — o humanoide existe desde os anos 1980 e o que mudou foi a política que o controla. Mas a contestação tem um ponto que sobrevive: se o humanoide se firmar como padrão de fato, ele carrega uma ruptura própria, que é <strong>a máquina que ocupa o espaço desenhado para gente sem exigir que o espaço mude</strong>, e isso inverte <code>e3.1.1</code> inteiro. Não registrei como quarta disrupção-raiz por falta de evidência de padronização; registro aqui como alternativa viva.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p><strong>1. Inventou uma capacidade a partir do nome do produto.</strong> Ao ler "Gemini Robotics — mais que dobra o desempenho num benchmark abrangente de generalização", eu tinha escrito, numa primeira versão, que o modelo "dobra a taxa de sucesso em tarefas inéditas". Ao abrir a página oficial, ela <strong>não traz nenhum número, nenhuma data de versão, nenhum benchmark e nenhuma limitação declarada</strong> — só a frase promocional de que o modelo "consegue completar tarefas variadas, mesmo sem ter sido treinado nelas". O sinal de alarme foi a estrutura da frase: "mais que dobra" sem dizer dobra de quê e a partir de qual linha de base é formulação de marketing, não de resultado. Corrigido: a alegação está no texto como alegação do fabricante.</p>
+<p><strong>2. Datou o π0 com confiança em ano errado.</strong> Na primeira passagem eu tratei o π0 como lançamento de 2025, arrastado pelo fato de π0.5 e π*0.6 serem de 2026. A página da própria Physical Intelligence diz 31/10/2024. Erro típico de modelo de linguagem: interpolar data a partir de vizinhança temática em vez de verificar. A pista foi a inconsistência interna — se π*0.6 é de 2026 e há duas versões intermediárias, a primeira dificilmente seria do ano anterior.</p>
+<p><strong>3. Quase converteu "existe" em "funciona".</strong> Escrevi, numa versão descartada, que "o modelo de mundo já substitui o simulador escrito à mão no treino de robôs". Nenhuma fonte sustenta isso. O que as fontes sustentam é que existe um modelo de mundo aberto que declara gerar ação (Cosmos 3), e que existe um agente avaliado em mundos gerados (SIMA 2, em ambiente virtual, em jogo). O WRBench diz o contrário quanto a persistência. O erro tem nome — tomar disponibilidade de ferramenta por evidência de eficácia — e é exatamente o que a skill manda separar.</p>
+<p><strong>4. Somou números de fontes incompatíveis.</strong> Tentei compor "quantos humanoides existem operando" juntando 19,1 mil embarques do 1S 2026 com as 65 mil horas do Digit e as 1.250 horas do Figure 02. São grandezas diferentes (unidade embarcada, hora de operação acumulada, hora de piloto), de fontes diferentes, com definições que não batem — e nenhuma delas diz quantos robôs estão de fato trabalhando agora. Desisti da soma e mantive os três números separados, com a autoria de cada um.</p>
+<p><strong>5. Mencionou um projeto sem abrir.</strong> Cheguei a escrever um trecho sobre o ROSClaw como se tivesse verificado a arquitetura dele. Não abri fonte primária. Está marcado no texto como sinal fraco não verificado, na seção 6 — e essa é a forma honesta de manter o item.</p>
+<p><strong>6. Um erro que provavelmente permanece.</strong> A informação de que a ISO 25785-1 seguia como <em>working draft</em> em janeiro de 2026 vem de fonte secundária especializada, não da ISO. Não consegui confirmar no site da ISO dentro desta rodada. Se estiver errada, o efeito <code>e7</code> perde prazo, mas não perde direção — a 10218:2025 excluir o risco de mobilidade do humanoide está confirmado em duas fontes independentes.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p><strong>Provável.</strong> Em 2031, o modelo de mundo venceu como <em>fábrica de dado</em> e perdeu como <em>mundo</em>. A maior parte do treino sério ainda acontece em simulador escrito à mão — Isaac Sim, MuJoCo, MetaDrive e sucessores —, agora alimentado por variação sintética gerada por modelos derivados do Cosmos: textura, iluminação, arranjo de cena, casos raros. Persistência de estado continua sendo o calcanhar, e o campo aprendeu a conviver com isso restringindo o horizonte de tarefa. A interface em linguagem natural venceu por inteiro: praticamente nenhum integrador programa trajetória à mão, e a função que cresceu não foi "programador de robô" e sim quem escreve currículo, critério de aceitação e caso de teste — gente que, em 2026, trabalhava com design de experiência e com QA de jogo. Humanoide é presença normal em armazém e planta, ainda quase sempre em área delimitada, porque a norma de estabilidade dinâmica saiu tarde e é conservadora. Houve pelo menos dois recalls de grande porte em robôs de serviço, no molde do que a Waymo já fazia em 2026, e "recall de comportamento" virou expressão corrente. O Brasil continua importando corpo e modelo; a densidade subiu de 7 para algo entre 12 e 18 robôs por mil trabalhadores, quase toda em automação convencional, e o país discute soberania de dado físico sem ter dado físico próprio.</p>
+<p><strong>Desejável.</strong> O mesmo quadro técnico, com três coisas que não vieram de graça. Primeira: <strong>auditoria de mundo de treino</strong> virou prática estabelecida — quem opera sistema autônomo em espaço compartilhado mantém registro do que foi simulado, com que cobertura, e com que resultado, e esse registro é inspecionável por terceiro. Isso exigiu que os benchmarks de 2026 convergissem em dois ou três padrões, em vez dos oito concorrentes, e que alguém aceitasse publicar o que o próprio mundo não cobre. Segunda: <strong>o trabalho de ensinar máquina foi reconhecido como trabalho</strong> — teleoperação e demonstração viraram ocupação com contrato, qualificação e remuneração declarada, e não a repetição silenciosa do que aconteceu com moderação de conteúdo e rotulagem de dado. Terceira, e é a que interessa a quem projeta mídia e interação: o desenho de ambiente legível por agente foi tratado como <strong>questão de acessibilidade e não de eficiência</strong> — o mesmo esforço que torna a placa legível para a máquina tornou-a mais legível para gente com baixa visão, e isso foi escolha deliberada, não coincidência. Para chegar aqui teria sido preciso, já em 2027, que a discussão de norma incluísse quem projeta espaço e interface, e não só quem fabrica robô.</p>
+<p><strong>Indesejável.</strong> O modelo de mundo venceu como retórica antes de vencer como técnica. Sistemas foram implantados apoiados em validação feita dentro de ambientes gerados pelos mesmos modelos que os treinaram — validação circular, com número bonito e cobertura desconhecida. A falha apareceu como sempre aparece: não em catástrofe única, mas em série de episódios pequenos em situações que ninguém pensou em simular, cada um explicado como caso isolado. A prestação de contas dissolveu-se entre quem gerou o mundo, quem treinou a política, quem integrou e quem operou, e nenhum deles tinha o objeto inspecionável. A resposta regulatória veio tarde, foi por proibição ampla, e empurrou a operação para onde não há regra — o que, para um país com 7 robôs por mil trabalhadores e fiscalização escassa, significa empurrar para cá. <strong>O sinal precoce é específico e dá para vigiar agora:</strong> quando um fornecedor publicar métrica de segurança de um sistema físico medida exclusivamente em ambiente sintético, sem teste independente em ambiente real, e ninguém no mercado exigir a diferença. Isso já está a um passo — os oito benchmarks de 2026 medem consistência física do vídeo gerado, não desempenho do robô no mundo.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> Um <strong>banco de provas de divergência mundo-modelo</strong>. Um agente simples, comandado por instrução em linguagem natural, recebe exatamente a mesma tarefa em dois ambientes: (a) um mundo escrito à mão, com física declarada — MetaDrive para direção, ou uma cena do habitat-sim/MuJoCo para navegação e manipulação; (b) um mundo gerado por modelo, a partir do mesmo enunciado, usando um modelo de mundo aberto da família Cosmos. O produto é um <strong>placar de divergência</strong>: mesma instrução, mesma tarefa, o que o agente faz diferente em cada mundo, e — o ponto — <strong>o que o mundo gerado deixa de manter</strong>. O teste decisivo é o do WRBench, simplificado: mandar o agente olhar para o outro lado e voltar. No mundo escrito, o objeto que saiu de quadro continuou caindo. No mundo gerado, ele provavelmente está onde foi deixado.</p>
+<p><strong>Que pergunta sobre o futuro ele ajuda a responder.</strong> A pergunta de primeira ordem do tema: <em>se o robô aprende num mundo simulado, o que acontece quando o mundo real diverge?</em> O experimento não alcança o mundo real, e é honesto dizer isso; alcança a divergência entre dois mundos, que é o mesmo problema com uma ordem de grandeza a menos de custo e risco. E responde, em escala de sala de aula, à pergunta que decide a disrupção D1 inteira: <strong>o mundo gerado sustenta estado, ou é um plano de fundo convincente?</strong></p>
+<p><strong>Que tecnologia emergente ele usa, e por que não dá com tecnologia madura.</strong> Usa modelo de mundo gerativo com pesos abertos (Cosmos) e agente comandado por linguagem. Com tecnologia madura, o experimento não existe: um simulador escrito à mão mantém estado por construção — o objeto continua caindo porque alguém escreveu a gravidade. A divergência que o experimento mede só é possível porque um dos dois mundos não foi escrito por ninguém. É precisamente o que separa este tema de "simulação", que é assunto resolvido há vinte anos.</p>
+<p><strong>O que a turma vai fazer quando testar isso em sala.</strong> Cada pessoa escreve <strong>uma instrução e uma armadilha</strong>. A instrução é a tarefa em linguagem natural ("recolha a caixa vermelha e coloque na prateleira de baixo"). A armadilha é a situação que ela aposta que o mundo gerado não vai sustentar — algo que continua acontecendo fora de quadro, um objeto que deveria ter inércia, uma consequência que deveria persistir. Roda-se nos dois mundos, ao vivo, e monta-se o placar coletivo: quantas armadilhas pegaram, quais pegaram nos dois mundos, e — a coluna mais interessante — <strong>quais armadilhas ninguém pensou em escrever</strong>. Essa última coluna é uma demonstração direta de por que validar sistema autônomo dentro do mundo que o treinou é circular: a cobertura do teste é limitada pela imaginação de quem escreve o teste, e o mundo gerado não avisa o que não representa.</p>
+<p><strong>O que seria um resultado que me faria mudar de ideia.</strong> Se o mundo gerado sustentar estado e consequência nas armadilhas da turma tão bem quanto o simulador escrito — inclusive na prova de olhar para o outro lado e voltar —, então a limitação do WRBench é mais estreita do que este mapa assume, D1 acelera, e <code>e1</code>/<code>e2</code> merecem prazo mais curto e confiança mais alta. Se, no outro extremo, o agente falhar igualmente nos dois mundos por razão que não tem nada a ver com o mundo — instrução ambígua, ação de baixo nível imprecisa, memória curta —, então o gargalo não está no mundo e sim no agente, e a disrupção que importa é D2, não D1. Nesse caso o mapa precisa ser reescrito com a interface, e não a simulação, na raiz. Declaro desde já: considero este segundo desfecho mais provável que o primeiro, e é por isso que o experimento vale a pena.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Quinze fontes, todas abertas e lidas nesta rodada, em 18/09/2026. Fonte não aberta não entra — e há, na seção 12, a lista das que foram vistas em resultado de busca e <strong>não</strong> foram usadas por isso.</p>
+<ol><li><strong>NVIDIA Newsroom — "NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI"</strong> · <code>https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai</code> Sustenta: data (31/05/2026, GTC Taipei), arquitetura mixture-of-transformers, abertura dos pesos no Hugging Face, composição da Cosmos Coalition, versões Super/Nano/Edge. Confiabilidade: alta para fato de lançamento e de licenciamento; <strong>baixa para desempenho</strong> — é release do fabricante, com linguagem promocional explícita ("big bang da IA física"), e as lideranças de benchmark citadas não têm verificação independente aqui.</li></ol>
+<ol><li><strong>arXiv 2501.03575 — "Cosmos World Foundation Model Platform for Physical AI"</strong> (NVIDIA, 77+ autores) · <code>https://arxiv.org/abs/2501.03575</code> Sustenta: o desenho da plataforma (curadoria de vídeo, modelos pré-treinados, exemplos de pós-treino, tokenizadores de vídeo) e a liberação open-weight com licença permissiva. Confiabilidade: média-alta — preprint técnico de autoria corporativa, não revisado por pares; o abstract não informa tamanho de dataset.</li></ol>
+<ol><li><strong>Google DeepMind — página dos modelos Gemini Robotics</strong> · <code>https://deepmind.google/models/gemini-robotics/</code> Sustenta: a existência de Gemini Robotics 2 (VLA de corpo inteiro), ER 2 (raciocínio incorporado, planejamento e coordenação multi-robô) e On-Device 2 (execução local). Confiabilidade: <strong>baixa como evidência de capacidade</strong> — a página não traz benchmark, número, data de versão nem limitação declarada. Usada estritamente como prova de existência e de posicionamento declarado. Este é o caso mais claro de alegação de fornecedor no documento.</li></ol>
+<ol><li><strong>arXiv 2510.20808 — Aljalbout et al., "The Reality Gap in Robotics: Challenges, Solutions, and Best Practices"</strong>, aceito no <em>Annual Review of Control, Robotics, and Autonomous Systems</em> 2026 · <code>https://arxiv.org/abs/2510.20808</code> Sustenta: que o reality gap persiste; a distinção entre visual gap e dynamic gap; o inventário de técnicas (randomização de domínio, real-to-sim, abstração, co-treino). Confiabilidade: alta — revisão aceita em periódico de revisão da área, 12 autores.</li></ol>
+<ol><li><strong>arXiv 2512.04797 — "SIMA 2: A Generalist Embodied Agent for Virtual Worlds"</strong> (DeepMind, 65+ autores, 04/12/2025) · <code>https://arxiv.org/abs/2512.04797</code> Sustenta: o salto de mapeamento pixel-ação para planejamento em linguagem; generalização a ambientes inéditos; auto-melhoria com tarefas e recompensas geradas pelo próprio Gemini. Confiabilidade: média-alta para o método; média para desempenho — o abstract afirma "fecha a distância para o humano" <strong>sem número</strong>, e o preprint é do próprio laboratório.</li></ol>
+<ol><li><strong>Google DeepMind — blog do SIMA 2</strong> · <code>https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/</code> Sustenta: a lista dos treze jogos de treino; avaliação em MineDojo e em mundos gerados pelo Genie 3; e — o que mais importa aqui — <strong>as limitações declaradas pela própria DeepMind</strong>: tarefa longa de muitas etapas, janela de contexto limitada por latência, ação precisa de baixo nível, memória curta. Confiabilidade: média-alta; fonte do fabricante, mas a parte usada é autocrítica, o que reduz o risco de inflação.</li></ol>
+<ol><li><strong>Humanoids Daily — "Global Humanoid Shipments Surge 272% in 1H 2026 as AGIBOT Overtakes Unitree"</strong> (11/08/2026) · <code>https://www.humanoidsdaily.com/news/global-humanoid-shipments-surge-272-in-1h-2026-as-agibot-overtakes-unitree</code> Sustenta: 19,1 mil unidades no 1S 2026; AGIBOT 8.400 (44%), Unitree 5.900 (31%), Galbot 900, UBTECH 700, Leju 600; mais de 70% para aplicação industrial e comercial; ressalva de que parte relevante do volume da Unitree é pesquisa, educação e performance. Confiabilidade: média — jornalismo especializado reproduzindo relatório pago da Smart Analytics Global, cuja metodologia não foi possível inspecionar. Usei os números com a autoria explícita.</li></ol>
+<ol><li><strong>humanoid.guide — "Humanoid deployments in 2026 favor Figure and Agility"</strong> · <code>https://humanoid.guide/humanoid-deployments-in-2026-favor-figure-and-agility/</code> Sustenta: Figure 02 na BMW Spartanburg (piloto de 11 meses, +1.250 horas, +90.000 peças, ciclo de 84 s, &gt;99% de precisão de posicionamento por turno); Digit com +65.000 horas em nove instalações, clientes nomeados (GXO, Schaeffler, Toyota Canadá, Mercado Libre); e a distinção explícita entre piloto e produção. Confiabilidade: média — publicação especializada compilando números <strong>declarados pelos fabricantes</strong>; nenhum deles é auditado.</li></ol>
+<ol><li><strong>The Robot Report — "ISO 10218 industrial robot safety standard receives major overhaul"</strong> · <code>https://www.therobotreport.com/iso-10218-industrial-robot-safety-standard-receives-major-overhaul/</code> Sustenta: publicação em fevereiro de 2025 após ~8 anos; incorporação da ISO/TS 15066; cibersegurança ligada à segurança; e o ponto decisivo — humanoides passam a poder ser cobertos, <strong>mas os riscos de mobilidade deles ficam fora da norma</strong>, assim como aplicações não industriais (comentário técnico atribuído a Akshay Chalana). Confiabilidade: alta para o conteúdo da revisão; jornalismo técnico setorial com fonte nomeada. Não menciona a ISO 25785-1.</li></ol>
+<ol><li><strong>arXiv 2606.20545 — Lu et al., "Current World Models Lack a Persistent State Core"</strong> (18/06/2026) · <code>https://arxiv.org/abs/2606.20545</code> Sustenta: 9.600 vídeos, 23 modelos, quatro paradigmas de controle; o benchmark WRBench; e o achado de que o alvo que sai de quadro é retomado no estado em que foi abandonado, falha que reincide entre famílias de modelo e <strong>não cede com escala</strong>. Confiabilidade: média-alta — preprint recente, não revisado por pares, mas com desenho experimental explícito e amostra grande. É a evidência central contra a minha própria D1, e por isso foi mantida com destaque.</li></ol>
+<ol><li><strong>arXiv 2606.06556 — Karcini, Mehrban, Nguyen et al. (Motoniq.ai, Stanford, ETH Zurich, TU Darmstadt), "Robots Need More Than VLAs &amp; World Models"</strong> (04/06/2026) · <code>https://arxiv.org/html/2606.06556v1</code> Sustenta: a tese de que o gargalo é converter experiência física heterogênea em supervisão utilizável; os quatro componentes ausentes (motor de dado com autorrotulagem, retargeting que preserva tarefa, modelo de mundo fundado em física, laço de melhoria em deployment). Confiabilidade: média — é argumento com revisão de literatura, não medição; preprint, com coautoria de empresa interessada no diagnóstico.</li></ol>
+<ol><li><strong>TechCrunch — "Waymo recalls nearly 4,000 robotaxis to stop them driving into highway construction zones"</strong> (18/06/2026) · <code>https://techcrunch.com/2026/06/18/waymo-recalls-nearly-4000-robotaxis-to-stop-them-driving-into-highway-construction-zones/</code> Sustenta: ~4.000 veículos, sexto recall da empresa; 13 episódios (6 em Phoenix em abril, 7 em São Francisco em maio); causa declarada pela Waymo — não reconhecimento de placa de fechamento de rampa e priorização de outros riscos; suspensão voluntária de rodovia em 19/05/2026. Confiabilidade: alta — jornalismo especializado sobre documento entregue à NHTSA, com citação direta da empresa.</li></ol>
+<ol><li><strong>Physical Intelligence — "π0: Our First Generalist Policy"</strong> (31/10/2024) · <code>https://www.pi.website/blog/pi0</code> Sustenta: VLM de 3 bilhões de parâmetros com ação contínua por flow matching; π0-small de 470 milhões; <strong>8 embodiments</strong> nomeados; uso do Open X-Embodiment mais dados proprietários. Confiabilidade: média-alta para arquitetura e escopo de treino; é publicação do laboratório, e o número total de horas de dado não é informado.</li></ol>
+<ol><li><strong>Canaltech — "Indústria 4.0: Brasil tem apenas 7 robôs para cada 1 mil trabalhadores"</strong> (02/01/2026) · <code>https://canaltech.com.br/mercado/industria-40-brasil-tem-apenas-7-robos-para-cada-1-mil-trabalhadores/</code> Sustenta: a densidade brasileira (~7 robôs por mil trabalhadores) e a comparação com a Coreia do Sul (~1.000 por 10 mil), atribuídas a Ismael Secco, do Instituto SENAI de Sistemas de Manufatura. Confiabilidade: média — jornalismo geral de tecnologia, citando fonte institucional nomeada em entrevista, não relatório publicado. Usada só para a nota sobre o Brasil, com a atribuição explícita.</li></ol>
+<ol><li><strong>arXiv 2109.12674 — "MetaDrive: Composing Diverse Driving Scenarios for Generalizable Reinforcement Learning"</strong> · <code>https://arxiv.org/abs/2109.12674</code> Sustenta: o que é o simulador escolhido em primeiro lugar pela turma — geração procedural de cenários mais importação de dado real — e o achado de que aumentar diversidade e tamanho do conjunto de treino melhora a generalização do agente. Confiabilidade: alta — trabalho acadêmico consolidado e amplamente usado como benchmark.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-a-entrevista">12.1 A entrevista</h3>
+<p>A skill exige entrevista com resposta antes de pesquisar. Nesta rodada <strong>não havia interlocutor humano disponível</strong> — a execução foi automatizada e os parâmetros vieram fixados na abertura da tarefa. Registro isso como desvio declarado do procedimento da skill: não houve rodada de perguntas, houve recebimento de parâmetros. Os valores confirmados, usados como contrato:</p>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td>tema</td><td>Agentes corporificados, IA física e modelos de mundo (tema 9 de 19; família "Simulação e mundos")</td></tr><tr><td>recorte</td><td>O agente com corpo e o mundo em que ele aprende; a partir de uma inovação/tema, não de um setor</td></tr><tr><td>horizonte</td><td>2031</td></tr><tr><td>público</td><td>Quem projeta mídia e interação</td></tr><tr><td>região</td><td>Global, com nota sobre o Brasil</td></tr><tr><td>objetivo</td><td>Mapa de futuro com disrupções-raiz e três ordens de efeito, no formato da disciplina</td></tr><tr><td>exclusões</td><td>O que já é comum em produto de massa (régua da disciplina); ideias óbvias que serviriam a qualquer tema; nenhuma outra</td></tr><tr><td>viés desejado</td><td>Neutro</td></tr><tr><td>profundidade</td><td>Três ordens</td></tr><tr><td>disrupção suspeita</td><td>Nenhuma declarada — a descoberta era parte da tarefa</td></tr><tr><td>critério de mudança de ideia</td><td>Evidência de que a adoção passou da maioria inicial (Rogers), ou de que a tecnologia não rompe nada, só melhora o que existe</td></tr></tbody></table></div>
+<p><strong>Sobre o critério de mudança de ideia, o veredito desta rodada.</strong> Nenhuma das duas condições se verificou, e vale registrar por quê. (a) Adoção passar da maioria inicial: não — 19,1 mil humanoides embarcados em um semestre, majoritariamente em ambiente cercado, e um único caso de autonomia veicular com escala pública real, em 14 áreas metropolitanas de um país, colocam a tendência como muito anterior à maioria inicial. (b) Não romper nada: <strong>parcialmente sim para uma parte do tema</strong>. O corpo em si — humanoide, braço, drone — é melhoria incremental de coisa antiga, e por isso não virou disrupção-raiz neste mapa. A ruptura ficou onde há evidência de mudança de relação e de papel: quem escreve o mundo (D1), como se comanda um corpo (D2), e de quem é a culpa (D3).</p>
+<h3 id="12-2-buscas-realizadas">12.2 Buscas realizadas</h3>
+<p>Nove consultas, em 18/09/2026, com WebSearch, mais quinze aberturas com WebFetch.</p>
+<ol><li><code>NVIDIA Cosmos world foundation model physical AI 2026</code> — rendeu a fonte 1 e a fonte 2.</li><li><code>Gemini Robotics DeepMind vision-language-action 2026</code> — rendeu a fonte 3.</li><li><code>sim-to-real gap robot learning limitations 2026 arXiv survey</code> — rendeu a fonte 4.</li><li><code>humanoid robot deployment numbers 2026 Figure Agility Unitree shipments</code> — rendeu 7 e 8.</li><li><code>DeepMind SIMA 2 generalist agent 3D virtual worlds Gemini</code> — rendeu 5 e 6.</li><li><code>ISO 10218:2025 robot safety standard humanoid regulation gap</code> — rendeu a fonte 9.</li><li><code>world models criticism video generation physics inconsistency evaluation benchmark 2026</code> — rendeu a fonte 10 e o inventário de benchmarks citado em 6.</li><li><code>robótica Brasil 2026 robôs industriais densidade adoção IA física</code> — rendeu a fonte 14.</li><li><code>Physical Intelligence pi0.6 open source VLA robot foundation model 2026</code> — rendeu a 13.</li><li><code>Waymo miles 2026 robotaxi NHTSA investigation liability autonomous vehicle</code> — rendeu 12.</li><li><code>robot data bottleneck teleoperation demonstrations scaling law embodied AI 2026</code> — rendeu o material sobre gargalo de dado usado em 3.2, cujas fontes foram descartadas (ver 12.3).</li></ol>
+<h3 id="12-3-fontes-vistas-e-descartadas-com-motivo">12.3 Fontes vistas e descartadas, com motivo</h3>
+<ul><li><strong><code>technology.org</code> — "Humanoid Robots in 2026: What Is Actually Deployed"</strong> — seria a fonte cética ideal para contrapor os números de fabricante. Retornou <strong>HTTP 403</strong>. Regra da skill: link que não responde não entra. Não citada.</li><li><strong><code>theresarobotforthat.com</code></strong> (vários: guia de normas de humanoide 2026, ISO 10218 explicada, kit de conformidade) — foi daqui que veio a informação sobre a <strong>ISO 25785-1 como working draft em janeiro de 2026</strong> e sobre a distinção entre estabilidade estática e dinâmica. Não abri a página diretamente e o site vende kit de conformidade, o que é conflito de interesse sobre exatamente esse conteúdo. A informação foi mantida no corpo do texto <strong>marcada como secundária e não confirmada</strong>, e o erro residual está declarado na seção 8, item 6.</li><li><strong><code>aiproem.substack.com</code> — "Bodies are Cheap, Data is Not: A Mid-2026 Primer on Humanoids"</strong> e <strong><code>shaip.com</code> / <code>evsint.com</code></strong> (estratégia de dado de treino, teleoperação × simulação × vídeo humano) — origem das formulações sobre lei de escala cara da teleoperação, achatamento do retorno na casa das centenas baixas e a tese do "stack" em vez de escolha. Não abri nenhuma; duas são conteúdo comercial de empresa de rotulagem de dado. O conteúdo foi usado em 3.2 <strong>rotulado como inferência de analistas, confiança média</strong>, e não sustenta nenhum efeito da roda sozinho.</li><li><strong><code>smartanalyticsglobal.com</code></strong> — fonte primária dos números de embarque. Relatório pago, não aberto. Usei a reprodução da Humanoids Daily com a autoria explicitada.</li><li><strong><code>en.wikipedia.org/wiki/Gemini_Robotics</code></strong> — trazia as datas de 30/07/2026 para Gemini Robotics 2 e ER 2. Não aberta diretamente; a página oficial da DeepMind confirma a existência dos modelos mas <strong>não</strong> as datas. As datas estão no texto e são o ponto mais frágil da seção 3.1.</li><li><strong>Benchmarks de consistência física</strong> (WorldModelBench, PhyGround, CRONOS, VideoPhy-2, PhyGenBench, WBench, LoViF/PhyScore, Physics-IQ) — apareceram em resultado de busca com descrições detalhadas; abri apenas o WRBench (fonte 10). Os demais são citados na seção 6 como <strong>evidência de proliferação de réguas</strong>, que é uma afirmação sobre a quantidade e a data delas, não sobre o conteúdo de cada uma. É o uso mais fraco que sustento, e está declarado.</li><li><strong><code>damfirm.com</code>, <code>whalesbook.com</code>, <code>thechargeport.com</code></strong> (dados de acidente Waymo, arquivos NHTSA, tracker de robotáxi) — não abertas. As informações sobre a investigação de ônibus escolar, o atropelamento em Santa Monica em 23/01/2026 e o prazo de julho de 2026 da NHTSA vêm de resultado de busca com atribuição a CBS News e NPR, <strong>não</strong> de leitura direta. Marcadas aqui como de segunda mão; o recall de junho, que é o que sustenta a disrupção D3, está apoiado em leitura direta (fonte 12).</li><li><strong><code>github.com/Physical-Intelligence/openpi</code>, <code>pi.website/download/pistar06.pdf</code></strong> — não abertos nesta rodada. π0.5 e π*0.6 aparecem no texto como linha de evolução, com a afirmação verificável restrita ao π0 (fonte 13). A caracterização do π*0.6 como "aprende por experiência em deployment" vem de descrição em resultado de busca.</li><li><strong>Fontes brasileiras de tendência</strong> (<code>exame.com</code>, <code>arevista.com.br</code>, <code>atlantico.com.br</code>, <code>tuenkers.com.br</code>, <code>realtime1.com.br</code>, <code>tiinside.com.br</code>) — todas descartadas. São peças de tendência ou conteúdo comercial de integrador, com previsões redondas ("2026, o ano da virada") e sem dado primário. O número de 48% das indústrias brasileiras planejando investir em robô multifuncional e o pacote de R$ 186,6 bilhões da Nova Indústria Brasil apareceram em busca e <strong>não entraram</strong> por falta de fonte primária aberta. A nota sobre o Brasil ficou deliberadamente magra: uma densidade e uma comparação.</li></ul>
+<h3 id="12-4-efeitos-gerados-e-removidos">12.4 Efeitos gerados e removidos</h3>
+<p>Registro do que foi cortado, por quê, e o que isso diz sobre o mapa que sobrou.</p>
+<ul><li><strong>"Robôs domésticos de uso geral se tornam produto de consumo até 2031"</strong> — removido integralmente. Nenhuma fonte aberta sustenta preço, volume ou capacidade; e a régua da disciplina exclui produto de massa de qualquer forma. Era extrapolação pura.</li><li><strong>"A formação em robótica desaparece, absorvida pela engenharia de prompt"</strong> — removido. É efeito que soa profundo e não tem mecanismo: o conteúdo da robótica (controle, cinemática, segurança) não some porque a camada de comando mudou. Ficou uma versão muito mais fraca e defensável em <code>e1.1.1</code> (convergência de disciplinas, não desaparecimento).</li><li><strong>"Modelos de mundo substituem motores de jogo na produção de entretenimento até 2031"</strong> — removido do mapa e não citado no corpo. Confunde dois usos: gerar mundo para <em>treinar agente</em> e gerar mundo para <em>ser jogado por gente</em>. O segundo é o tema 7 e o tema 10 da disciplina, não este.</li><li><strong>"Sindicatos negociam cláusula de humanoide em acordo coletivo até 2030"</strong> — removido por falta de qualquer sinal observável. Nenhuma fonte aberta registra negociação coletiva sobre humanoide. Voltaria ao mapa na hora em que houvesse uma.</li><li><strong>"O custo de um humanoide cai abaixo do salário anual de um operador"</strong> — removido por ser exatamente o tipo de comparação que soa decisiva e é vazia: o custo relevante não é o preço do corpo, é o custo total de integração, dado, manutenção e conformidade, e nenhuma fonte aberta mede isso.</li><li><strong>Quarta disrupção-raiz candidata: "o humanoide como padrão de fato"</strong> — considerada e rejeitada; argumento completo e o que sobrevive dela estão na seção 7.</li><li><strong>Cadeia interrompida: efeito de emprego com número</strong> — derivada de <code>e4.2</code> e abandonada por falta de base. Detalhamento na prosa da seção 5.</li></ul>
+<h3 id="12-5-limitacoes-desta-rodada">12.5 Limitações desta rodada</h3>
+<ol><li><strong>Sem interlocutor.</strong> A entrevista obrigatória da skill não ocorreu como diálogo. Os parâmetros foram recebidos prontos, e não houve como testar se o recorte fazia sentido para quem pediu. Isto reduz a confiança do mapa como um todo e está declarado no frontmatter (<code>confianca: media</code>).</li><li><strong>Assimetria de evidência, e ela é sistemática.</strong> A evidência de <em>capacidade</em> é abundante, aberta e recente; a evidência de <em>adoção produtiva</em> é escassa e quase toda declarada por fabricante; a evidência de <em>efeito sobre trabalho, cidade e norma</em> é praticamente inexistente — e é exatamente onde ficam a segunda e a terceira ordem. Nenhuma sofisticação de método corrige isso: o mapa é mais firme perto da raiz e mais especulativo longe dela, e a queda de confiança na terceira ordem é honesta, não decorativa.</li><li><strong>Nenhum número foi verificado de forma independente.</strong> Todos os números deste documento vêm de uma única fonte cada. Onde a fonte é o fabricante, está dito.</li><li><strong>Datas de julho de 2026 não confirmadas em fonte primária.</strong> As datas de lançamento do Gemini Robotics 2 e ER 2 (30/07/2026) vêm de resultado de busca; a página oficial que abri não as traz.</li><li><strong>Recorte temporal do agente.</strong> O conhecimento base deste agente vai até maio de 2026; tudo posterior a isso neste documento veio exclusivamente de busca e leitura em 18/09/2026, e não de memória. Onde a busca não alcançou — julho e agosto de 2026, sobretudo — há lacuna.</li><li><strong>Uma fonte aberta que a checagem automática marca como quebrada.</strong> A verificação por <code>curl</code> dos links da seção 11 devolveu HTTP 200 em quatorze dos quinze e <strong>403 no <code>therobotreport.com</code></strong> (fonte 9). A página foi de fato aberta e lida nesta rodada; o 403 é bloqueio de agente automatizado, não link morto. Fica o registro para quem rodar a checagem do formato e vir o vermelho.</li><li><strong>Viés de língua.</strong> Todas as fontes abertas são em inglês, exceto a brasileira. Produção em chinês sobre AGIBOT, Unitree, Galbot e UBTECH — que respondem por mais de 80% dos embarques de 2026 — ficou inteiramente fora. Para um tema cujo volume de hardware está na China, essa é a lacuna mais séria do levantamento, e provavelmente distorce o mapa na direção do laboratório norte-americano.</li></ol></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

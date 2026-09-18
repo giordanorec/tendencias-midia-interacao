@@ -1,0 +1,877 @@
+---
+tema: "Soberania de dados: local-first, ponta-a-ponta e o fim da senha"
+slug: soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha
+autor_login: alpa2
+zona_de_interesse: Pessoas e dados
+data: 2026-09-18
+horizonte: 2031
+publico: quem projeta mídia e interação
+recorte_geografico: global
+disrupcoes_raiz: 3
+efeitos_ordem_1: 6
+efeitos_ordem_2: 12
+efeitos_ordem_3: 12
+tecnologias_citadas: [local-first, CRDT, Automerge, Yjs, sync engine, ElectricSQL, PowerSync, Zero, cr-sqlite, criptografia ponta-a-ponta, criptografia no cliente, passkeys, WebAuthn, FIDO2, Credential Exchange Format (CXF), Credential Exchange Protocol (CXP), HPKE, Key Hive, capabilities criptográficas, Private Cloud Compute, modelos de fundação no aparelho, self-hosting, zero-knowledge]
+fontes: 6
+confianca: media
+experimento: "Um caderno de duas pessoas com servidor cego, chave só no aparelho e nenhuma rota de recuperação — para medir quantas duplas sobrevivem 30 dias e o que acontece quando um aparelho morre."
+skill_usada: futurizacao-alpa2
+publico_ok: false
+---
+
+## 1. Resumo
+
+Três rupturas na arquitetura do software pessoal convergem: o dado que mora no aparelho e
+sincroniza (local-first), o servidor que guarda sem conseguir ler (ponta-a-ponta) e a
+credencial criptográfica que dispensa senha e provedor (passkeys e, depois delas, a conta
+portátil). O mapa aqui tem horizonte 2031, público de quem projeta mídia e interação, recorte
+global com nota sobre o Brasil.
+
+A conclusão que estrutura o resto do documento é uma correção do enunciado, não uma
+confirmação dele: **a passkey, em 2026, já não é disrupção.** O relatório da FIDO Alliance de
+maio de 2026 fala em 5 bilhões de passkeys em uso, 90% de consciência, 75% das pessoas com ao
+menos uma habilitada e 68% das organizações implantando. Isso é maioria inicial ultrapassada —
+exatamente o critério que o próprio recorte da disciplina manda usar para cortar. O que
+permanece emergente não é o fim da senha; é **o fim do provedor**: a credencial que sai de um
+ecossistema e entra em outro sem perder a conta, a recuperação que não depende de ninguém com
+poder de devolver o acesso, e a permissão que é uma chave em vez de uma linha numa tabela do
+servidor.
+
+As três disrupções-raiz aprovadas no teste do Passo 2 são: (1) o servidor cego por padrão em
+software pessoal comum; (2) a conta sem provedor — credencial portátil e recuperação sem
+"esqueci minha senha"; (3) a autorização sem servidor — permissão como capacidade
+criptográfica. Delas derivam 6 efeitos de 1ª ordem, 12 de 2ª e 12 de 3ª.
+
+O que o mapa insiste em dizer, e que é desconfortável: quase todo efeito bom desta tendência
+tem um gêmeo ruim no mesmo lugar. O servidor que não lê também não modera, não personaliza e
+não devolve a conta de quem perdeu o aparelho. A soberania é, também, a transferência de um
+risco que hoje é da empresa para o colo da pessoa — e desenhar essa transferência é,
+literalmente, o trabalho de quem projeta interação nos próximos cinco anos.
+
+**Suposições adotadas na entrevista** (o usuário respondeu à entrevista por escrito, mas
+algumas lacunas foram preenchidas por esta skill e estão declaradas na seção 7): recorte
+global com uma nota sobre o Brasil; nenhuma exclusão além da régua da disciplina (fora o que já
+é comum em produto de massa); viés neutro, sem preferência declarada; disrupção central
+levantada do zero, sem palpite prévio do usuário.
+
+## 2. O tema
+
+O objeto aqui é **a arquitetura de dado e identidade da pessoa** — não o modelo de IA que roda
+localmente (isso é o tema 16, e este mapa só toca nele onde as duas coisas se casam), nem a
+identidade de agentes (tema 2).
+
+Três camadas, que costumam ser confundidas e não são a mesma coisa:
+
+- **Local-first** é uma escolha sobre *onde está a verdade*. O dado mora no dispositivo; a rede
+  transporta mudanças, não é a fonte. O ensaio da Ink & Switch de 2019 fixou sete ideais para
+  isso — sem spinners, acesso em vários aparelhos, rede opcional, colaboração fluida, o "Long
+  Now" (o dado dura), segurança e privacidade por padrão, e propriedade e controle do usuário —
+  e concluiu, na época, que nenhuma tecnologia existente satisfazia os sete ao mesmo tempo.
+- **Ponta-a-ponta** é uma escolha sobre *quem consegue ler*. O servidor guarda o que não
+  entende. É ortogonal ao local-first: dá para ter local-first com servidor que lê, e E2E com
+  dado que só existe no servidor.
+- **Passkeys / WebAuthn** é uma escolha sobre *quem prova que você é você*. A chave privada
+  fica no aparelho ou no cofre do provedor de credencial; o servidor guarda só a pública e um
+  desafio. Não há segredo compartilhado a vazar.
+
+Juntas, as três desmontam a premissa do software comercial dos últimos vinte anos: a empresa é
+dona do dado, da conta e da identidade, e a interface é uma janela para aquilo. Se o dado é
+seu, a conta é sua e a chave é sua, o que sobra para a empresa vender — e o que sobra para o
+designer desenhar?
+
+Este mapa foi escrito para responder a segunda pergunta.
+
+## 3. Onde isso está hoje
+
+### O que já existe e funciona (e por isso NÃO entra como disrupção-raiz)
+
+**Passkeys em escala de massa.** A FIDO Alliance, em 7 de maio de 2026, reportou 5 bilhões de
+passkeys estimadas em uso no mundo, com base em pesquisa Sapio de abril de 2026 com 11.000
+consumidores em dez países e 1.400 decisores em empresas de 500+ funcionários: 90% de
+consciência, 75% com ao menos uma habilitada, 49% usando regularmente quando disponível; 68%
+das organizações implantando ou já implantaram; 82% declaram o passwordless pleno como meta,
+com 28% já lá. Pelo critério do Passo 2 e pela régua da disciplina, isto é **tecnologia
+madura**, e mora nesta seção, não na 4.
+
+**CRDTs e sync engines em produção.** Automerge chegou à 3.0 com núcleo em Rust e queda grande
+de memória e de tamanho de documento; Yjs é a implementação mais implantada, por baixo de
+editores colaborativos amplamente usados. Do lado de banco, PowerSync, ElectricSQL, cr-sqlite e
+Zero (Rocicorp) oferecem sincronização como produto comprado pronto. Martin Kleppmann, em abril
+de 2026, descreve o sync engine como "um banco de dados embarcado mais um protocolo de
+replicação" e aponta adoção comercial crescente. Isto também é maduro **como peça de
+engenharia** — o que ainda não é comum é o produto de massa construído em cima dela.
+
+**Criptografia ponta-a-ponta em mensageria.** Signal e WhatsApp tornaram E2E banal para texto.
+Backup cifrado, HTTPS, 2FA, "login com Google": todos maduros, todos fora do mapa de
+disrupções.
+
+### O que existe mas ainda não pegou, ou não funciona
+
+- **Portabilidade de credencial.** O CXF (formato) foi aprovado como Proposed Standard da FIDO
+  em agosto de 2025; o **CXP (protocolo de transferência) ainda não estava finalizado** quando
+  desta apuração, e as migrações práticas se limitavam a transferências locais no mesmo
+  aparelho. Ou seja: a passkey é madura, a **portabilidade** dela não é. Este é o vão exato onde
+  mora a disrupção D2.
+- **Controle de acesso sem servidor.** Kleppmann é explícito: o Key Hive, sistema criptográfico
+  de controle de acesso para dar permissões estilo Google Drive sem servidor central, estava
+  havia cerca de um ano em desenvolvimento e ainda não pronto. Ele também diz que "não
+  resolvemos ainda" como mostrar conflitos ao usuário de forma inteligível, e que falta
+  integração decente entre Automerge e mecanismos de busca. Três buracos, todos de **interação**,
+  não de criptografia.
+- **E2E durante a sincronização e a mesclagem.** A literatura de ecossistema de 2026 lista isso
+  como problema aberto, junto com sincronizar binários grandes, depurar estado distribuído e
+  fazer analytics com visibilidade parcial do cliente. Cifrar e mesclar ao mesmo tempo é o
+  ponto onde as camadas 1 e 2 deste tema brigam.
+- **Recuperação de conta.** É o calcanhar reconhecido do passwordless: um passkey perdido
+  raramente é um problema de criptografia, é um problema de processo de recuperação, e os
+  caminhos variam por plataforma. *(Afirmação vista em resultados de busca, não em página
+  aberta — tratada aqui como não verificada; ver seção 8.)*
+
+### Quem está construindo
+
+Ink & Switch e o ecossistema Automerge; Yjs e a cadeia de editores em cima dele; Rocicorp
+(Zero), ElectricSQL, PowerSync; FIDO Alliance com Apple, Google, Microsoft, 1Password, Bitwarden
+e Dashlane nos grupos de credential exchange; Apple e Google no nível de sistema operacional
+(Apple levou primitivas CRDT ao CloudKit; ambos empurram passkeys por padrão); Signal e Proton
+no E2E como produto; e uma cauda longa de self-hosters — o material da turma (`budgero`,
+`kostos`, `wilson`, `TaxHacker`, `finvo`, `mailquill`) é um retrato dessa cauda aplicada a
+finanças pessoais.
+
+### A pressão externa: regulação e tribunal
+
+Duas frentes mudam o preço de tudo isso, e nenhuma delas é técnica.
+
+1. **Reino Unido × Apple.** A ordem original de acesso global foi substituída por uma Technical
+   Capability Notice dirigida a usuários do Reino Unido, e essa ordem seguia em vigor em
+   setembro de 2026. O Advanced Data Protection continua **indisponível no Reino Unido**. Em
+   setembro de 2026 a Apple estava contestando não a ordem, mas a política de sigilo em torno
+   dela; a audiência de mérito sobre se o governo pode exigir acesso a dado cifrado não era
+   esperada antes de 2027. Ou seja: em um país do G7, a empresa desligou o E2E em vez de
+   quebrá-lo, e o caso não estará resolvido no horizonte médio deste mapa.
+2. **União Europeia, escaneamento de mensagens.** O Parlamento Europeu teria excluído serviços
+   com E2E do alcance do regime de varredura voluntária, com a regulação interina expirando em
+   abril de 2026, enquanto a versão permanente ("Chat Control 2.0") seguiria em trílogo, onde a
+   obrigação de varredura no cliente ainda poderia voltar. *(Visto apenas em resultados de
+   busca, sem página aberta — não verificado; ver seção 8.)*
+
+### Nota sobre o Brasil
+
+O Brasil chega a este tema por um caminho diferente do europeu. Não por privacidade, mas por
+**portabilidade compulsória**: o Open Finance colocou em operação, em 2026, a portabilidade de
+crédito entre instituições, com o dado e a relação seguindo o cliente. A LGPD dá a base de
+consentimento e o direito de saber que dado foi usado. É um modelo oposto ao local-first —
+o dado continua no servidor, mas a lei obriga a deixá-lo sair. Vale registrar a hipótese: no
+Brasil, a soberania de dados tende a chegar primeiro como **direito regulado de saída**, e só
+depois como arquitetura de servidor cego. *(A parte de Open Finance vem de resultados de busca,
+não de página aberta — não verificada.)*
+
+## 4. As disrupções-raiz
+
+Três candidatos foram testados e reprovados antes: passkey como substituta da senha
+(reprovada no teste 3 — já está em produção e em uso comum), criptografia ponta-a-ponta em
+mensageria (mesmo motivo), e self-hosting (reprovada no teste 1 — não muda quem pode fazer o
+quê, muda quem paga a conta do servidor).
+
+### D1 — O servidor cego por padrão no software pessoal comum
+
+**O que rompe.** Inverte quem é o dono do dado sem tirar a colaboração da mesa. Até aqui, a
+escolha era binária: ou arquivo local (seu, mas solitário e sem sincronia) ou nuvem
+(colaborativa, mas do fornecedor). CRDT com E2E dissolve a escolha. Não é "mais rápido" nem
+"mais barato" — é a chegada de uma opção que não existia: colaborar em tempo real sobre um dado
+que o hospedeiro não consegue ler.
+
+**Por que agora.** Três limiares cruzaram juntos: sync engine virou produto comprável (Zero,
+ElectricSQL, PowerSync), CRDT deixou de ser caro em memória (Automerge 3.0 com núcleo Rust), e
+criptografia no cliente ficou trivial no navegador. O custo de confiar em terceiro ficou
+visível — vazamentos, encerramentos de serviço, ordem judicial no meio do caminho.
+
+**O que falta.** Mesclar dado cifrado sem que o servidor participe da mesclagem continua
+problema aberto. Busca sobre dado local não tem integração pronta. Analytics e cobrança
+precisam ser reinventados quando o fornecedor não vê o uso. E não existe vocabulário de
+interface consolidado para representar "isto ainda não chegou no seu outro aparelho".
+
+### D2 — A conta sem provedor: credencial portátil e recuperação sem "esqueci minha senha"
+
+**O que rompe.** Muda de quem depende quem. Hoje, mesmo com passkey, a conta continua presa a um
+provedor de credencial (Apple, Google, gerenciador) e a um provedor de identidade que, em
+último caso, tem o poder de devolver ou negar o acesso. Quando a credencial vira um objeto
+transferível com padrão aberto, e quando a recuperação deixa de passar por alguém com poder de
+reset, a identidade digital deixa de ser um registro que uma empresa mantém e vira uma coisa
+que a pessoa carrega.
+
+**Por que agora.** O CXF existe desde 2025 como padrão proposto; o CXP está em desenvolvimento
+com Apple, Google, Microsoft, 1Password, Bitwarden e Dashlane à mesa, usando HPKE para a
+transferência cifrada. Há pressão regulatória por interoperabilidade e antilock-in, e há uma
+base instalada de 5 bilhões de passkeys que torna a portabilidade economicamente relevante.
+
+**O que falta.** O CXP finalizado e implantado em todas as plataformas. E, sobretudo, **uma
+resposta de produto para a recuperação** que não seja "ligue para o suporte". Recuperação
+social, custódia dividida, guardiões — nada disso existe como padrão de interface comum.
+
+### D3 — A autorização sem servidor: permissão como capacidade criptográfica
+
+**O que rompe.** Tira a decisão de "quem pode ler" do servidor e a coloca na chave. Compartilhar
+deixa de ser pedir permissão a um intermediário e passa a ser entregar uma capacidade. Isso
+muda quem precisa de quem de forma mais radical do que D1 e D2: dispensa o administrador.
+
+**Por que agora.** É a peça que falta para o local-first sair do caderno pessoal e entrar no
+trabalho em equipe; o Key Hive existe exatamente para isso, com par de chaves por dispositivo e
+delegação de permissão sem autoridade central — o modelo de segurança do Signal aplicado a
+documento colaborativo.
+
+**O que falta.** Quase tudo. Kleppmann descrevia o Key Hive, após cerca de um ano, como ainda em
+desenvolvimento. Revogação, auditoria e recuperação de grupo não têm solução limpa. Esta é a
+disrupção mais frágil das três, e o mapa assume isso.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: "O servidor cego por padrão no software pessoal comum (local-first + E2E na sincronização)"
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: "Aplicativos pessoais passam a funcionar integralmente offline e tratam a nuvem como transporte, não como fonte da verdade."
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: "A latência deixa de ser argumento de venda e sai do vocabulário de design de interação desses produtos."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: "O repertório de padrões de espera encolhe e a formação em design de interação desloca o esforço para representar estado de sincronização, divergência e conflito."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: "Produtos passam a prometer contratualmente que continuam funcionando se a empresa fechar, publicando formato de arquivo e cliente offline."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: "Longevidade vira critério de compra comparável a preço, e encerrar um serviço deixa de significar perder o acervo."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: "O servidor deixa de conseguir ler o conteúdo que hospeda em uma faixa crescente de produtos pessoais."
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: "A receita baseada em observar o conteúdo do usuário se torna tecnicamente impossível nesses produtos, e a assinatura vira o modelo padrão deles."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: "O mercado de software pessoal se parte entre produtos pagos com servidor cego e produtos gratuitos com servidor que lê, e privacidade vira marcador de classe."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: "A moderação de conteúdo migra do servidor para o cliente ou simplesmente deixa de existir nesses produtos."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: "A disputa regulatória se desloca de o que a plataforma deve remover para o que o aparelho deve inspecionar antes de cifrar."
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+          - id: e2.3
+            ordem: 2
+            efeito: "A personalização passa a ser computada no próprio aparelho, sobre um índice local, por modelos pequenos."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.3.1
+                ordem: 3
+                efeito: "A vantagem competitiva desloca-se do acúmulo de dado no servidor para a qualidade do modelo que roda no aparelho da pessoa."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: "Sincronizar vira infraestrutura comprada pronta, como banco de dados, e deixa de ser projeto próprio de cada produto."
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: "Surge uma camada de provedores de sincronização intercambiáveis, com protocolo aberto, que não veem o conteúdo que transportam."
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: "O poder de plataforma migra de quem guarda o dado para quem controla o diretório de identidade e a descoberta entre pares."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: "A conta sem provedor: credencial portátil entre ecossistemas e recuperação sem esqueci-minha-senha"
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: "O fluxo de esqueci minha senha deixa de existir, e o suporte passa a lidar com perda de chave em vez de esquecimento de segredo."
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: "A recuperação de conta vira o elo mais fraco da cadeia e concentra os ataques de engenharia social que antes iam para a senha."
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: "Recuperação social entra no repertório de produto comum e cria um objeto de design novo: a rede de guardiões da própria identidade."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: "Herança digital e incapacidade passam a exigir desenho explícito, porque não resta provedor com poder de devolver a conta."
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: "Inventário e testamento passam a incluir custódia de chave, e o direito sucessório precisa de uma figura jurídica para o segredo criptográfico."
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: "A credencial vira objeto portátil entre provedores, exportável e importável por padrão aberto."
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: "Trocar de ecossistema deixa de custar a conta, e o lock-in por identidade enfraquece como estratégia de plataforma."
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: "Login social perde a função de infraestrutura e vira mera conveniência, reduzindo o papel do provedor de identidade como pedágio da web."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: "A identidade passa a ser algo que a pessoa carrega no aparelho, inclusive para acesso a serviço público."
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: "A exclusão digital muda de forma: quem não tem aparelho confiável, ou o perde, fica fora de tudo ao mesmo tempo e sem balcão a que recorrer."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: "A autorização sem servidor: permissão como capacidade criptográfica, sem administrador central"
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: "Compartilhar um documento passa a ser entregar uma chave, e não pedir a um servidor que libere o acesso."
+        sinal: fraco
+        prazo: 2029
+        confianca: baixa
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: "Revogar acesso torna-se caro e imperfeito, porque quem já leu guarda a cópia e a chave."
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: "O direito ao apagamento colide com uma arquitetura em que ninguém pode apagar pelo outro, e a norma tende a se deslocar de apagar para impedir novo acesso."
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: "Equipes ganham grupos criptográficos sem administrador, e o administrador de TI perde o poder de ler tudo que a organização produz."
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: "Auditoria, compliance e investigação corporativa são redesenhadas para operar sobre metadados e consentimento, não sobre acesso privilegiado."
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+```
+
+### O que o YAML não consegue dizer
+
+**Os efeitos brigam entre si, e a briga é o conteúdo.** `e2.2` (moderação some do servidor) e
+`e2.2.1` (a regulação passa a exigir inspeção no aparelho) são a mesma força vista de dois
+lados: quanto mais cego o servidor, mais pressão para que o cliente seja o delator. O caso do
+Reino Unido contra a Apple mostra o desfecho intermediário que ninguém prevê nas rodas de
+futuro: a empresa não quebra o E2E nem obedece — ela **desliga o recurso naquele país**. A
+fragmentação geográfica da arquitetura é um resultado mais provável que a vitória de qualquer
+um dos lados.
+
+**A linha de 1ª ordem mais forte não é a mais interessante.** `e1` e `e3` são quase certos e
+quase chatos: sync engine como commodity já está acontecendo. O que vale olhar é `e3.1.1` — se
+a sincronização vira commodity cega, o poder não desaparece, ele **muda de lugar**. Vai para
+quem opera o diretório de identidade e a descoberta entre pares, porque é lá que ainda é
+preciso confiar em alguém. Soberania de dado não elimina o intermediário; reduz o intermediário
+a um ponto menor e mais difícil de ver.
+
+**A assimetria entre D1/D2 e D3.** As duas primeiras têm base instalada e dinheiro grande
+empurrando. A terceira depende de pesquisa que ainda não entregou. Se D3 não sair, o local-first
+fica sendo software **pessoal** — caderno, finanças, notas — e não chega ao trabalho em equipe.
+Isso não invalida o mapa; apenas corta pela metade o alcance dele, e joga os efeitos de `e6`
+para depois de 2031.
+
+**A mudança de risco é a pauta de design.** Hoje, se a pessoa esquece a senha, o custo é da
+empresa (suporte, ticket, churn). Amanhã, se a pessoa perde a chave, o custo é dela, e é total.
+Nenhum dos ganhos deste mapa — velocidade, privacidade, propriedade — é sentido no dia a dia com
+a mesma intensidade que essa perda. Quem projeta interação vai passar os próximos cinco anos
+desenhando a amortecedora dessa queda, e `e4.1.1` é o nome disso.
+
+**Onde 16 e 17 se casam.** `e2.3` é o ponto de contato: quando o servidor não lê, a
+personalização só pode acontecer onde o dado está. A Apple já opera um híbrido declarado
+(modelos no aparelho mais Private Cloud Compute), e a cauda de ferramentas que a turma
+levantou — contador de IA com tudo em SQLite local, reconciliação de extrato sem nuvem — é o
+mesmo movimento vindo de baixo. A pergunta de projeto que sai daqui: *se o modelo é meu e roda
+no meu aparelho sobre o meu dado, o que a interface precisa mostrar para eu acreditar nisso?*
+
+## 6. Sinais fracos e wildcards
+
+**Sinais fracos**
+
+- **Primitivas de CRDT descendo para o sistema operacional.** Quando a sincronização mesclável
+  vira serviço de plataforma, e não biblioteca escolhida pelo time, o local-first deixa de ser
+  decisão de arquitetura e vira default. Sinal pequeno hoje, consequência grande.
+- **O sync engine com protocolo aberto e provedor trocável**, na visão explícita de Kleppmann de
+  padrões abertos para esses backends. Se pegar, é o fim do lock-in por infraestrutura de
+  sincronia — e o começo de um mercado de commodity.
+- **A tensão silenciosa entre E2E e mesclagem.** Enquanto cifrar-e-mesclar for problema aberto, a
+  maior parte do "local-first" comercial terá servidor que lê. Vale vigiar quem resolve isso
+  primeiro: é o gargalo real, e quase ninguém fala dele.
+- **IA rodando sobre o dado que não sai de casa** (ponte com o tema 16): o contador local, a
+  reconciliação de extrato sem nuvem, o índice pessoal que alimenta um modelo pequeno.
+- **A recuperação como produto.** No dia em que um app popular lançar "escolha três pessoas que
+  podem te devolver o acesso", a rede social de recuperação vira categoria de design.
+
+**Wildcards**
+
+- *(Alto impacto, probabilidade média.)* **Varredura obrigatória no cliente.** Uma lei que exija
+  inspeção do conteúdo no aparelho antes de cifrar não quebra o E2E — ela o contorna, e inverte
+  o sentido do local-first: o dado no seu aparelho passa a ser o mais vigiado, não o mais
+  protegido. O trílogo europeu é onde isso se decide.
+- *(Alto impacto, baixa probabilidade — o wildcard exigido pelo Passo 7.)* **Um vazamento de
+  cofre de credenciais em escala de plataforma.** Cinco bilhões de passkeys concentradas em
+  poucos provedores de sincronização criam um alvo que não existia. Não é preciso quebrar a
+  criptografia: basta uma falha no fluxo de recuperação de um provedor grande para que dezenas
+  de milhões de contas caiam de uma vez, sem senha para trocar e sem "esqueci minha senha" para
+  correr atrás. O efeito seria paradoxal — empurraria o mercado para credencial **presa ao
+  aparelho**, não sincronizada, e portanto para D2 pelo pior motivo possível.
+- *(Baixíssima probabilidade, impacto total.)* **Um avanço criptanalítico ou quântico** que
+  torne obsoleto o acervo cifrado hoje. O modelo "guarde agora, decifre depois" já assume isso;
+  o dado local-first de 2026 é o corpus de treino de quem esperar.
+- *(Baixa probabilidade, alto impacto, pouco discutido.)* **Uma seguradora começar a exigir E2E e
+  chave sob custódia do cliente** como condição de cobertura cibernética. Seria a regulação
+  chegando pelo mercado, não pelo legislador, e mais rápido do que qualquer trílogo.
+
+## 7. Contra o próprio mapa
+
+**1. Que efeito é só extrapolação linear do presente?**
+
+`e3` e `e3.1` são os piores ofensores: pegam a curva "sync engine está virando produto" e a
+esticam até "camada intercambiável com protocolo aberto". Padronização de infraestrutura
+raramente é linear — costuma travar por anos e depois saltar quando um ator grande força o
+padrão. `e2.1` (assinatura vira o modelo padrão) também é preguiçoso: assume que o único
+substituto para dado é dinheiro, ignorando publicidade contextual sem perfil, taxa sobre
+transação, ou venda de capacidade de sincronia. **Revisado:** `e2.1` foi reescrito de "todo
+software pessoal passa a ser pago" para o recorte estreito "nesses produtos", e a confiança
+baixou de alta para média.
+
+**2. Que efeito assume uma velocidade de adoção sem precedente comparável?**
+
+`e5.2` — identidade portátil chegando a serviço público até 2031. O precedente comparável é a
+identidade digital estatal, que leva década em qualquer país, e o contraexemplo está dentro do
+próprio tema: o CXF foi aprovado em 2025 e o CXP ainda não estava pronto um ano depois. Padrão
+aprovado ≠ padrão implantado. `e6` e seus descendentes assumem que o Key Hive sai do laboratório
+em cerca de três anos; **não encontrei precedente comparável** de sistema de controle de acesso
+descentralizado que tenha atravessado de pesquisa a produto de massa, e é por isso que toda a
+sub-árvore de `e6` está em sinal fraco e confiança baixa.
+
+**3. Que disrupção-raiz pode simplesmente não se concretizar — e o que sobra?**
+
+**D3 é a candidata óbvia a não acontecer**, e o mapa foi escrito para sobreviver a isso: se a
+autorização sem servidor não sair, `e6` inteiro cai, mas D1 e D2 seguem de pé e o tema vira
+"software pessoal soberano, trabalho em equipe ainda no modelo antigo". **D1 pode se
+concretizar torta**: local-first sem E2E, com servidor que lê — que é o caminho mais provável
+enquanto cifrar-e-mesclar for problema aberto. Nesse caso sobra a velocidade e o offline, e cai
+toda a árvore de `e2`. **D2 é a mais resiliente**, porque tem base instalada e interesse
+econômico de seis empresas grandes empurrando. Se apenas D2 acontecer, o mapa encolhe para uma
+história sobre identidade — importante, mas bem menor do que o enunciado promete.
+
+**4. Que viés entrou aqui?**
+
+- **Declarado pelo usuário:** neutro, sem preferência. Tentei honrar isso emparelhando cada
+  efeito favorável com o seu gêmeo adverso; o leitor deve julgar se consegui.
+- **Suposições que esta skill precisou assumir**, por falta de resposta na entrevista: (a) que
+  "global com nota sobre o Brasil" significa tratar o Brasil como caso de contraste, não como
+  recorte principal; (b) que a régua "descartar o que já é comum em produto de massa" tem
+  precedência sobre o enunciado do tema — foi ela que expulsou a passkey da seção 4; (c) que
+  2031 é horizonte de adoção, não de invenção, e portanto só entram no mapa coisas cujo
+  protótipo já exista em 2026.
+- **Viés das fontes.** Cinco das seis fontes abertas são anglófonas e quatro têm interesse
+  direto no sucesso da tecnologia: a FIDO Alliance é o consórcio que promove passkeys, a Descope
+  vende autenticação, a Ink & Switch é a autora do conceito de local-first, e Kleppmann é a
+  principal figura pública do campo. **Não abri nenhuma fonte cética.** O mapa provavelmente
+  superestima a velocidade de adoção, e é por isso que quase toda a 3ª ordem está com confiança
+  baixa.
+- **Viés de quem escreve.** Um modelo de linguagem tem afinidade estrutural com a narrativa
+  "arquitetura elegante vence arquitetura feia". Historicamente, arquitetura feia com modelo de
+  negócio vence. Esse peso não sai do texto só por ser declarado — mas fica declarado.
+
+## 8. O que a máquina errou
+
+**Erro 1 — números atribuídos à FIDO que não estão na FIDO.** O resumo de busca me entregou,
+como se fossem do relatório da FIDO de 2026, dois números: "48% dos 100 maiores sites suportam
+passkeys" e "93% de taxa de sucesso de login contra 63% das senhas". Ao abrir a página oficial
+do anúncio, **nenhum dos dois estava lá**. Os dois aparecem numa página comercial da Descope,
+que os atribui genericamente à FIDO sem apontar qual relatório. Motivo da desconfiança: número
+redondo demais, citado sem documento de origem, e repetido por um fornecedor que vende o
+produto. Mantive os dois no documento apenas com a atribuição correta (Descope citando FIDO), e
+não os usei para sustentar nenhuma conclusão.
+
+**Erro 2 — dois conjuntos de números incompatíveis sobre a mesma coisa.** A FIDO de maio de 2026
+diz 90% de consciência e 75% com passkey habilitada. A Descope, citando um relatório de
+consumidor da FIDO, diz 75% de reconhecimento e 28% habilitando sempre que possível. São
+relatórios de anos diferentes tratados como intercambiáveis pelos resumos. Registro a
+divergência em vez de escolher o número mais conveniente: a diferença entre "75% têm uma" e
+"28% usam sempre" é exatamente a diferença entre a tecnologia estar adotada e estar em uso, e
+essa distinção decide se a passkey entra ou não na seção 4.
+
+**Erro 3 — fonte que não abriu, citada como se tivesse aberto.** Primeira tentativa de puxar o
+ensaio da Ink & Switch caiu numa URL antiga que voltou vazia. Se eu não tivesse notado,
+escreveria os sete ideais de memória e os atribuiria a uma página que não li. Refiz com a URL
+correta. Fica o método: **página que volta vazia é página não lida**, mesmo que eu "saiba" o
+conteúdo.
+
+**Erro 4 — afirmações que sobreviveram só como resumo de busca.** A situação do Chat Control
+2.0, os números da portabilidade de crédito do Open Finance e a caracterização da recuperação de
+passkey como "problema de processo, não de criptografia" vêm de resumos de busca cujas páginas
+**não foram abertas**. Estão marcados como não verificados no corpo do texto e não constam da
+seção 11. A tentação de listá-los como fonte é grande justamente porque soam certos.
+
+**Erro 5 — o erro estrutural, e o mais importante.** A primeira versão desta roda tinha como
+disrupção-raiz nº 1 "o fim da senha (passkeys)", copiando o enunciado do tema. O teste 3 do
+Passo 2 — "o que ainda falta para se concretizar?" — reprovou: 5 bilhões de unidades e 68% de
+adoção empresarial é resposta "nada, já está em produção". Tive que desmontar e reconstruir o
+mapa em torno de **portabilidade e recuperação**, que é o que de fato ainda não existe. O
+motivo da desconfiança vale registrar: eu estava confirmando o enunciado em vez de testá-lo, que
+é precisamente o que o Passo 2 existe para impedir.
+
+**Erro 6 — uma tentativa de fonte bloqueada.** A matéria da CNBC sobre o novo desafio jurídico
+da Apple retornou HTTP 403 e não foi lida. Substituí por uma cobertura de setembro de 2026 que
+abriu normalmente. A matéria bloqueada não está na seção 11.
+
+## 9. Três cenários para 2031
+
+### Provável — "a soberania de nicho"
+
+Em 2031, local-first ganhou a categoria de software onde a pessoa edita o próprio dado: notas,
+finanças pessoais, tarefas, escrita. Nesses produtos, offline é default, a sincronia é comprada
+de um provedor especializado e a promessa de "funciona se a empresa fechar" virou item de
+página de vendas. Mas a maior parte deles **não é ponta-a-ponta**: o servidor ainda lê, porque
+cifrar-e-mesclar continuou caro e porque a busca e o suporte dependem disso. O E2E firmou-se
+onde já estava — mensagem, arquivo, cofre de senha.
+
+A senha praticamente desapareceu das contas de consumo, mas a passkey mora num cofre de Apple,
+Google ou de um gerenciador, e é esse cofre que você não pode perder. A portabilidade
+funciona, meio truncada, entre os grandes. O "login com Google" continua em toda parte, agora
+por inércia e não por necessidade técnica. A recuperação de conta é o novo campo de batalha da
+fraude, e cada plataforma resolve do seu jeito.
+
+A autorização sem servidor continua em laboratório. O trabalho em equipe segue em nuvem
+tradicional. O mapa valeu pela metade.
+
+### Desejável — "o servidor cego como default cívico"
+
+Em 2031, cifrar-e-mesclar foi resolvido e virou biblioteca, e o sistema operacional entrega
+sincronização mesclável como serviço — do mesmo jeito que entrega notificação. Produto pessoal
+novo nasce com servidor cego porque é o caminho mais barato, não o mais virtuoso. O protocolo de
+sincronia é aberto e o provedor é trocável, então ninguém constrói fosso guardando dado.
+
+A credencial é portátil de verdade e a recuperação tem vocabulário comum: toda pessoa configura
+guardiões como hoje configura contato de emergência, e a interface disso é tão banal que a
+pessoa idosa consegue. A herança digital tem forma jurídica. No Brasil, o direito de saída que o
+Open Finance criou para o dado financeiro virou princípio geral: o dado sai com você por lei, e
+a arquitetura local-first é o jeito barato de cumprir a lei.
+
+**O que teria que acontecer para chegar lá:** que E2E sobre CRDT saia do estado de problema
+aberto até 2028; que o CXP seja finalizado e implantado nas três plataformas grandes; que um
+regulador grande transforme portabilidade de credencial em obrigação; e — o mais difícil — que
+alguém desenhe uma recuperação de conta que funcione para quem não é técnico, e que os outros
+copiem.
+
+### Indesejável — "a chave que você perdeu e o aparelho que te vigia"
+
+Em 2031 a senha acabou e não veio nada no lugar que funcione para gente comum. A conta está
+presa a um cofre de plataforma; quem perde o aparelho perde a vida digital de uma vez — banco,
+saúde, governo, trabalho — e não há balcão. A fraude migrou inteira para a recuperação, e as
+plataformas responderam endurecendo tanto o processo que a recuperação legítima falha também. A
+exclusão digital ficou binária: dentro ou fora, sem meio-termo.
+
+Do lado do dado, a varredura no cliente venceu em algumas jurisdições: o aparelho inspeciona o
+conteúdo antes de cifrar, e o local-first virou o contrário do que prometia — o lugar mais
+vigiado, porque é o único lugar onde o conteúdo ainda está legível. Empresas fragmentaram a
+arquitetura por país: E2E aqui, servidor que lê ali, e o usuário não sabe em qual está. A
+privacidade completa existe, mas custa assinatura, e o produto gratuito continua lendo tudo.
+
+**Sinal precoce deste cenário:** a primeira lei que exija inspeção **no cliente** antes da
+cifragem, combinada com a primeira grande plataforma a desligar o E2E em um país em vez de
+enfrentar a ordem — movimento que, com o ADP indisponível no Reino Unido desde a ordem
+britânica, **já aconteceu uma vez**. O segundo sinal é mais silencioso: o dia em que uma
+plataforma grande anunciar que passou a exigir um documento oficial para recuperar a conta.
+Nesse dia, a soberania de dados terá sido trocada por identidade estatal obrigatória, e quase
+ninguém vai notar.
+
+## 10. O experimento
+
+**O que é.** Um caderno compartilhado por duas pessoas, construível num fim de semana: Automerge
+ou Yjs no cliente, um relay burro de sincronização, a chave do documento derivada de um segredo
+combinado fora do aplicativo e **nunca enviada ao servidor**. Sem conta, sem e-mail, sem
+recuperação. O relay guarda bytes cifrados e não sabe o que são. A dupla usa por 30 dias.
+
+No dia 15, o experimento faz a única coisa que importa: **manda uma das duas pessoas apagar o
+aplicativo do aparelho**, sem aviso prévio de que isso ia acontecer. A partir daí, a instrução é
+só observar — o que ela tenta fazer, quem ela procura, em quanto tempo desiste, e se a outra
+pessoa consegue devolvê-la ao caderno.
+
+**Que pergunta sobre o futuro ele ajuda a responder.** A pergunta que decide todo o mapa: *o
+custo cognitivo da soberania é pagável por gente comum?* A roda inteira assume que sim. `e4.1`,
+`e4.1.1` e o cenário indesejável dependem disso. Trinta dias com duas pessoas não provam nada
+estatisticamente, mas expõem em uma semana o que nenhuma pesquisa de opinião pega: a cara de
+alguém que entendeu que ninguém pode devolver o acesso.
+
+**Que tecnologia emergente ele usa, e por que a madura não serve.** Usa CRDT com criptografia no
+cliente. Um Google Docs compartilhado testaria colaboração, mas não testa nada disto: no Docs
+existe um servidor que lê, um provedor que devolve a conta e um botão de recuperação. É
+justamente a **ausência** desses três que o experimento precisa produzir para ter valor —
+sincronia sem servidor que lê, e identidade sem quem a devolva. Nenhuma tecnologia madura
+oferece essa ausência.
+
+**O que faria a pessoa que testar mudar de ideia sobre o mapa.** Três resultados, cada um
+derrubando uma parte:
+
+- Se as duas pessoas atravessarem os 30 dias **sem nunca pensar na chave**, e a perda do
+  aparelho for resolvida em minutos por um caminho que elas inventaram sozinhas — o cenário
+  indesejável perde força e `e4.1` está superestimado.
+- Se a dupla abandonar o caderno antes do dia 15 por atrito de sincronia, ou se recorrer a
+  mandar o conteúdo por WhatsApp "porque é mais fácil" — então `e1` está otimista, e o gargalo
+  do local-first não é criptográfico, é de interação.
+- Se a perda do aparelho encerrar o experimento — e a reação for procurar um suporte que não
+  existe — então `e4.1.1` deixa de ser efeito de 3ª ordem especulativo e vira requisito de
+  produto de 1ª ordem, e o mapa precisa ser redesenhado com a recuperação no centro, não na
+  periferia.
+
+## 11. Fontes
+
+Seis fontes abertas e lidas. Tudo que não veio delas está marcado no corpo do texto como
+especulação desta skill ou como resumo de busca não verificado.
+
+1. **FIDO Alliance — "Five Billion Passkeys: FIDO Alliance Reports Mainstream Global Usage on
+   World Passkey Day 2026"** (07/05/2026).
+   `https://fidoalliance.org/fido-alliance-reports-accelerating-global-passkey-adoption-on-world-passkey-day-2026/`
+   *Sustenta:* todos os números de adoção de passkey da seção 3, e portanto a decisão de
+   classificar passkey como tecnologia madura e retirá-la das disrupções-raiz.
+   *Confiabilidade:* fonte primária dos dados, com metodologia declarada (Sapio Research, abril
+   de 2026, 11.000 consumidores em dez países, ±0,9%; 1.400 decisores, ±2,6%). Mas é o consórcio
+   que **promove** a tecnologia divulgando a adoção dela — interesse direto no resultado. Números
+   de adoção autorreportados por promotor devem ser lidos como teto, não como piso.
+
+2. **Ink & Switch — "Local-first software: You own your data, in spite of the cloud"** (2019).
+   `https://www.inkandswitch.com/essay/local-first/`
+   *Sustenta:* os sete ideais na seção 2, a constatação de que nenhuma tecnologia os satisfazia
+   toda, e a lista de problemas em aberto (NAT traversal, histórico de CRDT, modelo de permissão).
+   *Confiabilidade:* documento fundador do campo, de autoria técnica reconhecida. Tem sete anos —
+   parte do diagnóstico envelheceu, e o próprio Kleppmann atualiza isso na fonte 3. Usei para o
+   conceito, não para o estado atual.
+
+3. **SE Radio 716 — Martin Kleppmann on Local-First Software** (abril de 2026).
+   `https://se-radio.net/2026/04/se-radio-716-martin-kleppmann-local-first-software/`
+   *Sustenta:* o que ainda falta (busca, exposição de conflito, Key Hive em desenvolvimento), a
+   definição de sync engine, o modelo de identidade por par de chaves por dispositivo, e a visão
+   de padrões abertos para backends. É a espinha de D3 e de `e3.1`.
+   *Confiabilidade:* a mais alta do conjunto para o estado técnico — fala o autor do Automerge,
+   em entrevista longa e datada. O viés é de proponente: ele é a principal figura pública do
+   campo e tende a ser otimista sobre prazos. O que ele diz que **falta** é mais confiável do que
+   o que ele diz que vem.
+
+4. **Verity Research — "Local-First Software in 2026"**.
+   `https://verity.salient.community/research/local-first-software-in-2026.html`
+   *Sustenta:* o mapa do ecossistema de sync engines (Automerge 3.0, Yjs, cr-sqlite, PowerSync,
+   ElectricSQL, Zero), a chegada de primitivas ao nível de plataforma, e a lista de quatro
+   obstáculos abertos — inclusive E2E durante a sincronização, que é o gargalo central de D1.
+   *Confiabilidade:* média. Levantamento de ecossistema sem metodologia declarada e sem autoria
+   institucional clara; os fatos verificáveis batem com as outras fontes, mas não tratei nenhum
+   número daqui como preciso.
+
+5. **Descope — "Passkey Trends for 2026: What the Data Says"**.
+   `https://www.descope.com/blog/post/passkey-trends`
+   *Sustenta:* apenas a **divergência** documentada no Erro 2 da seção 8, e a atribuição correta
+   dos números de suporte nos 100 maiores sites e de taxa de sucesso de login.
+   *Confiabilidade:* baixa como fonte de fato. É conteúdo comercial de fornecedor de
+   autenticação, e atribui números à FIDO sem apontar qual relatório. Está listada porque foi
+   lida e porque é o objeto de um dos erros registrados — não porque sustente conclusão alguma.
+
+6. **9to5Mac — "Apple pushes UK court to lift secrecy around encryption backdoor order"**
+   (17/09/2026).
+   `https://9to5mac.com/2026/09/17/apple-pushes-uk-court-to-lift-secrecy-around-encryption-backdoor-order/`
+   *Sustenta:* o estado do caso britânico em setembro de 2026 — ordem global substituída por
+   Technical Capability Notice restrita ao Reino Unido e ainda em vigor, ADP ainda indisponível
+   lá, contestação dirigida ao sigilo e não ao mérito, audiência de mérito não esperada antes de
+   2027. É a evidência do único desfecho já observado do conflito E2E × Estado, e alimenta o
+   sinal precoce do cenário indesejável.
+   *Confiabilidade:* média-alta para cronologia; imprensa especializada, datada, consistente com
+   a cobertura mais ampla. É reportagem sobre processo parcialmente sob sigilo — então detalhes
+   de escopo da ordem são relato, não documento.
+
+**Tentativa de fonte que falhou:** CNBC, "Apple launches fresh legal challenge against UK
+encrypted data access demand" (04/08/2026) — retornou HTTP 403, não foi lida, não sustenta nada
+neste documento.
+
+**Afirmações sem fonte aberta, marcadas como não verificadas no corpo:** situação do Chat
+Control 2.0 no trílogo europeu e a exclusão do E2E do escopo da varredura voluntária; números da
+portabilidade de crédito via Open Finance no Brasil em 2026; caracterização da recuperação de
+passkey como problema de processo; status do CXP como não finalizado e detalhes de HPKE e de
+quem participa do grupo. Todas vieram de resumos de busca cujas páginas não foram abertas.
+
+## 12. Anexo — o levantamento bruto
+
+### Entrevista (Passo 1) — respostas recebidas por escrito, sem interação
+
+O enunciado desta rodada trouxe a entrevista respondida. Registro literal do que entrou:
+
+- **Horizonte:** 2031.
+- **Recorte:** quem projeta mídia e interação; global, com nota sobre o Brasil.
+- **Descartado de início:** o que já é comum em produto de massa (régua da disciplina). Nenhuma
+  outra exclusão.
+- **Viés:** neutro.
+- **Palpite do usuário sobre a disrupção:** nenhum — mandou descobrir.
+- **O que o faria mudar de ideia:** evidência de que a adoção já passou da maioria inicial
+  (Rogers), ou de que a tecnologia não rompe nada.
+- **Profundidade:** três ordens. **Modo:** a partir de um tema, não de um setor.
+- **Ideias óbvias a excluir:** as que serviriam para qualquer tema.
+
+Observação de método: o critério "me faria mudar de ideia se a adoção já passou da maioria
+inicial" foi acionado **contra o próprio tema** logo na primeira busca, e é a razão de a passkey
+ter saído da seção 4. O usuário escreveu a condição que derrubou metade do enunciado dele.
+
+### Buscas realizadas
+
+1. `passkeys adoption statistics 2026 FIDO Alliance report` — deu no anúncio oficial da FIDO.
+   Produtiva. Resumo trouxe dois números que a página não confirmou (Erro 1).
+2. `local-first software CRDT Automerge 2026 state of the art` — deu no episódio do SE Radio e
+   na página da Verity. Produtiva.
+3. `passkey account recovery problem "lost device" criticism 2026` — só páginas comerciais de
+   fornecedores de autenticação (Authsignal, MojoAuth, SSOJet, ToolsMint). Nenhuma aberta,
+   nenhuma usada como fonte. **Busca infrutífera para efeito de citação**, ainda que confirme que
+   o assunto é discutido. Faltou-me uma fonte independente sobre recuperação — é o buraco de
+   evidência mais sério deste documento.
+4. `FIDO Credential Exchange Protocol CXP passkey portability 2026 export import` — resultados
+   consistentes entre si sobre CXF aprovado em 2025 e CXP em desenvolvimento, mas **nenhuma
+   página foi aberta**. Usado apenas como contexto marcado.
+5. `EU Chat Control CSAM regulation end-to-end encryption 2026 status` — quadro confuso, com
+   fontes ativistas (Breyer, fightchatcontrol) e blogs. Não abri nenhuma. Marcado como não
+   verificado.
+6. `Brasil 2026 gov.br passkey chave de acesso LGPD portabilidade de dados open finance` —
+   trouxe Open Finance, **não trouxe nada sobre passkey no gov.br**. Registro a ausência: não
+   consegui evidência do estado da autenticação sem senha no governo brasileiro, e por isso o
+   Brasil aparece neste mapa só pela porta da portabilidade regulada.
+7. `Apple Advanced Data Protection UK order 2026 outcome encryption backdoor` — produtiva;
+   levou à fonte 6 depois que a CNBC bloqueou.
+8. `on-device local LLM personal data assistant privacy 2026 adoption apple intelligence private
+   cloud compute` — usada só para o gancho com o tema 16 em `e2.3`. Nenhuma página aberta;
+   a menção à arquitetura híbrida da Apple está no texto como contexto, não como fonte.
+
+### Rodada descartada — a versão 1 do mapa
+
+A primeira montagem tinha quatro disrupções-raiz, copiadas do enunciado:
+
+- D1 local-first — **mantida**, reescrita para incluir o E2E na sincronização, que é a parte
+  que ainda não funciona.
+- D2 criptografia ponta-a-ponta — **fundida em D1**. Sozinha, reprova no teste 3: E2E em
+  mensageria é produção comum há uma década. O que é emergente é E2E **sobre dado mesclável**.
+- D3 passkeys / fim da senha — **reprovada e movida para a seção 3**. Motivo na seção 8, Erro 5.
+  Em seu lugar entrou a portabilidade e a recuperação, que é o que resta emergente.
+- D4 autorização sem servidor — **mantida**, promovida de efeito a disrupção-raiz depois da
+  entrevista com o Kleppmann deixar claro que é peça faltante e não consequência.
+
+### Efeitos cortados, com o motivo
+
+- *"A senha desaparece completamente até 2031."* Cortado. É previsão, não efeito, e é falsa: o
+  sistema legado, o quiosque, o terminal compartilhado e o país sem base de aparelhos garantem
+  senha viva em 2031. Confundir "deixa de ser padrão" com "desaparece" é o erro clássico de
+  roda de futuros.
+- *"Todo mundo vira self-hoster."* Cortado. Não sobrevive ao teste de especificidade: nunca
+  houve tecnologia de infraestrutura pessoal que virasse prática de massa. Self-hosting é
+  entusiasmo de comunidade, não tendência de adoção, e usar r/selfhosted como sinal social exige
+  descontar isso.
+- *"O poder das plataformas acaba."* Cortado por ser não-específico, exatamente o caso que o
+  Passo 5 manda parar de ramificar. Substituído por `e3.1.1`, que diz onde o poder **vai
+  parar**, que é uma afirmação testável.
+- *"O modelo de negócio de dados acaba."* Cortado, mesma razão. Virou `e2.1`, com recorte
+  ("nesses produtos") e com o gêmeo desconfortável `e2.1.1`.
+- *"Surgem cooperativas de dados."* Cortado por não ter nenhum sinal, nem fraco, nas buscas. É
+  uma ideia que serviria para qualquer tema — o próprio usuário pediu para excluir essas.
+- *"A IA local substitui a nuvem."* Cortado por invadir o tema 16. Sobrou só `e2.3`, que trata
+  do efeito **sobre a arquitetura de dado**, que é o objeto deste tema.
+
+### Efeitos revisados, não cortados
+
+- `e2.1` — reescrito e rebaixado de confiança alta para média (motivo na seção 7, item 1).
+- `e2` — sinal rebaixado de forte para médio. A base instalada de E2E é grande em mensageria,
+  mas quase nula em software pessoal mesclável, que é o objeto aqui. Marcar "forte" seria
+  emprestar a evidência de um domínio para outro.
+- `e6` e toda a sub-árvore — prazos empurrados e confiança rebaixada para baixa depois de
+  confirmar que o Key Hive seguia em desenvolvimento após cerca de um ano.
+- `e4.2` — rebaixado para sinal fraco. Não encontrei nenhuma evidência de produto tratando
+  herança digital em regime sem provedor; é dedução, não observação.
+
+### Contagem para o frontmatter
+
+Disrupções-raiz: 3. Ordem 1: e1, e2, e3, e4, e5, e6 = 6. Ordem 2: e1.1, e1.2, e2.1, e2.2,
+e2.3, e3.1, e4.1, e4.2, e5.1, e5.2, e6.1, e6.2 = 12. Ordem 3: uma por efeito de 2ª ordem = 12.
+Total de efeitos: 30. Fontes efetivamente abertas e lidas: 6 (uma delas, a Descope, listada só
+por ser objeto de um erro registrado). Confiança geral do documento: **média** — alta na seção
+3, média na 1ª ordem, baixa em quase toda a 3ª, conforme declarado efeito a efeito.

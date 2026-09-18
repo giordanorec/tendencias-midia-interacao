@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A internet agêntica: quando o usuário é uma máquina · futurizacao-jgpt (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 4 · futurizacao-jgpt (aluno)</p><h1>A internet agêntica: quando o usuário é uma máquina</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/jgpt/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/jgpt/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>A web está sendo reorganizada para um leitor que não tem olhos. Em junho de 2026 o tráfego HTML medido pela Cloudflare já era 57,5% de bots contra 42,5% de humanos; em 15 de setembro de 2026 a mesma empresa inverteu o default e passou a bloquear crawlers de treino e de agente em páginas com anúncio. Do outro lado, o Model Context Protocol saiu de 100 mil para 97 milhões de downloads mensais de SDK em dezesseis meses e teve o núcleo reescrito como protocolo sem estado, derrubando o custo de expor capacidade a uma máquina. Este mapa aceita quatro disrupções-raiz — o protocolo de capacidade, a porta paga, a inversão demográfica do tráfego e o agente embutido no navegador incumbente — e deriva delas 53 efeitos até 2031. O que ele sugere não é a morte da página, e sim a perda da <em>visita</em> como unidade: um conteúdo cuja versão canônica é estruturada, uma publicidade que migra para dentro da resposta, e uma negociação de acesso que passa a acontecer na borda, entre três ou quatro empresas de infraestrutura, longe de quem publica. O padrão mais falado do tema, <code>llms.txt</code>, foi <strong>rejeitado</strong> como disrupção: tem 10,13% de adoção e quase nenhum uso real.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>A internet agêntica é a hipótese de que o principal consumidor de uma página deixou de ser uma pessoa. Não no sentido antigo — crawlers de busca existem desde 1994 —, mas no sentido de que o programa que lê a página está <strong>agindo em nome de alguém</strong>: comparando, decidindo, comprando, resumindo, e frequentemente entregando ao humano só a conclusão.</p>
+<p>Isso encosta em mídia e interação em três pontos que não são opcionais para quem projeta:</p>
+<ol><li><strong>A superfície.</strong> Se o leitor é um programa, a superfície que importa não é o layout, é a descrição da capacidade — o nome da ferramenta, o parâmetro, o esquema. Design de interface passa a disputar espaço com design de contrato.</li><li><strong>O financiamento.</strong> O modelo de negócio da web aberta é impressão de anúncio contra atenção humana. Agente não vê anúncio, e a razão entre páginas rastreadas e visitas devolvidas já é de ordens de grandeza (ClaudeBot em 23.951 páginas por referência no primeiro trimestre de 2026, contra 4,9 do Google).</li><li><strong>O acesso.</strong> Quando a resposta a "quem pode ler isto" deixa de ser "qualquer um" e vira uma política de borda com preço, a web aberta muda de natureza sem que nenhuma lei tenha mudado.</li></ol>
+<p>Merece mapa de futuro e não estado-da-arte porque as três coisas estão <strong>em movimento simultâneo e em direções opostas</strong>: enquanto a camada de protocolo se abre (MCP, NLWeb), a camada de acesso se fecha (default da Cloudflare, Web Bot Auth). Um estado-da-arte descreveria as duas; só um mapa de efeitos mostra o que acontece quando elas se cruzam.</p>
+<p><strong>Recorte declarado.</strong> Horizonte 2031. Público: quem projeta mídia e interação. Recorte global, com uma nota sobre o Brasil. Descartado de início, pela régua da disciplina: o que já é comum em produto de massa. Identidade e detecção de agente entram aqui só como <strong>habilitador</strong> (é objeto do tema 2); comércio e checkout agêntico entram só como <strong>consequência</strong> (é objeto do tema 5). O objeto aqui é a web como plataforma sendo reprojetada para máquinas.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p><strong>O que já existe e funciona.</strong></p>
+<ul><li><strong>MCP como conector de fato.</strong> 97 milhões de downloads mensais de SDK em março de 2026, contra 100 mil no lançamento — dezesseis meses para uma escala que o React levou cerca de três anos para atingir [2]. A especificação candidata de 28/07/2026 remove o handshake de <code>initialize</code> e o header <code>Mcp-Session-Id</code>, tornando o núcleo <em>stateless</em>: qualquer requisição pode cair em qualquer instância, e roteamento sticky deixa de ser necessário [3]. Extensões ganham governança formal, com MCP Apps (UI HTML servida pelo servidor) e Tasks como as duas primeiras oficiais [3].</li><li><strong>Bloqueio e cobrança na borda.</strong> Em 15/09/2026 a Cloudflare passou a bloquear por padrão crawlers de treino e de agente em páginas com anúncio, para clientes novos, sites novos de clientes antigos e toda a base gratuita; o Pay Per Crawl virou <strong>Pay Per Use</strong>, em que o publisher é pago quando o conteúdo aparece na resposta, não quando o bot busca a página [1]. Justificativa declarada: mais da metade do tráfego de crawler rebaixa páginas que não mudaram [1][10].</li><li><strong>Pagamento por requisição.</strong> O x402 opera o código 402 que a especificação original do HTTP deixou reservado e nunca implementou: o servidor responde 402 com termos, o cliente assina uma autorização de transferência e repete a requisição; na Base, a ida e volta fecha em três a quatro segundos, sem conta e sem aprovação humana [pesquisa de busca, não aberto — ver §8].</li><li><strong>Identidade de agente em produção antes da norma.</strong> Web Bot Auth continua <em>individual Internet-Draft</em>, não adotado por grupo de trabalho do IETF em agosto de 2026 — e mesmo assim já roda em Cloudflare, AWS, Akamai e Vercel [busca; ver §8].</li><li><strong>O agente dentro do navegador que a pessoa já usa.</strong> O ChatGPT Atlas foi descontinuado em 2026, com as capacidades redistribuídas para o app de desktop do ChatGPT, uma extensão de Chrome e um navegador remoto na nuvem da OpenAI; a razão declarada foi que "o navegador é uma funcionalidade, não o destino" [9]. O Project Mariner foi dobrado no Gemini Agent e no Chrome Auto Browse, e o Copilot Mode foi absorvido pelo Edge [busca; ver §8]. Sobrou o Comet como único produto autônomo entre os grandes.</li></ul>
+<p><strong>O que existe e não funciona.</strong></p>
+<ul><li><strong><code>llms.txt</code>.</strong> 10,13% de adoção num estudo de 300 mil domínios; entre os cinquenta domínios mais citados por IA, <strong>um</strong> tinha o arquivo. Um monitoramento de mais de 500 milhões de eventos de bot em janela de 90 dias encontrou apenas algumas centenas de requisições a <code>/llms.txt</code>; GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot e Google-Extended preferem o HTML. Nenhuma empresa grande de IA se comprometeu publicamente a ler o arquivo em produção, e cerca de 40% dos arquivos publicados são default gerado por plugin [4]. É o caso raro de padrão com alta menção e uso próximo de zero.</li><li><strong>Navegador agêntico como produto.</strong> Três dos quatro grandes desistiram do formato em 2026 [9].</li><li><strong>O índice para agentes.</strong> O Not Human Search existe, funciona e pontua sites de 0 a 100 em sete sinais (<code>llms.txt</code> 25 pontos, <code>ai-plugin.json</code> 20, OpenAPI 20, API estruturada 15, MCP 10, regras de IA no <code>robots.txt</code> 5, Schema.org 5) — mas a home mostra <strong>5.340 sites indexados</strong> e <strong>score médio 38</strong> [5]. É um ranking nascendo, não um ranking instalado.</li></ul>
+<p><strong>Quem está construindo.</strong> Anthropic e a Linux Foundation (MCP), Cloudflare (default de borda, Pay Per Use, Web Bot Auth), Microsoft (NLWeb, com TripAdvisor e O'Reilly como adotantes citados), Coinbase (x402), OpenAI e Google (agente por dentro do navegador), Composio/ACI.dev/Klavis (agregação de ferramentas), Not Human Search (descoberta). Na academia, um grupo com Seth Lazar e Noam Kolt argumenta que o gargalo já não é técnico: plataformas não conseguem distinguir bot malicioso de agente autorizado por um usuário, e por isso degradam ou bloqueiam os dois — falta "infraestrutura normativa", não código [8].</p>
+<p><strong>Diagnóstico de hype (Gartner só como heurística, nunca como previsão de prazo).</strong> Cobertura de demonstração: NLWeb, x402, AX como disciplina, <code>llms.txt</code>. Cobertura de adoção medida: MCP, bloqueio na borda, tráfego de bot acima de 50%, agente dentro do navegador. A separação importa: as quatro raízes aceitas na §4 saem todas da segunda coluna.</p>
+<p><strong>Nota sobre o Brasil.</strong> O país entra por um trilho que os outros não têm. Em 21/05/2026 a Iniciador lançou o que descreve como o primeiro MCP de pagamentos agênticos via Pix: o agente propõe, o usuário confere e autoriza por biometria, o Pix liquida em segundos — sem cartão tokenizado e sem stablecoin. O Pix é citado como 44% do checkout online brasileiro em 2026, com o Open Finance crescendo 59% em volume [6]. Consequência para este mapa: se a camada de pagamento por agente no Brasil é bancária, autenticada e com autorização humana por transação, o modelo "agente paga sozinho por requisição" (x402) tem aqui um concorrente institucional, e a bifurcação da web pode se dar por regra de banco central, não por default de CDN.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<p>Quatro candidatas passaram no teste <strong>"o que isso rompe, e por que agora e não há cinco anos?"</strong>. As rejeitadas estão na §6 e no anexo.</p>
+<h3 id="d1-o-protocolo-de-capacidade-expor-funcao-a-uma-maquina-fica-quase-de-graca">D1 — O protocolo de capacidade: expor função a uma máquina fica quase de graça</h3>
+<p><strong>O que rompe.</strong> A restrição N×M da integração. Até 2024, tornar um sistema utilizável por outro exigia API documentada para humanos, SDK, e um projeto por par. O MCP substitui isso por uma descrição que o agente lê em tempo de execução.</p>
+<p><strong>Por que agora.</strong> Dois limiares concretos e datados. (a) Escala: 97 milhões de downloads mensais em março de 2026 contra 100 mil no lançamento, e 41% das organizações de software pesquisadas com servidores MCP em produção limitada ou ampla [2]. (b) Custo operacional: a especificação de 28/07/2026 tornou o núcleo <em>stateless</em>, eliminando sessão fixa e store compartilhado — servir agentes em escala passa a caber atrás de um round-robin simples [3]. Há cinco anos, o equivalente exigia infraestrutura dedicada e contrato bilateral.</p>
+<p><strong>O que falta.</strong> Autorização e confiança: o RC endurece OAuth 2.0/OIDC justamente porque a parte frágil é quem pode chamar o quê [3]. E falta curadoria: dez mil ou dezessete mil servidores indexados (a contagem diverge por registro [2]) é um problema de descoberta, não uma solução.</p>
+<h3 id="d2-a-porta-paga-o-get-gratuito-deixa-de-ser-o-default">D2 — A porta paga: o GET gratuito deixa de ser o default</h3>
+<p><strong>O que rompe.</strong> O contrato implícito da web — "eu te dou a página, você me manda gente" —, que já não fecha: 23.951 páginas rastreadas por visita devolvida no caso do ClaudeBot no primeiro trimestre de 2026, 1.276 do GPTBot, 111 do PerplexityBot, contra 4,9 do Google [7].</p>
+<p><strong>Por que agora.</strong> Uma data e um trilho. A data: 15/09/2026, quando o default da maior CDN do mundo passou a <strong>bloquear</strong> treino e agente em páginas com anúncio [1]. O trilho: o x402 tornou operável um código de status que a web reservou em 1997 e nunca usou, com liquidação em segundos e sem conta — cobrar por leitura unitária deixou de exigir cadastro, fatura e gateway. Somem-se 416 bilhões de requisições bloqueadas em cinco meses de 2025 [7] e fica claro que a infraestrutura de recusa já existia; o que faltava era o de-para entre recusa e preço.</p>
+<p><strong>O que falta.</strong> Medição confiável de "apareceu na resposta" — o Pay Per Use começou com dois parceiros [1] — e uma resposta ao problema que a academia levantou: bloqueio indiscriminado atinge o agente que um usuário legítimo delegou [8].</p>
+<h3 id="d3-a-inversao-demografica-o-leitor-majoritario-da-web-nao-e-humano">D3 — A inversão demográfica: o leitor majoritário da web não é humano</h3>
+<p><strong>O que rompe.</strong> A premissa de que publicar é ser visto. Se a maioria das requisições HTML vem de programas, a página deixa de ser um artefato de atenção e vira um artefato de extração.</p>
+<p><strong>Por que agora.</strong> O cruzamento do limiar é medido e datado: 57,5% de bots contra 42,5% de humanos em requisições HTML (Cloudflare Radar, 03/06/2026); 20,3% do tráfego de bot verificado são crawlers de IA, mais 6,5% de bots de busca por IA; o propósito declarado desse tráfego se divide em 51,8% treino, 35,7% misto e 9,3% só busca [7]. Há cinco anos, bot era ruído de fundo; agora é o público.</p>
+<p><strong>O que falta.</strong> Instrumentação. Quase nenhum analytics de mercado separa leitor humano de leitor de máquina como duas audiências com valor diferente — e enquanto não separar, ninguém consegue precificar nenhuma das duas.</p>
+<h3 id="d4-o-agente-embutido-adocao-sem-ato-de-instalacao">D4 — O agente embutido: adoção sem ato de instalação</h3>
+<p><strong>O que rompe.</strong> A barreira de adoção. Enquanto agente era um navegador novo, a difusão dependia de alguém trocar de navegador. Ao virar funcionalidade do Chrome, do Edge e do app do ChatGPT, a base agêntica cresce por atualização, não por decisão.</p>
+<p><strong>Por que agora.</strong> 2026 foi o ano em que o formato "produto separado" foi abandonado pelos três maiores: Atlas descontinuado com as capacidades redistribuídas para o app e uma extensão de Chrome [9], Mariner dobrado no Gemini Agent e no Chrome Auto Browse, Copilot Mode absorvido pelo Edge [busca; ver §8]. A frase da OpenAI — "o navegador é uma funcionalidade, não o destino" [9] — é a declaração do limiar.</p>
+<p><strong>O que falta.</strong> A régua de quando o agente pode agir sozinho, e o que acontece quando ele chega com a sessão autenticada do próprio usuário. Aí o bloqueio na borda (D2) colide de frente com o agente embutido (D4): o site está bloqueando o próprio cliente logado.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — O protocolo de capacidade (MCP): expor função a uma máquina fica quase de graça&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;Integrar uma capacidade a um agente deixa de ser projeto de engenharia e vira ato de publicação.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;O site institucional deixa de ser o ponto único de presença digital: a organização publica também um endpoint de capacidade.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;A presença digital passa a ser auditada por score de prontidão agêntica, e não por posição em ranking de busca.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;O catálogo de ferramentas ocupa a função que o diretório e o buscador tiveram: é onde o agente descobre o que existe.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Entrar no catálogo vira ato comercial, com taxa de listagem e disputa paga por posição no índice consultado por agentes.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;A interface gráfica perde a exclusividade de expor uma função e passa a disputar com a descrição da ferramenta.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Equipes de produto tratam a descrição de ferramenta como peça de design, com teste A/B de nome, parâmetro e mensagem de erro.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;Consolida-se o papel de designer de superfície agêntica, com métrica própria: taxa de chamada correta na primeira tentativa.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Funções que só existiam como fluxo de telas são reescritas como operações atômicas chamáveis fora de ordem.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;Produtos perdem o poder de conduzir o usuário por uma narrativa, e onboarding, upsell e educação embutida somem do caminho.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;O núcleo sem estado derruba o custo de operar servidor de capacidade em escala horizontal.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Servir agentes entra no plano básico de hospedagem, sem infraestrutura dedicada.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Prontidão agêntica vira padrão de fábrica de CMS e construtores de site, deixando de ser escolha editorial consciente.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;Com servidores abundantes, o gargalo deixa de ser a existência da capacidade e passa a ser a curadoria de qual usar.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;Agentes convergem para poucos agregadores confiáveis, e a intermediação se concentra como se concentrou na busca.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;D2 — A porta paga: bloqueio por default na borda e pagamento por requisição&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;O GET gratuito deixa de ser o comportamento padrão da web para clientes identificados como máquina.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;Acesso de máquina passa a ser negociado por contrato bilateral ou por preço unitário de requisição.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Forma-se um mercado de conteúdo legível por máquina com cotação variável por frescor, exclusividade e taxa de citação.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;A borda decide quem lê a web, e a política efetiva de acesso deixa de estar com quem publica.&quot;
+            sinal: medio
+            prazo: 2027
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;A mudança de default de três ou quatro provedores de infraestrutura passa a valer mais que a política declarada de milhões de sites.&quot;
+                sinal: medio
+                prazo: 2029
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;Publishers trocam a métrica de audiência: da visita recebida para a citação usada em resposta.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;A redação passa a produzir para ser citada, e não para ser clicada.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Formatos pouco citáveis — ensaio longo, reportagem imersiva, interativo — perdem verba mesmo com leitura humana intacta.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: &quot;O rastreamento de citação vira infraestrutura obrigatória e cria dependência de quem faz a medição.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: &quot;Auditoria independente de citação vira exigência contratual, como foi a auditoria de circulação na imprensa impressa.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: &quot;Micropagamento entre máquinas torna viável cobrar por leitura unitária sem cadastro nem fatura.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;Conteúdos e APIs de cauda longa, inviáveis por assinatura, recuperam modelo de receita.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Surge uma web de nicho paga por uso, invisível para humanos e alcançável apenas por agente.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;Operar um agente passa a ter custo variável mensurável por tarefa, e não apenas assinatura fixa.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;A desigualdade de acesso deixa de ser ter ou não ter agente e passa a ser quanto orçamento por consulta cada um tem.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;D3 — A inversão demográfica: o leitor majoritário da web não é humano&quot;
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: &quot;O principal leitor de uma página é um programa, e a métrica de sucesso descola da atenção humana.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Publicidade baseada em impressão perde lastro exatamente nas páginas mais lidas por máquina.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;O inventário publicitário migra para dentro da resposta do agente, e a disputa passa a ser por posição em resposta, não por espaço em página.&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: &quot;O design visual vira camada opcional de um conteúdo cuja versão canônica é estruturada.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: &quot;Sites mantêm duas árvores de conteúdo com custo dobrado de manutenção, e a versão humana envelhece primeiro.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: &quot;A medição de audiência se parte em dois públicos com relatórios e preços distintos: humano e de máquina.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: &quot;Contratos de mídia passam a exigir declaração da proporção entre leitura humana e leitura de agente.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: &quot;Audiência humana verificada vira selo pago, e a verificação custa mais que o inventário barato que ela certifica.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e8.2
+            ordem: 2
+            efeito: &quot;A fraude publicitária migra da simulação de humano para a simulação de agente legítimo.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e8.2.1
+                ordem: 3
+                efeito: &quot;Assinatura criptográfica de agente vira pré-requisito comercial, e tráfego não assinado é tratado como sem valor.&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: &quot;Marcação semântica e dados estruturados deixam de ser dever de acessibilidade e viram requisito comercial, porque são o que o agente lê.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: &quot;O investimento em HTML semântico cresce por razão econômica, não por razão ética ou legal.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: &quot;Usuários de leitor de tela colhem a melhoria como efeito colateral, e a pauta de acessibilidade perde argumento próprio ao ser absorvida pela pauta de agentes.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;D4 — O agente embutido: adoção sem ato de instalação&quot;
+    efeitos:
+      - id: e10
+        ordem: 1
+        efeito: &quot;O agente deixa de exigir instalação e passa a vir junto com o navegador e o aplicativo que a pessoa já usa.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: &quot;A base agêntica cresce por atualização de software, mais rápido que a disposição de qualquer site a se adaptar a ela.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: &quot;Sites recebem agentes portando sessão humana autenticada, e bloquear o agente passa a significar bloquear o próprio cliente.&quot;
+                sinal: medio
+                prazo: 2029
+                confianca: baixa
+          - id: e10.2
+            ordem: 2
+            efeito: &quot;Quem controla o navegador controla a camada onde agente e site negociam acesso.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e10.2.1
+                ordem: 3
+                efeito: &quot;A regra sobre quais sites o agente pode operar vira política de plataforma, fora do alcance do publisher e do próprio usuário.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+      - id: e11
+        ordem: 1
+        efeito: &quot;A visita perde função como unidade de medida: uma tarefa atravessa vários sites sem render página vista a nenhum deles.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: &quot;A jornada de leitura e de compra deixa de ser observável pelo site individual.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: &quot;Marcas perdem a relação direta com o público e passam a depender de como o agente as descreve para ele.&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+          - id: e11.2
+            ordem: 2
+            efeito: &quot;Visitar um site deixa de ser um gesto corriqueiro no vocabulário de quem entra na internet agora.&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e11.2.1
+                ordem: 3
+                efeito: &quot;A web aberta continua existindo tecnicamente, mas o acesso direto a ela vira prática de nicho, como o feed RSS depois das redes sociais.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<p><strong>O que o bloco não diz sozinho.</strong></p>
+<p>Primeiro: <strong>as quatro raízes não são independentes, e duas delas se contradizem em campo.</strong> D2 fecha a porta ao agente; D4 faz o agente chegar por dentro, com a sessão do usuário. O efeito <code>e10.1.1</code> é o ponto exato da colisão, e é dele que sai a pergunta prática de 2028: <em>bloquear máquina</em> deixa de ser uma política técnica e vira uma política de atendimento ao cliente. A literatura já nomeou isso como falta de infraestrutura normativa [8] — e o mapa mostra por que a solução não pode ser puramente técnica: nenhum cabeçalho distingue "agente que veio te espremer" de "agente que sua leitora delegou".</p>
+<p>Segundo: <strong>a árvore de D3 é a que mexe com quem projeta mídia.</strong> <code>e7.1.1</code> (o anúncio migra para dentro da resposta) e <code>e11.1.1</code> (a marca passa a depender de como o agente a descreve) descrevem a mesma perda por dois caminhos: o intermediário deixa de ser um canal e vira um narrador. Design de interface continua existindo; o que encolhe é o <strong>espaço onde ele decide alguma coisa</strong>.</p>
+<p>Terceiro: <strong><code>e9.1.1</code> é o efeito mais desconfortável do mapa e o mais provável.</strong> Acessibilidade ganha investimento — por motivo errado. Se o argumento econômico é o agente, então quando o agente aprender a ler layout visual sem ajuda (o que já faz), o investimento some, e a pauta volta ao ponto de partida com um argumento a menos.</p>
+<p>Quarto: <strong>o que este bloco deliberadamente não tem.</strong> Nenhum efeito de quarta ordem, por regra do formato. Os fios que ficaram puxando — soberania de índice agêntico por país, litígio sobre bloqueio de agente delegado como restrição de concorrência, o agente que negocia preço de acesso em nome do leitor — foram para a §6 e para o anexo.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Candidatas rejeitadas como raiz, mantidas no radar.</strong></p>
+<ul><li><strong><code>llms.txt</code>.</strong> Emergente que talvez nunca emerja. 10,13% de adoção, 97% dos arquivos sem uma única requisição no mês estudado, nenhum compromisso público de leitura em produção por grande fabricante, 40% gerados por plugin [4]. Falha o teste de limiar: não há custo que caiu nem capacidade que apareceu — há um arquivo que quase ninguém lê. Fica no radar porque é barato e, se um fabricante grande anunciar leitura em produção, vira infraestrutura da noite para o dia.</li><li><strong>NLWeb.</strong> Toda instância pode agir como servidor MCP, expondo <code>/ask</code> e <code>/mcp</code> sobre Schema.org, RSS e sitemap. Adotantes citados: TripAdvisor, O'Reilly. Ainda é cobertura de demonstração.</li><li><strong>Not Human Search.</strong> 5.340 sites, score médio 38, sete sinais ponderados [5]. É o PageRank da era dos agentes em escala de protótipo — e o fato de o score dar 25 pontos ao <code>llms.txt</code>, o sinal com menor uso comprovado, sugere que a régua foi desenhada pelo discurso e não pelo comportamento medido dos crawlers.</li><li><strong>Web Bot Auth.</strong> Em produção antes de ser norma. Não entra como raiz por fronteira com o tema 2.</li><li><strong>MCP Apps.</strong> A extensão que deixa o servidor devolver HTML renderizado ao agente [3]. É o começo de uma interface gráfica que a <em>ferramenta</em> controla, dentro do chat — o inverso de tudo o que este mapa descreve. Se pegar, a interface volta, mas hospedada por quem serve a capacidade.</li></ul>
+<p><strong>Wildcards.</strong></p>
+<ol><li><strong>O portal que fecha e ninguém nota</strong> (baixa probabilidade, alto impacto). Um grande portal bloqueia todo agente, a audiência humana não cai, e a notícia vira que <em>não faz diferença</em>. Isso destruiria a tese de poder de barganha dos publishers e congelaria o Pay Per Use. Sinal precoce: publishers descrevendo agente como "um problema de 3%" — já dito em 2026 [10].</li><li><strong>O agente aprende a não precisar de nada disso.</strong> Se ler pixel e operar interface humana ficar mais barato que negociar protocolo, toda a camada agent-ready (<code>llms.txt</code>, OpenAPI, MCP para conteúdo) vira investimento perdido, e a web "para máquinas" some por irrelevância — não por fracasso. A retirada dos navegadores agênticos como produto autônomo [9] é ambígua aqui: pode significar consolidação, pode significar que a navegação visual já basta.</li><li><strong>Regulação de agente delegado.</strong> Uma corte decide que bloquear o agente de um usuário autenticado é restringir o usuário, e não o bot. A tese jurídica já está escrita [8]. Inverteria D2 inteira em um ano.</li><li><strong>Bifurcação por jurisdição, não por protocolo.</strong> No Brasil, o trilho agêntico de pagamento nasce bancário e com biometria por transação [6]. Se o Banco Central tratar agente como iniciador regulado, o país pode ter uma web agêntica <em>autorizada</em>, incompatível com o modelo de agente anônimo pagando por requisição — e a incompatibilidade vira barreira comercial.</li></ol>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Extrapolação linear — qual efeito é só o presente, só que mais.</strong> <code>e5.1</code> ("a redação produz para ser citada") é continuação direta de uma curva que já roda desde a chegada dos resumos de IA na busca; não há descontinuidade, só mais do mesmo. Rebaixado de <code>confianca: alta</code> para <code>media</code> na revisão. <code>e9.1</code> também é linear: dados estruturados crescem há quinze anos. O efeito genuinamente descontínuo dessa subárvore é <code>e9.1.1</code>, e ele é o menos confiável. Pior caso de linearidade: <code>e4.1.1</code>, o "mercado de conteúdo legível por máquina com cotação". Isso assume que um mercado com preço se forma porque a cobrança ficou tecnicamente possível — e mercados de conteúdo com preço unitário fracassaram repetidas vezes (micropagamento de notícia, 2009–2015). Mantido em <code>confianca: baixa</code> por isso, não por incerteza de prazo.</p>
+<p><strong>2. Velocidade de adoção nunca vista.</strong> O mapa herda do MCP um ritmo excepcional: dezesseis meses para uma escala que o React levou cerca de três anos para atingir [2]. Usar esse ritmo como régua para os <em>outros</em> efeitos é o erro mais provável aqui. Downloads de SDK medem curiosidade de desenvolvedor, não adoção de infraestrutura por publisher. O contraexemplo está dentro do próprio tema: HTTPS por default, comparável em escopo ao que D2 propõe, levou cerca de uma década do Let's Encrypt (2016) à quase universalidade — e teve gratuidade, pressão de navegador e benefício direto de SEO a favor, nenhum dos quais existe aqui. Por isso nenhum efeito de 2ª ordem foi datado antes de 2028 e nenhum de 3ª antes de 2029. Efeito específico sob suspeita: <code>e3.1.1</code> (prontidão agêntica como padrão de fábrica de CMS até 2030). Comparável: suporte a AMP em CMS, que foi rápido justamente porque o Google condicionou visibilidade — sem uma condicionante equivalente, 2030 é otimista.</p>
+<p><strong>3. Se a disrupção não vingar — o que acontece com cada subárvore.</strong></p>
+<ul><li><strong>D1 não vinga</strong> (MCP vira mais um padrão entre três, ou é substituído por navegação visual): <code>e1</code>–<code>e3</code> e seus 12 descendentes caem quase inteiros. Sobrevive <code>e2.1</code> em forma mais fraca — a descrição de capacidade continua importando para <em>qualquer</em> protocolo. Probabilidade de não vingar: baixa, é a raiz mais sustentada por dado medido.</li><li><strong>D2 não vinga</strong> (o bloqueio na borda recua, por pressão antitruste, por contrato com grandes fabricantes ou por irrelevância comercial): <code>e4</code>–<code>e6</code> e 12 descendentes caem. Sobrevive <code>e5</code>, pois a mudança de métrica de visita para citação já está em curso por outro motivo. Probabilidade de não vingar: <strong>média-alta</strong> — é a raiz mais frágil do mapa, porque depende de comportamento de negociação, não de capacidade técnica, e o wildcard 1 mata a tese inteira.</li><li><strong>D3 não vinga</strong> (a medição está errada; separar bot de humano por requisição HTML superestima; o tráfego de máquina não se converte em perda de receita): <code>e7</code>–<code>e9</code> e 9 descendentes caem. É a raiz cuja evidência mais depende de <em>uma</em> fonte de medição (Cloudflare Radar), o que é um problema de método reconhecido aqui: a mesma empresa que mede é a que vende a solução.</li><li><strong>D4 não vinga</strong> (agentes embutidos permanecem pouco usados, como aconteceu com assistentes de voz em navegador): <code>e10</code>–<code>e11</code> e 8 descendentes caem. Sobrevive <code>e11.1</code> parcialmente, por efeito de chat, não de navegador.</li></ul>
+<p><strong>4. Viés do autor.</strong> A skill manda perguntar ao autor, não supor. <strong>Não houve autor disponível nesta rodada</strong> (execução não interativa), então a pergunta fica registrada e não respondida: <em>o tema foi escolhido por gosto, e isso está inflando o otimismo?</em> O que dá para declarar sem inventar: a zona de interesse declarada é "Agentes", o que é, por construção, um viés de seleção — quem escolhe a zona dos agentes tende a achar que agentes explicam o mundo. O viés pedido foi "neutro", e a marca desse pedido está em duas decisões visíveis: <code>llms.txt</code> foi rejeitado apesar de ser o emblema do tema, e D2 recebeu a avaliação mais pessimista de todas apesar de ser a narrativa mais vendida. Se houvesse viés otimista solto, seria o inverso.</p>
+<p><strong>Sobrevivência à contestação.</strong> Duas confianças rebaixadas (<code>e5.1</code>, <code>e4.1.1</code>), um prazo revisto (<code>e3.1.1</code> mantido mas marcado como otimista) e uma raiz declarada frágil (D2). O mapa não saiu intacto.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p><strong>1. Quase adotei <code>llms.txt</code> como disrupção-raiz — e ele é o contrário disso.</strong> O enunciado do tema abre com "<code>llms.txt</code> em vez de página", o que enquadra o arquivo como a mudança central. A primeira versão do mapa o tratava como raiz de uma árvore inteira. Só ao abrir o dado [4] o quadro virou: 10,13% de adoção, quase nenhuma requisição, um único dos cinquenta domínios mais citados por IA. O erro era plausível porque vinha do enunciado, e a correção só apareceu porque a Etapa 1 exige ancorar no presente com fonte antes de derivar efeito. Isto é exatamente o mecanismo que a disciplina está testando: sem o dado, a árvore de terceira ordem de <code>llms.txt</code> teria saído bonita e inteiramente ficcional.</p>
+<p><strong>2. Citei números que não abri.</strong> Três afirmações do §3 vêm de resumo de busca, não de página aberta, e estão marcadas no texto: (a) os detalhes do ciclo de quatro passos do x402 e a liquidação em três a quatro segundos na Base; (b) o estado dos drafts de Web Bot Auth no IETF em agosto de 2026 e o uso em produção por Cloudflare, AWS, Akamai e Vercel; (c) o destino do Project Mariner e do Copilot Mode. <strong>Não verificado — precisam de confirmação antes de entrega final.</strong> Nenhuma delas sustenta sozinha uma disrupção-raiz; a raiz D4 se apoia no TechCrunch [9], que foi aberto.</p>
+<p><strong>3. Uma fonte recusou a leitura e eu quase usei mesmo assim.</strong> O relatório <em>State of Agentic Traffic</em> (HUMAN Security, julho de 2026) apareceu na busca com números atraentes — Comet com 47,6% do tráfego agêntico em junho de 2026, mídia ultrapassando e-commerce com 43,5%. A página devolveu <strong>HTTP 403</strong>. Esses números <strong>não entraram</strong> em nenhuma seção do mapa nem na lista de fontes. Fica o registro porque a tentação foi real: eram os únicos dados de distribuição de agente por produto.</p>
+<p><strong>4. Uma contagem que não bate, e que ninguém notaria.</strong> O enunciado da disciplina descreve o Not Human Search como indexando "9.000+ ferramentas e APIs"; o README do projeto no GitHub diz "8.000+ sites"; a home, aberta em 18/09/2026, mostra <strong>5.340</strong> [5]. Três números para a mesma coisa. Ou o índice encolheu, ou os materiais promocionais correm à frente do índice. Adotei o número da home por ser o único que li na fonte primária, e sinalizo a divergência em vez de escolher o maior.</p>
+<p><strong>5. Um viés de fonte que atravessa o mapa inteiro.</strong> Boa parte das evidências quantitativas de D2 e D3 — participação de bot no tráfego, razão crawl-por-referência, propósito do crawler, requisições bloqueadas — vem da <strong>Cloudflare</strong>, direta ou indiretamente [1][7][10]. A Cloudflare é, ao mesmo tempo, a maior fonte de medição e a vendedora do produto que a medição justifica. Não há aqui uma segunda medição independente em escala comparável, e isso deveria rebaixar a confiança de D3 mais do que rebaixei.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p><strong>Provável.</strong> Em 2031 a web não se partiu em duas; ela ganhou uma segunda pele. Quase todo site grande passou a servir, sem alarde, uma versão estruturada de si mesmo — não por convicção, mas porque veio ligada por padrão no CMS. O MCP virou encanamento invisível, como o DNS: ninguém comemora, todo mundo depende. A cobrança por acesso de máquina existiu, mas se concentrou em algumas dezenas de acordos bilaterais entre grandes fabricantes e grandes editoras; o mercado aberto de preço por requisição nunca chegou à cauda longa, e os sites pequenos ficaram com a pior combinação possível — rastreados de graça, sem tráfego de volta e sem poder de negociar. A publicidade de display não morreu: encolheu para os espaços onde ainda há olhos, e o dinheiro novo foi para dentro da resposta do agente, num mercado de citação com três compradores. "Visitar um site" ainda é uma frase compreensível, mas já soa como "consultar a enciclopédia": correta, um pouco datada.</p>
+<p><strong>Desejável.</strong> Em 2031 existe uma distinção que em 2026 não existia: agente <em>delegado</em> e agente <em>extrativo</em> são coisas diferentes, e a diferença é legível na requisição. Isso não foi conquistado por um padrão técnico sozinho — exigiu que o desenho normativo andasse junto do protocolo: uma adoção real de assinatura de agente em grupo de trabalho aberto, e não em acordo entre quatro empresas de infraestrutura; uma regra que trata bloquear o agente de um usuário autenticado como bloquear o usuário; uma medição de tráfego de máquina feita por quem não vende a solução; e uma contrapartida de acesso que vale para o site pequeno, não só para quem tem advogado. Para chegar aqui, foi preciso que quem projeta mídia parasse de tratar a camada agêntica como assunto de infraestrutura e a tratasse como assunto de design: quem escreve a descrição de uma capacidade está escrevendo a interface, e essa peça passou a ter dono, teste e revisão. O ganho colateral foi o mais concreto: a web ficou mais semântica para todo mundo, inclusive para quem usa leitor de tela.</p>
+<p><strong>Indesejável.</strong> Em 2031 ler a web sem intermediário virou privilégio. A porta fechou por default e abriu por contrato; quem negocia acesso são quatro fabricantes de agente e três provedores de borda, e o resto do mundo lê o que eles resolveram sintetizar. A audiência humana dos sites que restaram não caiu o bastante para ninguém reagir — foi essa a armadilha: a perda não apareceu no gráfico de tráfego, apareceu na perda lenta da capacidade de chegar a alguém. Publicidade migrou para dentro das respostas e reconstituiu, em dois anos, o mesmo mercado de posição paga que a busca levou vinte para construir, agora sem inspeção possível: ninguém vê o anúncio que não recebeu. Quem não paga o agente lê uma web mais lenta, mais bloqueada e mais pobre que a de 2026. <strong>O sinal precoce disso já está publicado:</strong> em 2026, executivos de publishers chamavam o agente de "um problema de 3%" e diziam ter "problemas de 10% com que se preocupar" [10]. O cenário indesejável não começa com uma decisão ruim; começa com uma proporção pequena demais para merecer decisão.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> Um <strong>site-espelho instrumentado</strong>: uma página real de conteúdo publicada em duas versões servidas na mesma URL, negociadas por cabeçalho e por identidade do cliente — a versão humana (HTML completo, com anúncio simulado e layout) e a versão agêntica (Markdown estruturado mais um servidor MCP mínimo com duas ou três ferramentas de consulta ao mesmo conteúdo). Em volta, três instrumentos: um log que classifica cada requisição (humano, crawler declarado, agente embutido com sessão de usuário), um medidor de custo por leitura, e um <em>harness</em> que faz agentes comerciais executarem a mesma tarefa de leitura pelas duas portas.</p>
+<p><strong>Que pergunta sobre o futuro ele responde.</strong> A pergunta de 1ª ordem que sustenta metade deste mapa: <strong>o agente lê a porta que foi feita para ele, ou lê o HTML mesmo assim?</strong> O dado disponível [4] diz que ele ignora <code>llms.txt</code>; ninguém testou isso de forma controlada com um site que oferece a porta <em>boa</em> — MCP, não só um arquivo de texto. E uma segunda: <strong>o que o agente devolve ao humano difere conforme a porta?</strong> Se a resposta gerada a partir da versão estruturada for melhor, existe argumento econômico para manter duas árvores (<code>e7.2</code>); se for igual, <code>e7.2.1</code> (custo dobrado, versão humana envelhecendo) vira o cenário realista.</p>
+<p><strong>Que tecnologia emergente usa, e por que não dá com tecnologia madura.</strong> Usa MCP com o núcleo sem estado [3], negociação de acesso por identidade de agente e, opcionalmente, um endpoint com resposta 402 para medir a reação dos agentes a uma cobrança. Não dá para fazer com API REST e analytics clássico porque o objeto do teste <strong>é a diferença entre duas superfícies de leitura para o mesmo conteúdo</strong> — analytics maduro não distingue agente delegado de crawler, e uma API REST não é uma porta que um agente comercial descobre sozinho em tempo de execução. É justamente a descoberta em runtime que está sendo medida.</p>
+<p><strong>O que a turma faria testando em sala.</strong> Cada dupla assume um papel: uma publica (escolhe o que vai na versão agêntica e o que fica de fora), outra opera o agente (tarefa definida: "ache o preço, o prazo e a ressalva"), outra é o leitor humano fazendo a mesma tarefa com cronômetro. Mede-se: tempo, número de requisições, custo, e — o mais interessante para mídia — <strong>o que se perde na tradução</strong>: que parte do texto o agente nunca repete de volta ao humano. Uma rodada seguinte liga o bloqueio por default e a resposta 402, e a turma observa o que o agente faz quando a porta fecha: desiste, tenta o HTML, ou paga.</p>
+<p><strong>O que mudaria a opinião do autor.</strong> Foi declarado no recorte e vale como critério de refutação deste mapa inteiro: (a) evidência de que a adoção já passou da maioria inicial na curva de Rogers — aí não é tendência emergente, é campo maduro e o mapa está atrasado; (b) evidência de que a tecnologia não rompe nada, só melhora o que existe — se o agente lê o HTML humano igualmente bem e a economia da página não muda, então "internet agêntica" é um nome novo para crawler antigo, e as quatro raízes caem juntas. O experimento acima é desenhado para produzir exatamente esses dois sinais.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Lista apenas do que foi <strong>de fato aberto e lido</strong> nesta sessão, em 18/09/2026.</p>
+<ol><li><strong>TechCrunch — "Cloudflare's new policy pushes AI companies to pay for publishers' content"</strong> (01/07/2026) <code>https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/</code> Sustenta: o default de bloqueio de 15/09/2026, o escopo (clientes novos, sites novos, base gratuita), a transição de Pay Per Crawl para Pay Per Use, e o dado de que mais de 50% do tráfego de crawler rebusca páginas inalteradas. Confiabilidade: alta como registro do anúncio; os números citados são da própria Cloudflare, parte interessada.</li></ol>
+<ol><li><strong>Digital Applied — "MCP Adoption Statistics 2026"</strong> (via resultado de busca com números atribuídos e datados) <code>https://www.digitalapplied.com/blog/mcp-adoption-statistics-2026-model-context-protocol</code> Sustenta: 97 milhões de downloads mensais de SDK, comparação com o React, 41% das organizações pesquisadas com MCP em produção, divergência de contagem de servidores entre registros. Confiabilidade: média — é agregador secundário; os números remetem a Anthropic, Nerq, Stacklok e ao registro oficial, e deveriam ser reconferidos na fonte primária antes de citação acadêmica.</li></ol>
+<ol><li><strong>Blog do Model Context Protocol — "The 2026-07-28 MCP Specification Release Candidate"</strong> (28/07/2026) <code>https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/</code> Sustenta: núcleo sem estado (remoção de <code>initialize</code> e <code>Mcp-Session-Id</code>), framework de extensões com MCP Apps e Tasks, endurecimento de OAuth 2.0/OIDC, política de ciclo de vida com 12 meses entre depreciação e remoção. Confiabilidade: alta — fonte primária da especificação.</li></ol>
+<ol><li><strong>GeoJacker — "llms.txt: What the 2026 Data Actually Shows"</strong> <code>https://geojacker.com/llms-txt</code> Sustenta: 10,13% de adoção em 300 mil domínios (SE Ranking), apenas 1 dos 50 domínios mais citados por IA com o arquivo, poucas centenas de requisições a <code>/llms.txt</code> em 500 milhões de eventos de bot em 90 dias (Limy.ai), ~40% de arquivos gerados por plugin (Web Almanac 2025). Confiabilidade: média-alta — compila estudos de terceiros identificados e datados; a leitura crítica é do próprio autor.</li></ol>
+<ol><li><strong>Not Human Search — home</strong> (aberta em 18/09/2026) <code>https://nothumansearch.ai/</code> Sustenta: 5.340 sites indexados, score médio 38, os sete sinais de prontidão agêntica e a afirmação de que o rank orgânico não é pago. Confiabilidade: alta para o que é (autodescrição de um serviço em operação), nula como medida do estado da web.</li></ol>
+<ol><li><strong>Let's Money — "Iniciador lança o primeiro MCP de pagamentos agênticos via Pix"</strong> (21/05/2026) <code>https://www.letsmoney.com.br/pagamentos/iniciador-lanca-o-primeiro-mcp-de-pagamentos-agenticos-via-pix/</code> Sustenta: a nota sobre o Brasil — MCP de Pix com autorização biométrica por transação, Pix em 44% do checkout online, Open Finance +59% em volume, parceiros citados. Confiabilidade: média — cobertura de lançamento, números fornecidos pela empresa.</li></ol>
+<ol><li><strong>Digital Applied — "AI Crawler &amp; Bot Traffic Statistics 2026: Key Data"</strong> <code>https://www.digitalapplied.com/blog/ai-crawler-bot-traffic-statistics-2026-data-reference</code> Sustenta: 57,5% bots contra 42,5% humanos em requisições HTML (Cloudflare Radar, 03/06/2026); 20,3% de crawlers de IA e 6,5% de bots de busca por IA no tráfego verificado; razões crawl-por-referência (ClaudeBot 23.951:1, GPTBot 1.276:1, Perplexity 111:1, Google 4,9:1); 416 bilhões de requisições bloqueadas em cinco meses; divisão de propósito 51,8% treino / 35,7% misto / 9,3% busca. Confiabilidade: média — compilação com fonte e data por linha, e ressalva explícita do próprio autor de que tráfego de app nativo sem <code>Referer</code> pode exagerar as razões. <strong>A dependência de Cloudflare como origem quase única está anotada na §8.</strong></li></ol>
+<ol><li><strong>arXiv 2606.10711 — "The Agentic Web Requires New Normative Infrastructure"</strong>, Pattison, Boulos, Kolt, Li, Piccardi e Lazar (submetido 09/06/2026, revisado 15/07/2026) <code>https://arxiv.org/abs/2606.10711</code> Sustenta: o argumento de que o obstáculo é normativo e não técnico; plataformas não distinguem bot malicioso de agente delegado e degradam os dois de forma encoberta. Confiabilidade: alta como posição argumentada de pesquisadores identificados; é ensaio normativo, não estudo empírico.</li></ol>
+<ol><li><strong>TechCrunch — "OpenAI is shutting down Atlas, but its AI browser ambitions are still growing"</strong> (09/07/2026) <code>https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/</code> Sustenta: o encerramento do Atlas, a redistribuição para app de desktop, extensão de Chrome e navegador remoto na nuvem, e a formulação "o navegador é uma funcionalidade, não o destino". Confiabilidade: alta. Ressalva: o artigo não traz a data exata do desligamento nem números de uso.</li></ol>
+<ol><li><strong>Digiday — "No playbook, just pressure: Publishers eye the rise of agentic browsers"</strong> <code>https://digiday.com/media/no-playbook-just-pressure-publishers-eye-the-rise-of-agentic-browsers/</code> Sustenta: o "problema de 3%", a ausência de manual entre publishers, a migração de ad stack para server-side via Trusted Server (IAB), e a fala de Anthony Katsur sobre "cavalo de Troia". Confiabilidade: alta para captar postura do setor; não traz dado quantitativo de perda.</li></ol>
+<ol><li><strong>Cientistas Digitais — "15 de setembro: o dia em que parte da web fecha a porta para os robôs de IA"</strong> <code>https://cientistasdigitais.com/tecnologia-e-inovacao/15-de-setembro-o-dia-em-que-parte-da-web-fecha-a-porta-para-os-robos-de-ia</code> Sustenta: leitura em português da mudança de default e o dado de que, com resumo de IA na busca, o clique em resultado tradicional cai para 8% das buscas, metade da taxa sem resumo. Confiabilidade: média — veículo secundário; <strong>conferido que não traz recorte brasileiro</strong>, ao contrário do que o título sugeria.</li></ol>
+<p><strong>Citadas na busca e NÃO abertas — não verificadas:</strong> x402.org e cobertura do x402 (ciclo de quatro passos, três a quatro segundos na Base); drafts <code>draft-meunier-*</code> de Web Bot Auth no IETF Datatracker e a afirmação de uso em produção por Cloudflare/AWS/Akamai/Vercel; Wikipedia e cobertura sobre Project Mariner e Copilot Mode; HUMAN Security, <em>State of Agentic Traffic</em> (HTTP 403 na tentativa de leitura); agentexperience.ax (aberto, mas conceitual — nada quantitativo aproveitado). Nenhuma delas sustenta sozinha uma disrupção-raiz.</p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-etapa-0-a-entrevista-como-foi-respondida">12.1 Etapa 0 — a entrevista, como foi respondida</h3>
+<p>Execução não interativa: não havia autor disponível para responder. As respostas abaixo foram fornecidas junto com a tarefa e tratadas como resposta de entrevista; nenhuma foi inventada em silêncio, e as lacunas estão declaradas.</p>
+<ul><li><strong>Tema e recorte:</strong> "A internet agêntica: quando o usuário é uma máquina". Tema 4 de 19 da disciplina, família "Agentes". Sem recorte mais estreito pedido.</li><li><strong>Descartado de início:</strong> o que já é comum em produto de massa (régua da disciplina). Nenhuma outra exclusão. Fronteiras de vizinhança respeitadas por conta própria: identidade/detecção de agente é tema 2 e entra só como habilitador; comércio agêntico é tema 5 e entra só como consequência.</li><li><strong>Horizonte:</strong> 2031.</li><li><strong>Público:</strong> quem projeta mídia e interação.</li><li><strong>Recorte geográfico:</strong> global, com nota sobre o Brasil.</li><li><strong>Viés desejado:</strong> neutro.</li><li><strong>Zona de interesse:</strong> Agentes. <strong>Login:</strong> jgpt. <strong>Skill:</strong> futurizacao-jgpt.</li><li><strong>Disrupção suspeita a priori:</strong> nenhuma — instrução explícita de descobrir.</li><li><strong>Critério de mudança de opinião:</strong> adoção além da maioria inicial (Rogers), ou tecnologia que só melhora o existente sem romper restrição.</li><li><strong>Perguntas da Etapa 4 que ficaram SEM resposta:</strong> a pergunta de viés do autor (§7, item 4). A skill proíbe inventar a resposta pelo usuário; fica registrada como limitação conhecida deste documento.</li></ul>
+<h3 id="12-2-etapa-2-o-teste-de-maturidade-aplicado-a-cada-candidata">12.2 Etapa 2 — o teste de maturidade aplicado a cada candidata</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Candidata</th><th>Veredito</th><th>Limiar concreto / motivo</th></tr></thead><tbody><tr><td>Model Context Protocol</td><td><strong>Disruptiva (D1)</strong></td><td>100 mil → 97 mi downloads/mês em 16 meses; núcleo sem estado em 28/07/2026 derruba custo de operação horizontal</td></tr><tr><td>Bloqueio por default na borda + Pay Per Use</td><td><strong>Disruptiva (D2)</strong></td><td>15/09/2026, default invertido na maior CDN; razão crawl/referência de 23.951:1 torna o contrato antigo insustentável</td></tr><tr><td>Bots &gt; humanos no tráfego HTML</td><td><strong>Disruptiva (D3)</strong></td><td>57,5% / 42,5% medido em 03/06/2026 — o limiar de 50% foi cruzado e é datável</td></tr><tr><td>Agente embutido no navegador incumbente</td><td><strong>Disruptiva (D4)</strong></td><td>Em 2026 os três maiores abandonaram o navegador agêntico como produto e embutiram a função; adoção deixa de exigir instalação</td></tr><tr><td><code>llms.txt</code></td><td><strong>Rejeitada</strong> (emergente que talvez nunca emerja)</td><td>10,13% de adoção, ~0 requisições, nenhum compromisso de leitura em produção; nenhum limiar identificável</td></tr><tr><td>x402 / HTTP 402</td><td><strong>Rejeitada como raiz; entra como mecanismo dentro de D2</strong></td><td>Funciona, mas não há evidência aberta de uso em escala; sozinho não inverte nada — quem inverteu foi o default da borda</td></tr><tr><td>Web Bot Auth / assinatura de agente</td><td><strong>Rejeitada por fronteira (tema 2)</strong></td><td>Habilitador de D2 e D3; entra como mecanismo em <code>e8.2.1</code></td></tr><tr><td>NLWeb</td><td><strong>Emergente</strong></td><td>Adotantes citados, mas cobertura de demonstração; nenhum limiar de custo ou capacidade</td></tr><tr><td>Not Human Search / índice agêntico</td><td><strong>Emergente</strong></td><td>5.340 sites e score médio 38: ranking nascendo, não instalado</td></tr><tr><td>AX como disciplina de design</td><td><strong>Emergente</strong></td><td>Discurso consolidado (sites, guias, previsão de "agent search engine optimization"), prática não medida</td></tr><tr><td>APIs REST, SDKs, scraping, Schema.org, <code>robots.txt</code>, SEO clássico</td><td><strong>Maduras — rejeitadas</strong></td><td>Se sumissem amanhã, o campo não voltaria a cinco anos atrás; são piso, não disrupção</td></tr><tr><td>MCP Apps (UI servida pelo servidor)</td><td><strong>Emergente, com potencial de inverter o mapa</strong></td><td>Devolve interface gráfica ao jogo, hospedada por quem serve a capacidade; sem adoção medida</td></tr><tr><td>Pix agêntico / Open Finance (Brasil)</td><td><strong>Emergente regional</strong></td><td>Lançamento de 21/05/2026, trilho institucional distinto; vira wildcard 4</td></tr></tbody></table></div>
+<h3 id="12-3-efeitos-cortados-e-por-que">12.3 Efeitos cortados, e por quê</h3>
+<ul><li><strong>"Agentes negociam preço de acesso em nome do leitor."</strong> Cortado: seria 4ª ordem a partir de <code>e4.1.1</code>, e o formato trava em três níveis. Virou insumo do wildcard 3.</li><li><strong>"Soberania de índice agêntico nacional."</strong> Cortado por ser extrapolação geopolítica sem mecanismo rastreável no material lido. Restou como sombra no wildcard 4.</li><li><strong>"O agente escreve o site."</strong> Geração de páginas por agente para consumo de agente — ouroboros de conteúdo. Cortado: pertence mais ao tema de conteúdo sintético que à web como plataforma.</li><li><strong>"Fim do domínio como unidade de identidade."</strong> Cortado por especulação livre: nada no levantamento aponta mecanismo de erosão do DNS.</li><li><strong>"Publicidade dentro do MCP (ferramenta patrocinada)."</strong> Mantido em forma reduzida dentro de <code>e1.2.1</code> (taxa de listagem). A versão forte — anúncio embutido em resultado de ferramenta — foi cortada por falta de qualquer sinal no material lido.</li><li><strong>Terceiro efeito de 2ª ordem em D3/<code>e9</code>.</strong> <code>e9</code> ficou com apenas um filho, deliberadamente: as outras derivações que apareceram ("acessibilidade vira exigência de compra pública por causa de agente") não tinham mecanismo identificável e teriam inflado a contagem sem sustentação.</li></ul>
+<h3 id="12-4-buscas-realizadas-incluindo-as-que-nao-renderam">12.4 Buscas realizadas, incluindo as que não renderam</h3>
+<p>Buscas (WebSearch): adoção de <code>llms.txt</code> em 2026; pay-per-crawl e bloqueio por default da Cloudflare; estatísticas de adoção de MCP; x402 e HTTP 402 para pagamento por requisição; Web Bot Auth no IETF; tráfego de navegador agêntico e queda de referência para publishers; Not Human Search e score de prontidão; Brasil — bloqueio de crawler, Pix e pagamento agêntico; NLWeb; AEO / <em>agent experience</em> / depreciação de UI; descontinuação do Atlas e destino do Mariner.</p>
+<p>Leituras (WebFetch) bem-sucedidas: as onze da §11. Leitura recusada: HUMAN Security, <em>State of Agentic Traffic — July 2026</em> → <strong>HTTP 403</strong>. Leitura aberta mas sem rendimento quantitativo: <code>agentexperience.ax/concepts/getting-started/</code> — define AX ("desenho e otimização de ambientes digitais para que agentes operem neles"), cita Netlify, Clerk, Neon e Convex como exemplos, não nomeia organização responsável e não traz prática prescritiva. Serviu para classificar AX como emergente, nada além disso.</p>
+<p>Buscas que não renderam o que se procurava: nenhuma fonte primária brasileira sobre <strong>bloqueio de crawler por publishers brasileiros</strong> foi encontrada — o que existe em português é cobertura da decisão global da Cloudflare. A nota sobre o Brasil, portanto, se apoia no trilho de <strong>pagamento</strong> (Pix/Open Finance), não no de acesso, e essa assimetria é uma lacuna real deste mapa, não uma escolha.</p>
+<h3 id="12-5-numeros-levantados-e-nao-usados-no-corpo-do-texto">12.5 Números levantados e não usados no corpo do texto</h3>
+<p>Guardados aqui porque podem servir a outro recorte, e porque a §12 não resume:</p>
+<ul><li>Adobe Analytics, 1º trimestre de 2026, varejo nos EUA: referência de IA crescendo 393% ano a ano, com conversão 42% melhor, receita por visita 37% maior e tempo no site 48% maior que canais não-IA [7]. Não usado porque é comércio (tema 5) e porque contradiz parcialmente a narrativa de perda — merece confronto num mapa sobre comércio agêntico.</li><li>Participação de bots nomeados nas requisições HTTP de bot de IA, maio de 2026: Googlebot 27,26%, GPTBot 11,48%, ClaudeBot 9,73% [7].</li><li><code>robots.txt</code>, 1º trimestre de 2026, crawlers mais bloqueados: GPTBot 5,52% das regras DISALLOW, CCBot 5,08%, ClaudeBot 4,88%, Google-Extended 4,44%, Bytespider 4,23% [7].</li><li>Mais de 2,5 milhões de sites bloqueando bots de treino em agosto de 2025 [7].</li><li>Similarweb: 267,4 milhões de referências de plataformas de IA nos EUA em outubro de 2025 caindo para 226,8 milhões em janeiro de 2026 (−15%) — <strong>não verificado</strong>, veio de resumo de busca.</li><li>Queda de referência de busca em dois anos: 60% para publishers pequenos, 47% médios, 22% grandes — <strong>não verificado</strong>, veio de resumo de busca.</li><li>Razão do ClaudeBot melhorando de 23.951:1 para 11.122:1 entre o 1º trimestre e a semana de 25/05–01/06/2026 [7] — o dado de melhora foi omitido do corpo por brevidade, e a omissão favorecia a tese do mapa. Fica registrado aqui por honestidade: a razão está caindo.</li></ul>
+<h3 id="12-6-conferencia-de-formato">12.6 Conferência de formato</h3>
+<p><code>grep -c "^## " tendencia-a-internet-agentica-quando-o-usuario-e-uma-maquina.md</code> deve devolver <strong>12</strong>. Frontmatter com todos os campos, sem nulo indevido. Bloco <code>roda:</code> com quatro disrupções, três níveis exatos, <code>sinal</code>, <code>prazo</code> e <code>confianca</code> preenchidos em todos os 53 efeitos (11 + 21 + 21), ids hierárquicos e únicos de <code>e1</code> a <code>e11.2.1</code>, todos redigidos como frase afirmativa. Seção 11 lista apenas fontes de fato abertas; o que não foi aberto está marcado como não verificado na §8 e no fim da §11.</p></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

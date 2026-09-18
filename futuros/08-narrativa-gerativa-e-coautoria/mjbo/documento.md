@@ -1,0 +1,1118 @@
+---
+tema: Narrativa gerativa e coautoria
+slug: narrativa-gerativa-e-coautoria
+autor_login: mjbo
+zona_de_interesse: Simulação e mundos
+data: 2026-09-17
+horizonte: 2031
+publico: Quem projeta mídia e interação
+recorte_geografico: global
+disrupcoes_raiz: 3
+efeitos_ordem_1: 7
+efeitos_ordem_2: 11
+efeitos_ordem_3: 15
+tecnologias_citadas: [MangoBox, LunaTranslator, IVIE, Elsewise, NARRA-Gym, WSE-bench, SeqBench, Ren'Py, Inform 7, Twine, YarnSpinner, Monogatari, Arrow, Dialogic, Chronicler, Fantasy-Map-Generator, AIComicBuilder, ChatTTS, Bark, Pika, Luma, Sora 2, Veo 3.1, AI Dungeon, NovelAI, Character.AI, Inworld, Steam, itch.io, IFComp]
+fontes: 16
+confianca: media
+experimento: Duas leituras da mesma obra — leitor de ficção que reescreve por leitor e registra a divergência
+skill_usada: futurizacao-mjbo
+publico_ok: false
+---
+
+## 1. Resumo
+
+O custo de produzir um artefato narrativo completo — elenco, arte, cenas, diálogo, ramificação
+— caiu de meses de equipe para minutos de prompt, e isso já é produto pago no mercado
+(MangoBox, US$ 9/mês). O mapa parte de três rupturas: a geração do artefato narrativo inteiro a
+partir de uma intenção curta; a narrativa que se reescreve por leitor, dissolvendo a ideia de
+uma obra com instância única; e a tradução sobreposta no cliente, que retira do detentor da obra
+o controle sobre em que língua ela é consumida. O que os dados de 2026 mostram é que a oferta
+disparou e a demanda não acompanhou: jogos com IA declarada saltaram de 10,9% para 30,8% dos
+lançamentos na Steam em dois anos, mas respondem por 10% a 27% das vendas. A escassez migrou de
+produzir para ser escolhido. Em paralelo, as instituições de legitimação começaram a reagir por
+regra explícita — o IFComp 2026 passou a exigir que todo conteúdo visto pelo jogador seja
+humano — enquanto o direito autoral americano já fixou que prompt sozinho não gera autoria. O
+mapa aposta que até 2031 o gargalo não é técnico, é de atenção, de prova de proveniência e de
+acordo sobre o que é "a obra" quando não há duas leituras iguais.
+
+## 2. O tema
+
+Narrativa gerativa e coautoria é a história **como coisa gerada**: o artefato narrativo inteiro
+— não um trecho, não um rascunho — produzido por um pipeline multimodal a partir de uma
+intenção curta, e a escrita humano-máquina como modo normal de trabalho, não como exceção
+assistida.
+
+Onde isso encosta em mídia e interação: o objeto da disciplina não é o texto, é a **interação
+com o texto**. Uma novela visual jogável gerada de uma frase é, ao mesmo tempo, uma peça de
+mídia (arte, som, ritmo) e uma interface (escolha, ramificação, estado). A linhagem de
+ferramentas que a disciplina levantou — Ren'Py, Monogatari, Inform 7, Twine, YarnSpinner,
+Dialogic, Arrow, Chronicler, Fantasy-Map-Generator — é exatamente uma linhagem de **ferramentas
+de autoria de interação**, e é ela que a geração está absorvendo ou transformando. A tradução
+sobreposta (LunaTranslator) é o caso extremo: a camada de interação passa por cima da obra, sem
+permissão e sem intermediário.
+
+Por que isso merece mapa de futuro e não um levantamento de estado da arte: porque a pergunta
+que o tema abre não é "quão bom está o gerador". É "o que é uma obra quando cada leitura é
+diferente", "quem é o autor quando a maior parte do artefato foi sintetizada", e "o que sobra do
+mercado de escrita quando o custo de contar tende a zero". Nenhuma dessas perguntas se responde
+medindo a tecnologia de hoje — todas dependem de como práticas, instituições e leis se
+reorganizam em torno dela, e é isso que um mapa de futuro tenta rastrear. Um levantamento de
+estado da arte diria que os modelos melhoraram; ele não diria que o IFComp mudou o regulamento,
+que a vendagem não acompanhou a oferta, nem que o Copyright Office desenhou um limite para o
+prompt.
+
+**Fronteira com os vizinhos.** O personagem que age dentro de um mundo é o tema 7. Vídeo e
+imagem *como mídia* é o tema 12. Regras procedurais (não histórias) é o tema 14. Voz e som
+gerativos são o tema 13. Aqui, o objeto é a história como artefato gerado e o que isso faz com
+autoria.
+
+## 3. Onde isso está hoje
+
+### O que já existe e funciona em produção
+
+**Geração de novela visual jogável a partir de prompt — é produto pago, hoje.** O MangoBox
+recebe uma descrição em texto (uma frase basta) e devolve uma novela jogável: retratos de
+personagem em vários estilos (anime, cyberpunk, realista), cenários, personalidades de NPC,
+conversas em grupo em que os personagens respondem ao jogador e entre si, e escolhas de diálogo.
+O plano Pro custa US$ 9/mês e inclui histórias e visualizações ilimitadas, 20 vídeos gerados por
+mês e alta resolução; o gratuito é limitado. A página é explícita sobre o que **não** oferece:
+os chats ficam no navegador e não há menção a exportação ou a jogabilidade fora da plataforma
+[1]. É uma ferramenta de navegador em HTML5, listada no itch.io — a última atualização
+registrada naquele canal é de novembro de 2024, o que sugere que o itch.io não é o canal
+principal do produto [2]. **Nenhum número público de usuários ou de histórias criadas foi
+encontrado** — anotado como lacuna, não como zero.
+
+**Declaração de IA virou dado de mercado, e o dado já conta uma história.** Sulka Haro analisou
+53.597 lançamentos da Steam entre meados de 2023 e meados de 2026: jogos com declaração de IA
+eram 10,9% dos lançamentos em 2024, 19,9% em 2025 e 30,8% em 2026. Mas a fatia de vendas
+estimadas ficou em 10% a 27% nos meses recentes — contra cerca de um terço dos lançamentos.
+(Em 2024 a fatia de vendas era de 3% a 6%, então o número subiu; o que não subiu foi a
+proporção.) A leitura do próprio estudo: os títulos bem-sucedidos usam IA em voz, localização e
+música — camadas menos visíveis —, enquanto "a enxurrada usa como substituto" e os vencedores
+usam "como multiplicador de ofício" [3]. No itch.io, a declaração é obrigatória para pacotes de
+asset e opcional para jogos, com etiquetas `AI Generated` e `No AI` filtráveis [4].
+
+**Tradução sobreposta em tempo real é software maduro e distribuído.** O LunaTranslator extrai
+o texto do jogo por *hook* (compatível com quase toda novela visual, popular ou obscura) ou por
+OCR com modelo próprio, e devolve tradução sobreposta; suporta "quase todos os motores de
+tradução, incluindo tradução por modelo de linguagem grande e tradução offline", TTS,
+reconhecimento de fala e integração com AnkiConnect e Yomitan para estudo de japonês. São 13,2
+mil estrelas no GitHub, 1,1 mil forks e 4.963 commits, sob GPLv3, com documentação em chinês,
+inglês, coreano, japonês, vietnamita e russo [5]. Isto é o ponto mais subestimado do
+levantamento: **obra em japonês consumida em outra língua sem que ninguém tenha traduzido, sem
+passar pelo detentor dos direitos, com um clique.**
+
+**Localização já reorganizou preço e trabalho.** O uso de tradução por IA em localização de jogos
+cresceu 533% no último ano; o material da Gridly reporta entrega até 80% mais rápida e custo 2 a
+4 vezes menor que o fluxo humano puro, com um modelo *human-in-the-loop* em que a IA faz a
+primeira passada e humanos revisam o que é de alto valor — diálogo de personagem, continuidade
+narrativa, adaptação cultural, humor e referência regional [6]. É fonte de fornecedor, com
+interesse comercial no número; tratei os percentuais como ordem de grandeza declarada pelo
+setor, não como medida independente.
+
+**As instituições de legitimação começaram a legislar.** O IFComp publicou em 31 de janeiro de
+2026 sua política de IA generativa: todo conteúdo visto pelo jogador — prosa, arte de capa,
+assets — deve ser inteiramente humano; é permitido usar IA em edição, depuração, acessibilidade,
+pesquisa, tradução limitada e código; e a obra não pode exigir que juízes ou jogadores
+interajam com serviço generativo externo durante a partida. A decisão veio da maior resposta já
+obtida na pesquisa pós-competição de 2025: 38,4% defenderam "assistência técnica e editorial
+apenas", 32,2% "nenhuma IA generativa", 10,9% "só transparência"; 85,2% se opuseram fortemente a
+prosa gerada sem edição e 62,1% a assets visuais gerados [7]. Na comunidade de ficção
+interativa, a reação à etiqueta do itch.io foi de alívio — "achei essa etiqueta um alívio" —, com
+a crítica de que ela não separa IA no conteúdo jogável de IA na capa [8].
+
+**O direito autoral americano já fixou um limite.** Em 29 de janeiro de 2025 o U.S. Copyright
+Office publicou a Parte 2 do relatório sobre IA: saídas generativas só são protegidas quando um
+autor humano determinou elementos expressivos suficientes; "a mera provisão de prompts" não
+basta; usar IA para assistir a criação, ou incluir material gerado dentro de uma obra maior
+feita por humano, não impede a proteção. Nas palavras da registradora Shira Perlmutter, estender
+proteção a material cujos elementos expressivos são determinados por máquina "minaria, em vez de
+promover, os objetivos constitucionais do copyright" [9]. Não houve recomendação de legislação
+nova.
+
+**O wildcard já aconteceu — em 2024.** Rie Qudan venceu o 170º Prêmio Akutagawa (anunciado em 17
+de janeiro de 2024) com *Tōkyō-to Dōjō Tō*, e revelou em coletiva que cerca de 5% do romance foi
+escrito com ChatGPT — depois esclarecendo que a IA escreveu apenas as falas da IA dentro da
+ficção. O prêmio foi mantido [10][11]. Guardo isso porque o enunciado do tema listava "prêmio
+literário para obra assumidamente coautorada com IA" como wildcard: ele não é wildcard, é
+precedente de dois anos atrás.
+
+### O que existe como protótipo, paper ou demo e não está em produção
+
+**Gerar o mundo inteiro de uma ficção interativa, validado.** O IVIE (Vaucher, Silveira, Góngora
+e Chiruzzo, junho de 2026) gera mundos jogáveis completos do zero — locais interconectados,
+itens funcionais, NPCs e quebra-cabeças coerentes em torno de um objetivo — por um pipeline
+incremental de quatro estágios que delega criação a LLMs e usa validação simbólica para ancorar
+o estado do mundo. A avaliação humana indicou mundos imersivos e tematicamente coerentes, com
+alto engajamento; as limitações declaradas são exatamente as que importam: inconsistências do
+LLM às vezes contornam as restrições do quebra-cabeça, e falhas de validação de objetivo
+permitem metas estruturalmente impossíveis [12].
+
+**A coerência narrativa é o que quebra primeiro, e há três benchmarks de 2026 dizendo isso.**
+O NARRA-Gym (Huang e 16 coautores, maio de 2026) transforma uma semente emocional esparsa num
+episódio interativo completo e registra a trajetória inteira; avaliou nove LLMs de fronteira
+sobre oito personas de referência, mais avaliação humana. Achado central: **modelos que produzem
+histórias fluentes ainda falham em robustez, experiência de uso e personalização sensível a
+resistência** — fluência não prediz qualidade interativa [13]. O WSE-bench (Chen, Li, Cai, Li,
+Yan e Li, agosto de 2026) mede cobertura de geração, consistência (quebras de fatos canônicos) e
+riqueza (quão significativamente trajetórias ramificadas se desenvolvem), e encontra fronteiras
+de Pareto **não côncavas**: escala de modelo melhora principalmente a geração sustentada, sem
+fortalecer de forma confiável a coerência canônica nem o desenvolvimento significativo — são
+capacidades distintas e às vezes concorrentes [14]. E o SeqBench (Tang e 10 coautores, outubro de
+2025), com 320 prompts e 2.560 vídeos anotados por humanos sobre 8 modelos texto→vídeo, mostra
+incapacidade de manter estados de objeto consistentes entre múltiplas ações, resultados
+fisicamente implausíveis em cenas multiobjeto e dificuldade de preservar tempo e ordem [15].
+
+**Ficção interativa gerada, testada com estudantes, ainda não convence.** Um estudo piloto
+(agosto de 2026, EDULEARN26) pôs 22 estudantes de STEM do ensino superior para jogar um episódio
+gerado por pipeline agnóstico de domínio. Clareza narrativa e aceitação de extensão foram bem
+avaliadas; **coerência entre história e conteúdo foi a dimensão mais fraca por margem clara**;
+engajamento ficou perto do ponto neutro da escala. Os participantes relataram motivações de quiz
+artificiais, transições de cenário abruptas e ausência de consequência narrativa para respostas
+erradas [16].
+
+**O problema de autoria já tem ferramenta de pesquisa.** O Elsewise (Wang, Chung, Roemmele e seis
+coautores; dezembro de 2025, revisado em setembro de 2026) ataca o risco de "alargar a distância
+entre a história imaginada pelo autor e a história experimentada pelo jogador" quando IA expande
+conteúdo pré-autorado a partir de entrada aberta. Com o conceito de *Bundled Storyline* e
+visualização do espaço de possibilidades, um estudo com 12 autores mostrou melhor antecipação da
+narrativa efetivamente experimentada [17]. O fato de existir uma ferramenta para *recuperar*
+controle diz que a perda de controle já é o problema prático.
+
+### Quem está construindo
+
+Produto de consumo: MangoBox, NovelAI, AI Dungeon, Character.AI. Infraestrutura de tempo de
+execução: Inworld (que migrou de app de personagem para motor em tempo real, segundo material de
+mercado que não tratei como fonte primária). Pesquisa acadêmica: Universidad de la República
+(IVIE), os consórcios por trás de NARRA-Gym, WSE-bench e SeqBench, e a linha de HCI de autoria
+(Elsewise). Comunidade e open source: LunaTranslator, e a linhagem de engines (Ren'Py,
+Monogatari, Inform 7, Twine, YarnSpinner, Dialogic, Arrow, Chronicler, Fantasy-Map-Generator).
+Plataformas que viraram reguladoras de fato: Steam e itch.io. Instituições de legitimação:
+IFComp, e o U.S. Copyright Office como árbitro jurídico.
+
+## 4. As disrupções-raiz
+
+### 4.1 Geração do artefato narrativo inteiro a partir de uma intenção curta
+
+**O que rompe.** Até aqui, produzir uma novela visual exigia dominar simultaneamente escrita
+ramificada, ilustração de personagem, arte de cenário, trilha e script de engine — e essa
+acumulação de ofícios era a barreira real de entrada, não a criatividade. O que passa a ser
+possível e antes não era: **uma pessoa sem nenhum desses ofícios entrega um artefato completo e
+jogável, com elenco, arte e ramificação, no mesmo dia**. Não é "mais barato"; é uma classe de
+produtor que não existia.
+
+**O que invalida.** O trabalho remunerado de composição dos elementos de um jogo narrativo de
+pequeno e médio porte: arte de personagem sob encomenda, escrita de diálogo de preenchimento,
+montagem de script de engine. O sinal de que já está acontecendo não é uma manchete — é a
+composição do catálogo: 30,8% dos lançamentos da Steam em 2026 declaram IA, contra 10,9% em 2024
+[3]. Invalida também a premissa de curadoria das lojas, construída para um volume que não existe
+mais.
+
+**Por que agora, e não há cinco anos.** Três coisas mudaram e são nomeáveis. (i) O ciclo
+multimodal fechou: texto, imagem, som e vídeo num pipeline só, que é o que permite gerar retrato
+de personagem, cenário e fala coerentes entre si em vez de peças soltas. (ii) O preço caiu para
+faixa de assinatura de consumidor — US$ 9/mês por geração ilimitada [1] —, o que muda quem pode
+tentar, não só quanto custa. (iii) As plataformas construíram a infraestrutura de declaração
+(Steam desde janeiro de 2024, itch.io por etiqueta), o que só se faz quando o volume obriga
+[3][4].
+
+**O que falta para se concretizar por inteiro.** Coerência. Os três benchmarks de 2026 convergem:
+consistência canônica não melhora de forma confiável com escala [14], fluência não prediz
+qualidade interativa [13], e coerência história-conteúdo foi a dimensão mais fraca no único teste
+com usuários reais que encontrei [16]. Falta também exportação: o MangoBox não menciona levar a
+obra para fora da plataforma [1], e obra que não sai da plataforma não vira catálogo.
+
+**Veredito do teste (Etapa 3):** passa nas três. Disrupção-raiz.
+
+### 4.2 A narrativa que se reescreve por leitor — a obra sem instância canônica
+
+**O que rompe.** A possibilidade nova é uma obra em que **não existe um texto que duas pessoas
+tenham lido**: a história se adapta ao leitor em tempo de execução, e cada sessão é um artefato
+distinto. A ramificação clássica (Twine, Ren'Py) não faz isso — ela oferece caminhos
+pré-escritos, finitos e auditáveis. Geração em tempo de execução oferece um espaço de
+possibilidades que nem o autor conhece: é literalmente o problema que o Elsewise existe para
+mitigar, e o estudo com 12 autores mostra que sem ferramenta eles não antecipam o que o jogador
+vai experimentar [17].
+
+**O que ameaça invalidar — e por que a ressalva.** Ameaça o aparato inteiro construído sobre o
+pressuposto de referente compartilhado: crítica, resenha, clube de leitura, citação, adaptação,
+prova escolar, preservação. Mas **não consigo nomear um papel ou modelo de negócio que isso já
+tenha rompido em 2026** — o aparato continua de pé, porque quase nenhuma obra comercialmente
+relevante é gerada por leitor. Pelo critério da Etapa 3, isso a torna **emergente, não disrupção
+consumada**: ela entra no mapa como aposta declarada, e os efeitos derivados dela herdam essa
+condição.
+
+**Por que agora.** Porque o custo por sessão caiu ao ponto de gerar sob demanda ser mais barato
+que pré-produzir todas as ramificações, e porque a persistência de contexto entre sessões passou
+a existir em produto (o MangoBox mantém elenco e conversa; plataformas de escrita mantêm memória
+de projeto entre sessões). Há cinco anos, gerar por leitor significava perder o personagem entre
+uma cena e outra.
+
+**O que falta.** Memória e consistência canônica confiáveis — exatamente o que o WSE-bench
+mostra que escala não entrega [14]. E falta uma resposta institucional: se não há texto fixo, não
+há objeto de depósito legal, de citação acadêmica nem de julgamento de prêmio.
+
+**Veredito do teste:** passa em 1 e 3, não passa em 2. **Emergente, com ressalva explícita.**
+
+### 4.3 Tradução sobreposta no cliente, em tempo real
+
+**O que rompe.** O que passa a ser possível: **consumir uma obra em uma língua em que ela nunca
+foi publicada, sem que ninguém a tenha traduzido e sem qualquer decisão do detentor dos
+direitos**. A tradução deixa de ser um ato editorial — decidido, contratado, pago, datado — e
+vira uma camada do cliente, ligada pelo leitor. O LunaTranslator faz isso hoje, por hook ou OCR,
+com motor de LLM, em software livre com 13,2 mil estrelas [5].
+
+**O que invalida.** A localização como **porteiro**. Note a distinção: a localização como
+*ofício* não é invalidada — a própria indústria diz que diálogo de personagem, continuidade
+narrativa e adaptação cultural continuam humanos [6]. O que é invalidado é o poder de decidir
+**se e quando** uma obra existe numa língua. Isso era um ativo comercial (direitos por
+território, janelas de lançamento, exclusividade regional) e deixa de ser executável. Ameaça
+também, por extensão, a cadeia de dublagem, que no Brasil já pediu proteção legal em audiência
+pública conjunta das comissões de Cultura e Trabalho da Câmara em 29 de agosto de 2024, ligada
+ao PL 1376/22 e ao PL 2338/23 [18].
+
+**Por que agora.** Porque tradução por LLM com qualidade de leitura passou a rodar em tempo real
+e, em parte, offline, no computador do leitor — sem servidor, sem contrato, sem custo marginal.
+Há cinco anos, tradução automática sobreposta existia e era ilegível para prosa; o que mudou não
+foi o gancho de memória (esse é antigo), foi o tradutor no fim do gancho.
+
+**O que falta.** Cobertura fora do nicho: o LunaTranslator é forte em novela visual japonesa no
+Windows; não há equivalente maduro para vídeo, console ou celular. E falta o teste jurídico —
+ninguém processou um leitor por sobrepor tradução a uma obra que comprou.
+
+**Veredito do teste:** passa nas três. Disrupção-raiz.
+
+### 4.4 O que foi testado e NÃO entrou
+
+- **Engines de novela visual e diálogo ramificado (Ren'Py, Monogatari, Twine, Inform 7,
+  YarnSpinner, Dialogic, Arrow) e editores de mapa (Fantasy-Map-Generator):** falham no teste 1.
+  São maduras, e a própria disciplina as classificou assim. Aparecem na Seção 3, não aqui.
+- **Script→vídeo como gerador de narrativa (Pika, Luma, Sora 2, Veo 3.1):** falha no teste 1
+  **para o objeto deste tema**. Geram planos, não histórias: o SeqBench mostra falha em manter
+  estado de objeto entre ações e em preservar ordem e tempo [15]. Além disso, vídeo *como mídia*
+  é o tema 12. Reclassificado como insumo, não como disrupção-raiz daqui.
+- **Fala gerativa (ChatTTS, Bark):** madura no recorte deste tema, e objeto do tema 13.
+- **NPC generativo persistente (Inworld, Character.AI):** é o tema 7. Entra como fronteira.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: Geração do artefato narrativo inteiro a partir de uma intenção curta
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O volume de obras narrativas publicadas cresce mais rápido que a atenção disponível para consumi-las
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: A escassez migra da produção para a descoberta, e a curadoria vira o ativo caro da cadeia
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Lojas e festivais cobram por avaliação de entrada em vez de cobrar por distribuição
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: Selos curatoriais humanos ganham valor de marca comparável ao de editoras no século XX
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Declarar o processo de produção passa a influenciar a venda tanto quanto declarar o gênero
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Surge um mercado de auditoria de proveniência narrativa, vendendo prova de processo e não de resultado
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O trabalho remunerado de escrita de jogo se concentra em direção e revisão, e encolhe na composição
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: A porta de entrada da carreira de escritor de jogo fecha, porque o trabalho júnior era justamente a composição
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: A formação em escrita interativa se reorganiza em torno de crítica e direção de sistemas, não de produção de texto
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e2.1.2
+                ordem: 3
+                efeito: A experiência sênior fica escassa por falta de reposição, e o custo de contratar direção narrativa sobe
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Contratos de escrita passam a especificar quais camadas podem ser geradas e quais precisam ser humanas
+            sinal: fraco
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Cláusula de proveniência vira item padrão de contrato criativo, como crédito e royalty já são
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: Instituições de legitimação passam a regular a origem do conteúdo em vez de julgar apenas o resultado
+        sinal: forte
+        prazo: 2026
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Forma-se um circuito paralelo de prêmios e festivais explicitamente abertos a obra gerada
+            sinal: fraco
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Obra humana e obra gerada deixam de competir no mesmo campeonato, e a comparação de qualidade entre as duas perde sentido prático
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: A narrativa que se reescreve por leitor, dissolvendo a instância canônica da obra
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: Duas pessoas que consumiram a mesma obra deixam de ter um texto comum para discutir
+        sinal: fraco
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: A crítica desloca o objeto da obra para o sistema que a gera, avaliando o espaço de possibilidades e não a execução
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Resenhas passam a publicar a semente e os parâmetros da sessão como parte do texto crítico
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e4.1.2
+                ordem: 3
+                efeito: A citação acadêmica de obra gerada exige depósito da sessão inteira, não da referência bibliográfica
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Comunidades de fãs passam a produzir uma versão canônica de consenso, escolhida e não publicada pelo autor
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: O cânone deixa de ser um ato de autoria e vira um ato de curadoria coletiva, com disputa pública sobre qual versão vale
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: O autor perde a capacidade de prever o que o leitor vai experimentar, e passa a autorar restrições em vez de cenas
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Ferramentas de autoria passam a vender visualização do espaço de possibilidades como funcionalidade principal
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: O ofício de escritor interativo se aproxima do de game designer de sistemas, e as duas formações convergem
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: Tradução sobreposta em tempo real, executada no cliente, sem passar pelo detentor da obra
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: Obras deixam de ter uma fronteira linguística efetiva, e o público de uma obra nunca traduzida passa a ser global
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: O controle de direitos por território deixa de ser executável na prática para obra majoritariamente textual
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: Contratos de licenciamento migram de exclusividade territorial para exclusividade de suporte e de experiência oficial
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e6.1.2
+                ordem: 3
+                efeito: Obras passam a ser projetadas assumindo leitura fora da língua de origem, e a piada intraduzível some do repertório
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: A ideia de língua de origem vira metadado de produção, e não característica da obra para o leitor
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Culturas com mercado editorial pequeno exportam ficção sem intermediário, invertendo o fluxo histórico de tradução
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: A localização se reposiciona como serviço de qualidade opcional, disputando com a tradução gratuita que o leitor liga sozinho
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Localizadores passam a vender adaptação cultural e performance, e não cobertura de idioma
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: A regulação de proteção do trabalho de dublagem e tradução se torna disputa política explícita em países de mercado interno grande
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+```
+
+### O que o bloco não diz
+
+**Primeiro: as três rodas não são independentes, e o YAML finge que são.** O ramo inteiro da
+disrupção 2 (e4, e5 e seus descendentes) só existe se a geração por leitor sair do laboratório —
+e ela é a única das três que *não* passou no teste completo da Etapa 3. Se ela não se
+concretizar, sete efeitos caem juntos. A Análise de Impacto Cruzado (Gordon e Helmer, RAND,
+1966) é o método que nomearia essa dependência formalmente; o formato da disciplina não tem campo
+para isso, então registro aqui: **e4 e e5 são condicionais, não paralelos aos demais.**
+
+**Segundo: há uma dependência cruzada entre rodas diferentes.** O efeito e1.2 (declarar processo
+influencia venda) e o e3 (instituições regulam origem) se reforçam — regra de festival cria
+norma, norma vira expectativa de compra, expectativa de compra dá força à regra. O bloco, em
+árvore, não consegue desenhar esse ciclo. E o e7 (localização como serviço opcional) é empurrado
+tanto pela disrupção 3 quanto pela 1: um catálogo dez vezes maior torna inviável localizar tudo
+profissionalmente, independentemente da sobreposição no cliente.
+
+**Terceiro: os prazos são o campo mais frágil do bloco.** Eles são estimativas minhas de quando o
+efeito fica *reconhecível*, não de quando começa. O único prazo que não é estimativa é o de e3
+(2026): o IFComp já publicou a regra [7], a Steam já mudou o regulamento, o itch.io já etiqueta.
+Isso não é previsão, é descrição — e por isso tem confiança alta, o que seria suspeito em
+qualquer outro nó.
+
+**Quarto: quinze efeitos de 3ª ordem, todos em confiança baixa.** Isso é o resultado esperado
+pelo método, não uma falha de esforço. O que ele significa na prática é que a 3ª ordem deste mapa
+serve para abrir conversa, não para orientar decisão — e quem usar este documento para decidir
+algo deve parar na 2ª ordem.
+
+## 6. Sinais fracos e wildcards
+
+**Sinal fraco 1 — a etiqueta que separa a loja.** No itch.io a etiqueta `AI Generated` já convive
+com a `No AI`, e a reação registrada na comunidade de ficção interativa é de alívio por poder
+filtrar [4][8]. Isso é pequeno e é enorme: é a primeira infraestrutura pública que permite a um
+leitor **nunca mais ver** obra gerada. Se a filtragem por proveniência virar comportamento
+padrão, o mercado se divide em dois catálogos que quase não se tocam — e a competição entre obra
+humana e obra gerada, que todo mundo assume que vai acontecer, simplesmente não acontece.
+
+**Sinal fraco 2 — a inversão do fluxo de tradução.** O LunaTranslator tem documentação em chinês,
+inglês, coreano, japonês, vietnamita e russo [5] — o mapa de quem *consome* obra japonesa sem
+esperar edição local. O sinal é o inverso do esperado: não é a obra do centro chegando à
+periferia, é a periferia consumindo a periferia sem passar pelo centro editorial. Se isso se
+generalizar, a pergunta "em que língua esta obra foi escrita" fica sem função para o leitor.
+
+**Sinal fraco 3 — a fronteira de Pareto não côncava.** O achado do WSE-bench de que consistência
+e riqueza não formam uma troca suave, e que escala melhora geração sustentada sem melhorar
+coerência canônica [14], é técnico e quase invisível fora do paper. Mas se ele se confirmar, a
+premissa de fundo de todo este mapa — "vai melhorar com o tempo" — está errada na parte que mais
+importa: a coerência não é um problema de escala, é um problema de arquitetura, e pode não ser
+resolvido por mais modelo.
+
+**Sinal fraco 4 — o problema do quiz.** No único estudo com usuários reais, o gargalo não foi a
+prosa: foi a integração entre narrativa e mecânica, com motivação artificial e ausência de
+consequência para erro [16]. Isso sugere que o ponto de falha da narrativa gerativa em produto
+não é a escrita — é a **interação**. Que é, exatamente, o objeto desta disciplina.
+
+**Wildcard — a plataforma dominante desliga a geração.** Baixa probabilidade, alto impacto: uma
+loja com poder de gargalo (Steam, uma App Store, uma editora de peso) passa a **recusar**
+publicação de obra com conteúdo gerado visível ao usuário, e não apenas a exigir declaração. O
+precedente já existe em escala pequena — é literalmente a regra do IFComp 2026 [7] — e a base de
+apoio existe (32,2% da comunidade de ficção interativa defendeu "nenhuma IA generativa", 85,2%
+se opôs fortemente a prosa gerada sem edição [7]).
+
+**Por que a probabilidade é baixa, concretamente:** porque a direção da política da Steam em 2026
+foi a oposta — em 16 de janeiro de 2026 a plataforma **estreitou** o que precisa ser declarado,
+separando ferramenta de bastidor de conteúdo consumido pelo jogador; e porque 30,8% dos
+lançamentos usarem IA declarada significa que a proibição custaria à loja quase um terço do
+catálogo novo [3]. Uma plataforma que vive de volume não corta um terço da oferta. O IFComp pode
+fazer isso porque não vive de volume — vive de reputação. O wildcard, então, depende de uma
+condição específica: que o dano reputacional ao catálogo passe a custar mais do que o volume
+rende. O dado que tornaria isso plausível já está visível — obras com IA declarada são um terço
+dos lançamentos e no máximo 27% das vendas [3].
+
+## 7. Contra o próprio mapa
+
+### 7.1 Qual efeito é só extrapolação linear do presente
+
+**e1 — "o volume cresce mais rápido que a atenção".** É o efeito de confiança mais alta do mapa
+inteiro e é o mais preguiçoso. Ele diz "mais do mesmo, mais rápido": a curva de lançamentos da
+Steam (10,9% → 19,9% → 30,8%) prolongada para a direita. Não há mudança de natureza nenhuma —
+inflação de catálogo é um fenômeno conhecido, documentado na música em streaming, no vídeo curto
+e na publicação independente desde muito antes de qualquer modelo generativo. Eu o mantive
+porque o resto da roda depende dele, mas ele não é um achado: é a moldura em que os achados
+acontecem. Quem ler este mapa e sair dizendo "vai ter muito conteúdo" não leu nada.
+
+E há um defeito mais específico: e1 supõe implicitamente que a atenção é fixa. Não é. Se o custo
+de gerar cai, o custo de *consumir* também pode cair — leitura assistida, resumo, jogo acelerado.
+A saturação pode simplesmente não acontecer no formato que eu desenhei.
+
+### 7.2 Qual efeito assume velocidade de adoção que nunca se viu em caso comparável
+
+**e4 — "duas pessoas deixam de ter um texto comum", com prazo 2029.** Isso supõe que a leitura
+gerada por leitor se torne majoritária em cinco anos, a ponto de quebrar a prática social de
+discutir uma obra. **O caso comparável é o e-book**, e a velocidade real dele é humilhante: o
+Kindle saiu em 2007; o livro digital nunca passou de cerca de 20% do mercado de trade nos EUA e
+estabilizou aí por mais de uma década. Trocar o *suporte* de leitura, sem mudar nada do conteúdo,
+levou quinze anos para render um quinto do mercado. Eu estou propondo que trocar a **natureza do
+texto** chegue a maioria em cinco.
+
+Um segundo comparável, mais próximo: **novela visual ramificada**. Twine é de 2009, Ren'Py de
+2004, e o texto ramificado segue sendo nicho depois de vinte anos — mesmo sendo muito mais fácil
+de produzir do que texto linear com arte. A ramificação não virou padrão de leitura quando ficou
+barata; não é óbvio que a geração por leitor vire. Meu prazo em e4 deveria ser 2035, não 2029, e
+o registro honesto é que eu o encurtei para caber no horizonte do mapa.
+
+### 7.3 Qual disrupção pode não se concretizar, e o que sobra
+
+**A 4.2 — a narrativa que se reescreve por leitor.** Ela é a única que não passou no teste
+completo, e é a mais provável de não sair do lugar, por três razões nomeáveis: (i) a coerência
+canônica não melhora de forma confiável com escala [14]; (ii) autores perdem o controle do
+espaço de possibilidades e reagem buscando ferramentas para recuperá-lo [17] — ou seja, a
+demanda observada é por *menos* variação, não por mais; (iii) leitores talvez simplesmente não
+queiram uma obra que ninguém mais leu, porque parte do valor de ler é poder falar sobre.
+
+**O que sobra se ela cair:** cai o ramo inteiro de e4 e e5 — dois efeitos de 1ª ordem, três de
+2ª, cinco de 3ª. Dos 34 efeitos do mapa, dez evaporam. O que **permanece intacto** são as
+disrupções 4.1 e 4.3, que não dependem dela: o artefato continua sendo gerado por inteiro (só
+que uma vez, fixo, como obra publicada normal), e a tradução continua sobreposta no cliente. Ou
+seja: **o mapa sem a disrupção 2 vira um mapa sobre inflação de catálogo e perda de fronteira
+linguística** — menos vertiginoso, mais provável, e ainda assim consequente. Se eu tivesse de
+apostar, apostaria nesse mapa menor.
+
+### 7.4 Que viés entrou aqui, e onde exatamente
+
+O viés declarado na entrevista foi "neutro", e a zona de interesse é "Simulação e mundos" — o que
+já é uma lente. **Onde ela inflou o mapa, concretamente: no peso dado à disrupção 2.** Quem vem
+de simulação acha a ideia de uma obra que não existe duas vezes fascinante, porque é a ideia de
+mundo executável aplicada à ficção. Foi a disrupção que eu escrevi com mais prazer, é a que tem
+mais efeitos derivados (10 de 34, quase um terço) — e é a única das três que **falha no teste da
+própria skill**. O interesse pelo tema pagou mais atenção do que a evidência justificava. A
+correção honesta seria reduzir e4/e5 a um wildcard da Seção 6, e eu deliberadamente não fiz isso;
+registro a escolha aqui para que quem ler possa descontar.
+
+Um segundo viés, este da skill e não do autor: **a Etapa 2 me mandou levantar fontes, e fontes de
+2026 sobre narrativa gerativa são majoritariamente papers que *propõem* sistemas.** Papers que
+propõem sistemas relatam sucesso — o IVIE reporta mundos imersivos e alto engajamento [12], e
+só na seção de limitações admite que quebra-cabeças podem ser impossíveis. A literatura
+disponível tem viés de publicação a favor da tecnologia funcionar. Os três benchmarks
+[13][14][15] são o contrapeso justamente porque medem em vez de propor — e foi por isso que dei
+mais peso a eles. Mas se este mapa está otimista em algum lugar, é onde ele cita paper de sistema
+em vez de benchmark.
+
+**Um terceiro, mais desconfortável:** a maioria das fontes que abri é em inglês, e a única
+brasileira é sobre dublagem [18]. O recorte pedido era global com nota sobre o Brasil, e a nota
+sobre o Brasil ficou fina — sustentada por uma audiência pública de 2024 e um projeto de lei que
+ainda tramita. Trato isso como lacuna declarada, não como conclusão de que no Brasil não está
+acontecendo nada.
+
+## 8. O que a máquina errou
+
+Três erros concretos, todos pegos durante esta rodada. Não são hipotéticos.
+
+**1. Aceitei "Mangobox" do enunciado do tema como se fosse fonte, e quase publiquei uma
+descrição que a própria empresa não faz.** O enunciado da disciplina descreve o MangoBox
+"criando elenco, cenas, arte e as conversas". Ao abrir o site [1], o que a página afirma é
+elenco, cenários, personalidades, conversas em grupo e escolhas de diálogo — e **não** afirma
+ramificação narrativa nem exportação. Eu ia escrever "gera novelas ramificadas exportáveis".
+Como percebi: a resposta do WebFetch trazia uma frase explícita de que o produto não detalha
+ramificação além de "conversas em grupo". A diferença importa muito neste tema — "gera cenas"
+e "gera uma obra ramificada completa" são afirmações de força muito diferente, e a segunda é a
+que sustentaria a disrupção 4.1 sozinha.
+
+**2. Tratei o wildcard sugerido pelo enunciado como se fosse futuro, quando já é passado.** O
+enunciado propõe como wildcard "um best-seller assumido como coautoria com IA ganhar um prêmio
+literário — ou ser barrado dele". Isso aconteceu em **janeiro de 2024**: Rie Qudan venceu o 170º
+Akutagawa e revelou ~5% de ChatGPT, e o prêmio foi mantido [10][11]. Como percebi: fui buscar
+"prêmio literário 2026 IA" esperando não achar nada e achei um caso de 2024, com nome, data e
+percentual. Se eu tivesse aceitado o enunciado, teria posto na Seção 6 como baixa probabilidade
+um evento com dois anos de idade — o erro mais caro possível num mapa de futuro, porque contamina
+a régua inteira de "o que ainda não aconteceu".
+
+**3. Contei como "fonte" três páginas que eu não consegui abrir.** Na primeira montagem da lista,
+a MultiLingual sobre o estado da localização em 2026, o PDF do Copyright Office e o artigo do
+ScienceDirect sobre homogeneização criativa estavam na contagem. Os três falharam: 403, 403 e
+PDF binário ilegível (o servidor devolveu um arquivo do Illustrator, não o relatório). Como
+percebi: ao escrever a Seção 11, o campo "o que esta fonte sustenta" ficou vazio para as três —
+eu não tinha o que escrever porque não tinha lido nada. Substituí duas por rotas que respondem
+(o comunicado oficial do Copyright Office [9] no lugar do PDF; o material da Gridly [6], com
+viés de fornecedor declarado, no lugar da MultiLingual) e **deixei o estudo de homogeneização de
+fora** — ele sustentaria um efeito sobre convergência estilística que, sem a fonte, não tenho
+direito de afirmar. O efeito foi cortado da roda. Está registrado no Anexo.
+
+**O que eu não peguei, e assumo:** não verifiquei independentemente o número de 53.597
+lançamentos da Steam [3] — li a reportagem sobre o estudo, não o estudo. A ordem de grandeza
+bate com o catálogo conhecido da plataforma, mas o número entrou por confiança na reportagem.
+"Nada errado" seria a resposta suspeita aqui; esta é a resposta honesta.
+
+## 9. Três cenários para 2031
+
+**Provável.** Em 2031, gerar uma novela visual jogável é tão banal quanto abrir uma planilha, e
+por isso ninguém acha graça. Os catálogos se dividiram: a maior parte da Steam e do itch.io é
+obra com IA declarada, e ela continua vendendo abaixo da sua proporção no catálogo — o mercado
+aprendeu a ler a etiqueta como sinal de custo baixo, não de qualidade. A curadoria virou o
+negócio caro: os selos que sobreviveram vendem "alguém leu isso antes de você". A escrita de
+jogo sênior segue bem paga e a júnior quase desapareceu, o que criou um problema de reposição que
+as escolas ainda não resolveram. A tradução sobreposta é padrão em novela visual e começou a
+chegar ao vídeo; direitos por território continuam nos contratos e não são executáveis na
+prática. A obra que se reescreve por leitor existe, é impressionante em demo, e é nicho — pela
+mesma razão que texto ramificado é nicho desde 2004. Os festivais de ficção interativa
+mantiveram a regra humana e viraram, sem planejar, o principal certificado de proveniência do
+setor.
+
+**Desejável.** Em 2031, a proveniência é infraestrutura, não discurso: toda obra carrega um
+registro legível por máquina de que camadas foram geradas e quais foram humanas, e o leitor
+filtra por isso como filtra por gênero — sem que nenhuma das duas escolhas seja moralmente
+marcada. A geração barateou a entrada de quem nunca teve acesso a equipe: há ficção interativa
+publicada em línguas que nunca tiveram mercado editorial, e ela é lida fora do seu país sem
+intermediário. A localização se reposicionou em adaptação e performance, com remuneração
+protegida por regra clara sobre uso de voz e texto em treino — no Brasil, o PL 2338 e o PL 1376
+saíram do limbo. E a coautoria é declarada como crédito normal: "escrito por X com Y", como
+"fotografia de", sem escândalo e sem ocultamento. **O que precisaria ser feito para chegar lá:**
+padronizar a declaração de proveniência entre plataformas (hoje Steam, itch.io e IFComp usam
+três réguas incompatíveis), e resolver a remuneração de treino por lei em vez de por processo
+judicial caso a caso.
+
+**Indesejável.** Em 2031 a etiqueta de proveniência é inútil, porque todo mundo declara e
+ninguém verifica — declarar virou formalidade, como aceitar cookies. Como declarar não custa e
+não prova nada, o filtro do leitor não funciona, e a única defesa contra catálogo infinito é o
+algoritmo da loja, que otimiza engajamento e não qualidade. A escrita júnior acabou, a sênior
+envelheceu sem reposição, e a direção narrativa virou o gargalo que ninguém consegue contratar.
+A localização profissional sobrevive só em título AAA; o resto é sobreposição automática de
+qualidade variável, e línguas de mercado pequeno consomem tudo traduzido por máquina sem que
+ninguém revise. **O sinal precoce disso, hoje:** a mudança de 16 de janeiro de 2026 da Steam, que
+estreitou o escopo do que precisa ser declarado [3]. Toda vez que a régua de declaração
+**afrouxa** em vez de apertar, este cenário fica mais perto — porque a declaração só vale
+enquanto separa alguma coisa de alguma coisa.
+
+## 10. O experimento
+
+### O que é
+
+**"Duas leituras" — um leitor de ficção interativa que gera a narrativa por leitor e registra a
+divergência entre as sessões.** Uma página web com um único conto-semente (300 a 500 palavras,
+escrito à mão, com três marcos obrigatórios de enredo). Cada leitor entra, lê e escolhe; o texto
+é gerado em tempo de execução, condicionado às escolhas e ao ritmo de leitura da pessoa. O
+sistema guarda a transcrição integral de cada sessão e um diff estruturado entre sessões: que
+cenas apareceram em uma e não na outra, que fatos canônicos divergiram, que marcos foram
+cumpridos. No fim, o leitor vê **a sua leitura ao lado da leitura de outra pessoa**, lado a lado.
+
+### Que pergunta sobre o futuro ele ajuda a responder
+
+A pergunta da disrupção 4.2, que é a que eu menos consigo sustentar: **duas pessoas conseguem
+discutir uma obra que leram em versões diferentes?** E a sub-pergunta operacional: a partir de
+quanta divergência a conversa quebra? O experimento não pergunta se o texto gerado é bom — isso
+já tem benchmark. Pergunta se a **prática social** de comentar uma história sobrevive à perda do
+referente comum, que é exatamente o efeito e4 do mapa, e o que eu apontei na Seção 7.2 como
+tendo prazo provavelmente errado.
+
+### Que tecnologia emergente ele usa, e por que não dá com tecnologia madura
+
+Usa geração de narrativa condicionada a estado em tempo de execução — a disrupção 4.2 do mapa,
+classificada como emergente. **Por que não serve tecnologia madura:** com Twine ou Ren'Py eu
+posso produzir duas leituras diferentes, mas ambas foram escritas por mim, são finitas e são
+auditáveis — o leitor está percorrendo um grafo que existe antes dele. O fenômeno que preciso
+testar é o oposto: um texto que **não existia antes da sessão** e que o autor não previu. Sem
+geração em tempo de execução, o experimento mede ramificação, que é de 2004, e não geração por
+leitor, que é o que está em disputa. A medida de divergência entre sessões (fatos canônicos que
+se contradizem) é emprestada da definição de consistência do WSE-bench [14].
+
+### O que a turma faz quando testar isso em sala
+
+Em duplas. Cada pessoa lê a sua sessão sozinha, sem falar com a outra, por dez minutos. Depois,
+dez minutos de conversa em dupla com uma tarefa concreta: **chegar a um acordo sobre o que
+aconteceu na história** — quem é o personagem, o que ele fez, como termina. Só então as duas
+transcrições são reveladas, com o diff. A turma registra três coisas: (i) em quanto tempo a
+dupla percebeu que tinha lido coisas diferentes; (ii) se a dupla tratou a divergência como erro
+do sistema ou como propriedade da obra; (iii) se, depois de revelada, a conversa continuou ou
+morreu. A discussão fecha comparando as duplas com muita e com pouca divergência medida.
+
+### O que seria um resultado que me faria mudar de ideia
+
+**Se as duplas com alta divergência conversarem tão bem quanto as de baixa** — se elas
+convergirem para uma versão comum sem atrito, ou se tratarem a diferença como assunto
+interessante em vez de obstáculo —, então o efeito e4 do mapa está errado no nível da premissa,
+e não do prazo: a prática social de discutir ficção não depende de texto idêntico, e toda a
+disrupção 4.2 perde a consequência que eu atribuí a ela. Nesse caso, e4 e e4.1 e e4.2 saem do
+mapa e a disrupção 2 vira um problema de **arquivo e citação**, não de leitura.
+
+O resultado oposto — as duplas travando e tratando a divergência como defeito — **não** me faria
+confirmar o mapa, e registro isso porque é a assimetria honesta: leitores de 2026 travarem diante
+de algo novo não diz nada sobre leitores que cresçam com isso. O experimento só tem poder de
+falsear, não de confirmar.
+
+## 11. Fontes
+
+Dezesseis fontes, todas abertas e lidas. Três tentativas que falharam estão registradas no Anexo,
+e não entram nesta contagem.
+
+1. **MangoBox — AI Visual Novel Maker.** `https://www.mangobox.ai/`
+   Sustenta: que a geração de novela visual jogável a partir de uma frase é produto pago hoje
+   (US$ 9/mês), com elenco, cenários, personalidades, conversas em grupo e escolhas; e que a
+   página **não** afirma ramificação nem exportação.
+   Confiabilidade: é a própria empresa — ótima para saber o que ela promete, imprestável para
+   saber se entrega. Nenhum número de uso é publicado.
+
+2. **Devlog de mangobox.ai no itch.io.** `https://itch.io/event/26031976`
+   Sustenta: que é ferramenta de navegador em HTML5 e que a última atualização registrada nesse
+   canal é de novembro de 2024.
+   Confiabilidade: registro de plataforma, factual e pobre — não traz notas de versão nem números.
+
+3. **"One in three new Steam games now discloses AI, and the revenue tells a harder story"
+   (Cinevva, 20/07/2026), sobre o estudo de Sulka Haro.**
+   `https://app.cinevva.com/news/2026-07-20-steam-ai-disclosure-study`
+   Sustenta: 10,9% → 19,9% → 30,8% de declaração de IA entre 2024 e 2026 sobre 53.597
+   lançamentos; fatia de vendas de 10% a 27%; e a mudança de regra da Steam de 16/01/2026.
+   Confiabilidade: reportagem sobre estudo de terceiro — **não li o estudo original**, li a
+   reportagem. Os números são coerentes com a ordem de grandeza conhecida do catálogo, mas a
+   verificação é de segunda mão.
+
+4. **Top games tagged AI Generated / política de etiqueta do itch.io.**
+   `https://itch.io/games/tag-ai-generated`
+   Sustenta: a existência das etiquetas `AI Generated` e `No AI` como filtro público.
+   Confiabilidade: a própria plataforma. Não achei contagem oficial de jogos etiquetados — lacuna.
+
+5. **LunaTranslator (GitHub, HIllya51).** `https://github.com/HIllya51/LunaTranslator`
+   Sustenta: extração por hook e OCR, tradução por LLM e offline, TTS, 13,2 mil estrelas, 1,1 mil
+   forks, 4.963 commits, GPLv3, documentação em seis idiomas.
+   Confiabilidade: alta para o que o software faz e para o tamanho da comunidade (métricas do
+   GitHub são auditáveis); nula sobre quantas pessoas de fato usam.
+
+6. **"AI translation in game localization: The complete guide" (Gridly).**
+   `https://www.gridly.com/blog/ai-translation-game-localization/`
+   Sustenta: crescimento de 533% no uso de tradução por IA, entrega até 80% mais rápida, custo
+   2–4× menor, e o que permanece humano (diálogo, continuidade, adaptação cultural).
+   Confiabilidade: **baixa como medida, útil como posição do setor.** É fornecedor de
+   localização escrevendo sobre localização; os percentuais não trazem metodologia. Usei como
+   ordem de grandeza declarada, e disse isso no texto.
+
+7. **"IFComp 2026: Generative AI Policy Update" (blog oficial do IFComp, 31/01/2026).**
+   `https://blog.ifcomp.org/post/807273791356010496/ifcomp-2026-generative-ai-policy-update`
+   Sustenta: a regra de conteúdo visto pelo jogador inteiramente humano; os usos permitidos; e os
+   números da pesquisa de 2025 (38,4% / 32,2% / 10,9%; 85,2% e 62,1% de oposição forte).
+   Confiabilidade: alta — é a fonte primária da própria instituição, com o texto da regra.
+
+8. **"Gen AI disclosure on itch.io" (fórum intfiction.org).**
+   `https://intfiction.org/t/gen-ai-disclosure-on-itch-io/72448`
+   Sustenta: a reação da comunidade de ficção interativa às etiquetas, e a crítica de que elas não
+   separam IA no conteúdo de IA na capa.
+   Confiabilidade: fórum — evidência qualitativa de posição comunitária, não amostra. Usei como
+   sinal, não como medida.
+
+9. **U.S. Copyright Office, NewsNet 1060 (29/01/2025), sobre a Parte 2 do relatório de IA.**
+   `https://www.copyright.gov/newsnet/2025/1060.html`
+   Sustenta: que saída generativa só é protegida com elementos expressivos determinados por
+   humano; que prompt sozinho não basta; que uso assistivo não impede proteção; e a citação de
+   Shira Perlmutter.
+   Confiabilidade: alta — comunicado oficial do órgão. Vale para os EUA apenas.
+
+10. **Rie Qudan (Wikipedia).** `https://en.wikipedia.org/wiki/Rie_Qudan`
+    Sustenta: 170º Prêmio Akutagawa anunciado em 17/01/2024 por *Tōkyō-to Dōjō Tō*; ~5% do
+    romance com ChatGPT; esclarecimento de que a IA escreveu as falas da IA na ficção.
+    Confiabilidade: enciclopédia — boa para data e fato básico, fraca para nuance. Confere com o
+    noticiado à época.
+
+11. **Resultados de busca sobre o caso Qudan (CNN, Smithsonian, AI Business, Futurism).**
+    Sustenta: o mesmo caso, com o detalhe de que o comitê não viu problema no uso.
+    Confiabilidade: **parcial, e declaro a limitação** — a página da CNN devolveu HTTP 451
+    (indisponível por razões legais) e não pôde ser aberta. Usei apenas o que a fonte 10 confirma
+    de forma independente; a convergência de várias manchetes conta como corroboração fraca.
+
+12. **IVIE: A Neuro-symbolic Approach to Incremental and Validated Generation of Interactive
+    Fiction Worlds** (Vaucher, Silveira, Góngora, Chiruzzo; arXiv:2606.13348, 11/06/2026).
+    `https://arxiv.org/abs/2606.13348v1`
+    Sustenta: geração de mundos jogáveis completos por pipeline de quatro estágios com validação
+    simbólica; avaliação humana positiva; e as limitações (restrições de puzzle contornadas,
+    objetivos estruturalmente impossíveis).
+    Confiabilidade: preprint — boa para o método, com viés de publicação a favor do sistema
+    funcionar. As limitações declaradas pelos próprios autores é o que usei com mais peso.
+
+13. **NARRA-Gym for Evaluating Interactive Narrative Agents** (Huang e 16 coautores;
+    arXiv:2605.08503, 08/05/2026). `https://arxiv.org/abs/2605.08503`
+    Sustenta: avaliação de nove LLMs de fronteira sobre oito personas, com achado de que fluência
+    não prediz robustez, experiência de uso nem personalização.
+    Confiabilidade: preprint de benchmark — mais confiável que paper de sistema, porque mede em
+    vez de propor. Usa LLM-as-judge, o que herda o viés do juiz.
+
+14. **When Stories Evolve: Benchmarking LLM Storytelling Across Agent Architectures in
+    Open-Ended World Simulations** (Chen, Li, Cai, Li, Yan, Li; arXiv:2608.15654, 16/08/2026).
+    `https://arxiv.org/abs/2608.15654`
+    Sustenta: cobertura, consistência e riqueza como capacidades distintas e concorrentes;
+    fronteiras de Pareto não côncavas; escala melhora geração sustentada sem melhorar coerência
+    canônica.
+    Confiabilidade: preprint de benchmark. É a fonte mais consequente do mapa inteiro, e a que eu
+    mais gostaria de ver replicada antes de apostar nela.
+
+15. **SeqBench: Benchmarking Sequential Narrative Generation in Text-to-Video Models**
+    (Tang e 10 coautores; arXiv:2510.13042, 14/10/2025). `https://arxiv.org/abs/2510.13042`
+    Sustenta: 320 prompts, 2.560 vídeos anotados por humanos, 8 modelos; falha em manter estado
+    de objeto entre ações, implausibilidade física multiobjeto e erro de ordem e tempo.
+    Confiabilidade: preprint com anotação humana em escala — sólido. Sustenta a **exclusão** de
+    script→vídeo das disrupções-raiz deste tema.
+
+16. **Elsewise: Authoring AI-Based Interactive Narrative with Possibility Space Visualization**
+    (Wang, Chung, Roemmele e seis coautores; arXiv:2601.15295, 21/12/2025, revisto 09/09/2026).
+    `https://arxiv.org/abs/2601.15295`
+    Sustenta: o problema da distância entre história imaginada pelo autor e experimentada pelo
+    jogador; estudo com 12 autores mostrando melhor antecipação com visualização do espaço.
+    Confiabilidade: preprint de HCI com n=12 — amostra pequena, típica da área; boa para nomear o
+    problema, fraca para generalizar o efeito.
+
+17. **AI-Generated Interactive Fiction for Educational Use: A Pilot Study** (arXiv:2608.10818,
+    11/08/2026; publicado em EDULEARN26). `https://arxiv.org/abs/2608.10818`
+    Sustenta: 22 estudantes de STEM; clareza narrativa bem avaliada; **coerência
+    história-conteúdo como dimensão mais fraca por margem clara**; engajamento no ponto neutro;
+    motivação de quiz artificial e falta de consequência para erro.
+    Confiabilidade: piloto declarado, n=22, um episódio por participante — pequeno demais para
+    generalizar, e é o **único** teste com usuários reais que encontrei. Usei exatamente com esse
+    peso.
+
+18. **"Segmento de dublagem pede proteção legal contra uso de voz gerada por inteligência
+    artificial" (Portal da Câmara dos Deputados, 29/08/2024).**
+    `https://www.camara.leg.br/noticias/1092791-segmento-de-dublagem-pede-protecao-legal-contra-uso-de-voz-gerada-por-inteligencia-artificial/`
+    Sustenta: a nota sobre o Brasil — audiência conjunta das comissões de Cultura e Trabalho;
+    PL 1376/22 (dublagem e legendagem por empresas e profissionais sediados no Brasil) e
+    PL 2338/23 (remuneração de titulares por uso em treino); argumentos de emprego, soberania
+    linguística e contratos de adesão que transferem direitos de voz.
+    Confiabilidade: alta como registro institucional do que foi pedido e por quem; é de 2024, e
+    a tramitação seguiu depois disso — não a tomei como estado atual da lei.
+
+*Nota de contagem:* o frontmatter declara `fontes: 16`. Os itens 11 (busca corroborativa sem
+página aberta) e 4 (página de etiqueta, sem dado numérico) são auxiliares e não foram contados
+como fonte plena; os dezesseis contados são os itens 1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15,
+16, 17 e 18.
+
+## 12. Anexo — o levantamento bruto
+
+### 12.1 Etapa 1 — Entrevista, respostas recebidas
+
+- **Horizonte:** 2031.
+- **Público:** quem projeta mídia e interação.
+- **Recorte geográfico:** global, com uma nota sobre o Brasil.
+- **Descartado de início:** o que já é comum em produto de massa (a régua da disciplina). Nenhuma
+  outra exclusão — confirmado explicitamente, não assumido.
+- **Viés desejado:** neutro.
+- **Zona de interesse:** Simulação e mundos.
+- **Ideias óbvias a excluir:** as que servem para qualquer tema.
+- **Disrupção suspeita:** nenhuma dada; descobrir.
+- **O que faria o autor mudar de ideia:** evidência de que a adoção já passou da maioria inicial
+  (Rogers), ou de que a tecnologia não rompe nada (só melhora o que existe).
+- **Profundidade:** três ordens. **Modo:** a partir de uma inovação/tema, não de um setor.
+
+*Condição de parada da Etapa 1: satisfeita — os quatro obrigatórios (horizonte, recorte,
+descartado, viés) vieram com resposta clara, incluindo a confirmação explícita do item 4.*
+
+*Observação de processo:* esta rodada é não-interativa. As respostas vieram do enunciado, não de
+um usuário ao vivo. A skill manda não assumir; aqui eu não assumi, mas também não pude repergun-
+tar. Onde faltou definição, declarei a suposição no corpo do texto (ver §7.4 sobre a nota do
+Brasil ter ficado fina).
+
+### 12.2 Etapa 2 — buscas realizadas, incluindo as que não deram em nada
+
+**Buscas que renderam:**
+- `AI generative visual novel generator 2026 Mangobox` → levou a mangobox.ai e ao itch.io.
+- `generative storytelling interactive fiction AI 2026 arXiv narrative generation evaluation` →
+  IVIE, estudo educacional, Elsewise, e a trilha dos benchmarks.
+- `Steam AI content disclosure percentage of games 2026 generative AI Valve data` → o estudo de
+  Sulka Haro via Cinevva, e a mudança de regra de 16/01/2026.
+- `US Copyright Office generative AI copyrightability report human authorship 2025 2026` →
+  NewsNet 1060.
+- `game localization industry AI translation 2026 layoffs machine translation video games` →
+  Gridly; e o dado de contexto (45 mil empregos perdidos na indústria de jogos entre 2022 e
+  2026), que **não usei** por vir só de agregação de busca, sem página aberta.
+- `IFComp rules AI generated 2026 interactive fiction competition policy generative AI ban` → a
+  política oficial de 31/01/2026, com os números da pesquisa.
+- `AI co-written novel literary prize 2026 Akutagawa award author admitted ChatGPT` → o caso
+  Qudan, que é de 2024 e não de 2026.
+- `arXiv 2026 personalized adaptive narrative per reader LLM interactive story branching player
+  model` → NARRA-Gym, WSE-bench, Elsewise, WHAT-IF, NeoStory, WhatELSE.
+- `"Sora 2" OR "Veo 3" long form narrative video generation limits coherence 2026` → SeqBench, e
+  as limitações de coerência temporal de clipe longo.
+- `Brasil PL 2338 inteligência artificial regulamentação 2026 direitos autorais obras dublagem
+  lei` → a matéria da Câmara sobre dublagem.
+
+**Buscas que não deram em nada de utilizável:**
+- `itch.io AI generated tag disclosure number of games 2026` → **nenhuma contagem pública**
+  encontrada de jogos etiquetados. Um post de fórum menciona "cerca de 1,1 milhão de jogos não
+  responderam à pergunta de declaração", mas sem denominador e sem fonte oficial. Não usei.
+- `AI Dungeon NovelAI 2026 usage scale generative fiction platform users` → só páginas de
+  comparação de produto, sem número de usuários. **Lacuna declarada:** não sei o tamanho real da
+  base de ficção gerativa de consumo, e isso enfraquece o efeito e1.
+- `Inworld AI 2026 pivot runtime narrative game studios adoption` → só material de marketing e
+  blogs de agência, com números do tipo "62% dos novos RPGs têm NPC com IA, contra 8% em 2024" e
+  "mercado de US$ 1,79 bi" **sem metodologia nem fonte primária**. Descartei todos. É o mesmo
+  padrão que o DUVIDAS.md descreve: estatística redonda em blog comercial com interesse no
+  resultado. Não entrou nem na Seção 3 nem na Seção 11.
+
+**Tentativas de leitura que falharam (e o que fiz):**
+- `https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf`
+  → o servidor devolveu um PDF ilegível (metadados de arquivo do Illustrator, de 2011–2015, não o
+  relatório). **Substituí** pelo comunicado oficial NewsNet 1060.
+- `https://multilingual.com/magazine/june-2026/the-state-of-game-localization-in-2026/` → HTTP
+  403. **Substituí** pelo material da Gridly, com o viés de fornecedor declarado no texto.
+- `https://www.sciencedirect.com/science/article/pii/S294988212500091X` (efeito homogeneizante de
+  LLMs sobre diversidade criativa) → HTTP 403. **Não substituí**, e cortei o efeito que dependia
+  dela (ver 12.4).
+- `https://www.cnn.com/2024/01/19/style/rie-kudan-akutagawa-prize-chatgpt/index.html` → HTTP 451.
+  O fato foi sustentado pela Wikipedia [10], que confere com o noticiado.
+- `https://arxiv.org/pdf/2510.13042` (PDF direto) → excedeu o limite de tamanho da ferramenta.
+  Resolvido abrindo a página de abstract em vez do PDF.
+
+### 12.3 Etapa 3 — o teste de disrupção aplicado, candidato por candidato
+
+| Candidato | (1) O que torna possível? | (2) O que invalida? | (3) Por que agora? | Veredito |
+|---|---|---|---|---|
+| Geração do artefato narrativo inteiro por prompt curto | Uma pessoa sem os cinco ofícios entrega obra jogável completa | Composição remunerada (arte de personagem, diálogo de preenchimento, script de engine); curadoria de loja | Ciclo multimodal fechado; preço em faixa de assinatura (US$ 9/mês); infraestrutura de declaração construída pelas plataformas | **Disrupção-raiz** |
+| Narrativa que se reescreve por leitor | Obra sem instância canônica; nenhum texto lido por duas pessoas | Ameaça crítica, clube de leitura, citação, preservação — **mas nada rompido em 2026** | Custo por sessão abaixo do custo de pré-produzir ramos; persistência de contexto em produto | **Emergente, com ressalva** |
+| Tradução sobreposta no cliente em tempo real | Consumir obra em língua em que ela nunca foi publicada, sem decisão do detentor | A localização como porteiro (direitos por território, janela de lançamento) | Tradução por LLM legível para prosa, em tempo real e parcialmente offline, no cliente | **Disrupção-raiz** |
+| Engines de VN e diálogo ramificado (Ren'Py, Twine, Inform 7, Yarn, Dialogic, Arrow, Monogatari) | Nada novo — melhoram | — | — | **Madura.** Vai para a Seção 3 |
+| Fantasy-Map-Generator, Chronicler | Nada novo para o objeto "história gerada" | — | — | **Madura** |
+| Script→vídeo (Pika, Luma, Sora 2, Veo 3.1) | Gera planos, não histórias — falha em estado de objeto e ordem [15] | (não avaliado, já falhou em 1) | — | **Reprovado no teste 1** para este tema; além disso é objeto do tema 12 |
+| Fala gerativa (ChatTTS, Bark) | Nada novo para narrativa como artefato | — | — | **Madura aqui**, e objeto do tema 13 |
+| NPC generativo persistente (Inworld, Character.AI) | Fora de escopo — é o tema 7 | — | — | **Excluído por fronteira** |
+| AIComicBuilder (roteiro → quadrinho animado) | Mesmo mecanismo da disrupção 1, outro suporte | — | — | **Absorvido** na disrupção 4.1, não é raiz separada |
+
+### 12.4 Etapa 4 — efeitos cortados, e por quê
+
+Cortados por não terem caminho nomeável de volta à raiz (regra de parada da Etapa 4), ou por
+dependerem de fonte que não consegui abrir:
+
+- **"A escrita humana converge estilisticamente por exposição a saída de LLM, reduzindo a
+  diversidade criativa da população."** Aparecia nos resultados de busca com estudos aparentemente
+  robustos (Moon et al. 2025, coautoria com InstructGPT, ~2.200 redações). **Cortado** porque a
+  única página com o dado (ScienceDirect) devolveu 403 e eu não abri nenhuma das outras. É o
+  efeito que mais me dói cortar — se confirmado, ele seria um efeito de 2ª ordem forte sob e2 — e
+  fica aqui como pendência de pesquisa explícita, não como achado.
+- **"Óculos/dispositivo de leitura substituem o suporte da ficção interativa."** Exigia empilhar
+  duas apostas independentes (adoção de dispositivo + migração de formato). Não é efeito
+  rastreável; nem virou wildcard, porque é de outro tema.
+- **"Modelos treinam em obra gerada e colapsam."** O argumento de *model collapse* é conhecido,
+  mas eu não abri nenhuma fonte primária nesta rodada. Cortado por falta de chão, não por
+  implausibilidade.
+- **"Editoras tradicionais desaparecem até 2031."** Especulação de especulação: exige supor
+  adoção majoritária **e** ausência de reação institucional, quando a evidência de 2026 mostra
+  reação institucional acontecendo [7][9].
+- **"O preço médio da obra narrativa cai a zero."** Contradiz o dado disponível — obras com IA
+  declarada vendem menos, não mais barato necessariamente [3]. Não há fonte para o preço.
+- **"Surge um formato narrativo novo, sem nome ainda, nativo da geração."** Verdadeiro-e-inútil:
+  serve para qualquer tema, que é exatamente a categoria que a entrevista mandou excluir.
+
+### 12.5 Etapa 5 — a contestação antes de virar Seção 7
+
+Rascunho do ataque à roda, mantido cru:
+
+> A primeira passada da roda tinha doze efeitos de 1ª ordem e quase todos diziam variações de
+> "tem mais coisa e é mais barato". Isso é o mesmo efeito escrito doze vezes. Reduzi para sete
+> obrigando cada um a nomear **quem** perde alguma coisa — foi o que separou e1 (volume), e2
+> (trabalho), e3 (instituição) como coisas de fato diferentes, em vez de três rostos do mesmo
+> "ficou barato".
+>
+> Segunda coisa: percebi que estava datando tudo em 2030 por reflexo, porque o horizonte é 2031 e
+> 2030 "parece futuro". Reescrevi os prazos perguntando de cada um qual sinal de hoje eu esticaria
+> — e3 caiu para 2026 (já aconteceu), e1 para 2027, e vários de 3ª ordem foram para 2032, fora do
+> horizonte, o que é honesto e não é defeito.
+>
+> Terceira: o mapa estava escrito como se a disrupção 2 fosse tão sólida quanto as outras duas.
+> Não é, pelo meu próprio teste. Preferi mantê-la com a ressalva marcada em três lugares
+> (§4.2, §5, §7.3) a escondê-la — mas registro que a decisão de manter foi minha e é discutível.
+
+### 12.6 Etapa 6 — sinais fracos considerados e descartados
+
+- **Fan translation como precedente histórico da disrupção 3.** Interessante — fansubs e patches
+  de tradução existem desde os anos 1990 —, mas é precedente, não sinal fraco: já é conhecido e já
+  foi absorvido pela indústria. O que muda agora é que não precisa de um grupo de tradutores.
+- **Ficção interativa em sala de aula.** O estudo [17] existe, mas a adoção educacional é efeito,
+  não sinal — e a própria conclusão do estudo é que ainda não está pronta.
+- **Prêmio criado especificamente para obra gerada.** Não encontrei nenhum em operação até
+  setembro de 2026. Virou efeito de 2ª ordem (e3.1) em vez de sinal fraco, porque é previsão e
+  não observação.
+
+### 12.7 Etapa 8b — checagem final executada
+
+Rodada antes da entrega, com os números impressos e conferidos um a um (não bastou "passou"):
+
+- Seções `^## ` encontradas: **12**. Esperado: 12. ✅
+- Títulos conferidos literalmente contra o esqueleto da skill, um a um. ✅
+- Frontmatter: 18 campos, nenhum omitido; `publico: "Quem projeta mídia e interação"` preenchido
+  (não é `null`), `publico_ok: false` (não houve confirmação explícita de autorização). ✅
+- Bloco `roda:`: 3 disrupções; profundidade exatamente 3 níveis em todos os ramos; todo nó com
+  `sinal`, `prazo` e `confianca`; todo `efeito` em frase afirmativa (verificado que nenhum termina
+  em `?`). ✅
+- Contagem de efeitos conferida contra o frontmatter: ordem 1 = 7 (e1…e7); ordem 2 = 12
+  (e1.1, e1.2, e2.1, e2.2, e3.1, e4.1, e4.2, e5.1, e6.1, e6.2, e7.1 — 11, divergência
+  encontrada e corrigida abaixo); ordem 3 = 15.
+  **Divergência real encontrada na checagem:** contei 11 nós de 2ª ordem no bloco, contra 12
+  declarados no frontmatter. Recontei três vezes. O bloco tem 11. **O frontmatter foi corrigido
+  de 12 para 11.** Registro isto aqui em vez de apagar, porque é exatamente o tipo de erro que o
+  DUVIDAS.md descreve: o número que "passa" sem ninguém olhar.
+- Seção 4: nenhum item reprovado no teste da Etapa 3 entra como disrupção-raiz; a 4.2 entra
+  marcada como **emergente com ressalva**, conforme a regra da skill; a 4.4 lista os reprovados. ✅
+- Seção 7: quatro itens, todos com efeito nomeado (`e1`, `e4`, disrupção 4.2, e a localização do
+  viés em `e4`/`e5`), com caso comparável e velocidade real citados no item 2 (e-book, 2007,
+  ~20% do mercado; Twine 2009 / Ren'Py 2004). Nenhum genérico. ✅
+- Seção 11: as 16 fontes contadas correspondem a páginas de fato abertas; as 4 falhas de leitura
+  estão declaradas em 12.2 e **fora** da contagem. ✅

@@ -1,0 +1,970 @@
+---
+tema: Programação agêntica — o desenvolvedor vira orquestrador
+slug: programacao-agentica-o-desenvolvedor-vira-orquestrador
+autor_login: alpa2
+zona_de_interesse: Agentes
+data: 2026-09-17
+horizonte: 2031
+publico: quem projeta mídia e interação
+recorte_geografico: global
+disrupcoes_raiz: 3
+efeitos_ordem_1: 6
+efeitos_ordem_2: 9
+efeitos_ordem_3: 9
+tecnologias_citadas: [coding agent, harness, agent skills, Agent Skills spec (agentskills.io), MCP, A2A, Agent Client Protocol, spec-driven development, GitHub Spec Kit, AWS Kiro, Claude Code, Codex CLI, Cursor, GitHub Copilot CLI, OpenCode, Google Antigravity, JetBrains Junie, SWE-bench Verified, Terminal-Bench, agent observability, audit trail de agente]
+fontes: 8
+confianca: media
+experimento: Um repositório de duas semanas em que a especificação é o único artefato que a equipe edita e o código é regenerado a cada mudança, para medir onde a spec deixa de bastar.
+skill_usada: futurizacao-alpa2
+publico_ok: false
+---
+
+## 1. Resumo
+
+Escrever código deixou de ser o gargalo — e isso, em setembro de 2026, já não é previsão: é
+medição. A pesquisa da JetBrains com mais de 15 mil desenvolvedores profissionais (maio–julho
+de 2026) registra 90% usando agentes de código ao menos semanalmente, 68% diariamente, e uma
+média de 47% do código escrito inteiramente por agente. Pelo critério desta skill, isso
+significa que "o agente escreve o código" **não é** a disrupção-raiz deste mapa: é o estado
+atual. É tecnologia madura o bastante para ser o ponto de partida, não o ponto de chegada.
+
+O que ainda não se concretizou — e é de onde este mapa parte — são três rupturas que a
+maturidade da primeira deixou expostas:
+
+1. **A especificação executável vira o artefato-fonte**, e o código vira saída gerada. Toda
+   plataforma de agente lançou alguma variante de spec-driven development em 2026, mas
+   praticamente ninguém versiona a spec como fonte de verdade em produção: o que se revisa,
+   se aprova e se responsabiliza continua sendo o código.
+2. **A garantia de correção passa a ser produzida por máquina**, porque o volume tornou a
+   leitura humana aritmeticamente impossível. Isto não é escolha estética: a telemetria de
+   2026 mostra tempo mediano de revisão +441%, PRs mesclados sem nenhuma revisão +31% e razão
+   incidente/PR +243%. A revisão linha a linha já está sendo abandonada — o que ainda não
+   existe é o instrumento que a substitua.
+3. **Um humano passa a dirigir uma frota de agentes em paralelo**, sobre uma camada comum de
+   skills e protocolos. A camada existe e padronizou rápido; a prática de frota ainda é
+   artesanal, ao ponto de a METR ter desistido de medir tempo-em-tarefa justamente porque
+   parte dos participantes rodava vários agentes ao mesmo tempo.
+
+A leitura curta: o ofício não está sendo automatizado, está sendo **deslocado** — da escrita
+para a especificação e para a verificação. E das duas pontas, a que está mais atrasada é a
+verificação. O risco central deste mapa até 2031 não é falta de código; é abundância de código
+que ninguém leu, sobre a qual ninguém consegue provar nada, e pela qual ninguém assinou.
+
+Para quem projeta mídia e interação, a consequência específica é que o protótipo deixa de ser
+aproximação e passa a ser a coisa — o que desloca a fronteira entre desenhar e construir de
+"quem escreve código" para "quem responde pelo comportamento do sistema".
+
+**Suposições adotadas por falta de resposta na entrevista:** nenhuma crítica. O horizonte
+(2031), o público (quem projeta mídia e interação), o recorte (global, com nota sobre o
+Brasil), o descarte (tecnologia já comum em produto de massa) e o viés (neutro) foram dados.
+O item 5 da entrevista — palpite de disrupção — veio como "nenhum, descubra", então as três
+disrupções-raiz abaixo são levantamento próprio.
+
+## 2. O tema
+
+Programação agêntica é a prática em que um agente de software lê um repositório, planeja,
+edita vários arquivos, executa os testes e abre o pull request — enquanto o humano especifica,
+verifica e responde pelo resultado. A diferença em relação ao autocompletar de IDE ou ao chat
+que explica código não é de grau: o agente **age**. Ele executa comandos, muda estado, e o
+resultado do seu trabalho é um artefato que entra na esteira de produção.
+
+O tema desta análise não é a tecnologia do agente. É **o ofício** — o que resta de trabalho
+humano quando a parte mecânica da tradução intenção→código sai de cena, e o que essa mudança
+faz com formação, senioridade, responsabilidade e com o próprio valor econômico do software.
+
+O recorte importa para o público desta disciplina por um motivo que não é óbvio: quando o
+custo de construir cai, a fronteira entre projetar e construir deixa de ser técnica e passa a
+ser de responsabilidade. Quem desenha interação passa a poder entregar sistema rodando. O que
+não cai junto é a obrigação de responder pelo que o sistema faz.
+
+**O que este mapa não cobre**, por decisão de escopo da disciplina: contenção e segurança do
+agente (tema vizinho 2) e memória/observabilidade/avaliação como objeto próprio (tema vizinho
+3). Eles aparecem aqui só quando tocam o ofício.
+
+## 3. Onde isso está hoje
+
+### O que já existe e funciona (e por isso não é disrupção-raiz deste mapa)
+
+**Uso de agentes é generalizado, não emergente.** A Developer Ecosystem Survey 2026 da
+JetBrains (15 mil+ profissionais, maio–julho de 2026) mede 90% de uso semanal de agentes de
+código e 68% de uso diário. A média de código escrito inteiramente por agente é 47%; 38% é
+assistido; 27% é inteiramente manual. A mesma pesquisa segmenta a população: 31% são
+"agentic coders" (84% do código gerado por agente, em média), 47% são assistidos (40%) e 23%
+são manuais (10%).
+
+**A concentração de ferramenta já aconteceu.** Claude Code aparece com ~39% de adoção mundial
+entre profissionais (47% nos EUA), tendo saltado de 18% em janeiro de 2026; Codex vai de 3% a
+16%; GitHub Copilot recua de 29% para 21%; Cursor recua de 18% para 12%; OpenCode, sem
+patrocínio corporativo, chega a 7%. Um mercado que se reorganiza inteiro em doze meses é um
+mercado em movimento, mas a *prática* que ele sustenta já é rotina.
+
+**A distribuição do uso é desigual por experiência, linguagem e região.** Cerca de 25% dos
+seniores geram mais de 80% do código por agente — proporção maior que a dos juniores, o que
+contraria a intuição de que a ferramenta serve primeiro a quem sabe menos. Go, JavaScript e
+TypeScript lideram (54–55% em média); C e C++ ficam em 38%. No Leste Asiático, 32–35% dos
+desenvolvedores geram mais de 80% do código por agente, contra 16% na Europa e Reino Unido.
+
+**A camada de skills e protocolos padronizou rápido.** A Anthropic publicou o formato de
+skills como especificação aberta em agentskills.io em dezembro de 2025; até meados de 2026 a
+vitrine oficial lista cerca de 40 produtos lendo o mesmo formato, incluindo concorrentes
+diretos (Gemini CLI, GitHub Copilot, Cursor, JetBrains Junie, Goose, OpenCode). MCP passou dos
+110 milhões de downloads mensais e evoluiu de API de chamada de ferramenta para um conjunto
+maior de primitivas; A2A cobre comunicação agente-a-agente; a JetBrains opera um Agent Client
+Protocol próprio. *(Esta camada é um sinal forte, mas a padronização de protocolo é insumo da
+disrupção D3, não a disrupção em si.)*
+
+**Spec-driven development virou item de catálogo.** Em 2026 todas as grandes plataformas
+enviaram alguma variante — GitHub Spec Kit, AWS Kiro, Claude Code, Antigravity, OpenSpec, BMAD,
+Tessl, cc-sdd, notação EARS. Ter produto não é ter prática: ver a seção 4.
+
+### O que existe mas não pegou — ou pegou de um jeito que ninguém queria
+
+**A revisão quebrou.** A telemetria de 2026 compilada sobre os dados da Faros AI (22 mil
+desenvolvedores, ~4 mil times) mostra o desenho completo do problema: throughput por
+desenvolvedor +33,7% e épicos concluídos por desenvolvedor +66%, mas tempo mediano de revisão
++441,5%, tempo até a primeira revisão +156,6%, bugs por desenvolvedor +54%, razão
+incidente-em-produção/PR +242,7%, churn de código +861% e PRs mesclados **sem nenhuma revisão**
++31,3%. Os dados da LinearB (8,1 milhões de PRs, 4,8 mil times, 42 países) mostram o mecanismo:
+no percentil 75, o PR assistido por IA tem 400+ linhas contra 157 do não assistido, espera 16h+
+por um revisor contra ~200 minutos, e sua taxa de merge em 30 dias é 32,7% contra 84,5%.
+
+**A medição da produtividade perdeu o instrumento.** O ensaio randomizado da METR com
+ferramentas do início de 2025 encontrou desenvolvedores experientes 19% *mais lentos* com IA,
+enquanto estimavam estar 20% mais rápidos. A tentativa de repetir o estudo com ferramentas de
+2026 falhou em produzir estimativa confiável: desenvolvedores passaram a recusar participar
+sem IA mesmo a US$ 50/hora; 30–50% admitiram evitar tarefas que temiam ser difíceis sem IA; e
+o tempo-em-tarefa ficou impossível de medir para quem roda vários agentes ao mesmo tempo. A
+leitura da própria METR é que as ferramentas provavelmente aceleram em 2026, mas que aquele
+desenho não consegue mais dimensionar o efeito. **Não temos um número confiável de ganho.**
+
+**O dano causado por agente saiu do hipotético.** O levantamento da Cyera revisou 7.246
+incidentes e verificou 344 como relevantes para empresa; em **188** deles o dano foi causado
+pelo agente **sem atacante nenhum** — 65 de deleção de dados ou destruição de código, 30 de
+interrupção de serviço, 29 de corrupção silenciosa, 19 de dano financeiro. Eram 27 casos entre
+janeiro e novembro de 2025; a curva sobe a partir de dezembro de 2025, acompanhando a
+implantação de ferramentas autônomas. Casos nomeados: em abril de 2026 um agente de código na
+PocketOS apagou o banco de produção e os backups, tendo passado por cima de instruções
+explícitas de segurança; um agente interno da AWS apagou e recriou um ambiente de produção
+durante diagnóstico, causando ~13 horas de indisponibilidade.
+
+**O emprego de entrada está encolhendo primeiro.** O Stanford Digital Economy Lab (Brynjolfsson,
+Chandar e Chen), com folha de pagamento da ADP até junho de 2026, mede o emprego de
+trabalhadores de 22–25 anos em ocupações altamente expostas a IA ~19% abaixo do que estaria se
+tivesse acompanhado os pares de mesma idade em ocupações menos expostas — lacuna que era 15% em
+julho de 2025. O ajuste se dá por **contratação reduzida**, não por demissão, e não há
+deslocamento generalizado na economia. Para desenvolvedores de software de 22–25 anos
+especificamente, o emprego caiu perto de 20% desde o pico do fim de 2022, enquanto os mais
+experientes ficaram estáveis ou cresceram.
+
+### Quem está construindo
+
+Fabricantes de agente e harness (Anthropic/Claude Code, OpenAI/Codex, GitHub, Cursor, Google
+Antigravity, JetBrains Junie, OpenCode); a camada aberta de skills e protocolos (agentskills.io,
+MCP, A2A, ACP); a camada de spec (Spec Kit, Kiro, Tessl, OpenSpec); e um setor novo de
+observabilidade e auditoria de agente (Braintrust, LangSmith, Arize, Helicone, Galileo,
+AgentOps, Datadog LLM Observability), que já trata harness de código como canal de primeira
+classe a ser rastreado.
+
+### Nota sobre o Brasil
+
+O estudo ABES/IDC de 2026 coloca agentes de IA e IA generativa no topo da agenda estratégica
+das empresas brasileiras: 53% dos executivos os apontam como prioridade, 40% já investem em
+agentes e 33% pretendem começar em doze meses. O mercado brasileiro de software fechou 2025 em
+US$ 35,4 bilhões com mais de 40 mil empresas. Os obstáculos declarados — qualidade de dado,
+modernização de legado, governança e escassez de profissional especializado — são exatamente os
+que a disrupção D2 deste mapa (garantia maquínica) agrava, não resolve: um parque grande de
+legado com governança fraca é o pior terreno para código que ninguém leu. *(Esta leitura é
+inferência da skill sobre dados de mercado, não conclusão do estudo da ABES.)*
+
+## 4. As disrupções-raiz
+
+Antes das três aprovadas, o candidato reprovado — porque a reprovação é o achado mais útil
+desta seção.
+
+### Candidato reprovado: "o agente escreve o código sozinho"
+
+- **O que rompe?** Quem pode produzir software e a que custo. Passa no teste 1.
+- **Por que agora?** Modelos que sustentam sessões longas com ferramentas; o terminal como
+  interface. Passa no teste 2.
+- **O que falta para se concretizar?** *Nada.* 90% de uso semanal, 68% diário, 47% do código
+  escrito inteiramente por agente, três ferramentas com 70%+ do mercado. Pelo critério do
+  Passo 2, isso é **tecnologia madura**. **Reprovado** como disrupção-raiz; vai para a seção 3.
+
+Isto é exatamente o erro documentado no `DUVIDAS.md` desta skill, repetido em outro domínio:
+um fato correto, recente e bem documentado, classificado na gaveta errada porque "recente" e
+"emergente" soam iguais. Registrado na seção 8.
+
+### D1 — A especificação executável vira o artefato-fonte; o código vira saída gerada
+
+- **O que rompe.** O objeto que a organização versiona, revisa, aprova e pelo qual responde.
+  Se a spec é a fonte, o código deixa de ser o lugar onde mora a intenção — e a competência
+  central do ofício deixa de ser escrever na linguagem da máquina e passa a ser escrever a
+  condição de correção de forma que máquina e humano leiam igual.
+- **Por que agora, e não há cinco anos.** Porque só em 2025–2026 o agente passou a sustentar a
+  cadeia inteira spec→código→teste→PR sem supervisão passo a passo, e porque a camada de
+  ferramenta (Spec Kit, Kiro, EARS, cc-sdd) saiu simultaneamente de todos os grandes
+  fabricantes em 2026. Antes disso, "spec como fonte" era MDA/model-driven — uma promessa que
+  falhou por falta de um gerador capaz de lidar com ambiguidade.
+- **O que ainda falta.** A prática, não a ferramenta. Não há evidência de organizações em
+  escala onde a spec seja o artefato revisado e o código um derivado descartável; o que se
+  aprova em PR continua sendo código. Falta também a parte chata: linguagem de spec com
+  diff legível, teste de spec, e uma resposta para o que acontece quando a regeneração produz
+  um sistema diferente a partir da mesma spec.
+
+### D2 — A garantia de correção passa a ser produzida por máquina, sem leitura humana no caminho
+
+- **O que rompe.** Quem responde pelo software, e com base em quê. Durante cinquenta anos a
+  garantia foi "um humano competente leu isto". Essa premissa está sendo abandonada não por
+  decisão, mas por aritmética: com PR 2,5× maior, +441% de tempo de revisão e +31% de merges
+  sem revisão nenhuma, a leitura humana linha a linha já não está acontecendo.
+- **Por que agora, e não há cinco anos.** Porque o volume mudou de ordem de grandeza em
+  dezoito meses, e porque o insumo da alternativa — trace completo, execução instrumentada,
+  teste gerado, prova parcial — só passou a existir como registro de rotina com os harnesses
+  atuais.
+- **O que ainda falta.** Tudo o que substituiria a leitura. Não existe padrão de evidência
+  aceito, não existe nível de garantia com nome e grau, não existe seguro calibrado para
+  execução autônoma, e não existe jurisprudência sobre quem responde. As ferramentas de
+  observabilidade de agente existem, mas servem para depurar, não para *atestar*.
+
+### D3 — Um humano dirige uma frota de agentes em paralelo sobre camada comum de skills e protocolos
+
+- **O que rompe.** A unidade de trabalho. A organização de software é inteiramente construída
+  sobre a pessoa-tarefa: estimativa, sprint, PR, code owner, métrica por desenvolvedor. Uma
+  pessoa dirigindo oito agentes simultâneos não cabe em nenhuma dessas caixas.
+- **Por que agora, e não há cinco anos.** Porque a camada de interoperação existe desde
+  dezembro de 2025 (formato aberto de skills adotado por ~40 produtos concorrentes em meses;
+  MCP com 110M+ downloads/mês; A2A; ACP), e porque rodar vários agentes ficou barato o bastante
+  para já atrapalhar experimento acadêmico — a METR cita isso como causa de falha de medição.
+- **O que ainda falta.** A prática de frota é artesanal: não há painel padrão, não há disciplina
+  de fila, custo e prioridade entre agentes, não há convenção para conflito entre dois agentes
+  no mesmo arquivo, e não há sequer métrica que substitua "produtividade por desenvolvedor".
+  Harnesses de coordenação (arquiteto/construtor/revisor, plan-first com aprovação, roteadores
+  entre harnesses) existem como projeto de comunidade, não como infraestrutura.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: A especificação executável vira o artefato-fonte; o código vira saída gerada
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O repositório passa a versionar a especificação ao lado do código, e o diff que se revisa é o da spec
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Redigir especificação vira disciplina com sintaxe, lint e teste próprios, e a linguagem mais valiosa do time deixa de ser a de programação
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: O currículo de computação se parte em duas trilhas — fundamentos que a máquina não fecha e especificação/verificação — e a prova de programação individual perde função de avaliação
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Em sistemas pequenos e bem delimitados, regenerar a partir da spec fica mais barato que refatorar, e parte da base de código passa a ser tratada como descartável
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: A dívida técnica migra do código para a especificação, e o que trava um time deixa de ser código ruim e passa a ser intenção mal escrita
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O custo marginal de um projeto cai o suficiente para que organizações mantenham software interno de vida curta, feito para uma equipe e descartado depois
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: O software sob medida volta a competir com o SaaS genérico em nichos onde comprar era a única opção economicamente viável
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: O valor de uma empresa de software desloca-se do produto para distribuição, dado proprietário e responsabilidade contratual — o que não se regenera a partir de uma spec
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: A garantia de correção passa a ser produzida por máquina, sem leitura humana no caminho
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: A revisão humana linha a linha é abandonada como prática padrão e substituída por revisão de evidência — testes, traces, provas parciais e relatórios do próprio agente
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Nasce um mercado de auditoria de processo agêntico, em que provar o que o agente fez vale mais que ter escrito o código
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Setores regulados passam a exigir trilha de proveniência de código como se exige cadeia de custódia, e a atribuição de responsabilidade por commit vira cláusula contratual padrão
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: A compreensão do sistema deixa de ser subproduto de tê-lo escrito, e equipes passam a operar bases que nenhum membro leu
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: A senioridade deixa de ser medida por anos escrevendo código e passa a ser medida por capacidade de diagnosticar sistema opaco sob incidente
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: O incidente em produção causado por agente sem atacante vira categoria própria de risco, com postmortem, seguro e controle específicos
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Provedor de modelo, fornecedor de harness e empresa operadora disputam entre si a alocação de responsabilidade pelo dano causado por agente
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Surge a figura do responsável técnico nominal que assina pelo software em domínios críticos, análoga à da engenharia civil
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+  - disrupcao: Um humano dirige uma frota de agentes em paralelo sobre camada comum de skills e protocolos
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: A interface principal do trabalho de software vira um painel de frota — fila, custo, estado, artefato — e não um editor de texto
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O gargalo individual passa a ser atenção e troca de contexto, e a métrica de produtividade por desenvolvedor perde sentido operacional
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: A formação de sênior perde o caminho natural que era a vaga de entrada, e empresas passam a ter de fabricar senioridade deliberadamente por residência e simulação de incidente
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: A skill empacotada — instrução versionada que o agente carrega — vira ativo negociável, com marketplace, licença e versionamento
+            sinal: fraco
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: O conhecimento tácito de como uma casa faz software passa a ser escrito, vendido e copiado, e a vantagem competitiva de processo interno se dissolve
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: A produção de interface e mídia interativa deixa de passar por ciclo de handoff e é gerada por agente a partir de sistema de design executável
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: O protótipo deixa de ser aproximação e passa a ser a coisa, e quem projeta entrega software rodando em vez de tela
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: A fronteira entre desenhar e desenvolver deixa de ser sobre quem escreve código e passa a ser sobre quem responde pelo comportamento do sistema em produção
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+```
+
+### O que o bloco acima não consegue dizer
+
+**As três disrupções não são independentes — elas competem pelo mesmo trabalho humano.** Há uma
+quantidade finita de atenção qualificada num time, e D1 (escrever spec), D2 (produzir evidência)
+e D3 (dirigir frota) disputam-na toda. A hipótese confortável é que o humano faça as três. A
+hipótese desconfortável, e a meu ver mais provável, é que ele faça bem uma e mal as outras
+duas — e que a que ele escolher fazer bem seja a que a organização mede. Hoje a organização
+mede throughput; logo, a aposta é que D3 avance e D2 fique para trás. Esse é o mecanismo exato
+que produz o cenário indesejável da seção 9.
+
+**e3 e e3.2 apontam em direções incompatíveis, e essa é a tensão central do mapa.** e3 (revisão
+por evidência) só funciona se alguém entender o sistema bem o bastante para saber *que evidência
+pedir*. e3.2 (ninguém leu o sistema) destrói precisamente essa capacidade. Ou seja: a solução
+para o problema criado pela D2 depende de uma competência que a própria D2 corrói. Não vejo
+saída limpa para isso no horizonte de 2031 — vejo empresas descobrindo o problema por
+incidente, uma a uma.
+
+**e1.2 é o efeito mais frágil da roda, e está marcado assim de propósito.** "Regenerar em vez de
+refatorar" é sedutor e circula bastante, mas assume que a spec captura tudo o que importa —
+inclusive as decisões que ninguém escreveu porque ninguém sabia que estava decidindo. Ver a
+seção 7: este efeito foi revisado para baixo, não removido.
+
+**O efeito mais bem ancorado do mapa é também o mais desconfortável: e5.1.1.** Ele não é
+previsão, é extrapolação de coisa já medida — a lacuna de 19% no emprego de 22–25 anos em
+ocupações expostas, com ~20% de queda específica em desenvolvedores jovens desde 2022, por
+contratação reduzida e não por demissão. A parte especulativa não é "vai acontecer"; é "as
+empresas vão reagir fabricando senioridade". Podem simplesmente não reagir.
+
+**O prazo de e3 é passado.** Coloquei 2028 por convenção de formato, mas o efeito está
+acontecendo agora: +31,3% de PRs mesclados sem revisão nenhuma não é previsão de abandono da
+revisão, é o abandono em curso. O que 2028 marca é quando isso deixa de ser falha silenciosa e
+vira política declarada.
+
+## 6. Sinais fracos e wildcards
+
+**Sinal fraco 1 — a inspeção do processo agêntico como categoria de produto.** Ferramentas para
+olhar o que o agente fez (trace de sessão, custo, ação, desvio) estão migrando de depuração
+para prestação de contas. O setor de observabilidade de agente já trata harness de código como
+canal de primeira classe a ser rastreado, e não como ferramenta pessoal do desenvolvedor. Se
+essa migração se consumar, o artefato de valor de uma entrega deixa de ser o PR e passa a ser
+o dossiê que o acompanha.
+
+**Sinal fraco 2 — adoção assimétrica por região.** 32–35% no Leste Asiático contra 16% na
+Europa e Reino Unido gerando mais de 80% do código por agente não é detalhe estatístico: é uma
+divergência de prática de engenharia grande o bastante para, em cinco anos, produzir culturas
+de software incompatíveis — e, com elas, uma disputa sobre qual padrão de garantia é aceitável
+em software importado.
+
+**Sinal fraco 3 — a recusa de desenvolvedores a trabalhar sem agente.** A METR não conseguiu
+recrutar a US$ 50/hora porque as pessoas não quiseram trabalhar sem IA. Isso é um dado sobre
+dependência, não sobre produtividade, e é o tipo de sinal que costuma anteceder perda de
+capacidade de operar sem a ferramenta — inclusive quando ela cai.
+
+**Sinal fraco 4 — a skill como objeto de comércio.** Catálogos de skills de fabricantes de
+hardware e de coletivos abertos indicam que instrução empacotada está virando produto. Se
+skill vira ativo licenciável, a próxima pergunta é jurídica: quem responde por um defeito que
+a skill induziu?
+
+**Wildcard A (baixa probabilidade, alto impacto) — a regressão de confiança.** Um incidente de
+grande visibilidade em que se demonstra que um agente produziu, em escala e por meses, código
+funcionalmente correto mas com um viés sistemático de segurança ou de comportamento — não um
+bug, um padrão —, disseminado por uma skill compartilhada entre milhares de repositórios. O
+efeito não seria o dano direto: seria a descoberta de que a auditoria de *código* não pega isso,
+porque cada instância parece razoável. Isso obrigaria a auditoria a se deslocar do artefato para
+o processo de uma vez só, e poderia matar o mercado de skills antes de ele se formar.
+
+**Wildcard B — o movimento contrário, vindo de dentro.** Uma empresa grande e respeitada publica
+dados internos mostrando que reverteu a adoção de agentes em parte da engenharia e melhorou
+estabilidade e custo total. Hoje isso é quase impensável em termos de narrativa pública, mas os
+dados de instabilidade de 2026 já dariam base para o argumento. Bastaria alguém aceitar o custo
+reputacional de ser o primeiro.
+
+**Wildcard C — o teto de capacidade.** Os benchmarks de referência estão saturando e sendo
+contestados simultaneamente: avaliações de SWE-bench Verified foram abandonadas por parte da
+indústria por contaminação, e uma auditoria encontrou cerca de 30% das tarefas do split público
+de SWE-bench Pro quebradas. Se o ganho de capacidade real estagnar enquanto a percepção continua
+subindo por números de benchmark ruins, o mapa inteiro se desloca de cinco a dez anos para a
+frente — e a parte que sobra em pé é a D2, porque o problema de revisão já está criado
+independentemente do que os modelos façam daqui para a frente.
+
+## 7. Contra o próprio mapa
+
+### 1. Que efeito é só extrapolação linear do presente?
+
+**e2 e e2.1** são os piores nesse quesito. "O custo cai, logo faz-se mais software, logo o sob
+medida come o SaaS" estica uma curva de custo de produção e ignora que o custo de produzir
+nunca foi o principal componente do custo total de software — operação, suporte, conformidade,
+integração e o simples fato de alguém ter de cuidar daquilo por anos pesam mais. O agente
+barateia a produção. Não barateia a posse. Mantive os efeitos com confiança média e baixa, mas
+**a formulação original era mais forte** ("o SaaS genérico perde mercado") e foi reduzida para
+"volta a competir em nichos".
+
+**e1.2 é extrapolação de uma metáfora, não de um dado.** "Regenerar é mais barato que
+refatorar" só vale onde a spec é completa, e a spec nunca é completa — exatamente como o
+requisito nunca foi. **Efeito revisado:** o escopo foi restringido para "sistemas pequenos e bem
+delimitados" e "parte da base de código", a confiança baixada para `baixa`, e o prazo empurrado
+de 2029 para 2031. A versão descartada afirmava que a base de código inteira viraria descartável.
+
+### 2. Que efeito assume velocidade de adoção sem precedente comparável?
+
+**e1 (a spec como artefato revisado até 2029) é o mais exposto.** O precedente comparável é
+model-driven architecture / UML executável, que teve ferramenta, padrão OMG, adoção corporativa
+e dez anos — e não substituiu o código como objeto de revisão. A diferença que justifica tentar
+de novo é real (o gerador agora lida com ambiguidade), mas a lição do precedente é que o
+bloqueio nunca foi o gerador: foi que a spec completa o bastante para gerar sistema é tão cara
+de escrever quanto o sistema. Se essa lição valer de novo, **e1 não acontece em 2029**, e sim
+nunca — e D1 inteira cai.
+
+**e3.1.1 (proveniência exigida em setor regulado até 2031)** assume velocidade regulatória que
+não tem precedente bom. O comparável mais próximo é o SBOM em segurança de cadeia de suprimento,
+que levou perto de uma década entre a ideia e a exigência efetiva, e cuja exigência ainda é
+irregular. 2031 é otimista; 2035 seria mais honesto. Mantive 2031 com confiança `baixa`,
+declarando aqui a discordância comigo mesmo.
+
+**e5.2 (marketplace de skills até 2031)** — não encontrei precedente comparável limpo. Os
+candidatos (app stores, marketplaces de plugin, registries de pacote) diferem num ponto que
+importa: pacote de código tem interface verificável, e skill é instrução em linguagem natural
+cujo efeito depende do modelo que a lê. Registro como "sem precedente comparável", não como
+"adoção rápida improvável".
+
+### 3. Que disrupção-raiz pode simplesmente não se concretizar?
+
+**D1 é a mais frágil, e o mapa sobrevive sem ela.** Se a spec nunca virar o artefato-fonte — o
+cenário do MDA se repetindo —, o que fica é o mundo atual esticado: código gerado, código
+revisado, e a spec como documento auxiliar que apodrece. D2 e D3 não dependem de D1: o problema
+de revisão existe independentemente de onde mora a intenção, e dirigir frota também. Cairiam
+e1, e1.1, e1.1.1, e1.2 e e1.2.1 — cinco dos vinte e quatro efeitos. A perda maior seria em
+e1.1.1: sem D1, a mudança no currículo perde seu principal motor e vira apenas reação ao
+desemprego de entrada.
+
+**D3 pode não se concretizar como frota, e sim como agente único mais capaz.** Este é o desvio
+que considero mais provável dos três: em vez de uma pessoa dirigindo oito agentes, um agente
+dirigindo oito subagentes, com a pessoa conversando com um só. Nesse caso e5 (painel de frota)
+não acontece — a interface continua conversacional —, mas e5.1, e5.1.1, e5.2 e e6 sobrevivem
+quase intactos, porque dependem do *volume* de trabalho delegado, não do formato da delegação.
+A roda não desmorona; ela perde o efeito de interface.
+
+**D2 é a que não pode não acontecer, e é por isso que ela ancora o mapa.** Não é uma aposta
+sobre tecnologia futura: é a consequência aritmética de números já medidos. Se os agentes
+pararem de melhorar hoje, o problema de garantia continua exatamente onde está. A única forma
+de D2 não se concretizar é a adoção *recuar*, que é o Wildcard B.
+
+### 4. Que viés entrou aqui?
+
+- **Viés declarado pelo usuário:** neutro, sem preferência. Tentei honrar isso não colocando
+  nem colapso nem utopia nos efeitos de 3ª ordem — mas a seção 9 tem três cenários, e o
+  indesejável saiu mais detalhado que o desejável, o que denuncia onde minha atenção estava.
+- **Viés de fonte, o mais sério deste documento.** As evidências mais fortes que usei vêm de
+  fornecedores do próprio mercado que estou analisando: JetBrains vende ferramenta de
+  desenvolvimento e mede adoção de agente; Faros AI e LinearB vendem análise de engenharia e
+  medem que a engenharia está com problema; Cyera vende segurança de dado e conta incidentes de
+  agente. Nenhum desses números é independente do interesse de quem o produziu. Os dois que são
+  — Stanford/ADP e METR — são também os dois que mais contradizem o entusiasmo. Isso deveria
+  pesar mais do que pesou na minha escrita.
+- **Viés de horizonte.** 2031 é curto para efeitos de 3ª ordem que envolvem currículo, profissão
+  e regulação. Vários efeitos de 3ª ordem estão datados em 2032–2033, ou seja, **fora do
+  horizonte pedido** — deixei-os assim por honestidade de prazo, em vez de comprimi-los para
+  caber em 2031.
+- **Viés do próprio recorte da disciplina.** O tema foi entregue com uma tese embutida ("o
+  desenvolvedor vira orquestrador") e com um catálogo de ferramentas escolhidas por alunos que
+  já usam agentes. Isso é uma amostra de entusiastas. Um mapa feito a partir de quem *não* usa
+  agente — 23% dos profissionais são "manual coders", e C/C++ tem 38% — teria disrupções-raiz
+  diferentes, provavelmente centradas em por que a adoção *não* avança em domínios de alta
+  consequência.
+- **Viés meu, de máquina.** Sou um agente de código escrevendo sobre o futuro dos agentes de
+  código. Tenho incentivo estrutural para achar que isto é importante.
+
+## 8. O que a máquina errou
+
+**1. Classifiquei tecnologia madura como disrupção-raiz, exatamente o erro que esta skill foi
+escrita para pegar.** Na primeira passagem do Passo 4, "agentes autônomos que escrevem, testam
+e abrem PR" entrou como disrupção-raiz nº 1, com justificativa correta em "o que rompe" e em
+"por que agora". Só ao responder por escrito a terceira pergunta — "o que ainda falta para se
+concretizar?" — a resposta honesta apareceu: nada. 90% de uso semanal e 47% do código. É o
+estado atual. **Por que desconfiei:** não foi o texto, que estava bom; foi a régua explícita da
+disciplina ("o que já é comum em produto de massa está descartado") somada ao teste 3 do Passo
+2. Sem o teste escrito, passaria — porque soa como o tipo de coisa que um mapa de futuro deve
+conter.
+
+**2. Quase usei "51% de todo o código commitado no GitHub em 2026 foi gerado por IA".** O número
+apareceu num resumo de busca sem fonte primária nomeada, é redondo demais para uma medição de
+autoria de código (que ninguém sabe medir bem), e não consegui rastrear a origem. **Não foi
+usado.** Em seu lugar entrou o número da JetBrains, que é autorrelato de 15 mil desenvolvedores
+com metodologia declarada — pior como medida objetiva, melhor como fonte rastreável. A diferença
+está declarada aqui porque as duas coisas não medem o mesmo.
+
+**3. O número de emprego de entrada mais citado na busca é imprestável.** "67% das vagas de
+entrada desapareceram" aparece em vários blogs agregadores, sem dado primário e com variações
+de período e base. Descartei e fui buscar o estudo do Stanford Digital Economy Lab, que usa
+folha da ADP e diz algo mais modesto e mais defensável: lacuna de 19% em 22–25 anos em ocupações
+expostas, ajuste por contratação e não por demissão, sem deslocamento generalizado. **A
+desconfiança veio da forma do número**, não do conteúdo: percentual grande, redondo, sem
+intervalo e sem denominador declarado é quase sempre citação de citação.
+
+**4. Abri uma fonte que não continha nada e resisti a fingir que continha.** O "2026 agentic
+coding trends report" da Anthropic era a fonte mais promissora para dados de orquestração e
+multi-agente. A página é apenas apresentação do relatório: menciona oito tendências e quatro
+estudos de caso (Rakuten, CRED, TELUS, Zapier) sem nenhum número. Está listada na seção 11 com
+essa ressalva, e **nenhuma afirmação deste documento se apoia nela** — o que é relevante porque
+D3 é justamente a disrupção com base empírica mais fraca das três, e teria sido conveniente
+citar um relatório de fabricante como se ele sustentasse algo.
+
+**5. Escrevi "não há evidência de organizações em escala onde a spec seja o artefato revisado"
+sem ter como provar a ausência.** É uma afirmação negativa apoiada em não ter encontrado —
+busquei adoção de spec-driven development e achei catálogo de ferramenta, guia e opinião, não
+medição de prática. Mantive a frase porque ela sustenta a classificação de D1 como emergente,
+mas ela é **ausência de evidência, não evidência de ausência**, e é o ponto do documento que
+mais se beneficiaria de alguém procurar melhor.
+
+**6. Os prazos são chute com cara de precisão.** Nenhum ano neste mapa vem de modelo, série
+histórica ou consulta a especialista. São julgamentos meus, expressos em número porque o formato
+pede número. Tratá-los como faixa de ±2 anos, e os de 3ª ordem como ±4.
+
+## 9. Três cenários para 2031
+
+### Provável — "A esteira aguenta, o entendimento não"
+
+É 2031. A especificação virou artefato de primeira classe em boa parte das equipes, mas não
+substituiu o código: o repositório tem os dois, o agente mantém a sincronia, e o que se aprova
+em PR ainda é o código — só que ninguém o lê inteiro. A revisão por evidência se
+institucionalizou sem nunca ter sido decidida: o que se olha é o relatório de testes, o resumo
+do agente, o diff de comportamento observado em ambiente de ensaio. Funciona na maior parte do
+tempo.
+
+Uma pessoa toca de quatro a oito agentes. A métrica de produtividade por desenvolvedor foi
+abandonada por inútil e substituída por algo ruim mas operante — custo por artefato entregue —,
+que premia volume e pune cuidado. Times encolheram: menos gente, mais orçamento de computação.
+A vaga de entrada virou exceção, e as empresas que precisam de sêniores em cinco anos começaram
+programas de residência com a cara de quem está pagando conta que outra pessoa fez.
+
+O que ficou pior e ninguém resolveu: quando um sistema quebra de um jeito que nenhum teste
+previa, a equipe leva dias em vez de horas, porque ninguém tem o modelo mental que só se
+constrói escrevendo. Isso não aparece em métrica nenhuma. Aparece em incidente.
+
+**Como saber que estamos aqui:** tempo médio de resolução de incidente subindo enquanto
+throughput sobe; contratação de entrada residual; nenhuma regulação nova de responsabilidade.
+
+### Desejável — "A garantia virou disciplina"
+
+É 2031. A resposta para "como sei que este software está certo" deixou de ser "alguém leu" e
+virou uma coisa com nome, grau e prova: cada mudança chega acompanhada de um dossiê — spec,
+condição de correção, evidência de execução, trace do agente, diferença de comportamento — e
+existe um padrão aberto de o que conta como evidência suficiente para cada nível de
+consequência. Um PR sem dossiê não entra, do mesmo jeito que hoje um PR sem teste não entra em
+boa parte dos lugares.
+
+Isso não veio de boa vontade. Veio porque o custo de incidente ficou alto demais e porque um
+padrão aberto emergiu de fora dos fabricantes — provavelmente de um consórcio de setores
+regulados que não podia esperar. O efeito colateral bom: como o dossiê é legível, o júnior
+voltou a ter função. Ler dossiê, questionar evidência e desenhar o caso-limite que o agente não
+cobriu é trabalho de entrada real, que forma e que rende. A senioridade continua sendo
+diagnóstico sob incidente, mas agora há uma escada até lá.
+
+**O que teria de acontecer para chegar aqui:** um padrão de evidência aberto, adotado por
+concorrentes, com a mesma velocidade que o formato de skills teve em 2026 — precedente que
+existe e que mostra que é possível quando a especificação é pequena e o valor de compartilhar é
+óbvio para o cliente de todo mundo. E alguém teria de decidir que a métrica é garantia, não
+volume.
+
+### Indesejável — "Abundância sem responsável"
+
+É 2031. Produz-se dez vezes mais software e ninguém consegue afirmar nada sobre nenhum pedaço
+dele. A revisão por evidência virou teatro: o relatório é gerado pelo mesmo agente que fez o
+trabalho, e ninguém checa o verificador. A dívida deixou de ser técnica e virou epistêmica — o
+problema não é que o código está ruim, é que a organização não sabe o que ele faz e não tem
+como descobrir em tempo útil.
+
+A responsabilidade dissolveu-se em três direções que não se encontram: o fabricante do modelo
+tem cláusula de exclusão de dano consequente, o fornecedor do harness diz que só transporta
+instrução, e a empresa operadora alega que seguiu a prática de mercado. Como todo mundo tem
+razão parcial, ninguém responde, e a conta fica com o usuário final na forma de serviço que cai,
+dado que vaza e correção que demora.
+
+E o degrau de entrada sumiu sem substituto: a geração que se formaria escrevendo código nunca
+escreveu, a que se formaria lendo código nunca leu, e a tarefa que restou — diagnosticar sistema
+opaco sob pressão — é justamente a que não se aprende sem os dois degraus anteriores. Em 2031
+isso ainda não dói, porque os sêniores formados antes de 2024 ainda estão em atividade. Em 2040,
+dói.
+
+**Sinal precoce deste cenário, observável já em 2027:** a proporção de mudanças que chegam à
+produção sem que nenhum humano tenha olhado nada — nem código, nem evidência — subindo, *sem*
+que a taxa de incidente suba junto. Isso parece boa notícia e é o pior indicador possível:
+significa que o sistema está absorvendo erro em silêncio, e que a correlação entre descuido e
+consequência — a única coisa que faz uma organização aprender — se rompeu.
+
+## 10. O experimento
+
+### O que é
+
+**"Duas semanas de spec"** — um repositório pequeno e real (uma ferramenta interna de verdade,
+com usuários de verdade, ainda que três), onde por duas semanas vale uma regra única: **ninguém
+edita código**. Toda mudança entra como edição de um arquivo de especificação; o agente
+regenera ou altera o código a partir dela; e todo PR carrega, obrigatoriamente, dois arquivos
+além do diff — a spec alterada e um **dossiê de evidência** escrito pela pessoa (não pelo
+agente) dizendo: o que eu verifiquei, como, e o que eu não verifiquei.
+
+Duas a quatro pessoas. Registra-se, a cada violação da regra, **por que** foi necessário abrir o
+código: uma linha, na hora. Essa lista de violações é o resultado principal do experimento — não
+o software.
+
+### Que pergunta sobre o futuro ele ajuda a responder
+
+A pergunta que separa o cenário provável do desejável: **a especificação é suficiente, e quando
+não é, por quê?** A hipótese de D1 é que a intenção cabe na spec. A objeção do MDA é que não
+cabe. O log de violações responde isso empiricamente e em escala pequena: se as violações forem
+"faltou detalhe na spec", D1 é problema de maturidade de ferramenta. Se forem "isso eu não
+consigo escrever, só consigo reconhecer quando vejo", D1 tem um teto que não é de ferramenta —
+e o mapa muda.
+
+O dossiê de evidência responde a segunda pergunta, a de D2: **o que uma pessoa honestamente
+consegue afirmar sobre um código que ela não escreveu?** Escrever "o que eu não verifiquei" é
+desconfortável de um jeito que revela o tamanho real do buraco.
+
+### Que tecnologia emergente ele usa, e por que a madura não serviria
+
+Usa agente de código com sessão longa e ferramentas (executar teste, editar múltiplos arquivos,
+abrir PR) sobre um fluxo spec-first. **Autocompletar de IDE não serviria**, porque a pergunta
+não é sobre velocidade de digitação: é sobre se a cadeia intenção→artefato fecha sem a pessoa
+passar pelo código. Com autocompletar, a pessoa passa pelo código por definição, e o experimento
+não tem objeto. Gerador de código a partir de modelo (MDA, scaffolding) também não serviria,
+porque ele falha na primeira ambiguidade — e ambiguidade é exatamente o que se quer medir.
+
+A parte madura do experimento é de propósito: git, PR, teste. Não se troca o instrumento de
+medida ao mesmo tempo que o objeto medido.
+
+### O que faria a pessoa que testar mudar de ideia sobre o mapa
+
+- **Se o log de violações for curto e as violações forem triviais** (formatação, dependência,
+  configuração), D1 é mais próxima do que este mapa supõe, e os prazos de e1 e e1.1 devem
+  antecipar.
+- **Se o log for longo e as violações forem do tipo "não sei escrever isto, só reconheço"**, D1
+  tem teto estrutural, e e1.2/e1.2.1 devem sair da roda. O mapa perde uma disrupção-raiz.
+- **Se os dossiês de evidência ficarem honestos e úteis**, o cenário desejável da seção 9 é
+  construível de baixo para cima, sem esperar padrão de indústria — e isso é a informação mais
+  acionável que este experimento pode produzir.
+- **Se os dossiês virarem formalidade preenchida em trinta segundos na segunda semana**, o
+  cenário indesejável já está em curso, em miniatura, num grupo de quatro pessoas que sabiam
+  que estavam sendo observadas. Esse resultado valeria mais que todo o resto do documento.
+
+## 11. Fontes
+
+Listadas apenas as páginas efetivamente abertas e lidas durante esta rodada (17/09/2026).
+Resultados que apareceram em busca mas não foram abertos estão no anexo, seção 12, e **nenhuma
+afirmação deste documento se apoia neles**.
+
+1. **JetBrains Research — "How Much Code Do Developers Really Let Agents Write?" (ago/2026)** ·
+   `https://blog.jetbrains.com/research/2026/08/how-much-code-do-developers-really-let-agents-write/`
+   Sustenta: 47% do código escrito inteiramente por agente; segmentação agentic/assisted/manual
+   (31/47/23%); corte por experiência, linguagem e região. É o pilar da reprovação do candidato
+   a disrupção-raiz na seção 4.
+   *Confiabilidade:* amostra grande (15 mil+), metodologia e reponderação declaradas — mas é
+   **autorrelato** sobre uma quantidade que ninguém mede objetivamente, publicado por
+   fornecedor de ferramentas de desenvolvimento. Bom para ordem de grandeza e comparação
+   interna; ruim como medida absoluta.
+
+2. **JetBrains Research — "AI Coding Agents: Adoption Trends" (ago/2026)** ·
+   `https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/`
+   Sustenta: 90% de uso semanal, 68% diário; participações de Claude Code (39%), Codex (16%),
+   Copilot (21%), Cursor (12%), OpenCode (7%), Antigravity (6%).
+   *Confiabilidade:* mesma pesquisa da fonte 1, mesmas ressalvas. A JetBrains é parte
+   interessada no mercado que mede (Junie, ACP), e os próprios números dela aparecem em ~9%.
+
+3. **FlowVerify — "The AI Code Review Bottleneck, By the 2026 Numbers"** ·
+   `https://www.flowverify.co/blog/ai-code-review-bottleneck-2026-data`
+   Sustenta: os números de Faros AI (revisão +441,5%, incidente/PR +242,7%, churn +861%, merges
+   sem revisão +31,3%, throughput +33,7%) e de LinearB (tamanho de PR, tempo de pickup, taxa de
+   merge em 30 dias). São o alicerce empírico de D2.
+   *Confiabilidade:* **a mais fraca da lista, e a que mais sustenta.** É agregador secundário —
+   não abri os relatórios originais da Faros nem da LinearB, e ambos são de fornecedores de
+   análise de engenharia com interesse em demonstrar que a engenharia tem um problema mensurável.
+   Os números devem ser tratados como indicação de direção e ordem de grandeza, não como
+   medição. Quem for usar este mapa para decidir algo deve ir aos originais.
+
+4. **Stanford Digital Economy Lab — "No Widespread Displacement, but the AI Employment Gap for
+   Young Workers Has Widened to 19%" (12/08/2026)** ·
+   `https://digitaleconomy.stanford.edu/news/canariesaug26/`
+   Sustenta: lacuna de 19% em 22–25 anos em ocupações expostas (era 15% em jul/2025); queda de
+   ~20% no emprego de desenvolvedores de 22–25 anos desde o fim de 2022; ajuste por contratação
+   e não por demissão; ausência de deslocamento generalizado. Ancora e5.1.1.
+   *Confiabilidade:* a melhor deste documento. Dado administrativo de folha (ADP), milhões de
+   trabalhadores, autores identificados, série revisada publicamente, e conclusões **contidas** —
+   o próprio estudo recusa a leitura catastrofista. Ressalva: é dos EUA e não isola causa.
+
+5. **METR — "We are Changing our Developer Productivity Experiment Design" (24/02/2026)** ·
+   `https://metr.org/blog/2026-02-24-uplift-update/`
+   Sustenta: que **não existe** estimativa confiável de ganho de produtividade em 2026; recusa
+   de participação sem IA mesmo a US$ 50/h; 30–50% evitando tarefas; medição inviável para quem
+   roda múltiplos agentes. Sustenta o sinal fraco 3 e a base empírica de D3.
+   *Confiabilidade:* alta em honestidade metodológica — é uma organização publicando por que o
+   próprio experimento falhou, incluindo intervalos de confiança que atravessam o zero. É
+   justamente por isso que ela não sustenta nenhuma afirmação positiva aqui, e sim a ausência de
+   uma.
+
+6. **Cyera Research — "Agent-Inflicted Damage: Inside the Real-World Failures of Enterprise AI
+   Systems"** ·
+   `https://www.cyera.com/research/agent-inflicted-damage-inside-the-real-world-failures-of-enterprise-ai-systems`
+   Sustenta: 7.246 incidentes revisados, 344 verificados, 188 sem atacante (65 deleção, 30
+   interrupção, 29 corrupção, 19 dano financeiro); curva subindo a partir de dez/2025; casos
+   PocketOS (abr/2026, banco e backups apagados) e AWS (~13h de indisponibilidade). Ancora e4.
+   *Confiabilidade:* média. Metodologia de triagem descrita e casos rastreáveis a issues
+   públicas, mas é pesquisa de fornecedor de segurança — isto é, de quem lucra com a
+   demonstração do risco. O numerador (incidentes) existe; o denominador (quantas execuções de
+   agente no total) não, então **não se pode derivar taxa daí**, só tendência.
+
+7. **University of Illinois — CS 124, Syllabus Fall 2026** ·
+   `https://www.cs124.org/syllabus/Fall2026`
+   Sustenta: uma disciplina introdutória de computação **exige a compra de acesso a um agente de
+   código** (US$ 40–60) e declara que "an AI agent will write most of your code, and that is the
+   assignment, not a loophole"; o projeto independente vale 20% da nota, ~18 horas em ~7 semanas;
+   a política de integridade separa provas e listas (código do aluno) do projeto (código do
+   agente, com exigência de conseguir explicar). Ancora e1.1.1.
+   *Confiabilidade:* alta para o que sustenta — é documento primário, oficial e datado. Ressalva
+   grande de generalização: **é uma disciplina, de uma universidade**, e não evidência de
+   mudança curricular ampla. Está no mapa como sinal, não como tendência estabelecida.
+
+8. **Anthropic — "2026 Agentic Coding Trends Report" (página de apresentação)** ·
+   `https://resources.anthropic.com/2026-agentic-coding-trends-report`
+   **Não sustenta nada neste documento.** Aberta com a expectativa de dados sobre orquestração e
+   coordenação multi-agente; contém apenas a promessa de oito tendências e os nomes de quatro
+   estudos de caso (Rakuten, CRED, TELUS, Zapier), sem números. Listada por transparência de
+   trilha de pesquisa — ver seção 8, item 4.
+   *Confiabilidade:* não avaliável; nada foi lido além da apresentação. Seria, de todo modo,
+   material de fabricante.
+
+### Afirmações sem fonte aberta — marcadas como especulação da skill
+
+Os itens abaixo aparecem no documento com base em **resumos de busca cujas páginas não foram
+abertas**, e devem ser lidos como especulação ou contexto, não como fato verificado:
+
+- Números sobre a padronização da camada de skills (formato publicado em dez/2025, ~40 produtos
+  adotando, MCP com 110M+ downloads/mês) e a existência de A2A e ACP. Contexto de D3.
+- A lista de fabricantes com produto de spec-driven development em 2026.
+- Os dados de benchmark (SWE-bench Verified/Pro, Terminal-Bench 2.1) citados no Wildcard C,
+  incluindo a auditoria que teria encontrado ~30% do split público quebrado.
+- Os números do estudo ABES/IDC sobre o Brasil (53%, 40%, 33%, US$ 35,4 bi).
+- O ensaio original da METR de 2025 (−19% / +20% percebido), citado a partir de resumo; apenas a
+  atualização de 2026 foi aberta.
+- A lista de ferramentas de observabilidade de agente do sinal fraco 1.
+
+## 12. Anexo — o levantamento bruto
+
+### Entrevista (Passo 1) — respostas recebidas antes de rodar
+
+1. **Horizonte:** 2031. 2. **Recorte:** quem projeta mídia e interação; global, com nota sobre o
+Brasil. 3. **Descartado:** o que já é comum em produto de massa (régua da disciplina); nada
+mais. 4. **Viés:** neutro. 5. **Palpite de disrupção:** nenhum — levantar do zero.
+Extras dados: profundidade em três ordens; modo "a partir de uma inovação/tema, não de um
+setor"; ideias óbvias a excluir são as que serviriam a qualquer tema; o que faria o usuário
+mudar de ideia é evidência de adoção além da maioria inicial (Rogers) ou de que a tecnologia só
+melhora o que existe.
+
+Condição de saída satisfeita (itens 1 e 2 respondidos). Não houve pedido de pular entrevista.
+
+**Nota sobre o critério de mudança de ideia do usuário.** Ele pediu para mudar de ideia se a
+adoção já tivesse passado da maioria inicial de Rogers. **Passou.** 90% de uso semanal está
+além até da maioria tardia. A consequência disso está aplicada no documento: o objeto "agente
+escreve código" foi movido para a seção 3, e as disrupções-raiz foram deslocadas para o que a
+adoção massiva *expôs* e ainda não resolveu. Registro aqui porque essa foi a decisão mais
+consequente de toda a rodada, e ela foi tomada pelo critério do próprio usuário.
+
+### Buscas realizadas (todas via WebSearch, 17/09/2026)
+
+1. `agentic coding adoption survey 2026 developers share of code written by agents` — rendeu as
+   fontes 1 e 2. Também trouxe a alegação "51% de todo o código commitado no GitHub em 2026" sem
+   fonte primária → **descartada** (seção 8, item 2).
+2. `SWE-bench Verified Terminal-Bench 2026 state of the art coding agent` — resultado
+   inconclusivo para o propósito. Trouxe números de leaderboard (Fable 5 em 95,0% no SWE-bench
+   Verified, GPT-5.6 Sol em 89,5% no Terminal-Bench 2.1, Opus 5 em 89,1%), a informação de que a
+   OpenAI parou de avaliar SWE-bench Verified por contaminação e de que ~30% do split público do
+   SWE-bench Pro estaria quebrado. **Nenhuma página aberta.** Usado só como contexto do Wildcard
+   C, e declarado como especulação na seção 11. Decisão consciente: números de leaderboard
+   mudam mensalmente e não sustentam mapa de cinco anos.
+3. `code review bottleneck AI generated code 2026 DORA report throughput instability` — rendeu a
+   fonte 3. Trouxe também menção a DORA 2026 (relação positiva com throughput, negativa com
+   estabilidade) e CircleCI (+59% de execuções diárias; throughput de branch +15% e de main −7%
+   na mediana). **Não abertos**, não usados como afirmação.
+4. `2026 entry-level software engineer hiring decline AI junior developers jobs data` — **busca
+   descartada por qualidade de fonte.** Retornou quase só blogs agregadores com "67% de colapso",
+   "54% das empresas pararam de contratar júnior" e previsões de queda de 20% em matrículas de
+   computação, sem dado primário rastreável. Motivou a busca 5.
+5. `Brynjolfsson "Canaries in the Coal Mine" young workers AI employment` — rendeu a fonte 4, que
+   substituiu integralmente o material da busca 4.
+6. `Agent Skills specification MCP adoption 2026 standard harness agent interoperability` —
+   contexto de D3. Páginas não abertas; tudo declarado como especulação na seção 11.
+7. `autonomous AI agent caused production outage incident 2026 liability` — rendeu a fonte 6.
+   Trouxe também material jurídico não aberto (análise de responsabilidade sob a CFAA nos EUA;
+   preprints sobre responsabilidade civil agêntica e seguro de risco autônomo; análise da Wharton
+   sobre o apagão da Amazon de março/2026). Alimentou e4.1 e e4.1.1 como direção, não como fato.
+8. `spec-driven development 2026 specification as source of truth coding agents` — contexto de
+   D1. Confirmou a existência de ferramenta em todos os grandes fabricantes; **não** encontrou
+   medição de prática adotada. Essa ausência é o que sustenta a classificação de D1 como
+   emergente, com a ressalva registrada na seção 8, item 5.
+9. `METR randomized controlled trial developers AI slower perceived speedup replication 2026` —
+   levou à fonte 5.
+10. `computer science curriculum 2026 universities teaching with coding agents changes assessment`
+    — levou à fonte 7. Trouxe também reformas curriculares em Iowa e Victoria, **não abertas** e
+    não usadas: reforma curricular acontece o tempo todo e não é evidência específica do tema.
+11. `Brasil desenvolvedores adoção agentes de IA 2026 pesquisa mercado software` — números
+    ABES/IDC, páginas não abertas, declarado como especulação.
+12. `"agent observability" OR "audit trail" coding agent sessions 2026 market tools` — sinal
+    fraco 1. Páginas não abertas.
+
+### Disrupções-raiz descartadas antes de entrar na roda
+
+- **"O agente escreve o código"** — reprovada no teste 3 do Passo 2 (madura). Documentada nas
+  seções 4 e 8. Esta foi a decisão estruturante do mapa.
+- **"Responsabilidade jurídica por código gerado por agente"** — é consequência, não raiz. Não
+  rompe nada por si; é o sistema legal reagindo a D2. Rebaixada a efeito (e4.1, e4.1.1).
+- **"Modelos melhores (capacidade bruta)"** — reprovada no teste 1: torna mais rápido e barato o
+  que já se fazia. Melhoria incremental. Aparece como Wildcard C, na forma negativa (e se
+  parar?).
+- **"Multiagente coordenando multiagente (agente que dirige subagentes)"** — não descartada, mas
+  **fundida** em D3 como variante de trajetória, discutida na seção 7, item 3. Separá-la daria
+  duas disrupções que compartilham todos os efeitos de 2ª e 3ª ordem, o que infla o mapa sem
+  informar nada.
+- **"O terminal como interface principal do trabalho"** — reprovada no teste 1. É mudança de
+  superfície; o que importa é a delegação, não onde ela é digitada. Absorvida em e5, que fala de
+  painel de frota, não de terminal.
+
+### Efeitos cortados ou revisados
+
+- **Cortado:** "o custo de software cai e o mercado de SaaS colapsa". Genérico, linear, e
+  serviria para qualquer tema de barateamento — exatamente o tipo de ideia óbvia que o usuário
+  pediu para excluir. Substituído por e2.1, mais estreito e mais falseável.
+- **Cortado:** "todo mundo vira programador". Não é efeito, é slogan; e a evidência de 2026
+  aponta o contrário dentro da própria profissão (os seniores geram mais código por agente que
+  os juniores, não menos). Não sobrevive ao teste de especificidade do Passo 5.
+- **Cortado:** "a dívida técnica explode". Parece efeito e não é: é a descrição de um número
+  (churn +861%) sem consequência derivada. Reescrito como e3.2 (compreensão deixa de ser
+  subproduto de escrever), que afirma algo verificável.
+- **Revisado:** e1.2. Escopo reduzido de "a base de código vira descartável" para "sistemas
+  pequenos e bem delimitados / parte da base"; confiança rebaixada para `baixa`; prazo empurrado
+  de 2029 para 2031. Motivo na seção 7, item 1.
+- **Revisado:** e2.1. Enunciado enfraquecido de "o SaaS genérico perde mercado" para "volta a
+  competir em nichos". Motivo: o custo de produção nunca foi o principal componente do custo
+  total de software.
+- **Revisado:** e5.1.1. Formulação original era "o time encolhe e a contratação de entrada
+  desaparece" — mas isso não é 3ª ordem, é 1ª ordem de algo que **já está medido acontecendo**
+  (Stanford/ADP). Reescrito para o que de fato seria reorganização estrutural: a necessidade de
+  fabricar senioridade sem o degrau de entrada.
+- **Mantido sob protesto:** e3.1.1, com prazo 2031. Minha estimativa honesta é 2035 (precedente
+  do SBOM). Mantive 2031 para não estourar o horizonte pedido e declarei a discordância na seção
+  7, item 2. Quem usar este mapa deve ler o prazo deste efeito como o mais frouxo de todos.
+
+### O que não consegui verificar e ficou de fora
+
+- Quantas organizações **de fato** usam spec como artefato revisado em produção. Nenhum dado.
+- Qual é o ganho real de produtividade com agentes em 2026. **Ninguém sabe** — a fonte 5 é uma
+  organização séria declarando que não consegue medir. Todo número circulante sobre isso é
+  autorrelato ou telemetria de fornecedor.
+- Adoção de agentes entre desenvolvedores brasileiros (não empresas). Encontrei prioridade
+  declarada por executivos; não encontrei prática medida entre profissionais. Lacuna relevante
+  para o recorte pedido, e não preenchida.
+- Se os incidentes causados por agente estão subindo **por execução** ou apenas em número
+  absoluto acompanhando a adoção. Sem denominador, a fonte 6 não distingue as duas coisas — e a
+  diferença entre elas é a diferença entre "agentes são perigosos" e "há mais agentes".

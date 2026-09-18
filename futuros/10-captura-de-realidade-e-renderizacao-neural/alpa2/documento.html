@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Captura de realidade e renderização neural · futurizacao-alpa2 (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 10 · futurizacao-alpa2 (aluno)</p><h1>Captura de realidade e renderização neural</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/alpa2/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/10-captura-de-realidade-e-renderizacao-neural/alpa2/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h3 id="d1-a-reconstrucao-deixa-de-ser-um-procedimento-por-cena-e-vira-inferencia-de-modelo-unico">D1 — A reconstrução deixa de ser um procedimento por cena e vira inferência de modelo único</h3>
+<p><strong>O que rompe.</strong> Até aqui, capturar um espaço exigia <em>planejar a captura</em>: órbita em torno do objeto, sobreposição suficiente, calibração, e depois minutos a horas de otimização daquela cena específica. O regime feed-forward (DUSt3R → VGGT → VGGT-SLAM 2.0) elimina as duas coisas: não precisa de pose conhecida e não precisa de otimização por cena. Isso muda <em>quem pode capturar</em> (qualquer um, sem método) e, sobretudo, <em>o que pode ser capturado</em>: todo o acervo de imagem já existente no mundo — frames de vídeo antigos, fotos de jornal, arquivos de museu — passa a ser matéria-prima 3D retroativamente. Não é "mais rápido": é o passado virando capturável.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Em 2021 não havia nem representação renderizável em tempo real (3DGS é de 2023) nem reconstrução em passagem única sem pose (VGGT é de março de 2025, prêmio de melhor artigo no CVPR 2025). O limiar técnico foi cruzado duas vezes em dois anos, e em 2026 a linhagem já rendeu variantes para tempo real, panorâmica e escala offline.</p>
+<p><strong>O que ainda falta.</strong> Escala e confiabilidade fora de distribuição: reconstrução feed-forward de acervos heterogêneos (lentes desconhecidas, iluminação inconsistente, décadas diferentes) ainda é assunto de artigo, não de produto. Falta também o elo de saída — malha limpa e editável — que segue exigindo retopologia manual.</p>
+<hr>
+<h3 id="d2-a-aparencia-e-o-movimento-de-uma-pessoa-tornam-se-capturaveis-sem-estudio-sem-marcador-e-sem-negociacao-previa">D2 — A aparência e o movimento de uma pessoa tornam-se capturáveis sem estúdio, sem marcador e sem negociação prévia</h3>
+<p><strong>O que rompe.</strong> O mocap clássico é um evento contratual: a pessoa vai ao estúdio, veste o traje, e o consentimento é logicamente anterior à captura — sem consentimento, não há dado. A captura markerless a partir de vídeo RGB inverte a ordem: <strong>o dado pode existir antes de qualquer conversa</strong>. Some-se a isso o avatar gaussiano reconstruído a partir de vídeo monocular e a reperformance fotorrealista, e o que muda não é o custo da animação, é a premissa jurídica e ética do campo inteiro.</p>
+<p><strong>Por que agora.</strong> Precisão markerless validada contra sistemas ópticos e em uso por grandes estúdios; publicação contínua de avatares gaussianos controláveis, destilados para rodar em dispositivo móvel (SqueezeMe), e de telepresença monocular (Mon3tr); compressão volumétrica em ordem de 11,4 KB/quadro, que tira o corpo capturado do regime de arquivo de pesquisa e o coloca no regime de transmissão.</p>
+<p><strong>O que ainda falta.</strong> Qualidade estável sob oclusão, mãos e face em captura monocular casual; e — determinante — moldura jurídica. No Brasil o PL 4025/23 ainda não é lei, e a discussão de captura ambiental é doutrina recente, não jurisprudência consolidada.</p>
+<hr>
+<h3 id="d3-o-indice-3d-do-mundo-vira-infraestrutura-consultavel-por-maquinas-construida-por-captura-distribuida-e-privada">D3 — O índice 3D do mundo vira infraestrutura consultável por máquinas, construída por captura distribuída e privada</h3>
+<p><strong>O que rompe.</strong> Mapa é representação para humanos, com dono declarado e método público. O que a Niantic Spatial descreve — base viva do mundo que pessoas <strong>e máquinas</strong> consultam, montada sobre scans de usuários de app de consumo — é outra coisa: um substrato operacional privado, acumulado sem mandato cartográfico, sobre o qual agentes e robôs vão se localizar e agir. Rompe a separação entre mapear e operar, e desloca o poder de quem desenha o mapa para quem detém o índice.</p>
+<p><strong>Por que agora.</strong> O 3DGS tornou o ativo leve o bastante para acumular em volume; a localização visual passou a funcionar sobre esse acervo (VPS 2.0); grandes plataformas de mapa começaram a adotar a representação (Apple Maps, em 2026); e o comprador final apareceu — IA física e robótica precisam de mapa métrico e semântico que não existe em formato aberto.</p>
+<p><strong>O que ainda falta.</strong> Cobertura e, principalmente, <strong>atualização</strong>: um índice do mundo é um ativo que apodrece. Falta ainda qualquer regime consolidado de autorização sobre a captura de interiores e de propriedades privadas — hoje isso é política de empresa, não norma.</p>
+<hr>
+<h3 id="rejeitada-qualquer-pessoa-captura-3d-com-o-celular">Rejeitada: "qualquer pessoa captura 3D com o celular"</h3>
+<p>Pelos três testes: (1) o que rompe — o acesso à captura 3D, que já havia sido rompido; (2) por que agora — o Scaniverse é gratuito e roda em smartphone comum desde antes deste horizonte; (3) <strong>o que ainda falta para se concretizar — nada</strong>: está em loja de aplicativos, é grátis, é usado em massa, e a própria Niantic o descreve como serviço de ingestão em escala. Pelo critério do Passo 2 e pela régua da disciplina, isso é <strong>tecnologia madura</strong> e vai para a seção 3, não para cá. É exatamente o erro documentado no <code>DUVIDAS.md</code> do autor da skill — confundir <em>recente</em> com <em>emergente</em> — e ele reapareceu aqui na primeira passagem (ver seção 8).</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;D1 — A reconstrução deixa de ser procedimento por cena e vira inferência de modelo único&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: A captura deixa de exigir sessão planejada e qualquer acervo de imagem existente vira fonte de geometria.
+        sinal: medio
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Arquivos fotográficos e videográficos passam a ser minerados como reservas de 3D, não como coleções de imagem.
+            sinal: fraco
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: O licenciamento de acervo passa a separar direito de exibir a imagem de direito de reconstruir o espaço que ela contém.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: A etapa cara do pipeline passa a ser corrigir a reconstrução, não construir o modelo.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: A formação em 3D se reorganiza em torno de diagnóstico de reconstrução e retopologia, e a modelagem do zero vira especialidade de nicho.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O custo marginal de um cenário 3D fotorrealista específico cai para perto de zero.
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: O fotorrealismo vira a opção padrão de qualquer projeto, e o estilo passa a ser uma decisão deliberada e mais cara que o realismo.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: A não-fotorrealidade se consolida como marca de autoria e critério de valor em obras de mídia interativa.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Equipes pequenas alcançam paridade visual com grandes estúdios em ambientação, mas não em sistemas e direção.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: O diferencial competitivo das produtoras migra de capacidade de produção para curadoria, direção e acesso a locações autorizadas.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: A reconstrução migra do tempo de autoria para o tempo de execução, acontecendo no dispositivo do usuário durante o uso.
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Interfaces passam a assumir que a geometria do entorno do usuário é conhecida, e não mais que a tela é o único palco.
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A planta do espaço doméstico passa a ser tratada como dado pessoal sensível, com regime de retenção próprio.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;D2 — Aparência e movimento de uma pessoa tornam-se capturáveis sem estúdio, sem marcador e sem negociação prévia&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: A aparência volumétrica de qualquer pessoa filmada em vídeo comum torna-se um ativo reproduzível e reanimável.
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Contratos de elenco e de eventos passam a tratar captura incidental, e não apenas sessões de captura agendadas.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O consentimento vira metadado técnico embarcado no ativo 3D, e ativo sem procedência de consentimento perde valor comercial.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: O litígio por réplica espacial não autorizada cresce antes de existir lei específica sobre ela.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Tribunais fixam por analogia uma doutrina de aparência tridimensional antes de o legislador escrevê-la.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: A captura de movimento sai do estúdio e passa a ocorrer no lugar onde o movimento realmente acontece.
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Esporte, reabilitação e ergonomia adotam análise de movimento por câmera comum como rotina, fora de laboratório.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: O padrão de andar de uma pessoa passa a funcionar como identificador biométrico de fato, sem ter sido regulado como tal.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: Bases de movimento humano crescem por captura oportunista de vídeo já existente, e não por sessões contratadas.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Procedência verificável de dado de movimento vira exigência contratual padrão em produção audiovisual e em treino de modelos.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: A telepresença volumétrica passa a caber no orçamento de rede de uma videochamada comum.
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A reunião remota ganha corpo e espaço compartilhado, deslocando a grade de rostos como formato dominante em usos específicos.
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: A presença ao vivo perde força como prova, porque reperformance fotorrealista e transmissão tornam-se indistinguíveis sem atestação criptográfica.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;D3 — O índice 3D do mundo vira infraestrutura consultável por máquinas, construída por captura distribuída e privada&quot;
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: Um índice 3D consultável de espaços públicos e privados se acumula sem mandato cartográfico nem inventário público do que foi capturado.
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Abre-se disputa sobre quem autoriza a captura de um interior — o visitante que escaneia, o ocupante ou o proprietário.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Consolida-se uma figura jurídica de direito sobre a representação espacial do imóvel, distinta do direito de imagem e da propriedade.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: Robôs e agentes passam a operar em cima de mapas proprietários de terceiros, e não de mapas próprios.
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: Dependência de infraestrutura espacial estrangeira entra na pauta de soberania digital de países que não operam índice próprio.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: A atualização contínua do índice, e não a captura inicial, torna-se o produto vendido.
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: Quem captura vira fornecedor de dado remunerado por volume, e não proprietário do ativo que ajudou a formar.
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: Forma-se um trabalho informal de coleta espacial, pago por scan e concentrado onde o índice está desatualizado.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e8.2
+            ordem: 2
+            efeito: A divergência entre a cópia e o mundo vira risco operacional mensurável, e não apenas defeito estético.
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e8.2.1
+                ordem: 3
+                efeito: Auditoria de atualidade espacial vira requisito em setores críticos que operam por mapa, como logística e resposta a emergência.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<h3 id="o-que-o-yaml-nao-diz">O que o YAML não diz</h3>
+<p><strong>A tensão principal do mapa é entre e2 e e7.1.</strong> O custo de produzir um cenário cai para perto de zero (e2) exatamente quando o custo de ter <em>direito</em> de usar aquele cenário começa a subir (e7.1). Se as duas curvas correrem juntas, o efeito líquido para quem projeta mídia não é "3D barato": é a substituição de um orçamento de produção por um orçamento jurídico. Isso contraria a leitura intuitiva da tendência e é, na minha avaliação, o achado mais útil desta roda.</p>
+<p><strong>e1.2 e e1.2.1 não descrevem a morte do modelador — descrevem uma troca de gargalo, e isso foi revisado no Passo 6.</strong> O dado disponível puxa contra a leitura catastrofista: no GDC 2026 State of the Game Industry, apenas <strong>19%</strong> dizem usar IA generativa para geração de assets, e a limitação técnica citada de forma recorrente é justamente a que impede a substituição — saída sem topologia quadrangular limpa, que quebra rigging, deformação e orçamento de polígono. Ao mesmo tempo, <strong>52%</strong> dos profissionais consideram que a IA generativa está prejudicando a indústria (contra 30% no ano anterior e 18% dois anos antes), e entre artistas visuais e técnicos esse número é <strong>64%</strong>. Ou seja: a percepção de ameaça corre bem à frente da substituição efetiva — e percepção move contrato coletivo, política de estúdio e escolha de carreira antes de a técnica chegar lá. O efeito real de médio prazo é institucional, não técnico.</p>
+<p><strong>A terceira ordem está deliberadamente concentrada em 2031</strong> porque esse é o horizonte pedido. Isso comprime artificialmente efeitos que provavelmente se distribuiriam entre 2031 e 2036 — quem ler este mapa deve tratar os anos da terceira ordem como "no fim do horizonte, ou depois dele", não como datas.</p>
+<p><strong>O ramo D2 é o único em que a evidência jurídica corre à frente da evidência técnica.</strong> Há projeto de lei em tramitação e doutrina publicada antes de a captura não consentida ter virado prática de escala. Isso é raro, e é o motivo de e4.2 ter sinal médio e não fraco.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<ul><li><strong>Reconstrução como programa, não como dado.</strong> A ideia de devolver <em>código procedural</em> (uma cena Three.js gerada) em vez de nuvem de gaussianas inverte a economia do ativo: um programa é editável, versionável, difável e pesa quilobytes, enquanto um splat pesa centenas de megabytes e não se edita por parâmetro. Quase não aparece hoje; se pegar, muda a resposta a e2.1 (estilo volta a ser barato, porque o ativo volta a ser paramétrico).</li><li><strong>Compressão como o verdadeiro gargalo resolvido.</strong> 11,4 KB por quadro de vídeo volumétrico é o tipo de número que, quando cai, destrava distribuição de massa sem que ninguém anuncie disrupção nenhuma. Vale mais a pena vigiar a curva de KB/quadro do que os anúncios de qualidade visual.</li><li><strong>A captura do que já não existe.</strong> Reconstrução feed-forward de acervos históricos heterogêneos permitiria navegar lugares demolidos, cidades pré-desastre e arquivos pessoais. É tecnicamente menos difícil do que parece e culturalmente mais pesado do que se admite: produz um espaço navegável que ninguém pode verificar.</li><li><strong>Wildcard (baixa probabilidade, alto impacto).</strong> Um splat de uma pessoa capturado sem consentimento é usado em obra comercial de grande alcance; a decisão judicial que se segue não trata o caso como direito de imagem, mas cria — por analogia com direito autoral — um direito patrimonial sobre a <em>representação volumétrica</em> da pessoa, transferível e licenciável. O efeito colateral perverso seria tornar a réplica 3D um bem negociável, e portanto comprável em massa de quem precisa de dinheiro, exatamente ao inventar a proteção contra ela.</li><li><strong>Wildcard 2.</strong> Uma plataforma de índice espacial privado sofre vazamento e libera nuvens 3D de interiores residenciais em volume. O resultado provável não é regulação da captura, e sim colapso reputacional do ato de escanear — a técnica continua disponível, mas capturar em público vira socialmente inaceitável, do jeito que aconteceu com uma geração anterior de óculos com câmera.</li></ul>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>1. Qual efeito é só extrapolação linear do presente?</strong> O e2 ("custo marginal cai para perto de zero") é a extrapolação mais óbvia: pega a curva de barateamento de 2023–2026 e a estica. Ele ignora que o custo de produção nunca foi o único custo, e que curvas de custo costumam parar num piso institucional — licença, autorização, seguro, revisão. Mantive o efeito, mas rebaixei o escopo: ele vale para <em>cenário</em>, não para <em>obra</em>. E o e2.2 foi reescrito no meio do processo para explicitar o limite — paridade em ambientação, não em sistemas e direção.</p>
+<p><strong>2. Qual efeito assume velocidade de adoção sem precedente comparável?</strong> O e6.1 (telepresença volumétrica deslocando a grade de rostos) assume adoção rápida de um formato de comunicação. O caso comparável é a videochamada 3D e a telepresença imersiva das duas décadas anteriores, que tiveram demonstrações impecáveis e adoção marginal — a videoconferência só virou padrão sob choque externo, não por qualidade. Por isso e6.1 está com sinal fraco e confiança baixa, e o filho dele (e6.1.1) foi mantido apenas porque a questão probatória não depende de adoção em massa: basta um caso. O e7.2.1 (soberania) também flerta com velocidade improvável: pauta de soberania digital costuma levar mais de uma década entre percepção e instrumento.</p>
+<p><strong>3. Qual disrupção-raiz pode simplesmente não se concretizar?</strong> A D3. Um índice 3D global vivo tem um inimigo que não é técnico nem jurídico: <strong>manutenção</strong>. O ativo apodrece, a cobertura é desigual e o custo de atualizar cresce com o tamanho. Há precedente farto de mapas 3D ambiciosos que ficaram desatualizados e viraram passivo. Se a D3 não se concretizar, <strong>o mapa não desmorona</strong>: D1 e D2 são independentes dela e sustentam 20 dos 36 efeitos. O que cai é todo o ramo e7–e8 e a leitura de que o poder migra para quem detém o índice — nesse cenário, o índice fragmenta em silos setoriais (uma rede de varejo mapeia suas lojas, uma operadora logística seus galpões) e o efeito e7.1 vira disputa contratual banal em vez de questão pública. A D2, por outro lado, é a mais robusta: mesmo que a qualidade dos avatares estanque, a captura de movimento markerless já está validada e em produção.</p>
+<p><strong>4. Que viés entrou aqui?</strong> Quatro, declarados: (a) <strong>Viés de fonte anglófona e de indústria de jogos/cinema.</strong> As evidências mais concretas que consegui abrir são de engines, estúdios e arXiv em inglês; o Brasil entra quase só pelo lado jurídico. O mapa provavelmente subestima usos não-ocidentais e não-audiovisuais (patrimônio, perícia, agricultura, defesa civil). (b) <strong>Viés de disponibilidade de publicação.</strong> Áreas com publicação frequente (avatares gaussianos, compressão) aparecem com sinal mais forte que áreas igualmente relevantes mas menos publicadas (uso corporativo fechado, defesa). (c) <strong>Viés declarado pelo solicitante: neutro</strong> — nenhum pedido de otimismo ou pessimismo. Ainda assim, a seção 6 pende para risco, porque wildcards de alto impacto são mais fáceis de imaginar no registro negativo; registro isso como assimetria não corrigida. (d) <strong>Viés de quem escreve.</strong> Rodei esta skill sem interlocutor humano disponível para arbitrar cortes no meio do caminho. Toda decisão de "isto é raiz / isto é estado atual" foi minha, inclusive a rejeição da candidata "qualquer um captura com o celular", que um humano poderia ter defendido.</p>
+<p><strong>Efeitos descartados ou revisados neste passo</strong> (detalhe no anexo): um descartado inteiro ("o modelador 3D deixa de existir como profissão até 2031"), dois reescritos (e2.2, e1.2.1) e um rebaixado de confiança (e6.1).</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<ul><li><strong>Classifiquei tecnologia madura como disrupção-raiz, na primeira passagem.</strong> "Qualquer pessoa captura 3D com o celular" entrou na primeira lista de raízes, com justificativa factualmente correta (Scaniverse é grátis, roda em smartphone comum, é usado em massa). O erro não foi um fato falso — foi categorização. Só caiu ao responder por escrito a terceira pergunta do Passo 2: "o que ainda falta para se concretizar?" — resposta honesta: nada. É literalmente o mesmo erro que o autor da skill documentou no <code>DUVIDAS.md</code> com o CGM de glicose, o que sugere que esse não é um deslize ocasional, e sim o modo de falha característico deste método quando a tecnologia é recente o bastante para <em>soar</em> emergente.</li><li><strong>Escrevi "204 mil empregos" e "30 bilhões de imagens posadas" antes de verificar.</strong> Os dois números apareceram em resumos de busca, não em página que eu tenha aberto: o primeiro vem de uma manchete sobre um estudo sindical de animação, o segundo de um artigo de terceiros sobre a Niantic. Tentei abrir a reportagem do GeekWire (HTTP 403) e o artigo do The New Stack (retornou só formulário de newsletter). <strong>Cortei os dois do documento.</strong> Mantive apenas os números que li em página aberta: os percentuais do GDC 2026 e o 11,4 KB/quadro do 4D-MoDe.</li><li><strong>Quase citei o PL 1.460/2026 como marco jurídico central.</strong> Ele apareceu em resultado de busca com descrição plausível e detalhada (réplicas digitais, responsabilização de plataforma, inspiração na Lei 9.610/1998), mas <strong>não abri a fonte</strong>. Substituí pelo PL 4025/23, cuja página da Câmara eu abri e verifiquei, e deixo o 1.460/2026 registrado apenas no anexo como pista não verificada. Registro a desconfiança: descrição rica vinda só de snippet é exatamente o formato em que um identificador errado passa despercebido.</li><li><strong>Inflacionei a terceira ordem antes de revisar.</strong> A primeira versão tinha efeitos de 3ª ordem com confiança "média" — não porque a evidência sustentasse, mas porque um mapa todo "baixa" parece fraco. Rebaixei todos para baixa, que é a resposta correta e a esperada pelo método.</li><li><strong>Deixei um efeito não-específico passar.</strong> "A indústria criativa se reorganiza" estava no lugar do atual e2.2.1. Não é efeito, é ausência de análise — foi reescrito para nomear o deslocamento concreto (de capacidade de produção para curadoria, direção e acesso a locações autorizadas).</li></ul>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<h3 id="provavel-a-copia-e-facil-a-licenca-e-cara">Provável — "a cópia é fácil, a licença é cara"</h3>
+<p>Em 2031, capturar um espaço em 3D é tão banal quanto gravar um vídeo, e nenhum projeto de mídia interativa começa modelando ambiente do zero: começa escolhendo, entre capturas existentes, qual serve. As ferramentas de produção tratam splat como tratam bitmap — todo software importa, poucos editam bem. O trabalho de modelagem não desapareceu: encolheu para personagem, mecanismo e tudo que precisa deformar, e cresceu numa função nova de reparo e verificação de captura. O que ninguém previu direito é que a conversa difícil de um projeto deixou de ser "conseguimos produzir isso?" e virou "podemos usar isso?": aparecem escritórios especializados em autorização espacial, ativos circulam com procedência de consentimento anexada, e projetos morrem por não conseguir limpar a origem de uma captura. Os índices 3D do mundo existem, mas fragmentados e desiguais — excelentes em centros comerciais de países ricos, vazios ou desatualizados no resto.</p>
+<h3 id="desejavel-procedencia-por-padrao">Desejável — "procedência por padrão"</h3>
+<p>Mesmo ponto técnico, outra institucionalidade. Até 2031, formato de splat e de vídeo volumétrico convergiram o bastante para que metadado de procedência viajasse junto com o ativo — quem capturou, onde, quando, sob que autorização — e as ferramentas grandes passaram a recusar, por padrão, ativo sem essa trilha. O Brasil aprovou norma que resolve o caso da captura incidental de pessoas sem congelar a técnica, e a discussão sobre interiores foi tratada como questão de consentimento do ocupante, não de propriedade. Para chegar aqui foram necessárias três coisas, nenhuma automática: um padrão aberto adotado por concorrentes; uma decisão judicial de referência que tenha protegido a pessoa sem criar um mercado de réplicas; e ferramentas de captura que peçam autorização no momento certo, sem empurrar a responsabilidade para um termo de uso que ninguém lê. O ganho não é só ético: com procedência verificável, o acervo capturado vira mercado com preço, e quem captura passa a ser pago.</p>
+<h3 id="indesejavel-o-mundo-escaneado-de-quem-nao-foi-perguntado">Indesejável — "o mundo escaneado de quem não foi perguntado"</h3>
+<p>Em 2031, o índice 3D é real, útil e consolidado em poucas mãos, e o consentimento nunca foi resolvido — apenas presumido. A captura incidental de pessoas em espaço público é tratada como externalidade, e a réplica volumétrica de gente comum circula em produções sem que exista caminho prático de contestação (o caminho legal existe e custa mais que o dano). Interiores foram mapeados por apps de consumo com autorização obtida em termo de uso, e o índice é condição de operação para robôs e agentes — o que significa que não usar a plataforma é não operar. Estúdios encolheram a equipe de arte antes de a técnica justificar, movidos pela percepção de substituição, e o repertório visual convergiu para o fotorrealismo do que foi capturado, porque estilizar voltou a ser caro. <strong>Sinal precoce deste cenário, visível bem antes de 2031:</strong> contratos de captura que substituem consentimento explícito por consentimento presumido em termo de uso, combinados com ausência de qualquer inventário público do que já foi escaneado. Se em 2028 não existir nenhum mecanismo para uma pessoa perguntar "em quais capturas eu apareço?", este é o cenário em curso.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> <em>Três passagens pelo mesmo lugar.</em> Capturar um mesmo espaço movimentado do campus — o hall de entrada, a lanchonete, um corredor em horário de aula — três vezes: em horários diferentes do mesmo dia, com celular comum, usando um app de captura gratuito; processar as três em splat; abri-las lado a lado no SuperSplat, no navegador. Em seguida, duas medições simples:</p>
+<ol><li><strong>Diferença.</strong> O que mudou entre as três cópias? Cadeira movida, cartaz novo, luz diferente, objeto que virou borrão. Anotar quanto do espaço é estável e quanto é ruído.</li><li><strong>Quem está lá.</strong> Contar quantas pessoas reconhecíveis (silhueta, roupa, rosto) sobreviveram à reconstrução em cada passagem, e quantas delas poderiam saber que estavam sendo capturadas. Nenhuma dessas capturas deve ser publicada; o experimento termina com a contagem e com o apagamento dos arquivos.</li></ol>
+<p><strong>Que pergunta sobre o futuro ele ajuda a responder.</strong> Duas, ambas centrais neste mapa: a de e8.2 — <em>quanto tempo uma cópia do mundo continua verdadeira?</em> — e a de e4/e7.1 — <em>o consentimento é praticável na captura de espaço, ou a captura de pessoas é inevitável e incidental?</em> A primeira testa a hipótese de que o produto é a atualização, não a captura. A segunda transforma uma discussão abstrata sobre privacidade em um número que cabe numa página.</p>
+<p><strong>Que tecnologia emergente ele usa, e por que a madura não serve.</strong> Usa reconstrução neural (splat) e edição de splat no navegador. Fotogrametria clássica não serviria: ela exige captura disciplinada e descarta justamente o que interessa aqui — pessoas em movimento, superfícies difíceis, passagem casual —, entregando um modelo limpo que esconde o fenômeno a ser medido. É o ruído da captura neural que carrega a informação deste experimento.</p>
+<p><strong>O que faria quem testar mudar de ideia sobre o mapa.</strong> Dois resultados derrubariam partes inteiras da roda. Se as três passagens forem praticamente idênticas e as pessoas desaparecerem na reconstrução (viradas em borrão irreconhecível), então e8.2 perde força — a cópia envelhece devagar — e o ramo de consentimento incidental (e4, e7.1) fica bem menos urgente do que este documento supõe. Se, ao contrário, as três cópias divergirem muito e rostos reconhecíveis sobreviverem, então o mapa está certo no eixo de procedência e provavelmente <strong>conservador</strong> nos prazos de e4.2 e e7.1.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Listadas apenas as páginas efetivamente abertas e lidas nesta rodada.</p>
+<ol><li><strong>3D Gaussian Splatting for Real-Time Radiance Field Rendering</strong> (Kerbl, Kopanas, Leimkühler, Drettakis — SIGGRAPH 2023) — <code>https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</code> Sustenta: a existência e o desempenho do 3DGS (≥100 fps a 1080p), base técnica da seção 3 e da justificativa "por que agora" de D1 e D3. Confiabilidade alta: página oficial dos autores, artigo publicado em venue de referência, código aberto.</li><li><strong>VGGT: Visual Geometry Grounded Transformer</strong> — <code>https://arxiv.org/abs/2503.11651</code> Sustenta: reconstrução feed-forward em menos de um segundo, sem pose, de uma a centenas de vistas — o núcleo de D1. Confiabilidade alta: preprint com aceitação no CVPR 2025 e código público; leitura restrita ao abstract.</li><li><strong>4D-MoDe: Motion-Decoupled 4D Gaussian Compression</strong> — <code>https://arxiv.org/html/2509.17506</code> Sustenta: 11,4 KB por quadro inter-frame, comparações com 4DGC/3DGStream/HiCoM, &gt;140 fps — base de e6 e do sinal fraco sobre compressão na seção 6. Confiabilidade média-alta: preprint de setembro de 2025, sem revisão por pares confirmada; números são do próprio artigo.</li><li><strong>Move.ai — Tech</strong> — <code>https://move.ai/tech</code> Sustenta: estado da captura markerless (volumes 4×4 m a 20×20 m, validação contra sistemas ópticos, "milhões de minutos de movimento"). Confiabilidade baixa-média: é material de fornecedor, portanto alegação comercial, não medição independente — foi usado como sinal de maturidade de mercado, nunca como prova de precisão.</li><li><strong>Mapping the World For Machines with Scaniverse — Niantic Spatial</strong> — <code>https://www.nianticspatial.com/en/blog/scaniverse</code> Sustenta: o Large Geospatial Model como "base de dados viva do mundo que pessoas e máquinas podem consultar" e a escala declarada do acervo de splats — base de D3. Confiabilidade baixa-média: blog institucional; a página não informa números verificáveis nem política de consentimento, o que é, em si, um dado usado em e7.</li><li><strong>Gaussian Splatting in June 2026 — Radiance Fields (newsletter)</strong> — <code>https://radiancefields.substack.com/p/gaussian-splatting-in-june-2026</code> Sustenta: adoção em Houdini 22, Arnold 7.5.2, TouchDesigner, SketchUp e Apple Maps (seção 3). Confiabilidade média: boletim especializado, bem informado, mas sem revisão; a página está parcialmente sob paywall e só li a parte aberta.</li><li><strong>GDC 2026 Report sobre IA generativa (GIANTY)</strong> — <code>https://www.gianty.com/gdc-2026-report-about-generative-ai/</code> Sustenta: 36% usam IA generativa no trabalho; 52% consideram o impacto negativo (contra 30% e 18% nos anos anteriores); 64% entre artistas visuais e técnicos; 19% para geração de assets. Base da prosa da seção 5 e da revisão de e1.2.1. Confiabilidade média: é resumo de terceiro sobre o State of the Game Industry; não abri o relatório original, e a página não informa o n da amostra — os percentuais devem ser lidos com essa ressalva.</li><li><strong>Comissão aprova regras para uso de imagens e obras autorais por inteligência artificial — Portal da Câmara dos Deputados</strong> — <code>https://www.camara.leg.br/noticias/1234723-comissao-aprova-regras-para-uso-de-imagens-e-obras-autorais-por-inteligencia-artificial/</code> Sustenta: PL 4025/23, aprovado na Comissão de Cultura em 19/12/2025, exigindo autorização prévia para uso de imagem de pessoas em IA generativa; em tramitação conclusiva na CCJ. Base da nota sobre o Brasil e de e4.2. Confiabilidade alta: fonte oficial do Legislativo.</li><li><strong>Direito à imagem e gravação invisível: consentimento na era dos smart glasses — ConJur, 03/03/2026</strong> — <code>https://www.conjur.com.br/2026-mar-03/direito-a-imagem-e-gravacao-invisivel-consentimento-na-era-dos-smart-glasses/</code> Sustenta: o argumento de que captura ambiental invisível corrói o consentimento informado, com apoio no art. 5º, X da CF, art. 20 do Código Civil e LGPD — base de e4.1 e e7.1. Confiabilidade média-alta para doutrina: é artigo de opinião jurídica em veículo especializado, não decisão judicial.</li></ol>
+<p><strong>Afirmações sem fonte, marcadas como especulação da própria skill:</strong> todos os efeitos de 2ª e 3ª ordem da seção 5; os dois wildcards da seção 6; os três cenários da seção 9; e a leitura da seção 5 sobre a tensão entre e2 e e7.1. Nenhum deles é atribuído a fonte alguma.</p>
+<p><strong>Tentativas de leitura que falharam</strong> (e por isso nada delas foi citado): reportagem do GeekWire sobre a Niantic Spatial (HTTP 403) e artigo do The New Stack sobre o mesmo tema (retornou apenas formulário de assinatura).</p>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="buscas-realizadas">Buscas realizadas</h3>
+<ol><li><code>Gaussian splatting 2026 state of the art real-time neural rendering</code> — deu o artigo original do INRIA, o registro de desempenho (≥100 fps, 1080p), a comparação NeRF×3DGS (NeRF 1–10 fps, treino de horas a dias, modelo de 10–50 MB; 3DGS treino de 7–45 min, cena de 500 MB–1,5 GB) e a limitação reconhecida em objetos reflexivos. Os números comparativos vieram de um guia em Medium que <strong>não abri</strong>; usei-os apenas como orientação qualitativa na seção 3 ("a troca comprou velocidade e pagou em armazenamento"), sem citar cifras como verificadas.</li><li><code>markerless motion capture from video 2026 Move.ai monocular</code> — levou a move.ai/tech (aberto), a um texto da Move 4D sobre "2026 trends" e a páginas de review. Só usei o site do fornecedor, e marcado como alegação comercial.</li><li><code>Niantic large geospatial model Scaniverse scans privacy 2026</code> — melhor resultado (GeekWire) deu 403; The New Stack não entregou corpo; o blog institucional foi o que restou.</li><li><code>single image to 3D model 2026 TripoSR Hunyuan3D generative 3D asset</code> — sustentou a afirmação de que malha de IA ainda não tem topologia limpa. Nenhuma das páginas foi aberta; por isso a afirmação aparece na seção 3 sem número e é reforçada, na seção 5, pelo dado do GDC, esse sim de página aberta.</li><li><code>Gaussian splatting Unreal Engine Unity plugin production adoption 2026 SuperSplat PlayCanvas</code> — deu a newsletter Radiance Fields (aberta) e vários blogs de estúdio (UnityGaussianSplatting de Aras Pranckevičius; ausência de módulo first-party na UE 5.7; plugins da Luma AI e Polycam; "momento JPEG da computação espacial"). <strong>Nenhum desses blogs foi aberto</strong> — a frase "momento JPEG" e os detalhes de plugin ficaram de fora do corpo do documento por isso.</li><li><code>arxiv 2026 feed-forward 3D reconstruction VGGT pointmap transformer scene from few images</code> — confirmou a linhagem DUSt3R → VGGT → VGGT-SLAM 2.0 / PanoVGGT / VGG-T3. Abri só o abstract do VGGT; os descendentes entram no texto como nomes de linhagem, sem alegação sobre desempenho.</li><li><code>volumetric video 4D Gaussian avatar telepresence 2026 Apple Vision Pro Meta Codec Avatars</code> — a busca <strong>não</strong> confirmou nada sobre Apple Vision Pro nem Codec Avatars em 2026, e por isso as duas entidades foram removidas do documento, apesar de constarem do briefing do tema. Sobraram os artigos: 4D-MoDe (aberto), Temporal Gaussian Hierarchy (17,2 GB de VRAM e 2,2 GB para 18.000 quadros — <strong>não aberto, não citado no corpo</strong>), Mon3tr, SqueezeMe, HumanDreamer-X, RePerformer (citados apenas como nomes de linha de pesquisa).</li><li><code>3D artists jobs AI generated assets game industry 2026 modelers impact survey</code> — origem dos percentuais do GDC 2026 (página do GIANTY aberta) e da manchete sobre estudo sindical de animação, <strong>descartada</strong> por não ter sido aberta.</li><li><code>lei réplica digital direito de imagem 3D scan pessoa sem consentimento 2026 digital replica law</code> — origem do PL 4025/23 (aberto) e do PL 1.460/2026 (não aberto, não usado).</li></ol>
+<h3 id="pistas-nao-verificadas-nao-usar-sem-abrir-a-fonte">Pistas não verificadas (não usar sem abrir a fonte)</h3>
+<ul><li><strong>PL 1.460/2026</strong>, atribuído à dep. Tabata Amaral e mais cinco parlamentares, criando marco para réplicas digitais com direito exclusivo do titular, responsabilização de plataforma, rotulagem e remoção, inspirado na Lei 9.610/1998. Descrição vinda só de snippet.</li><li><strong>Decreto 12.976/2026</strong>, citado em snippet como proibindo criação e compartilhamento de imagens íntimas geradas por IA sem consentimento. Não verificado.</li><li><strong>"30 bilhões de imagens posadas"</strong> como base do LGM da Niantic. Veio de artigo de terceiros; a página oficial que abri não confirma número algum.</li><li><strong>"204 mil empregos de animação afetados em três anos"</strong>, de estudo sindical. Manchete não aberta.</li><li><strong>Temporal Gaussian Hierarchy:</strong> 17,2 GB de VRAM e 2,2 GB de armazenamento para 18.000 quadros, redução de 30× e 26× sobre 4K4D. Plausível e citável, mas o artigo não foi aberto.</li></ul>
+<h3 id="efeitos-cortados-no-passo-6">Efeitos cortados no Passo 6</h3>
+<ul><li><strong>DESCARTADO — "O modelador 3D deixa de existir como profissão até 2031."</strong> Motivo: não sobrevive ao dado. 19% de uso para geração de assets no GDC 2026 e a limitação persistente de topologia contradizem a substituição; o que a evidência sustenta é deslocamento de tarefa (e1.2, e1.2.1) e deterioração de percepção (64% de artistas visuais vendo impacto negativo), que são coisas diferentes. Este era o efeito mais vistoso do mapa e foi o primeiro a cair.</li><li><strong>DESCARTADO — "A indústria criativa se reorganiza."</strong> Não é efeito, é ausência de análise. Reescrito como e2.2.1, com o deslocamento nomeado.</li><li><strong>REVISADO — e2.2.</strong> Antes: "equipes pequenas alcançam paridade visual com grandes estúdios". Depois: paridade <strong>em ambientação</strong>, não em sistemas e direção. O corte anterior ignorava que cenário nunca foi o gargalo de um estúdio grande.</li><li><strong>REVISADO — e1.2.1.</strong> Antes: "a formação em 3D deixa de ensinar modelagem". Depois: modelagem do zero vira especialidade de nicho. O absoluto não se sustenta enquanto rigging e deformação exigirem malha limpa.</li><li><strong>REBAIXADO — e6.1.</strong> De sinal médio/confiança média para sinal fraco/confiança baixa, pelo precedente de telepresença imersiva: duas décadas de demonstrações excelentes e adoção marginal.</li><li><strong>REBAIXADOS — todos os efeitos de 3ª ordem</strong>, de confiança média para baixa. Motivo na seção 8.</li></ul>
+<h3 id="rodada-descartada-inteira">Rodada descartada inteira</h3>
+<p>Uma primeira montagem organizava a roda por <strong>setor</strong> (cinema, jogos, arquitetura, patrimônio, robótica) em vez de por disrupção. Foi descartada: produzia listas paralelas de aplicação, não cadeias causais, e violava o modo pedido (partir da inovação, não do setor). Sobrou dela uma observação aproveitada na seção 7: os setores que não aparecem no mapa — perícia, defesa civil, agricultura, patrimônio — são provavelmente onde a técnica terá seus usos mais duradouros, e a ausência deles aqui é viés de fonte, não juízo de relevância.</p>
+<h3 id="checklist-final-passo-10">Checklist final (Passo 10)</h3>
+<ul><li>[x] Entrevista registrada na seção 2, com as suposições declaradas na seção 7, item 4d.</li><li>[x] Nenhuma disrupção-raiz é tecnologia madura — uma candidata foi rejeitada e movida para a seção 3 com a justificativa dos três testes.</li><li>[x] Todo efeito tem <code>id</code>, <code>ordem</code>, <code>sinal</code>, <code>prazo</code> e <code>confianca</code>, e é frase afirmativa.</li><li>[x] Efeitos descartados e revisados no Passo 6: dois descartados, dois reescritos, um rebaixado, mais o rebaixamento geral da 3ª ordem.</li><li>[x] As 12 seções estão presentes, com títulos literais.</li><li>[x] Nenhuma fonte inventada; o que não tem fonte real está marcado como especulação na seção 11, e as pistas não verificadas estão isoladas neste anexo.</li></ul></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

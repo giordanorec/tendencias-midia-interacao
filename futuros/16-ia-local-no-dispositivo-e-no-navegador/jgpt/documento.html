@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IA local: no dispositivo e no navegador · futurizacao-jgpt (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 16 · futurizacao-jgpt (aluno)</p><h1>IA local: no dispositivo e no navegador</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/16-ia-local-no-dispositivo-e-no-navegador/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/16-ia-local-no-dispositivo-e-no-navegador/jgpt/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/16-ia-local-no-dispositivo-e-no-navegador/jgpt/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>A inferência deixou de precisar de servidor. Em setembro de 2026 três limiares já foram cruzados: o navegador passou a trazer modelo embutido e API estável (Prompt API no Chrome 148, com Gemini Nano), o sistema operacional virou distribuidor de modelo (AICore no Android, Foundation Models na Apple — aberta a qualquer provedor desde a WWDC26), e a quantização extrema derrubou o custo energético da geração (bitnet.cpp relata de 55% a 82% menos energia e até 6,17× de aceleração em CPU). O efeito imediato é econômico: some o custo por chamada e some a chave de API. O efeito que interessa a quem projeta mídia e interação é outro — a inteligência passa a ser uma propriedade do aparelho, não do serviço. Isso muda quem atualiza, quem responde pelo que o modelo diz, e quem pode desligá-lo. Este mapa aposta que até 2031 o conflito central não será "local × nuvem", e sim quem controla o soquete onde o modelo é plugado: hoje, Google, Apple e o fornecedor do navegador. E registra uma contrapartida brasileira que quase todo mapa do tema ignora: a IA no dispositivo está encarecendo o aparelho de entrada em até 25%, porque disputa a mesma memória dos data centers.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>IA local é a inferência que acontece no aparelho de quem usa — celular, laptop comum, aba do navegador — em vez de num servidor alugado. Não é o modelo pequeno rodando no servidor da empresa (isso é maduro), nem a chamada de API barata (também maduro). É o modelo <em>dentro</em> do cliente.</p>
+<p>Onde isso encosta em mídia e interação: toda a gramática de interface construída desde 2022 pressupõe latência de rede, spinner, estado de carregamento, e um custo marginal por interação que obriga a economizar chamadas. Modelo local inverte as três coisas. Latência de primeiro token cai para dezenas de milissegundos; não há estado de rede para desenhar; e, sobretudo, não há razão econômica para <em>não</em> chamar o modelo. Uma interface cujo custo por inferência é zero pode chamar o modelo a cada tecla, a cada rolagem, a cada movimento de olho — o que é uma mudança de design, não de infraestrutura. Interações que hoje são "peça e espere" podem virar "o sistema já sabe", e o padrão de projeto que emerge disso ainda não tem nome.</p>
+<p>Merece mapa de futuro e não estado-da-arte porque os efeitos interessantes não estão na capacidade técnica (essa é razoavelmente previsível: modelos pequenos ficam melhores), e sim nas cadeias de consequência institucional — responsabilidade, atualização, herança, desigualdade de hardware. Nenhuma dessas é derivável de uma leitura do estado atual.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p><strong>O que já existe e funciona.</strong></p>
+<p>O navegador virou runtime de modelo. A Prompt API é estável no Chrome 148, usando Gemini Nano, com entrada multimodal e saída estruturada em JSON; o Chrome gerencia e compartilha os modelos otimizados entre sites, de modo que a página não baixa o modelo, apenas o usa [1]. O material do I/O 2026 diz explicitamente que a proposta é habilitar "funcionalidades personalizadas e proativas que seriam proibitivas em custo no servidor" — ou seja, o argumento de venda é a ausência de custo por token, não a privacidade [1]. A Trip.com aparece como caso em produção, gerando resumos de viagem inteiramente no cliente [1].</p>
+<p>A base gráfica que sustenta isso é o WebGPU, e aqui o dado é mais modesto do que a narrativa corrente: o caniuse registra 87,35% de suporte global (85,72% pleno + 1,63% parcial), com Chrome/Edge 113+, Safari iOS 26+, Samsung Internet 24+ — e <strong>Firefox ainda desativado por padrão</strong> [2]. O Safari de desktop consta como suporte parcial. Quem projeta para navegador hoje não pode assumir WebGPU sem fallback.</p>
+<p>O sistema operacional virou distribuidor de modelo. No Android, o Gemini Nano roda dentro do serviço de sistema AICore, que cuida da distribuição e das atualizações; o app não baixa nem atualiza o modelo [3]. Em abril de 2026 o Google colocou o Gemma 4 no AICore Developer Preview, com a alegação de ser "até 4× mais rápido que versões anteriores e usar até 60% menos bateria", e a variante E2B 3× mais rápida que a E4B [4]. A Apple foi mais longe na WWDC26: o Foundation Models framework, que até então só aceitava o modelo da própria Apple, ganhou um protocolo público (<code>LanguageModel</code> / <code>LanguageModelExecutor</code>) que qualquer LLM pode implementar — local ou de nuvem —, distribuído como pacote Swift, com integrações de Anthropic e Google anunciadas como próximas [5].</p>
+<p>A quantização extrema saiu do papel. O <code>bitnet.cpp</code>, framework oficial da Microsoft para LLMs de 1 bit, relata acelerações de 1,37× a 5,07× em CPUs ARM e 2,37× a 6,17× em x86, com redução de energia de 55,4%–70,0% (ARM) e 71,9%–82,2% (x86); e afirma rodar um modelo BitNet b1.58 de 100B numa única CPU a 5–7 tokens/s, velocidade de leitura humana [6]. O repositório lista kernel de GPU já disponível (maio/2025) e suporte a NPU como "coming next" [6]. Há modelo nativo em escala — o b1.58-2B-4T, de abril de 2025 — e modelos de embedding de 270M e 0,6B lançados em julho de 2026 [6].</p>
+<p>No navegador fora da API do fabricante, o WebLLM (MLC) segue como a implementação de referência: motor de inferência in-browser sobre WebGPU, API compatível com OpenAI, suporte a Llama 3, Phi-3, Gemma-2B, Mistral-7B e Qwen2 em 0,5B/1,5B/7B, com Web Worker e três backends de cache (Cache API, IndexedDB, OPFS); 19,1 mil estrelas e 447 commits no main [7].</p>
+<p><strong>O que existe e não funciona bem.</strong></p>
+<p>O NPU — o acelerador que justificou a categoria "Copilot+ PC" — continua largamente ocioso para LLM local: as varreduras indicam que llama.cpp, Ollama e LM Studio miraram CPU ou CUDA, e não QNN, de modo que num Snapdragon X Elite tudo roda em CPU pelo CLI do Ollama. <em>(Este ponto vem de cobertura secundária que não consegui abrir e verificar — ver seção 8.)</em> O próprio <code>bitnet.cpp</code> confirma o lado do ecossistema: NPU "coming next" [6].</p>
+<p>A governança embutida também é uma limitação, e das duras: a lista de pacotes autorizados a falar com o AICore <strong>só pode ser alterada numa atualização OTA completa do Android</strong>, e o AICore roteia todo pedido de internet pelo Private Compute Services [3]. Não existe, aqui, "instalar o modelo que eu quiser": existe estar ou não na lista.</p>
+<p>E há o custo que ninguém coloca no slide. No Brasil, a Counterpoint Research projeta aumento de preço de até 25% nos aparelhos de entrada em 2026, contra ~15% nos intermediários e ~10% nos premium, porque o smartphone passou a disputar a mesma LPDDR5X dos data centers de IA generativa [8]. A IA que "roda de graça depois de baixada" está sendo paga na compra do aparelho — e proporcionalmente mais por quem compra o mais barato.</p>
+<p><strong>Quem está construindo.</strong> Microsoft (BitNet/<code>bitnet.cpp</code>, Phi), Google (Gemini Nano, AICore, Gemma 4, Prompt API no Chrome), Apple (Foundation Models framework e o protocolo aberto da WWDC26), MLC (WebLLM), o ecossistema llama.cpp/Ollama/LM Studio/Jan, e os fornecedores de acelerador (Qualcomm, MediaTek, Google) citados como habilitadores do AICore [4].</p>
+<p><strong>Diagnóstico de maturidade (heurística, não previsão).</strong> Aplicando a leitura de hype: a cobertura de BitNet e de NPU ainda é majoritariamente <em>de demonstração</em> — benchmark, repositório, preview. A cobertura da Prompt API e do AICore já é <em>de adoção</em> — versão estável, caso em produção, termos de serviço, restrição de pacote. Isso não diz nada sobre velocidade; diz que as duas coisas estão em estágios diferentes e não devem ser tratadas como um bloco só.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="d1-a-inferencia-no-cliente-vira-servico-de-plataforma-nao-projeto-de-nicho">D1 — A inferência no cliente vira serviço de plataforma, não projeto de nicho</h3>
+<p><strong>O que rompe.</strong> Remove simultaneamente duas restrições: o custo marginal por interação e a necessidade de credencial. Até aqui, chamar um modelo exigia chave, cota e fatura; por isso toda interface com IA foi desenhada em torno de economizar chamadas. Com modelo servido pelo navegador e pelo SO, chamar o modelo passa a custar o mesmo que chamar uma função.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Limiar datável: a Prompt API só ficou estável no Chrome 148, em 2026 [1]; o WebGPU só passou a existir de forma transversal recentemente e ainda está em 87,35% [2]; o AICore só passou a distribuir e atualizar o modelo pelo sistema [3]. Em 2021 nenhuma das três peças existia — não havia nem API de modelo no SO nem aceleração gráfica padronizada no navegador. É engenharia de plataforma, não capacidade de modelo.</p>
+<p><strong>O que falta.</strong> Fallback obrigatório enquanto WebGPU não fecha a cobertura; e o fato de que a API do navegador entrega <em>o modelo do fabricante</em>, não um modelo escolhido pelo produto.</p>
+<h3 id="d2-quantizacao-extrema-desacopla-capacidade-de-hardware-caro">D2 — Quantização extrema desacopla capacidade de hardware caro</h3>
+<p><strong>O que rompe.</strong> A restrição removida é energética, não computacional. O limite prático de rodar modelo em celular ou laptop fino nunca foi "não cabe na memória" apenas — foi o orçamento térmico e de bateria. Reduzir de 55% a 82% a energia por token [6] muda a classe de aparelho elegível, e com ela o denominador de quem pode usar.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Dois limiares concretos: existe um modelo nativamente treinado em 1 bit em escala (b1.58-2B-4T, 4 trilhões de tokens, abril/2025) — antes só havia quantização pós-treino, que degradava; e existe kernel oficial de referência para CPU, com números publicados, de um fabricante de sistema operacional [6]. Rodar 100B numa CPU a 5–7 tok/s [6] é a fronteira que não existia.</p>
+<p><strong>O que falta.</strong> Suporte a NPU ainda listado como futuro [6]; catálogo de modelos ternários ainda pequeno perto do catálogo GGUF convencional; e nenhuma evidência aberta de que a linhagem 1-bit alcance a fronteira de qualidade — a comparação honesta hoje é com modelos pequenos, não com modelos de ponta.</p>
+<h3 id="d3-o-guardiao-muda-de-endereco-quem-autoriza-o-modelo-e-o-dono-do-aparelho-nao-o-dono-da-api">D3 — O guardião muda de endereço: quem autoriza o modelo é o dono do aparelho, não o dono da API</h3>
+<p><strong>O que rompe.</strong> Inverte uma restrição de distribuição. Na era da API, quem controlava o acesso à inteligência era quem operava o servidor — e o controle era contratual, revogável e visível (cota, termo de uso, fatura). Com o modelo no aparelho, o controle passa a ser <em>de plataforma</em>, e é técnico: a lista de pacotes autorizados a usar o AICore só muda em OTA completa do Android, e todo tráfego do AICore passa pelo Private Compute Services [3]. Ao mesmo tempo, a responsabilidade desce: os termos do ML Kit GenAI dizem que o desenvolvedor é "o único responsável pela segurança do seu cliente de API e pela experiência do usuário do seu app" [3].</p>
+<p><strong>Por que agora e não há cinco anos.</strong> A capacidade jurídico-técnica é nova em duas pontas. De um lado, a Apple transformou a camada de abstração em ponto de controle ao abri-la: qualquer provedor pode implementar <code>LanguageModel</code>, o que significa que o protocolo — e não o modelo — vira o padrão de fato [5]. Do outro, o regime regulatório passou a tratar modelo aberto de forma distinta: sob o AI Act, o provedor de GPAI sob licença livre e aberta tem obrigações reduzidas (direito autoral e resumo do conteúdo de treino), salvo risco sistêmico (≥10^25 FLOPs), com as regras de GPAI valendo desde 2 de agosto de 2025 e a supervisão do AI Office e o Artigo 50 desde 2 de agosto de 2026 [9]. Ou seja: existe agora um caminho legal em que o modelo chega ao aparelho com menos obrigação atrelada a ele do que teria um serviço.</p>
+<p><strong>O que falta.</strong> Jurisprudência. Nenhum caso conhecido definiu quem responde quando um modelo que roda offline, sem log no servidor, produz dano — e a ausência de log é justamente a promessa de privacidade.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;A inferência no cliente vira serviço de plataforma, não projeto de nicho&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;O custo por inferência deixa de ser variável de projeto e a interface passa a chamar o modelo continuamente, e não sob demanda explícita do usuário.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;O botão &#x27;gerar&#x27; desaparece de boa parte das interfaces: o texto é reescrito, o áudio é transcrito e a imagem é descrita antes de qualquer pedido.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Surge uma categoria de crítica de produto sobre inferência não solicitada, e sistemas operacionais passam a expor um controle de &#x27;quanto o aparelho pode pensar sobre mim sem eu pedir&#x27;.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: &quot;Métricas de engajamento perdem sentido porque parte do que o usuário vê foi gerada localmente e nunca passou por um servidor que pudesse contá-la.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;A bateria vira a nova restrição de design de interação, ocupando o lugar que a latência de rede ocupava.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;Aparecem orçamentos energéticos por sessão, análogos a budgets de performance web, e ferramentas de profiling passam a medir joules por interação.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+              - id: e1.2.2
+                ordem: 3
+                efeito: &quot;Produtos passam a degradar funcionalidade conforme o nível de bateria, criando uma experiência que muda de qualidade ao longo do dia.&quot;
+                sinal: fraco
+                prazo: 2029
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;A cobrança por assinatura de IA deixa de se sustentar no acesso ao modelo e migra para o que continua sendo escasso: dado fresco, contexto compartilhado e responsabilidade contratual.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Empresas de IA reposicionam o produto como camada de sincronização e auditoria entre dispositivos, e não como provedor de inteligência.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;O contrato de IA corporativa passa a ser vendido pela garantia de log e pela assunção de responsabilidade, e não pela qualidade do modelo.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;A nuvem se especializa no que o aparelho não faz — janelas de contexto muito longas, treino e tarefas de raciocínio caro — e perde o volume das tarefas curtas.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;O preço por token de tarefas curtas na nuvem deixa de cair porque perdeu a escala que o barateava, e o local passa a ser mais barato também em termos absolutos.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e2.2.2
+                ordem: 3
+                efeito: &quot;Investimento em data center de inferência é revisado para baixo em algumas praças, enquanto o de treino segue crescendo — descolando duas curvas que hoje são lidas como uma só.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: &quot;A demanda de memória para IA no dispositivo colide com a demanda dos data centers e o aparelho de entrada encarece mais que o topo de linha.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Abre-se uma divisão de capacidade dentro de um mesmo país: quem tem aparelho recente ganha IA gratuita e privada, quem tem aparelho de entrada continua dependendo de servidor e de conexão.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Produtos brasileiros passam a manter deliberadamente um caminho na nuvem como acessibilidade, e não como legado técnico.&quot;
+                sinal: fraco
+                prazo: 2029
+                confianca: baixa
+              - id: e3.1.2
+                ordem: 3
+                efeito: &quot;Políticas públicas de inclusão digital passam a especificar memória mínima do aparelho, como antes especificavam franquia de dados.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;O mercado de aparelho usado e recondicionado se segmenta por capacidade de rodar modelo, criando uma faixa de preço nova acima do usado comum.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;Surge um índice público de &#x27;aparelho apto a IA local&#x27; usado por varejo e por operadora como argumento de venda e de financiamento.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;Quantização extrema desacopla capacidade de hardware caro&quot;
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: &quot;A métrica de escolha de modelo deixa de ser parâmetros e passa a ser energia por token útil, publicada junto com os benchmarks de qualidade.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;Repositórios de modelo passam a exibir consumo energético medido por classe de aparelho, e não só tamanho de arquivo e quantização.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;Requisitos ambientais de compra pública passam a citar energia por token, transformando uma métrica de engenharia em critério de licitação.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;O desenho de agentes passa a rotear tarefa por orçamento energético, escolhendo modelo local ou remoto por passo, e não por produto.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;A decisão de onde a inferência acontece vira invisível para quem usa, e a pergunta &#x27;meu dado saiu daqui?&#x27; deixa de ter resposta simples mesmo em produto que se vende como local.&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+              - id: e4.2.2
+                ordem: 3
+                efeito: &quot;Aparecem selos e auditorias de &#x27;rota de inferência&#x27; para provar, a terceiros, que determinada tarefa nunca deixou o aparelho.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: &quot;Categorias de aparelho sem GPU dedicada — TV, console portátil, carro, aparelho assistivo, eletrodoméstico — recebem modelo local por caber no orçamento térmico.&quot;
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;A interface por voz e por descrição de cena deixa de exigir conexão, e a acessibilidade passa a funcionar em lugares onde a rede não chega.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Normas de acessibilidade passam a exigir funcionamento offline de recursos assistivos, tornando o caminho na nuvem juridicamente insuficiente.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: &quot;Objetos com modelo embutido e sem atualização acumulam no mundo, e o parque instalado passa a rodar versões congeladas por anos.&quot;
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: &quot;Uma falha descoberta num modelo popular exige recall físico ou campanha de firmware, e &#x27;recall de modelo&#x27; entra no vocabulário regulatório.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e5.2.2
+                ordem: 3
+                efeito: &quot;Modelos desatualizados viram objeto de estudo cultural, como versões antigas de software de navegação, revelando o que cada época considerava aceitável dizer.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: &quot;O guardião muda de endereço: quem autoriza o modelo é o dono do aparelho, não o dono da API&quot;
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: &quot;O direito de usar o modelo do sistema vira permissão de plataforma, concedida por lista e alterável apenas em atualização do sistema.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;Desenvolvedores independentes passam a embarcar o próprio modelo no app para não depender da lista, e o tamanho do aplicativo cresce em uma ordem de grandeza.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Lojas de aplicativo criam um formato de dependência de modelo compartilhado para conter o inchaço, e passam a arbitrar quais pesos podem ser distribuídos.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+              - id: e6.1.2
+                ordem: 3
+                efeito: &quot;A disputa antitruste sobre IA muda de objeto: deixa de ser sobre acesso a computação de treino e passa a ser sobre acesso ao runtime do aparelho.&quot;
+                sinal: medio
+                prazo: 2030
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;O protocolo de abstração de modelo, e não o modelo, vira o padrão de fato pelo qual as empresas competem para estar dentro do aparelho.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;Um consórcio propõe um protocolo neutro de provedor de modelo, e a adesão dos fabricantes de aparelho vira a questão que decide se ele existe.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: &quot;A responsabilidade pelo que o modelo diz desce para quem publica o app, enquanto o log que provaria o que foi dito deixa de existir por design.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: &quot;Produtos que dependem de prova jurídica passam a gravar localmente um registro assinado da interação, reintroduzindo o log que a privacidade havia eliminado.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: &quot;Esse registro local vira alvo de intimação e de perícia, e o aparelho passa a ser apreendido pelo que o modelo dele gerou, não pelo que a pessoa escreveu.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e7.1.2
+                ordem: 3
+                efeito: &quot;Cria-se uma expectativa de sigilo sobre a conversa com o modelo pessoal, discutida por analogia com o diário e com a correspondência.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: &quot;Seguradoras passam a oferecer cobertura para dano causado por inferência local, precificando o risco que nenhum contrato de API cobria.&quot;
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: &quot;O prêmio do seguro passa a variar conforme o modelo embarcado, criando um ranking de modelos por risco atuarial que compete com os rankings de qualidade.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<p><strong>O que o bloco não diz sozinho.</strong></p>
+<p>Primeiro: as três raízes não têm o mesmo grau de solidez, e a roda não deixa isso claro. D1 tem produto estável em produção; D2 tem benchmark e repositório; D3 tem documentação de plataforma e regulamentação em vigor, mas nenhum caso concreto. As subárvores deveriam ser lidas com pesos diferentes — a de D2 é a mais frágil.</p>
+<p>Segundo: os ramos conversam entre si de um jeito que a árvore hierárquica esconde. O efeito <code>e3.1</code> (divisão de capacidade por aparelho) e o <code>e6.1</code> (embarcar o próprio modelo para escapar da lista) se agravam mutuamente: apps com modelo embarcado são pesados, e aparelho de entrada é justamente o que não tem armazenamento sobrando. A exclusão se fecha por dois lados.</p>
+<p>Terceiro: <code>e4.2.1</code> é o efeito que mais desestabiliza a promessa do tema. Se agentes roteiam por passo entre local e remoto, "IA local" deixa de ser uma propriedade do produto e vira uma propriedade de cada inferência — e a garantia de privacidade, que é o principal argumento do campo, fica sem lugar onde ser afirmada.</p>
+<p>Quarto: a roda foi construída num recorte global. O ramo <code>e3</code> é a única concessão explícita ao Brasil, e é o ramo com a evidência mais direta [8].</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinais fracos.</strong></p>
+<ul><li><em>Os embeddings locais, e não o chat.</em> O <code>bitnet.cpp</code> lançou modelos de embedding de 270M e 0,6B em julho de 2026 [6]. Busca semântica local é menos vistosa que um chat offline e muito mais estruturante: é o que permite a um aparelho indexar o próprio conteúdo sem enviá-lo.</li><li><em>O WebMCP.</em> Origin trial experimental a partir do Chrome 149, expondo funções JavaScript e formulários HTML como ferramentas para agentes no navegador [1]. Se o modelo é local e as ferramentas são a própria página, o agente inteiro cabe dentro da aba — sem servidor em nenhuma ponta.</li><li><em>O modelo minúsculo especializado.</em> Gemma 197M, descrito como "modelo especialista ultraeficiente" para alimentar APIs de tarefa como o summarizer, escalando para um espectro maior de aparelhos [1]. A aposta implícita é que o caminho para o aparelho barato é muitos modelos pequenos e específicos, não um modelo geral encolhido.</li><li><em>A Apple aceitando provedor de terceiro.</em> Anthropic e Google anunciados como próximos a entregar pacotes Swift para o Foundation Models [5]. O sinal é de padronização, não de abertura: a Apple continua definindo o protocolo.</li></ul>
+<p><strong>Candidatas emergentes rejeitadas como raiz (Etapa 2).</strong></p>
+<ul><li><em>NPU como plataforma de LLM local.</em> A capacidade existe e a curva sobe, mas ainda não forçou mudança estrutural: o próprio <code>bitnet.cpp</code> lista NPU como "coming next" [6], e a cobertura secundária indica que as runtimes populares não a usam. Fica no radar, não é raiz.</li><li><em>Treino e fine-tune local.</em> Existe em nicho; não removeu nenhuma restrição do campo ainda.</li><li><em>Modelo local que aprende continuamente com quem o usa.</em> É a peça que faria a "inteligência virar bem pessoal", e não há evidência aberta de que funcione fora de laboratório. É wildcard, não raiz.</li></ul>
+<p><strong>Wildcards (baixa probabilidade, alto impacto).</strong></p>
+<ol><li><strong>Um modelo ternário de qualidade de fronteira num aparelho de entrada, até 2029.</strong> Se a linhagem 1-bit alcançar a fronteira — e não apenas os modelos pequenos — o ramo <code>e3</code> se inverte inteiro: em vez de dividir o mundo por hardware, a IA local passa a ser o que <em>elimina</em> a vantagem de quem tem aparelho caro. É o único desdobramento que torna o tema redistributivo em vez de concentrador.</li><li><strong>Um incidente grave atribuído a um modelo offline, sem log, num aparelho vendido em massa.</strong> O ponto não é o dano; é que a investigação não tem onde começar. Uma decisão judicial nesse caso pode obrigar, por precaução, o log de inferência local — e matar a premissa de privacidade que sustenta o campo.</li><li><strong>Um fabricante remover um modelo do parque instalado por atualização, contra a vontade dos donos.</strong> Tecnicamente trivial pelo caminho do OTA [3]. Se acontecer uma vez de forma visível, a discussão sobre a inteligência como propriedade herdável e confiscável sai do plano filosófico e entra no plano do consumidor.</li></ol>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>Extrapolação linear.</strong> O efeito <code>e1</code> — chamar o modelo continuamente porque é grátis — é a peça mais "presente, só que mais" do mapa. É a mesma curva que já levou o front-end a pré-carregar, pré-buscar e pré-renderizar tudo, aplicada a um recurso novo. Não há descontinuidade real: é economia de recurso abundante, coisa que o campo já sabe fazer. Mantive <code>confianca: alta</code> porque o mecanismo é o mesmo já documentado — mas reconheço que o efeito é chato, não disruptivo. O efeito interessante é o <code>e1.2</code> (bateria como restrição), que é a descontinuidade de verdade: pela primeira vez o recurso abundante em software é escasso em hardware <em>na mão do usuário</em>, e não no data center de outra pessoa. Rebaixei <code>e1.1</code> de alta para média por esse motivo.</p>
+<p><strong>Velocidade de adoção nunca vista.</strong> Três efeitos pressupõem velocidade suspeita.</p>
+<p><code>e2</code> (colapso da assinatura de IA até 2028) supõe que um modelo de negócio se reorganize em dois anos por pressão de custo. O caso comparável que contradiz é o próprio software em nuvem: a hospedagem ficou barata a ponto de ser quase gratuita ao longo dos anos 2010 e as assinaturas de SaaS não caíram — migraram o valor para integração, suporte e responsabilidade, ao longo de uma década, não de dois anos. Mantive <code>confianca: media</code> no efeito, mas os netos (<code>e2.2.1</code>, <code>e2.2.2</code>) ficam em <code>baixa</code> e com prazo empurrado para 2031.</p>
+<p><code>e5</code> (modelo local em TV, carro, eletrodoméstico até 2029) supõe ciclo de renovação de parque instalado mais rápido do que qualquer precedente. Televisores e carros trocam em 8 a 12 anos. O efeito provavelmente vale só para o que sair de fábrica a partir de 2029, e a consequência real é <code>e5.2</code> — o parque congelado —, que é o oposto do que o efeito otimista sugere.</p>
+<p><code>e6.1</code> (apps embarcando o próprio modelo, com crescimento de uma ordem de grandeza) esbarra em limite de loja e em franquia de dados. Não rebaixei porque há precedente direto — jogos móveis já ultrapassaram esse tamanho —, mas o efeito vale para uma minoria de apps, não para a média.</p>
+<p><strong>E se a disrupção não vingar.</strong></p>
+<p><em>Se D1 não vingar</em> — se a Prompt API estagnar em origin trial permanente, se o WebGPU não fechar a cobertura (Firefox segue desativado por padrão [2]) e se o Safari mantiver comportamento divergente —, então <code>e1</code>, <code>e2</code> e <code>e3</code> caem juntos e a IA local fica confinada a aplicativos nativos de fabricante. A subárvore inteira de 13 efeitos vira nota de rodapé, e o tema volta a ser "assistente do sistema operacional", que é um assunto de produto, não de futuro. <em>Este é o cenário de falha mais provável dos três.</em></p>
+<p><em>Se D2 não vingar</em> — se a linhagem 1-bit não sair do nicho, se o suporte a NPU continuar "coming next" indefinidamente e se os ganhos de energia não se sustentarem fora do benchmark —, então <code>e4</code> e <code>e5</code> caem, e com eles a expansão para aparelhos baratos e para objetos sem GPU. Sobra a IA local do aparelho caro: D1 continua valendo, mas <code>e3.1</code> (a divisão de capacidade) piora, porque some a rota que barateava. Note-se o desconforto: <strong>a falha de D2 não derruba o mapa, ela o torna mais desigual.</strong></p>
+<p><em>Se D3 não vingar</em> — se os fabricantes abrirem o runtime, se a lista de pacotes deixar de ser o mecanismo, ou se a regulação impuser interoperabilidade —, então <code>e6</code> e <code>e7</code> caem. Esta é a subárvore que eu mais gostaria que caísse, e é precisamente por isso que deve ser lida com desconfiança: o mapa a trata como quase certa com base em um parágrafo de documentação [3].</p>
+<p><strong>Viés do autor.</strong> A skill manda perguntar ao usuário, não presumir. Nesta rodada não há usuário disponível para responder; as respostas de contexto declararam <strong>viés neutro</strong> e "nenhuma disrupção suspeita — descubra". Registro então o que consigo observar sem ele: o tema foi escolhido pela disciplina, não pelo autor, e chegou acompanhado de uma evidência de processo favorável (três alunos rodaram o julgamento das suas 500 em modelo local depois de esbarrar em cota de API). Essa evidência é sedutora e enviesa para o otimismo, porque mostra a tendência funcionando <em>para quem já tem máquina boa e sabe instalar Ollama</em> — a população menos representativa possível. Compensei puxando o ramo <code>e3</code> para dentro do mapa e mantendo o wildcard 1 explicitamente como improvável. <strong>Isso não substitui a pergunta ao autor, que fica pendente.</strong></p>
+<p><strong>Sobrou algo intacto?</strong> Não: <code>e1.1</code> foi rebaixado, <code>e2.2.1</code>/<code>e2.2.2</code> tiveram prazo empurrado para 2031, <code>e5</code> teve a leitura invertida em favor de <code>e5.2</code>, e <code>e6</code>/<code>e7</code> ficam marcados como apoiados em base documental estreita. O ramo <code>e3</code> é o único que sai reforçado da contestação, porque é o único com número de terceiro publicado [8].</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p><strong>O erro específico, e como apareceu.</strong> Ao levantar o estado do WebGPU, eu aceitei de um resultado de busca a afirmação de que o WebGPU "foi habilitado por padrão simultaneamente em Chrome, Firefox, Edge e Safari em 25 de novembro de 2025", com "82,7% de cobertura global" e "Firefox 141+ no Windows, 145+ em Macs Apple Silicon". Era uma frase redonda, datada e específica — exatamente o tipo de material que passa por verificado. Ao abrir o caniuse, o número é <strong>87,35%</strong> (85,72% pleno mais 1,63% parcial) e o Firefox consta como <strong>desativado por padrão em todas as versões listadas</strong>, com o Safari de desktop em suporte parcial [2]. A afirmação que eu tinha em mãos não estava só desatualizada: estava errada no fato que mais importava para o mapa, porque um navegador desativado por padrão é um fallback obrigatório, e isso muda o custo de qualquer produto que dependa de D1. O sintoma que deveria ter me alertado antes é a data exata com quatro navegadores no mesmo dia — coordenação improvável demais para ser verdade.</p>
+<p><strong>O que não consegui verificar, e está marcado como tal.</strong></p>
+<ul><li>A tese de que llama.cpp, Ollama e LM Studio não usam o NPU, e de que num Snapdragon X Elite tudo roda em CPU, vem de cobertura secundária que não abri. Está na seção 3 com ressalva. O único dado primário que tenho na mesma direção é o "NPU: coming next" do repositório do BitNet [6].</li><li>Os números de qualidade de modelos pequenos (Phi-4 batendo GPT-4o em MATH e GPQA) apareceram em blogs agregadores, não no relatório técnico. <strong>Deliberadamente não os usei</strong> para sustentar nenhuma disrupção-raiz — se tivesse usado, D2 pareceria muito mais forte do que a evidência que consegui abrir permite.</li><li>O paper "Less Is More: Engineering Challenges of On-Device Small Language Model Integration in a Mobile Application" (arXiv 2604.24636) é a fonte mais adequada para a seção "o que não funciona", e eu a abri — mas o extrator devolveu só metadados, sem as seções de resultado. Está listada em [10] como <strong>lida parcialmente</strong>, e nenhuma afirmação deste documento se apoia nela.</li><li>A projeção da Counterpoint Research [8] chega por intermediário brasileiro que cita a consultoria sem link nem data. Usei porque é o único número de mercado com recorte de faixa de preço que encontrei, e porque o mecanismo (disputa por LPDDR5X) é verificável de forma independente — mas o percentual de 25% deve ser tratado como ordem de grandeza, não como medida.</li></ul>
+<p><strong>Limitação de processo.</strong> A Etapa 4 da skill exige perguntar ao autor sobre viés, e esta rodada correu sem usuário. A pergunta não foi feita; a compensação está declarada na seção 7.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p><strong>Provável.</strong> Em 2031, a inferência local tinha virado infraestrutura silenciosa e ninguém mais a chamava pelo nome. O navegador e o sistema operacional traziam modelo embutido, e a discussão de projeto deixara de ser "usar IA ou não" para ser "quanto o aparelho pode processar sem pedir permissão". A promessa de gratuidade tinha se cumprido pela metade: a inferência era de fato grátis depois de baixada, mas o aparelho capaz de baixá-la ficara mais caro, e no Brasil a faixa de entrada tinha absorvido o maior aumento. A maioria dos produtos rodava híbrido, decidindo a cada passo se ia para o chip ou para o servidor, e quase nenhum conseguia dizer com honestidade onde o dado tinha ido parar. As empresas de IA continuavam cobrando assinatura — não pelo modelo, que qualquer um tinha, mas pelo registro do que o modelo fez. O controle não tinha desaparecido: tinha mudado de contrato para lista de permissão.</p>
+<p><strong>Desejável.</strong> Em 2031, rodar um modelo próprio no próprio aparelho era um direito exercível, não uma capacidade concedida. Isso não aconteceu sozinho — foi preciso que a interoperabilidade do runtime virasse exigência regulatória, no mesmo movimento que abriu as lojas de aplicativo; que um protocolo de provedor de modelo tivesse sido adotado por mais de um fabricante, de modo que a escolha do modelo pertencesse a quem usava o aparelho; que os repositórios publicassem energia por token medida por classe de aparelho, tornando comparável o que antes era propaganda; e que houvesse um piso público de memória nos programas de inclusão digital, para que o ganho não ficasse restrito a quem já tinha aparelho bom. Em 2031 uma pessoa podia trocar o modelo do seu celular como trocava de navegador — e a conversa com esse modelo tinha o mesmo estatuto de sigilo que um diário.</p>
+<p><strong>Indesejável.</strong> Em 2031 a inteligência tinha ficado dentro do aparelho e, por isso mesmo, fora do alcance de qualquer um. Modelo local não gerava log, então não havia como auditar o que ele dizia a cada pessoa; e como a lista de quem podia usar o modelo do sistema só mudava em atualização de firmware, três empresas decidiam, sem precisar justificar, qual software tinha direito a pensar. Objetos vendidos anos antes rodavam versões congeladas com falhas conhecidas, e o recall de modelo se mostrou caro demais para ser feito de verdade. A promessa de privacidade tinha se convertido no seu oposto: ninguém sabia o que o próprio aparelho estava inferindo a seu respeito, e não havia servidor para intimar. <strong>O sinal precoce disso já estava visível em 2026, e ninguém tratou como sinal:</strong> o fato de a lista de pacotes autorizados a falar com o modelo do sistema só poder ser alterada numa atualização completa do sistema operacional [3], combinado com os termos que já colocavam no desenvolvedor a responsabilidade pelo que o modelo dissesse [3]. Quem controlava a atualização controlava a inteligência; quem publicava o app respondia por ela.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> O <strong>Medidor de Soberania</strong>: uma página web única, sem servidor, que roda o mesmo conjunto de tarefas por três caminhos no aparelho de cada aluno — (a) Prompt API do navegador, com o modelo que o fabricante já colocou lá; (b) WebLLM sobre WebGPU, com um modelo pequeno escolhido pela turma e baixado na hora; (c) uma API de nuvem, como linha de base. A página registra, para cada caminho: tempo até o primeiro token, tokens por segundo, tamanho do download, percentual de bateria consumido, temperatura reportada pelo aparelho, e se o caminho sequer existia naquele navegador. Depois, a turma julga a qualidade das saídas <strong>às cegas</strong>, sem saber qual veio de onde. Metade da bateria de testes roda em modo avião.</p>
+<p><strong>Que pergunta sobre o futuro ele responde.</strong> A pergunta que decide o ramo <code>e3</code> do mapa: <em>a partir de que classe de aparelho a IA local deixa de ser desconforto?</em> O mapa afirma que a IA local divide, e não redistribui. Uma sala de aula brasileira, com 14 aparelhos comprados em anos e faixas de preço diferentes, é uma amostra pequena mas real da distribuição que o mapa supõe — e é a única evidência que a turma pode produzir sem depender de consultoria.</p>
+<p><strong>Que tecnologia emergente usa, e por que não dá com tecnologia madura.</strong> Prompt API estável (Chrome 148) e WebGPU. Não dá para fazer com tecnologia madura por uma razão exata: com API de nuvem, o experimento mediria a rede da UFPE, não o aparelho do aluno. A variável independente do experimento — o hardware na mão da pessoa — só vira variável quando a inferência acontece nele. Há dois anos essa página não teria como ser escrita: a API do navegador não existia em versão estável e o WebGPU não tinha cobertura.</p>
+<p><strong>O que a turma faria testando em sala.</strong> Cada pessoa abre a página no próprio celular e no próprio laptop; a página coleta os números e devolve um gráfico da turma inteira, anônimo por aparelho. Duas medições que o mapa precisa e ninguém publica: quantos aparelhos da sala <strong>não conseguem</strong> rodar o caminho (b), e quanto de bateria custa uma sessão de 20 minutos no aparelho mais fraco da sala. Em seguida, o julgamento às cegas: se a turma não distinguir a saída local da saída de nuvem nas tarefas curtas, o efeito <code>e2</code> ganha força; se distinguir com facilidade, <code>e2</code> deve ser rebaixado.</p>
+<p><strong>O que mudaria a opinião do autor.</strong> Duas coisas, declaradas antes de medir. Primeira: se mais de dois terços dos aparelhos da sala rodarem o caminho (b) com qualidade aceitável, o ramo <code>e3</code> está errado e o tema é redistributivo, não concentrador — e o wildcard 1 deixa de ser wildcard. Segunda: se o caminho (a) — a Prompt API — estiver indisponível na maioria dos navegadores da turma, D1 não cruzou o limiar que este mapa afirma que cruzou, e a roda inteira precisa ser refeita com D1 rebaixada a emergente.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Listadas apenas as que foram de fato abertas nesta sessão. Marcação explícita onde a leitura foi parcial.</p>
+<ol><li><strong>Chrome for Developers — "15 updates from Google I/O 2026"</strong> — <code>https://developer.chrome.com/blog/chrome-at-io26</code> Sustenta: Prompt API estável no Chrome 148 com Gemini Nano, multimodal e saída estruturada; gerenciamento e compartilhamento de modelos pelo Chrome; Gemma 197M; WebMCP em origin trial a partir do Chrome 149; caso Trip.com; e o argumento explícito de custo ("proibitivo no servidor"). Confiabilidade: alta — é o fabricante falando do próprio produto, o que é ótimo para o que ele <em>entrega</em> e ruim para o que ele <em>promete</em>.</li></ol>
+<ol><li><strong>caniuse — WebGPU</strong> — <code>https://caniuse.com/webgpu</code> Sustenta: 87,35% de cobertura global (85,72% pleno + 1,63% parcial); Chrome/Edge 113+, Safari iOS 26+, Samsung Internet 24+; Firefox desativado por padrão; Safari desktop parcial. Confiabilidade: alta para cobertura — dados agregados de uso, atualizados continuamente; é a fonte que corrigiu o erro descrito na seção 8.</li></ol>
+<ol><li><strong>Android Developers — Gemini Nano</strong> — <code>https://developer.android.com/ai/gemini-nano</code> Sustenta: distribuição e atualização do modelo pelo AICore, não pelo app; APIs do ML Kit GenAI; a responsabilidade de segurança atribuída ao desenvolvedor; a lista de pacotes autorizados alterável apenas em OTA completa; roteamento de internet pelo Private Compute Services. Confiabilidade: alta — documentação normativa de plataforma. É a espinha de D3.</li></ol>
+<ol><li><strong>Android Developers Blog — "Announcing Gemma 4 in the AICore Developer Preview" (abr/2026)</strong> — <code>https://android-developers.googleblog.com/2026/04/AI-Core-Developer-Preview.html</code> Sustenta: até 4× mais rápido e até 60% menos bateria; E2B 3× mais rápida que E4B; aceleradores de Google, MediaTek e Qualcomm; em aparelhos sem AICore roda em CPU e não é representativo. Confiabilidade: média-alta — número de fabricante, em preview, sem metodologia publicada.</li></ol>
+<ol><li><strong>Apple Developer — WWDC26, sessão 339, "Bring an LLM provider to the Foundation Models framework"</strong> — <code>https://developer.apple.com/videos/play/wwdc2026/339/</code> Sustenta: abertura do framework a qualquer LLM via protocolos <code>LanguageModel</code> e <code>LanguageModelExecutor</code>; distribuição por Swift Package Manager; iOS, macOS, visionOS, watchOS e Linux; integrações de Anthropic e Google anunciadas como próximas. Confiabilidade: alta — material técnico oficial.</li></ol>
+<ol><li><strong>GitHub — microsoft/BitNet</strong> — <code>https://github.com/microsoft/BitNet</code> Sustenta: 1,37×–5,07× em ARM e 2,37×–6,17× em x86; energia −55,4% a −70,0% (ARM) e −71,9% a −82,2% (x86); 100B numa CPU a 5–7 tok/s; b1.58-2B-4T (abr/2025); embeddings de 270M e 0,6B (jul/2026); kernel de GPU (mai/2025); NPU "coming next". Confiabilidade: média-alta — números do próprio projeto, reproduzíveis em princípio, mas sem validação independente que eu tenha aberto.</li></ol>
+<ol><li><strong>GitHub — mlc-ai/web-llm</strong> — <code>https://github.com/mlc-ai/web-llm</code> Sustenta: motor de inferência in-browser sobre WebGPU; API compatível com OpenAI; famílias Llama, Phi, Gemma, Mistral, Qwen; Web Worker e Service Worker; caches Cache API/IndexedDB/OPFS; 19,1k estrelas, 447 commits. Confiabilidade: alta para o que existe; a página não traz datas de release, então não sustenta nenhuma afirmação temporal.</li></ol>
+<ol><li><strong>SempreUpdate — "Preço dos smartphones em 2026 dispara com IA e memória RAM"</strong> — <code>https://sempreupdate.com.br/preco-dos-smartphones-2026-ia-memoria-ram/</code> Sustenta: projeção da Counterpoint Research de até 25% de aumento na entrada, ~15% no intermediário e ~10% no premium; LPDDR5X disputada com data centers de IA. Confiabilidade: <strong>baixa-média</strong> — veículo secundário que cita a consultoria sem link nem data. Único número com recorte brasileiro que consegui abrir; usar como ordem de grandeza.</li></ol>
+<ol><li><strong>EU Artificial Intelligence Act — High-level summary</strong> — <code>https://artificialintelligenceact.eu/high-level-summary/</code> Sustenta: obrigações reduzidas para GPAI sob licença livre e aberta (direito autoral e resumo do conteúdo de treino), com exceção de risco sistêmico (≥10^25 FLOPs); obrigações de GPAI desde 02/08/2025; supervisão do AI Office e Artigo 50 desde 02/08/2026; alto risco em 02/12/2027 e 02/08/2028. Confiabilidade: média-alta — resumo curado de terceiro, fiel ao texto legal, mas não é o texto legal.</li></ol>
+<ol><li><strong>arXiv 2604.24636 — "Less Is More: Engineering Challenges of On-Device Small Language Model Integration in a Mobile Application"</strong> — <code>https://arxiv.org/pdf/2604.24636</code> <strong>LIDA PARCIALMENTE</strong> — o extrator devolveu apenas metadados (autoria de William Oliveira, 2026, v2), sem as seções de resultado. <strong>Nenhuma afirmação deste documento se apoia nela.</strong> Listada aqui porque é o caminho óbvio de aprofundamento para quem retomar este mapa.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-etapa-0-a-entrevista-como-ela-correu">12.1 Etapa 0 — a entrevista, como ela correu</h3>
+<p>A skill exige entrevista bloqueante. Nesta rodada não havia usuário para responder; as respostas foram fornecidas em bloco pelo contexto de execução, e ficam registradas aqui na íntegra, como se tivessem sido colhidas:</p>
+<ul><li><strong>Tema e recorte:</strong> "IA local: no dispositivo e no navegador" — tema 16 de 19 da disciplina, família "Criação e plataforma". Recorte não estreitado.</li><li><strong>O que já está descartado:</strong> o que já é comum em produto de massa (a régua da disciplina). Nenhuma outra exclusão.</li><li><strong>Horizonte:</strong> 2031.</li><li><strong>Para quem:</strong> quem projeta mídia e interação.</li><li><strong>Recorte geográfico:</strong> global, com nota sobre o Brasil.</li><li><strong>Viés desejado:</strong> neutro.</li><li><strong>Disrupção suspeita:</strong> nenhuma — descobrir.</li><li><strong>Ideias óbvias a excluir:</strong> as que serviriam para qualquer tema.</li><li><strong>O que faria mudar de ideia:</strong> evidência de que a adoção já passou da maioria inicial (Rogers), ou de que a tecnologia não rompe nada — só melhora o que existe.</li><li><strong>Profundidade:</strong> três ordens. <strong>Modo:</strong> a partir de uma inovação, não de um setor.</li><li><strong>Zona de interesse:</strong> Criação e plataforma. <strong>Login:</strong> jgpt. <strong>Skill:</strong> futurizacao-jgpt.</li><li><strong>Autorização de nome em galeria pública:</strong> não declarada → <code>publico_ok: false</code>.</li></ul>
+<p><strong>Defaults assumidos em silêncio? Nenhum, exceto:</strong> (a) o tom da seção 9 foi calibrado para neutro, conforme pedido; (b) <code>confianca</code> geral do mapa foi fixada em <code>media</code> por decisão minha, já que a Etapa 0 não pergunta isso — justificativa: duas das três raízes têm base documental estreita; (c) a data do documento é 2026-09-18, do relógio da máquina.</p>
+<p><strong>Recusa registrada:</strong> a skill manda recusar a geração sem entrevista. Como a entrevista veio respondida, não houve o que recusar. A única exigência da skill que <strong>não pôde ser cumprida</strong> é a pergunta de viés da Etapa 4, item 4, que exige resposta do autor e não pode ser inventada por ele — está declarada como pendente na seção 7 e como limitação na seção 8.</p>
+<h3 id="12-2-buscas-realizadas-incluindo-as-que-deram-pouco">12.2 Buscas realizadas, incluindo as que deram pouco</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Busca</th><th>Resultado</th></tr></thead><tbody><tr><td><code>BitNet 1-bit LLM Microsoft bitnet.cpp 2026 on-device inference</code></td><td>Bom. Levou ao repositório oficial [6] e ao arXiv 2410.16144 e 2504.12285 (não abertos).</td></tr><tr><td><code>Gemini Nano AICore on-device Android 2026 Apple Foundation Models framework</code></td><td>Bom. Levou a [3], [4] e [5].</td></tr><tr><td><code>WebGPU WebLLM browser LLM inference 2026 Safari Chrome support Prompt API built-in AI</code></td><td><strong>Enganoso.</strong> Produziu a afirmação errada sobre Firefox e os 82,7% — ver seção 8. Salvou-se por levar a [7] e à pista do Chrome 148.</td></tr><tr><td><code>Ollama llama.cpp local LLM adoption 2026 NPU Copilot+ PC Snapdragon on-device market share</code></td><td>Só cobertura secundária (blogs, agregadores). <strong>Nada abrível com qualidade.</strong> A tese do NPU ocioso ficou marcada como não verificada.</td></tr><tr><td><code>"EU AI Act" on-device open-weight model liability who is responsible deployer 2026</code></td><td>Razoável. Levou a [9]. Os textos de escritório de advocacia (Cooley, DLA Piper) não foram abertos.</td></tr><tr><td><code>IA local no Brasil 2026 celular entrada modelo no dispositivo custo smartphone RAM adoção</code></td><td><strong>Achado inesperado e o melhor da rodada.</strong> A busca era sobre adoção; devolveu preço. Levou a [8] e ao ramo <code>e3</code>, que não estava no plano inicial do mapa.</td></tr><tr><td><code>small language model benchmark gap frontier 2026 on-device 4B model quality vs cloud</code></td><td>Rico em números e <strong>pobre em fonte</strong>: quase tudo em blogs de conteúdo (<code>localaimaster</code>, <code>claude5.com</code>, <code>tinyweights.dev</code>, <code>practicallogix</code>). Descartado por decisão — ver seção 8.</td></tr><tr><td><code>Chrome built-in AI Prompt API stable 2026 Gemini Nano web developers availability</code></td><td>Bom. Confirmou Chrome 148 e levou a [1].</td></tr></tbody></table></div>
+<h3 id="12-3-aplicacao-do-teste-da-etapa-2-candidata-por-candidata">12.3 Aplicação do teste da Etapa 2, candidata por candidata</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Candidata</th><th>"O que rompe, e por que agora?"</th><th>Veredito</th></tr></thead><tbody><tr><td>Chamar API de modelo na nuvem</td><td>Nada novo; barateamento dentro do mesmo jogo</td><td><strong>Maduro</strong> — rejeitada (é a régua da disciplina)</td></tr><tr><td>Modelo pequeno no servidor próprio</td><td>Redução de custo, não de restrição</td><td><strong>Maduro</strong> — rejeitada</td></tr><tr><td>Inferência no cliente como serviço de plataforma</td><td>Custo marginal e credencial; Chrome 148 e AICore</td><td><strong>Disruptiva</strong> → D1</td></tr><tr><td>Quantização extrema / 1-bit</td><td>Energia por token; kernel oficial + modelo nativo em escala</td><td><strong>Disruptiva</strong> → D2</td></tr><tr><td>Guardião do modelo migra para o aparelho</td><td>Distribuição e responsabilidade; lista de pacotes em OTA + protocolo aberto da Apple</td><td><strong>Disruptiva</strong> → D3</td></tr><tr><td>NPU como plataforma de LLM local</td><td>Capacidade sobe, mas nada mudou estruturalmente ainda</td><td><strong>Emergente</strong> → seção 6</td></tr><tr><td>Treino/fine-tune local</td><td>Nicho; nenhuma restrição removida</td><td><strong>Emergente</strong> → seção 6</td></tr><tr><td>Modelo pessoal que aprende continuamente</td><td>Sem evidência aberta de funcionamento</td><td><strong>Emergente</strong> → wildcard</td></tr><tr><td>Voz local</td><td>Tema 13 da disciplina</td><td><strong>Fora do recorte</strong></td></tr><tr><td>Dados e identidade local-first</td><td>Tema 17 da disciplina</td><td><strong>Fora do recorte</strong></td></tr><tr><td>Navegador como plataforma 3D</td><td>Tema 15 da disciplina</td><td><strong>Fora do recorte</strong></td></tr></tbody></table></div>
+<h3 id="12-4-efeitos-cortados-e-o-motivo-do-corte">12.4 Efeitos cortados, e o motivo do corte</h3>
+<ul><li><em>"Modelos locais eliminam a censura, porque ninguém controla o que roda na sua máquina."</em> Cortado: contradiz frontalmente a evidência de [3]. O controle não sumiu, mudou de camada. Seria exatamente o efeito bonito e falso que a Etapa 4 existe para pegar.</li><li><em>"O custo de nuvem despenca e provoca uma crise nos data centers."</em> Cortado como sobre-extrapolação: <code>e2.2.2</code> guarda a versão defensável (descolamento entre a curva de treino e a de inferência), sem afirmar crise.</li><li><em>"Cada pessoa terá um modelo herdável, transmitido como um diário."</em> Cortado como raiz e rebaixado: sobrou como <code>e7.1.2</code> (a <em>expectativa de sigilo</em> por analogia com o diário), que é a parte com mecanismo identificável. A herança em si não tem mecanismo — não há hoje formato de estado pessoal de modelo que sobreviva à troca de aparelho.</li><li><em>"IA local resolve a desigualdade porque é grátis."</em> Cortado — invertido em <code>e3</code> por [8].</li><li><em>"Quarto nível: o modelo pessoal vira credencial de identidade."</em> Não gerado. A skill fixa três níveis; fica registrado aqui como o fio mais promissor para quem puxar depois, e é também a fronteira com o tema 17.</li></ul>
+<h3 id="12-5-contagens-para-conferencia">12.5 Contagens, para conferência</h3>
+<ul><li>Disrupções-raiz: <strong>3</strong> (D1, D2, D3)</li><li>Efeitos de 1ª ordem: <strong>7</strong> (e1, e2, e3, e4, e5, e6, e7)</li><li>Efeitos de 2ª ordem: <strong>14</strong></li><li>Efeitos de 3ª ordem: <strong>22</strong></li><li>Fontes abertas: <strong>10</strong> (9 com conteúdo verificado, 1 parcial)</li><li>Seções <code>## </code>: <strong>12</strong></li></ul>
+<h3 id="12-6-o-que-uma-proxima-rodada-deveria-fazer-primeiro">12.6 O que uma próxima rodada deveria fazer primeiro</h3>
+<ol><li>Abrir o arXiv 2604.24636 por outro caminho (HTML do abstract, ou o v1) e preencher a seção 3 com falhas de engenharia documentadas, que hoje estão fracas.</li><li>Buscar a fonte primária da Counterpoint Research para o número de 25%, ou substituí-lo.</li><li>Verificar a tese do NPU ocioso contra documentação da Qualcomm ou do QNN, não contra blog.</li><li>Abrir o relatório técnico do BitNet b1.58 2B4T (arXiv 2504.12285) para saber contra o que, exatamente, a linhagem 1-bit foi comparada — é o que decide se D2 é disrupção ou promessa.</li><li>Fazer ao autor a pergunta de viés da Etapa 4, que esta rodada não pôde fazer.</li></ol></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>
