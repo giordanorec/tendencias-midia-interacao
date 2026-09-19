@@ -1,5 +1,5 @@
 ---
-tema: Mídia sintética controlável: vídeo e imagem
+tema: "Mídia sintética controlável: vídeo e imagem"
 slug: midia-sintetica-controlavel-video-e-imagem
 autor_login: alpa2
 zona_de_interesse: Percepção e mídia sintética

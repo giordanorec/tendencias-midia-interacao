@@ -1,0 +1,448 @@
+---
+tema: "Sociedades simuladas: a simulação como instrumento de investigação"
+slug: sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao
+autor_login: jlsn
+zona_de_interesse: Sistemas de Informação
+data: 2026-09-18
+horizonte: 2031
+publico: Quem projeta mídia e interação
+recorte_geografico: Global, com nota sobre o Brasil
+disrupcoes_raiz: 3
+efeitos_ordem_1: 9
+efeitos_ordem_2: 18
+efeitos_ordem_3: 13
+tecnologias_citadas: ["Generative Agents (Park et al., 2023)", "OASIS (CAMEL-AI)", "AgentSociety (Tsinghua FIB Lab)", "Concordia (Google DeepMind)", "SocioVerse", "ARTAI", "agent-based modeling clássico (NetLogo)", "Luvoire", "y-not.social", "Gestalt Village", "modelos de linguagem de grande porte", "replay determinístico com hash SHA256"]
+fontes: 12
+confianca: media
+experimento: Túnel de vento de feed — a mesma população sintética sob dois algoritmos de recomendação
+skill_usada: futurizacao-jlsn
+publico_ok: false
+---
+
+## 1. Resumo
+Rodar uma sociedade de agentes de linguagem num ambiente controlado deixou de ser demonstração e virou instrumento: mede-se polarização, propagação de desinformação e efeito de política pública antes que o fenômeno aconteça. Entre 2023 e 2026 a escala saltou de 25 agentes numa cidade virtual para plataformas que declaram um milhão, e a fidelidade passou a ser medida por replicação de estudos conhecidos, não por plausibilidade narrativa. Três rupturas organizam o mapa: o testbed pré-lançamento de plataforma, o usuário sintético como sujeito de pesquisa, e a simulação como prova em decisão pública. Até 2031 o efeito mais provável não é a IA prever o futuro — é a disputa sobre **quem define a população sintética**, porque quem a define define o resultado. O contraponto é sólido: a literatura de 2025-2026 sustenta que essas simulações ainda não são confiáveis, e o mercado de pesquisa já as classifica como o tipo de dado de maior risco.
+
+## 2. O tema
+Sociedade simulada é uma população de agentes movidos por modelo de linguagem — com memória, personalidade e conversa em linguagem natural entre eles — posta num ambiente configurável para que se observe o que emerge. Não é jogo e não é produtividade: é aparelho de medição. O equivalente, para o design de plataforma e para as ciências sociais, do que o túnel de vento é para a aerodinâmica.
+
+Encosta em mídia e interação por três lados. Primeiro, o objeto testado costuma ser *mídia*: feed, recomendação, moderação, viralização. Segundo, o método é *interação*: o que se observa são agentes se afetando, e o instrumento de leitura é o diálogo entre eles. Terceiro, o produto é uma nova peça de interface — o painel de uma sociedade rodando, com indicadores de riqueza, poder e opinião em tempo real, que alguém precisa projetar para ser legível por quem decide.
+
+Merece um mapa porque desloca uma competência inteira. Hoje quem projeta mídia testa depois de lançar, com gente de verdade, em A/B test. Se o ensaio passa a caber antes do lançamento, muda o ciclo de produto, muda o que conta como evidência e muda quem tem autoridade para dizer "isto vai dar errado".
+
+## 3. Onde isso está hoje
+
+**O que existe e funciona.** O marco público é Park et al. (2023): 25 agentes num ambiente tipo *The Sims*, com arquitetura de observação, planejamento e reflexão, em que uma única intenção — um agente quer dar uma festa — se propaga sozinha por dois dias até os convidados aparecerem juntos no horário certo [1]. De lá para cá a escala cresceu por ordens de grandeza. O OASIS, da CAMEL-AI, simula X/Twitter e Reddit com até um milhão de agentes, 23 ações possíveis e algoritmo de recomendação embutido, e relata que grupos maiores intensificam a dinâmica e diversificam as opiniões — isto é, escala não é só desempenho, é fenômeno [2][3]. O AgentSociety, do laboratório FIB da Tsinghua, roda mais de 10 mil agentes com 5 milhões de interações e já foi usado como bancada para cinco questões: polarização, mensagem inflamatória, renda básica universal, choque externo tipo furacão e sustentabilidade urbana [4]. A Concordia, do DeepMind, virou a infraestrutura genérica: um *Game Master* inspirado em RPG de mesa arbitra a plausibilidade do que cada agente diz que vai fazer [5][6].
+
+A parte mais forte, porém, é a de validação. Park et al. (2024) entrevistaram 1.052 americanos por duas horas cada e geraram um agente por pessoa: no General Social Survey, os agentes reproduzem as respostas do próprio entrevistado com 85% da acurácia com que a pessoa reproduz a si mesma duas semanas depois, e reduzem a disparidade de acerto entre grupos raciais e ideológicos em relação a agentes descritos só por demografia [7]. É o primeiro número que permite discutir fidelidade sem apelo à intuição. O SocioVerse segue a mesma linha por outro caminho: ancora a população sintética num acervo de 10 milhões de usuários reais e testa alinhamento em política, notícia e economia [8].
+
+**O que existe e não funciona.** A revisão de 2025 sobre confiabilidade é direta no título: simulações humanas baseadas em LLM ainda não são confiáveis, e a discrepância com o comportamento real aparece em contextos sociais, econômicos, políticos e psicológicos — atribuída tanto a limites do modelo quanto a desenho ruim de estudo [9]. O mercado chegou à mesma conclusão por conta própria: no setor de pesquisa, respondente inteiramente sintético é tratado como a faixa de maior risco, com recomendação de só complementar amostras pequenas sobre uma base de respondentes reais, e o consenso prático é "explorar com sintético, decidir com humano". Some-se a isso um problema estrutural pouco discutido: a média suaviza a ponta. Reação forte e negativa a algo genuinamente novo é justamente o que o modelo tende a apagar — e é exatamente o que um teste de produto precisaria capturar.
+
+**Quem está construindo.** Laboratórios acadêmicos (Stanford, Tsinghua), laboratórios corporativos (DeepMind), coletivos abertos (CAMEL-AI, Apache 2.0) e uma camada de projetos pequenos e auto-hospedados — `Luvoire` com grade 60×60, replay determinístico e artefatos por hash; `y-not.social`, uma rede social inteira povoada por agentes; `Gestalt Village`, que roda a vila toda no navegador. Do lado do mercado de massa, quase nada: de 7.776 anúncios em dois dos maiores diretórios comerciais de IA, dois eram sobre simulação. O diretório vende produtividade; simulação é instrumento de investigação, e instrumento não se vende em diretório.
+
+**A fronteira.** Modelagem baseada em agentes com regras fixas (NetLogo) é madura há décadas. O que é novo é o agente com linguagem — memória própria, personalidade, negociação em texto — e a escala. Personagem autônomo em jogo, mercado de máquinas com dinheiro real e agente com corpo físico são temas vizinhos, não este.
+
+## 4. As disrupções-raiz
+
+### D1 — O testbed pré-lançamento: a plataforma é testada antes de existir
+**O que rompe.** O modelo mental de que sistema social só se conhece em produção. Hoje o feed é ajustado com usuários reais, depois do lançamento, em experimento que ninguém consentiu explicitamente. A ruptura é mover o ensaio para antes: varrer variantes de algoritmo de recomendação contra uma população sintética e só então expor gente.
+
+**Por que agora e não há cinco anos.** Em 2021 o agente não tinha memória autobiográfica nem linguagem entre pares — era regra fixa, e regra fixa não produz a dinâmica que se quer medir. Dois requisitos técnicos fecharam recentemente: agentes com arquitetura de memória e reflexão [1], e engenharia de escala que leva a simulação a um milhão de perfis com recomendação embutida [2][3].
+
+**O que falta acontecer.** Falta um padrão de auditabilidade — semente, versão de modelo, replay determinístico — que permita a um terceiro repetir a corrida e obter o mesmo mundo. Projetos pequenos já fazem isso por hash; as plataformas grandes não.
+
+### D2 — O usuário sintético como sujeito de pesquisa
+**O que rompe.** A cadeia que vai de "quero saber o que as pessoas pensam" a "pergunto a pessoas". Se um agente derivado de uma entrevista de duas horas reproduz as respostas daquela pessoa com 85% da acurácia da própria pessoa [7], a etapa exploratória da pesquisa de opinião e do teste de conceito perde a justificativa de custo.
+
+**Por que agora.** Porque deixou de ser afirmação e virou medida, contra conjunto-ouro conhecido — GSS, Big Five, jogos de economia comportamental, replicações de experimentos clássicos [7]. Há cinco anos o argumento era "parece plausível"; plausibilidade não sustenta substituição.
+
+**O que falta acontecer.** Falta resolver o estatuto do sujeito. Um agente calibrado na entrevista de uma pessoa identificável é dado pessoal, é obra derivada, ou é um terceiro? E falta enfrentar a supressão de cauda: o sintético é bom na média e ruim exatamente na reação extrema que o produto precisa antecipar.
+
+### D3 — A simulação como prova em decisão pública
+**O que rompe.** O regime de evidência da regulação de plataforma e de política pública. Hoje se regula sobre dado observado, quase sempre tarde. A ruptura é admitir resultado de mundo sintético como peça de instrução — avaliação de risco sistêmico, avaliação de impacto algorítmico, consulta pública.
+
+**Por que agora.** Porque a obrigação legal já existe e a evidência disponível é insuficiente: sob o DSA europeu, plataformas muito grandes devem avaliar e mitigar risco sistêmico dos seus sistemas de recomendação, mas as primeiras rodadas de avaliação e auditoria não trouxeram informação nova nem padronização, e pesquisadores externos ainda disputam acesso a dados [10]. Simulação é a única fonte de contrafactual disponível para quem não tem o dado — e já há plataformas de avaliação de risco de recomendação desenhadas com essa finalidade regulatória [11].
+
+**O que falta acontecer.** Falta a peça mais difícil: um critério público de validade. Quem certifica que aquela sociedade sintética se parece o bastante com a real para sustentar uma decisão que afeta gente real.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: D1 — O testbed pré-lançamento de plataforma
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Simulação social vira etapa padrão do ciclo de design de produto de mídia, antes do beta fechado.
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Surge nas equipes de produto o papel de quem calibra e mantém a população sintética.
+            sinal: fraco
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Currículo de design de interação passa a exigir modelagem social, não só pesquisa com usuário.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Métrica de produto passa a ser reportada em par — valor observado ao lado do valor simulado.
+            sinal: fraco
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: A divergência entre simulado e real vira indicador auditável de risco do próprio produto.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O custo de testar uma mudança de feed cai a ponto de permitir varredura de milhares de variantes.
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: O A/B test com usuários reais perde centralidade e vira etapa de confirmação, não de descoberta.
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Plataformas passam a exibir como diferencial a redução de experimentos não consentidos com usuários reais.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Decisão de design passa a ser justificada por trajetória simulada, e não por intuição de time.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+      - id: e3
+        ordem: 1
+        efeito: Aparecem fornecedores de túnel de vento social como serviço, com populações sintéticas licenciadas.
+        sinal: fraco
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: A população sintética calibrada vira ativo proprietário, mais valioso que o simulador.
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Poucos detentores de população passam a definir qual sociedade é testável — e qual não existe para teste.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Forma-se um mercado cinza de populações sintéticas calibradas em dados sem base legal clara.
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: O primeiro litígio de proteção de dados sobre população sintética derivada chega a tribunal.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: D2 — O usuário sintético como sujeito de pesquisa
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: A etapa exploratória da pesquisa de opinião e do teste de conceito migra para painéis sintéticos.
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Institutos de pesquisa se reposicionam como calibradores e validadores, não como coletores.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O dado humano encarece por escassez e vira a âncora rara que dá valor ao sintético.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Normas profissionais passam a exigir declaração da proporção sintética de qualquer amostra.
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Rótulo de procedência sintética vira exigência editorial no jornalismo que publica pesquisa.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: Fidelidade de simulação passa a ser medida por replicação de estudo conhecido, não por plausibilidade narrativa.
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Consolida-se um benchmark público de fidelidade social com conjuntos-ouro compartilhados.
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: O benchmark vira alvo de otimização direta e perde poder de discriminar simuladores bons dos ajustados.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: "O viés deixa de ser acusação e vira número: mede-se o erro do simulador por grupo social."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Grupos mal representados passam a reivindicar veto sobre o próprio gêmeo sintético.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: Comitês de ética passam a discutir se o protocolo de pesquisa se aplica a agente derivado de pessoa identificável.
+        sinal: fraco
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: Termo de consentimento passa a incluir cláusula explícita de derivação de agente.
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+          - id: e6.2
+            ordem: 2
+            efeito: Aparece na regulação de dados a figura do sujeito sintético derivado, com direitos vinculados à pessoa de origem.
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+
+  - disrupcao: D3 — A simulação como prova em decisão pública
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: Reguladores passam a aceitar — e depois a exigir — evidência simulada na avaliação de risco sistêmico de plataforma.
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: "Simulação admissível exige ambiente auditável: semente fixa, versão de modelo declarada e replay determinístico."
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Reprodutibilidade determinística vira requisito legal e exclui da instrução modelos proprietários opacos.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: Plataforma e regulador rodam simulações concorrentes e disputam de quem é o mundo correto.
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: "Nasce a perícia de simulação: um terceiro que arbitra qual mundo sintético é admissível como prova."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: Governos passam a ensaiar política pública em sociedade sintética antes de aplicá-la em população real.
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: A escolha dos parâmetros da sociedade sintética vira objeto de disputa política declarada.
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: Quem define a população define o resultado — a captura metodológica substitui a captura regulatória clássica.
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e8.2
+            ordem: 2
+            efeito: A consulta pública passa a incluir a simulação como peça do processo, aberta a contestação.
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: Simulação barata e local — no navegador, no laptop — coloca contra-simulação ao alcance da sociedade civil.
+        sinal: fraco
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: ONGs e redações produzem contraprovas simuladas de decisões de plataforma e de governo.
+            sinal: fraco
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: "Instala-se um contraditório sintético: o debate público passa a disputar mundos possíveis, não só fatos passados."
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e9.2
+            ordem: 2
+            efeito: O volume de simulações contraditórias satura o debate e nenhuma delas convence ninguém.
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+```
+
+**O que o YAML não diz.** Três coisas.
+
+A primeira é que os ramos não são independentes: e5 (fidelidade virar medida) é pré-condição de quase tudo em D2 e D3. Sem número de validação, nenhum regulador aceita evidência simulada e nenhum instituto de pesquisa abre mão do respondente humano. Se e5 falhar, D2 e D3 caem juntos e sobra D1 — que é a parte menos interessante do mapa, porque é a mais parecida com o que já se faz.
+
+A segunda é que e3.1 e e8.1 são a mesma coisa vista de dois lugares. "População sintética vira ativo proprietário" e "parâmetros da sociedade viram disputa política" descrevem um único fenômeno: a população deixa de ser insumo técnico e passa a ser posição de poder. Quem a controla não precisa influenciar a conclusão — basta definir quem existe no mundo onde a conclusão será produzida.
+
+A terceira é que e9.2 é o antídoto amargo de e9.1, e o mapa não decide entre os dois. Barateamento pode democratizar a contraprova ou produzir ruído em que toda decisão tem uma simulação a favor e outra contra. Historicamente, quando a produção de evidência barateia sem que o critério de validade acompanhe, o segundo desfecho é o mais comum.
+
+## 6. Sinais fracos e wildcards
+
+**Sinais fracos.**
+- *A vila que roda no navegador.* `Gestalt Village` executa a simulação inteira do lado do cliente, sem servidor. Simulação social barata e pessoal é o sinal que antecede e9 — e é o mesmo tipo de sinal que a planilha deu antes de virar instrumento universal de argumento.
+- *Artefato por hash.* `Luvoire` produz replay determinístico com artefatos identificados por SHA256. É detalhe de engenharia hoje; é pré-requisito de admissibilidade probatória depois (e7.1).
+- *A ausência de mercado.* Dois anúncios de simulação em 7.776 de dois grandes diretórios comerciais. O sinal aqui não é "não há interesse": é que o objeto não tem formato de produto vendável em diretório. Instrumento científico raramente tem.
+- *Escala muda o fenômeno.* O OASIS relata que populações maiores intensificam a dinâmica de grupo e diversificam opiniões [2]. Se o resultado depende do tamanho da população, "quantos agentes você rodou" vira parâmetro metodológico declarável, como tamanho de amostra.
+- *A entrevista como calibração.* Duas horas de conversa geram um agente melhor que qualquer descrição demográfica [7]. Isso cria demanda por entrevista longa — um movimento na direção oposta à que todo mundo previu.
+
+**Wildcard (baixa probabilidade, alto impacto).** Uma decisão pública de grande porte — restrição de recomendação para menores, desenho de um programa de transferência de renda, regra de moderação eleitoral — é tomada com base em resultado de simulação, aplicada, e o mundo real se comporta ao contrário. O dano não é o erro: é a descoberta pública de que a população sintética que sustentou a decisão sub-representava exatamente o grupo mais afetado. O efeito plausível seria um congelamento regulatório do método por anos, arrastando junto os usos legítimos — o equivalente, para simulação social, do que o caso Cambridge Analytica foi para o acesso de pesquisadores a dados de plataforma.
+
+## 7. Contra o próprio mapa
+
+**Qual efeito é apenas extrapolação linear do presente.** O ramo e1→e1.1→e1.1.1. "Simulação vira etapa do ciclo de design, surge um cargo novo, o currículo se ajusta" é a trajetória que toda ferramenta de produto percorreu desde o teste de usabilidade — estou aplicando a curva conhecida de institucionalização a um objeto novo e chamando isso de previsão. É o trecho mais confortável e menos informativo do mapa. O sinal de que estou errado seria o oposto: a simulação permanecer artesanal, rodada por pesquisador, nunca incorporada ao ciclo — como aconteceu com a modelagem baseada em agentes clássica, que tem quarenta anos e nunca entrou no processo de produto.
+
+**Qual efeito assume velocidade de adoção irreal.** O e7, e com ele todo o D3. Supor que até 2029 reguladores aceitem evidência simulada ignora que a primeira rodada de avaliações de risco sistêmico sob o DSA sequer padronizou o que é risco sistêmico, e que o acesso de pesquisadores a dados reais ainda está em disputa [10]. Instituição regulatória não adota método de prova novo em três anos; adota em dez a quinze, e depois de um caso que force a mão. Provavelmente e7 pertence a 2034, não a 2029 — e o mapa inteiro de D3 deveria deslizar cinco anos.
+
+**Qual disrupção-raiz pode não se concretizar e derrubar o mapa inteiro.** A D2. Todo o mapa repousa na premissa de que a população sintética se parece o bastante com a real — e a evidência atual é ambígua no pior lugar possível. Do lado favorável, 85% da consistência teste-reteste da própria pessoa [7]. Do lado contrário, uma revisão explícita de que as simulações ainda não são confiáveis, com discrepâncias em contexto social, econômico, político e psicológico [9], e um setor de pesquisa que trata respondente sintético como a faixa de maior risco. Há um detalhe que pode ser fatal: a medida de sucesso é a média, e o que faz uma sociedade ser interessante é a ponta — a minoria que reage de forma extrema, o comportamento raro que vira cascata. Se o modelo suaviza sistematicamente a cauda, ele acerta a pesquisa de opinião e erra exatamente o fenômeno que se queria antecipar. Nesse caso D2 e D3 caem, e sobra D1 na versão fraca: simulação como gerador de hipótese, nunca como prova.
+
+**Qual foi o viés da análise.** Três, declarados. (i) **Viés institucional**: tratei "virar exigência regulatória" como desfecho natural da maturação, quando pode ser que a simulação se estabilize como ferramenta interna de produto, invisível e não regulada — o que tornaria D3 inteiro uma fantasia de quem gosta de instituições. (ii) **Viés de fonte**: quase toda a evidência de capacidade vem de quem constrói os simuladores; a evidência de limitação vem de revisores e do mercado de pesquisa, que tem interesse econômico direto em preservar o respondente humano. Não há terceiro desinteressado no conjunto que consultei. (iii) **Viés de recorte**: o tema foi entregue com uma tese embutida — "simulação é instrumento, não produto" — e eu a aceitei sem testar seriamente a hipótese contrária, a de que o destino desta tecnologia seja entretenimento, e que o uso científico seja o ramo lateral que morre. A régua da disciplina, de descartar o que já é comum em produto de massa, reforçou esse mesmo viés.
+
+## 8. O que a máquina errou
+
+<!-- Deixado em branco para preenchimento do usuário. -->
+
+## 9. Três cenários para 2031
+
+* **Provável:** A simulação social se consolida como instrumento de **geração de hipótese**, não de prova. Times de produto grandes a usam para triagem antes do A/B test; pesquisa de mercado a usa na fase exploratória, com respondente humano preservado como validação obrigatória; a academia produz benchmarks de fidelidade que ninguém ainda considera suficientes para decisão pública. Reguladores demonstram interesse e financiam pilotos, sem exigir nada. A disputa sobre quem define a população sintética já existe, mas ainda é conversa técnica, não política.
+
+* **Desejável:** O campo resolve primeiro o problema da validade e só depois o da escala. Existe um protocolo público de reprodutibilidade — semente, versão de modelo, replay determinístico, artefato verificável — que qualquer terceiro consegue rodar, e um benchmark de fidelidade que reporta erro **por grupo social**, não só na média, tornando o viés auditável em vez de discutível. Populações sintéticas derivadas de pessoas reais têm base legal explícita e consentimento específico. Simulação é admitida em decisão pública apenas como contraditório — para *contestar* uma decisão, nunca como fundamento único para tomá-la. Para chegar aqui é preciso, agora: publicar os conjuntos-ouro, exigir declaração de composição da população em toda peça que use simulação, e financiar capacidade de contra-simulação fora das plataformas.
+
+* **Indesejável:** A escala chega antes da validade. Populações sintéticas proprietárias, calibradas em dados de proveniência obscura, viram infraestrutura de decisão em poucas empresas; a simulação entra na instrução regulatória sem critério público de admissibilidade; e a disputa passa a ser sobre de quem é o mundo, decidida por quem tem mais capacidade de computação. O sinal precoce a vigiar é específico e observável já em 2027: **uma decisão relevante sendo justificada por resultado de simulação cuja população não é descrita publicamente**. No dia em que um relatório disser "nossa simulação mostrou que" sem dizer quem morava naquele mundo, este cenário começou.
+
+## 10. O experimento
+
+**Nome:** Túnel de vento de feed — a mesma população sintética sob dois algoritmos de recomendação.
+
+**A pergunta que responde.** Uma mudança de regra de recomendação, sozinha, produz polarização mensurável numa população idêntica? E — a pergunta mais importante para a turma — **o resultado muda quando se troca a composição da população, mantendo o algoritmo fixo?**
+
+**A tecnologia.** OASIS (Apache 2.0) em escala pequena, de 100 a 300 agentes, com um modelo local ou uma API barata; alternativamente Concordia, se o grupo preferir montar o ambiente do zero com Game Master [3][5]. Nada aqui exige máquina grande: a escala de sala de aula é a escala da demonstração de Park et al. multiplicada por dez [1].
+
+**O que a turma faria em sala.** Quatro corridas, em duas fases. *Fase A (o algoritmo varia):* a mesma população, dois feeds — um cronológico, um por afinidade. *Fase B (a população varia):* o mesmo feed por afinidade, duas populações com distribuição de opinião diferente. Antes de rodar, cada dupla registra por escrito o que espera ver; a aposta fica lacrada. Mede-se três coisas ao final: distância média entre as opiniões dos agentes, tamanho da maior cascata de repost, e proporção de interações entre agentes de posições opostas. O painel de leitura — como mostrar isso para quem vai decidir — é o produto de design da atividade, e não um detalhe: um instrumento que ninguém consegue ler não informa decisão nenhuma.
+
+**Qual resultado mudaria minha ideia.** Dois, em direções opostas. *Se a Fase B produzir variação maior que a Fase A* — isto é, se trocar quem mora no mundo importar mais do que trocar a regra do mundo —, o mapa está certo no que tem de mais incômodo: a população é a variável política, e e8.1.1 (captura metodológica) sobe de terceira ordem a risco imediato. *Se as quatro corridas derem resultados parecidos, ou se duas corridas idênticas divergirem entre si*, a disrupção D2 não se sustenta: o instrumento não mede nada estável, e toda a parte do mapa que depende de evidência simulada deve ser descartada — não adiada, descartada.
+
+## 11. Fontes
+
+1. https://arxiv.org/abs/2304.03442 — Park et al., *Generative Agents: Interactive Simulacra of Human Behavior* (2023). Sustenta o marco fundador: 25 agentes, arquitetura de observação/planejamento/reflexão e o comportamento emergente da festa. Alta confiabilidade — artigo revisado, publicado no UIST 2023, com código aberto.
+2. https://arxiv.org/abs/2411.11581 — *OASIS: Open Agent Social Interaction Simulations with One Million Agents*. Sustenta a escala de um milhão, a simulação de X e Reddit e o achado de que populações maiores intensificam a dinâmica de grupo. Alta para o que descreve; média para generalização, por ser autorrelato dos construtores.
+3. https://github.com/camel-ai/oasis — Repositório do OASIS. Sustenta a verificabilidade prática: 23 ações por agente, licença Apache 2.0, desenvolvimento ativo. Alta como fonte primária de artefato; é código auditável, não alegação.
+4. https://arxiv.org/abs/2502.08691 — *AgentSociety* (Tsinghua FIB Lab, 2025). Sustenta o uso como bancada de experimento social: 10 mil agentes, 5 milhões de interações, cinco questões testadas, incluindo renda básica universal e choque externo. Média-alta — o abstract não declara limitações, o que por si é um dado.
+5. https://github.com/google-deepmind/concordia — Biblioteca Concordia. Sustenta que laboratório corporativo de primeira linha trata simulação generativa como infraestrutura, com aplicações declaradas em ciências sociais, economia e avaliação de serviços reais. Alta como fonte primária.
+6. https://arxiv.org/abs/2312.03664 — *Generative agent-based modeling with actions grounded in physical, social, or digital space using Concordia*. Sustenta o mecanismo do Game Master e a distinção em relação ao ABM clássico. Alta.
+7. https://arxiv.org/abs/2411.10109 — Park et al., *Generative Agent Simulations of 1,000 People* (2024). Sustenta o número central do mapa: 1.052 entrevistados, agentes que replicam o GSS a 85% da consistência teste-reteste da própria pessoa, com redução de disparidade entre grupos. Alta — é o argumento mais forte a favor de D2.
+8. https://arxiv.org/abs/2504.10157 — *SocioVerse: A World Model for Social Simulation Powered by LLM Agents and a Pool of 10 Million Real-World Users*. Sustenta a segunda via de calibração — ancorar a população sintética em usuários reais — testada em política, notícia e economia. Média-alta.
+9. https://arxiv.org/abs/2501.08579 — *LLM-based Human Simulations Have Not Yet Been Reliable*. Sustenta o contraditório central da Seção 7: discrepâncias em contexto social, econômico, político e psicológico, atribuídas a limites do modelo e a desenho de estudo. Alta — é revisão crítica, e a fonte que mais pesa contra o próprio mapa.
+10. https://algorithmwatch.org/en/researching-systemic-risks-under-the-digital-services-act/ — AlgorithmWatch, pesquisa sobre risco sistêmico no DSA. Sustenta a lacuna regulatória que abre espaço para D3: falta de transparência sobre as avaliações já feitas pelas plataformas e incerteza sobre o aprendizado colaborativo. Média-alta — organização independente, relatório declaradamente provisório.
+11. https://arxiv.org/abs/2409.12396 — *ARTAI: An Evaluation Platform to Assess Societal Risk of Recommender Algorithms* (FAccTRec 2024). Sustenta que já se constroem plataformas de avaliação de risco de recomendação com finalidade regulatória explícita. Média — artigo de workshop, plataforma em estágio inicial.
+12. https://www25.senado.leg.br/web/atividade/materias/-/materia/157233 — PL 2338/2023, Senado Federal. Sustenta a nota sobre o Brasil: o marco legal de IA foi aprovado no plenário do Senado e remetido à Câmara em 17/03/2025, com avaliação de impacto algorítmico para sistemas de alto risco e previsão de ambiente regulatório experimental. Alta — fonte oficial primária.
+
+**Nota sobre o Brasil.** O país chega a este tema com uma assimetria útil: a moldura regulatória está sendo escrita agora, antes de a prática existir. O PL 2338/2023, aprovado no Senado e em tramitação na Câmara, prevê avaliação de impacto algorítmico para sistemas de alto risco e ambiente regulatório experimental supervisionado [12] — exatamente o lugar onde evidência simulada poderia entrar como peça de instrução. Isso é oportunidade e risco na mesma medida. Oportunidade porque dá para exigir critério de validade **antes** de a prática se consolidar, em vez de correr atrás dela como a Europa está correndo [10]. Risco porque quase toda a capacidade de construir e calibrar população sintética está fora do país, e uma sociedade sintética importada, calibrada em dados norte-americanos ou chineses, aplicada a uma política brasileira, é a forma mais silenciosa possível do problema descrito em e8.1.1. A pergunta prática para quem projeta mídia e interação no Brasil não é "como uso isto", é "quem vai construir a população brasileira, e com quais dados".
+
+## 12. Anexo — o levantamento bruto
+
+### A entrevista (Etapa a)
+
+As cinco perguntas obrigatórias da skill foram feitas e respondidas. Registro literal do que foi definido:
+
+| Pergunta | Resposta |
+|---|---|
+| 1. Horizonte de tempo | 2031 |
+| 2. Público-alvo | Quem projeta mídia e interação |
+| 3. Recorte geográfico | Global, com uma nota sobre o Brasil |
+| 4. Fora de escopo | O que já é comum em produto de massa (a régua da disciplina). Nenhuma outra exclusão. |
+| 5. Viés desejado | Neutro |
+
+Parâmetros adicionais informados junto com as respostas, e que condicionaram a execução: tema é o nº 6 de 19 da disciplina, família "Simulação e mundos"; nenhuma disrupção suspeita foi indicada — cabia à análise descobri-las; profundidade de três ordens; modo de análise a partir de uma inovação/tema, não de um setor; ideias óbvias a excluir são as que serviriam para qualquer tema; o que faria o solicitante mudar de ideia é evidência de que a adoção já passou da maioria inicial (Rogers) ou de que a tecnologia não rompe nada, apenas melhora o existente. Login do autor: jlsn. Skill: futurizacao-jlsn.
+
+### O filtro de maturidade (Etapa b) — veredito: DISRUPTIVO, execução autorizada
+
+Aplicação literal do critério da skill. **Madura?** Não. Há infraestrutura consolidada e mercado estabelecido para a parte *clássica* — modelagem baseada em agentes com regras fixas, tipo NetLogo, com quarenta anos de uso em epidemiologia e economia. Essa parte é madura e fica fora. **Incremental?** Foi a hipótese que mais ameaçou reprovar o tema, e ela foi testada explicitamente: se agentes com modelo de linguagem fossem apenas "NetLogo com texto melhor", o tema seria incremental e a execução teria de ser recusada. Três elementos derrubam essa leitura: (i) a unidade de simulação deixa de ser uma regra escrita por quem modela e passa a ser um agente que delibera com memória própria — muda quem escreve o comportamento; (ii) a saída deixa de ser série numérica e passa a ser diálogo interpretável, o que muda o tipo de pergunta que se pode fazer ao instrumento; (iii) a escala salta de centenas para um milhão de entidades com interação social rica [2]. **Disruptiva?** Sim, pelo critério da destruição de mercado antigo e criação de mercado novo: a etapa exploratória da pesquisa de opinião — um setor inteiro — é o mercado ameaçado, e "evidência simulada antes do lançamento" é o mercado que não existia. A quebra de modelo mental é precisa e enunciável: *sistema social só se conhece depois de posto no mundo*. Veredito: passa, avança para (c).
+
+### Assunções declaradas
+
+- **Campo `zona_de_interesse`.** O formato de saída da skill fixa o valor literal `Sistemas de Informação` — não é campo entre colchetes, logo não é campo a substituir. O parâmetro informado à rodada foi outro: a zona de interesse do autor é **"Simulação e mundos"**. Mantive o valor fixo escrito na skill e registro a divergência aqui: a rodada testa a skill como o aluno a escreveu, não a skill corrigida pelo executor. Quem cruzar rodada × zona de interesse deve ler esta linha antes de tratar o campo como erro.
+- **A nota sobre o Brasil.** O formato obrigatório não prevê seção geográfica própria e a entrevista pediu recorte global com nota sobre o Brasil. Assumi o fim da Seção 11 como lugar da nota, por ser onde está a fonte que a sustenta, em vez de criar seção nova fora do formato.
+- **Sem interlocutor.** Esta execução correu sem humano para responder. Todas as respostas da Etapa (a) vieram do prompt da rodada; nenhuma pergunta foi devolvida e nenhuma etapa foi interrompida para confirmação.
+
+### Caminhos abandonados
+
+- **Enquadrar pelo ângulo de jogo e NPC.** Descartado por fronteira de tema: personagem autônomo em jogo é o tema 7 da disciplina. A simulação aqui é método, não entretenimento — mesmo reconhecendo que o vínculo histórico é forte (o experimento fundador roda num ambiente tipo *The Sims* [1]) e que essa fronteira pode ser artificial, como a Seção 7 admite no viés (iii).
+- **Enquadrar por mercado e dinheiro.** Descartado: agentes com carteira e mercados de máquinas são o tema 5.
+- **Uma quarta disrupção-raiz: "a simulação como ambiente de treino de outros agentes"** — usar sociedades sintéticas para treinar sistemas que depois operam no mundo real. Abandonada por dois motivos: puxaria o mapa para o tema 9 (agentes com corpo no mundo físico) e a evidência pública disponível é fraca demais para sustentar três ordens de efeito. Fica registrada como candidata a sinal fraco, não desenvolvida.
+- **Uma quinta disrupção: "gêmeo digital de cidade".** Abandonada porque a literatura de digital twin urbano é majoritariamente sensor e infraestrutura, não sociedade de agentes deliberativos — seria outro tema, com outra bibliografia.
+- **Efeitos de quarta ordem.** Foram esboçados e descartados por critério da própria disciplina: a partir daí a relação de causa e efeito com a disrupção central se perde e o exercício vira ficção. O limite adotado foi o do ESTUDO.md: interrompe-se a ramificação quando o efeito deixa de ter âncora direta.
+- **Citar `Argentor`, `Rath`, `NeuroForge`, `DisasterReliefOps` e `agent-inspect` como fontes.** Mencionados no corpo do texto e na varredura da turma, mas **não** incluídos na Seção 11: não foram abertos e verificados nesta execução, e a regra adotada foi citar apenas o que respondeu HTTP 200 e foi efetivamente lido.
+- **Citar a decisão do UIST 2023 via ACM Digital Library.** O link `dl.acm.org/doi/10.1145/3586183.3606763` retornou HTTP 403 na verificação e foi substituído pelo preprint no arXiv, que responde 200.
+- **Material do setor de pesquisa de mercado sobre respondentes sintéticos.** As posições de mercado citadas na Seção 3 (faixa de maior risco, "explorar com sintético, decidir com humano", supressão de reação extrema) vieram de varredura de fontes comerciais secundárias e **não** foram promovidas à lista de fontes, por serem de veículos com interesse econômico direto no assunto. Entram como contexto declarado, não como evidência.

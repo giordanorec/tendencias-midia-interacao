@@ -1,0 +1,472 @@
+---
+tema: "Soberania de dados: local-first, ponta-a-ponta e o fim da senha"
+slug: soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha
+autor_login: jlsn
+zona_de_interesse: Sistemas de Informação
+data: 2026-09-18
+horizonte: 2031
+publico: Quem projeta mídia e interação
+recorte_geografico: Global, com nota sobre o Brasil
+disrupcoes_raiz: 3
+efeitos_ordem_1: 9
+efeitos_ordem_2: 18
+efeitos_ordem_3: 9
+tecnologias_citadas: ["local-first software", "CRDT", "Automerge", "Yjs", "sync engine (Zero, ElectricSQL, Livestore, Convex)", "SQLite no cliente", "criptografia ponta-a-ponta", "client-side encryption", "passkeys", "WebAuthn", "FIDO2", "argon2", "better-auth", "Rodauth", "jose", "iron-session", "client-side scanning", "carteira de identidade digital", "self-hosting", "IA local sobre dado pessoal"]
+fontes: 10
+confianca: media
+experimento: Cofre Cego — 72 horas sem servidor e sem senha
+skill_usada: futurizacao-jlsn
+publico_ok: false
+---
+
+## 1. Resumo
+
+Três rupturas convergem na arquitetura do software pessoal: o dado passa a morar no dispositivo e sincronizar (local-first), o servidor deixa de conseguir ler o que guarda (ponta-a-ponta por arquitetura) e a senha é substituída por chave criptográfica do próprio aparelho (passkeys). Juntas, elas retiram da empresa três posses simultâneas: o dado, a conta e a identidade. A ponta da identidade já é massiva — a FIDO Alliance estima 5 bilhões de passkeys em uso em maio de 2026. A ponta do dado não é: o Automerge tinha 14 mil downloads semanais no npm em abril de 2026, e Martin Kleppmann descreve o ponta-a-ponta em local-first como ainda aspiracional. O que o mapa aponta para 2031 não é o triunfo da soberania, e sim o deslocamento do ponto de controle: do servidor da empresa para o sistema operacional do aparelho e para o canal de recuperação de conta. O lugar onde o poder some é conhecido; o lugar para onde ele vai é a pergunta em aberto.
+
+## 2. O tema
+
+O objeto aqui é a arquitetura de dado e identidade de uma pessoa — não o modelo de IA que roda no aparelho (tema 16) nem a identidade de agentes autônomos (tema 2). São três peças distintas que só recentemente passaram a ser projetadas juntas:
+
+**Local-first.** O ensaio de 2019 do Ink & Switch, assinado por Martin Kleppmann, Adam Wiggins, Peter van Hardenberg e Mark McGranaghan, definiu sete ideais: resposta imediata sem ida ao servidor, acesso multidispositivo, funcionamento sem rede, colaboração sem conflito, longevidade do dado depois do fim do fornecedor, privacidade por padrão e controle do usuário. A inversão é simples de enunciar e difícil de implementar: o dado é do dispositivo, e o servidor é canal de sincronização, não fonte da verdade.
+
+**Ponta-a-ponta por arquitetura.** Não é o cadeado do HTTPS nem o backup criptografado com chave do fornecedor. É o caso em que a chave nunca sai do cliente e o servidor, mesmo cooperando com quem o obrigue, não tem o que entregar além de metadado.
+
+**Passkeys.** A credencial passa a ser um par de chaves preso ao aparelho, verificado por biometria local. Não há segredo compartilhado para vazar, nem provedor terceiro obrigatório no caminho.
+
+Onde isso encosta em mídia e interação: quando o dado está no dispositivo, o *estado de carregamento* deixa de ser um estado de tela, e o conflito de edição deixa de ser erro de sistema para virar objeto de design — alguém precisa desenhar como uma pessoa vê, entende e arbitra duas versões divergentes do seu próprio documento. Quando a senha acaba, o fluxo de entrada — a primeira interface que qualquer produto apresenta — é refeito, e o pior momento da relação com um produto deixa de ser "esqueci minha senha" e passa a ser "perdi meu aparelho". E quando o servidor fica cego, a personalização, que hoje é feita lendo o usuário do lado de lá, precisa ser reinventada do lado de cá ou abandonada.
+
+Merece um mapa porque as três rupturas não falham nem vencem juntas. Uma delas já atravessou a maioria inicial; as outras duas ainda não saíram do laboratório — e é exatamente esse descompasso que produz os efeitos mais interessantes de segunda e terceira ordem.
+
+## 3. Onde isso está hoje
+
+**O que existe e funciona.** Passkeys. No Dia Mundial da Passkey de 7 de maio de 2026, a FIDO Alliance publicou pesquisa com 11 mil consumidores e 1.400 tomadores de decisão corporativos em dez países: 5 bilhões de passkeys estimadas em uso, 90% de consciência do termo, 75% das pessoas com pelo menos uma passkey habilitada, 49% usando regularmente quando disponível. No lado corporativo, 68% das organizações declararam já ter implantado ou estar implantando passkeys para funcionários, e 28% dizem ter alcançado o objetivo de autenticação totalmente sem senha. Os ganhos relatados pelas empresas são operacionais, não filosóficos: 45% citam login mais rápido, 35% citam queda nos chamados de redefinição de senha.
+
+Local-first também funciona — em produção, e em escala, mas quase sempre *sem* a metade criptográfica. A Wikipédia registra Linear e Anytype como implementações, e o ecossistema de motores de sincronização amadureceu: um relato de engenharia de 2026 sobre a escolha de um sync engine descreve a avaliação prática de Triplit, ElectricSQL com TanStack DB, Livestore e Zero, adotando este último como o único que funcionou "basicamente sem falhas" para o caso em questão. O padrão desses produtos é o dado local com servidor que ainda lê tudo.
+
+**O que existe e não funciona.** O casamento das duas coisas. Em abril de 2026, no episódio 716 do Software Engineering Radio, Kleppmann relatou números modestos e problemas abertos: Automerge com 14 mil downloads semanais no npm, a maioria das empresas usuárias ainda pré-lançamento; o controle de acesso descentralizado sendo atacado pelo projeto experimental KeyHive, "em desenvolvimento há mais ou menos um ano"; e o ponta-a-ponta descrito como teoricamente possível com as chaves certas, mas "aspiracional em vez de amplamente implementado" em sistemas de produção. Busca não funciona nativamente — o índice é do desenvolvedor. E a superfície de conflito, embora resolvida tecnicamente pelos CRDTs, continua sem padrão de interface: "não deciframos ainda" como mostrar ao usuário que houve divergência.
+
+O próprio ensaio de 2019 já listava os pontos que continuam abertos sete anos depois: histórico de CRDT que cresce e pesa, comunicação par-a-par que esbarra em NAT, migração de esquema entre versões do aplicativo. A Wikipédia acrescenta um detalhe pequeno e brutal para quem projeta na web: o Safari limpa o IndexedDB depois de sete dias de inatividade — o "dado que é seu" evapora se você não abrir o site por uma semana.
+
+Recuperação é o buraco declarado das passkeys. Há duas recuperações distintas e o público confunde as duas: recuperar o *cofre* de credenciais (que depende da conta Apple, Google ou Microsoft que sincroniza as chaves) e recuperar a *conta* num serviço específico quando nenhuma passkey utilizável restou. E há o efeito perverso: uma passkey resiste a phishing enquanto um e-mail comprometido ainda abre outra porta — a autenticação mais forte do mercado convive com o caminho de volta mais fraco.
+
+**Quem está construindo, e contra o quê.** A pressão regulatória está em campo aberto e em duas direções opostas. No Reino Unido, o governo emitiu em fevereiro de 2025 um Technical Capability Notice à Apple sob a seção 253 do Investigatory Powers Act, exigindo capacidade de acesso a dados do iCloud; a Apple respondeu retirando o Advanced Data Protection para novos usuários britânicos. O aviso original foi retirado em outubro de 2025 e substituído por outro dirigido especificamente a usuários do Reino Unido; a audiência substantiva da ação movida pela Privacy International está marcada para dezembro de 2026. Na União Europeia, o Chat Control 1.0 expirou em 3 de abril de 2026 e foi reinstaurado em 9 de julho: 314 parlamentares votaram por rejeitar a posição do Conselho e 276 a favor, mas eram necessários 360 votos — a varredura voluntária segue permitida até 2028. Plataformas com ponta-a-ponta ficaram excluídas das provisões de varredura, o que é menos vitória do que parece, já que um provedor cego não tem mesmo o que varrer; a disputa real migrou para a varredura no cliente.
+
+**Nota sobre o Brasil.** O país tem, simultaneamente, a infraestrutura de portabilidade de dado pessoal mais avançada do mundo e nenhuma tração visível de local-first. O Open Finance passou de 154 milhões de consentimentos ativos e 100 milhões de usuários conectados; a portabilidade de crédito 100% digital entrou em fevereiro de 2026, caindo de 20 a 25 dias para até 3 dias úteis; a Jornada Sem Redirecionamento para pessoa jurídica tornou-se obrigatória em 6 de fevereiro de 2026, com adesão de 20 bancos. Do lado regulatório, a Resolução 23 da ANPD, de 9 de dezembro de 2024, definiu 16 iniciativas para o biênio 2025-2026, entre elas direitos dos titulares (incluindo portabilidade), padrões técnicos de segurança, dados biométricos e anonimização. O ponto que interessa ao mapa: o Brasil construiu soberania de dado como *direito de mover o dado entre empresas*, com o dado permanecendo legível por todas elas. É o oposto arquitetural do local-first, que torna o dado ilegível para o intermediário. As duas soberanias podem colidir — e essa colisão é um dos wildcards da Seção 6.
+
+## 4. As disrupções-raiz
+
+### D1 — O dado mora no dispositivo e o servidor vira canal de sincronização
+
+**O que rompe.** O modelo cliente-servidor em que a tela é uma janela para o estado que vive em outro lugar. Rompe o pressuposto de que "estar online" é pré-requisito de "estar usando", e rompe a economia em que o custo por usuário cresce com a leitura e a escrita no servidor.
+
+**Por que agora e não há cinco anos.** Porque os CRDTs saíram do artigo e entraram em biblioteca utilizável, e porque surgiu uma geração de motores de sincronização que trata SQLite no cliente como banco padrão da aplicação. Em 2021 a escolha era escrever o seu próprio; em 2026 há pelo menos quatro opções comparáveis em produção, e um relato público de engenharia que as compara uma a uma. A camada de encanamento deixou de ser projeto de pesquisa.
+
+**O que falta acontecer.** Três coisas concretas. Migração de esquema entre versões do aplicativo rodando em dispositivos diferentes, que continua sem solução padrão. Busca, que hoje é responsabilidade manual do desenvolvedor. E uma interface para conflito que não seja "resolvemos por você e torcemos para você não notar" — o próprio Kleppmann diz que essa não foi decifrada.
+
+### D2 — O servidor não consegue ler o que guarda
+
+**O que rompe.** O modelo em que a empresa é custodiante legível do dado. Rompe a monetização por leitura, a personalização feita do lado do servidor, a moderação por inspeção de conteúdo e a capacidade de a empresa cumprir uma ordem judicial de entrega de conteúdo. Rompe também, e isso é menos citado, o suporte técnico: ninguém do outro lado pode olhar o seu arquivo para entender o seu problema.
+
+**Por que agora e não há cinco anos.** Porque a criptografia no cliente ficou trivial de embutir — há bibliotecas maduras para derivação de chave (argon2), assinatura e token (jose), sessão (iron-session) — e porque o custo reputacional e financeiro do vazamento subiu o bastante para que "não podemos vazar o que não podemos ler" virasse argumento comercial. A pesquisa da FIDO de 2026 mostra o tamanho do problema do lado do consumidor: 33% relataram comprometimento de conta ou aviso de vazamento no ano anterior.
+
+**O que falta acontecer.** Falta o ponta-a-ponta sair do aspiracional. Kleppmann é explícito de que, em local-first, isso ainda não é prática difundida em produção. E falta resolver controle de acesso sem servidor confiável — quem pode ler o quê, num mundo sem árbitro central — que é o que o KeyHive tenta e ainda não entregou. Sem isso, "ponta-a-ponta" na prática significa "um usuário, um dispositivo, nenhum compartilhamento", que é pouco.
+
+### D3 — A identidade deixa de ser emprestada de um provedor
+
+**O que rompe.** A senha como segredo compartilhado, e o login social como pedágio de identidade. Rompe o desenho de todo fluxo de entrada e, com ele, o desenho de todo fluxo de saída de emergência.
+
+**Por que agora e não há cinco anos.** Porque WebAuthn virou padrão embutido nos três sistemas operacionais dominantes e a sincronização de chaves entre dispositivos do mesmo fabricante deixou de exigir chaveiro físico. A curva de adoção confirma: 90% de consciência, 75% com pelo menos uma habilitada.
+
+**O que falta acontecer.** Falta recuperação. Falta portabilidade entre custodiantes — a passkey sincroniza dentro do ecossistema Apple ou dentro do ecossistema Google, e a mudança entre eles continua limitada apesar dos padrões emergentes. E falta delegação: compartilhar acesso com cônjuge, cuidador ou inventariante segue tratado como caso de borda, quando é situação ordinária da vida das pessoas.
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: "D1 — O dado mora no dispositivo e o servidor vira canal de sincronização"
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: "O motor de sincronização substitui a API REST como camada padrão de dados em aplicativo colaborativo"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: "O estado de carregamento deixa de ser um estado de tela, e o spinner passa a sinalizar defeito em vez de espera legítima"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: "A métrica de qualidade percebida migra de tempo de resposta para tempo de convergência entre dispositivos"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: "O conflito de edição vira objeto de design de interação, porque alguém precisa desenhar como a pessoa vê e arbitra duas versões do próprio documento"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e2
+        ordem: 1
+        efeito: "O aplicativo funciona por padrão sem rede, e a conectividade vira otimização em vez de pré-requisito"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: "O custo de servidor por usuário cai o bastante para viabilizar produto de nicho sem capital de risco"
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: "Reaparece uma classe de software vendido uma vez, sem assinatura, porque não há custo recorrente a cobrir"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: "Regiões com rede intermitente deixam de receber a versão degradada do produto global"
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: "O dado sobrevive ao encerramento do serviço, porque o arquivo local continua legível sem o fornecedor"
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: "Longevidade de formato entra nos critérios de compra de software, ao lado de preço e funcionalidade"
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: "Surge um mercado de auditoria de formato, com quem certifique que o arquivo ainda abrirá daqui a dez anos"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: "O encerramento de um serviço deixa de ser evento catastrófico e vira troca de sincronizador"
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+
+  - disrupcao: "D2 — O servidor não consegue ler o que guarda"
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: "O provedor perde a capacidade técnica de cumprir ordem de acesso ao conteúdo e passa a responder apenas com metadado"
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: "O Estado desloca a pressão do servidor para o dispositivo, via varredura no cliente, verificação de idade e obrigação de registro"
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: "A fronteira jurídica da privacidade deixa de ser o servidor e passa a ser o sistema operacional do aparelho"
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: "Mercados se fragmentam por regime jurídico, e o mesmo produto passa a sair com criptografia diferente conforme o país"
+            sinal: medio
+            prazo: 2029
+            confianca: media
+      - id: e5
+        ordem: 1
+        efeito: "O modelo de negócio que depende de ler o dado do usuário perde substrato técnico dentro do produto cego"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: "Assinatura e venda de capacidade de sincronização substituem a publicidade como receita nesses produtos"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: "Privacidade vira bem posicional, porque quem paga fica ilegível e quem não paga segue sendo lido"
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: "A personalização migra para dentro do dispositivo, onde o perfil existe, funciona e não é exportável"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e6
+        ordem: 1
+        efeito: "A moderação de conteúdo perde acesso ao conteúdo e se reorganiza em torno de denúncia, reputação e grafo de relações"
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: "Ferramentas de segurança passam a operar sobre sinais de comportamento e metadado, não sobre texto e imagem"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: "A disputa pública sobre moderação muda de objeto, deixando de ser o que foi removido para ser o que foi inferido sem leitura"
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: "A cegueira do provedor vira argumento regulatório contra ele próprio, sob a tese de responsabilidade por ter escolhido não poder ver"
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+
+  - disrupcao: "D3 — A identidade deixa de ser emprestada de um provedor"
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: "O fluxo de entrada perde a tela de senha, e a recuperação passa a ser o ponto mais frágil de todo o sistema"
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: "O suporte troca esqueci minha senha por perdi meu aparelho, que é um atendimento mais caro, mais lento e mais arriscado"
+            sinal: forte
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: "O ataque migra para o canal de recuperação, e a engenharia social sobre o atendimento humano vira o vetor dominante"
+                sinal: medio
+                prazo: 2030
+                confianca: media
+          - id: e7.2
+            ordem: 2
+            efeito: "Herança digital e delegação para cônjuge, cuidador ou inventariante viram requisito de produto em vez de caso de borda"
+            sinal: medio
+            prazo: 2030
+            confianca: media
+      - id: e8
+        ordem: 1
+        efeito: "A conta deixa de precisar de um provedor de identidade terceiro para existir"
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: "O sistema operacional herda o papel de custodiante que antes era do provedor de login social"
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: "A dependência de plataforma se aprofunda justamente no produto que se anunciava soberano"
+                sinal: medio
+                prazo: 2031
+                confianca: media
+          - id: e8.2
+            ordem: 2
+            efeito: "Chave em hardware separado e cofre autogerido viram nicho de quem quer sair da custódia do sistema operacional"
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: "Prova de atributo sem revelar documento entra no mesmo fluxo que a autenticação"
+        sinal: medio
+        prazo: 2030
+        confianca: baixa
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: "Verificação de idade e de renda passam a ser feitas por asserção assinada em vez de envio de documento"
+            sinal: medio
+            prazo: 2031
+            confianca: baixa
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: "A exigência de identificação se espalha para onde antes havia anonimato prático, porque provar quem se é ficou barato demais"
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e9.2
+            ordem: 2
+            efeito: "O formulário longo de cadastro desaparece da interface e é substituído por consentimento de atributo"
+            sinal: fraco
+            prazo: 2031
+            confianca: baixa
+```
+
+O bloco acima diz para onde cada coisa empurra, mas esconde três coisas.
+
+A primeira é que as três disrupções **não estão na mesma fase da curva**, e o YAML as apresenta lado a lado como se estivessem. D3 já passou da maioria inicial; D1 está no início do mercado; D2 mal saiu do laboratório. Um mapa lido sem essa ressalva sugere uma frente única avançando, quando o que há é uma peça madura arrastando duas imaturas — e a peça madura é justamente a que menos toca o dado.
+
+A segunda é que os efeitos mais fortes do mapa são **efeitos de perda**, não de ganho. e4, e7 e e7.1 têm sinal forte e prazo curto porque descrevem capacidades que desaparecem: o provedor deixa de poder entregar conteúdo, o usuário deixa de poder digitar uma senha, o suporte deixa de poder redefinir. Os efeitos de ganho — e2.1, e3.1, e9.2 — têm sinal fraco e confiança baixa. Isso não é pessimismo do analista; é o formato da evidência disponível. O que já se pode medir é o que sumiu.
+
+A terceira é que quase todo ramo termina no mesmo lugar: **o ponto de controle se desloca, ele não evapora.** e4.1.1 o coloca no sistema operacional. e7.1.1 o coloca no atendimento de recuperação. e8.1.1 o coloca na plataforma que sincroniza a chave. e5.1.1 o coloca no preço. Se há uma tese única nesta roda, é essa: "soberania de dados" descreve com precisão o que a arquitetura remove e com imprecisão o que ela instala no lugar.
+
+Vale registrar o que não entrou na roda por ser derivação fraca demais, no critério da própria disciplina: efeitos sobre o mercado de trabalho de segurança, sobre o preço de armazenamento e sobre a arquitetura de datacenter. São plausíveis, mas a partir do terceiro salto perdem a âncora com a disrupção central e viram comentário econômico geral.
+
+## 6. Sinais fracos e wildcards
+
+**Sinal fraco 1 — IA operando sobre dado pessoal sem que ele saia da máquina.** É o casamento deste tema com o tema 16, e é o único caminho conhecido para resolver e5.2: a personalização precisa de um leitor, e se o leitor for local o dilema entre privacidade e utilidade se dissolve. O sinal existe no nicho de finanças pessoais — contadores de IA que guardam tudo em SQLite local, reconciliadores de extrato que rodam sem nuvem. É fraco porque nenhum desses produtos tem escala, e porque a qualidade do modelo local ainda é inferior à do remoto. Se esse sinal engrossar, ele muda o sinal de e5 de médio para forte; se não engrossar, o produto cego perde para o produto que vê e entrega mais.
+
+**Sinal fraco 2 — o Safari apaga o IndexedDB depois de sete dias sem visita.** É um detalhe de implementação de um navegador, mas revela algo estrutural: na web, "o dado é seu" é uma promessa que o fornecedor da plataforma pode revogar unilateralmente, sem aviso e sem malícia. Enquanto o local-first na web depender de armazenamento que o navegador considera cache, o ideal da longevidade (e3) é uma cortesia, não uma garantia.
+
+**Sinal fraco 3 — a exclusão do ponta-a-ponta das provisões do Chat Control.** Foi vendida como vitória da privacidade e é, na prática, um empurrão: se o provedor cego está fora do alcance da varredura, a pressão regulatória não desaparece, ela se muda de endereço — para o cliente, onde a varredura ainda é tecnicamente possível. Vale observar o vocabulário dos próximos textos legislativos: quando a palavra migrar de "provedor" para "dispositivo", e4.1 terá se concretizado.
+
+**Wildcard — uma legislação que torne local-first ou ponta-a-ponta obrigatórios para dado sensível.** Baixa probabilidade e impacto altíssimo. Bastaria que uma autoridade de proteção de dados de porte tratasse "servidor legível" como falha de segurança por desenho em categorias específicas — saúde, crianças, biometria — para que D1 e D2 saltassem da fase de laboratório para requisito de conformidade em um ciclo de produto. O Brasil é candidato menos improvável do que parece: a Resolução 23 da ANPD já tem na agenda 2025-2026 tanto padrões técnicos de segurança quanto dados biométricos e dados de crianças e adolescentes, e a ANPD passou a operar com poder sancionatório efetivo. O contra-argumento é forte e está no mesmo país: o Open Finance brasileiro, com mais de 154 milhões de consentimentos ativos, é uma aposta institucional na direção contrária — dado legível por muitos, sob consentimento. Um regulador que empurrasse local-first estaria brigando com a política pública de dados mais bem-sucedida do próprio Estado.
+
+**Anti-wildcard, para simetria.** Um incidente grave de perda irreversível — uma população de usuários trancada fora dos próprios dados por falha de sincronização de passkeys, sem canal de recuperação — faria o pêndulo voltar em um trimestre. O modelo mental de "a empresa guarda para mim e me devolve quando eu esquecer" não é ignorância do público; é um serviço real que a arquitetura soberana deixa de prestar.
+
+## 7. Contra o próprio mapa
+
+**Qual efeito é apenas extrapolação linear do presente.** e1 e e2. Dizer que o motor de sincronização substitui a API REST e que o aplicativo passa a funcionar sem rede é pegar a curva de adoção do que já existe — Linear, Anytype, Zero, ElectricSQL — e prolongá-la. Não há ruptura de modelo mental ali: é a mesma coisa que já acontece, acontecendo com mais gente. O efeito honesto seria mais estreito e diz respeito à interface, não à infraestrutura: e1.2, o conflito de edição virando objeto de design, é o único desdobramento de D1 que exige inventar algo que ninguém sabe fazer — e Kleppmann confirma que ninguém sabe.
+
+**Qual efeito assume velocidade de adoção irreal.** e5 e toda a sua descendência. O mapa diz que o modelo de negócio baseado em ler o dado perde substrato até 2029, e isso confunde possibilidade técnica com movimento econômico. A receita publicitária baseada em leitura de comportamento não vai ser desmontada por uma arquitetura adotada por produtos que, segundo o próprio criador da biblioteca de referência, ainda estão em sua maioria pré-lançamento, com 14 mil downloads semanais. Um número dessa ordem descreve uma comunidade de desenvolvedores, não um mercado. A trajetória realista é de coexistência longa: o produto cego ocupa nichos de alta sensibilidade — saúde, finanças pessoais, jurídico — e o resto do mercado segue legível. e5.1.1, privacidade como bem posicional, é o efeito de terceira ordem em que mais confio, e é justamente o que contradiz a promessa emancipatória do tema.
+
+**Qual disrupção-raiz pode não se concretizar e derrubar o mapa inteiro.** D2, e ela sustenta um terço da roda. Todo o ramo e4-e5-e6 pressupõe um servidor genuinamente incapaz de ler. A evidência é frontalmente contrária: Kleppmann descreve o ponta-a-ponta em local-first como aspiracional e não implementado de forma ampla; o controle de acesso sem servidor confiável está no KeyHive, em desenvolvimento e sem entrega; e sem controle de acesso descentralizado, ponta-a-ponta se degrada a um único usuário sem compartilhamento, que é um produto que quase ninguém quer. Some-se o contexto jurídico: um Estado que emite ordem secreta para obter acesso — e o caso britânico contra a Apple mostra que emite — pode obter, na pior das hipóteses, a retirada do recurso do mercado, que foi exatamente o que aconteceu com o Advanced Data Protection no Reino Unido. Se D2 não acontecer, o que resta é local-first sem cegueira (dado rápido, servidor que lê) mais passkeys (login melhor, custódia na plataforma). Isso é inovação incremental valiosa e não é soberania de dados. É o desfecho mais provável deste mapa, e a Seção 9 o trata como tal.
+
+**Qual foi o viés da análise.** Dois, e em direções opostas. O primeiro é um viés de fonte: quatro das dez fontes são de partes interessadas em que a história seja boa — a FIDO Alliance é o consórcio que promove o padrão que mede, o Ink & Switch é o laboratório que cunhou o termo, o Pluggy vende integração de Open Finance e o blog de engenharia relata a escolha que o autor já fez. Nenhuma delas é neutra, e os números delas puxam para cima. O segundo é um viés de foco, meu: o mapa concentra atenção no que se perde e converge repetidamente para "o controle se desloca em vez de desaparecer". É um viés cético, e ele pode estar subestimando a possibilidade de que um deslocamento de controle da empresa de software para o fabricante do aparelho *seja*, na média, uma melhora para o usuário — o fabricante vende hardware, não atenção, e tem menos incentivo para ler. A entrevista declarou viés neutro; o resultado não é neutro, e prefiro registrar isso a afirmar equilíbrio que o texto não tem.
+
+**Uma quarta autocrítica, não pedida pela skill mas devida.** A régua de maturidade desta skill quase vetou o tema, e a justificativa de prosseguir está registrada no Anexo. Quem ler este mapa deve saber que uma das três disrupções-raiz — passkeys — provavelmente não passaria no filtro se fosse submetida sozinha.
+
+## 8. O que a máquina errou
+
+<!-- Seção deixada em branco para o usuário preencher após leitura crítica. -->
+
+## 9. Três cenários para 2031
+
+* **Provável — "Rápido, sem senha e ainda legível".** Local-first vence como técnica de desempenho e perde como projeto político. Motores de sincronização viram padrão em aplicativo colaborativo, o spinner some, o aplicativo funciona no avião — e o servidor continua lendo tudo, porque ponta-a-ponta com compartilhamento não amadureceu e porque a personalização e a moderação dependem da leitura. Passkeys tornam-se o padrão de entrada, com o sistema operacional como novo custodiante; o login social perde espaço para a plataforma, que é o mesmo oligopólio com outro chapéu. O ponta-a-ponta real fica confinado a mensageria e a nichos de alta sensibilidade, e sobrevive sob pressão jurídica intermitente, do tipo que já se vê no Reino Unido e na União Europeia. Do tema, entrega-se a velocidade e a conveniência; a soberania fica pelo caminho.
+
+* **Desejável — "Cego por desenho, recuperável por desenho".** O ponta-a-ponta deixa de ser aspiracional porque o controle de acesso descentralizado é resolvido e empacotado: compartilhar um documento criptografado com três pessoas fica tão fácil quanto compartilhar um link. Em paralelo, e isso é a condição menos glamourosa e mais decisiva, a recuperação de conta vira uma disciplina de projeto com padrões públicos — custódia distribuída entre pessoas de confiança, delegação explícita para cuidador e inventariante, portabilidade de passkey entre custodiantes. Local-first ganha, por regulação ou por norma de mercado, a garantia de que o formato do arquivo é documentado e o dado é exportável sem o fornecedor. **O que precisa ser feito para chegar aqui:** tratar recuperação e delegação como requisito de primeira classe, não como caso de borda; publicar o formato de arquivo como parte do contrato com o usuário; e resistir à tentação de resolver a privacidade transformando-a em recurso pago, que é o caminho para e5.1.1.
+
+* **Indesejável — "Soberano no aparelho, vigiado no aparelho".** A pressão regulatória migra do servidor para o cliente e a varredura no dispositivo se normaliza: o provedor é cego, e o seu próprio aparelho lê tudo antes de criptografar e reporta o que encontrar. Some-se a isso a identificação barata de e9.1.1 — se provar idade, renda ou identidade custa um toque, exigir prova vira o padrão, e o anonimato prático que ainda existe em boa parte da web desaparece por conveniência, não por lei. Nesse cenário a soberania de dados foi entregue ao pé da letra e esvaziada no espírito: o dado é seu, mora com você, e é inspecionado onde mora. **Sinal precoce a vigiar:** o momento em que o vocabulário de um texto legislativo sobre varredura deixar de falar em "provedor" e passar a falar em "dispositivo" ou "aplicativo cliente". O voto de 9 de julho de 2026, ao excluir o ponta-a-ponta das provisões de varredura, já empurrou a discussão nessa direção.
+
+## 10. O experimento
+
+**Nome: Cofre Cego — 72 horas sem servidor e sem senha.**
+
+**A pergunta que responde.** Não "dá para construir?" — dá, e há bibliotecas maduras para todas as peças. A pergunta é a que o mapa identificou como o ponto de ruptura real: **quando o servidor não pode ajudar e a senha não existe, o que acontece com a pessoa que perde o aparelho — e quanto dela o produto consegue recuperar sem trair a própria arquitetura?**
+
+**O que se constrói.** Um aplicativo mínimo de diário ou de despesas pessoais, com quatro exigências e nenhuma a mais:
+
+1. Entrada exclusivamente por passkey, via WebAuthn. Sem e-mail de recuperação, sem SMS, sem pergunta secreta. Bibliotecas: `@simplewebauthn` ou `@passwordless-id/webauthn` no cliente; `better-auth` ou `Rodauth` no servidor; `jose` para token e `iron-session` para sessão.
+2. Dado guardado localmente e sincronizado por um motor de sincronização. Automerge, Yjs ou um dos motores de 2026 — a escolha importa menos que registrar por que se escolheu.
+3. Criptografia no cliente, com chave derivada por `argon2` e nunca enviada ao servidor. Regra de aceitação: abrir o banco do servidor e confirmar que não há nada legível ali.
+4. Um mecanismo de recuperação desenhado pela equipe. Qualquer um — custódia dividida entre colegas, frase de recuperação em papel, chave de hardware, contato de confiança. Desenhá-lo é metade do experimento.
+
+**O que a turma faz em sala.** Três provas, em sequência, com a turma dividida em duplas.
+
+*Prova 1 — a perda.* Cada dupla entrega o aparelho cadastrado a outra dupla, que o "perde" (guarda em uma gaveta). A dupla original tem quinze minutos para voltar à própria conta pelo mecanismo de recuperação que ela mesma desenhou. Mede-se: quantas duplas voltam, em quanto tempo, e quantas percebem no meio do caminho que o mecanismo que projetaram é vulnerável a quem esteja com o aparelho.
+
+*Prova 2 — o impostor.* Cada dupla tenta invadir o mecanismo de recuperação da dupla vizinha, com o que sabe sobre elas — nomes, e-mails, redes sociais públicas, e uma conversa de três minutos com o "suporte", papel exercido por um colega de outra dupla. Mede-se quantas recuperações caem. Esta prova testa e7.1.1 em escala de sala.
+
+*Prova 3 — a herança.* Cada dupla recebe um cenário fechado: uma das duas pessoas está indisponível por tempo indeterminado e a outra precisa de um dado específico que está no cofre. Quinze minutos. Mede-se quantas conseguem, e a que custo de segurança. Esta prova testa e7.2, que é o efeito que quase nenhum produto real trata.
+
+**Qual resultado mudaria minha ideia.** Duas condições, explicitadas de antemão para que a prova valha:
+
+- Se a maioria das duplas voltar à conta na Prova 1 **e** resistir à Prova 2, então a recuperação sem servidor é um problema de design já solucionável por equipe pequena com ferramenta pública, e não o gargalo estrutural que a Seção 7 supõe. Isso fortaleceria o cenário desejável e me obrigaria a subir a confiança de e8.2 e de todo o ramo D3.
+- Se, ao final da Prova 1, a saída espontânea da turma for "vamos colocar um e-mail de recuperação" — e essa é a minha aposta —, então o experimento demonstrou o argumento central do mapa em quinze minutos: a arquitetura soberana é construível por qualquer equipe, e o que a derruba não é a criptografia, é o dia em que alguém deixa o celular no ônibus. Um mapa que trate a recuperação como detalhe de implementação está errado, e este trata como efeito de primeira ordem, de sinal forte, para 2028.
+
+## 11. Fontes
+
+1. https://fidoalliance.org/fido-alliance-reports-accelerating-global-passkey-adoption-on-world-passkey-day-2026/ — Sustenta todos os números de adoção de passkeys da Seção 3 (5 bilhões em uso, 90% de consciência, 75% com pelo menos uma habilitada, 49% de uso regular, 68% de implantação corporativa, 33% de comprometimento de conta) e a metodologia (11.000 consumidores e 1.400 decisores em dez países, 7 de maio de 2026). Confiabilidade alta para o dado, com ressalva declarada de interesse: a FIDO Alliance é o consórcio que promove o padrão que mede.
+2. https://www.inkandswitch.com/essay/local-first/ — Fonte primária dos sete ideais do local-first (2019) e das limitações admitidas pelos próprios autores: histórico de CRDT que pesa, NAT como problema não resolvido, migração de esquema. Confiabilidade alta como documento fundador; não é fonte de dado de mercado, e a ausência de discussão sobre modelo de negócio é ela mesma um achado usado na Seção 4.
+3. https://se-radio.net/2026/04/se-radio-716-martin-kleppmann-local-first-software/ — A fonte mais importante deste mapa. Sustenta os números e as lacunas de abril de 2026: 14 mil downloads semanais do Automerge no npm, maioria das empresas usuárias pré-lançamento, KeyHive em desenvolvimento, ponta-a-ponta "aspiracional em vez de amplamente implementado", conflito na interface não decifrado. Confiabilidade alta: é o autor do ensaio de 2019 declarando os limites do próprio campo, ou seja, evidência contrária vinda de parte interessada no sentido favorável.
+4. https://en.wikipedia.org/wiki/Local-first_software — Sustenta a lista de implementações citadas (Linear, Anytype, Automerge) e as críticas consolidadas, incluindo o detalhe do Safari que apaga o IndexedDB após sete dias. Confiabilidade média, típica de enciclopédia colaborativa; usada para consolidação e não para números.
+5. https://johnny.sh/blog/choosing-a-sync-engine-in-2026/ — Relato de engenharia de 2026 comparando Triplit, ElectricSQL com TanStack DB, Livestore e Zero em uso real, com os motivos de descarte de cada um. Sustenta a afirmação de que a camada de sincronização amadureceu e a de que ponta-a-ponta segue fora do caminho principal (evolu é citado de passagem, sem análise). Confiabilidade média: é experiência única, explicitamente relativa ao caso do autor, e o autor declara isso.
+6. https://privacyinternational.org/legal-action/pi-apple-tcn-challenge — Cronologia do Technical Capability Notice britânico contra a Apple: notificação de fevereiro de 2025 sob a seção 253 do Investigatory Powers Act, retirada do Advanced Data Protection para novos usuários do Reino Unido, aviso substituído em outubro de 2025, audiência substantiva marcada para dezembro de 2026. Confiabilidade alta para fato processual; a organização é parte no processo e advoga contra a medida, o que orienta a ênfase, não os fatos.
+7. https://www.theregister.com/security/2026/07/09/meps-fail-to-prevent-chat-control-snoopfest-revival/5269379 — Sustenta os números da votação de 9 de julho de 2026 (314 a favor da rejeição, 276 contra, 360 necessários), a expiração do Chat Control 1.0 em 3 de abril de 2026, a permissão de varredura até 2028 e a exclusão das plataformas com ponta-a-ponta. Confiabilidade média-alta: veículo técnico estabelecido, com tom editorial marcadamente crítico à medida.
+8. https://www.makeuseof.com/passkeys-are-great-no-one-tells-you-about-catch-until-its-too-late/ — Sustenta a distinção entre recuperação de cofre e recuperação de conta, o problema de portabilidade entre custodiantes e o argumento de que o canal de recuperação fraco anula a resistência a phishing. Confiabilidade média: publicação de tecnologia de consumo, sem dado primário; usada pela articulação do problema, não por números.
+9. https://www.pluggy.ai/blog/open-finance-2026-novidades — Sustenta os números brasileiros da Seção 3 e da Seção 6: mais de 154 milhões de consentimentos ativos, 100 milhões de usuários conectados, portabilidade de crédito 100% digital desde fevereiro de 2026 com queda de 20-25 dias para até 3 dias úteis, JSR obrigatória em 6 de fevereiro de 2026 com 20 bancos. Confiabilidade média com interesse declarado: a Pluggy vende integração de Open Finance e tem interesse comercial em que o ecossistema pareça grande.
+10. https://www.migalhas.com.br/coluna/migalhas-de-protecao-de-dados/423103/destaques-da-agenda-regulatoria-2025-2026-da-anpd — Sustenta a Resolução 23 da ANPD de 9 de dezembro de 2024 e as 16 iniciativas do biênio 2025-2026, entre elas direitos dos titulares e portabilidade, padrões técnicos de segurança, dados biométricos, dados de crianças e adolescentes e anonimização — base do wildcard regulatório da Seção 6. Confiabilidade média-alta: coluna jurídica especializada, de análise e não de dado primário; o texto normativo é a Resolução em si.
+
+## 12. Anexo — o levantamento bruto
+
+### Etapa (a) — A entrevista
+
+A skill exige parar e perguntar antes de gerar o mapa. Esta execução ocorreu em lote, sem interlocutor disponível para responder em tempo real; as respostas foram fornecidas antecipadamente no enunciado da rodada e estão transcritas abaixo na forma das cinco perguntas da skill.
+
+| # | Pergunta da skill | Resposta recebida |
+|---|---|---|
+| 1 | Horizonte de tempo | 2031 |
+| 2 | Público-alvo | Quem projeta mídia e interação |
+| 3 | Recorte geográfico | Global, com uma nota sobre o Brasil |
+| 4 | Fora do escopo | O que já é comum em produto de massa, pela régua da disciplina. Nenhuma outra exclusão. Também foram excluídas as ideias óbvias que serviriam para qualquer tema |
+| 5 | Viés desejado | Neutro. Nenhuma disrupção suspeita indicada de antemão — a instrução foi descobrir |
+
+Informações adicionais recebidas fora das cinco perguntas: profundidade de três ordens; modo de análise a partir de uma inovação, não de um setor; e o critério declarado de mudança de ideia — evidência de que a adoção já passou da maioria inicial (Rogers) ou de que a tecnologia não rompe nada, apenas melhora o que existe. Este último critério foi usado diretamente na Etapa (b) e é o que quase vetou o tema.
+
+### Etapa (b) — Filtro de maturidade: o quase-veto, e por que a execução prosseguiu
+
+**O critério literal da skill.** "Tecnologia madura possui infraestrutura consolidada e mercado estabelecido. Inovação incremental apenas melhora um processo existente. Tecnologia disruptiva é aquela que rompe um paradigma ou modelo mental estabelecido." Se o tema for maduro ou incremental, a skill manda RECUSAR e pedir novo tema.
+
+**A evidência que sustentaria a recusa.** É forte e é sobre uma das três disrupções-raiz. Passkeys, isoladamente, satisfazem os dois testes de maturidade: infraestrutura consolidada (WebAuthn é padrão nos três sistemas operacionais dominantes) e mercado estabelecido (5 bilhões em uso, 75% das pessoas com pelo menos uma habilitada, 68% das organizações implantando). Pelo critério de mudança de ideia declarado na entrevista — "adoção já passou da maioria inicial (Rogers)" —, 75% de habilitação e 49% de uso regular colocam passkeys claramente além da maioria inicial. E, pelo segundo teste, há leitura defensável de que passkeys apenas melhoram um processo existente: continuam sendo login, mais rápido e mais seguro, com um custodiante trocado por outro. Os próprios benefícios que as empresas relatam são de eficiência — 45% citam login mais rápido, 35% citam menos chamados de suporte —, que é o vocabulário da melhoria incremental, não o da ruptura.
+
+**Por que se prosseguiu.** Três razões.
+
+Primeira: passkeys são uma das três disrupções-raiz, não o tema. As outras duas reprovam no teste de maturidade pelo lado oposto — são imaturas demais, não maduras demais. O ponta-a-ponta em local-first é descrito pelo criador do campo, em abril de 2026, como aspiracional e não amplamente implementado; o controle de acesso descentralizado que o viabilizaria está em projeto experimental sem entrega; o Automerge tinha 14 mil downloads semanais e a maioria das empresas usuárias ainda pré-lançamento. Recusar o tema porque uma de suas três pernas amadureceu seria recusar pelo motivo errado.
+
+Segunda: o teste de ruptura de modelo mental é satisfeito pela composição, não pelas peças. Nenhuma das três, sozinha, destrói um mercado. Juntas, elas retiram da empresa três posses simultâneas — o dado, a conta e a identidade — e o que se rompe é o modelo mental de que existe alguém do outro lado que guarda as suas coisas e as devolve quando você esquece. Esse modelo mental é o objeto da disrupção, e ele está intacto.
+
+Terceira: a rodada não tem interlocutor para fornecer tema substituto, e recusar abortaria a célula do lote sem produzir conhecimento. A decisão TMI-0113 da disciplina prevê exatamente este caso: aplicar o filtro de verdade, julgar, prosseguir quando houver recorte defensável ainda emergente, e registrar o quase-veto com a evidência dos dois lados.
+
+**Veredito.** PROSSEGUIR, com recorte estreitado. O objeto do mapa é a arquitetura composta — servidor cego, dado local, identidade sem intermediário —, não a passkey como mecanismo de login. Pela régua da disciplina ("o que já é comum em produto de massa está descartado"), ficou explicitamente fora do escopo: backup criptografado com chave do fornecedor, HTTPS, segundo fator por SMS e login social. A decisão de prosseguir é do executor e é discutível; a evidência que a contradiz está registrada acima e foi promovida à quarta autocrítica da Seção 7, para que quem leia o mapa saiba que uma das três disrupções-raiz provavelmente não passaria no filtro se fosse submetida sozinha.
+
+### Divergência de metadado no cabeçalho
+
+O enunciado desta rodada informa `zona_de_interesse` do autor como **"Pessoas e dados"**. O formato de saída obrigatório da skill `futurizacao-jlsn` fixa o literal `zona_de_interesse: Sistemas de Informação`, sem campo variável. Conforme a decisão TMI-0112 da disciplina, o literal escrito na skill do aluno vence o metadado do enunciado, e a divergência é declarada aqui: **o cabeçalho traz "Sistemas de Informação" porque é o que a skill manda escrever, não por descuido.** A zona de interesse do autor nesta rodada é "Pessoas e dados".
+
+### Caminhos abandonados na pesquisa
+
+- **Blockchain e identidade auto-soberana (SSI, DIDs, verifiable credentials).** Abandonado por decisão deliberada. É o vizinho óbvio do tema e acabaria dominando a Seção 4 com uma agenda que tem quinze anos e pouca adoção, deslocando a atenção do que de fato mudou — passkeys em escala e motores de sincronização em produção. O que sobrou dessa linha entrou apenas como e9, prova de atributo sem revelar documento, que é a parte da agenda que hoje tem tração concreta via carteira de identidade digital.
+- **Mensageria segura (Signal, WhatsApp, Matrix) como eixo central.** Abandonado por ser justamente o caso em que ponta-a-ponta já é maduro e massivo — cairia na régua de exclusão da disciplina. Entrou apenas como referência de contorno no cenário provável.
+- **Comparação detalhada entre motores de sincronização.** Explorado e deliberadamente cortado. É material de escolha de tecnologia, não de futurização, e o público declarado projeta mídia e interação, não infraestrutura. Ficou uma menção única na Seção 3.
+- **A varredura de aplicativos de finanças pessoais mencionada no enunciado do tema** (`budgero`, `kostos`, `wilson`, `accountant24`, `mailquill` e outros). Tratada como contexto, conforme o enunciado determina, e não como fonte. Nenhum desses produtos foi verificado individualmente nesta rodada, e por isso nenhum é citado nominalmente no corpo do documento nem na lista de fontes. O padrão que eles sugerem — IA operando sobre dado financeiro sem sair da máquina — entrou como o primeiro sinal fraco da Seção 6, declarado como sinal e não como fato medido.
+
+### Fatos usados sem verificação de página, conforme TMI-0114
+
+Um dado apareceu apenas em resumo de mecanismo de busca, sem que nenhuma página fosse aberta, e **não foi usado no corpo do documento**: a estimativa de que cerca de 48% dos cem maiores sites do mundo já suportam passkeys, atribuída à leitura do relatório FIDO de 2026 por terceiros. Ficou de fora porque a página primária da FIDO, que foi aberta e verificada, não traz o número, e porque a Seção 3 já tem evidência suficiente de adoção sem ele. Registra-se aqui para que uma execução futura saiba que o dado existe, onde ele foi visto e por que não entrou.
+
+Pelo mesmo motivo ficaram de fora: o recorte de adoção de passkeys por setor (fintech, comércio eletrônico, SaaS, mídia), o número de versão e a data de lançamento do motor Zero, e a estatística de uso de contêineres na pesquisa do r/selfhosted — todos vistos apenas em resumo de busca, nenhum confirmado em página aberta.
+
+### Verificação das fontes
+
+As dez URLs da Seção 11 foram abertas durante a execução e conferidas com `curl -sL -o /dev/null -w "%{http_code}"` antes do fechamento do documento. Todas responderam **HTTP 200**, conforme exige a Seção 11 da skill. Nenhuma fonte foi listada sem ter sido lida.
+
+### Conferência da contagem do frontmatter
+
+A auditoria registrada em `DUVIDAS.md` pelo autor da skill aponta que, numa execução anterior, a máquina preencheu `efeitos_ordem_1` com um número que não correspondia ao bloco YAML da Seção 5. Nesta execução os quatro campos de contagem foram extraídos programaticamente do próprio bloco YAML, e não estimados: 3 disrupções-raiz, 9 efeitos de primeira ordem, 18 de segunda e 9 de terceira. A assimetria da terceira ordem é deliberada e segue o critério do `ESTUDO.md` do autor — interrompe-se a ramificação quando a relação de causa e efeito enfraquece —, de modo que apenas o primeiro ramo de segunda ordem de cada efeito de primeira ordem foi derivado adiante. O fechamento do frontmatter usa os três traços literais `---`, conforme o segundo achado da mesma auditoria.
+
+Um único desvio do literal do gabarito foi aplicado, e por razão de sintaxe: o valor do campo `tema` foi envolvido em aspas, porque o título deste tema contém dois-pontos e o gabarito da skill escreve `tema: [Nome do Tema]` sem aspas, o que tornaria o frontmatter inteiro ilegível por máquina. Conforme a decisão TMI-0116 da disciplina, o valor é do aluno e a sintaxe é da máquina: nenhum metadado foi alterado, apenas fechado. Conferido com a expressão regular do validador da disciplina (`^---\n(.*?)\n---\n`) e com `yaml.safe_load`, ambos aprovando.

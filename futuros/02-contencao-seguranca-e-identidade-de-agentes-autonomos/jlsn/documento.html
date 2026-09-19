@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contenção, segurança e identidade de agentes autônomos · futurizacao-jlsn (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 2 · futurizacao-jlsn (aluno)</p><h1>Contenção, segurança e identidade de agentes autônomos</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/02-contencao-seguranca-e-identidade-de-agentes-autonomos/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/02-contencao-seguranca-e-identidade-de-agentes-autonomos/jlsn/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/02-contencao-seguranca-e-identidade-de-agentes-autonomos/jlsn/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Agentes ganharam mãos: executam comandos, navegam, chamam APIs. Com isso viraram atores no mundo — e o mundo só sabe autenticar pessoas. Três rupturas estão em curso ao mesmo tempo. A primeira é a identidade: o agente deixa de ser processo anônimo do usuário e passa a ser principal de segurança, com credencial própria, delegação explícita e trilha de auditoria. A segunda é a porta: a web passa a distinguir humano de agente na requisição, e a distinguir para cobrar, limitar ou barrar. A terceira é a contenção barata: isolar uma tarefa inteira fica tão barato que o descarte do ambiente substitui o desfazer. Para quem projeta interação, o efeito combinado é que a tela de login vira painel de mandatos, a página vira também endpoint negociado, e o consentimento deixa de ser um clique e vira um contrato com escopo, prazo e teto. O risco que ninguém está desenhando é a borda: quem depende de automação para acessar a web pode ser apanhado na malha que existe para barrar agente.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>O objeto aqui não é o agente que escreve código, nem a avaliação do que ele fez. É a máquina que age em nome de alguém e o conjunto de mecanismos que a contém e a identifica: sandbox, guardrail, detector, credencial, autorização por capacidade, trilha de auditoria.</p>
+<p>Isso encosta em mídia e interação em três pontos duros. Primeiro, o consentimento: quando um agente age por mim, a interface de permissão tem de expressar escopo, prazo e limite — e nenhuma convenção de UI atual faz isso bem. Segundo, o acesso: se sites passam a responder diferente conforme quem bate à porta, a "página" deixa de ser o artefato único e passa a ter uma contraparte para máquina. Terceiro, a prova: a trilha do que o agente fez é, ela própria, um objeto de mídia — algo que se assiste, se compartilha e eventualmente se leva a juízo.</p>
+<p>Merece um mapa porque o vetor não é o de sempre. A segurança costuma ser uma camada invisível atrás do produto. Aqui ela sobe para a superfície: vira tela, vira preço, vira recusa visível, vira identidade de um ator não-humano com reputação.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p><strong>O que existe e funciona.</strong> A camada de detecção e negociação na porta já está em produção. A Cloudflare implementou o <code>pay per crawl</code>, em que o site responde HTTP 402 a um crawler, declara preço por página e só entrega com cobrança confirmada; o crawler se autentica por chaves Ed25519 publicadas como JWK e assina cada requisição com HTTP Message Signatures (<code>signature-agent</code>, <code>signature-input</code>, <code>signature</code>), no desenho do Web Bot Auth — inclusive assinando os headers de preço, para que o valor não possa ser adulterado no caminho [1]. A operação de classificação de tráfego de IA por finalidade (busca, treino, agente) está documentada e em evolução contínua [9]. Detecção comportamental de agentes de navegação também já é resultado publicado: o FP-Agent distingue agentes de IA de usuários humanos por padrões de interação — tempo de digitação, movimento de ponteiro, sequência de ações — e discute abertamente a corrida com técnicas de evasão [7].</p>
+<p><strong>O que existe e não funciona.</strong> A contenção. O prompt injection segue sem solução de fundo, porque o modelo trata prompt de sistema, pedido do usuário e texto recuperado de fonte externa como um fluxo único de tokens — não há mecanismo confiável de fronteira de privilégio dentro do fluxo. É o que a leitura do OWASP sobre aplicações agênticas registra: a injeção é a junta universal que conecta a maioria dos incidentes, mapeando-se a seis das dez categorias. E as defesas herdadas do mundo humano falham de um jeito específico: a allow-list <em>facilita</em> a exploração, porque os comandos de que o atacante precisa já estão aprovados (CVE-2026-22708, no Cursor: um comando na lista, como <code>git branch</code>, entrega payload arbitrário), e houve caso em que a própria saída do agente redefiniu a fronteira do seu sandbox (CVE-2025-59532). No mesmo material, o incidente de cadeia de suprimentos de março de 2026: um backdoor no LiteLLM — gateway de modelo usado por CrewAI, DSPy e GraphRAG — ficou três horas no PyPI e foi baixado cerca de 47 mil vezes [2].</p>
+<p><strong>Quem está construindo.</strong> A identidade de agente está sendo disputada em três frentes ao mesmo tempo. Na padronização formal, um Internet-Draft do IETF (março de 2026) propõe não inventar protocolo novo: compor WIMSE, OAuth 2.0 e SPIFFE, com identidade emitida por atestação (hardware, integridade de software, plataforma) e credencial de vida curta ligada ao identificador — e, para operação sensível, confirmação fora de banda do humano via OpenID CIBA [4]. Na academia, um levantamento de abril de 2026 mapeia o estado dos padrões e conclui que a pergunta central segue aberta: quem emite — autoridade certificadora central, ledger distribuído, consórcio de indústria ou Estado [3]. E há a linha de identidade descentralizada, com DIDs, credenciais verificáveis do W3C e registro auditável ligando ação a responsável [6]. Na contenção, a pesquisa migrou do sandbox genérico para o sandbox do <em>navegador</em>: o ceLLMate restringe o agente por política de browser, filtragem de DOM antes da página chegar ao modelo, bloqueio de ação e permissão por papel — modelo mental emprestado do sistema operacional móvel [5].</p>
+<p><strong>Nota sobre o Brasil.</strong> O PL 2338/2023 foi aprovado no plenário do Senado em dezembro de 2024 e remetido à Câmara em 17 de março de 2025, onde segue em revisão [8]. Ele trata de responsabilidade por sistema de IA e de arranjo de fiscalização, mas a pergunta específica deste tema — identidade do agente como ator, e não só responsabilidade do fornecedor — não está endereçada. Na prática, se a identidade de agente for emitida por fabricante estrangeiro, o Brasil chega ao debate como consumidor de um registro alheio.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="4-1-o-agente-vira-principal-de-seguranca">4.1 O agente vira principal de segurança</h3>
+<p><strong>O que rompe.</strong> O modelo mental de que todo ator autenticado é uma pessoa, e de que o software age <em>como</em> ela. A partir do momento em que o agente tem credencial própria, o log deixa de dizer "usuário X fez" e passa a dizer "agente A, agindo por X sob mandato M, fez". Isso quebra autenticação, autorização, auditoria e o desenho de consentimento de uma vez só.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque há cinco anos o software automatizado não escolhia. Um script tinha caminho fixo; a credencial do dono bastava. O agente escolhe o próximo passo em função de texto que alguém pode ter plantado — e é por isso que a permissão não pode mais ser herdada inteira do humano. A composição técnica também só amadureceu agora: SPIFFE e atestação em produção, OAuth com fluxo de delegação, credencial de vida curta como prática corrente [4].</p>
+<p><strong>O que falta acontecer.</strong> Convergência em quem emite [3] e, sobretudo, revogação que funcione entre organizações. Hoje cada plataforma revoga o que emitiu; não há mecanismo de "esse agente está comprometido" que atravesse fronteiras.</p>
+<h3 id="4-2-a-porta-passa-a-distinguir-e-a-negociar">4.2 A porta passa a distinguir, e a negociar</h3>
+<p><strong>O que rompe.</strong> A premissa de que a web é isotrópica — que a mesma URL entrega a mesma coisa a quem pedir. Com assinatura na requisição, preço declarado e bloqueio por finalidade, a resposta passa a depender de <em>quem</em> é o requisitante e <em>para que</em> [1][9]. E quando a assinatura falta, entra a inferência comportamental, que erra em ambas as direções [7].</p>
+<p><strong>Por que agora.</strong> Porque o tráfego de agente virou custo e virou receita perdida ao mesmo tempo. Houve um preço, um código de status e uma parte com poder de porta suficiente para impor a convenção — o que faltava não era a ideia de 402, que existe desde sempre, mas alguém com escala para cobrar.</p>
+<p><strong>O que falta acontecer.</strong> Que o pagamento saia do beta e que a classificação de finalidade não colapse em "tudo é agente" [1][9]. E falta a contraparte da acessibilidade: nenhuma das propostas de porta resolve o caso do usuário que precisa de automação para usar a web.</p>
+<h3 id="4-3-contencao-fica-barata-a-ponto-de-virar-descartavel">4.3 Contenção fica barata a ponto de virar descartável</h3>
+<p><strong>O que rompe.</strong> A ideia de que isolar é caro e portanto excepcional. Se um mundo de execução por tarefa custa quase nada — MicroVM leve, isolamento WebAssembly, sandbox de navegador por política e filtragem de DOM [5] —, o isolamento deixa de ser feature de segurança e vira <em>unidade de interação</em>: cada tentativa em seu próprio mundo, descartável.</p>
+<p><strong>Por que agora.</strong> Porque a granularidade mudou. Contêiner isolava serviço; agora é preciso isolar tarefa, e tarefas duram segundos. O custo de partida do ambiente virou o gargalo, e é exatamente ele que caiu.</p>
+<p><strong>O que falta acontecer.</strong> Que o isolamento não seja contornável a partir de dentro — e o CVE-2025-59532 mostra que ainda é [2]. Enquanto a saída do agente puder redefinir a própria fronteira, o mundo descartável é ilusão de contenção.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: O agente vira principal de segurança, com identidade e mandato próprios
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Toda ação de agente passa a carregar credencial de vida curta ligada a um humano delegante, e o log registra o par agente-mandante
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: A tela de login é substituída por um painel de mandatos revogáveis, com escopo, prazo e teto de valor
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Ler permissões concedidas vira hábito cotidiano e ocupa o lugar que os termos de uso nunca conseguiram ocupar
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Surge reputação portátil de agente, importada por uma plataforma na primeira visita como histórico de conformidade
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Reputação de agente vira ativo com preço, seguro e mercado secundário de credenciais com ficha limpa
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: Fabricantes de modelo, empregadores e federações disputam quem emite a identidade do agente, e o emissor vira ponto de controle
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Aparecem agentes sem documento, barrados de serviços essenciais por não terem emissor reconhecido
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Reguladores criam categoria intermediária entre ferramenta e pessoa, com responsabilidade solidária do delegante e registro obrigatório
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: A porta da web passa a distinguir humano de agente, e a negociar com ele
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: Sites respondem de forma diferente a humano e a agente, variando preço, limite de uso, formato e recusa
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Consolida-se uma web dupla, com a página feita para o olho humano e um endpoint contratual feito para o agente pagante
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: O ofício de desenhar interface se parte em dois, entre quem desenha para pessoa e quem desenha o contrato que a máquina lê
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Cresce um mercado de parecer humano, com evasão de fingerprint vendida como serviço, no mesmo ritmo do mercado de detecção
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: Quem depende de automação para acessar a web é apanhado na malha antiagente e passa a precisar de isenção regulada
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: Publicadores passam a cobrar acesso de agente por página, com preço declarado na própria resposta HTTP
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: O custo de uma resposta passa a incluir pedágio de conteúdo, e o agente negocia orçamento com o usuário antes de ler
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Surge o plano de dados do agente, uma franquia mensal de leitura paga vendida no formato de pacote de celular
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: Contenção por tarefa fica barata a ponto de o ambiente virar descartável
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: Isolar cada tarefa em seu próprio mundo vira o padrão de execução, não a exceção cara
+        sinal: forte
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O desfazer deixa de ser um comando e vira propriedade do ambiente, porque se descarta o mundo em vez de reverter a ação
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: A interação com agentes passa a ser ramificada por padrão, e o usuário compara três execuções paralelas em vez de aprovar um passo por vez
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: A trilha de execução do agente vira artefato de mídia assistível, com replay e marcação do ponto em que algo saiu do previsto
+            sinal: medio
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: O replay de execução é aceito como prova em litígio e em sinistro, e o formato do registro vira padrão disputado
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<p>O bloco YAML mente por omissão em dois pontos.</p>
+<p>O primeiro é que ele desenha três disrupções separadas, e elas não são. A identidade do agente só tem valor prático porque a porta passou a perguntar; e a porta só consegue perguntar porque alguém emite credencial verificável. São dois lados da mesma moeda, e o efeito e3.2 — o mercado de parecer humano — é filho dos dois, não de um. Quem for construir a partir desta roda deve ler e1 e e3 como um par.</p>
+<p>O segundo é o sentido de "sinal forte". Forte, aqui, significa que já há artefato em produção ou publicação revisável apontando naquela direção, não que o efeito seja bom nem que seja inevitável. O e3 está marcado como forte e prazo 2027 porque a resposta diferenciada por tipo de requisitante já está em operação hoje [1][9] — a novidade não é a existência, é a normalização.</p>
+<p>Há ainda um efeito que não coube em lugar nenhum porque atravessa os três ramos: a negociação vira gênero de interface. Pedir permissão, declarar preço, recusar com motivo e propor alternativa são, todos, atos de fala que hoje aparecem como código de status ou modal genérico. Se o horizonte se confirmar, alguém vai ter de desenhar isso como conversa — e é a oportunidade mais concreta deste mapa para quem trabalha com mídia e interação.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinal fraco 1 — o consentimento fora de banda.</strong> O Internet-Draft do IETF recomenda, para operação sensível, confirmar com o humano por um canal separado, sem expor credencial ao agente [4]. Isso é uma decisão de interação disfarçada de decisão de protocolo: implica que existirá um segundo dispositivo, ou um segundo aplicativo, cuja única função é dizer sim ou não ao que a máquina quer fazer. É o embrião de um aparelho novo.</p>
+<p><strong>Sinal fraco 2 — a filtragem de DOM.</strong> No ceLLMate, a página é editada antes de chegar ao modelo: elementos perigosos são removidos ou redigidos [5]. Se isso virar padrão, então existe, para cada página, uma segunda versão dela que só o agente vê — e que o autor da página não controla. A questão editorial que isso abre é séria e ninguém a está tratando como editorial.</p>
+<p><strong>Sinal fraco 3 — a assinatura do preço.</strong> No Web Bot Auth, o header de preço entra nos componentes assinados justamente para que não possa ser alterado no caminho [1]. É pequeno e técnico, e é o primeiro caso de um valor monetário virando parte da identidade criptográfica de uma requisição de leitura.</p>
+<p><strong>Wildcard — a ação contra o agente, não contra o dono.</strong> Baixa probabilidade, alto impacto: um processo em que o polo passivo seja o agente, identificado por sua credencial, e não a pessoa ou empresa que o operou. Não precisa vencer para mudar tudo. Basta ser admitido: no instante em que um tribunal aceita a credencial de agente como suficiente para individualizar a conduta, todo o desenho de emissão de identidade (4.1) deixa de ser questão de engenharia e vira questão de direito — e o emissor da credencial vira parte interessada em qualquer litígio.</p>
+<p><strong>Wildcard menor — o colapso da detecção.</strong> Se a evasão comportamental ficar barata e boa [7], sites podem abandonar a distinção e passar a exigir credencial assinada de <em>todo mundo</em>, humano incluído. O efeito colateral seria a morte do acesso anônimo à web por via lateral: não por decisão política, mas por falência de um detector.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>Qual efeito é apenas extrapolação linear do presente.</strong> O e4 e seu ramo. Pagamento por acesso de agente é o presente esticado: existe o mecanismo, existe o preço, existe o beta [1]. Dizer que em 2028 haverá cobrança por página e em 2031 um pacote mensal é projetar a curva do que já está montado — não é descobrir nada. O e4.1.1, o "plano de dados do agente", é a parte mais fraca do mapa inteiro: ele apenas importa uma metáfora de telecomunicações e a cola num problema que talvez tenha outra economia.</p>
+<p><strong>Qual efeito assume velocidade de adoção irreal.</strong> O e1.1, o painel de mandatos substituindo a tela de login em 2029. Substituir mecanismo de autenticação em escala leva mais de uma década — o login com senha sobreviveu a três gerações de sucessores anunciados, e o próprio levantamento de padrões de identidade de agente registra que a categoria não convergiu [3]. O mais provável é que o painel de mandatos exista em 2029 como recurso avançado de duas ou três plataformas grandes, e continue ausente do resto da web em 2031. O prazo do e1.1 deveria ser lido como "primeiro produto relevante", não como "prática comum".</p>
+<p><strong>Qual disrupção-raiz pode não se concretizar e derrubar o mapa inteiro.</strong> A 4.1 — o agente como principal de segurança com identidade própria. Há um caminho inteiramente plausível em que ela não acontece: o agente permanece um processo do usuário, autenticado com a credencial dele, contido apenas por escopo de token e limite de uso, e tudo que este mapa chama de "identidade de agente" se resolve como mais um campo de claim dentro do OAuth existente. Nesse mundo, não há emissor disputado, não há reputação portátil, não há categoria jurídica nova — e os ramos e1.2, e2 e o wildcard do processo judicial caem juntos. A evidência que apontaria para esse desfecho já existe e é incômoda: o próprio draft do IETF insiste em <em>não</em> criar protocolo novo, e sim compor o que já há [4]. Se a resposta da indústria for "isto é um caso de uso do OAuth", a disrupção-raiz vira feature.</p>
+<p><strong>Qual foi o viés da análise.</strong> Dois, admitidos. O primeiro é viés de fonte: a evidência mais sólida e mais fácil de abrir veio de quem tem interesse comercial em que o problema exista — a infraestrutura de porta é vendida por quem escreve sobre a porta [1][9]. Isso empurra o mapa a superestimar o ramo da distinção e da cobrança. O segundo é viés de recorte: o público definido é quem projeta mídia e interação, então os efeitos foram puxados para onde viram tela, gesto e consentimento. Um mapa feito para quem opera infraestrutura teria dado muito mais peso à revogação entre organizações e à cadeia de suprimentos — o incidente do LiteLLM [2] é, em impacto real medido, maior que qualquer coisa nos ramos de interface deste mapa, e aqui ele aparece só como contexto.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>&lt;!-- Preencher após a leitura crítica. --&gt;</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<ul><li><strong>Provável:</strong> convivem dois regimes. Plataformas grandes exigem agente assinado, com credencial de vida curta e mandato explícito, e cobram ou limitam por finalidade; o resto da web segue com detecção comportamental imperfeita e CAPTCHA. Não há emissor único: fabricante de modelo, empregador e federação setorial emitem credenciais que não se reconhecem entre si. O painel de mandatos existe e é bom em três produtos, e ausente em todos os outros. O prompt injection segue não resolvido no fundo e contido na borda, por isolamento descartável e filtragem de entrada.</li></ul>
+<ul><li><strong>Desejável:</strong> a identidade do agente é sempre derivada e revogável, nunca autônoma — ela só existe amarrada a um humano ou organização responsável, e a revogação atravessa fronteiras organizacionais em minutos. A distinção humano-agente na porta é declarativa e honesta, não inferida por comportamento, o que remove o incentivo ao mercado de parecer humano e, de quebra, tira da frente o CAPTCHA. Existe isenção explícita e auditável para acesso assistido, de modo que quem depende de automação não seja tratado como abuso. <strong>O que precisa ser feito para chegar lá:</strong> três coisas concretas. Revogação federada como requisito de padrão, não como recurso de fornecedor. Um perfil de acesso assistido definido junto com quem usa tecnologia assistiva, e não sobre eles. E o consentimento fora de banda desenhado por gente de interação [4], antes que congele no formato de um modal.</li></ul>
+<ul><li><strong>Indesejável:</strong> a credencial de agente vira documento de fato, emitido por dois ou três fabricantes de modelo, e sem ela não se acessa serviço essencial. A web se fecha por cima: o acesso anônimo desaparece não por lei, mas porque a detecção falhou e a exigência de assinatura foi estendida a todo requisitante. Acessibilidade vira exceção que se pede caso a caso, com prova de deficiência. <strong>Sinal precoce:</strong> o dia em que um serviço público — banco, saúde, matrícula — passar a exigir credencial de agente emitida por um fornecedor privado específico para atendimento automatizado. Esse é o momento de reagir; depois dele o custo de troca já terá sido pago por todo mundo.</li></ul>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>Portaria de Agentes — um site que negocia com quem bate à porta.</strong></p>
+<p><strong>A pergunta que responde.</strong> O que acontece com a experiência de uso quando a página deixa de ser isotrópica? Especificamente: como se comunica, para um humano, que ele está sendo tratado como agente por engano — e o que ele pode fazer a respeito?</p>
+<p><strong>O que se constrói.</strong> Um site pequeno de três páginas com um porteiro na frente. O porteiro decide, a cada requisição, em qual de quatro faixas o requisitante cai: humano provável, agente declarado (assinou a requisição), agente inferido (não assinou, mas o comportamento denuncia) e indefinido. Cada faixa recebe resposta diferente: conteúdo integral, conteúdo com preço declarado e HTTP 402, conteúdo reduzido, e um fluxo de contestação. É o desenho de [1] e [9] em miniatura, com a inferência comportamental de [7] no lugar em que a assinatura falta.</p>
+<p><strong>Tecnologia.</strong> Um servidor mínimo (Node ou Python) implementando 402 com header de preço; assinatura Ed25519 no cliente-agente, no formato de HTTP Message Signatures; heurística de comportamento no cliente (tempo entre eventos, trajetória de ponteiro, ordem de foco) enviada como sinal; e um agente de navegador qualquer, do mercado ou caseiro, como o visitante não-humano. O custo é uma tarde.</p>
+<p><strong>O que a turma faz em sala.</strong> Três rodadas, com a turma dividida. Rodada 1: metade navega como humano, metade solta agentes; mede-se falso positivo e falso negativo do porteiro. Rodada 2: quem estava com agente tenta parecer humano, e quem estava como humano tenta <em>provar</em> que é humano depois de ter sido barrado — é aqui que o experimento entrega o que interessa, porque o fluxo de contestação é uma peça de interação que ninguém desenhou ainda. Rodada 3: entra a restrição de acessibilidade — um subgrupo navega apenas por teclado, com leitor de tela ou com automação assistiva, e verifica-se em que faixa o porteiro os coloca.</p>
+<p><strong>Qual resultado mudaria a ideia.</strong> Duas medidas derrubariam partes do mapa. Se, na rodada 3, o navegador por teclado e a automação assistiva caírem consistentemente na faixa de agente inferido, o efeito e3.2.1 sobe de terceira ordem para problema imediato de projeto — e deixa de ser especulação de 2031. Se, ao contrário, a faixa "agente declarado" for a maioria do tráfego não-humano já no experimento, porque assinar é simplesmente mais fácil do que fingir, então o ramo do mercado de parecer humano (e3.2) enfraquece e o mapa deve ser reescrito em torno da economia da cobrança, não da corrida de detecção.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li><a href="https://blog.cloudflare.com/introducing-pay-per-crawl/">https://blog.cloudflare.com/introducing-pay-per-crawl/</a> — Sustenta o mecanismo de negociação na porta: HTTP 402 com preço por página, autenticação do crawler por chave Ed25519 publicada como JWK, HTTP Message Signatures nos headers <code>signature-agent</code>/<code>signature-input</code>/<code>signature</code>, e assinatura do próprio header de preço. Confiabilidade alta para o mecanismo, com ressalva de interesse: é documentação do fornecedor que vende a solução, e o recurso está em beta privado.</li><li><a href="https://www.helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures/">https://www.helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures/</a> — Sustenta o diagnóstico de que a contenção falha: prompt injection como junta universal de incidentes, mapeada a seis das dez categorias do OWASP Top 10 for Agentic Applications; CVE-2026-22708 (allow-list contornada no Cursor), CVE-2025-59532 (saída do agente redefinindo a fronteira do sandbox) e o comprometimento do LiteLLM no PyPI, com cerca de 47 mil downloads em três horas. Confiabilidade média-alta: veículo jornalístico especializado reportando levantamento do OWASP; os CVEs devem ser conferidos na fonte primária antes de citação acadêmica.</li><li><a href="https://arxiv.org/pdf/2604.23280">https://arxiv.org/pdf/2604.23280</a> — <em>AI Identity: Standards, Gaps, and Research Directions for AI Agents</em>, Otsuka, Toyoda e Leung, 28/04/2026. Sustenta que a categoria não convergiu e que a pergunta "quem emite" segue aberta entre autoridade central, ledger distribuído, consórcio e Estado. Confiabilidade média: preprint não revisado por pares, mas é levantamento e não alegação empírica.</li><li><a href="https://www.ietf.org/archive/id/draft-klrc-aiagent-auth-00.html">https://www.ietf.org/archive/id/draft-klrc-aiagent-auth-00.html</a> — Internet-Draft de 02/03/2026 sobre autenticação e autorização de agentes. Sustenta o desenho concreto: composição de WIMSE, OAuth 2.0 e SPIFFE em vez de protocolo novo; identidade por atestação; credencial de vida curta; Authorization Code Grant para delegação e OpenID CIBA para confirmação fora de banda. Confiabilidade média: draft informacional, trabalho em andamento, com expiração em 03/09/2026 — é sinal de direção, não norma.</li><li><a href="https://arxiv.org/pdf/2512.12594">https://arxiv.org/pdf/2512.12594</a> — <em>ceLLMate: Sandboxing Browser AI Agents</em>, Meng, Feng, Shumailov e Fernandes, versão de 05/03/2026. Sustenta o sandbox de navegador: política de browser, filtragem de DOM antes de a página chegar ao agente, bloqueio de ação e permissão por papel no modelo de sistema operacional móvel. Confiabilidade média: preprint, com autoria reconhecida na área de segurança de ML.</li><li><a href="https://arxiv.org/pdf/2512.17538">https://arxiv.org/pdf/2512.17538</a> — <em>Binding Agent ID</em>, Lin, Zhang, Liao, Tao e Wang, 22/12/2025. Sustenta a linha de identidade descentralizada: DIDs, credenciais verificáveis do W3C, registro auditável ligando ação a responsável, com MCP e A2A na camada de interoperação. Confiabilidade média-baixa para adoção: preprint que propõe arquitetura, sem implantação em escala demonstrada.</li><li><a href="https://arxiv.org/pdf/2605.01247">https://arxiv.org/pdf/2605.01247</a> — <em>FP-Agent: Fingerprinting AI Browsing Agents</em>, Wang, Shafiq e Vekaria, 05/05/2026. Sustenta a detecção comportamental de agentes de navegação por padrões de interação e a discussão explícita de evasão e de agentes que tentam parecer humanos. Confiabilidade média: preprint; os números de acurácia devem ser lidos no artigo antes de qualquer citação quantitativa.</li><li><a href="https://www25.senado.leg.br/web/atividade/materias/-/materia/157233">https://www25.senado.leg.br/web/atividade/materias/-/materia/157233</a> — Ficha do PL 2338/2023 no Senado. Sustenta a nota sobre o Brasil: ementa "Dispõe sobre o uso da Inteligência Artificial", aprovação em plenário e remessa à Câmara dos Deputados em 17/03/2025, tramitação encerrada no Senado. Confiabilidade alta: fonte primária oficial.</li><li><a href="https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/">https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/</a> — Documentação operacional de gestão de crawlers de IA, atualizada em 28/07/2026. Sustenta que a classificação e o controle de tráfego de agentes por finalidade são prática corrente e em evolução. Confiabilidade alta para o que o produto faz, e nula para tendência de mercado: é documentação de fornecedor.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="a-entrevista">A entrevista</h3>
+<p>A skill exige, na etapa (a), cinco perguntas antes de qualquer geração. Esta execução correu sem humano disponível para responder; as respostas abaixo foram fornecidas de antemão, junto com o pedido, e foram tratadas como se dadas na entrevista.</p>
+<ol><li><strong>Horizonte de tempo.</strong> 2031.</li><li><strong>Público-alvo.</strong> Quem projeta mídia e interação.</li><li><strong>Recorte geográfico.</strong> Global, com uma nota sobre o Brasil.</li><li><strong>Fora do escopo.</strong> O que já é comum em produto de massa — a régua da disciplina. Nenhuma outra exclusão. Também foram excluídas, por instrução, as ideias genéricas que serviriam a qualquer tema.</li><li><strong>Viés desejado.</strong> Neutro. Nenhuma disrupção suspeita indicada de antemão: a instrução foi descobrir.</li></ol>
+<p>Instrução adicional registrada: o que mudaria de ideia seria evidência de que a adoção já passou da maioria inicial na curva de Rogers, ou de que a tecnologia não rompe nada — apenas melhora o que existe.</p>
+<h3 id="a-etapa-b-filtro-de-maturidade">A etapa (b) — filtro de maturidade</h3>
+<p>Avaliação feita com o critério da skill. <strong>Maduro</strong> neste terreno: firewall, antivírus, WAF, OAuth para humanos, CAPTCHA. Todos com infraestrutura consolidada e mercado estabelecido. <strong>Incremental</strong>: aplicar qualquer um deles a tráfego de agente sem mudar o modelo de quem é o ator.</p>
+<p>O tema não é nenhum dos dois. O que rompe o modelo mental estabelecido é tratar o agente como <em>principal de segurança</em> — entidade que precisa de identidade, permissão, isolamento e trilha próprios, e não como processo que herda a credencial de um humano. Isso destrói a premissa de que todo ator autenticado é uma pessoa, premissa sobre a qual está construída a autenticação da web inteira, e cria mercado novo (emissão de identidade de agente, negociação de acesso na porta, reputação de agente). Pela régua da disciplina, também não é comum em produto de massa: nenhum produto de consumo hoje mostra ao usuário um painel de mandatos de agente. <strong>Veredito: disruptivo. Execução autorizada, avançou-se para (c).</strong></p>
+<h3 id="a-etapa-c-autocritica-antes-da-formatacao">A etapa (c) — autocrítica, antes da formatação</h3>
+<p>A roda foi gerada primeiro e depois submetida a três perguntas obrigatórias. O resultado está na seção 7. Registro do que mudou por causa dela: o ramo do pagamento (e4) foi rebaixado de <code>sinal: forte</code> para <code>medio</code> ao ser reconhecido como extrapolação linear; o prazo do e1.1 foi mantido em 2029 mas acompanhado, na seção 7, da ressalva de que se lê como "primeiro produto relevante" e não como prática comum; e a disrupção 4.1 foi explicitamente marcada como falseável, com a evidência contrária vindo da própria fonte [4].</p>
+<h3 id="caminhos-abandonados">Caminhos abandonados</h3>
+<ul><li><strong>Entrar pelo tema 1 (o ofício de programar com agentes).</strong> Descartado por fronteira declarada: o objeto aqui é conter e identificar a máquina que age, não o trabalho de quem a usa para programar.</li><li><strong>Entrar pelo tema 3 (avaliação e observabilidade).</strong> Descartado pela mesma razão, com uma sobra deliberada: a trilha de execução aparece no e5.2 como objeto de mídia e de prova, não como instrumento de saber se o agente acertou.</li><li><strong>Entrar por identidade humana sem terceiros (passkeys, tema 17).</strong> Descartado: é a identidade da pessoa, não a da máquina.</li><li><strong>Ramo de custo computacional do isolamento.</strong> Levantado a partir da alegação de mercado de que um isolamento em WebAssembly seria dezenas de vezes mais rápido que uma frota de MicroVMs. Abandonado como número: não se encontrou medição independente que o sustentasse, e a alegação é de fornecedor. O que sobreviveu foi a direção — isolamento por tarefa ficando barato (4.3) — sem o multiplicador.</li><li><strong>Ramo de seguro paramétrico para ação de agente.</strong> Abandonado por falta de evidência aberta; sobreviveu apenas como consequência de terceira ordem em e1.2.1 e e5.2.1.</li></ul>
+<h3 id="assuncoes-declaradas">Assunções declaradas</h3>
+<ul><li><strong>Divergência de frontmatter.</strong> O campo <code>zona_de_interesse</code> está preenchido como <strong>"Sistemas de Informação"</strong> porque é valor fixo escrito no formato de saída obrigatório da skill <code>futurizacao-jlsn</code>, e não um campo em aberto. A rodada, porém, informou a zona de interesse do autor como <strong>"Agentes"</strong>. Manteve-se o valor da skill, conforme a regra de que campo fixo da skill do aluno vence o parâmetro da rodada, e a divergência é declarada aqui. Quem cruzar rodada e zona de interesse deve ler esta linha antes de tratar o campo como erro.</li><li><strong><code>confianca: media</code></strong> no frontmatter: a camada de porta tem evidência em produção e alta confiança; a camada de identidade depende de padrões ainda não convergidos e de preprints não revisados por pares. A média é a honesta.</li><li><strong>Contagens do frontmatter</strong> conferem com a seção 5: 3 disrupções-raiz, 5 efeitos de primeira ordem, 8 de segunda, 8 de terceira, 9 fontes.</li><li><strong>Todas as nove fontes foram abertas</strong> durante a execução e responderam HTTP 200 na verificação. Nada foi citado sem leitura. Onde a leitura não sustentou o que se queria afirmar — o caso do número de acurácia do FP-Agent e o dos detalhes do PL 2338 em fonte de opinião — a afirmação foi retirada em vez de estimada.</li></ul></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

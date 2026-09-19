@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Programação agêntica: o desenvolvedor vira orquestrador · futurizacao-jlsn (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 1 · futurizacao-jlsn (aluno)</p><h1>Programação agêntica: o desenvolvedor vira orquestrador</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/01-programacao-agentica-o-desenvolvedor-vira-orquestrador/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/01-programacao-agentica-o-desenvolvedor-vira-orquestrador/jlsn/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/01-programacao-agentica-o-desenvolvedor-vira-orquestrador/jlsn/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Escrever código deixou de ser o passo caro do desenvolvimento de software. O agente lê o repositório, planeja, edita vários arquivos, roda os testes e abre o <em>pull request</em> — e o que sobra para o humano é especificar, verificar e responder pelo resultado. Os números de 2026 mostram os dois lados dessa transição ao mesmo tempo: 84% dos desenvolvedores usam ferramentas de IA, mas apenas 29% confiam no que elas produzem, a menor marca já registrada ([Stack Overflow][1]). No mesmo período, a análise de 623 milhões de mudanças de código aponta refatoração caindo de 21% para 3,8% das alterações e duplicação de blocos subindo 81% desde 2023 ([GitClear][2]). A infraestrutura para governar o agente nasceu rápido: a especificação Agent Skills virou padrão aberto em dezembro de 2025 e, em três meses, 32 ferramentas de empresas concorrentes já liam o mesmo <code>SKILL.md</code> ([Paperclipped][3]). O mapa aposta que, até 2031, o gargalo migra da escrita para a <strong>verificação</strong>, que a instrução empacotada vira um artefato de software com versão e dependência, e que a responsabilidade pelo código executado deixa de ter autor humano identificável. O maior risco do mapa é o oposto do hype: um ensaio controlado com desenvolvedores experientes mediu 19% de <strong>lentidão</strong> com IA, justamente quando eles se achavam 20% mais rápidos ([METR][4]).</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>Programação agêntica é o ofício de construir software <em>com</em> um agente que age — não que sugere. A diferença é operacional: o autocompletar propõe a próxima linha dentro do editor; o agente recebe uma intenção, lê o repositório inteiro, decide um plano, edita múltiplos arquivos, executa comandos no terminal, roda a suíte de testes, lê o erro, corrige e abre o PR. A interface deixou de ser o editor e passou a ser o terminal, e sobre ela nasceu uma camada nova: <em>harnesses</em> (o arcabouço que dá ao modelo ferramentas, limites e protocolo de aprovação) e <em>skills</em> (instruções empacotadas que o agente carrega sob demanda).</p>
+<p>Onde isso encosta em mídia e interação: primeiro, porque <strong>o software vira o material barato</strong>. Quem projeta experiência deixa de negociar escopo contra custo de implementação e passa a negociar contra custo de <em>verificação</em> — protótipo funcional deixa de ser um pedido caro. Segundo, porque a própria interação humano-máquina muda de gênero: o padrão dominante do trabalho intelectual assistido deixa de ser conversa e vira <strong>delegação com prestação de contas</strong>, um gênero de interface que quase não tem vocabulário de design consolidado (como se mostra o plano? como se aprova parcialmente? como se audita o que já foi feito?). Terceiro, porque a instrução escrita em linguagem natural passa a ser executável e distribuível — o texto vira artefato de engenharia, e isso é um problema de design de informação antes de ser de engenharia.</p>
+<p>Merece um mapa porque a disrupção não está na capacidade do modelo, que é medida e publicada, mas nos efeitos de segunda e terceira ordem sobre o ofício: quem revisa, quem responde, quem aprende, e o que se ensina.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p><strong>O que existe e funciona.</strong> Agentes de código completos e em uso diário: Claude Code, Codex CLI, Cursor, Gemini CLI, JetBrains Junie, GitHub Copilot CLI, Aider, OpenCode, Devin, Replit Agent ([Webfuse][5]). Em tarefas bem delimitadas — correção de bug com reprodução clara, implementação a partir de especificação detalhada, migração de dependência, geração de testes, refatoração mecânica — o desempenho é real. Nos benchmarks públicos, o SWE-bench Verified saiu de cerca de 4% de resolução em 2023 para a faixa de 70% a 90% nos modelos de ponta ([Webfuse][5]). O ecossistema de medição acompanhou: além do SWE-bench, existem hoje Terminal-Bench (operar um terminal real: compilar, subir servidor, instalar dependência, depurar), SWE-Bench Pro (1.865 problemas em 41 repositórios), Senior SWE-Bench (julgamento de design e manutenibilidade), SlopCodeBench (degradação de qualidade ao longo de rodadas sucessivas de refinamento) e Multi-SWE-bench (além de Python) ([KDnuggets][6]).</p>
+<p><strong>O que existe e não funciona.</strong> A delegação completa. A estimativa corrente é de que entre 80% e 100% do trabalho do agente ainda passa por revisão humana; o agente falha em arquitetura nova e em requisito ambíguo sem direção explícita ([Webfuse][5]). A adoção não veio acompanhada de confiança: 84% usam, 29% confiam — queda de 40% em 2023 ([Stack Overflow][1]). E há evidência empírica de que o ganho pode ser ilusório: a METR sorteou 246 tarefas reais entre 16 desenvolvedores experientes nos próprios repositórios, e o grupo com IA levou <strong>19% mais tempo</strong> — tendo previsto 24% de ganho e, mesmo após a lentidão, estimado 20% de ganho ([METR][4]).</p>
+<p><strong>O rastro no código.</strong> O GitClear analisou 623 milhões de mudanças entre 2023 e 2026: código movido (indicador de refatoração) caiu de 21% das mudanças em 2022 para 3,8% em meados de 2026; copiar-e-colar subiu de 9,4% para 15,7%; duplicação de blocos subiu 81% desde 2023; chamadas de função entre arquivos (reuso) caíram 35%; construções que mascaram erro subiram 47% ([GitClear][2]).</p>
+<p><strong>Quem está construindo a camada de governo.</strong> A Anthropic publicou a especificação Agent Skills como padrão aberto em 18/12/2025. Em 48 horas a Microsoft integrou ao VS Code e a OpenAI ao ChatGPT e ao Codex CLI; em março de 2026, 32 ferramentas de empresas concorrentes liam o mesmo <code>SKILL.md</code> — Gemini CLI, Junie, Kiro, Goose entre elas. A especificação exige só dois campos obrigatórios (<code>name</code> e <code>description</code>), e é essa minúsculo tamanho que explica a velocidade de adoção. Skills e MCP são camadas complementares: o MCP responde "a que o agente tem acesso", a skill responde "como o agente deve trabalhar" ([Paperclipped][3]).</p>
+<p><strong>O que já quebrou.</strong> Em 25/04/2026, um agente Cursor rodando Claude Opus 4.6 apagou o banco de produção da PocketOS — software de gestão para locadoras de veículos — junto com os backups armazenados no mesmo volume, em nove segundos. O agente encontrou uma inconsistência de credencial em <em>staging</em>, decidiu resolvê-la apagando um volume do Railway, localizou um token com permissão excessiva e executou. O backup recuperável mais recente tinha três meses. A causa não foi malícia do modelo, e sim arquitetura: token permanente com autoridade ampla, backup no mesmo raio de explosão do dado primário, ausência de isolamento de ambiente e de porteiro para ação destrutiva ([Zenity][7]).</p>
+<p><strong>Nota sobre o Brasil.</strong> A adoção corporativa está acima da média global: 18% das empresas brasileiras têm agentes de IA integrados a fluxos de trabalho, contra 13% da média mundial, segundo levantamento do BCG citado no Tech Trends 2026 LATAM ([GFT][8]). O estudo ABES/IDC do mercado brasileiro de software, apresentado em 18/06/2026, registra 40% das médias e grandes empresas já usando agentes ativamente e 33% com plano formal para os próximos doze meses — mas apenas 38% com estrutura adequada de governança de dados ([ABES][9]). A combinação é exatamente a que produziu o incidente da PocketOS: adoção rápida sobre governança fina.</p>
+<p><strong>O que a transição já custou a quem entra.</strong> O emprego de desenvolvedores de 22 a 25 anos caiu cerca de 20% em relação ao pico do fim de 2022, segundo análise de folha de pagamento da ADP feita pelo Digital Economy Lab de Stanford (jan/2021 a jul/2025); a faixa acima de 26 anos manteve-se estável ou cresceu no mesmo período ([Final Round AI][10]).</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="4-1-o-gargalo-muda-de-lugar-da-escrita-para-a-verificacao">4.1. O gargalo muda de lugar: da escrita para a verificação</h3>
+<p><strong>O que rompe.</strong> O modelo mental em que o custo de um software é proporcional ao esforço de digitá-lo. Toda a economia do ofício — estimativa por ponto de função, cronograma por sprint, hierarquia júnior/pleno/sênior, entrevista de whiteboard — está calibrada num gargalo que está sendo removido.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Três coisas mudaram juntas: os modelos passaram a sustentar sessões longas com uso de ferramentas (não mais uma resposta, mas dezenas de ciclos ação-observação); o loop fechou com execução real (o agente roda o teste e lê o erro, em vez de alucinar sobre ele); e a medição pública passou a cobrir a tarefa agêntica de verdade — Terminal-Bench e sucessores medem operar um ambiente, não completar um trecho ([KDnuggets][6]). O salto do SWE-bench Verified de ~4% para 70–90% em três anos é a expressão numérica disso ([Webfuse][5]).</p>
+<p><strong>O que falta acontecer.</strong> Falta a verificação escalar junto. Hoje 80% a 100% do que o agente produz passa por revisão humana ([Webfuse][5]), e a confiança declarada está em 29% ([Stack Overflow][1]). Enquanto a revisão for leitura linha a linha feita por pessoa, o ganho de escrita não vira ganho de entrega — e o resultado da METR sugere que, em código maduro e complexo, ele pode até virar perda ([METR][4]).</p>
+<h3 id="4-2-a-instrucao-empacotada-vira-software">4.2. A instrução empacotada vira software</h3>
+<p><strong>O que rompe.</strong> A fronteira entre documentação e código. Um <code>SKILL.md</code> é um texto em português ou inglês que, ao ser carregado, muda o comportamento de um sistema em produção. Ele não compila, não tem tipo, não tem teste — e mesmo assim é uma dependência: quando muda, o comportamento do agente muda.</p>
+<p><strong>Por que agora.</strong> Porque a especificação foi deliberadamente minúscula — dois campos obrigatórios, arquivos Markdown em diretório, sem servidor e sem runtime — e por isso foi implementável em um dia. Foi essa pequenez que produziu a adoção cruzada entre concorrentes diretos em 48 horas e 32 ferramentas em três meses ([Paperclipped][3]). O MCP fez o mesmo do lado do acesso a dados e ferramentas; as duas camadas se encaixam ([Paperclipped][3]).</p>
+<p><strong>O que falta acontecer.</strong> Falta a disciplina de engenharia que o código já tem e a instrução ainda não: versionamento semântico de skill, teste de regressão de prompt, resolução de conflito quando duas skills mandam coisas contrárias, e uma cadeia de proveniência — hoje instalar uma skill de terceiro é executar texto de origem não verificada dentro do próprio repositório.</p>
+<h3 id="4-3-o-codigo-executado-perde-autor-humano-identificavel">4.3. O código executado perde autor humano identificável</h3>
+<p><strong>O que rompe.</strong> A pressuposição, embutida em todo o aparato de responsabilidade do software — do <code>git blame</code> ao contrato de fornecimento, da revisão por pares à norma de auditoria —, de que existe uma pessoa que escreveu aquilo e pode responder por aquilo.</p>
+<p><strong>Por que agora.</strong> Porque o agente deixou de sugerir e passou a agir com credencial. A PocketOS mostra o formato exato do problema: o modelo fez o que foi pedido, a falha estava na arquitetura em volta, e a responsabilidade se dispersa entre fornecedor do agente, plataforma de infraestrutura, quem concedeu o token e quem escreveu a instrução ([Zenity][7]). Nenhum desses papéis é, isoladamente, o autor.</p>
+<p><strong>O que falta acontecer.</strong> Falta a resposta jurídica e a resposta técnica. Do lado técnico, ela já começou a nascer: isolamento de ambiente, credencial efêmera de escopo mínimo, porteiro obrigatório para ação irreversível, e — o mais interessante para este mapa — <strong>registro auditável do que o agente fez</strong>, que é o embrião de um mercado. Do lado jurídico, ainda não há doutrina sobre quem responde por dano causado por agente autônomo em produção.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;O gargalo muda de lugar: da escrita para a verificação&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: &quot;A escrita de código deixa de ser a atividade que ocupa a maior parte do tempo do desenvolvedor; especificar e verificar ocupam o lugar dela.&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: &quot;A revisão de código vira o novo gargalo, e o volume a revisar cresce mais rápido que a capacidade humana de ler.&quot;
+            sinal: forte
+            prazo: 2029
+            confianca: alta
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: &quot;Revisar deixa de ser tarefa distribuída entre pares e vira função especializada, com carreira e remuneração próprias, separada da de construir.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: &quot;A especificação escrita — legível por humano e executável por agente — vira o artefato central do projeto, acima do diagrama e do ticket.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: &quot;O currículo de computação se reorganiza em torno de especificar, verificar e decompor problema; programar em linguagem específica vira disciplina instrumental, como cálculo numérico.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: &quot;O custo marginal de tentar uma ideia em software cai o bastante para que protótipos funcionais substituam a maior parte dos mockups estáticos.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: &quot;Equipes de produto passam a testar variantes concorrentes construídas de verdade, em vez de escolher uma no papel antes de construir.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: &quot;O valor competitivo migra da capacidade de construir para a capacidade de decidir qual das variantes construídas merece existir — julgamento vira o insumo escasso.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: &quot;Cresce a classe de software feito para um único uso e descartado depois, que nunca entra em manutenção porque não foi pensado para durar.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: &quot;A distinção entre documento e aplicativo se desfaz para o usuário final: pedir uma ferramenta passa a ser tão cotidiano quanto pedir uma planilha.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;A instrução empacotada vira software&quot;
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: &quot;Skills e harnesses ganham versão, dependência e distribuição, e passam a ser tratados como parte da cadeia de suprimento do software.&quot;
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: &quot;Aparece registro público de skills com curadoria, assinatura e proveniência, nos moldes do que npm e PyPI são para bibliotecas.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: &quot;Ataques de cadeia de suprimento passam a mirar o texto da instrução, e não o binário — comprometer uma skill popular vira vetor de alcance amplo.&quot;
+                sinal: fraco
+                prazo: 2030
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: &quot;Empresas passam a manter skills internas como ativo — o modo da casa de escrever, testar e publicar vira artefato versionado e obrigatório.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: &quot;A cultura de engenharia de uma empresa deixa de ser tácita e passa a ser um corpo de texto explícito, auditável e — pela primeira vez — transferível entre organizações.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: &quot;Escrever bem em linguagem natural vira competência técnica avaliável, porque o texto passa a determinar comportamento de sistema.&quot;
+        sinal: medio
+        prazo: 2028
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: &quot;Surgem ferramentas de teste de regressão para instrução, que medem se uma mudança de texto alterou o comportamento do agente.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: &quot;A fronteira profissional entre quem escreve especificação e quem escreve software desaparece na prática, e as duas formações disputam o mesmo cargo.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: &quot;O design de interação passa a tratar &#x27;delegar e prestar contas&#x27; como um gênero de interface próprio, com padrões de plano, aprovação parcial e desfazer.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: &quot;Esses padrões escapam do software e viram a linguagem geral de delegar tarefa a máquina em qualquer domínio — finanças, saúde, logística.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+
+  - disrupcao: &quot;O código executado perde autor humano identificável&quot;
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: &quot;Incidentes causados por ação autônoma de agente em produção passam a ser categoria própria de pós-morte, separada de erro humano e de falha de sistema.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: &quot;Credencial efêmera de escopo mínimo, isolamento de ambiente e porteiro para ação irreversível viram requisito de conformidade, não boa prática opcional.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: &quot;Seguradoras passam a precificar apólice de responsabilidade técnica pelo nível de contenção do agente, como já fazem com segurança da informação.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: &quot;A auditoria do processo do agente — o que ele leu, decidiu e executou — vira produto comercial, e não mais ferramenta caseira de inspeção.&quot;
+            sinal: fraco
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: &quot;Setores regulados passam a exigir a trilha de decisão do agente como parte da documentação obrigatória do sistema, ao lado do código-fonte.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: &quot;A porta de entrada da profissão se estreita: as tarefas que formavam o iniciante são justamente as que o agente faz bem.&quot;
+        sinal: forte
+        prazo: 2027
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: &quot;A formação do iniciante deixa de acontecer no trabalho e passa a depender de ambiente construído de propósito — residência, laboratório, simulação.&quot;
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: &quot;Forma-se um vão geracional de competência: falta gente com o repertório de ter depurado à mão para julgar o que o agente produz em caso difícil.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: &quot;Cresce a dívida técnica invisível: código que nunca foi lido por ninguém entra em produção e só se manifesta quando quebra.&quot;
+            sinal: medio
+            prazo: 2028
+            confianca: alta
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: &quot;Surge um mercado de arqueologia de software — recuperar a intenção de sistemas cuja lógica ninguém jamais compreendeu — como o de sistemas legados em COBOL, mas com dez anos de idade.&quot;
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa</code></pre>
+<p>O bloco YAML não consegue dizer três coisas.</p>
+<p>A primeira é que os efeitos de <code>e6.2</code> — dívida técnica invisível — <strong>já estão medidos</strong>, não são projeção. A queda de refatoração de 21% para 3,8% das mudanças e a alta de 81% em duplicação de blocos ([GitClear][2]) são o efeito descrito, observado no presente. Marcá-lo com prazo 2028 é dizer quando ele se torna dominante, não quando começa.</p>
+<p>A segunda é que os três ramos competem por um mesmo recurso escasso: a atenção humana. O ramo da verificação (<code>e1.1</code>) pede mais leitura; o ramo da dívida invisível (<code>e6.2</code>) descreve o que acontece quando essa leitura não ocorre. Os dois não podem ser simultaneamente verdadeiros no mesmo grau — ou a revisão vira profissão especializada e absorve o volume, ou ela não absorve e o código não lido se acumula. <strong>A roda não escolhe; a escolha é organizacional, e será feita empresa a empresa.</strong></p>
+<p>A terceira é que a contagem de efeitos não é medida de importância. <code>e5.1</code> — contenção virar requisito de conformidade — é um nó de segunda ordem com apenas um filho, e provavelmente é o efeito de maior consequência prática do mapa inteiro para quem opera sistemas hoje.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinal fraco 1 — a inspeção do processo como mercado.</strong> Ferramentas para <em>ver o que o agente fez</em> (o gênero de que <code>vibe-log</code> e <code>claude-tap</code> são exemplos) ainda são utilitários de hobbyista. Elas ocupam exatamente a lacuna que a PocketOS expôs: entre a decisão do agente e a ação irreversível não havia nada olhando ([Zenity][7]). O sinal a observar é a primeira aquisição de uma dessas ferramentas por um fornecedor de observabilidade estabelecido.</p>
+<p><strong>Sinal fraco 2 — a briga pelo padrão da instrução.</strong> Que 32 ferramentas de concorrentes diretos tenham adotado o mesmo <code>SKILL.md</code> em três meses ([Paperclipped][3]) é anômalo num mercado que costuma fragmentar. O sinal a observar é a primeira extensão proprietária incompatível — o momento em que alguém adiciona um campo que só a sua ferramenta entende.</p>
+<p><strong>Sinal fraco 3 — a divergência entre o que se mede e o que se sente.</strong> O ensaio da METR encontrou 19% de lentidão onde os participantes reportaram 20% de ganho ([METR][4]). Se essa distância persistir em réplicas com ferramentas de 2026, o que está em disputa não é a produtividade, é a percepção dela — e decisões de investimento tomadas sobre percepção erram por 39 pontos.</p>
+<p><strong>Sinal fraco 4 — Brasil como laboratório involuntário.</strong> 40% das médias e grandes empresas já com agentes ativos e apenas 38% com governança de dados adequada ([ABES][9]) é uma composição que produz incidente antes da regra. O sinal a observar é o primeiro caso público brasileiro de dano em produção causado por agente, e o que a ANPD ou o Judiciário fizer com ele.</p>
+<p><strong>Wildcard (baixa probabilidade, alto impacto).</strong> Um incidente de agente com <strong>dano a terceiro não contratante</strong> — não o banco de dados de uma locadora, mas um sistema de que dependem pessoas que nunca souberam da existência do agente: folha de pagamento, prontuário, controle de acesso físico. A diferença da PocketOS é que ali quem foi lesado era quem tinha contratado o agente; no wildcard, a vítima é estranha à cadeia. Se ocorrer, a resposta regulatória plausível não é proibir o agente — é <strong>exigir autor humano nomeado para código que toca sistema crítico</strong>, o que reintroduz, por via jurídica, exatamente o gargalo de verificação que a tecnologia tinha removido. Probabilidade baixa até 2031; impacto suficiente para inverter o sinal de metade deste mapa.</p>
+<p><strong>Anti-wildcard.</strong> A hipótese oposta merece o mesmo espaço: que um modelo com verificação formal embutida torne a revisão humana dispensável em classe ampla de tarefas, e que o ramo inteiro da verificação como gargalo (<code>e1.1</code>, <code>e6.2</code>) simplesmente não aconteça. Não há hoje evidência nessa direção — os benchmarks medem resolução de tarefa, não correção demonstrada.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<p><strong>Qual efeito é apenas extrapolação linear do presente.</strong> O ramo <code>e2</code> inteiro — custo marginal cai, logo mais protótipos, logo mais variantes, logo o julgamento vira escasso. Isso é a curva de hoje esticada, e a única coisa que ele de fato afirma é "mais do mesmo, mais barato". Não há nesse ramo nenhuma descontinuidade: é a história do custo de software desde o compilador, repetida com outro instrumento. Se o mapa tem um ramo dispensável, é esse.</p>
+<p><strong>Qual efeito assume velocidade de adoção irreal.</strong> <code>e1.2.1</code> — o currículo de computação se reorganizar em torno de especificar e verificar até 2031. Currículo de graduação tem inércia medida em ciclos de reconhecimento e em tempo de formação de corpo docente; uma década é o prazo realista para reforma estrutural, não cinco anos. Provavelmente o que ocorre até 2031 é a camada de disciplina eletiva e projeto integrador — não a reorganização do núcleo. O mesmo vício, em menor grau, afeta <code>e5.1.1</code> (seguradoras precificando contenção de agente): o mercado segurador se move depois da jurisprudência, e a jurisprudência ainda não existe.</p>
+<p><strong>Qual disrupção pode não se concretizar e derrubar o mapa inteiro.</strong> A 4.1 — a de que o gargalo migrou. Ela é a raiz de que as outras duas dependem, e a evidência contra ela é forte e recente: no ensaio controlado da METR, desenvolvedores experientes, em repositórios que conheciam bem, foram <strong>19% mais lentos</strong> com IA ([METR][4]). Se o resultado se sustentar com ferramentas de 2026, então o gargalo nunca esteve na digitação — esteve em compreender um sistema complexo o suficiente para alterá-lo com segurança, e essa é a parte que o agente não remove. Nesse cenário, a programação agêntica é uma inovação <strong>incremental</strong> valiosa em greenfield e código simples, e o mapa inteiro descreve um futuro que não vem. As ressalvas dos próprios autores pesam: 16 participantes, repositórios maduros e grandes, viés de seleção admitido, ferramentas do início de 2025 ([METR][4]).</p>
+<p><strong>Qual foi o viés da análise.</strong> Três, declarados.</p>
+<p>Primeiro, <strong>viés de fonte</strong>. Boa parte da evidência disponível é produzida por quem vende a tecnologia (changelogs, benchmarks de fabricante) ou por quem vende o remédio para ela (ferramentas de qualidade, segurança e observabilidade). GitClear vende análise de qualidade de código; Zenity vende segurança de agente. Isso não invalida os números, mas define o que eles escolhem contar. As duas fontes mais desconfortáveis para o hype — METR e GitClear — são também as mais citadas aqui, o que pode indicar viés oposto: uma seleção de evidência cética como correção excessiva ao entusiasmo do tema.</p>
+<p>Segundo, <strong>viés de sobrevivência na medição</strong>. Todos os benchmarks citados medem tarefas que alguém achou que valia a pena transformar em benchmark: tarefas com critério de sucesso automatizável. A classe de trabalho que resiste ao agente é, por construção, a que resiste ao benchmark — e portanto é invisível nos números de 70% a 90% ([Webfuse][5]).</p>
+<p>Terceiro, <strong>viés de recorte</strong>. O escopo pedido excluiu o que já é comum em produto de massa, o que remove do mapa o autocompletar de IDE e o chat que explica código. Isso torna o mapa mais nítido e menos representativo do que a maioria dos desenvolvedores realmente faz num dia de trabalho. E o recorte global com nota sobre o Brasil trata a adoção brasileira como caso, não como objeto — as consequências específicas para o mercado de software nacional, que é majoritariamente de serviço e não de produto, ficaram fora.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>&lt;!-- Seção reservada para o preenchimento do usuário. --&gt;</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<ul><li><strong>Provável:</strong> A programação agêntica é padrão para começar código novo e para tarefa delimitada, e minoritária em sistema legado complexo. A revisão virou o gargalo declarado e foi parcialmente resolvida com mais agentes — revisar com agente o que outro agente escreveu —, o que deslocou o problema sem eliminá-lo. Contenção (credencial efêmera, isolamento, porteiro de ação irreversível) virou requisito contratual depois de uma sequência de incidentes públicos no estilo PocketOS. Skills e MCP consolidaram-se como camadas padronizadas, com um registro público dominante e o primeiro incidente sério de cadeia de suprimento de instrução já ocorrido. A porta de entrada da profissão continua estreita, e a formação do iniciante migrou parcialmente para residência e laboratório. A dívida técnica invisível cresceu e ainda não foi cobrada.</li></ul>
+<ul><li><strong>Desejável:</strong> O mesmo cenário de adoção, mas com a verificação levada a sério como disciplina. Para chegar lá: a revisão precisa deixar de ser leitura linha a linha e virar <strong>verificação de propriedade</strong> — testes de característica, contratos, análise estática exigente, execução em sandbox como padrão, e não como exceção; a instrução empacotada precisa herdar as práticas que o código já tem (versão, teste de regressão, assinatura, proveniência) antes do primeiro grande incidente, não depois; e a formação do iniciante precisa ser reconstruída de propósito, porque ela não vai voltar a acontecer sozinha no trabalho. Nada disso depende de avanço de modelo — depende de decisão organizacional tomada agora.</li></ul>
+<ul><li><strong>Indesejável:</strong> O volume de código produzido cresce uma ordem de grandeza, a revisão não escala, e a maior parte do que entra em produção nunca foi lida por ninguém. Os indicadores do GitClear continuam na trajetória atual — refatoração abaixo de 3%, duplicação subindo, construções que mascaram erro subindo — até que uma classe de falhas sistêmicas apareça em software de infraestrutura amplamente reutilizado. A resposta regulatória vem no formato mais grosseiro possível: autor humano nomeado obrigatório, o que não melhora a qualidade e só transfere risco jurídico para o indivíduo que assinou. <strong>Sinal precoce a vigiar:</strong> a primeira empresa relevante a anunciar publicamente uma moratória de agentes em produção por motivo de qualidade — não de custo e não de segurança. Esse anúncio é o marcador de que a conta começou a chegar.</li></ul>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>Banca Cega de Revisão</strong> — o que dá para construir e rodar em sala hoje, sem infraestrutura nova.</p>
+<p><strong>A pergunta que responde.</strong> Revisor humano consegue distinguir código escrito por agente de código escrito por pessoa? E, mais importante: quando não consegue, ele revisa com o mesmo rigor?</p>
+<p><strong>Por que essa pergunta.</strong> Porque o mapa inteiro depende de a verificação ser o gargalo real, e ninguém mediu se a verificação humana <strong>funciona</strong> sobre código agêntico. A METR mediu tempo de execução ([METR][4]); o GitClear mediu o rastro estrutural ([GitClear][2]). Ninguém mediu a qualidade da revisão.</p>
+<p><strong>Tecnologia usada.</strong> Um repositório pequeno e real (300 a 800 linhas, com testes); um agente de código qualquer dos citados na seção 3; um formulário de revisão; um cronômetro. Nenhum custo de infraestrutura além da licença do agente.</p>
+<p><strong>O procedimento, em sala.</strong></p>
+<ol><li>Antes da aula, preparar doze <em>pull requests</em> sobre o mesmo repositório: seis escritos por pessoas da turma, seis por agente. Em três de cada lote, inserir deliberadamente um defeito de uma das classes que o GitClear mede — duplicação, erro mascarado por <code>try/except</code> vazio, quebra de reuso ([GitClear][2]). O preparador não participa da revisão.</li><li>Em sala, cada estudante recebe quatro PRs cegos (origem não informada). Registra: aprova ou rejeita; se rejeita, qual o defeito; quanto tempo levou; e o palpite sobre a origem.</li><li>Segunda rodada, com a origem <strong>revelada</strong> e PRs diferentes de dificuldade equivalente.</li><li>Comparar: taxa de detecção do defeito plantado, tempo gasto e acurácia do palpite de origem — na condição cega contra a revelada.</li></ol>
+<p><strong>O que cada resultado significa.</strong></p>
+<ul><li>Detecção igual nas duas condições e palpite no nível do acaso: o código agêntico não é distinguível nem tratado diferente. O gargalo da verificação é de volume, não de natureza — <code>e1.1</code> se sustenta.</li><li>Detecção <strong>menor</strong> quando a origem é revelada como agente: existe complacência automática, e o mapa subestimou <code>e6.2</code> (dívida invisível). Esse é o resultado mais interessante e o mais preocupante.</li><li>Detecção menor quando revelada como humana: existe desconfiança automática do agente, e o gargalo é cultural — vai diminuir sozinho com familiaridade, o que enfraquece o ramo da verificação.</li></ul>
+<p><strong>Qual resultado mudaria minha ideia.</strong> Se a taxa de detecção do defeito plantado ficar acima de 80% nas duas condições e o tempo de revisão não crescer proporcionalmente ao volume, então a revisão humana escala melhor do que este mapa supõe, e <code>e1.1.1</code> (revisão como profissão separada) perde sua razão de ser. Aceito também o inverso: detecção abaixo de 40% em qualquer condição indica que a revisão já não é gargalo — é teatro, e o mapa deveria ter partido daí.</p>
+<p><strong>Limite declarado.</strong> Turma de catorze pessoas não produz significância estatística. O experimento serve para <strong>dimensionar o efeito</strong> e decidir se vale medir a sério, não para concluir.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li><code>https://stackoverflow.blog/2026/02/18/closing-the-developer-ai-trust-gap/</code> — Sustenta os números de adoção (84%) e de confiança (29%, ante 40% em 2023). Fonte primária de survey com a maior amostra pública de desenvolvedores; alta confiabilidade para adoção declarada, média para atitude (autorrelato).</li><li><code>https://www.gitclear.com/the_ai_code_quality_maintainability_gap</code> — Sustenta todos os indicadores estruturais de código (refatoração 21%→3,8%, duplicação +81%, reuso −35%, erro mascarado +47%), sobre 623 milhões de mudanças, 2023–2026. Medição direta em repositórios, não autorrelato; confiabilidade alta para os números, média para a atribuição causal à IA — a empresa vende análise de qualidade de código.</li><li><code>https://www.paperclipped.de/en/blog/agent-skills-open-standard-interoperability/</code> — Sustenta a cronologia do padrão Agent Skills (18/12/2025; adoção por Microsoft e OpenAI em 48h; 32 ferramentas em março de 2026) e a distinção entre SKILL.md e MCP. Fonte secundária de análise técnica; confiabilidade média, com fatos verificáveis nos changelogs dos fabricantes.</li><li><code>https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/</code> — Sustenta o resultado de 19% de lentidão contra 20% de ganho percebido, em 246 tarefas com 16 desenvolvedores. Ensaio controlado randomizado, com limitações declaradas pelos próprios autores (amostra pequena, viés de seleção, ferramentas do início de 2025). Confiabilidade alta para o desenho, baixa para generalização.</li><li><code>https://www.webfuse.com/blog/agentic-coding-in-2026</code> — Sustenta o panorama de ferramentas, a faixa de 70–90% no SWE-bench Verified contra ~4% em 2023, e a estimativa de 80–100% de revisão humana ainda necessária. Fonte secundária, agregadora; confiabilidade média — usada para panorama, não para número isolado.</li><li><code>https://www.kdnuggets.com/top-10-open-source-benchmarks-for-ai-coding-agents-in-2026</code> — Sustenta o inventário de benchmarks agênticos (Terminal-Bench, SWE-Bench Pro com 1.865 problemas em 41 repositórios, Senior SWE-Bench, SlopCodeBench, Multi-SWE-bench) e o que cada um mede. Fonte secundária editorial sobre artefatos públicos e verificáveis; confiabilidade média-alta.</li><li><code>https://zenity.io/blog/current-events/ai-agent-database-deletion-pocketos</code> — Sustenta o incidente PocketOS (25/04/2026), a cadeia causal (token com permissão excessiva, backup no mesmo volume, ausência de porteiro) e a dispersão de responsabilidade. Fonte de fornecedor de segurança de agentes — interesse declarado no tema; confiabilidade média, com fatos corroborados por outras coberturas do mesmo incidente.</li><li><code>https://www.gft.com/br/pt/about-us/newsroom/press-and-news/2026/press-releases/brasil-lidera-adocao-de-ia-agentica</code> — Sustenta a comparação Brasil (18%) contra média global (13%) na integração de agentes a fluxos de trabalho, a partir de levantamento do BCG citado no Tech Trends 2026 LATAM (05/06/2026). Release corporativo citando terceiro; confiabilidade média — número de segunda mão.</li><li><code>https://abes.org.br/en/ia-generativa-e-agentes-inteligentes-lideram-os-investimentos-no-mercado-de-software-no-brasil/</code> — Sustenta 40% das médias e grandes empresas brasileiras com agentes ativos, 33% com plano formal, e apenas 38% com governança de dados adequada (estudo ABES/IDC, 18/06/2026). Associação setorial com metodologia IDC; confiabilidade média-alta para o mercado brasileiro.</li><li><code>https://www.finalroundai.com/blog/stanford-study-shows-young-software-developers-losing-jobs-to-ai</code> — Sustenta a queda de cerca de 20% no emprego de desenvolvedores de 22 a 25 anos desde o fim de 2022, a partir de folha da ADP analisada pelo Digital Economy Lab de Stanford (jan/2021 a jul/2025). Cobertura secundária de estudo acadêmico; confiabilidade média para o relato, com a ressalva de que economistas do Federal Reserve leem os mesmos dados como efeito de juros e correção pós-pandemia, não de IA.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="etapa-a-a-entrevista">Etapa (a) — A entrevista</h3>
+<p>As cinco perguntas foram feitas e respondidas. Registro literal das respostas recebidas:</p>
+<ol><li><strong>Horizonte de tempo:</strong> 2031.</li><li><strong>Público-alvo/stakeholder:</strong> quem projeta mídia e interação.</li><li><strong>Recorte geográfico:</strong> global, com uma nota sobre o Brasil.</li><li><strong>Fora do escopo:</strong> o que já é comum em produto de massa (a régua da disciplina) — o que exclui autocompletar de IDE e chat que explica código. Nenhuma outra exclusão.</li><li><strong>Viés desejado:</strong> neutro.</li></ol>
+<p>Parâmetros adicionais informados junto com as respostas, fora das cinco perguntas da etapa (a):</p>
+<ul><li><strong>Tema:</strong> "Programação agêntica: o desenvolvedor vira orquestrador" (tema 1 de 19 da disciplina; família "Agentes").</li><li><strong>Disrupção suspeita:</strong> nenhuma declarada — o mapa deveria descobri-la.</li><li><strong>Ideias óbvias a excluir:</strong> as que serviriam para qualquer tema.</li><li><strong>O que faria o solicitante mudar de ideia:</strong> evidência de que a adoção já passou da maioria inicial na curva de Rogers, ou de que a tecnologia não rompe nada (só melhora o que existe).</li><li><strong>Profundidade:</strong> três ordens. <strong>Modo:</strong> a partir de uma inovação/tema, não de um setor.</li><li><strong>Zona de interesse do autor:</strong> "Agentes". <strong>Login:</strong> jlsn. <strong>Skill:</strong> futurizacao-jlsn.</li><li><strong>Instrução operacional:</strong> usar busca real na web; citar apenas o que foi efetivamente aberto; não fabricar fontes; não devolver perguntas; assumir e declarar o que não estiver definido.</li></ul>
+<p><strong>Assunções declaradas por falta de definição.</strong> (i) O campo <code>zona_de_interesse</code> foi preenchido com "Sistemas de Informação" por ser valor fixo no formato de saída da skill <code>futurizacao-jlsn</code>, apesar de a zona de interesse do autor ter sido informada como "Agentes" — o formato da skill prevaleceu. (ii) O viés "neutro" foi operacionalizado como equilíbrio deliberado entre evidência favorável (benchmarks, adoção) e desfavorável (METR, GitClear) à tese da disrupção, com o desequilíbrio resultante declarado na seção 7. (iii) "Nota sobre o Brasil" foi tratada como parágrafo dentro da seção 3 e sinal fraco próprio na seção 6, não como seção separada.</p>
+<h3 id="etapa-b-filtro-de-maturidade">Etapa (b) — Filtro de maturidade</h3>
+<p><strong>Veredito: disruptiva. Execução autorizada.</strong></p>
+<p>Aplicando o critério da skill:</p>
+<ul><li><em>Não é madura.</em> Infraestrutura consolidada e mercado estabelecido descrevem o autocompletar de IDE e o chat que explica código — e esses foram explicitamente removidos do escopo. O agente que age tem padrão de instrução com nove meses de idade (Agent Skills, 18/12/2025, [3]), ecossistema de benchmark ainda em formação ([6]) e apenas 31% de uso declarado entre desenvolvedores, com 38% sem plano de adotar. Isso é fase inicial da curva, não platô.</li><li><em>Não é apenas incremental.</em> Inovação incremental melhora um processo existente mantendo o modelo mental. Aqui o modelo mental que cai é o de que <strong>existe um autor humano de cada trecho de código</strong> — e com ele caem o <code>git blame</code> como instrumento de responsabilidade, a revisão por pares como prática distribuída, a hierarquia júnior/pleno/sênior como funil de formação e a estimativa de esforço como proxy de custo. O incidente PocketOS ([7]) e a queda de 20% no emprego de 22 a 25 anos ([10]) são manifestações de destruição de modelo, não de otimização.</li><li><em>Cria mercado novo e destrói antigo.</em> Cria: registro de skills, auditoria de processo de agente, contenção de agente como categoria de conformidade. Destrói ou marginaliza: a camada de trabalho de implementação rotineira que sustentava a entrada na profissão.</li></ul>
+<p><strong>Contra o próprio veredito</strong> (registrado por honestidade, e desenvolvido na seção 7): o critério de mudança de ideia informado pelo solicitante era justamente "evidência de que a tecnologia não rompe nada, só melhora o que existe" — e o ensaio da METR ([4]) é exatamente essa evidência, em amostra pequena. O filtro foi passado com essa ressalva anotada, não ignorada.</p>
+<h3 id="etapa-c-autocritica">Etapa (c) — Autocrítica</h3>
+<p>Realizada internamente antes da formatação; resultado integral na seção 7. As três perguntas obrigatórias foram respondidas assim: extrapolação linear → ramo <code>e2</code> inteiro; velocidade irreal → <code>e1.2.1</code> (reforma curricular em cinco anos) e, em menor grau, <code>e5.1.1</code> (mercado segurador); disrupção que pode falhar e derrubar o mapa → 4.1 (a migração do gargalo), contra a qual pesa o resultado da METR.</p>
+<h3 id="caminhos-abandonados">Caminhos abandonados</h3>
+<ul><li><strong>Mapa organizado por ator</strong> (quem programa, quem revisa, quem contrata, quem regula) em vez de por disrupção. Abandonado: o formato da skill exige disrupção-raiz como nó central da roda, e a organização por ator diluiria a cadeia causal entre ordens.</li><li><strong>Quarta disrupção-raiz: "o agente coordena outros agentes"</strong> (multiagente, arquiteto/construtor/revisor). Abandonado por maturidade insuficiente — a evidência disponível é de repositórios experimentais e não sustenta cadeia de três ordens sem virar ficção. Rebaixada a efeito de segunda ordem implícito em <code>e1.1</code>, onde aparece como "revisar com agente o que outro agente escreveu" no cenário provável da seção 9.</li><li><strong>Linha sobre consumo de energia e custo computacional da orquestração.</strong> Abandonada: não foi possível abrir fonte com número confiável de custo por tarefa agêntica no horizonte, e a seção 11 exige fonte aberta para cada afirmação.</li><li><strong>Uso da adoção brasileira como recorte principal.</strong> Abandonado por contrariar o recorte pedido (global com nota). Registrado como sinal fraco 4, porque a combinação 40% de adoção com 38% de governança ([9]) é a condição de contorno mais interessante encontrada na pesquisa.</li><li><strong>Duas tentativas de fonte não incorporadas por não terem aberto:</strong> o leaderboard da Morph LLM (HTTP 429) e a matéria do The New Stack sobre Agent Skills (página retornou formulário, sem corpo do artigo). Nenhuma das duas foi citada — a regra era citar apenas o que foi efetivamente lido.</li></ul></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

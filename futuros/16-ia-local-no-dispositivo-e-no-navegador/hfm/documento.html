@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IA local: no dispositivo e no navegador · futurizacao-hfm (aluno) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 16 · futurizacao-hfm (aluno)</p><h1>IA local: no dispositivo e no navegador</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/16-ia-local-no-dispositivo-e-no-navegador/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/16-ia-local-no-dispositivo-e-no-navegador/hfm/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/16-ia-local-no-dispositivo-e-no-navegador/hfm/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>A inferência está descendo da nuvem para o aparelho, e o que mudou não foi o desejo — foi o orçamento. Modelos ternários de 1,58 bit, treino com consciência de quantização e arquiteturas esparsas puseram capacidade útil dentro de alguns gigabytes: o Gemma 4 E2B declara rodar em menos de 1,5 GB com contexto de 128 mil tokens, o modelo local da Apple de terceira geração tem uma variante de 20 bilhões de parâmetros que ativa de 1 a 4 por vez, e o bitnet.cpp relata de 2,37× a 6,17× de aceleração em CPU x86 com até 82,2% menos energia. Ao mesmo tempo, o modelo deixou de ser escolha do aplicativo: Android o entrega como serviço do sistema (AICore), Apple como framework do Swift, Chrome como API do navegador. Daí saem três rupturas — o custo marginal da interação cai a zero depois do download, o fabricante do sistema vira o intermediário entre o app e a inteligência, e o peso do modelo vira uma dependência de software baixável, forkável e atacável (são 204.655 modelos GGUF no Hugging Face). O mapa é moderadamente confiante porque a evidência contrária é forte: as NPUs anunciadas quase não são usadas pelos runtimes populares, o Chrome exige 22 GB de disco livre e 4 GB de VRAM e não funciona em Android nem iOS, e o WebGPU está em 87,35% de suporte global com Firefox de fora. A promessa de democratização esbarra no aparelho — e no Brasil, onde 51% de quem ganha até um salário mínimo usa celular abaixo de mil reais, isso não é detalhe.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p>O tema é a <strong>inferência no dispositivo do usuário final</strong> — celular, laptop comum, aba do navegador —, não o modelo pequeno rodando no servidor de alguém. A distinção é o eixo inteiro do mapa: chamar API de nuvem é maduro, hospedar um modelo próprio é maduro, e rodar o modelo no aparelho de quem consome a mídia é o que ainda está em formação.</p>
+<p>Onde isso encosta em mídia e interação: em três lugares, e todos os três são de projeto, não de infraestrutura.</p>
+<p><strong>No orçamento da peça.</strong> Quem projeta uma experiência interativa hoje raciocina com uma cota: cada geração custa, então a interação é racionada, enfileirada, escondida atrás de um botão. Se a inferência acontece no aparelho, o custo marginal some depois do download — e o que era racionado pode virar contínuo. Isso muda o que se pode desenhar, não só o que se pode pagar.</p>
+<p><strong>Na cadeia de responsabilidade.</strong> Uma peça que chama a API sabe qual modelo respondeu. Uma peça que usa o modelo do sistema operacional não sabe: recebe o que o fabricante tiver instalado naquele dia, com os filtros que o fabricante decidiu. O editor perde a versão do seu próprio produto.</p>
+<p><strong>Na desigualdade.</strong> Enquanto a inteligência morava na nuvem, a diferença entre um aparelho caro e um barato era a tela. Se ela mora no aparelho, a diferença passa a ser quanta inteligência cabe — e a curva de exclusão muda de forma.</p>
+<p><strong>Por que merece um mapa de futuro e não um estado da arte.</strong> Porque o estado da arte, aqui, é enganoso nos dois sentidos. Para cima: as demonstrações de 2026 são impressionantes e fáceis de extrapolar para uma "IA de graça para todos" que a evidência não sustenta. Para baixo: os obstáculos atuais — NPU ociosa, WebGPU parcial, 22 GB de disco — parecem definitivos e provavelmente não são. Um levantamento de estado da arte fotografa esse empate; um mapa causal tem de dizer o que acontece com <em>papéis, preços e responsabilidades</em> dos dois lados dele.</p>
+<p><strong>Fronteiras deste mapa.</strong> Dado e conta local-first (tema 17) ficam de fora: aqui o que fica local é o <em>modelo</em>, não o dado nem a identidade. Voz gerativa (tema 13) e o navegador como console 3D (tema 15) aparecem só como consumidores da mesma inferência. O objeto é a inferência no dispositivo — quem paga por ela, quem a controla e quem responde por ela.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<h3 id="3-1-o-modelo-encolheu-o-suficiente-e-isso-e-fato-medido">3.1 O modelo encolheu o suficiente — e isso é fato medido</h3>
+<p>A linhagem de baixíssima precisão saiu do artigo e virou software. O <code>BitNet b1.58 2B4T</code> é descrito pelos autores (Shuming Ma, Hongyu Wang, Shaohan Huang e outros, arXiv:2504.12285, abril de 2025) como o primeiro LLM nativo de 1 bit em escala de 2 bilhões de parâmetros, treinado em 4 trilhões de tokens, com desempenho "on par" com modelos abertos de precisão total de tamanho semelhante — e o próprio relatório está marcado como <em>work in progress</em>, o que é uma ressalva que o hype costuma esquecer. A implementação de referência, <code>bitnet.cpp</code>, publica números por arquitetura: <strong>1,37× a 5,07×</strong> de aceleração em CPUs ARM com <strong>55,4% a 70,0%</strong> de redução de energia, e <strong>2,37× a 6,17×</strong> em x86 com <strong>71,9% a 82,2%</strong> de economia. O repositório registra atualizações recentes: modelos de embedding de 1 bit em 20/07/2026 e o VibeASR.cpp em 23/07/2026, e declara suporte a NPU como "coming next" — ou seja, ainda não existe.</p>
+<p>Não é só a via ternária. A Apple descreve sua terceira geração de modelos de fundação com duas variantes locais: o <strong>AFM 3 Core</strong>, denso de 3 bilhões de parâmetros, e o <strong>AFM 3 Core Advanced</strong>, de 20 bilhões com arquitetura esparsa que "ativa apenas de 1 a 4 bilhões de parâmetros por vez", comprimidos por <em>Quantization Aware Training</em>, com suporte declarado a mais de vinte idiomas incluindo português. O Google, no anúncio do <strong>Gemma 4</strong> (02/04/2026), publica o E2B rodando "com menos de 1,5 GB de memória", contexto de 128 mil tokens, chamada de ferramentas estruturada, e números de borda: <strong>133 tokens/s de prefill e 7,6 tokens/s de decodificação num Raspberry Pi 5</strong>, e 3.700 / 31 tokens/s num Qualcomm Dragonwing IQ8.</p>
+<p>Isto é o achado central do presente: <strong>a capacidade deixou de ser o gargalo antes que a distribuição deixasse de ser.</strong></p>
+<h3 id="3-2-o-modelo-virou-servico-do-sistema-operacional">3.2 O modelo virou serviço do sistema operacional</h3>
+<p>Três entregas independentes, com a mesma forma.</p>
+<p>No Android, o Gemini Nano roda dentro do <strong>AICore</strong>, um serviço do sistema que distribui e atualiza o modelo, acelera a inferência no hardware, isola as requisições (não guarda entrada nem saída) e só acessa a internet indiretamente via <em>Private Compute Services</em>. As <strong>ML Kit GenAI APIs</strong> expõem sete capacidades — prompt, sumarização, revisão, reescrita, descrição de imagem e reconhecimento de fala —, e o ponto de projeto é este: <strong>todo app usa a mesma cópia do modelo já presente no aparelho</strong>, sem baixar nada e sem ocupar armazenamento próprio.</p>
+<p>Na Apple, o Foundation Models framework dá acesso Swift ao modelo local, com <em>guided generation</em> por macro <code>@Generable</code> — isto é, saída estruturada garantida, que é exatamente o que uma peça de mídia precisa para não quebrar de layout.</p>
+<p>No Chrome, as APIs embutidas (Proofreader, Writer, Rewriter, Translator, Language Detector, Summarizer e Prompt) estão em <em>origin trial</em> e não em disponibilidade geral. E aqui os requisitos publicados são brutais e decisivos: <strong>ao menos 22 GB livres</strong> no volume do perfil (o modelo é removido se sobrarem menos de 10 GB), <strong>mais de 4 GB de VRAM</strong>, mínimo de <strong>16 GB de RAM e 4 núcleos</strong>, Windows 10/11, macOS 13+, Linux ou ChromeOS em Chromebook Plus — e a declaração explícita de que <strong>não funcionam em Chrome para Android, iOS ou ChromeOS comum</strong>.</p>
+<h3 id="3-3-a-aba-do-navegador-virou-runtime-com-asterisco">3.3 A aba do navegador virou runtime — com asterisco</h3>
+<p>O artigo do <strong>WebLLM</strong> (arXiv:2412.15803) descreve a arquitetura em três peças — motor de frente leve, motor de fundo em <em>web worker</em> e kernels WebGPU pré-compilados por MLC-LLM e Apache TVM — e mede a perda contra o nativo num MacBook Pro M3 Max: <strong>Llama-3.1-8B a 41,1 tok/s contra 57,7 nativos (71,2%)</strong> e <strong>Phi-3.5-mini a 71,1 contra 89,3 (79,6%)</strong>. Reter ~80% da vazão nativa dentro de uma aba é um número melhor do que se esperaria.</p>
+<p>O asterisco é o suporte. O <code>caniuse</code> registra WebGPU em <strong>87,35%</strong> de suporte global, mas com <strong>Firefox sem suporte oficial em todas as versões até a 159</strong>, Safari só com suporte parcial a partir da 26.0 (desabilitado por padrão da 17.4 à 18.7) e Chrome Android a partir da versão 152. O README do WebLLM não documenta requisitos de memória — silêncio que, em produto, vira suporte técnico.</p>
+<p>Do lado do que dá para publicar: Transformers.js roda ONNX no navegador via WebGPU e WebAssembly; o <code>LiteRT-LM</code> do Google se apresenta como runtime de borda pronto para produção, com alvos em Android, iOS, macOS, web, desktop e IoT (Raspberry Pi), rodando Gemma, Llama, Phi-4 e Qwen — na versão 0.16.0, com APIs Swift e JavaScript em <em>early preview</em>, o que é a definição de emergente.</p>
+<h3 id="3-4-o-ecossistema-de-pesos-e-grande-e-desgovernado">3.4 O ecossistema de pesos é grande e desgovernado</h3>
+<p>O Hugging Face lista, na consulta feita para este documento, <strong>204.655 modelos compatíveis com a biblioteca GGUF</strong>. É um número de ecossistema, não de laboratório: significa que o peso do modelo já se comporta como pacote de software — versionado, baixado, forkado, republicado.</p>
+<p>E, como todo pacote, atacável. O estudo de larga escala de Casey, Santos e Mirakhorli (arXiv:2410.04490, outubro de 2024) investiga serialização insegura em modelos do Hugging Face e a capacidade da própria plataforma de sinalizar repositórios vulneráveis, concluindo que a plataforma "abriga uma gama ampla de modelos potencialmente vulneráveis". O varredor da plataforma marca como "unsafe" mas não bloqueia o download.</p>
+<h3 id="3-5-o-que-existe-e-nao-funciona-a-npu">3.5 O que existe e não funciona: a NPU</h3>
+<p>Este é o contrapeso mais importante do mapa, e vem de uma medição de agosto de 2026: os runtimes locais populares <strong>não usam a NPU</strong>. Ollama não tem backend de NPU (pedido aberto para Snapdragon desde junho de 2024); llama.cpp tem PR Hexagon da Qualcomm em rascunho e OpenVINO da Intel em prévia; LM Studio não suporta. Todos caem em CPU ou GPU integrada. A própria documentação da Qualcomm para rodar llama.cpp no Snapdragon X oferece binários de <strong>CPU e de GPU (OpenCL/Adreno)</strong> — e nenhuma menção a NPU —, exigindo 16 GB de RAM com mais de 7 GB livres para um Llama-3-8B Q4_K_M.</p>
+<p>Os números de vazão que sobram são modestos: ~10 tok/s em 7–8B no Snapdragon X Elite, 18–20 tok/s no Intel Lunar Lake. O gargalo é banda de memória: 135 GB/s compartilhados no Snapdragon X Elite contra 273 GB/s do Apple M4 Pro e 1.008 GB/s de uma RTX 4090. Caminhos de NPU existem — Qualcomm AI Hub com mais de 175 modelos ONNX pré-otimizados, Microsoft Foundry Local escolhendo a variante QNN —, mas só por conversão manual e, no ferramental comum, até cerca de 4B de parâmetros.</p>
+<p>Tradução para quem projeta: <strong>os TOPS anunciados na caixa não são os TOPS que a sua peça vai usar.</strong></p>
+<h3 id="3-6-o-caso-que-ja-aconteceu-quem-responde-pelo-que-o-modelo-local-diz">3.6 O caso que já aconteceu: quem responde pelo que o modelo local diz</h3>
+<p>Em janeiro de 2025 a Apple suspendeu os resumos de notificação de notícias do Apple Intelligence depois de a BBC reclamar (dezembro de 2024) de manchetes falsas atribuídas à sua marca — entre elas a de que Luigi Mangione teria atirado em si mesmo, a de que Luke Littler teria vencido o mundial de dardos horas antes do evento e a de que Rafael Nadal teria se declarado gay. O New York Times também registrou erros; a Repórteres Sem Fronteiras e o sindicato de jornalistas britânico pediram a desativação.</p>
+<p>O que esse caso prova, para este mapa, não é que o modelo errou. É que <strong>o resumo aparecia sob a marca de quem não o escreveu, gerado num aparelho que nem o editor nem o leitor controlavam, e a correção teve de vir por atualização de sistema operacional.</strong> É o efeito de segunda ordem inteiro, já observado, três anos antes do horizonte.</p>
+<h3 id="3-7-o-contorno-regulatorio">3.7 O contorno regulatório</h3>
+<p>Na União Europeia, o AI Act isenta modelos sob licença livre e aberta da documentação técnica e das informações para integradores (artigos 53.1a-b), mas <strong>não</strong> das políticas de direito autoral nem da divulgação de dados de treino; modelos com risco sistêmico não recebem isenção alguma; e as obrigações de alto risco valem a partir de <strong>2 de agosto de 2026</strong>. A leitura corrente é que quem integra um modelo num produto é <em>deployer</em>, e quem o modifica substancialmente pode ser reclassificado como <em>provider</em>, com obrigações bem mais pesadas — uma assimetria que aponta diretamente para quem embarca modelo em app de mídia.</p>
+<h3 id="3-8-a-nota-sobre-o-brasil">3.8 A nota sobre o Brasil</h3>
+<p>A Pesquisa de Conectividade Significativa da Anatel (divulgada em 02/09/2025, com campo entre agosto de 2023 e junho de 2024) traz o dado que este mapa não pode ignorar: entre quem ganha até um salário mínimo, <strong>51% têm aparelho que custou menos de mil reais</strong>; <strong>47,3%</strong> de quem não tem computador aponta o custo como motivo principal; <strong>35%</strong> dos que ganham até um salário mínimo passaram sete dias ou mais sem acesso à internet móvel nos 30 dias anteriores, e <strong>11,6%</strong> passaram mais de quinze dias — quase seis vezes a taxa de quem ganha acima de três salários (2,2%).</p>
+<p>Esse último número corta nos dois sentidos, e é por isso que ele importa: a intermitência é o melhor argumento a favor da IA local no Brasil, e o preço do aparelho é o melhor argumento contra.</p>
+<h3 id="3-9-classificacao-dos-achados">3.9 Classificação dos achados</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Achado</th><th>Classe</th><th>Justificativa</th></tr></thead><tbody><tr><td>Chamar API de modelo na nuvem</td><td>maduro</td><td>adoção estabilizada, efeitos observáveis</td></tr><tr><td>Rodar modelo pequeno em servidor próprio</td><td>maduro</td><td>idem</td></tr><tr><td>Quantização agressiva / GGUF como formato de distribuição</td><td>maduro</td><td>204.655 modelos listados; ferramental estável</td></tr><tr><td>Modelo ternário de 1,58 bit em produção</td><td>emergente</td><td>relatório técnico em <em>work in progress</em>; sem NPU</td></tr><tr><td>Modelo como serviço do SO (AICore, Foundation Models)</td><td>emergente e disruptivo</td><td>rompe a relação app↔fornecedor de modelo</td></tr><tr><td>Inferência na aba por WebGPU</td><td>emergente</td><td>87,35% de suporte, Firefox fora, requisitos altos</td></tr><tr><td>APIs embutidas do Chrome</td><td>emergente</td><td><em>origin trial</em>, ausentes em mobile</td></tr><tr><td>Aceleração por NPU em runtime popular</td><td>emergente e ainda não entregue</td><td>Ollama/llama.cpp/LM Studio não usam</td></tr><tr><td>Peso de modelo como dependência de software</td><td>emergente e disruptivo</td><td>rompe atualização, procedência e responsabilidade</td></tr><tr><td>Cadeia de suprimentos de modelos como vetor de ataque</td><td>emergente</td><td>evidência acadêmica; sem prática de mitigação difundida</td></tr></tbody></table></div>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="d1-a-inferencia-de-qualidade-util-passa-a-caber-no-orcamento-de-um-aparelho-comum">D1 — A inferência de qualidade útil passa a caber no orçamento de um aparelho comum</h3>
+<p><strong>O que rompe.</strong> A relação entre qualidade de resposta e custo por resposta. Enquanto a inferência morava na nuvem, toda interação gerativa tinha preço unitário, e o projeto de mídia era, na prática, projeto de racionamento: cota, fila, botão. Se o modelo cabe no aparelho, o preço unitário some depois do download e o racionamento deixa de ter razão técnica.</p>
+<p><strong>Por que agora e não há cinco anos.</strong> Porque três coisas independentes convergiram. Primeiro, a quantização deixou de ser perda aceitável e virou objetivo de treino — <em>quantization aware training</em> na Apple, ternário nativo no BitNet. Segundo, a esparsidade separou tamanho de custo: o AFM 3 Core Advanced tem 20B mas ativa de 1 a 4B. Terceiro, o runtime de borda amadureceu como produto e não como demo: bitnet.cpp com números por arquitetura, LiteRT-LM com alvo de produção em seis plataformas. O marcador mais concreto é o Gemma 4 E2B em menos de 1,5 GB com 128 mil tokens de contexto e chamada de ferramentas — capacidade de agente, em memória de aparelho mediano, com licença Apache 2.0.</p>
+<p><strong>O que ainda falta.</strong> Falta o caminho de aceleração. Hoje a vazão vem de CPU e GPU integrada, e o teto é banda de memória, não cálculo — 135 GB/s no Snapdragon X Elite contra 1.008 GB/s de uma placa dedicada. Enquanto Ollama, llama.cpp e LM Studio não falarem com a NPU, a promessa de "roda em qualquer coisa" vale para texto curto e não vale para agente contínuo, visão e voz ao mesmo tempo. Falta também evidência independente: os números de energia e velocidade citados são, em sua maioria, do próprio fabricante do runtime.</p>
+<h3 id="d2-o-modelo-deixa-de-ser-escolha-do-aplicativo-e-passa-a-ser-recurso-do-sistema">D2 — O modelo deixa de ser escolha do aplicativo e passa a ser recurso do sistema</h3>
+<p><strong>O que rompe.</strong> A cadeia de fornecimento da inteligência. No arranjo de nuvem, quem faz a peça escolhe o modelo, fixa a versão, lê os termos e responde pelo resultado. No arranjo de sistema, o modelo é um recurso compartilhado do aparelho: uma cópia só, atualizada pelo fabricante, com filtros do fabricante, e o app apenas pede. É desintermediação do vendedor de API e reintermediação pelo dono do sistema operacional — troca de guardião, não ausência de guardião.</p>
+<p><strong>Por que agora.</strong> Porque as três plataformas fizeram o mesmo movimento em pouco mais de um ano, com argumentos de engenharia difíceis de recusar: o AICore evita que cada app baixe seu próprio modelo e economiza armazenamento; a Apple entrega saída estruturada garantida em Swift; o Chrome resolve a distribuição do peso. Para quem projeta, a tentação é óbvia — inferência sem chave, sem conta e sem custo.</p>
+<p><strong>O que ainda falta.</strong> Falta cobertura: as APIs do Chrome não existem em Android nem iOS e exigem 22 GB de disco e 4 GB de VRAM; o AICore depende de plataformas específicas (MediaTek Dimensity, Snapdragon, Tensor). E falta uma resposta para a pergunta que o episódio da BBC já formulou: quando o modelo do sistema erra dentro do seu produto, o erro é de quem? Enquanto essa pergunta não tiver resposta contratual, a adoção fica em funções decorativas e não no miolo do produto.</p>
+<h3 id="d3-o-peso-do-modelo-vira-dependencia-de-software-baixavel-forkavel-atacavel-e-sobrevivente">D3 — O peso do modelo vira dependência de software: baixável, forkável, atacável e sobrevivente</h3>
+<p><strong>O que rompe.</strong> O modo de existência do modelo. Um endpoint é um serviço: tem dono, versão viva, termos, e pode ser desligado. Um arquivo de pesos é um artefato: é copiado, versionado, guardado, modificado e republicado — e não pode ser desligado. Isso rompe três coisas ao mesmo tempo: o controle do fornecedor sobre o uso, o canal de atualização (não há um) e a procedência (não há verificação obrigatória).</p>
+<p><strong>Por que agora.</strong> Porque a escala virou de ecossistema: 204.655 modelos GGUF listados, formato único, ferramental convergente. E porque o arquivo passou a ser pequeno o bastante para viajar como dependência comum — 1,5 GB é ordem de grandeza de biblioteca de jogo, não de datacenter.</p>
+<p><strong>O que ainda falta.</strong> Falta a higiene que o resto da cadeia de software levou vinte anos para construir: assinatura, procedência, <em>bill of materials</em>, varredura obrigatória. O estudo de Casey, Santos e Mirakhorli mostra a plataforma abrigando modelos potencialmente vulneráveis por serialização insegura, e o modelo marcado como inseguro continua baixável. Falta também jurisprudência: o AI Act isenta o open source de parte da documentação mas não do resto, e empurra obrigação para quem integra — desenho que ainda não foi testado num caso concreto de mídia.</p>
+<h3 id="o-que-foi-recusado-como-raiz">O que foi recusado como raiz</h3>
+<ul><li><strong>Quantização em si.</strong> É madura e é o <em>insumo</em> das três raízes, não uma ruptura própria.</li><li><strong>"IA de graça".</strong> Não é disrupção, é consequência de D1 — e falsa como enunciado: o custo migra para o aparelho, a bateria e o download.</li><li><strong>NPU.</strong> Seria uma quarta raiz se estivesse entregue. Como os runtimes populares não a usam, ela entra como sinal fraco e como wildcard, não como raiz. Registrado no anexo.</li></ul>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: A inferência de qualidade útil passa a caber no orçamento de um aparelho comum
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O custo marginal de uma interação gerativa cai a zero depois do download, e o orçamento do produto deixa de ser por chamada e passa a ser por aparelho
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Peças de mídia passam a embutir geração contínua em vez de racioná-la atrás de um botão
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: A régua cultural do que se considera interativo sobe, e resposta gerada na hora vira expectativa mínima e não recurso
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: Funcionar sem rede entra nos critérios de acessibilidade digital ao lado de contraste e leitor de tela
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Quem vende IA por assinatura desloca a cobrança da inferência para sincronização, contexto e garantia de resultado
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: O valor econômico da IA migra do modelo para o acervo privado que o alimenta
+                sinal: medio
+                prazo: 2032
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O aparelho, e não a conta, passa a ser o teto de qualidade da experiência
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: O projeto de interface volta a ter de degradar graciosamente entre classes de aparelho, como na virada do responsivo
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Surge uma disciplina de orçamento de inferência no projeto de produto, análoga ao orçamento de performance web
+                sinal: medio
+                prazo: 2031
+                confianca: media
+              - id: e2.1.2
+                ordem: 3
+                efeito: Em mercados de aparelho barato, a IA local aprofunda a exclusão que prometia resolver
+                sinal: medio
+                prazo: 2032
+                confianca: media
+          - id: e2.2
+            ordem: 2
+            efeito: Fabricantes passam a vender capacidade de inferência como antes vendiam câmera, e o ciclo de troca de aparelho encurta
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Quanto de IA cabe no aparelho entra na régua de compra do consumidor comum
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: O modelo deixa de ser escolha do aplicativo e passa a ser recurso do sistema operacional e do navegador
+    efeitos:
+      - id: e3
+        ordem: 1
+        efeito: O aplicativo passa a pedir inteligência ao sistema em vez de contratá-la, usando uma única cópia compartilhada do modelo
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O fabricante do sistema ganha poder de curadoria sobre o que qualquer aplicativo pode gerar
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A moderação de conteúdo desce da plataforma de publicação para o sistema operacional, fora do alcance do editor
+                sinal: medio
+                prazo: 2031
+                confianca: media
+              - id: e3.1.2
+                ordem: 3
+                efeito: Jurisdições passam a exigir modelo alternativo instalável no aparelho, como já se exigiu loja e navegador alternativos
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Quem publica mídia perde controle sobre qual versão do modelo roda dentro do produto já entregue
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: Reprodutibilidade de saída vira cláusula contratual em produção de mídia comissionada
+                sinal: medio
+                prazo: 2031
+                confianca: baixa
+          - id: e3.3
+            ordem: 2
+            efeito: Uma classe de aplicativos sem servidor nenhum se torna barata de publicar e de manter
+            sinal: medio
+            prazo: 2028
+            confianca: media
+            efeitos:
+              - id: e3.3.1
+                ordem: 3
+                efeito: A distinção entre software e mídia se estreita, porque o arquivo entregue passa a conter quem o interpreta
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: O navegador vira runtime de inferência em desktop, mas permanece indisponível no celular
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Nasce uma classe de peça interativa publicável como página, sem backend e sem conta
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Preservar uma peça de mídia generativa passa a exigir arquivar o modelo junto com o código
+                sinal: medio
+                prazo: 2032
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: O custo da IA na web migra para o primeiro acesso, e baixar o modelo vira o novo tempo de carregamento
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: As métricas de experiência web passam a contabilizar o download do modelo, e a régua de página rápida se reescreve
+                sinal: fraco
+                prazo: 2031
+                confianca: baixa
+  - disrupcao: O peso do modelo vira dependência de software — baixável, forkável, atacável e sobrevivente ao fabricante
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: O modelo passa a ser tratado como pacote versionado dentro do projeto, e não como serviço contratado
+        sinal: forte
+        prazo: 2027
+        confianca: alta
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: A cadeia de suprimentos de modelos vira superfície de ataque de produto de mídia
+            sinal: forte
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Assinatura e procedência de modelo passam a ser exigidas por loja de aplicativos ou por regulador
+                sinal: medio
+                prazo: 2031
+                confianca: media
+          - id: e5.2
+            ordem: 2
+            efeito: Comunidades mantêm vivas derivações de modelos que o fornecedor original descontinuou
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Desligar o serviço deixa de ser instrumento de controle, porque o modelo sobrevive ao seu fabricante
+                sinal: medio
+                prazo: 2032
+                confianca: baixa
+              - id: e5.2.2
+                ordem: 3
+                efeito: A preservação digital ganha um objeto novo, e o peso do modelo entra no acervo como obra
+                sinal: fraco
+                prazo: 2033
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: A responsabilidade pelo que o modelo diz fica ambígua quando ele roda fora do alcance de quem o publicou
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: Reguladores concentram a obrigação em quem integra o modelo no produto, e não em quem o treinou
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: Publicar mídia com modelo embarcado passa a exigir declaração de qual modelo e qual versão, como rótulo de composição
+                sinal: fraco
+                prazo: 2032
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: Empresas de mídia adotam o local como forma de não guardar dado nenhum e transferir o risco ao usuário
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Nada sai do aparelho vira alegação de marketing que o usuário comum não tem como verificar
+                sinal: medio
+                prazo: 2031
+                confianca: media</code></pre>
+<h3 id="o-que-o-bloco-nao-consegue-dizer">O que o bloco não consegue dizer</h3>
+<p><strong>A roda esconde que D1 e D2 puxam em sentidos opostos.</strong> D1 é uma história de autonomia: o modelo cabe no meu aparelho, logo ninguém me cobra e ninguém me desliga. D2 é uma história de captura: o modelo cabe no meu aparelho <em>porque o fabricante do aparelho o pôs lá</em>, com os filtros dele e a versão dele. Os efeitos <code>e1</code> e <code>e3</code> parecem convergir — os dois falam de inferência sem custo — mas descrevem futuros que competem entre si. Qual vence depende de uma variável que este mapa não sabe prever: se baixar um modelo próprio continuará sendo tão fácil quanto é hoje, ou se as plataformas tornarão o modelo do sistema o único caminho tolerado dentro da loja.</p>
+<p><strong>A roda não representa a hibridez, que é o estado provável.</strong> Nenhum efeito diz "o produto roda o fácil no aparelho e manda o difícil para a nuvem", que é o arranjo que a maioria dos produtos vai adotar. Ele ficou de fora porque não é ruptura — é a acomodação das duas. Mas é ele que vai decidir, na prática, quanto de <code>e1</code> realmente se realiza.</p>
+<p><strong>A roda achata a geografia.</strong> <code>e2.1.2</code> carrega sozinho o recorte brasileiro, e isso é pouco. A mesma disrupção produz, em parques de aparelho diferentes, efeitos de sinal contrário: onde a rede falha quinze dias por mês, a IA local é inclusão; onde o aparelho custa menos de mil reais, é exclusão. As duas coisas são verdadeiras no mesmo país, para pessoas diferentes.</p>
+<p><strong>Os prazos são ordenação, não datas.</strong> Tratar 2029 como ano é erro de leitura. O que a coluna sustenta é que <code>e5</code> vem antes de <code>e5.1</code>, que vem antes de <code>e5.1.1</code>.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<p><strong>O computador pessoal virando servidor de IA pessoal.</strong> Ferramentas que controlam o agente da própria máquina a partir do celular, com criptografia de ponta a ponta, apontam para um arranjo que não é nem nuvem nem dispositivo: é <strong>casa</strong>. Se pegar, o "local" deixa de significar "neste aparelho" e passa a significar "no meu perímetro" — e boa parte do argumento de limitação de memória do celular evapora, porque o celular vira tela de uma inferência que roda a dez metros dali. É sinal fraco porque exige rede doméstica confiável, máquina ligada e uma noção de administração de sistema que quase ninguém tem.</p>
+<p><strong>O agente pequeno com chamada de ferramentas.</strong> Gemma 4 E2B em menos de 1,5 GB com chamada estruturada de ferramentas e 128 mil tokens de contexto é, tecnicamente, um agente completo em memória de celular mediano. O sinal é fraco porque o que se vê em produto ainda é sumarização e reescrita, não ação autônoma. Se virar, <code>e1.1</code> acelera muito.</p>
+<p><strong>A migração silenciosa por cota.</strong> O sinal mais próximo é de processo, não de produto: equipes escolhendo o modelo local não por privacidade nem por custo, mas porque a cota gratuita da API prometida não se materializa. Adoção por frustração não aparece em pesquisa de intenção e é péssima de prever — mas é como muita infraestrutura foi adotada antes.</p>
+<p><strong>O 1 bit chegando ao embedding.</strong> Modelos de embedding de 1 bit publicados em julho de 2026 (1,42× a 2,28× de aceleração) são sinal fraco de que a busca semântica local — não só a geração — cabe no aparelho. Isso importa para mídia mais do que parece: significa acervo pessoal pesquisável sem servidor.</p>
+<p><strong>A NPU como promessa repetidamente adiada.</strong> O bitnet.cpp registra suporte a NPU como "coming next"; o PR da Qualcomm em llama.cpp está em rascunho; o pedido no Ollama está aberto desde junho de</p>
+<ol><li>Um sinal fraco pode ser a <em>ausência</em> insistente de algo anunciado — e aqui a ausência é</li></ol>
+<p>sistemática.</p>
+<h3 id="wildcards">Wildcards</h3>
+<p><strong>W1 — Um modelo ternário atinge qualidade de fronteira num celular de entrada.</strong> Baixa probabilidade, impacto alto. Se um modelo de 1,58 bit em poucos gigabytes empatar com o melhor modelo de nuvem do ano em tarefas de linguagem, D1 deixa de ser gradual e vira degrau: o mercado de inferência por assinatura perde a razão de existir para a maior parte dos usos de mídia, <code>e1.2</code> acontece em meses e não em anos, e a discussão de controle (D2) passa a ser a única que importa. <strong>Não é previsão</strong> — a evidência atual mostra paridade com modelos abertos de <em>tamanho semelhante</em>, não com a fronteira, e o próprio relatório se declara em andamento.</p>
+<p><strong>W2 — Um incidente de modelo envenenado em escala de consumo.</strong> Baixa probabilidade, impacto alto. Um peso popular, baixado por milhões, carregando execução maliciosa e detectado tarde. O estudo de serialização insegura já descreve a superfície; falta o evento. Se acontecer, <code>e5.1.1</code> salta de 2031 para dois anos depois do incidente, lojas passam a exigir assinatura de modelo, e a facilidade de "baixe e rode" — que é o que torna D3 uma disrupção — é a primeira coisa a ser regulada.</p>
+<p><strong>W3 — Uma plataforma proíbe modelo de terceiro no aparelho.</strong> Baixa probabilidade, impacto alto. Por argumento de segurança, uma loja de aplicativos passa a barrar apps que embarquem pesos próprios, obrigando ao modelo do sistema. D1 sobrevive, D3 morre no consumo de massa e sobrevive só no desktop, e <code>e3.1</code> deixa de ser tendência e vira regra.</p>
+<p><strong>W4 — Um modelo local vira prova em processo judicial.</strong> Baixa probabilidade, impacto alto. Se o conteúdo gerado no aparelho de alguém, offline, for tratado como registro pessoal — diário, e não publicação —, abre-se a pergunta de <code>e5.2.1</code> pelo lado jurídico: um modelo que aprendeu com uma pessoa é apreensível? É herdável? Nada na evidência atual aponta para isso; é aqui como possibilidade de fronteira, não como projeção.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="o-efeito-que-e-extrapolacao-linear-do-presente">O efeito que é extrapolação linear do presente</h3>
+<p><strong><code>e1</code> — custo marginal zero.</strong> É a extrapolação mais confortável e a mais frágil. O custo não some, muda de bolso: vira bateria, calor, memória, download e vida útil do aparelho. Nenhum desses aparece na roda com peso próprio, e todos são limites reais — 7,6 tokens/s de decodificação num Raspberry Pi 5 é um número de demonstração, não de conversa fluida. <strong>Correção aplicada:</strong> mantido com <code>confianca: alta</code> apenas para a afirmação de que o orçamento <em>muda de natureza</em> (de chamada para aparelho), que é o que a evidência sustenta; a leitura "IA fica de graça" está explicitamente recusada no texto da seção 4.</p>
+<p><strong><code>e1.1</code> — geração contínua.</strong> Assume que, removido o custo, o projeto naturalmente vira contínuo. Mas a fila e o botão também existem por razões de atenção e de interface, não só de preço. Rebaixado de <code>forte</code> para <code>medio</code> na revisão.</p>
+<h3 id="o-efeito-que-assume-velocidade-de-adocao-sem-caso-comparavel">O efeito que assume velocidade de adoção sem caso comparável</h3>
+<p><strong><code>e3</code> — o modelo como recurso do sistema, forte já em 2028.</strong> Aqui há um caso comparável, e ele não ajuda: requisitos como 22 GB de disco livre e 4 GB de VRAM excluem a maior parte do parque instalado, e as APIs do Chrome não existem em celular. A adoção de um recurso de plataforma que depende de renovação de hardware historicamente leva de cinco a dez anos, não dois. <strong>Correção aplicada:</strong> <code>e3</code> mantido em <code>alta</code> por já estar entregue nos três sistemas, mas <code>e3.1</code> e <code>e3.2</code> rebaixados para <code>confianca: media</code>, e a prosa da seção 5 passou a dizer que o prazo é ordenação e não data.</p>
+<p><strong><code>e2.2</code> — encurtamento do ciclo de troca.</strong> Supõe que a IA venda aparelho. Câmera vendeu; 3D não vendeu; 5G vendeu pouco. Não há evidência nas fontes abertas de que capacidade de inferência mova compra hoje. Mantido em <code>medio</code>/<code>media</code> por ser plausível, com a ressalva registrada.</p>
+<h3 id="a-disrupcao-que-pode-simplesmente-nao-se-concretizar">A disrupção que pode simplesmente não se concretizar</h3>
+<p><strong>D1 é a candidata.</strong> Se a NPU não chegar aos runtimes populares — e o quadro de agosto de 2026 é que não chegou em dois anos de pedidos abertos —, a IA local fica presa na faixa de 3 a 4 bilhões de parâmetros úteis em aparelho comum, com 10 a 20 tokens por segundo, limitada por banda de memória que não melhora na velocidade da computação. Nesse mundo, o local serve para reescrever notificação, traduzir e transcrever, e todo o resto continua na nuvem.</p>
+<p><strong>O que sobra do mapa se D1 cair.</strong> Sobra bastante, e é isto que o torna útil: D2 e D3 não dependem de o modelo local ser bom, só de ele existir e estar embutido. O guardião do sistema operacional (<code>e3.1</code>), a perda de controle de versão (<code>e3.2</code>), a cadeia de suprimentos (<code>e5.1</code>) e a ambiguidade de responsabilidade (<code>e6</code>) valem igualmente para um modelo medíocre — o caso da BBC aconteceu com um modelo medíocre. O que morre são <code>e1.1</code>, <code>e1.2</code> e <code>e2.2</code>; o que fica é o poder.</p>
+<p><strong>D3 tem o risco oposto:</strong> não o de não acontecer, mas o de ser revertido. W3 é exatamente isso.</p>
+<h3 id="o-vies-que-entrou-aqui">O viés que entrou aqui</h3>
+<p><strong>Viés de fonte, que é o mais grave.</strong> Quase todos os números de desempenho e energia vêm de quem vende o runtime ou o modelo: Microsoft sobre bitnet.cpp, Google sobre Gemma 4, Apple sobre AFM 3. Não há, nas fontes abertas para este documento, uma medição independente e comparável dos três. A única fonte estruturalmente adversarial usada — a auditoria de NPU de agosto de 2026 — é um blog técnico assinado, não um estudo revisado, e foi ela que produziu o achado mais desconfortável do mapa. Isso deveria ser invertido, e não foi. <strong>É a limitação número um deste documento.</strong></p>
+<p><strong>Viés de tema.</strong> O recorte foi entregue pela disciplina com uma disrupção-raiz já enunciada ("a inteligência sai da nuvem"). Aceitar esse enunciado e depois procurar evidência para ele é confirmar, não investigar. A mitigação foi buscar deliberadamente a evidência contrária (NPU, WebGPU, requisitos do Chrome, parque brasileiro) — e ela apareceu em volume suficiente para que a confiança geral do mapa ficasse em <code>media</code> e não em <code>alta</code>. Mas a pergunta "e se a nuvem simplesmente ganhar por economia de escala?" não foi investigada com o mesmo empenho, porque não havia fonte à mão.</p>
+<p><strong>Viés de fonte contemporânea.</strong> Metade das buscas devolveu conteúdo de SEO datado de 2026 repetindo os mesmos números de fabricante. Foram descartadas por não serem fonte, mas a sua abundância provavelmente enviesou o que os buscadores mostraram primeiro.</p>
+<p><strong>Viés de horizonte.</strong> 2031 é curto para efeitos de terceira ordem normativos (<code>e3.1.2</code>, <code>e5.2.2</code>, <code>e6.1.1</code>), que estão datados de 2032 e 2033 — isto é, além do horizonte declarado. Isso é honesto quanto ao prazo e desonesto quanto ao escopo: são efeitos que o mapa afirma sem se comprometer com a janela. Registrado, não corrigido.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p><strong>1. Inventou uma pesquisa brasileira sob medida.</strong> Ao pedir dados sobre o parque de celulares no Brasil, a primeira resposta trouxe um resumo genérico de "recursos importantes em 2026" — 5G, NFC, Wi-Fi — vindo de guia de compra de site de tecnologia, apresentado com a mesma naturalidade de um dado da Anatel. O sinal de desconfiança foi o mais simples: <strong>nenhum número tinha denominador.</strong> "5G deixou de ser diferencial" não é medida de nada. Só ao abrir a nota do Idec sobre a Pesquisa de Conectividade Significativa apareceram números com base — 51%, 47,3%, 35%, 11,6% — e, junto com eles, a data que muda a leitura: campo entre agosto de 2023 e junho de 2024, publicação em setembro de 2025. Ou seja, o dado que este mapa usa para falar do Brasil de 2026 descreve o Brasil de 2024. Isso está declarado na seção 3.8 e é uma limitação real.</p>
+<p><strong>2. Confundiu formato com ecossistema.</strong> Numa das buscas, a máquina apresentou "204.401 modelos GGUF" e, duas linhas adiante, explicou que Transformers.js usa ONNX e é incompatível com GGUF — sem notar que o número que acabara de citar, portanto, não descreve o que roda no navegador. A desconfiança veio da precisão do número: 204.401 é preciso demais para vir de memória. Ao abrir a página de filtro do Hugging Face, o valor exibido era <strong>204.655</strong> — diferente, porque é um contador vivo. O número entrou no documento com a data da consulta e com a ressalva de que GGUF é o ecossistema de desktop, não o do navegador.</p>
+<p><strong>3. Reportou paridade de fronteira onde o artigo diz outra coisa.</strong> O resumo automático do BitNet b1.58 2B4T chegou como "desempenho equivalente a LLMs de precisão total". A frase do próprio resumo é "on par with leading open-weight, full-precision LLMs <strong>of similar size</strong>" — e o artigo está marcado como <em>work in progress</em>. A diferença entre "empata com os grandes" e "empata com os abertos do mesmo tamanho, em trabalho ainda em andamento" é toda a diferença entre o wildcard W1 e o presente. Foi corrigido na seção 3.1 e é a razão de W1 ser wildcard e não efeito.</p>
+<p><strong>4. Deu a NPU como resolvida.</strong> As primeiras respostas sobre Snapdragon e IA local descreviam NPUs, TOPS e aceleração como se fossem o caminho em uso. Foi preciso perguntar especificamente por "reality check" para aparecer o quadro medido — Ollama sem backend, PR em rascunho, LM Studio sem suporte, a documentação da própria Qualcomm oferecendo só binários de CPU e GPU. <strong>A máquina repetiu o material de marketing do fabricante como se fosse estado da prática</strong>, e o erro só apareceu porque a busca foi refeita com uma palavra adversarial. Isso é o achado metodológico deste trabalho: a pergunta neutra devolve o folheto.</p>
+<p><strong>5. Duas fontes citadas não abriram.</strong> CNBC e Axios, sobre o caso Apple/BBC, devolveram HTTP 403. Não entraram na lista de fontes. O fato foi mantido porque uma terceira fonte, que abriu, sustenta os mesmos detalhes — mas a tentação de citar um link que a busca mostrou e a máquina resumiu, sem que ele tenha respondido, é exatamente o mecanismo que produz bibliografia falsa.</p>
+<p><strong>6. Fez plural de um caso.</strong> Ao descrever o episódio dos resumos de notificação, a saída inicial falava em "erros recorrentes do Apple Intelligence". As fontes descrevem quatro manchetes erradas em um recurso específico, suspenso em uma categoria específica, em janeiro de 2025. Um caso com quatro exemplos não é um padrão; é um caso. O texto foi reescrito para dizer o que aconteceu.</p>
+<h2 id="9-tres-cenarios-para-2031">9. Três cenários para 2031</h2>
+<p><strong>Provável.</strong> A inferência local virou infraestrutura invisível e chata, que é o destino de toda tecnologia que dá certo. Todo sistema operacional entrega um modelo, e ninguém mais escolhe qual: reescrever uma mensagem, resumir uma notificação, transcrever um áudio e traduzir uma legenda acontecem no aparelho, de graça, e ninguém chama isso de IA. O que é difícil continua na nuvem, e a arquitetura que venceu é híbrida — o produto decide em tempo de execução onde rodar, e a decisão é invisível para quem usa. As NPUs finalmente entraram nos runtimes comuns, mas tarde e por caminhos incompatíveis, então portar entre Qualcomm, Apple e Intel dá o mesmo trabalho que portar entre consoles nos anos 1990. O navegador roda modelo em desktop e não roda em celular, e por isso quase ninguém publica peça de mídia que dependa disso. No Brasil, a IA local chegou primeiro aos aparelhos caros, e a diferença entre o que um celular de dois mil reais e um de novecentos conseguem fazer ficou maior do que era em 2026 — não menor. E existem agora dois tipos de produto no mercado: os que explicam onde a inferência acontece e os que não explicam, sendo os segundos a maioria.</p>
+<p><strong>Desejável.</strong> Chegamos a 2031 com a inferência local funcionando como uma camada aberta, e não como um privilégio de plataforma. Isso exigiu três coisas concretas, e todas foram decisões e não acidentes. Primeiro, <strong>procedência de modelo virou norma antes do incidente</strong>: pesos assinados, inventário declarado, varredura obrigatória nas lojas — feito por escolha, não em pânico depois de um envenenamento em massa. Segundo, <strong>o direito de instalar outro modelo foi preservado</strong>, seja por regulação análoga à que abriu lojas e navegadores, seja por pressão de mercado: o modelo do sistema é o padrão, nunca o único, e por isso <code>e3.1</code> não virou censura. Terceiro, e é o que mais importa para mídia, <strong>"funciona sem rede" entrou na régua de acessibilidade</strong>: uma peça que exige conexão passou a ser tratada como uma que exige mouse — utilizável por muitos, excludente para alguns. No Brasil, isso se traduziu no único uso em que a IA local é inequivocamente inclusão: a pessoa que fica quinze dias sem dados móveis por mês continua tendo tradução, transcrição e leitura assistida funcionando. O preço de chegar aqui foi lentidão deliberada — padrões antes de produtos.</p>
+<p><strong>Indesejável.</strong> A inferência local virou o argumento perfeito para transferir risco. Empresas de mídia descobriram que "processamos tudo no seu aparelho" resolve conformidade sem resolver nada: não guardam dado, não respondem por saída, não precisam auditar, e o usuário não tem como verificar nenhuma dessas afirmações — <code>e6.2.1</code>. Ao mesmo tempo, os filtros do modelo do sistema viraram a camada de moderação de fato de toda a mídia digital, decidida por três empresas, sem processo de apelação e sem visibilidade para o editor, que descobre que sua peça foi recusada sem saber por quê. Um modelo popular envenenado circulou por meses antes de ser detectado, e a reação foi fechar o que estava aberto: lojas passaram a proibir pesos de terceiros, e a IA local de verdade recuou para o desktop de quem sabe compilar. E a promessa de democratização terminou invertida — o aparelho virou o teto, o teto virou dinheiro, e a diferença entre quem tem e quem não tem inteligência disponível passou a ser hardware, que é mais difícil de subsidiar do que acesso. <strong>O sinal precoce deste cenário é linguístico e já dá para vigiar hoje:</strong> o dia em que "roda no seu dispositivo" aparecer na seção de <em>privacidade</em> de um termo de uso em vez de na seção de <em>funcionalidades</em>, a transferência de risco já aconteceu.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<h3 id="o-que-e">O que é</h3>
+<p><strong>Sala sem nuvem</strong> — uma peça de mídia interativa que roda inteiramente na aba do navegador, por WebGPU, e que <strong>mostra o próprio custo enquanto funciona</strong>. Na tela, dois planos: na frente, a peça (um diálogo com um personagem, uma legenda gerada ao vivo, um texto que se reescreve conforme o leitor); atrás, sempre visível, o <strong>painel de orçamento</strong> — megabytes baixados, tempo até a primeira resposta, tokens por segundo, memória de GPU ocupada, queda percentual de bateria por minuto e um marcador de quando o aparelho começou a limitar por temperatura.</p>
+<p>A peça é a mesma para todo mundo; o painel é diferente para cada aparelho. É esse o ponto.</p>
+<p>Três perfis carregáveis, para forçar a comparação: <strong>generoso</strong> (modelo maior, contexto longo), <strong>médio</strong> e <strong>mínimo</strong> (o menor modelo que ainda sustenta a peça). O visitante pode trocar de perfil durante o uso e ver a peça degradar — ou travar.</p>
+<h3 id="que-pergunta-sobre-o-futuro-ele-ajuda-a-responder">Que pergunta sobre o futuro ele ajuda a responder</h3>
+<p>A pergunta de <code>e2</code> e <code>e2.1</code>: <strong>o aparelho vira o teto da experiência?</strong> E, junto com ela, a que decide se <code>e4</code> acontece: quanto custa, em atenção e em bateria, a primeira visita a uma página que precisa baixar um modelo antes de existir?</p>
+<p>O mapa afirma que o projeto de interface vai ter de voltar a degradar graciosamente entre classes de aparelho, como na virada do responsivo. Essa é uma hipótese testável numa tarde, com a turma na sala, sem pedir permissão a ninguém: é só medir a mesma peça em quinze aparelhos diferentes.</p>
+<h3 id="que-tecnologia-emergente-ele-usa-e-por-que-nao-da-com-tecnologia-madura">Que tecnologia emergente ele usa, e por que não dá com tecnologia madura</h3>
+<p>Usa <strong>WebGPU</strong> e um runtime de inferência em navegador (WebLLM ou Transformers.js), com um modelo quantizado pequeno servido como arquivo estático.</p>
+<p>Não dá para fazer com tecnologia madura porque <strong>a tecnologia madura esconde exatamente o que o experimento quer medir</strong>. Uma versão por API de nuvem tem o mesmo desempenho em todos os aparelhos — o custo está no servidor de alguém e é invisível. O painel de orçamento ficaria vazio, e a peça funcionaria igualmente bem no melhor e no pior celular da sala. A assimetria entre aparelhos só aparece quando a conta é paga pelo aparelho. É o caso raro em que a tecnologia emergente não é usada por ser melhor, e sim por ser <strong>a única que torna o fenômeno observável</strong>.</p>
+<h3 id="o-que-a-turma-vai-fazer-quando-testar-isso-em-sala">O que a turma vai fazer quando testar isso em sala</h3>
+<ol><li><strong>Censo de aparelhos.</strong> Cada pessoa abre a peça no que tem na mão. Anota-se marca, ano, navegador, sistema e se o WebGPU existe ali. A primeira coluna da tabela é binária e já responde muito: em quantos aparelhos a peça sequer <strong>abriu</strong>?</li><li><strong>Corrida do primeiro token.</strong> Todo mundo carrega ao mesmo tempo, na mesma rede. Mede-se o tempo até a primeira resposta. Espera-se dispersão grande e bimodal — desktop de um lado, celular do outro, e um grupo que não chega.</li><li><strong>Degradação dirigida.</strong> Quem conseguiu rodar no perfil generoso desce para o médio e o mínimo e descreve, em uma frase, <strong>o que se perdeu na peça</strong> — não no benchmark. É aqui que a discussão deixa de ser de engenharia e vira de projeto.</li><li><strong>Prova do avião.</strong> Desliga-se o Wi-Fi e os dados no meio do uso. O que continua funcionando? Esta é a medição do único argumento pró-IA-local que o Brasil torna urgente: os 35% que passam sete dias ou mais sem internet móvel por mês.</li><li><strong>Teste de bateria.</strong> Um aparelho fica dez minutos gerando continuamente. Anota-se a queda de bateria e a temperatura. Este é o custo que <code>e1</code> diz ter desaparecido.</li><li><strong>Fechamento.</strong> Cada pessoa escreve uma frase respondendo: <em>"para quem eu não posso publicar esta peça?"</em> As respostas viram a lista de requisitos de acessibilidade de <code>e1.1.2</code>.</li></ol>
+<h3 id="o-que-seria-um-resultado-que-me-faria-mudar-de-ideia">O que seria um resultado que me faria mudar de ideia</h3>
+<p><strong>Mudaria o mapa na direção otimista</strong> se a peça abrir e rodar de forma utilizável em mais de 70% dos aparelhos da sala, incluindo celulares intermediários, com primeiro token abaixo de dez segundos numa rede comum. Isso significaria que <code>e4</code> está subestimado e que <code>e2.1</code> — a necessidade de degradar entre classes de aparelho — é problema menor do que este documento afirma. Eu elevaria <code>e4</code> de <code>medio</code> para <code>forte</code> e reescreveria <code>e2.1.2</code>.</p>
+<p><strong>Mudaria na direção pessimista</strong> — e esta é a que eu espero — se a taxa de aparelhos em que a peça simplesmente <strong>não abre</strong> ficar acima de 50%, concentrada em celular. Nesse caso <code>e4</code> deve cair para <code>confianca: baixa</code> e o navegador deixa de ser um caminho sério de IA local para mídia de consumo até que Safari e Firefox mudem de posição. A peça seria uma demonstração de desktop, não uma peça de web.</p>
+<p><strong>Mudaria a raiz, e não só um efeito</strong>, se o custo de bateria for tão alto que o uso contínuo seja inviável mesmo onde a peça roda bem. Aí <code>e1</code> está errado no que tem de mais central: o custo marginal não caiu a zero, ele mudou de moeda — e a moeda nova é mais escassa que a antiga, porque dinheiro se recarrega e paciência de bateria, num aparelho de mil reais, não.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Todas as fontes abaixo foram abertas durante a produção deste documento, entre 17 e 18 de setembro de</p>
+<ol><li>Fontes que apareceram em busca mas não responderam, ou que não foram abertas, estão listadas na</li></ol>
+<p>seção 12 e <strong>não</strong> são citadas no corpo do texto.</p>
+<ol><li><strong>Microsoft — repositório oficial do bitnet.cpp</strong> — <code>https://github.com/microsoft/BitNet</code> Sustenta: os números de aceleração (1,37×–5,07× em ARM; 2,37×–6,17× em x86) e de energia (55,4%–70,0%; 71,9%–82,2%), a lista de modelos suportados, o estado do suporte a NPU ("coming next") e as datas das atualizações de 2026. Confiabilidade: alta como registro primário do que o projeto entrega; <strong>baixa como medição independente</strong> — são números do próprio fabricante do runtime, sem replicação de terceiro nas fontes deste documento.</li></ol>
+<ol><li><strong>Ma, Wang, Huang et al. — BitNet b1.58 2B4T Technical Report</strong> — <code>https://arxiv.org/abs/2504.12285</code> Sustenta: 2 bilhões de parâmetros, 4 trilhões de tokens de treino, a formulação exata da alegação de paridade ("of similar size") e o estado de <em>work in progress</em>. Confiabilidade: alta para a descrição do modelo; é <em>preprint</em> não revisado por pares e de autoria dos próprios criadores, o que pesa contra a alegação de desempenho.</li></ol>
+<ol><li><strong>Google — Gemini Nano, documentação para desenvolvedores Android</strong> — <code>https://developer.android.com/ai/gemini-nano</code> Sustenta: o papel do AICore (distribuição, atualização, isolamento de requisições, acesso indireto à internet via Private Compute Services), a lista das capacidades das ML Kit GenAI APIs e a partilha de uma única cópia do modelo entre aplicativos. Confiabilidade: alta como documentação primária de plataforma; não é fonte neutra sobre limitações.</li></ol>
+<ol><li><strong>WebLLM: A High-Performance In-Browser LLM Inference Engine</strong> — <code>https://arxiv.org/html/2412.15803v2</code> Sustenta: a arquitetura em três componentes e os números de retenção de vazão contra o nativo (41,1 vs 57,7 tok/s; 71,1 vs 89,3 tok/s num M3 Max). Confiabilidade: alta para a medição, que é detalhada e reproduzível; a comparação é feita pelos autores do próprio sistema, e num único aparelho de alto padrão.</li></ol>
+<ol><li><strong>Google Chrome — APIs de IA embutida, visão geral</strong> — <code>https://developer.chrome.com/docs/ai/built-in</code> Sustenta: a lista das sete APIs e o estado de <em>origin trial</em>. Confiabilidade: alta; documentação primária.</li></ol>
+<ol><li><strong>Google Chrome — requisitos de hardware das APIs embutidas</strong> — <code>https://developer.chrome.com/docs/ai/get-started</code> Sustenta: 22 GB de espaço livre, remoção do modelo abaixo de 10 GB, mais de 4 GB de VRAM, mínimo de 16 GB de RAM e 4 núcleos, os sistemas suportados e a ausência em Android, iOS e ChromeOS comum. Confiabilidade: alta; é a fonte mais importante deste documento contra a tese do navegador como caminho universal, e vem do próprio fabricante.</li></ol>
+<ol><li><strong>Apple Machine Learning Research — Introducing the Third Generation of Apple's Foundation Models</strong> — <code>https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models</code> Sustenta: AFM 3 Core (3B denso) e AFM 3 Core Advanced (20B esparso, ativando 1–4B), quantização por QAT, a lista de idiomas incluindo português, e a ressalva da própria Apple de que as avaliações refletem modelos em desenvolvimento. Confiabilidade: alta para as especificações; as preferências de usuário relatadas (44,7% a 17,6%) são medição interna.</li></ol>
+<ol><li><strong>Umapathy A. — NPU Reality Check: What Your Local AI Stack Actually Uses (18/08/2026)</strong> — <code>https://www.buildmvpfast.com/blog/npu-local-ai-development-reality-check-2026</code> Sustenta: Ollama sem backend de NPU com pedido aberto desde junho de 2024; PR Hexagon em rascunho no llama.cpp; LM Studio sem suporte; vazões de ~10 tok/s (Snapdragon X Elite) e 18–20 tok/s (Intel Lunar Lake) em 7–8B; banda de memória de 135 / 273 / 1.008 GB/s; limite prático de 3–4B na ferramenta comum. Confiabilidade: <strong>média</strong> — é blog técnico assinado, com data e tabela por runtime, não é fonte revisada. Foi mantido porque é a única fonte adversarial encontrada e porque suas afirmações verificáveis batem com a fonte 9. É a fonte mais influente e a mais frágil deste mapa, e a seção 7 diz isso.</li></ol>
+<ol><li><strong>Qualcomm — Run llama.cpp, Windows on Snapdragon</strong> — <code>https://docs.qualcomm.com/doc/80-62010-1/topic/run-llama-cpp.html</code> Sustenta: a própria Qualcomm oferece binários de CPU e de GPU (OpenCL/Adreno) e <strong>não</strong> de NPU; requisito de 16 GB de RAM com mais de 7 GB livres para Llama-3-8B Q4_K_M. Confiabilidade: alta; documentação primária do fabricante do chip, e corrobora a fonte 8 no ponto decisivo.</li></ol>
+<ol><li><strong>Can I Use — WebGPU</strong> — <code>https://caniuse.com/webgpu</code> Sustenta: 87,35% de suporte global (85,72% + 1,63%), Firefox sem suporte oficial até a versão 159, Safari parcial a partir da 26.0, Chrome Android a partir da 152. Confiabilidade: alta; é a referência de fato para suporte de navegador, com metodologia pública.</li></ol>
+<ol><li><strong>Hugging Face — modelos compatíveis com a biblioteca GGUF</strong> — <code>https://huggingface.co/models?library=gguf</code> Sustenta: 204.655 modelos listados na consulta de 18/09/2026. Confiabilidade: alta como contagem do próprio índice; é contador vivo, então o número tem validade datada.</li></ol>
+<ol><li><strong>MLC AI — repositório do WebLLM</strong> — <code>https://github.com/mlc-ai/web-llm</code> Sustenta: as famílias de modelos suportadas (Llama, Phi, Gemma, Mistral, Qwen), a dependência de WebGPU e WebAssembly, <em>function calling</em> ainda em desenvolvimento, e a <strong>ausência</strong> de requisitos de memória documentados. Confiabilidade: alta como registro do projeto; a ausência é ela própria um achado.</li></ol>
+<ol><li><strong>Google AI Edge — repositório do LiteRT-LM</strong> — <code>https://github.com/google-ai-edge/LiteRT-LM</code> Sustenta: runtime de borda com alvos em Android, iOS, macOS, web, desktop e IoT; modelos Gemma, Llama, Phi-4 e Qwen; versão 0.16.0 com APIs Swift e JavaScript em <em>early preview</em>. Confiabilidade: alta; o número de versão e o estado de prévia sustentam a classificação "emergente".</li></ol>
+<ol><li><strong>Google Developers Blog — Bring state-of-the-art agentic skills to the edge with Gemma 4 (02/04/2026)</strong> — <code>https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/</code> Sustenta: E2B em menos de 1,5 GB de memória, contexto de 128 mil tokens, chamada de ferramentas, licença Apache 2.0, mais de 140 idiomas, e as vazões em Raspberry Pi 5 (133 / 7,6 tok/s) e Dragonwing IQ8 (3.700 / 31 tok/s). Confiabilidade: alta para as especificações; é anúncio de produto, e os números de desempenho são do fabricante em hardware escolhido por ele.</li></ol>
+<ol><li><strong>Silicon UK — Apple Suspends AI-Generated News Notifications After Errors</strong> — <code>https://www.silicon.co.uk/cloud/ai/apple-suspends-ai-generated-news-notifications-after-errors-596038</code> Sustenta: a suspensão dos resumos para a categoria de notícias e entretenimento em janeiro de 2025, a reclamação da BBC de dezembro de 2024, os quatro exemplos de manchete falsa, e as manifestações do New York Times, da Repórteres Sem Fronteiras e do sindicato de jornalistas britânico. Confiabilidade: média-alta; jornalismo especializado citando o Guardian e declarações públicas. Foi usada porque CNBC e Axios, que cobriram o mesmo fato, não abriram.</li></ol>
+<ol><li><strong>Idec — Anatel divulga Pesquisa de Conectividade Significativa (02/09/2025)</strong> — <code>https://idec.org.br/release/anatel-divulga-pesquisa-de-conectividade-significativa-com-foco-em-dispositivos-habilidades</code> Sustenta: 51% de aparelhos abaixo de mil reais entre quem ganha até um salário mínimo; 47,3% apontando custo como motivo para não ter computador; 35% com sete dias ou mais sem internet móvel em 30 dias; 11,6% com mais de quinze dias contra 2,2% acima de três salários; nota média autoatribuída de 8,2 em habilidades digitais. Confiabilidade: alta quanto à origem (pesquisa da agência reguladora, divulgada por entidade de defesa do consumidor); <strong>desatualizada</strong> — campo entre agosto de 2023 e junho de 2024.</li></ol>
+<ol><li><strong>Linux Foundation Europe — What Open Source Developers Need to Know about the EU AI Act</strong> — <code>https://linuxfoundation.eu/newsroom/ai-act-explainer</code> Sustenta: a isenção de documentação técnica e informação a integradores para licenças livres (artigos 53.1a-b), a não isenção quanto a direito autoral e dados de treino, a ausência de isenção para modelos de risco sistêmico, a isenção do artigo 25.4 para integradores, e as datas (02/08/2025 para GPAI; 02/08/2026 para alto risco). Confiabilidade: alta como leitura organizada por entidade com interesse declarado em open source — interesse que deve ser considerado.</li></ol>
+<ol><li><strong>Casey, Santos e Mirakhorli — A Large-Scale Exploit Instrumentation Study of AI/ML Supply Chain Attacks in Hugging Face Models</strong> — <code>https://arxiv.org/abs/2410.04490</code> Sustenta: serialização insegura como vetor de injeção de objeto, a presença ampla de modelos potencialmente vulneráveis no Hugging Face, e a limitação da detecção da própria plataforma. Confiabilidade: alta para o método e o achado qualitativo; é de outubro de 2024, e o ecossistema mudou desde então.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-a-entrevista">12.1 A entrevista</h3>
+<p>A skill exige entrevista antes de pesquisar, com oito campos confirmados e repetição dos valores para confirmação explícita. <strong>Esta rodada foi executada sem interlocutor humano disponível</strong>: os valores chegaram por escrito no despacho da tarefa, com instrução expressa de não fazer perguntas de volta e de assumir e declarar o que não estivesse definido. O contrato da skill foi cumprido no conteúdo (todos os campos estão preenchidos) e não no procedimento (não houve rodada de perguntas nem confirmação recebida). Isto é declarado aqui, e não escondido, porque afeta a qualidade do recorte: um interlocutor teria podido recusar premissas que aqui foram aceitas.</p>
+<div class="tabela-envolve"><table><thead><tr><th>Campo</th><th>Valor confirmado</th><th>Origem</th></tr></thead><tbody><tr><td>tema</td><td>IA local: no dispositivo e no navegador</td><td>fornecido</td></tr><tr><td>recorte</td><td>a inferência no aparelho do usuário final; exclui dado e identidade local-first (tema 17), voz (13) e navegador 3D (15)</td><td>fornecido + descrição da disciplina</td></tr><tr><td>horizonte</td><td>2031</td><td>fornecido</td></tr><tr><td>público</td><td>quem projeta mídia e interação</td><td>fornecido</td></tr><tr><td>região</td><td>global, com nota sobre o Brasil</td><td>fornecido</td></tr><tr><td>objetivo</td><td>mapa de futuro com disrupções-raiz e três ordens de efeito, para discussão em aula e para derivar um experimento</td><td>fornecido</td></tr><tr><td>exclusões</td><td>o que já é comum em produto de massa (régua da disciplina); ideias genéricas que serviriam a qualquer tema; nenhuma outra</td><td>fornecido</td></tr><tr><td>viés desejado</td><td>neutro / equilibrado</td><td>fornecido</td></tr><tr><td>profundidade</td><td>três ordens</td><td>fornecido</td></tr><tr><td>modo</td><td>a partir de uma inovação, não de um setor</td><td>fornecido</td></tr><tr><td>critério de mudança de ideia</td><td>evidência de adoção além da maioria inicial (Rogers), ou de que a tecnologia só melhora o que existe sem romper nada</td><td>fornecido</td></tr></tbody></table></div>
+<p><strong>Assunções declaradas por falta de interlocutor:</strong></p>
+<ul><li>"Quem projeta mídia e interação" foi lido como incluindo desenvolvedor de produto, designer de interação, editor e artista — não como pesquisador de ML.</li><li>"Nota sobre o Brasil" foi lida como um recorte de acesso e parque de aparelhos, não de regulação; a regulação brasileira entrou apenas como contexto de busca e não foi usada no corpo por não ter fonte primária aberta.</li><li>"Confiança do próprio mapa" foi fixada em <code>media</code> por decisão deste agente, com base na assimetria entre evidência de fabricante e evidência independente.</li></ul>
+<h3 id="12-2-consultas-realizadas">12.2 Consultas realizadas</h3>
+<p>Buscas (WebSearch):</p>
+<ol><li><code>BitNet 1-bit LLM microsoft bitnet.cpp inference CPU 2026</code></li><li><code>Gemini Nano on-device Android AICore ML Kit GenAI API 2026</code></li><li><code>WebGPU inference browser WebLLM Chrome built-in Prompt API window.ai 2026 status</code></li><li><code>Apple Foundation Models framework on-device 3 billion parameters WWDC developer access limits</code></li><li><code>Ollama llama.cpp local LLM adoption 2026 r/LocalLLaMA NPU Qualcomm Snapdragon inference</code></li><li><code>Brasil smartphones perfil parque celular RAM entrada 2026 Anatel conectividade dados móveis</code></li><li><code>EU AI Act open source models on-device deployer obligations 2026 liability who is provider</code></li><li><code>Apple Intelligence notification summaries BBC complaint paused news summaries error</code></li><li><code>transformers.js WebGPU Hugging Face in-browser models 2026 number of GGUF models</code></li><li><code>"local-first" AI app business model subscription collapse on-device inference free after download 2026 analysis</code></li><li><code>Google AI Edge Gallery LiteRT-LM on-device Android app 2026 Gemma 3n</code></li><li><code>malicious model files security GGUF pickle supply chain Hugging Face 2026 scanning</code></li><li><code>LGPD ANPD processamento local no dispositivo IA privacidade 2026 Brasil PL 2338</code></li></ol>
+<p>Páginas efetivamente abertas (WebFetch): as dezoito da seção 11.</p>
+<p>Páginas que retornaram HTTP 403 e por isso <strong>não</strong> entraram: <code>cnbc.com</code> (Apple desativa resumos), <code>axios.com</code> (mesma cobertura), <code>socket.dev</code> (varredura experimental de malware no Hugging Face — o que teria dado números de formatos varridos, incluindo GGUF e Llamafile, e a estatística de arquivos não sinalizados).</p>
+<h3 id="12-3-fontes-descartadas-e-por-que">12.3 Fontes descartadas e por quê</h3>
+<ul><li><strong>Blogs de SEO datados de 2026</strong> sobre "on-device AI news", "local vs cloud AI 2026", "the great escape", "WebGPU 2026", "browser-native agents guide 2026": repetem números de fabricante sem atribuição, sem autor e sem método. Nenhum entrou. Eram a maioria dos resultados das buscas 3, 10 e 11 — o que é, por si, uma observação sobre o campo: o tema está saturado de conteúdo derivado.</li><li><strong>Guias de compra de celular brasileiros</strong> (busca 6): não trazem denominador nem amostra. A primeira resposta da máquina usou um deles como se fosse dado de mercado; ver seção 8, item 1.</li><li><strong>Consultorias de conformidade brasileiras</strong> (busca 13, sobre ANPD/LGPD/PL 2338): material promocional de escritório, com afirmações fortes ("zero risco LGPD by design") e sem fonte primária. A regulação brasileira ficou <strong>fora</strong> do corpo do documento por não ter sido possível abrir fonte primária — é uma lacuna conhecida deste mapa, e o lugar óbvio para ampliá-lo.</li><li><strong>Notícias sobre WWDC 2026 em dev.to e agregadores</strong> afirmando que a Apple abriu o Foundation Models framework a qualquer provedor de LLM: alegação relevante para D2 e que mudaria <code>e3.1</code>, mas não foi possível confirmá-la em fonte primária da Apple dentro do tempo desta rodada. <strong>Não foi usada.</strong> É a verificação pendente mais importante deste documento: se for verdade, o poder de curadoria do fabricante (<code>e3.1</code>) é bem menor do que o mapa afirma.</li><li><strong>Wikipedia (Ollama, GGUF, Telecommunications in Brazil)</strong>: apareceram nas buscas, não foram abertas, não foram citadas.</li></ul>
+<h3 id="12-4-separacao-entre-fato-inferencia-e-hipotese">12.4 Separação entre fato, inferência e hipótese</h3>
+<p>A skill exige que toda afirmação seja separada em três camadas. A tabela abaixo faz isso para os pontos que sustentam o mapa.</p>
+<p><strong>Fatos observados e apoiados por fonte aberta:</strong></p>
+<ul><li>bitnet.cpp publica 1,37×–5,07× (ARM) e 2,37×–6,17× (x86), com 55,4%–70,0% e 71,9%–82,2% de redução de energia. [1]</li><li>BitNet b1.58 2B4T: 2B parâmetros, 4T tokens, paridade alegada com abertos <strong>de tamanho similar</strong>, <em>work in progress</em>. [2]</li><li>AICore distribui e atualiza o Gemini Nano; uma cópia é compartilhada entre apps. [3]</li><li>WebLLM retém 71,2% e 79,6% da vazão nativa nos dois modelos medidos num M3 Max. [4]</li><li>Chrome exige 22 GB livres, &gt;4 GB VRAM, 16 GB RAM, 4 núcleos; não funciona em Android nem iOS. [6]</li><li>AFM 3 Core Advanced tem 20B com ativação de 1–4B. [7]</li><li>Ollama, llama.cpp e LM Studio não usam NPU; Qualcomm distribui binários de CPU e GPU. [8][9]</li><li>WebGPU em 87,35%; Firefox sem suporte oficial até a 159. [10]</li><li>204.655 modelos GGUF listados em 18/09/2026. [11]</li><li>Gemma 4 E2B em &lt;1,5 GB, 128K de contexto, 7,6 tok/s de decodificação num Raspberry Pi 5. [14]</li><li>Apple suspendeu resumos de notícias em jan/2025 após reclamação da BBC de dez/2024. [15]</li><li>51% dos que ganham até 1 salário mínimo têm aparelho abaixo de mil reais; 35% ficaram 7+ dias sem internet móvel em 30 dias. [16]</li><li>AI Act: isenção parcial para licença livre; alto risco a partir de 02/08/2026. [17]</li><li>Serialização insegura é vetor real; a detecção da plataforma é parcial. [18]</li></ul>
+<p><strong>Inferências causais argumentadas (não são fato, e o argumento está no texto):</strong></p>
+<ul><li>Que a convergência de quantização-no-treino + esparsidade + runtime de produção é o que explica "por que agora" em D1 (seção 4). O argumento é de coincidência temporal de três linhas independentes; não há fonte que faça essa síntese.</li><li>Que a partilha de uma cópia única do modelo pelo sistema transfere poder de curadoria ao fabricante (<code>e3.1</code>). A inferência é estrutural — quem controla a única cópia controla a saída — e é corroborada, mas não provada, pelo caso [15].</li><li>Que 204.655 pesos distribuíveis fazem do modelo uma dependência de software com os problemas de cadeia de suprimentos conhecidos (D3). A analogia com pacotes de software é forte mas é analogia.</li><li>Que a intermitência de conexão no Brasil favorece IA local <strong>e</strong> o preço do aparelho a desfavorece, ao mesmo tempo e para as mesmas pessoas (seção 3.8).</li></ul>
+<p><strong>Hipóteses prospectivas (toda a seção 5, com confiança graduada):</strong></p>
+<ul><li>Toda a roda. Nenhum efeito é fato. Os de terceira ordem, em particular, são hipótese com confiança <code>baixa</code> por construção — e isso é a resposta esperada, não uma falha.</li></ul>
+<p><strong>Regra respeitada:</strong> evidência de que uma ferramenta <strong>existe</strong> não foi convertida em evidência de que ela <strong>funciona em escala</strong>. É por isso que o Gemma 4 E2B aparece como "cabe na memória" e não como "está em uso"; e é por isso que LiteRT-LM, com APIs em <em>early preview</em>, foi classificado como emergente e não como infraestrutura.</p>
+<h3 id="12-5-efeitos-gerados-e-depois-removidos">12.5 Efeitos gerados e depois removidos</h3>
+<p>A primeira rodada produziu 22 efeitos de segunda ordem e 24 de terceira. Foram removidos:</p>
+<ul><li><strong>"A educação se reorganiza em torno de IA local"</strong> — removido por ser genérico: serviria identicamente a qualquer um dos dezenove temas da disciplina, que é exatamente a exclusão pedida no recorte.</li><li><strong>"O emprego de engenheiro de prompt desaparece"</strong> — removido: não deriva desta disrupção, deriva de qualquer melhora de modelo.</li><li><strong>"A nuvem deixa de ser negócio"</strong> — removido por ser falso na direção afirmada. A pergunta de primeira ordem da disciplina ("o que acontece com o negócio de nuvem?") foi respondida, mas de forma mais modesta e defensável, em <code>e1.2</code>: a cobrança migra de inferência para sincronização, contexto e garantia. Treinar continua na nuvem; o que se desloca é a inferência barata.</li><li><strong>"Modelos locais aprendem com o usuário e viram bem pessoal herdável"</strong> — removido da roda por falta de qualquer sinal observável: o ajuste fino contínuo no aparelho não aparece em nenhuma das dezoito fontes. A pergunta de terceira ordem da disciplina é boa, mas hoje é <strong>hipótese sem sinal</strong>. Foi rebaixada a wildcard (W4), que é o lugar honesto dela.</li><li><strong>"NPUs destravam agentes multimodais contínuos no celular até 2029"</strong> — removido como efeito e rebaixado a sinal fraco, por contradição direta com [8] e [9]. Era o efeito mais atraente do rascunho e o menos sustentado.</li><li><strong>"Peças de mídia passam a ser distribuídas com o modelo embutido no pacote"</strong> — fundido em <code>e3.3.1</code> e <code>e4.1.1</code>, que dizem a mesma coisa por dois caminhos (publicação e preservação).</li><li><strong>Uma quarta disrupção-raiz, "a NPU como nova unidade de mídia"</strong> — descartada inteira. Não há ruptura entregue; há promessa adiada há dois anos. Virou W-adjacente e sinal fraco.</li></ul>
+<p><strong>Cadeias interrompidas por falta de evidência,</strong> conforme a skill exige registrar:</p>
+<ul><li><code>e1.2.1</code> (valor migra para o acervo privado) <strong>não tem terceira ordem</strong>. A continuação natural seria sobre mercados de dados pessoais, e isso é o tema 17, não este.</li><li><code>e3.2.1</code> (reprodutibilidade contratual) não foi ramificada: não há caso, contrato ou norma que sustente o passo seguinte.</li><li><code>e4.2.1</code> (métricas web incorporam o download) não foi ramificada por prudência — depende de uma decisão de um consórcio, e prever comitê é pior do que prever tecnologia.</li></ul>
+<h3 id="12-6-efeitos-cuja-confianca-foi-rebaixada-na-contestacao">12.6 Efeitos cuja confiança foi rebaixada na contestação</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Efeito</th><th>Antes</th><th>Depois</th><th>Motivo</th></tr></thead><tbody><tr><td><code>e1.1</code></td><td>sinal forte</td><td>sinal medio</td><td>fila e botão também existem por razões de atenção, não só de custo</td></tr><tr><td><code>e3.1</code></td><td>confianca alta</td><td>confianca media</td><td>depende de renovação de parque; e a possível abertura do framework da Apple a terceiros (não confirmada) contradiria</td></tr><tr><td><code>e3.2</code></td><td>confianca alta</td><td>confianca media</td><td>idem</td></tr><tr><td><code>e4</code></td><td>sinal forte</td><td>sinal medio</td><td>ausência em mobile e Firefox fora reduzem o alcance</td></tr><tr><td><code>e6</code></td><td>confianca alta</td><td>confianca media</td><td>a atribuição regulatória ainda não foi testada em caso concreto</td></tr><tr><td><code>e2.2.1</code></td><td>confianca media</td><td>confianca baixa</td><td>não há evidência de que capacidade de inferência mova compra</td></tr></tbody></table></div>
+<h3 id="12-7-limitacoes-declaradas-desta-rodada">12.7 Limitações declaradas desta rodada</h3>
+<ol><li><strong>Assimetria de fonte.</strong> Quinze das dezoito fontes são do fabricante do que descrevem, ou dos autores do sistema que medem. A única fonte estruturalmente adversarial é um blog técnico. Este é o defeito central do documento.</li><li><strong>Sem medição própria.</strong> Nada foi verificado em hardware. Todo número de desempenho é relatado. O experimento da seção 10 existe precisamente para começar a corrigir isso.</li><li><strong>Dado brasileiro defasado.</strong> A pesquisa da Anatel tem campo de 2023–2024 e é usada para falar de<ul><li>O sentido geral (aparelho barato, conexão intermitente) é provavelmente estável; os percentuais, não.</li></ul></li><li><strong>Regulação brasileira ausente do corpo.</strong> Não foi possível abrir fonte primária sobre ANPD, LGPD e PL 2338 aplicados a processamento local. Lacuna conhecida.</li><li><strong>Verificação pendente sobre a Apple.</strong> A alegação de que o Foundation Models framework teria sido aberto a provedores de LLM de terceiros em 2026 não foi confirmada e não foi usada. Se for verdadeira, <code>e3.1</code> e <code>e3.1.2</code> precisam ser reescritos.</li><li><strong>Sem evidência quantitativa de adoção.</strong> O critério de mudança de ideia fornecido no recorte — "adoção já passou da maioria inicial (Rogers)" — <strong>não pôde ser testado</strong>: nenhuma das fontes abertas traz percentual de usuários ou de aplicativos usando inferência local. O que existe são proxies fracos (500 mil downloads do Google AI Edge Gallery em dois meses, 204.655 pesos GGUF listados), e proxy de disponibilidade não é medida de adoção. Portanto, <strong>este mapa não pode afirmar que o tema é emergente por medida de adoção</strong> — afirma-o por estado de forma: APIs em <em>origin trial</em>, runtime em versão 0.16.0, aceleração prometida e não entregue. É uma justificativa mais fraca do que a pedida, e está declarada.</li><li><strong>Sem busca em r/LocalLLaMA ou Hacker News.</strong> O termômetro social sugerido na descrição do tema não foi consultado. Ficaria como próximo passo natural: é onde a adoção por frustração com cota apareceria primeiro.</li><li><strong>Horizonte transbordado.</strong> Seis efeitos de terceira ordem têm prazo de 2032 e 2033, além do horizonte declarado de 2031. Mantidos por serem consequências causais necessárias, com a data honesta em vez de comprimida.</li><li><strong>Autoria não verificada em uma fonte.</strong> O artigo do WebLLM [4] é citado sem nomes de autores porque a página aberta não os expôs na extração e não houve segunda checagem. Preferiu-se omitir a autoria a arriscar atribuí-la errado — ver seção 8, sobre o mesmo tipo de risco em [15].</li></ol></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

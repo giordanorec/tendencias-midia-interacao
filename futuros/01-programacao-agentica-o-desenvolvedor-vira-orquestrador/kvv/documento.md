@@ -1,5 +1,5 @@
 ---
-tema: Programação agêntica: o desenvolvedor vira orquestrador
+tema: "Programação agêntica: o desenvolvedor vira orquestrador"
 slug: programacao-agentica-o-desenvolvedor-vira-orquestrador
 autor_login: kvv
 zona_de_interesse: Agentes — engenharia de software agêntica e o ofício de programar

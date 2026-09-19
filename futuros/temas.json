@@ -11,7 +11,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 16,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -27,7 +27,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 16,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -43,7 +43,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 16,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -59,7 +59,7 @@
   "aberto_em": "2026-09-17",
   "apresenta": "hfm",
   "data": "2026-09-17",
-  "mapas": 16,
+  "mapas": 17,
   "roda": "/futuros/04-a-internet-agentica-quando-o-usuario-e-uma-maquina/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {
@@ -88,7 +88,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 16,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -104,7 +104,7 @@
   "aberto_em": null,
   "apresenta": "vafs",
   "data": "2026-10-01",
-  "mapas": 16,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -120,7 +120,7 @@
   "aberto_em": null,
   "apresenta": "bvga",
   "data": "2026-10-01",
-  "mapas": 16,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -136,7 +136,7 @@
   "aberto_em": "2026-09-17",
   "apresenta": "yrv",
   "data": "2026-09-17",
-  "mapas": 16,
+  "mapas": 17,
   "roda": "/futuros/08-narrativa-gerativa-e-coautoria/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {
@@ -165,7 +165,7 @@
   "aberto_em": null,
   "apresenta": "mjbo",
   "data": "2026-09-24",
-  "mapas": 13,
+  "mapas": 14,
   "roda": null,
   "confrontos": []
  },
@@ -181,7 +181,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -197,7 +197,7 @@
   "aberto_em": null,
   "apresenta": "vjmm",
   "data": "2026-09-22",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -213,7 +213,7 @@
   "aberto_em": null,
   "apresenta": "jgpt",
   "data": "2026-09-29",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -229,7 +229,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 16,
+  "mapas": 18,
   "roda": null,
   "confrontos": []
  },
@@ -245,7 +245,7 @@
   "aberto_em": null,
   "apresenta": "kvv",
   "data": "2026-09-29",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -261,7 +261,7 @@
   "aberto_em": null,
   "apresenta": "jcsc",
   "data": "2026-10-06",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -277,7 +277,7 @@
   "aberto_em": null,
   "apresenta": "meap",
   "data": "2026-10-06",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -293,7 +293,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -309,7 +309,7 @@
   "aberto_em": null,
   "apresenta": "alpa2",
   "data": "2026-09-24",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  },
@@ -325,7 +325,7 @@
   "aberto_em": null,
   "apresenta": "jlsn",
   "data": "2026-09-22",
-  "mapas": 11,
+  "mapas": 13,
   "roda": null,
   "confrontos": []
  }
