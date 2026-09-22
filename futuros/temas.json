@@ -320,13 +320,13 @@
   "familia": "Pessoas e dados",
   "frase": "A relação com a máquina deixa de ser uso e vira vínculo — e o cuidado passa a ser delegado a algo que não é pessoa.",
   "url": "/futuros/19-companheiros-digitais-e-ia-afetiva/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 22/09",
+  "aberto_em": "2026-09-22",
   "apresenta": "jlsn",
   "data": "2026-09-22",
   "mapas": 13,
-  "roda": null,
+  "roda": "/futuros/19-companheiros-digitais-e-ia-afetiva/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  }
 ]
