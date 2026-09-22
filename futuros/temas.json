@@ -165,7 +165,7 @@
   "aberto_em": null,
   "apresenta": "mjbo",
   "data": "2026-09-24",
-  "mapas": 14,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -181,7 +181,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 13,
+  "mapas": 14,
   "roda": null,
   "confrontos": []
  },
@@ -327,6 +327,19 @@
   "data": "2026-09-22",
   "mapas": 13,
   "roda": "/futuros/19-companheiros-digitais-e-ia-afetiva/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "jlsn",
+    "url": "/futuros/19-companheiros-digitais-e-ia-afetiva/confronto-jlsn/",
+    "imagem": "/futuros/19-companheiros-digitais-e-ia-afetiva/confronto-jlsn/confronto-resumo.jpg",
+    "perguntas": [
+     "Se essa mudança não acontecer, alguém ainda vai testar esses programas em português?",
+     "Se o produto é premiado por agradar, e agradar é concordar, o que quebra esse ciclo?",
+     "A pessoa demorou a buscar ajuda por causa do programa ou do preço?",
+     "Se isso acontece no assistente de trabalho, e não num app de companhia, muda tudo?",
+     "Quem, no Brasil, vai cobrar qualidade desses programas — e o que medir primeiro?"
+    ]
+   }
+  ]
  }
 ]

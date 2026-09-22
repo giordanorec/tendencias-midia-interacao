@@ -33,6 +33,12 @@
   "titulo": "Companheiros digitais e IA afetiva",
   "url": "/futuros/19-companheiros-digitais-e-ia-afetiva/",
   "aberto_em": "2026-09-22",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "jlsn",
+    "url": "/futuros/19-companheiros-digitais-e-ia-afetiva/confronto-jlsn/",
+    "aberto_em": "2026-09-22"
+   }
+  ]
  }
 ]

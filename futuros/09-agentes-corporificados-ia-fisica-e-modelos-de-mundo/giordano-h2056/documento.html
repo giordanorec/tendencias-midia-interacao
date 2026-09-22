@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentes corporificados, IA física e modelos de mundo · futurizacao-giordano · horizonte 2056 (30 anos) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 9 · futurizacao-giordano · horizonte 2056 (30 anos)</p><h1>Agentes corporificados, IA física e modelos de mundo</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/giordano-h2056/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/giordano-h2056/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h3 id="r1-o-ambiente-deixa-de-ser-escrito-e-passa-a-ser-gerado">R1 — O ambiente deixa de ser escrito e passa a ser gerado</h3>
+<p><strong>O que rompe.</strong> Rompe a suposição de que fazer mundo é <em>autorar</em>: modelar geometria, escrever regra, ajustar física, versionar cena. No modelo de mundo acionável, o ambiente é produzido por um modelo condicionado à ação do agente, quadro a quadro. O ofício deixa de ser construção e passa a ser <strong>condicionamento e curadoria</strong> — prompt, referência, seleção, avaliação. Deixa de valer, no limite, a economia do asset: o que se vende não é a cena, é a hora de mundo.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Três pré-condições apareceram juntas entre 2025 e 2026: latência de geração abaixo do quadro interativo (Odyssey-1 em 40 ms, 30 fps, maio/2025), coerência temporal suficiente para uma sessão (Genie 3, "alguns minutos", agosto/2025; Odyssey, "cinco minutos ou mais"), e um modelo aberto que gera <strong>ação</strong> junto com imagem e som (Cosmos 3, maio/2026). Em 2021 nenhuma das três existia.</p>
+<p><strong>Onde está na difusão.</strong> Entre <strong>demo pública e produto de nicho</strong>: Genie 3 é research preview para um grupo pequeno; Odyssey vende por hora; Cosmos 3 está aberto no Hugging Face mas roda em infraestrutura da própria NVIDIA. Longe de adoção precoce. Toda a cadeia derivada desta raiz carrega confiança rebaixada.</p>
+<p><strong>O que ainda falta acontecer.</strong> (1) Consistência física de parâmetro, não só de aparência — o achado do WorldBench é exatamente a lacuna. (2) Coerência de horas, não de minutos. (3) Custo por hora de mundo que compita com rodar um motor determinístico em GPU de consumidor. (4) Um regime de licença para o vídeo que treinou o modelo. (5) Uma forma de <strong>auditar</strong> um mundo gerado — hoje não há como versionar o que não é arquivo.</p>
+<p><strong>Quem bloqueia, e com que incentivo.</strong> Os detentores de motor e de acervo — Epic, Unity, e quem tem biblioteca de cena e de captura. O incentivo é direto: se o mundo vira serviço gerado, a licença por assento e o royalty por receita perdem base. O caminho de bloqueio disponível é contratual, não técnico: termo de licença que veda uso do artefato como dado de treino. O efeito disso está em e5 e e4.1.</p>
+<hr>
+<h3 id="r2-a-politica-corporificada-generalista-um-modelo-que-transfere-entre-corpos-e-entre-mundos">R2 — A política corporificada generalista: um modelo que transfere entre corpos e entre mundos</h3>
+<p><strong>O que rompe.</strong> Rompe o ofício de programar robô. O controle deixa de ser especificado por tarefa e por corpo — cinemática, célula, parametrização — e passa a ser um <strong>modelo pré-treinado</strong> adaptado com demonstração. Quem sabia fazer a máquina funcionar sabia parametrizar; passa a valer quem sabe <strong>coletar demonstração e avaliar política</strong>. Rompe também a fronteira entre mundo virtual e mundo físico do ponto de vista do modelo: o SIMA 2 operando dentro de um Genie 3 e o Odyssey-3 sendo oferecido para braço robótico e para jogo são o mesmo movimento.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> A arquitetura visão-linguagem-ação estabilizou em 2025 com três linhas independentes convergindo (π0, GR00T N1, Gemini Robotics), e apareceu a camada que faltava: um <strong>formato comum de dado</strong> com massa crítica (LeRobot, 16 mil datasets, 1 milhão de episódios, artigo de fevereiro/2026). Em 2021 cada laboratório tinha o seu formato e o seu corpo.</p>
+<p><strong>Onde está na difusão.</strong> Entre <strong>produto de nicho e adoção precoce</strong>: implantações reais e auditáveis existem, mas são dezenas de instalações, não milhares — 65 mil horas da Agility em nove clientes, 1.250 horas da Figure na BMW. Bem abaixo de 10%.</p>
+<p><strong>O que ainda falta acontecer.</strong> (1) Execução real confiável: o RoboDojo existe justamente porque a lacuna entre simulação e campo ainda derruba política generalista. (2) Recuperação de erro intermediário — o problema não é entender a tarefa, é o contato, o alinhamento fino e a volta depois da falha. (3) Norma de segurança ratificada (ISO 25785-1). (4) Um jeito de medir autonomia que não seja adjetivo.</p>
+<p><strong>Quem bloqueia, e com que incentivo.</strong> O fabricante de corpo. Se a margem migra para a política, o incentivo dele é <strong>fechar o corpo</strong> — firmware assinado, API restrita, telemetria proprietária — para reter valor, exatamente como aconteceu em outros mercados de hardware barato com software caro. O efeito está em e7.1 e, em terceira ordem, no movimento por robô reparável (e7.1.1).</p>
+<hr>
+<h3 id="r3-o-dado-de-contato-e-o-insumo-escasso-e-seu-custo-marginal-nao-cai">R3 — O dado de contato é o insumo escasso, e seu custo marginal não cai</h3>
+<p><strong>O que rompe.</strong> Rompe a economia que sustentou a IA de tela: dado abundante, quase gratuito, raspado da web, com custo marginal tendendo a zero. No corpo, <strong>a décima-milésima demonstração custa o que custou a primeira</strong> — tempo de operador, tempo de robô, tempo de reposição da cena. Não há economia de escala como há em rastrear a web. Isso rompe a premissa de que basta esperar o modelo escalar, e desloca o poder para quem consegue <strong>montar e operar fábrica de dado</strong>. Também cria uma categoria nova de trabalho: o corpo humano como sensor remunerado por hora.</p>
+<p><strong>Por que agora, e não há cinco anos.</strong> Porque só em 2025-2026 os modelos ficaram bons o bastante para que o limite deixasse de ser arquitetura e passasse a ser dado — e porque a resposta industrial já está montada e é grande: dezenas de centros de coleta com apoio estatal, um deles com capacidade declarada em milhões de registros por ano. Em 2021 o gargalo ainda era o modelo.</p>
+<p><strong>Onde está na difusão.</strong> <strong>Produto de nicho caminhando para adoção precoce</strong>: já existe indústria, preço de hora e projeção de mercado (US$ 4,89 bi → US$ 17,1 bi entre 2025 e 2030), mas a prática ainda é de laboratório e de integrador grande, não do comprador médio de automação.</p>
+<p><strong>O que ainda falta acontecer.</strong> (1) Um formato de intercâmbio que deixe dono diferente somar dado sem entregar operação — o LeRobotDataset v3 é candidato, não vencedor. (2) Um regime jurídico para o gesto humano capturado: hoje ele não é claramente dado pessoal nem claramente obra. (3) Um método de avaliar quanto do treino pode ser sintético sem perder o caso raro — que depende da R1 e é o ponto onde as duas se amarram.</p>
+<p><strong>Quem bloqueia, e com que incentivo.</strong> O Estado. O incentivo é duplo e puxa para os dois lados: controle de exportação (tratar corpus de contato como ativo estratégico, como já se trata GPU) e proteção de dado pessoal (o gesto identifica quem o executou). Os efeitos estão em e11.2 e e12.1.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: O ambiente deixa de ser escrito e passa a ser gerado por um modelo condicionado à ação
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Casas de simulação passam a vender hora de mundo condicionado e avaliação de transferência, não biblioteca de cenário
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: Nasce um mercado de mundos certificados, precificados por desvio físico medido em conceito isolado
+            sinal: fraco
+            prazo: 2038
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Um instituto de metrologia publica o corpo de cenas de referência e a física medida vira norma pública
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: Casas de vídeo generativo vendem para a robótica o mesmo modelo que vendem para publicidade
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: A separação institucional entre indústria criativa e indústria de automação deixa de existir no nível da ferramenta, e o mesmo profissional é contratado pelas duas
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: Desenhar mundo passa a ser desenhar currículo de treino, e o level designer é medido pela política que o mundo dele produz
+        sinal: fraco
+        prazo: 2038
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: O portfólio de quem projeta interação passa a incluir a política treinada, e não só a peça jogável
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: O crédito autoral se desloca de quem fez o mundo para quem fez o agente que aprendeu nele, e a disputa chega à negociação coletiva de estúdio
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Estúdio passa a ser remunerado por transferência medida — quanto a política treinada no mundo dele funciona fora dele
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Mundo bonito e mundo útil se separam em duas linhas de produção com equipes distintas
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: Provar que um robô é seguro passa a exigir auditoria do mundo em que ele treinou, e não só ensaio da máquina
+        sinal: medio
+        prazo: 2034
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: Seguradora exige o registro do mundo de treino — semente, versão do modelo, trajetórias — como condição de apólice
+            sinal: fraco
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: O prêmio de seguro vira o preço corrente do risco de IA física e passa a conter mais que a norma técnica
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Investigação de acidente passa a rodar contrafactual no modelo de mundo, e o laudo inclui uma versão de software do ambiente
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: Forma-se jurisprudência que trata o ambiente de treino como peça defeituosa, com responsabilidade de quem o gerou
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: O custo de GPU por hora de mundo gerado trava a substituição do motor escrito, e o simulador determinístico volta como camada de verificação
+        sinal: medio
+        prazo: 2031
+        confianca: alta
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: A arquitetura híbrida vira padrão — mundo gerado para variedade, motor determinístico para o teste que assina
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O motor determinístico sobrevive como infraestrutura de prova e vira dependência crítica mantida por poucas equipes
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: Quem detém acervo de vídeo do mundo real vira fornecedor de ambiente, e o acervo passa a ser licenciado por hora de treino
+        sinal: fraco
+        prazo: 2036
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Operadores de espaço com fluxo — aeroporto, metrô, shopping, hospital — passam a cobrar pela captura do próprio espaço, como já cobram por filmagem
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Espaço público novo passa a ser projetado já pensando em ser capturável e licenciável como ambiente de treino
+                sinal: fraco
+                prazo: 2052
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: O acervo de vídeo doméstico vira ativo disputado, e a captação de ambiente entra no contrato de aparelho de casa
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+  - disrupcao: A política corporificada generalista — um modelo que transfere entre corpos e entre mundos
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: O integrador de automação deixa de programar tarefa e passa a coletar demonstração e avaliar política
+        sinal: medio
+        prazo: 2034
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A demonstração coletada vira ativo disputado no contrato de integração, e a cláusula de propriedade do dado entra na negociação
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: O corpus de contato da fábrica entra no balanço como intangível e a auditoria contábil passa a opinar sobre robô
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: Aparece mercado secundário de políticas — a política afinada numa fábrica é vendida a outra do mesmo ramo
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Poucas políticas dominam um ramo inteiro, e uma falha comum atinge ao mesmo tempo fábricas que não se conhecem
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: O corpo do robô caminha para commodity e a margem migra para a política, invertendo onde a indústria de robô ganha dinheiro
+        sinal: medio
+        prazo: 2036
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: Fabricante de corpo fecha firmware e API para reter margem, e nasce a disputa pelo robô destravado
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Consolida-se um movimento por robô reparável e destravado, com norma própria e obrigação de peça
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: O preço de entrada cai a ponto de laboratório de graduação e estúdio pequeno rodarem robô real em projeto de disciplina
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: A prototipagem de interação física vira prática comum de curso de projeto, como a prototipagem de tela é hoje
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: A fragilidade medida em execução real trava a venda de autonomia plena, e o humano permanece no circuito como camada paga
+        sinal: forte
+        prazo: 2030
+        confianca: alta
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: O teleoperador de plantão vira profissão global, com turno arbitrado por fuso e salário arbitrado por país
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: O trabalho físico se desloca em vez de sumir — o corpo é da máquina, a atenção é humana, vendida por hora e em outro país
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+          - id: e8.2
+            ordem: 2
+            efeito: Autonomia vira grandeza contratada por faixa — intervenções por hora — e deixa de ser adjetivo de catálogo
+            sinal: fraco
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e8.2.1
+                ordem: 3
+                efeito: O contrato de automação passa a ter cláusula de degradação, com preço por ponto de autonomia perdido
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: O comando vira linguagem natural situada, e o projeto de interação passa a incluir o que o agente pode recusar
+        sinal: medio
+        prazo: 2033
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: A recusa do agente vira elemento de design de produto, com vocabulário, tempo e estética próprios
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: O encontro entre pessoa e máquina com corpo passa a ser regulado como relação de serviço, com direito de recusa dos dois lados
+                sinal: fraco
+                prazo: 2052
+                confianca: baixa
+          - id: e9.2
+            ordem: 2
+            efeito: Espaço construído ganha sinalização legível por máquina, negociada como mobiliário urbano e cobrada como tal
+            sinal: fraco
+            prazo: 2042
+            confianca: baixa
+      - id: e10
+        ordem: 1
+        efeito: O programador de trajetória e o técnico de célula perdem o centro do ofício, porque o valor estava na parametrização
+        sinal: fraco
+        prazo: 2038
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: O saber do operador vira dado de treino sem contrapartida, e o conflito chega à negociação sindical nas montadoras
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: A qualificação que resta é diagnóstico de falha rara, que não se aprende em operação rotineira, e falta quem saiba consertar
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+  - disrupcao: O dado de contato é o insumo escasso, e seu custo marginal não cai com escala
+    efeitos:
+      - id: e11
+        ordem: 1
+        efeito: A fábrica de dado corporificado vira infraestrutura estratégica, tratada como fundição de chip
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: País com custo de trabalho baixo e mercado interno grande — o Brasil entre eles — passa a vender hora de teleoperação como vendeu hora de call center
+            sinal: fraco
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: A hora de teleoperação ganha preço de referência público e passa a ser contratada como commodity
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+          - id: e11.2
+            ordem: 2
+            efeito: Corpus de contato entra na pauta de controle de exportação, ao lado de GPU
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e11.2.1
+                ordem: 3
+                efeito: Modelos corporificados se fragmentam por bloco geopolítico, e o robô importado chega sem a política que o faz funcionar
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e12
+        ordem: 1
+        efeito: O corpo humano vira sensor remunerado, e a captura de gesto cotidiano entra no mercado de trabalho informal
+        sinal: medio
+        prazo: 2034
+        confianca: media
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: A captura de gesto colide com proteção de dado pessoal, porque o modo de mover identifica quem moveu
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e12.1.1
+                ordem: 3
+                efeito: O gesto entra na categoria de dado biométrico, e capturar movimento em espaço público passa a exigir base legal específica
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e13
+        ordem: 1
+        efeito: O custo do dado real empurra o setor para o sintético, e a fidelidade do modelo de mundo passa a limitar quanto se pode economizar
+        sinal: forte
+        prazo: 2031
+        confianca: alta
+        efeitos:
+          - id: e13.1
+            ordem: 2
+            efeito: O benchmark de física vira instrumento de mercado, porque quem define a régua define quanto dado real é obrigatório
+            sinal: fraco
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e13.1.1
+                ordem: 3
+                efeito: O que conta como físico passa a ser decidido em comitê, e a física do produto vira a física do benchmark
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+          - id: e13.2
+            ordem: 2
+            efeito: A proporção entre dado real e sintético vira número declarado em ficha técnica, como composição em rótulo
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e13.2.1
+                ordem: 3
+                efeito: Comprador industrial passa a especificar proporção mínima de dado real em edital, e o sintético barato perde o mercado regulado
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e14
+        ordem: 1
+        efeito: O formato aberto de dado decide quem consegue somar demonstração de muitos donos, e vira campo de disputa como o formato de arquivo já foi
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e14.1
+            ordem: 2
+            efeito: Surgem cooperativas de dado em que fábricas concorrentes somam demonstração sem entregar a operação
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e14.1.1
+                ordem: 3
+                efeito: O acervo comum de demonstração vira bem de infraestrutura, disputado como espectro de radiofrequência
+                sinal: fraco
+                prazo: 2052
+                confianca: baixa
+          - id: e14.2
+            ordem: 2
+            efeito: Quem publica o formato passa a arbitrar o que é registrável, e o que o formato não representa deixa de ser coletado
+            sinal: fraco
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e14.2.1
+                ordem: 3
+                efeito: Fenômenos físicos mal representados no formato ficam fora do treino de toda uma geração de políticas
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa</code></pre>
+<h3 id="os-mecanismos-um-a-um">Os mecanismos, um a um</h3>
+<p><strong>R1.</strong> <code>e1</code> — <em>porque a geração de ambiente tem custo por hora de uso (US$ 1-2/hora de usuário na Odyssey) e não custo por artefato produzido, o vendedor deixa de ter o que empacotar e passa a cobrar pelo uso</em>. <code>e2</code> — <em>porque o SIMA 2 aprende por tentativa e erro dentro do mundo e sua experiência treina a versão seguinte, o mundo deixa de ser palco e vira insumo de formação: o que o mundo produz é medível, logo o mundo passa a ser medido por isso</em>. <code>e3</code> — <em>porque a ISO 25785-1 regula estabilidade ativamente controlada, e estabilidade ativamente controlada é propriedade da política, não da estrutura, o ensaio da máquina isolada deixa de cobrir o objeto regulado — e a única evidência do comportamento da política é o ambiente onde ela se formou</em>. <code>e4</code> (retroação) — <em>porque US$ 1-2 por hora de mundo multiplicados por milhões de horas de treino é custo recorrente que um motor determinístico em GPU própria não tem, a substituição para no ponto em que a variedade gerada deixa de compensar a conta</em>. <code>e5</code> — <em>porque o modelo de mundo aprende de vídeo do mundo real e não de cena modelada, o gargalo migra do artista para o dono da filmagem</em>.</p>
+<p>Classes de referência dos prazos de R1: o caminho de um motor de terceiro até padrão industrial de simulação levou cerca de duas décadas (Unreal, 1998, até virar base de AirSim e afins no fim dos anos 2010) — por isso <code>e2</code> fica em 2035 e não em 2030. Para <code>e3</code>, a referência é a própria ISO: 18 a 36 meses de rascunho a norma ratificada, mais o intervalo habitual entre norma publicada e exigência contratual efetiva.</p>
+<p><strong>R2.</strong> <code>e6</code> — <em>porque a política é pré-treinada e adaptada com demonstração, o trabalho de especificar movimento é substituído pelo de produzir exemplo e medir resultado</em>. <code>e7</code> — <em>porque o mesmo modelo roda em corpos diferentes (π0 é explicitamente cross-embodiment), o corpo deixa de ser fonte de diferenciação e a diferença passa a estar no modelo — e a Unitree, com G1 a ordens de grandeza abaixo das plataformas ocidentais, já mostra a direção do preço</em>. <code>e8</code> (retroação) — <em>porque a taxa de sucesso em campo é o que o comprador paga, e os benchmarks construídos em 2026 existem justamente para expor a queda entre simulação e mundo, a promessa de autonomia não se converte em contrato — e o humano remoto vira item de custo permanente</em>. <code>e9</code> — <em>porque o modelo que comanda é o mesmo que conversa (Gemini Robotics-ER 2 orquestra em tempo real), a interface de comando herda a capacidade de negar — e negar precisa de projeto</em>. <code>e10</code> — <em>porque o conhecimento do técnico de célula estava codificado na parametrização, e a parametrização é o que a política substitui</em>.</p>
+<p>Classe de referência de R2: <strong>o carro autônomo</strong>. Da demonstração pública (DARPA, 2005-2007) ao serviço comercial restrito (por volta de 2020) foram treze a quinze anos, e em 2026 ainda não é maioria em lugar nenhum — e o registro de lesão de motorista de teste por frenagem brusca mostra que a última milha de confiabilidade é a mais cara. É por isso que <code>e8</code> tem prazo curto (2030) e confiança alta: ele é a <em>continuação</em> dessa classe, não a ruptura dela. E é por isso que <code>e9.2</code>, que depende de espaço público reconfigurado, só aparece em 2042.</p>
+<p><strong>R3.</strong> <code>e11</code> — <em>porque menos de 200 demonstrações por trabalhador por dia, em plataforma de US$ 50 a 150 mil, é uma função de produção industrial e não de software: quem quer volume precisa de prédio, turno e gente</em>. <code>e12</code> — <em>porque a alternativa barata à plataforma cara é o humano com sensor vestível ou telefone, a US$ 15/hora</em>. <code>e13</code> (retroação) — <em>porque o custo do dado real empurra para o sintético, mas o sintético herda a lacuna do WorldBench (aparência certa, parâmetro errado), a economia só vai até onde a física do gerador aguenta</em>. <code>e14</code> — <em>porque dado que não soma não tem valor de escala, e somar exige formato comum: o LeRobotDataset chegou a 16 mil datasets sendo adotado inclusive por plataformas que ele não integra nativamente</em>.</p>
+<p>Classe de referência de R3: o mercado de anotação de dado (US$ 4,89 bi em 2025 → US$ 17,1 bi em 2030, cerca de 3,5× em cinco anos) e a densidade de robô industrial, que a IFR mede como tendo <strong>dobrado em sete anos</strong> globalmente. Sete anos para dobrar é o ritmo de difusão de corpo físico em chão de fábrica — e é a razão de <code>e11.1</code> (Brasil vendendo hora de teleoperação) estar em 2036 e não em 2030: partindo de 18 robôs por 10 mil trabalhadores, dois ciclos de duplicação ainda deixam o país abaixo da média global de hoje.</p>
+<h3 id="cobertura-steep-e-quem-perde">Cobertura STEEP e quem perde</h3>
+<p><strong>Social</strong>: e10 (perda do ofício de parametrização), e12 (corpo como sensor pago), e8.1 (teleoperador global). <strong>Tecnológico</strong>: e1, e13, e14, e4. <strong>Econômico</strong>: e7 (inversão de margem), e11, e5. <strong>Político</strong>: e3, e11.2, e12.1. <strong>Ecológico</strong>: fica <strong>fino, e declaro</strong>: só e4 carrega a dimensão, pela via do custo de GPU por hora de mundo. Não forcei um efeito ambiental: não achei, nesta rodada, fonte aberta que sustentasse cadeia causal específica entre IA física e consumo material ou energético que não servisse igualmente a qualquer outro tema de IA — e efeito que serve a qualquer tema é o genérico que a skill proíbe.</p>
+<p><strong>Quem perde</strong>, explicitamente: o programador de trajetória e o técnico de célula (e10); o operador cujo saber é capturado sem contrapartida (e10.1); o estúdio que faz mundo bonito e não transferível (e2.2); o fabricante de corpo que não tem política (e7); o país que compra robô mas não tem corpus nem política (e11.2.1); e o morador cujo ambiente doméstico vira ativo de terceiro (e5.2).</p>
+<h3 id="cruzamentos">Cruzamentos</h3>
+<p><strong>Convergência — o achado do mapa.</strong> Dois ramos de raízes diferentes chegam ao mesmo ponto: <code>e1.2</code> (casa de mídia generativa vendendo modelo para robótica) vem da R1, e <code>e13</code> (pressão econômica por dado sintético) vem da R3. O encontro já tem endereço em 2026: a Cosmos Coalition anunciada com o Cosmos 3 põe <strong>Runway, Black Forest Labs e LTX</strong> — três casas de mídia — na mesma mesa que <strong>Skild AI e Agile Robots</strong>; e a Odyssey oferece o mesmo modelo para braço robótico, para veículo, para dron e para jogar videogame. Para o público deste mapa, essa é a notícia: não é que a robótica vá precisar de gente de mídia por simpatia; é que a economia do dado empurra a robótica para dentro da ferramenta de mídia, porque gerar é mais barato que coletar. O efeito de terceira ordem correspondente (<code>e1.2.1</code>) é a dissolução institucional da fronteira entre as duas indústrias.</p>
+<p><strong>Retroalimentação — um ciclo que se freia sozinho.</strong> <code>e13</code> reforça <code>e1</code> (mais demanda por modelo de mundo) e <code>e1</code> reforça <code>e13</code> (modelo melhor, mais economia de dado real). Mas o ciclo tem um freio embutido: quanto mais treino sintético, menos cobertura de contato raro; quanto menos cobertura de raro, pior o gerador justamente nos casos que importam para a segurança — e volta a exigir dado real caro. <strong>O ciclo não explode: ele oscila em torno de uma proporção</strong>, e é essa proporção que <code>e13.2</code> transforma em número de ficha técnica. Há também um ciclo de reforço puro, que o mapa registra sem resolver: SIMA 2 melhora dentro de Genie 3 e sua experiência treina a versão seguinte — auto-melhoria em ambiente gerado, cujo limite ninguém mediu ainda.</p>
+<p><strong>Contradição — não resolvo, registro.</strong> <code>e7</code> diz que o corpo vira commodity e a margem migra para a política. <code>e7.1</code> e <code>e11.2.1</code> dizem que o fabricante fecha o corpo e que os modelos se fragmentam por bloco geopolítico. As duas coisas não podem valer plenamente juntas: corpo fechado e política regionalizada recriam exatamente a diferenciação por hardware que <code>e7</code> dissolve. <strong>O que decide entre elas</strong>: se um formato aberto de dado e uma camada aberta de política (a linhagem LeRobot/Cosmos aberto) atingirem massa crítica <strong>antes</strong> de os fabricantes fecharem o corpo. É uma corrida com data, não um dilema filosófico — e o sinal para acompanhar é se o Cosmos continua aberto na versão 4 ou 5.</p>
+<p><strong>Contradição menor.</strong> <code>e2</code> (mundo medido por transferência) e <code>e2.2.1</code> (mundo bonito e mundo útil em linhas separadas) apontam para desfechos opostos: no primeiro o critério da máquina invade o ofício, no segundo os dois ofícios se separam e cada um fica em paz. Decide entre eles o custo de manter duas linhas de produção — se a geração de mundo ficar barata, separar sai barato e a convivência vence; se continuar cara, o critério único vence.</p>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<p><strong>1. Mundo vendido por hora de usuário.</strong> A Odyssey publica US$ 1-2 por hora de usuário para manter um mundo gerado rodando (fonte 15). É o primeiro preço unitário público de um bem que antes não tinha unidade — mundo se vendia por licença ou por asset, nunca por hora. <em>O que mudaria</em>: se a hora de mundo ficar mais barata que manter uma equipe de build de motor, a economia inteira do level design muda de base. <em>Sinal observável de crescimento</em>: um estúdio de médio porte publicando que substituiu pipeline de cenário por assinatura de mundo gerado — ou o preço por hora caindo abaixo de US$ 0,20.</p>
+<p><strong>2. O benchmark de física virando objeto de disputa.</strong> Em 2026 já existe literatura que <strong>audita o próprio benchmark</strong> — trabalho que reexamina o Physics-IQ e discute ambiguidade de prompt, ativação espúria de verdade-base e artefato de agregação como fontes de erro que se propagam para decisões de desenvolvimento. <em>O que mudaria</em>: quando a régua vira contrato, quem escreve a régua escreve o mercado (<code>e13.1</code>). <em>Sinal observável</em>: o primeiro contrato comercial ou edital público que cite um escore de física como requisito. <strong>Registro de honestidade</strong>: esse artigo não abriu para mim nesta rodada (ver seção 8); o sinal fraco está aqui pela existência do trabalho, não pelo seu conteúdo.</p>
+<p><strong>3. Casas de mídia e casas de robótica na mesma coalizão.</strong> Runway, Black Forest Labs e LTX ao lado de Skild AI e Agile Robots na Cosmos Coalition (fonte 1). <em>O que mudaria</em>: confirma a convergência da seção 5. <em>Sinal observável</em>: a primeira contratação cruzada com contrato público — um estúdio de vídeo contratado por montadora para produzir ambiente de treino, ou uma casa de robótica vendendo modelo de mundo para entretenimento.</p>
+<p><strong>4. Formato aberto adotado por quem ele não integra.</strong> O relato do LeRobot registra que o maior número de downloads <strong>não</strong> é de uma plataforma nativamente integrada — o formato está sendo adotado por fora (fonte 9). É assim que formato vira padrão: quando quem não foi convidado usa. <em>Sinal observável</em>: o formato aparecer como exigência em edital de compra pública ou em especificação de fornecedor industrial.</p>
+<p><strong>5. Seguro específico de humanoide.</strong> O primeiro produto de seguro desenhado só para humanoide surgiu na China em 2025, combinando patrimonial e responsabilidade civil de terceiro (fonte 10). <em>O que mudaria</em>: seguradora é o ator que consegue exigir evidência antes de a norma existir. <em>Sinal observável</em>: a primeira apólice que exija log do ambiente de treino — é o gatilho direto de <code>e3.1</code>.</p>
+<p><strong>6. O corpo humano machucado pela política, sem colisão.</strong> Mais de duas dezenas de lesões de motoristas de teste de robotáxi em 2024-2025, por frenagem brusca e manobra automática — torção, distensão, chicote — e não por batida. <em>O que mudaria</em>: mostra que a categoria de dano da IA física não é a que a norma de máquina prevê. <em>Sinal observável</em>: o primeiro registro ocupacional de lesão causada por humanoide em chão de fábrica — que, pelo atraso habitual dos sistemas de registro, aparecerá cerca de um ano depois de acontecer. <strong>Registro de honestidade</strong>: a reportagem que traz esses números não abriu para mim (HTTP 403); o dado veio do resumo de busca e está aqui como sinal, não como fonte — por isso não consta da seção 11.</p>
+<h3 id="wildcards">Wildcards</h3>
+<p><strong>W1 — O recall de um ambiente.</strong> <em>Mecanismo</em>: um acidente com robô cuja investigação localiza a causa não no robô nem na política, mas no modelo de mundo em que ela treinou — uma classe de contato sistematicamente mal gerada (o caso do WorldBench: trajetória certa, aceleração errada). A autoridade determina a retirada de circulação não da máquina, mas do <strong>ambiente</strong>, e de todas as políticas dele derivadas. <em>Por que é improvável</em>: exige rastreabilidade que hoje não existe — mundo gerado não é arquivo versionado, e reproduzir a semente exata de uma sessão de treino é problema em aberto. <em>O que faria com o mapa</em>: <code>e3</code>, <code>e3.1</code> e <code>e3.2</code> saltariam de fraco para forte em um ano, e <code>e1.1</code> (mundo certificado) deixaria de ser mercado e viraria obrigação. <em>Sinal precoce</em>: qualquer exigência regulatória de <strong>registro reprodutível de treino</strong> — semente, versão, trajetórias — antes de haver acidente.</p>
+<p><strong>W2 — O mundo cai para zero.</strong> <em>Mecanismo</em>: um modelo de mundo aberto com fidelidade física suficiente e custo de inferência baixo o bastante para rodar em GPU de consumidor — por liberação deliberada ou por vazamento. O preço da hora de mundo vai a quase zero. <em>Por que é improvável</em>: a fidelidade física ainda não existe em modelo nenhum, aberto ou fechado, e o custo de inferência autoregressiva em tempo real não caiu na ordem de grandeza necessária. <em>O que faria com o mapa</em>: mata <code>e1</code> e <code>e5</code> (não há o que vender), acelera <code>e2</code> e <code>e7.2</code> em cerca de cinco anos, e transforma <code>e13</code> de retroação em aceleração — o dado real ficaria restrito ao caso raro e à certificação. <em>Sinal precoce</em>: um modelo de mundo aberto liderando o WorldBench, não só o Physics-IQ entre abertos.</p>
+<p><strong>W3 — Moratória.</strong> <em>Mecanismo</em>: um caso de grande repercussão envolvendo humanoide em espaço público — dano a criança, ou falha em massa por política compartilhada (<code>e6.2.1</code>) — leva uma jurisdição grande a suspender operação de robô com estabilidade ativamente controlada em ambiente não segregado. <em>Por que é improvável</em>: a base instalada em espaço público ainda é pequena demais para gerar o caso, e o precedente existente em veículo autônomo foi suspensão de empresa, não de categoria. <em>O que faria com o mapa</em>: <code>e9.2</code>, <code>e8.1.1</code> e todo o ramo urbano saem da janela; a IA física fica confinada a ambiente controlado, e a R1 sobrevive intacta — porque mundo gerado não depende de o robô sair à rua. <em>Sinal precoce</em>: a primeira audiência legislativa municipal sobre circulação de robô com pernas, em qualquer cidade grande.</p>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="pre-mortem-e-2056-e-este-mapa-se-mostrou-errado">Pré-mortem — é 2056 e este mapa se mostrou errado</h3>
+<p><strong>Razão 1: o modelo de mundo nunca atingiu consistência física de parâmetro, e ficou em entretenimento e pré-visualização.</strong> É o desfecho mais provável entre os de fracasso, porque é o que a única evidência experimental que abri já indica: o WorldBench conclui que <em>nenhum</em> modelo testado tem a consistência necessária para interação confiável, e a distinção entre gerar quadro plausível e sustentar contrafactual é justamente o que o levantamento de julho/2026 aponta como não resolvido. Se isso persistir, <code>e1.1</code> (mundo certificado) e <code>e3</code> (auditoria do mundo de treino) não acontecem, e a R1 vira um capítulo de mídia, não de robótica. <em>Ação tomada</em>: <code>e1.1</code> fica em confiança media e prazo 2038, não antes; toda a terceira ordem da R1 permanece em baixa.</p>
+<p><strong>Razão 2: a IA física ficou presa na última milha, como o carro autônomo.</strong> Em 2026 o registro verificável é de dezenas de instalações e dezenas de milhares de horas, não de milhões de corpos — e a classe de referência diz que treze a quinze anos depois da demonstração o carro autônomo ainda não é maioria em lugar nenhum. Se a curva da IA física repetir essa, em 2056 teremos centenas de milhares de corpos, não dezenas de milhões, e os ramos econômicos da R3 encolhem por falta de demanda. <em>Ação tomada</em>: é exatamente por isso que <code>e8</code> (o humano permanece no circuito) tem confiança <strong>alta</strong> e prazo curto — ele é o efeito que sobrevive a este cenário.</p>
+<p><strong>Razão 3: o gargalo não era dado nem mundo — era atuador, bateria e cadeia de suprimento.</strong> Este mapa é sobre software, dado e ambiente. Se o limite real for material — densidade de energia, ímã, redutor, mão com tato durável —, o mapa erra o objeto inteiro, não um efeito. <em>Ação tomada</em>: não consegui, nesta rodada, fonte aberta que sustentasse cadeia causal específica sobre cadeia de suprimento física; registro a lacuna aqui e na seção 12 em vez de inventar efeito.</p>
+<h3 id="extrapolacao-linear">Extrapolação linear</h3>
+<p><code>e7.2</code> (o preço de entrada cai a ponto de laboratório e estúdio pequeno rodarem robô real) é "mais do mesmo, maior": braços a €225 já existem no LeRobot em 2026. Pela regra do §6.2 ele precisava ganhar mecanismo de não-linearidade ou perder uma ordem. <strong>O mecanismo não-linear que o salva</strong>: o braço barato sozinho não faz nada — o que muda o patamar é a política transferível chegar junto, e isso é degrau, não rampa: antes dela o braço é brinquedo, depois dela é ferramenta. Mantido, com essa dependência explícita de <code>e7</code>.</p>
+<p><code>e11</code> (fábrica de dado como infraestrutura estratégica) também era extrapolação de um levantamento único, com leitura geopolítica interessada. Rebaixado — ver registro de alterações.</p>
+<h3 id="velocidade-de-adocao">Velocidade de adoção</h3>
+<p>Confrontei cada prazo de efeito com sinal fraco contra as classes de referência declaradas na seção 5. Dois não passaram:</p>
+<ul><li><code>e2</code> exigia nove anos entre um <em>research preview</em> de mundo gerado e a reorganização do ofício de desenhar mundo. A classe de referência — motor de terceiro virando padrão de simulação industrial — levou cerca de duas décadas. <strong>Empurrado de 2035 para 2038</strong>, e ainda assim é otimista: 2038 são treze anos desde o Genie 3.</li><li><code>e6</code> exigia que o integrador trocasse de ofício em seis anos, enquanto <code>e8</code> (do mesmo mapa) diz que a venda de autonomia trava. As duas coisas não cabem juntas no mesmo prazo. <strong>Empurrado de 2032 para 2034.</strong></li></ul>
+<p>Os prazos de terceira ordem ficaram entre 2042 e 2052, todos dentro do horizonte de 2056. Isso é deliberado e merece declaração: <strong>não empurrei efeito para 2054-2056 só para preencher a janela</strong>. Um horizonte de trinta anos convida a inventar futuro distante; a disciplina aqui foi o contrário — se não consigo escrever o mecanismo, o efeito não entra, e o que sobra cabe em 2050. A segunda metade da janela deste mapa é período de consolidação do que já foi nomeado, não de novidade.</p>
+<h3 id="conferencia-de-teto-a-janela-final-ficou-vazia-e-isso-e-declarado">Conferência de teto — a janela final ficou vazia, e isso é declarado</h3>
+<p>Obrigatória em rodada de horizonte longo por <strong>TMI-0080</strong>, com o gatilho corrigido por <strong>TMI-0086</strong> (densidade da faixa <code>[horizonte-2, horizonte]</code>, não o contador do verificador). Os números desta rodada, medidos e não estimados:</p>
+<ul><li>Efeitos terminais (sem filhos): <strong>25</strong>.</li><li>Na faixa <code>[2054, 2056]</code>: <strong>zero</strong> — nenhum prazo terminal encosta no teto.</li><li>Contador do verificador <code>prazo &gt; horizonte em ordem 3</code>: <strong>zero</strong>.</li><li>Prazo terminal mais tardio: <strong>2052</strong> (<code>e5.1.1</code>, <code>e9.1.1</code>, <code>e14.1.1</code>).</li><li>Distribuição por década: 20 terminais nos anos 2040, 5 nos anos 2050.</li></ul>
+<p>Ou seja: <strong>não houve compressão contra o teto</strong> — não há o que re-derivar, porque nada foi empurrado para o ano do horizonte. O que há é o caso oposto, previsto por <strong>TMI-0085</strong>: a cadeia de classes de referência <strong>se esgota antes do horizonte</strong>, e os últimos quatro anos da janela ficam vazios. A razão é verificável nas próprias referências usadas na seção 5 — carro autônomo (treze a quinze anos de demo a serviço restrito), motor de terceiro virando padrão industrial (cerca de vinte anos), duplicação da densidade de robô (sete anos), ISO (18 a 36 meses). Nenhuma delas mede trinta anos. Encadeadas em três ordens a partir de 2025-2026, elas terminam por volta de 2050, e é ali que o mapa termina.</p>
+<p>Conforme TMI-0085, <strong>deixo a janela final vazia e declaro o esgotamento</strong>, em vez de esticar efeitos para cobrir o horizonte que o briefing pediu. O parágrafo da seção 2 que diz "não empurrei efeito para 2054-2056 só para preencher o calendário" está correto, mas era formulação de intenção; esta subseção é a verificação que a torna auditável — e o enquadramento certo não é "escolhi não preencher", é "<strong>a cadeia de referências acabou em 2052 e eu não tenho referência para o que vem depois</strong>".</p>
+<p><em>Consequência honesta</em>: este é um mapa de 2056 que descreve até cerca de 2052. Os quatro anos finais não estão vazios por modéstia, e sim porque eu não sei datá-los — e um efeito datado sem referência seria chute com aparência de método.</p>
+<h3 id="a-raiz-que-nao-acontece">A raiz que não acontece</h3>
+<ul><li><strong>Sem R1</strong> (mundo continua sendo escrito): sobram R2 e R3 quase inteiras. A IA física continua, treinada em Isaac e MuJoCo, e o que se perde é o ramo de certificação de mundo e a convergência com mídia. Perde-se cerca de um terço do mapa — o terço que mais interessa ao público deste documento.</li><li><strong>Sem R2</strong> (a política não generaliza entre corpos): a R1 vira mídia pura e a R3 perde o comprador do dado. O mapa colapsa: sem transferência, cada corpo volta a ser um projeto, e nada do que está aqui vale. <strong>R2 é a raiz de que as outras dependem</strong> — declaro isso em vez de fingir três pilares independentes.</li><li><strong>Sem R3</strong> (o dado deixa de ser escasso, por exemplo porque vídeo humano passa a bastar): a R1 ganha força (sintético vira o caminho) e some todo o ramo geopolítico e trabalhista. É a perda mais concentrada e a mais fácil de detectar: bastaria um modelo treinado só em vídeo de internet alcançar política treinada em demonstração.</li></ul>
+<p>Portanto o mapa <strong>não</strong> tem três raízes de peso igual. Tem uma raiz condicionante (R2) e duas que descrevem, respectivamente, de onde vem o ambiente (R1) e de onde vem o dado (R3). Registro a assimetria em vez de maquiá-la com simetria de apresentação.</p>
+<h3 id="suposicoes-escondidas">Suposições escondidas</h3>
+<ol><li><strong>Energia e GPU continuam disponíveis e com preço decrescente.</strong> Todo o custo de <code>e4</code> e de <code>e1</code> supõe isso. Se o preço de computação subir, <code>e4</code> (retroação) vence e a R1 estaciona.</li><li><strong>O Cosmos continua aberto.</strong> Metade do argumento de difusão da R1 depende de haver um modelo de mundo de fronteira publicado no Hugging Face. Abertura é decisão comercial reversível, e já foi revertida em outros mercados. Se fechar, <code>e1</code> e <code>e13</code> viram dependência de um fornecedor — e isso é wildcard novo que não escrevi na seção 6.</li><li><strong>A cadeia física de atuador e bateria não é o gargalo</strong> (ver pré-mortem 3).</li><li><strong>O regime jurídico do vídeo de treino permanece permissivo.</strong> Se o vídeo do mundo real passar a exigir licença como obra, <code>e5</code> deixa de ser oportunidade e vira barreira, e o custo do mundo gerado sobe.</li><li><strong>A régua da disciplina é a régua certa.</strong> Excluir o que já é comum em produto de massa é premissa metodológica, não verdade: pode ser que a mudança relevante até 2056 venha justamente da difusão em massa do que já existe — aspirador, drone agrícola, carro com assistência — e não da fronteira. O Brasil, com 45 mil drones agrícolas e 18 robôs por 10 mil trabalhadores, é o caso que mais desafia essa premissa.</li></ol>
+<h3 id="vies-do-autor">Viés do autor</h3>
+<p>Dois, nomeados. <strong>Primeiro</strong>: o efeito <code>e2</code> — "desenhar mundo vira desenhar currículo de treino" — é o efeito que eu queria que existisse, porque é o que torna este tema interessante para uma disciplina de mídia e interação. Ele tem sinal <strong>fraco</strong>, e é fraco mesmo: não encontrei um único estúdio que já seja remunerado por transferência. Está no mapa com prazo empurrado e confiança media, e um leitor cético deveria começar por ele. <strong>Segundo</strong>: escolhi três raízes que são todas de software e dado, e nenhuma de material. Isso é conforto de quem lê arXiv e press release, não resultado de análise — está declarado no pré-mortem 3.</p>
+<h3 id="calibracao">Calibração</h3>
+<p>Ordem 1: alta 3, media 11, baixa 0. Ordem 2: alta 0, media 15, baixa 10. Ordem 3: alta 0, media 0, baixa 23. A distribuição cai com a ordem, como deve. As três confianças altas de primeira ordem são <code>e4</code>, <code>e8</code> e <code>e13</code> — e as três são <strong>retroações ou limites</strong>, não acelerações. Isso não é acaso: o que dá para afirmar com confiança sobre um futuro de trinta anos é quase sempre o que o freia.</p>
+<h3 id="registro-de-alteracoes-antes-depois">Registro de alterações — antes → depois</h3>
+<ul><li><code>e2</code>: prazo <strong>2035 → 2038</strong>, porque a classe de referência (motor de terceiro virando padrão de simulação industrial) levou cerca de vinte anos, e 2035 assumia nove.</li><li><code>e6</code>: prazo <strong>2032 → 2034</strong>, porque contradizia o prazo de <code>e8</code> no mesmo mapa.</li><li><code>e11</code>: confiança <strong>alta → media</strong>, porque a alegação de infraestrutura estratégica se apoia num único levantamento de think tank com leitura geopolítica declaradamente interessada (fonte 5), e eu não encontrei confirmação independente dos números de capacidade dos centros chineses.</li><li><code>e12</code>: prazo <strong>2032 → 2034</strong>, alinhado ao rebaixamento de <code>e11</code> — sem fábrica de dado em escala, a captura de gesto cotidiano não vira mercado de trabalho.</li><li><code>e5.2.1</code> (<em>recusar a captura do próprio ambiente passa a ter preço na fatura</em>): <strong>removido</strong>, vai para a seção 12. Falha no teste da causa solta (§3.10): isso aconteceria igual por qualquer economia de dado doméstico, sem nenhuma relação com IA física.</li><li><code>e9.2.1</code> (<em>cidade com duas camadas de legibilidade vira pauta de acessibilidade</em>): <strong>removido</strong>, vai para a seção 12. Mesma falha: a cidade já ganha camada legível por máquina por logística e veículo autônomo; não deriva desta raiz.</li></ul>
+<p>Cota da skill cumprida: pelo menos um rebaixamento ou remoção por raiz — R1 (<code>e2</code> + remoção de <code>e5.2.1</code>), R2 (<code>e6</code> + remoção de <code>e9.2.1</code>), R3 (<code>e11</code> + <code>e12</code>).</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<p>Eu sou a máquina. Sobre esta rodada, especificamente:</p>
+<p><strong>1. Quase usei um número que a fonte seguinte desmentiu.</strong> Uma busca devolveu "a Tesla implantou mais de 1.000 unidades do Optimus Gen 3 em suas fábricas a partir de janeiro de 2026", com capacidade declarada de ~100 mil em 2026. Na mesma rodada, a fonte 4 — que abri — registra que a Tesla <strong>nunca publicou contagem de produção</strong>, que a produção em Fremont não havia começado em meados de julho de 2026, e que a alegação de mais de mil Optimus em linha de produção não vem da empresa. Se eu tivesse parado na primeira busca, o mapa teria uma âncora falsa exatamente no ponto mais citado do tema. Não usei nenhum dos dois números como fato.</p>
+<p><strong>2. Atribuí a um artigo um limiar que ele não tem.</strong> O resumo de busca dizia que o WorldBench encontrou "degradação acentuada do mIoU de primeiro plano após 5-9 quadros de predição autoregressiva". Ao abrir o artigo (arXiv 2601.21282), esse limiar <strong>não está lá</strong> — o que está é a formulação qualitativa sobre aparência realista com parâmetro físico errado. Um número com aparência de precisão quase entrou no mapa por empréstimo de um resumo. Cito só o que o artigo diz.</p>
+<p><strong>3. Um número central do tema não foi verificado, e está marcado como tal.</strong> A taxa de "12,8% de sucesso da melhor política em 18 tarefas reais, contra 100% de teleoperação humana" apareceu em resumo de busca atribuída ao RoboDojo. O PDF não abriu (excedeu o limite de tamanho da ferramenta) e o resumo que abri (arXiv 2607.04434) não contém esses valores. <strong>Não usei o número em lugar nenhum do mapa</strong>, nem como justificativa de prazo. O argumento de <code>e8</code> se apoia só no que o resumo sustenta: que o benchmark existe, tem 42 tarefas simuladas e 18 reais, e foi construído para expor política generalista a condição de campo. Um mapa que dependesse daquele 12,8% estaria errado.</p>
+<p><strong>4. Duas páginas relevantes não abriram, e a ausência mudou o texto.</strong> A reportagem sobre lesões de motoristas de teste de robotáxi e a página que compila implantações de humanoides devolveram HTTP 403; o artigo "Physics-IQ Verified" excedeu o limite de tamanho. As três aparecem no mapa apenas como <strong>sinal fraco com ressalva declarada</strong>, e nenhuma entra na seção 11. A tentação era citá-las pelo resumo de busca; é exatamente a forma de erro que a seção 11 da disciplina existe para impedir.</p>
+<p><strong>5. Errei a data do Genie 3 no primeiro rascunho.</strong> Tratei-o como lançamento de 2026, porque a matéria que apareceu na busca era de junho de 2026. Ao abrir o blog da DeepMind, a data é <strong>05/08/2025</strong>. Isso importa: com 2026, <code>e2</code> em 2035 pareceria nove anos de folga; com 2025, são dez — e ainda assim empurrei para 2038. Uma data errada teria distorcido meia dúzia de prazos.</p>
+<p><strong>6. Duas fontes discordam de um número e eu não tenho como arbitrar.</strong> A IFR (fonte 12) dá média global de 132 robôs por 10 mil empregados; o levantamento brasileiro (fonte 13) fala em 151 ao comparar com o Brasil. Podem ser anos-base ou denominadores diferentes. Registrei as duas em vez de escolher a que sustentasse melhor o argumento — que seria a maior.</p>
+<p><strong>7. Onde o mecanismo é fraco e eu mantive mesmo assim.</strong> <code>e9.2</code> (espaço construído com sinalização legível por máquina, negociada como mobiliário urbano) é plausível e tem mecanismo, mas o mecanismo é de analogia — "como aconteceu com acessibilidade e com sinalização viária" —, não de evidência. Está com sinal fraco, confiança baixa e prazo 2042, e é o candidato mais provável a ser cortado por um revisor.</p>
+<h2 id="9-tres-cenarios-para-2056">9. Três cenários para 2056</h2>
+<p><strong>Provável — o mundo gerado é ferramenta, não lugar.</strong> Em 2056, o modelo de mundo é o que foi o motor de física: infraestrutura invisível, usada para produzir variedade de treino e pré-visualização, e cercada por uma camada determinística que é a que assina o laudo. Robôs com corpo estão em ambiente produtivo em número grande mas não universal — logística, montagem, agricultura, inspeção —, quase sempre com um humano remoto no circuito, em turno global, pago por hora e medido por intervenções. Quem projeta mídia e interação trabalha nos dois lados da mesma ferramenta sem que isso seja notícia: o mesmo modelo que gera o comercial gera o cenário de treino, e a diferença está no briefing, não na tecnologia. O ofício se partiu em duas linhas — uma para o olho humano, outra para a transferência medida — e a segunda paga melhor. A cidade mudou pouco; a fábrica mudou muito. <em>Sinal precoce de que estamos entrando neste cenário</em>: a arquitetura híbrida (<code>e4.1</code>) virar a configuração padrão dos toolkits, e não um arranjo de quem tem dinheiro.</p>
+<p><strong>Desejável — o corpo com dono, o mundo com registro.</strong> Em 2056 existe um acervo comum de demonstração corporificada, mantido como bem de infraestrutura, alimentado por quem trabalha e remunerado por isso — o gesto é dado da pessoa, tem base legal e tem preço. Todo ambiente de treino que sustenta certificação é reproduzível: semente, versão, trajetórias, disponíveis para investigação independente. O corpo é aberto o bastante para ser consertado, e a política é auditável o bastante para ser contestada. O Brasil não exporta só hora de teleoperação: exporta ambiente — o Cerrado, o canavial mecanizado, a cidade densa, o galpão sem clima controlado são mundos que ninguém mais tem, e são licenciados por quem vive neles. <em>O que teria de ser feito para chegar lá</em>: transformar o registro reprodutível de treino em exigência antes do primeiro acidente grave, e tratar o corpus comum como política pública e não como cortesia de plataforma — as duas coisas são decisões dos próximos dez anos, não de 2050. <em>Sinal precoce</em>: a primeira norma que exija semente e versão do ambiente de treino, sem que tenha havido acidente para motivá-la.</p>
+<p><strong>Indesejável — mundo alugado, gesto capturado, ninguém responsável.</strong> Em 2056 o ambiente de treino é serviço de três fornecedores, o corpo é fechado, a política é regionalizada por bloco e o robô importado chega sem o que o faz funcionar. O gesto humano foi capturado em escala por quem tinha câmera em casa e no trabalho, sem contrapartida e sem regime jurídico claro. Quando algo dá errado, a cadeia de responsabilidade se dissolve entre quem fez o corpo, quem treinou a política, quem gerou o mundo e quem operava remotamente — e, na prática, responde o operador humano na ponta, que é quem tem nome e CPF. A régua do que conta como "física correta" é um comitê privado. Quem projeta mundo virou fornecedor de dado para três compradores. <em>Sinal precoce deste cenário</em>: o momento em que um contrato de integração passar a incluir cláusula de propriedade do dado <strong>em favor do fornecedor por padrão</strong> (<code>e6.1</code> resolvido para um lado só), e ninguém achar isso estranho.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> Uma bancada de transferência chamada <em>O mesmo lugar, dois públicos</em>. Monta-se <strong>um cenário em duas versões</strong>: (a) escrito à mão num simulador determinístico leve — o <code>MetaDrive</code>, que foi a escolha número 1 de desenvolvimento da turma, ou o <code>habitat-sim</code> para navegação em interiores; (b) gerado por modelo de mundo, a partir de descrição em texto, com as ferramentas que estiverem acessíveis (preview de modelo de mundo, ou geração de variação visual sobre a cena determinística quando o acesso direto não existir). Treina-se a <strong>mesma política</strong> nas duas versões, com o mesmo orçamento de passos, e avalia-se as duas <strong>num terceiro cenário que nenhuma das duas viu</strong>. Em paralelo, a turma avalia os dois mundos como mundos: qual é mais agradável, mais legível, mais interessante de percorrer.</p>
+<p><strong>Que pergunta sobre o futuro ele responde.</strong> A pergunta de <code>e2</code>, que é a pergunta central deste mapa para quem projeta mídia e interação: <strong>o mundo que agrada ao humano é o mundo que treina bem a máquina?</strong> Se as duas medidas andarem juntas, o ofício de desenhar mundo continua sendo um só, e quem tem bom olho tem valor novo. Se andarem separadas — ou se forem opostas —, o ofício se parte, e o mapa está certo ao prever duas linhas de produção (<code>e2.2.1</code>).</p>
+<p><strong>Que tecnologia emergente usa, e por que não dá com a madura.</strong> Usa modelo de mundo gerativo condicionado à ação e política de aprendizado por imitação ou reforço sobre biblioteca aberta (linhagem LeRobot). <strong>Não dá com tecnologia madura</strong> por uma razão precisa: com simulador determinístico só, a única coisa que se pode variar é o que alguém escreveu — a variedade é inventário, e o experimento viraria um teste de randomização de domínio, que já se sabe fazer desde 2017. A pergunta exige uma fonte de variedade que <strong>ninguém desenhou item a item</strong>, e é isso que o modelo de mundo traz de novo. O segundo requisito emergente é a política transferível: sem ela, cada cenário exigiria um controlador próprio e não haveria "mesma política" para comparar.</p>
+<p><strong>O que a turma faz quando testar em sala.</strong> Três rodadas de vinte minutos. (1) Cada pessoa percorre os dois mundos sem saber qual é qual e responde três perguntas — qual é mais coerente, qual é mais interessante, em qual erraria menos. (2) Assiste às curvas de aprendizado lado a lado e aposta, antes de ver o resultado final, em qual mundo produziu a política melhor. (3) Discute os casos em que a aposta errou — que é onde está o conteúdo da aula, porque errar a aposta é a evidência direta de que os dois públicos julgam mundo por critérios diferentes. O material de avaliação (apostas registradas antes do resultado) vira dado da própria turma.</p>
+<p><strong>O resultado que me faria mudar de ideia.</strong> Se o juízo estético humano e a transferência medida tiverem <strong>correlação forte e positiva</strong> — mundo que a turma acha melhor é consistentemente o que treina melhor —, então <code>e2</code>, <code>e2.2</code> e <code>e2.2.1</code> caem, e com eles a tese de que o ofício se parte. O mapa passaria a dizer o contrário: que desenhar bem para humano é desenhar bem para máquina, e que a chegada da IA física <strong>valoriza</strong> o ofício existente em vez de reorganizá-lo. Esse resultado é plausível o bastante para que o experimento valha a pena, e é por isso que ele é experimento e não demonstração.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Quinze páginas efetivamente abertas e lidas em 22/09/2026. O que não abriu está na seção 12.</p>
+<ol><li>NVIDIA — <em>NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI</em> (31/05/2026). <a href="https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai">https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai</a> Sustenta: existência e data do Cosmos 3, natureza de omnimodelo com ação, distribuição aberta, alegação de redução de ciclo, e a composição da Cosmos Coalition (Runway, Black Forest Labs, LTX, Skild AI, Agile Robots, Generalist) — base da convergência da seção 5. Confiabilidade: é comunicado do fabricante; as alegações de desempenho são autodeclaradas e foram tratadas como alegação, não como medida. A composição da coalizão é fato verificável.</li></ol>
+<ol><li>Google DeepMind — <em>SIMA 2: an agent that plays, reasons and learns with you in virtual 3D worlds</em> (13/11/2025). <a href="https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/">https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/</a> Sustenta: agente generalista operando em mundos gerados pelo Genie 3, auto-melhoria por tentativa e erro, e as limitações declaradas (horizonte longo, memória, controle fino). Confiabilidade: blog de laboratório, com as limitações declaradas pelos próprios autores — o que aumenta a confiança no que afirma e mantém o viés de seleção de resultados.</li></ol>
+<ol><li>Google DeepMind — <em>Genie 3: a new frontier for world models</em> (05/08/2025). <a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/">https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/</a> Sustenta: 720p, 24 fps, coerência de alguns minutos, memória de cerca de um minuto, status de research preview e as limitações (multiagente, geografia real, texto). Confiabilidade: idem — laboratório declarando limitação própria.</li></ol>
+<ol><li>humanoid.guide — <em>Humanoid deployments in 2026 favor Figure and Agility</em>. <a href="https://humanoid.guide/humanoid-deployments-in-2026-favor-figure-and-agility/">https://humanoid.guide/humanoid-deployments-in-2026-favor-figure-and-agility/</a> Sustenta: todos os números de implantação verificada usados na seção 3, e a separação explícita entre dado reportado pela empresa e alegação em circulação. Confiabilidade: publicação especializada cuja metodologia declarada é justamente distinguir o reportado do alegado — é a razão de eu preferi-la a fontes com números maiores.</li></ol>
+<ol><li>Special Competitive Studies Project — <em>ISF Voices 2026: The Robotics Data Gap</em>. <a href="https://scsp222.substack.com/p/isf-voices-2026-the-robotics-data">https://scsp222.substack.com/p/isf-voices-2026-the-robotics-data</a> Sustenta: custo de plataforma de teleoperação, demonstrações por trabalhador, salário do teleoperador, escala dos centros chineses, projeção do mercado de anotação. Confiabilidade: <strong>a mais fraca desta lista, e a única de tese</strong>. É publicação de think tank de política tecnológica, com posição declarada na competição EUA-China. Os números de capacidade dos centros chineses não encontrei confirmados em outro lugar — foi o motivo direto do rebaixamento de <code>e11</code> na seção 7.</li></ol>
+<ol><li>WorldBench: <em>Benchmarking Physical Understanding of World Models by Isolating Physics Concepts</em>, arXiv 2601.21282 (versão de 18/08/2026). <a href="https://arxiv.org/html/2601.21282">https://arxiv.org/html/2601.21282</a> Sustenta: a lacuna entre realismo visual e parâmetro físico; a lista de modelos avaliados (família Cosmos, Wan 2.2, Hunyuan, CogVideoX, Kling 3.0, Runway Gen-4.5, LTX-2.0); a conclusão de que nenhum tem consistência para interação confiável. É a âncora empírica do pré-mortem 1. Confiabilidade: preprint com método declarado e avaliação por conceito isolado; não consta revisão por pares. Alta para o que afirma, moderada como veredito de campo.</li></ol>
+<ol><li><em>A Definition and Roadmap for World Models</em>, arXiv 2607.06401 (08/07/2026). <a href="https://arxiv.org/pdf/2607.06401">https://arxiv.org/pdf/2607.06401</a> Sustenta: a distinção entre geração de vídeo e modelo de mundo (contrafactual, planejamento, controle) e a lista de problemas em aberto. Confiabilidade: preprint de levantamento; serve como definição de referência, não como medida.</li></ol>
+<ol><li><em>RoboDojo: A Unified Sim-and-Real Benchmark for Generalist Robot Manipulation Policies</em>, arXiv 2607.04434. <a href="https://arxiv.org/abs/2607.04434">https://arxiv.org/abs/2607.04434</a> Sustenta: existência do benchmark, 42 tarefas em simulação e 18 reais, as cinco dimensões avaliadas, e a intenção de expor política a condição de campo. <strong>Não</strong> sustenta taxa de sucesso — ver seção 8, item 3. Confiabilidade: resumo de preprint; li o resumo, não o artigo completo (o PDF excedeu o limite da ferramenta), e o mapa não depende de nenhum número interno dele.</li></ol>
+<ol><li><em>LeRobot: An Open-Source Library for End-to-End Robot Learning</em>, arXiv 2602.22818 (26/02/2026). <a href="https://arxiv.org/html/2602.22818v1">https://arxiv.org/html/2602.22818v1</a> Sustenta: 16 mil+ datasets, 2.200+ contribuidores, 1 milhão+ de episódios, 7 milhões+ de downloads, preços dos corpos (SO-100 ~€225, ALOHA ~€21.000), e o fato de o maior volume de download não vir de plataforma nativamente integrada — o sinal fraco 4. Confiabilidade: preprint dos próprios mantenedores; os números de comunidade são autorreportados mas verificáveis na plataforma.</li></ol>
+<ol><li>i-scoop — <em>ISO 25785-1 explained and what it means for humanoid robot safety</em>. <a href="https://www.i-scoop.eu/iso-25785-1-explained-and-what-it-means-for-humanoid-robot-safety/">https://www.i-scoop.eu/iso-25785-1-explained-and-what-it-means-for-humanoid-robot-safety/</a> Sustenta: escopo da norma (estabilidade ativamente controlada), status de rascunho em 2026, estimativa de 18 a 36 meses até ratificação, itens cobertos (queda, perda de energia, força de contato, zoneamento), e a existência do primeiro seguro de humanoide na China em 2025. Confiabilidade: publicação de análise setorial; a estimativa de prazo é de "especialistas da indústria", sem fonte nomeada — tratada como estimativa, e é a base do prazo de <code>e3</code>.</li></ol>
+<ol><li>Pollux — <em>Robôs humanoides na indústria: promessa distante ou próxima fronteira da automação?</em> <a href="https://pollux.com.br/robos-humanoides-na-industria-promessa-distante-ou-proxima-fronteira-da-automacao/">https://pollux.com.br/robos-humanoides-na-industria-promessa-distante-ou-proxima-fronteira-da-automacao/</a> Sustenta: a leitura brasileira do gargalo ("nunca foi a tecnologia: é o custo de capital e a mão de obra qualificada"), a expectativa de chegada alguns anos após a fronteira global, e a percepção de encurtamento de prazo de cinco para três ou quatro anos. Confiabilidade: é integradora de automação falando do próprio mercado — interessada, e por isso usada para <em>leitura de contexto</em>, não para número.</li></ol>
+<ol><li>International Federation of Robotics — <em>Robot Density Surges in Europe, Asia, and Americas</em> (08/04/2026). <a href="https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas">https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas</a> Sustenta: média global de 132 robôs por 10 mil empregados e as densidades por país usadas na seção 3 e na classe de referência de R3. Confiabilidade: a melhor série estatística disponível para robô industrial. Não traz o Brasil neste release, e essa ausência está declarada.</li></ol>
+<ol><li>Robotics Center — <em>State of Robotics Brazil 2026</em>. <a href="https://www.roboticscenter.ai/state-of-robotics-brazil-2026">https://www.roboticscenter.ai/state-of-robotics-brazil-2026</a> Sustenta: 18 robôs por 10 mil trabalhadores no Brasil (350 no automotivo), mercado de R$ 8,2 bi, crescimento de investimento de 52% em 2025, ~45 mil drones agrícolas, mecanização de cana acima de 95% em São Paulo, e os atores nacionais citados. Confiabilidade: levantamento setorial sem metodologia detalhada aberta; discorda da IFR na média global (151 contra 132) — divergência registrada na seção 8. Usado para ordem de grandeza, não para precisão.</li></ol>
+<ol><li>Wikipédia — <em>Gemini Robotics</em>. <a href="https://en.wikipedia.org/wiki/Gemini_Robotics">https://en.wikipedia.org/wiki/Gemini_Robotics</a> Sustenta: a cronologia das versões (12/03/2025 Gemini Robotics e ER; 24/06/2025 On-Device; 30/07/2026 ER 2 com vídeo em tempo real, rastreio de progresso e colaboração multi-robô) e os parceiros de acesso inicial. Confiabilidade: fonte terciária, usada só para datas e nomes, que são o tipo de fato que ela sustenta bem. Nenhuma alegação de desempenho foi tirada daqui.</li></ol>
+<ol><li>Odyssey — <em>Introducing Odyssey-1: a playable world model</em> (28/05/2025). <a href="https://odyssey.systems/introducing-odyssey-1">https://odyssey.systems/introducing-odyssey-1</a> Sustenta: quadro a cada 40 ms, até 30 fps, coerência de cinco minutos ou mais, e o número que mais usei no mapa — <strong>US$ 1-2 por hora de usuário</strong>. Sustenta também o argumento da empresa de treinar em vídeo do mundo real em vez de ambiente de jogo. Confiabilidade: página da própria empresa; o custo é autodeclarado e foi usado como ordem de grandeza (é o único preço unitário público que encontrei), não como referência de mercado.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-saida-do-verificador">12.1 Saída do verificador</h3>
+<p>Comando:</p>
+<pre><code class="lang-">python3 /Volumes/Extra/cosmos/ufpe/Aulas/TendenciasMidiaInteracao/26_2/skill-professor/futurizacao-giordano/references/verificar.py /Volumes/Extra/cosmos/ufpe/Aulas/TendenciasMidiaInteracao/26_2/skill-professor/rodadas/giordano-h2056/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/tendencia-agentes-corporificados-ia-fisica-e-modelos-de-mundo.md --links</code></pre>
+<p>Saída inteira, sem corte:</p>
+<pre><code class="lang-">frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 3 (frontmatter diz 3)
+efeitos ordem 1: 14 (frontmatter diz 14)
+efeitos ordem 2: 25 (frontmatter diz 25)
+efeitos ordem 3: 23 (frontmatter diz 23)
+prazo &gt; horizonte (2056) em ordens 1-2: 0 
+prazo &gt; horizonte em ordem 3 (permitido, mas declare): 0 
+confiança ordem 1: alta 3 · media 11 · baixa 0
+confiança ordem 2: alta 0 · media 15 · baixa 10
+confiança ordem 3: alta 0 · media 0 · baixa 23
+  link não responde: https://www.i-scoop.eu/iso-25785-1-explained-and-what-it-means-for-humanoid-robot-safety/
+links da seção 11: 14/15 respondem (frontmatter diz fontes: 15)
+RESULTADO: 1 problema(s) — corrija antes de entregar</code></pre>
+<p><strong>O único problema apontado, e por que não o "corrigi".</strong> O link da fonte 10 (i-scoop) responde, mas recusa o user-agent do verificador. Conferido na mesma sessão:</p>
+<pre><code class="lang-">curl -o /dev/null -s -w &quot;%{http_code}&quot; -L --max-time 15 -A &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36&quot; &quot;https://www.i-scoop.eu/iso-25785-1-explained-and-what-it-means-for-humanoid-robot-safety/&quot;
+→ 200
+
+python3 -c &quot;import urllib.request; urllib.request.urlopen(urllib.request.Request(&#x27;https://www.i-scoop.eu/...&#x27;, headers={&#x27;User-Agent&#x27;:&#x27;Mozilla/5.0&#x27;}))&quot;
+→ HTTP Error 403: Forbidden</code></pre>
+<p>A página foi aberta e lida nesta rodada. Removê-la da seção 11 deixaria o verificador verde mentindo: a norma ISO 25785-1 sustenta <code>e3</code> e o prazo dele. Mantida, com o 403 declarado aqui. A alternativa — citar a página da própria ISO (<code>iso.org/standard/91469.html</code>) — foi descartada porque <strong>eu não a abri</strong>, e a seção 11 só aceita o que foi aberto. Fica como recomendação para o verificador: enviar user-agent de navegador, já que o filtro é de UA e não de disponibilidade.</p>
+<p>Este tratamento não é escolha desta rodada: é o que manda a decisão em vigor <strong>TMI-0120</strong> (<code>docs/decisoes/0124-verificador-links-falso-negativo-cloudflare.md</code>), tomada em 22/09/2026 na rodada <code>giordano-h2041</code> do mesmo tema 09, sobre exatamente esta URL — manter a fonte, colar a saída do verificador como ela saiu e acrescentar a checagem cruzada no anexo. A decisão vizinha <code>TMI-0115</code> (citar cobertura alternativa) <strong>não</strong> se aplica aqui, porque ela trata do caso em que o <code>curl</code> também reprova; aqui o <code>curl</code> aprova.</p>
+<h3 id="12-2-premissas-assumidas-o-briefing-nao-cobria-tudo">12.2 Premissas assumidas (o briefing não cobria tudo)</h3>
+<p>O bloco <code>briefing:</code> veio completo nos sete itens da entrevista do §0, então <strong>não houve rebaixamento de confiança por ausência de entrevista</strong>. O que o briefing não cobria e eu assumi, declarado aqui e na seção 2:</p>
+<ul><li><strong>Profundidade de fonte</strong>: assumi que "busca na web: true" significa abrir e ler, não citar de resumo. Foi a regra mais cara desta rodada — três páginas relevantes ficaram de fora.</li><li><strong>Nota sobre o Brasil</strong>: o briefing pedia recorte global "com uma nota sobre o Brasil". Escolhi colocá-la onde ela tem mecanismo (<code>e11.1</code>, venda de hora de teleoperação; e os números de densidade e drones agrícolas na seção 3) em vez de num parágrafo separado — uma nota solta seria o tipo de efeito genérico que a skill proíbe.</li><li><strong>Quantas raízes</strong>: o briefing não dizia. Escolhi três, e a seção 7 declara que elas <strong>não</strong> têm peso igual (R2 é condicionante).</li><li><strong>O que "descartado" cobre</strong>: a régua "o que já é comum em produto de massa" foi aplicada literalmente, e foi ela que recusou simulação acelerada por GPU, ROS/SLAM e o humanoide como fator de forma.</li></ul>
+<h3 id="12-3-efeitos-cortados-na-bateria-da-secao-7">12.3 Efeitos cortados na bateria da seção 7</h3>
+<p><strong><code>e5.2.1</code> — "Recusar a captura do próprio ambiente passa a ter preço explícito na fatura do serviço doméstico."</strong> (era ordem 3, sinal fraco, prazo 2050, confiança baixa) Motivo do corte: teste da causa solta (§3.10). Cobrança por não ceder dado doméstico já é prática estabelecida em outros mercados digitais e aconteceria igual sem nenhuma relação com IA física ou modelo de mundo. Não deriva desta raiz.</p>
+<p><strong><code>e9.2.1</code> — "A cidade passa a ter duas camadas de legibilidade, e o conflito entre elas vira pauta de acessibilidade."</strong> (era ordem 3, sinal fraco, prazo 2050, confiança baixa) Motivo do corte: mesma falha. A cidade já está ganhando camada legível por máquina por causa de logística, veículo autônomo e pagamento — remover a raiz "agente corporificado" não muda nada no enunciado.</p>
+<h3 id="12-4-efeitos-que-nao-chegaram-ao-bloco-roda">12.4 Efeitos que não chegaram ao bloco <code>roda:</code></h3>
+<p>Escritos no rascunho e descartados antes da versão final, com o motivo:</p>
+<ul><li><em>"Cursos de design de jogos reorganizam o currículo em torno de treino de agente."</em> — Proibido explicitamente pela skill sem nome de curso e mecanismo. Tentei nomear e não consegui sustentar com fonte: não achei um único programa que já faça isso. Virou, em forma aceitável, <code>e7.2.1</code> (prototipagem de interação física como prática de curso de projeto), que pelo menos tem o mecanismo do preço do corpo.</li><li><em>"Reguladores criam categoria jurídica nova para agente corporificado."</em> — Genérico; serve a qualquer tema de IA. O que sobrou com mecanismo específico foi <code>e3</code> (auditoria do mundo de treino, ancorada no fato de a ISO 25785-1 regular estabilidade ativamente controlada, que é propriedade da política) e <code>e12.1.1</code> (gesto como dado biométrico).</li><li><em>"Surge a profissão de curador de política robótica."</em> — Proibido pela mesma razão ("surge uma nova profissão"). O que sobreviveu foi <code>e8.1</code>, que tem nome, mecanismo e preço: teleoperador de plantão, arbitrado por fuso e por país.</li><li><em>"Museus e parques geram cenário ao vivo por modelo de mundo."</em> — Bonito e sem teste de especificidade: decorre de geração de vídeo em tempo real, não de IA física, e serviria igual ao tema 12 (mídia sintética controlável). Cortado por invadir tema vizinho.</li><li><em>"O consumo energético do treino corporificado vira pauta ambiental."</em> — Cortado por falta de mecanismo específico: não achei fonte aberta que distinguisse o consumo de treino corporificado do consumo de IA em geral. É a razão declarada de a perna ecológica do STEEP ficar fina.</li><li><em>"Robô doméstico geral chega ao consumidor."</em> — Cortado porque é aposta de produto, não efeito com mecanismo, e porque a classe de referência (carro autônomo, VR de consumo) não sustenta prazo defensável dentro do horizonte.</li><li><em>"O modelo de mundo substitui o motor de jogo no desenvolvimento comercial de jogos."</em> — Cortado por contradizer <code>e4</code>: a conta de US$ 1-2 por hora de usuário não fecha para um jogo com milhões de horas jogadas. Sobrou como a versão honesta, <code>e4.1</code> (arquitetura híbrida).</li></ul>
+<h3 id="12-5-buscas-feitas-e-o-que-cada-uma-rendeu">12.5 Buscas feitas e o que cada uma rendeu</h3>
+<p>Doze buscas, em português e inglês, em 22/09/2026.</p>
+<div class="tabela-envolve"><table><thead><tr><th>Busca</th><th>Rendeu</th></tr></thead><tbody><tr><td><code>NVIDIA Cosmos world foundation model 2026 physical AI release</code></td><td>fonte 1; data e composição da coalizão</td></tr><tr><td><code>vision-language-action model robot foundation model 2026 pi0 Gemini Robotics GR00T</code></td><td>contexto de arquitetura (System 1/System 2, difusão de ação); nenhuma página aberta virou fonte — o conteúdo útil estava em blogs secundários, e as datas foram buscadas na fonte 14</td></tr><tr><td><code>humanoid robot shipments 2026 deployment numbers Figure Unitree Optimus</code></td><td>fonte 4; e o contraste entre alegação e verificado (seção 8, item 1)</td></tr><tr><td><code>sim-to-real gap 2026 robot learning benchmark generalization failure</code></td><td>fonte 8; e o número de 12,8% que <strong>não</strong> consegui verificar</td></tr><tr><td><code>DeepMind SIMA 2 Genie world model generalist agent 3D environments 2026</code></td><td>fontes 2 e 3</td></tr><tr><td><code>regulation humanoid robot safety standard ISO 25785 liability 2026</code></td><td>fonte 10; e o seguro de humanoide na China (sinal fraco 5)</td></tr><tr><td><code>robótica humanoide Brasil 2026 automação indústria IA física</code></td><td>fonte 11; muito resultado de conteúdo promocional, pouca substância</td></tr><tr><td><code>teleoperation data collection robot demonstrations cost bottleneck 2026 scaling laws robotics</code></td><td>fonte 5 — a busca mais produtiva do conjunto, e a que gerou a raiz R3</td></tr><tr><td><code>world models criticism limits 2026 world model physics consistency Physics-IQ benchmark</code></td><td>fontes 6 e 7</td></tr><tr><td><code>game engine licensing AI training synthetic data Unreal Unity terms 2026 robotics simulation</code></td><td><strong>nada útil.</strong> Procurava evidência de cláusula de licença de motor vedando uso como dado de treino — a hipótese de bloqueio da R1. Só devolveu comparação de royalties e preço de assento. A hipótese permanece no mapa como <em>incentivo declarado do bloqueador</em>, sem evidência de que já esteja sendo exercido. É a lacuna mais relevante desta rodada</td></tr><tr><td><code>robot injury incident investigation 2026 autonomous robot accident cause simulation</code></td><td>lesões de motorista de teste de robotáxi (sinal fraco 6); a reportagem não abriu (403)</td></tr><tr><td><code>LeRobot Hugging Face open robotics dataset 2026 community robot learning adoption</code></td><td>fonte 9</td></tr><tr><td><code>IFR World Robotics 2026 robot density Brazil</code></td><td>fontes 12 e 13, e a divergência 132 × 151</td></tr><tr><td><code>playable world model game 2026 product generative interactive world entertainment Odyssey Decart</code></td><td>fonte 15; e a menção ao Odyssey-3 (15/09/2026) como modelo único para braço robótico, veículo, dron, agente e videogame — usada na seção 5 como evidência da convergência, mas <strong>a página do Odyssey-3 não foi aberta</strong>, só a do Odyssey-1</td></tr></tbody></table></div>
+<h3 id="12-6-paginas-que-nao-abriram">12.6 Páginas que não abriram</h3>
+<ul><li><code>https://arxiv.org/pdf/2607.04434</code> (RoboDojo, PDF) — excedeu o limite de tamanho da ferramenta. Li o resumo em <code>arxiv.org/abs/2607.04434</code>, que é a fonte 8.</li><li><code>https://arxiv.org/pdf/2606.18943</code> (<em>Physics-IQ Verified</em>) — excedeu o limite de tamanho. Consequência: o sinal fraco 2 está declarado como "existe o trabalho", sem afirmação sobre o conteúdo dele.</li><li><code>https://techcrunch.com/2026/08/27/sprains-pain-and-whiplash-waymo-and-zoox-test-drivers-are-getting-hurt-as-robotaxis-scale/</code> — HTTP 403. Consequência: o sinal fraco 6 não tem fonte na seção 11.</li><li><code>https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/</code> — HTTP 403. Os números de implantação vieram da fonte 4, que cobre o mesmo terreno.</li><li><code>https://odyssey.ml/introducing-odyssey-1</code> — redirecionamento 308 para <code>odyssey.systems</code>, que é o que consta como fonte 15.</li></ul>
+<h3 id="12-7-numeros-que-circularam-e-nao-entraram-no-mapa">12.7 Números que circularam e NÃO entraram no mapa</h3>
+<p>Registrados para que ninguém os reintroduza numa rodada futura achando que foram esquecidos:</p>
+<div class="tabela-envolve"><table><thead><tr><th>Número</th><th>Origem</th><th>Por que ficou de fora</th></tr></thead><tbody><tr><td>"Mais de 1.000 Optimus Gen 3 em fábricas da Tesla desde jan/2026"; "meta de ~100 mil em 2026"; "1 milhão/ano em 2028"</td><td>resumo de busca</td><td>A fonte 4 registra que a Tesla nunca publicou contagem e que a produção em Fremont não havia começado em jul/2026</td></tr><tr><td>"Tesla passou de 50.000 Optimus acumulados"; "Figure tem 10.000 implantações"</td><td>resumo de busca</td><td>A fonte 4 registra explicitamente que não vêm das empresas</td></tr><tr><td>"12,8% de sucesso da melhor política em 18 tarefas reais; 22,9 de escore; 100% de teleoperação humana"</td><td>resumo de busca, atribuído ao RoboDojo</td><td>Não consta do resumo que abri; PDF não abriu</td></tr><tr><td>"Queda de desempenho de 24-30% na transferência sim-para-real"</td><td>resumo de busca, atribuído a estudo empírico com VLA</td><td>A página não foi aberta; a afirmação qualitativa equivalente está sustentada pela fonte 8</td></tr><tr><td>"mIoU de primeiro plano degrada após 5-9 quadros"</td><td>resumo de busca, atribuído ao WorldBench</td><td>Não está no artigo que abri (fonte 6)</td></tr><tr><td>"Cosmos 3 treinado em 20 trilhões de tokens, ~1 bilhão de imagens, 400 milhões de vídeos"</td><td>resumo de busca</td><td>O comunicado que abri (fonte 1) diz "bilhões de amostras" sem detalhar; usei a formulação do comunicado</td></tr><tr><td>"Mercado de inteligência corporificada na China chegará a 400 bilhões de RMB (US$ 56,5 bi) até 2030"; "US$ 137 bi de investimento chinês em robótica em duas décadas"; "Tesla embarcou só 150 humanoides em 2025"</td><td>fonte 5</td><td><strong>Estão na fonte que abri</strong>, mas são projeções e comparações da tese do think tank. Não os usei como âncora; foram o motivo do rebaixamento de <code>e11</code>, não a sua justificativa</td></tr><tr><td>"Média global de 151 robôs por 10 mil trabalhadores"</td><td>fonte 13</td><td>Conflita com os 132 da IFR (fonte 12). Registrei as duas na seção 3 e a divergência na seção 8</td></tr></tbody></table></div>
+<h3 id="12-8-caminhos-abandonados">12.8 Caminhos abandonados</h3>
+<ul><li><strong>Uma quarta raiz: "a convergência dos pipelines de mídia e de robótica".</strong> Chegou a ser escrita. Descartada porque não passa no teste de independência do §6.4: se R1 e R3 não acontecerem, ela não acontece — é <em>resultado</em> das duas, não origem. Promovida ao lugar certo: é a <strong>convergência</strong> nomeada na seção 5, que a skill trata como o achado mais valioso de um mapa. Mantenho a decisão, mas registro a dúvida: um revisor pode argumentar, com razão, que treinar robô em motor de jogo (AirSim, Isaac sobre Unreal) já é essa convergência desde 2017, e que portanto ela <strong>tem</strong> vida própria. Se ele estiver certo, o mapa tem quatro raízes e a quarta está mal alojada.</li><li><strong>Uma raiz sobre "o corpo entra no raciocínio"</strong> (a leitura do <code>ROSClaw</code>, citado no material da disciplina: restrição física como parte do modelo de execução). Descartada por sobreposição com R2 — é uma propriedade das arquiteturas VLA, não uma ruptura separada. Não encontrei fonte aberta sobre o ROSClaw nesta rodada.</li><li><strong>Tratar o enxame de drones como ramo próprio</strong> (o wildcard trazido pela turma). Descartado por fronteira: coordenação de enxame é problema de multiagente, mais próximo do tema 6, e puxaria o mapa para fora do objeto declarado na seção 2. Sobrou como contexto na seção 3 (45 mil drones agrícolas no Brasil), que é onde ele tem número.</li><li><strong>Um ramo sobre robô doméstico e cuidado.</strong> Descartado por falta de âncora: não achei nesta rodada dado de implantação em ambiente doméstico que não fosse aspirador (maduro) ou demo.</li></ul>
+<h3 id="12-9-o-que-este-mapa-faria-diferente-com-horizonte-de-2031">12.9 O que este mapa faria diferente com horizonte de 2031</h3>
+<p><em>Subseção fixa das rodadas longas, por <strong>TMI-0059</strong>: o valor da escada 2036/2041/2046/2056 só existe se cada degrau disser o que o degrau padrão veria.</em></p>
+<p><strong>Quantos efeitos sobreviveriam.</strong> Dos 62 efeitos do bloco <code>roda:</code>, <strong>seis</strong> têm prazo dentro de 2031: <code>e8</code> (2030, o humano permanece no circuito), <code>e11</code> (2030, fábrica de dado como infraestrutura estratégica), <code>e1.2</code> (2030, casa de mídia vendendo para robótica), <code>e7.2</code> (2030, preço de entrada cai a ponto de estúdio pequeno rodar robô real), <code>e4</code> (2031, o custo por hora trava a substituição do motor escrito) e <code>e13</code> (2031, o custo do dado empurra para o sintético). Os outros 56 ficariam fora da janela. Com horizonte 2034 seriam 19 — o que mostra que a densidade do mapa está em 2034-2048, não nas pontas.</p>
+<p><strong>Quantas raízes sobreviveriam: as três, e nenhuma com o mesmo peso.</strong> Cada uma mantém exatamente dois efeitos dentro de 2031, mas o que sobra delas é desigual. <strong>R2</strong> e <strong>R3</strong> sobrevivem como raízes de verdade: têm efeito de primeira ordem datado dentro da janela, com sinal forte e evidência de 2026. <strong>R1</strong> sobrevive no papel e não na prática — seus dois efeitos dentro de 2031 são <code>e4</code>, que é a <em>retroação</em> que a freia, e <code>e1.2</code>, que é de segunda ordem. Num mapa de 2031, a R1 seria honestamente rebaixada a <strong>contexto da seção 3</strong>, e o critério do §2 a recusaria: em cinco anos, mundo gerado não rompe ofício nenhum.</p>
+<p><strong>O que mudaria de ordem.</strong> A cadeia inteira se acharia. <code>e1.2</code> e <code>e7.2</code>, que aqui são de segunda ordem, seriam lidos como de primeira — em cinco anos não há distância causal para três níveis, e a roda de 2031 teria um nível e meio, não três. Os efeitos de terceira ordem deste mapa (2042-2052) não existiriam em nenhuma ordem: não são "o mesmo mais tarde", são consequências de efeitos que ainda não teriam acontecido.</p>
+<p><strong>Qual seria o teto de confiança.</strong> Subiria, e essa é a troca. Os seis efeitos que sobrevivem têm confiança <code>alta</code> (três: <code>e4</code>, <code>e8</code>, <code>e13</code>) ou <code>media</code> (três), sem nenhuma <code>baixa</code> — contra as 23 confianças <code>baixa</code> de terceira ordem deste mapa. Um mapa de 2031 do mesmo tema fecharia com <code>confianca: alta</code> no frontmatter, contra a <code>media</code> deste. <strong>E seria um mapa pior para a pergunta do tema</strong>: as três confianças altas são todas retroações — o que trava, o que freia, o que custa. Um mapa de 2031 diria, com razão e com segurança, que até 2031 a IA física não transforma o ofício de ninguém; o que ele não conseguiria dizer é o que este aqui existe para explorar, que é o que acontece <strong>depois</strong> que essas três travas cedem.</p>
+<p><strong>O que se perde ao encurtar.</strong> A convergência da seção 5 — casas de mídia e casas de robótica virando uma indústria só — sobrevive pela metade: <code>e1.2</code> está dentro de 2031, mas <code>e1.2.1</code> (a dissolução institucional) está em 2044. O achado do mapa, para o público de mídia e interação, <strong>só é visível em horizonte longo</strong>. Este é o argumento mais forte a favor da escada de TMI-0053 que encontrei nesta rodada.</p>
+<h3 id="12-10-o-que-uma-rodada-futura-deveria-buscar-primeiro">12.10 O que uma rodada futura deveria buscar primeiro</h3>
+<ol><li><strong>Cláusula de licença de motor e de acervo de vídeo sobre uso como dado de treino.</strong> É a lacuna da busca 10 e o teste direto do bloqueador declarado da R1. Se já existir cláusula em contrato de Unreal, Unity ou de banco de imagem, <code>e5</code> sobe de fraco para médio.</li><li><strong>O artigo completo do RoboDojo</strong>, por outro caminho de acesso, para resolver a taxa de sucesso real — o número que mais falta a este mapa.</li><li><strong>A página do Odyssey-3 (15/09/2026)</strong>, que segundo o resumo de busca oferece um único modelo para braço robótico, humanoide, veículo, dron, treino de agente e videogame. Se isso se confirmar na fonte primária, é a evidência mais forte da convergência e <code>e1.2</code> pode subir de media para alta.</li><li><strong>Cadeia de suprimento física</strong> — atuador, redutor, ímã, bateria, tato durável. É o buraco declarado do pré-mortem 3 e o candidato mais forte a derrubar o mapa inteiro.</li><li><strong>O status da ISO 25785-1</strong> depois do fim de 2026: se ratificar, <code>e3</code> ganha data firme; se atrasar, o prazo de 2034 precisa ser empurrado.</li><li><strong>Dado brasileiro de primeira mão</strong> — a divergência 132 × 151 e a ausência do Brasil no release da IFR sugerem que a série nacional precisa vir da Abimaq, da CNI ou da própria IFR em publicação paga, não de levantamento secundário.</li></ol></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>
