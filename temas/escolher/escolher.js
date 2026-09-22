@@ -6,6 +6,9 @@ const ABRE  = new Date("2026-09-10T08:00:00-03:00");
 const FECHA = new Date("2026-09-13T23:59:59-03:00");
 const SORTEIO = new Date("2026-09-14T08:00:00-03:00");
 const SEMENTE = "TMI-2026-2-sorteio";
+// Adiamentos individuais, fora da ordem sorteada (decisão do professor). Não é troca: só quem está aqui muda de data.
+// Mesma tabela em rotina.py e publicar_futuros.py. 22/09: vjmm, voo atrasado; vai para a aula de margem de 08/10.
+const ADIADO = { vjmm: "08/10" };
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
 /* A mesma ordem vale para os testes (movimento 3, presenciais) e para as apresentações finais. */
 const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
@@ -235,7 +238,7 @@ async function pintarSorteio() {
   if (new Date() < SORTEIO) { ORDEM = []; return; }
   const linhas = await ordemFinal(); ORDEM = linhas;
   $("#lista-sorteio").innerHTML = linhas.length ? linhas.map((r, i) =>
-    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${DATAS[i] || "a combinar"} · teste ${DATAS_TESTE[i] || "?"} · final ${DATAS_FINAL[i] || "?"} · ${r.h.slice(0, 8)}</span></li>`).join("")
+    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${ADIADO[r.aluno] ? ADIADO[r.aluno] + " (adiado)" : (DATAS[i] || "a combinar")} · teste ${DATAS_TESTE[i] || "?"} · final ${DATAS_FINAL[i] || "?"} · ${r.h.slice(0, 8)}</span></li>`).join("")
     : `<li class="mudo">Ninguém escolheu tema.</li>`;
   pintarTrocas(linhas);
 }
@@ -286,11 +289,11 @@ $("#lista-trocas")?.addEventListener("click", async (ev) => {
 /* ---------------- documento de tendência: prazo individual = véspera da apresentação ---------------- */
 function dataApres(login) {
   const i = ORDEM.findIndex((l) => l.aluno === login);
-  return i >= 0 ? DATAS[i] || null : null;
+  return ADIADO[login] || (i >= 0 ? DATAS[i] || null : null);
 }
 function prazoDoc(login, tabela = DATAS) {
   const i = ORDEM.findIndex((l) => l.aluno === login);
-  const d = i >= 0 ? tabela[i] || null : null; if (!d) return null;
+  const d = (tabela === DATAS && ADIADO[login]) || (i >= 0 ? tabela[i] || null : null); if (!d) return null;
   const [dd, mm] = d.split("/").map(Number);
   const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() - 1);
   return new Date(`2026-${String(dia.getUTCMonth() + 1).padStart(2, "0")}-${String(dia.getUTCDate()).padStart(2, "0")}T23:59:59-03:00`);
@@ -331,12 +334,12 @@ function pintarAula() {
   if (!ORDEM.length) { bloco.hidden = true; return; }
   bloco.hidden = false;
   const hoje = new Date();
-  const datas = [...new Set(DATAS.slice(0, ORDEM.length))].filter((d) => { const [dd, mm] = d.split("/").map(Number); return new Date(`2026-${String(mm).padStart(2, "0")}-${String(dd).padStart(2, "0")}T08:00:00-03:00`) <= hoje; });
+  const datas = [...new Set([...DATAS.slice(0, ORDEM.length), ...Object.values(ADIADO)])].sort((x, y) => { const k = (s) => s.split("/").reverse().join(""); return k(x) < k(y) ? -1 : 1; }).filter((d) => { const [dd, mm] = d.split("/").map(Number); return new Date(`2026-${String(mm).padStart(2, "0")}-${String(dd).padStart(2, "0")}T08:00:00-03:00`) <= hoje; });
   const selD = $("#aula-data"); const atualD = selD.value;
   selD.innerHTML = `<option value="">— escolha a data —</option>` + datas.map((d) => `<option value="${d}">${d}</option>`).join("");
   selD.value = datas.includes(atualD) ? atualD : (datas[datas.length - 1] || "");
   const d = selD.value;
-  const quem = ORDEM.filter((l, i) => DATAS[i] === d && l.aluno !== EU);
+  const quem = ORDEM.filter((l, i) => (ADIADO[l.aluno] || DATAS[i]) === d && l.aluno !== EU);
   const selP = $("#aula-para"); const atualP = selP.value;
   selP.innerHTML = `<option value="">— escolha o colega —</option>` + quem.map((l) => `<option value="${esc(l.aluno)}">${esc(l.aluno)} — ${esc(nomeTema(l)).slice(0, 60)}</option>`).join("");
   selP.value = quem.some((l) => l.aluno === atualP) ? atualP : "";
