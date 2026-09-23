@@ -341,9 +341,13 @@ function pintarAula() {
   const d = selD.value;
   const quem = ORDEM.filter((l, i) => (ADIADO[l.aluno] || DATAS[i]) === d && l.aluno !== EU);
   const selP = $("#aula-para"); const atualP = selP.value;
-  selP.innerHTML = `<option value="">— escolha o colega —</option>` + quem.map((l) => `<option value="${esc(l.aluno)}">${esc(l.aluno)} — ${esc(nomeTema(l)).slice(0, 60)}</option>`).join("");
-  selP.value = quem.some((l) => l.aluno === atualP) ? atualP : "";
-  const meus = AULA.filter((f) => f.para === EU);
+  var sozinho = !quem.length;   // ninguém além de você apresentou nesta data
+  selP.innerHTML = sozinho
+    ? `<option value="turma">apresentei sozinho — registrar minha presença e o que ficou</option>`
+    : `<option value="">— escolha o colega —</option>` + quem.map((l) => `<option value="${esc(l.aluno)}">${esc(l.aluno)} — ${esc(nomeTema(l)).slice(0, 60)}</option>`).join("");
+  selP.value = sozinho ? "turma" : (quem.some((l) => l.aluno === atualP) ? atualP : "");
+  var aviso = $("#aula-aviso"); if (aviso) { aviso.textContent = sozinho ? "Nesta data você foi o único a apresentar. O envio registra a sua presença e o que ficou da aula." : ""; aviso.hidden = !sozinho; }
+  const meus = AULA.filter((f) => f.para === EU && f.de !== EU);
   $("#lista-aula").innerHTML = meus.length ? meus.map((f) => {
     const m = [["puxou a discussão", f.puxou_discussao], ["mapa com fonte", f.mapa_fundamentado], ["contra o próprio mapa", f.contra_mapa], ["experimento claro", f.experimento_claro]]
       .map(([r, v]) => (v ? `<b>✓ ${r}</b>` : `✗ ${r}`)).join(" · ");
@@ -354,13 +358,15 @@ $("#aula-data")?.addEventListener("change", pintarAula);
 
 $("#form-aula")?.addEventListener("submit", async (ev) => {
   ev.preventDefault();
-  const para = $("#aula-para").value, d = $("#aula-data").value; if (!para || !d) return;
+  const para = $("#aula-para").value, d = $("#aula-data").value;
+  if (!d) { alert("Escolha a data da aula."); return; }
+  if (!para) { alert("Escolha o colega que apresentou nesta data."); return; }
   const [dd, mm] = d.split("/");
   try {
     await api("tmi_aula_feedback?on_conflict=de,para,data", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" },
       body: JSON.stringify({ de: EU, para, data: `2026-${mm}-${dd}`, puxou_discussao: $("#aula-puxou").checked, mapa_fundamentado: $("#aula-fund").checked,
         contra_mapa: $("#aula-contra").checked, experimento_claro: $("#aula-exp").checked, ficou: $("#aula-ficou").value.trim().slice(0, 300), comentario: $("#aula-coment").value.trim().slice(0, 300) }) });
-    $("#ok-aula").textContent = `Enviado para ${para}. Registrado como presença na aula de ${d}.`; $("#ok-aula").hidden = false;
+    $("#ok-aula").textContent = para === "turma" ? `Presença registrada na aula de ${d}, com o que ficou.` : `Enviado para ${para}. Registrado como presença na aula de ${d}.`; $("#ok-aula").hidden = false;
     $("#form-aula").reset();
   } catch (e) { alert("Não deu para enviar: " + e.message.slice(0, 160)); }
   carregar();
