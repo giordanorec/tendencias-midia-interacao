@@ -1568,9 +1568,60 @@ declarado nas seções 8 e 12.
 
 ### 12.1 Saída do verificador
 
+`python3 references/verificar.py tendencia-captura-de-realidade-e-renderizacao-neural.md --links`,
+rodado em 22/09/2026. Saída inteira, sem edição:
+
 ```
-SAIDA_VERIFICADOR_AQUI
+frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 4 (frontmatter diz 4)
+efeitos ordem 1: 17 (frontmatter diz 17)
+efeitos ordem 2: 20 (frontmatter diz 20)
+efeitos ordem 3: 16 (frontmatter diz 16)
+prazo > horizonte (2041) em ordens 1-2: 0 
+prazo > horizonte em ordem 3 (permitido, mas declare): 2 [('e5.1.1', 2043), ('e9.1.1', 2042)]
+confiança ordem 1: alta 3 · media 12 · baixa 2
+confiança ordem 2: alta 0 · media 13 · baixa 7
+confiança ordem 3: alta 0 · media 0 · baixa 16
+  link não responde: https://classactionu.org/our-news/google-hit-with-privacy-class-action-claiming-nest-smart-cameras-scan/
+  link não responde: https://ofinno.com/standards-readout/gaussian-splat-coding-exploration-advances-as-next-gen-video-coding-timeline-takes-shape/
+  link não responde: https://www.hklaw.com/en/insights/publications/2026/06/senate-judiciary-committee-advances-legislation-to-protect-name
+  link não responde: https://www.scielo.br/j/inter/a/JFxBx6R5srj7PL3Kt3f5ndP/
+links da seção 11: 18/22 respondem (frontmatter diz fontes: 22)
+RESULTADO: 1 problema(s) — corrija antes de entregar
 ```
+
+**O único problema que sobra é um falso negativo do verificador, e não uma fonte quebrada.** Os
+quatro links que ele reporta como sem resposta respondem **200** quando consultados com um
+identificador de navegador completo: o filtro na borda desses quatro domínios recusa o
+`User-Agent` curto (`Mozilla/5.0`) que o `urllib` do script envia, e aceita o de navegador
+completo. Verificação cruzada feita na mesma máquina, no mesmo minuto, com
+
+```
+curl -sL -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" <url>
+```
+
+e saída:
+
+```
+https://classactionu.org/our-news/google-hit-with-privacy-class-action-claiming-nest-smart-cameras-scan/ 200
+https://ofinno.com/standards-readout/gaussian-splat-coding-exploration-advances-as-next-gen-video-coding-timeline-takes-shape/ 200
+https://www.hklaw.com/en/insights/publications/2026/06/senate-judiciary-committee-advances-legislation-to-protect-name 200
+https://www.scielo.br/j/inter/a/JFxBx6R5srj7PL3Kt3f5ndP/ 200
+```
+
+Os quatro contadores estruturais (raízes, ordens 1, 2 e 3) batem com o frontmatter; o contador de
+efeitos de terceira ordem foi corrigido de 15 para 16 **no frontmatter**, não no texto, conforme a
+regra. Os dois prazos além do horizonte estão declarados na seção 5. Isto é a mesma classe de
+problema registrada em `TMI-0012` — o verificador errando sobre link que funciona — e fica
+anotado aqui para quem for mexer no script: a correção é enviar um `User-Agent` de navegador
+completo, não encurtar a lista de fontes. O procedimento seguido aqui é o que a decisão
+**`TMI-0120`** fixa — manter a fonte primária na seção 11, colar a saída do verificador sem
+edição e trazer no anexo a checagem cruzada com o motivo do falso negativo.
+
+Um agravante que esta rodada acrescenta ao quadro de `TMI-0120`: **um dos quatro domínios
+bloqueados é o `scielo.br`**. Se rodadas já fechadas citaram fonte brasileira de lá, elas podem
+ter sido contadas como link quebrado sem estar. Fica para conferência fora desta rodada.
 
 ### 12.2 Premissas assumidas do briefing
 

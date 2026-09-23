@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O navegador como console: 3D e XR sem instalação · futurizacao-giordano · horizonte 2046 (20 anos) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 15 · futurizacao-giordano · horizonte 2046 (20 anos)</p><h1>O navegador como console: 3D e XR sem instalação</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/giordano-h2046/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/giordano-h2046/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Em 2026 a GPU passou a ser acessível pelo navegador em todos os motores principais (WebGPU, novembro de 2025), o WebAssembly 3.0 fechou memória de 64 bits e coleta de lixo (setembro de 2025) e os três ecossistemas de óculos abriram WebXR com WebGPU ou com AR e mãos (visionOS 26.2, Quest Browser 146–150, Chrome do Android XR). Para 2046, vinte anos à frente, o mapa tem quatro raízes: <strong>(1)</strong> o link substitui a instalação como porta da experiência 3D/XR executada no aparelho; <strong>(2)</strong> o navegador passa a ser o runtime de conteúdo de terceiros dos óculos; <strong>(3)</strong> modelo de IA e cena dividem a mesma GPU do navegador, e parte da mídia passa a ser gerada no cliente; <strong>(4)</strong> a ferramenta e a obra 3D viram documento aberto executável. Jogo HTML5 de portal, visualizador 3D por WebGL e WebAR de campanha ficam fora como raiz: já são produto de massa. O achado central, visto de vinte anos, é que <strong>a curadoria não desaparece com a loja: muda de lugar três vezes</strong> — para a permissão do navegador, para o motor que serve de referência e para o assistente de IA do óculos. A segunda convergência é de acesso: a desigualdade passa de "ter o app" para "ter a GPU que o navegador aceita". A retroação mais forte tem dono: fabricantes mantêm a web imersiva um passo atrás do nativo, e os óculos de IA anunciados em 2026 não mencionam a web. Confiança geral média; toda a terceira ordem é baixa.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p><strong>O que é.</strong> A web deixando de ser o lugar onde se anuncia uma experiência 3D ou imersiva e passando a ser o lugar onde ela roda. WebGPU dá à página acesso à GPU moderna (render e compute, na linguagem WGSL); WebXR liga a página ao óculos; WebAssembly traz motores escritos em C++ e Rust; three.js, PlayCanvas, Babylon.js e agora forks de Godot fazem disso plataforma-alvo. O objeto deste mapa é <strong>a web como plataforma de execução 3D/XR</strong>. Captura 3D é o tema 10; IA local em geral é o tema 16 — aqui só entra a parte "no navegador", como raiz 3.</p>
+<p><strong>Onde encosta em mídia e interação.</strong> Distribuição (link contra loja); curadoria (quem decide o que aparece num óculos); ofício (artista técnico de web, editor de cena sem estação); acesso (quem tem a GPU certa); gramática de interação (mão como entrada padrão, cena declarada em HTML); preservação (obra imersiva que depende de uma API viva).</p>
+<p><strong>Por que um mapa, e não um estado da arte.</strong> Porque a pergunta de vinte anos não é técnica: é se a web volta a ser a plataforma universal, agora incluindo o óculos, e para onde vai o poder de curadoria quando a loja deixa de ser a porta. Há precedentes de ida e de volta com datas: o iPhone foi pensado só com web apps e ganhou loja em julho de 2008 [32]; o Flash chegou a mais de 400 milhões de desktops e foi bloqueado em janeiro de 2021 [31]; Android Instant Apps (2017–2025) e Google Stadia (2019–2023) tentaram o "sem instalação" e fecharam [29][30]. Vinte anos é tempo suficiente para um ciclo completo de abertura e fechamento — o mapa precisa dizer em que ponto desse ciclo 2046 estaria.</p>
+<p><strong>Premissas deste mapa</strong> (do briefing; o que ele não cobre está em 12.2): horizonte 2046; público: quem projeta mídia e interação; recorte global, com nota sobre o Brasil (3.5); descartado de saída o que já é comum em produto de massa; nenhuma raiz suspeita; viés neutro, com um cenário de cada lado; zona de interesse do autor: Criação e plataforma; profundidade: três ordens; modo: a partir de um tema. <strong>Falseador declarado:</strong> evidência de que a adoção já passou da maioria inicial (Rogers), ou de que a tecnologia só melhora o que existe. O teste está em 7.8.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p>Âncora feita com acesso à web em 22/09/2026: 11 buscas e 49 aberturas tentadas, 46 fontes abertas (seção 11); três aberturas falharam e estão em 12.4.</p>
+<h3 id="3-1-o-que-ja-existe-e-funciona">3.1 O que já existe e funciona</h3>
+<ul><li><strong>WebGPU em todos os motores principais.</strong> Chrome/Edge 144 (Windows, macOS, ChromeOS, Android 12+), Firefox 141 no Windows e Safari 26 em macOS, iOS, iPadOS e visionOS, anunciado em 25/11/2025 [1]. A tabela do grupo GPU for the Web, editada em 13/08/2026, acrescenta Firefox 145/147 no Mac e Chrome 144+/147+ em partes do Linux [2].</li><li><strong>WebXR com WebGPU nos óculos.</strong> Safari 26.2 no visionOS (12/12/2025) [4]; Quest Browser 146 (abril de 2026) com WebGPU experimental e projeção de profundidade, 149.1 com space-warp em WebGPU, 150.1 com foveação em WebGPU [8]. Chrome do Android XR com módulo AR, hit test, âncoras, depth estereoscópico, estimativa de luz e <strong>mão como mecanismo primário de interação</strong> [6]; o Galaxy XR (US$ 1.799) vem com Chrome e declara OpenXR e WebXR [7].</li><li><strong>Cena declarada em HTML.</strong> Safari 27 beta leva <code>&lt;model&gt;</code> a iOS, iPadOS e macOS e cria, no visionOS 27, "ambientes imersivos de site" com um <code>&lt;model&gt;</code> e uma chamada de API, no modelo do Fullscreen API; os exemplos da própria Apple são ver o assento antes de comprar o ingresso e visitar o quarto de hotel [5].</li><li><strong>Motores e ferramentas.</strong> Babylon.js 8 (abril de 2025) com todos os shaders do motor em GLSL e WGSL, sem camada de conversão, e melhorias de Gaussian splat [21]; three.js com <code>WebGPURenderer</code> e TSL [19]; Unity 6.3 com WebGPU experimental [20]; SuperSplat 3.0 (09/09/2026) <strong>só WebGPU</strong>, com memória de 1.557 MB para 105 MB numa cena de 4,4 milhões de splats [17]; Godot oficial exporta só WebGL 2.0, mas um fork comunitário com backend WebGPU saiu em beta em 10/05/2026, declarando "80% do FPS nativo" [22].</li><li><strong>Formato aberto.</strong> <code>KHR_gaussian_splatting</code> em release candidate na Khronos (03/02/2026), com Autodesk, Cesium, Esri, Huawei, Niantic Spatial, NVIDIA e XGRIDS [18].</li><li><strong>Base de execução.</strong> WebAssembly 3.0 completo em 17/09/2025: 64 bits (limitado a 16 GB na web), múltiplas memórias, coleta de lixo, exceções [23].</li><li><strong>IA no navegador.</strong> WebLLM retém 71–80% do desempenho nativo em M3 Max [34]; Transformers.js v4 (09/02/2026) roda GPT-OSS 20B a ~60 tokens/s num M4 Pro Max e funciona offline após a primeira carga [35]; Chrome gerencia o Gemini Nano e expõe Prompt, Writer, Summarizer e outras APIs em origin trial [36]; um Show HN de 08/2025 roda Llama 3.2 1B (~500 MB) com ~40 linhas de código [37].</li><li><strong>Distribuição.</strong> A Meta aceita PWA na Horizon Store, empacotado por Bubblewrap em Trusted Web Activity, e diz que o empacotamento é <strong>opcional</strong> — o site pode continuar só no site [9].</li></ul>
+<h3 id="3-2-o-que-existe-e-ainda-nao-funciona">3.2 O que existe e ainda não funciona</h3>
+<ul><li><strong>Cobertura desigual.</strong> Linux e Windows ARM64 ainda atrás de flag em partes; Samsung Xclipse no Android esperado só para Chrome 154; Firefox no Android planejado para 2026 [2]. Suporte medido: 82,09% no total, Android 72,48%, Linux 16,97% [3].</li><li><strong>Padrão parado.</strong> WebXR está em Candidate Recommendation Draft desde abril de 2022 (último CRD em 09/06/2026) [11]; nem WebGPU nem WebXR estão entre as áreas do Interop 2026 [12].</li><li><strong>AR fora do Safari.</strong> O Safari 27 beta não menciona <code>immersive-ar</code> [5]. Nenhum motor alternativo foi lançado no iOS em mais de dois anos de DMA; um protótipo do Edge com Blink marcou 28,6% a mais no Speedometer 3.1 [39].</li><li><strong>Segurança.</strong> WebGPU-SPY (2024) mostrou canal lateral de cache de GPU via WebGPU com 90 de precisão em fingerprinting entre os 100 sites mais visitados [38].</li><li><strong>Wasm incompleto na web.</strong> JSPI incompleto no Safari; acesso ao DOM limitado [24].</li><li><strong>Óculos de IA sem web.</strong> Google I/O 2026 anuncia óculos de áudio para o outono e de tela depois, sem mencionar navegador [13]; o "estado da união" de VR da Meta (19/02/2026) não menciona web [10].</li></ul>
+<h3 id="3-3-quem-constroi">3.3 Quem constrói</h3>
+<p>Google (Chrome, Dawn, Android XR, model-viewer, Gemini Nano) [1][6][26][36]; Apple (WebKit, <code>&lt;model&gt;</code>, visionOS) [4][5]; Meta (Quest Browser, Horizon Store) [8][9]; Mozilla (Firefox, wgpu) [2]; PlayCanvas/Snap (engine, SuperSplat) [17]; Microsoft (Babylon.js) [21]; comunidade aberta (three.js, MLC/WebLLM, Hugging Face, Ruffle, Ladybird) [19][34][35][33][46]; Khronos e W3C como fóruns [11][18].</p>
+<h3 id="3-4-numeros-de-adocao">3.4 Números de adoção</h3>
+<ul><li>Suporte a WebGPU por aparelho: 82,09% (amostra autosselecionada, sem data) [3].</li><li>Jogo web: Poki com mais de 100 milhões de usuários/mês em 2026; 53% de 400 desenvolvedores (EUA/Reino Unido) pretendem portar jogo móvel ao navegador em 12 meses; 62% dos jogadores compraram jogo descoberto na web [28]. O relatório não menciona WebGPU nem 3D avançado.</li><li>Headsets: Vision Pro 390 mil em 2024 e ~45 mil em 2025; Quest 1,7 milhão nos três primeiros trimestres de 2025 (−16%); IDC projetou queda de 42,8% em headsets em 2025 [16]. A Meta admite que VR "não cresceu tanto nem tão rápido" e que 86% do tempo de uso vai para apps de terceiros [10].</li><li>Óculos sem tela: 2,25 milhões no 1º tri de 2026, 13,6 milhões projetados para 2026 e 27,3 milhões para 2030 (IDC) [14]; +263% no 1º semestre de 2026, Meta com 94% dos sem tela e mais de 7 milhões de Ray-Ban vendidos em 2025; Apple em 2027 (Counterpoint via 9to5Mac) [15].</li><li>Uso de páginas WebGPU/WebXR em produção: <strong>sem número encontrado</strong>.</li></ul>
+<h3 id="3-5-nota-sobre-o-brasil">3.5 Nota sobre o Brasil</h3>
+<p>Android tem 75,45% do tráfego móvel no Brasil em agosto de 2026 [45], e o Android é a plataforma com menor suporte a WebGPU entre as grandes (72,48%) [3]. O acordo CADE–Apple (dezembro de 2025) obriga canais alternativos de distribuição e pagamento, com 105 dias para implementar, três anos de vigência e multa de até R$ 150 milhões [43] — mas não trata de motor de navegador. Consequência para o mapa: no Brasil a questão da loja está parcialmente resolvida por regulação, e a da GPU pesa mais que no mercado global.</p>
+<h3 id="3-6-candidatos-recusados-como-raiz-criterio-2">3.6 Candidatos recusados como raiz (critério §2)</h3>
+<ul><li><strong>Jogo HTML5 2D/3D leve de portal.</strong> Recusado: produto de massa (Poki, 100+ milhões/mês [28]); tratado como contexto.</li><li><strong>Visualizador 3D e AR de produto por WebGL.</strong> Recusado: <code>model-viewer</code> é componente pronto com Scene Viewer e Quick Look [26]; maduro.</li><li><strong>WebAR de campanha hospedada.</strong> Recusado: maduro e em retração — a plataforma hospedada da 8th Wall foi aposentada em 28/02/2026 e partes foram abertas em MIT [27].</li><li><strong>Jogo por streaming no navegador.</strong> Recusado: foi testado em escala e fechou (Stadia, 2019–2023 [30]); entra como retroação (e9.2).</li><li><strong>Design 2D colaborativo no navegador.</strong> Recusado: maduro desde a virada do Figma para WebAssembly em 2017 [25]; serve de classe de referência para a raiz 4.</li></ul>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="4-1-raiz-1-o-link-substitui-a-instalacao-como-porta-da-experiencia-3d-xr-executada-no-aparelho">4.1 Raiz 1 — O link substitui a instalação como porta da experiência 3D/XR executada no aparelho</h3>
+<ol><li><strong>O que rompe.</strong> A suposição de que experiência 3D pesada exige instalação aprovada por loja — e, com ela, a comissão por transação e a curadoria prévia como porta única.</li><li><strong>Por que agora.</strong> WebGPU em todos os motores desde novembro de 2025 [1]; Wasm 3.0 com 64 bits e GC [23]; motores com saída WebGPU nativa [17][21]; regulação que abre distribuição e pagamento (CMA [41], CADE [43], Epic × Apple [42]).</li><li><strong>Onde está na difusão.</strong> Produto de nicho → adoção precoce (&lt;10%) para 3D pesado; o jogo leve já é maioria e foi recusado (3.6).</li><li><strong>O que falta.</strong> Motor alternativo no iOS; WebGPU nos Android de GPU Samsung e nos intermediários; pagamento web com atrito de loja; motores de console com WebGPU estável (Unity ainda experimental [20]).</li><li><strong>Quem bloqueia.</strong> Apple, pelo acordo de busca estimado em ~US$ 20 bilhões/ano e pela receita da loja [40] — efeito e3.</li></ol>
+<h3 id="4-2-raiz-2-o-navegador-passa-a-ser-o-runtime-de-conteudo-de-terceiros-dos-oculos">4.2 Raiz 2 — O navegador passa a ser o runtime de conteúdo de terceiros dos óculos</h3>
+<ol><li><strong>O que rompe.</strong> O controle da fabricante do óculos sobre o que se vê nele por meio da loja: conteúdo de marca, serviço ou obra passa a entrar sem pedir.</li><li><strong>Por que agora.</strong> Safari 26.2 junta WebXR e WebGPU [4]; Safari 27 cria ambientes imersivos declarados em HTML [5]; Chrome do Android XR faz da mão a entrada padrão com AR completo [6]; Quest Browser recebe WebGPU, depth e foveação em 2026 [8].</li><li><strong>Onde está na difusão.</strong> Demo pública → produto de nicho. Headsets são nicho e caíram em 2025 [16]; óculos leves crescem, mas sem tela e sem navegador [14][15]. Especulativo nesta raiz: confiança baixa na maior parte da cadeia.</li><li><strong>O que falta.</strong> Óculos leve com tela e navegador; WebXR sair de CRD [11]; AR no Safari [5]; convenção comum de gesto.</li><li><strong>Quem bloqueia.</strong> Meta e Google, que apresentam o óculos de IA pelo assistente e não pela web [10][13] — efeito e6.</li></ol>
+<h3 id="4-3-raiz-3-modelo-de-ia-e-cena-dividem-a-mesma-gpu-do-navegador">4.3 Raiz 3 — Modelo de IA e cena dividem a mesma GPU do navegador</h3>
+<ol><li><strong>O que rompe.</strong> O custo de servidor por usuário como base econômica da mídia gerativa interativa, e o conteúdo fixo como unidade da obra.</li><li><strong>Por que agora.</strong> WebGPU compute nos três motores [1]; WebLLM a 71–80% do nativo [34]; Transformers.js v4 com runtime WebGPU e modelos acima de 8B [35]; Gemini Nano gerenciado pelo Chrome [36].</li><li><strong>Onde está na difusão.</strong> Demo pública → produto de nicho. Especulativo para a cena gerada no cliente.</li><li><strong>O que falta.</strong> Modelo útil em GPU de celular intermediário; cache compartilhado entre sites; fechar o canal lateral [38]; energia e calor em óculos.</li><li><strong>Quem bloqueia.</strong> O próprio fornecedor do navegador, que oferece o modelo embutido e passa a ser dono da dependência [36] — efeito e8.1.</li></ol>
+<h3 id="4-4-raiz-4-ferramenta-e-obra-3d-viram-documento-aberto-executavel">4.4 Raiz 4 — Ferramenta e obra 3D viram documento aberto executável</h3>
+<ol><li><strong>O que rompe.</strong> A licença por estação e a instalação como porta do ofício 3D; a obra atrelada a um aplicativo proprietário.</li><li><strong>Por que agora.</strong> SuperSplat 3.0 só WebGPU e 15x menos memória [17]; <code>KHR_gaussian_splatting</code> [18]; Node Material Editor do Babylon em WGSL [21]; o precedente do Figma no 2D [25].</li><li><strong>Onde está na difusão.</strong> Produto de nicho.</li><li><strong>O que falta.</strong> Ratificação do formato de splat (prevista para o 2º tri de 2026 [18]; status não verificado); edição colaborativa de cena em tempo real; preservação de página executável.</li><li><strong>Quem bloqueia.</strong> Fornecedores de DCC e de plataforma hospedada; e a própria obsolescência de API (precedente Flash [31]) — efeito e13.</li></ol>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: O link substitui a instalação como porta da experiência 3D/XR executada no aparelho
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Estúdios pequenos de jogo 3D publicam primeiro como link e usam a loja só como vitrine de reengajamento
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: O tempo até a primeira interação substitui a instalação como métrica de aquisição e os motores competem por tamanho de carga inicial
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: O artista técnico de web passa a responder por um orçamento de bytes por segundo de cena, e cenas começam com poucos megabytes e se completam durante o uso
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: As lojas de óculos e consoles deslocam receita da comissão por transação para descoberta paga, porque a compra por link escapa do pedágio
+            sinal: medio
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: O assistente de voz do óculos vira o gargalo de descoberta e a disputa regulatória migra do ranking da loja para o ranking do assistente
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: Experiência imersiva curta de serviço (assento no estádio, quarto de hotel, peça de museu) é aberta por link sem conta e orçada como página, não como app
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Agências deixam de manter app de marca e de alugar plataforma hospedada, e passam a manter cenas auto-hospedadas sobre motor aberto
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Produtoras vendem a manutenção de cena permanente como serviço, e a cena de lançamento continua visitável anos depois da campanha
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: Apple mantém o Safari um passo atrás em AR e o iPhone e o Vision Pro seguem exigindo app nativo para AR com âncoras e mãos
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O cumprimento de CMA, DMA e CADE vira a variável de agenda da web imersiva e recursos XR chegam primeiro aos mercados regulados
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A mesma URL entrega cena AR completa numa jurisdição e só 3D em tela em outra, e projetar degradação por jurisdição vira parte do desenho de interação
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: A certificação de desempenho que a loja fazia desaparece e a queixa de que a cena não roda no aparelho passa da loja para o autor
+        sinal: medio
+        prazo: 2031
+        confianca: baixa
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: O navegador passa a expor à página um perfil de capacidade do aparelho e vira quem declara se a cena é suportada
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O navegador reparte orçamento de GPU entre abas como um sistema operacional, e a cena imersiva disputa recurso com o modelo de IA do próprio navegador
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+  - disrupcao: O navegador passa a ser o runtime de conteúdo de terceiros dos óculos
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: Fabricantes de óculos usam o navegador como canal barato para conteúdo de terceiros e reservam o app nativo para o que querem controlar
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O cartão espacial aberto por link vira a forma padrão de um serviço aparecer no óculos leve com tela
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: O designer de interação escreve cena espacial em HTML declarativo, com modelo, ambiente e âncora, sem motor 3D
+                sinal: medio
+                prazo: 2044
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: Com a mão como entrada padrão do WebXR no Android XR, bibliotecas de interface web ganham camada de gesto de mão
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: O gesto de apontar e pinçar com a mão se estabiliza como convenção web entre fabricantes, como rolagem e pinça se estabilizaram no toque
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: Os primeiros óculos leves com tela chegam sem navegador ou com navegador restrito, apresentados pelo assistente de IA do fabricante
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A web entra no óculos como dado lido pelo assistente e não como página renderizada, e o fabricante decide o que se vê pelo que o assistente monta
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: Autores de mídia publicam cena para agente, descrição estruturada que o assistente monta, e perdem controle sobre enquadramento e marca
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: O calendário de padronização passa a limitar a web imersiva mais que o hardware, e recursos chegam por módulo e por fabricante
+        sinal: forte
+        prazo: 2030
+        confianca: alta
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: O motor do Chrome vira a implementação de referência da web imersiva e decide na prática o que é padrão
+            sinal: medio
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Um motor independente só entra na web imersiva se ela estiver especificada por teste público, e sem isso a monocultura de motor vira monocultura do óculos
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+  - disrupcao: Modelo de IA e cena dividem a mesma GPU do navegador
+    efeitos:
+      - id: e8
+        ordem: 1
+        efeito: Personagens e objetos com comportamento gerado por modelo pequeno rodam no cliente e o custo de servidor por jogador deixa de limitar a mídia gerativa em jogo web
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: O download do modelo vira o novo custo de instalação, e o navegador oferece modelo embutido compartilhado, trocando dependência da loja por dependência do modelo do navegador
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: O modelo embutido no navegador vira o estilo padrão de personagem da web, e a diferença entre obras passa a vir da cena e da instrução, não do modelo
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e8.2
+            ordem: 2
+            efeito: Obras interativas são distribuídas como gerador mais semente, e cada visita produz no cliente uma versão diferente
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e8.2.1
+                ordem: 3
+                efeito: Museus registram a obra como sistema (código, modelo, semente, GPU de referência) e mantêm GPU de referência como mantinham projetor de película
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: A barreira de acesso à experiência 3D e de IA no navegador passa a ser a GPU e o driver que o navegador aceita, não a conexão
+        sinal: forte
+        prazo: 2030
+        confianca: alta
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: No Brasil, projetistas mantêm por mais de uma década duas versões de cada cena, com e sem WebGPU, e a versão sem GPU é o produto real para a maioria
+            sinal: medio
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: Compras públicas de aparelhos escolares passam a especificar suporte a WebGPU como antes especificavam banda
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e9.2
+            ordem: 2
+            efeito: Em aparelho fraco, a cena é renderizada em servidor por trás do mesmo link e sem instalação deixa de significar execução local
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e9.2.1
+                ordem: 3
+                efeito: Mostrar onde a cena e o dado estão sendo processados vira requisito de interface, porque o link passa a esconder isso
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+      - id: e10
+        ordem: 1
+        efeito: O acesso da página à GPU vira superfície de rastreamento e os navegadores restringem temporizadores e compute, freando o desempenho
+        sinal: medio
+        prazo: 2031
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: Compute pesado de GPU passa a exigir permissão explícita e a web imersiva reintroduz uma aprovação leve dentro do navegador
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: A lista de origens confiáveis para GPU vira o novo ponto de curadoria e recria em miniatura a loja que o link tinha tirado
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+  - disrupcao: Ferramenta e obra 3D viram documento aberto executável
+    efeitos:
+      - id: e11
+        ordem: 1
+        efeito: Editores 3D pesados (splats, cena, material) viram página WebGPU sobre formato aberto e instalar ferramenta de estação deixa de ser pré-requisito do ofício
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: Revisão e ajuste de cena 3D acontecem na mesma página compartilhada por link, e o arquivo final dá lugar à cena viva
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: O crédito de autoria em mídia 3D passa a ser disputado com base no histórico de edição da página, não no arquivo entregue
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+          - id: e11.2
+            ordem: 2
+            efeito: Fornecedores de ferramenta com licença por estação e plataformas hospedadas perdem a porta de entrada e respondem abrindo formato ou fechando nuvem
+            sinal: medio
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e11.2.1
+                ordem: 3
+                efeito: Clientes institucionais exigem em contrato exportação para formato aberto, e saída garantida vira cláusula padrão na compra de ferramenta 3D
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+      - id: e12
+        ordem: 1
+        efeito: glTF com Gaussian splats vira formato de troca que qualquer página abre, e a cena capturada passa a ser publicada como página
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: O ciclo capturar, editar e publicar sem instalar nada cresce o volume de cenas publicadas mais depressa que a capacidade de curadoria
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e12.1.1
+                ordem: 3
+                efeito: Acervos públicos mantêm patrimônio espacial navegável como página e a preservação digital passa de guardar arquivo a manter página executável
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e13
+        ordem: 1
+        efeito: Obras 3D web quebram quando a API muda, e instituições descobrem que sem instalação também significa sem cópia local executável
+        sinal: medio
+        prazo: 2035
+        confianca: media
+        efeitos:
+          - id: e13.1
+            ordem: 2
+            efeito: Emuladores em WebAssembly de versões antigas de motores e navegadores viram infraestrutura de patrimônio para obra imersiva
+            sinal: fraco
+            prazo: 2042
+            confianca: baixa
+            efeitos:
+              - id: e13.1.1
+                ordem: 3
+                efeito: Parte da obra imersiva de 2026 só é visitável dentro de um navegador de 2026 emulado num navegador posterior
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa</code></pre>
+<h3 id="5-1-mecanismos-raiz-1">5.1 Mecanismos — Raiz 1</h3>
+<ul><li><strong>e1</strong> porque a publicação por link elimina a espera de aprovação e o atrito de instalar, e a Meta já declara o empacotamento PWA opcional [9]; 53% de desenvolvedores planejam portar ao navegador e 62% dos jogadores compram depois de descobrir na web [28]. Sinal forte: três artefatos (Poki [28], PWA opcional [9], fork Godot WebGPU [22]). Classe de referência: a App Store passou de 500 apps (07/2008) para o pico de ~2,2 milhões em 2017 [32] — nove anos para uma porta de distribuição virar maioria; o "link primeiro" para 3D pesado parte de nicho em 2026, então 2030 é visibilidade para o público do mapa, não maioria.</li><li><strong>e1.1</strong> porque, sem loja, a aquisição mede o intervalo entre o clique e a primeira interação; o Babylon.js 8 anuncia um visualizador leve "com pacote menor" [21] e o SuperSplat vende memória 93% menor [17]. <strong>e1.1.1</strong> troca de ator (do motor para o artista técnico) porque o orçamento de bytes deixa de ser técnico e vira decisão de cena. Parada: um quarto nível seria o mesmo orçamento mais apertado.</li><li><strong>e1.2</strong> porque a compra fora da loja reduz a base da comissão; a Nona Circuito manteve que a Apple pode cobrar "taxa razoável" por link externo, a ser fixada [42], e o CADE abriu canais alternativos [43]. Teste da causa solta: sem a raiz, a regulação sozinha já pressionaria os 30% em app nativo — por isso o efeito é específico só à parte "experiência 3D comprada por link", e o prazo foi empurrado (7.1). <strong>e1.2.1</strong> troca de ator (loja → assistente) porque o óculos sem tela é operado por voz [13][15].</li><li><strong>e2</strong> porque a Apple já desenha o caso de uso — assento no estádio, quarto de hotel — como <code>&lt;model&gt;</code> mais uma chamada [5]. <strong>e2.1</strong> porque o fim da plataforma hospedada da 8th Wall em 28/02/2026 [27] mostrou o risco de alugar o motor. <strong>e2.1.1</strong> porque a cena auto-hospedada tem custo marginal de manter no ar muito menor que um app que exige atualização de loja.</li><li><strong>e3 — retroação com dono.</strong> A Apple recebe ~US$ 20 bilhões/ano do acordo de busca e mantém o motor único no iOS [40][39]; o Safari 27 amplia <code>&lt;model&gt;</code> mas não fala em <code>immersive-ar</code> [5]. <strong>e3.1</strong> porque só CMA (prazo 01/01/2027 [41]) e DMA obrigam motor alternativo. <strong>e3.1.1</strong> porque a obrigação é territorial.</li><li><strong>e4</strong> porque a loja testava desempenho e a página roda em aparelho não testado; a tabela de implementação mostra lacunas por GPU e SO [2] e o Show HN tem relatos de falha no Safari [37]. Confiança baixa porque o mecanismo supõe queixa de massa, sem evidência.</li></ul>
+<h3 id="5-2-mecanismos-raiz-2">5.2 Mecanismos — Raiz 2</h3>
+<ul><li><strong>e5</strong> porque a Meta concentra 86% do tempo em apps de terceiros [10] e trata a web como canal opcional [9], a Apple cria ambiente imersivo por HTML [5] e o Google faz o Chrome do Android XR ter AR completo [6]. Sinal forte: três artefatos de fabricantes diferentes.</li><li><strong>e5.1</strong> porque o óculos leve com tela é pequeno demais para loja com milhares de apps; mas nenhum óculos leve com tela anunciou navegador [13] — sinal fraco. Classe de referência: headsets de consumo, mais de dez anos e ainda longe da maioria, com queda em 2025 [16]; óculos sem tela: 7 milhões de Ray-Ban em 2025 [15] e 27,3 milhões/ano projetados para 2030 [14]. O cartão por link depende dos óculos <em>com tela</em> (12,2 milhões/ano em 2030, projetados [14]), então o prazo vai para 2040.</li><li><strong>e5.1.1</strong> porque <code>&lt;model&gt;</code> e o ambiente imersivo já são HTML declarativo [5]; sinal médio (dois artefatos Apple), mas 2044 porque exige convergência entre três motores.</li><li><strong>e5.2</strong> porque a mão é a entrada primária do Android XR [6]. <strong>e5.2.1</strong> troca de mecanismo: da decisão de uma fabricante para a convergência entre bibliotecas.</li><li><strong>e6 — retroação com dono.</strong> Google anuncia óculos pelo Gemini, sem web [13]; a Meta não menciona web [10]; a IDC diz que "a competição real não é hardware, é plataforma, ecossistema e IA" [14]. <strong>e6.1</strong> porque o assistente já é a interface primária desses óculos. <strong>e6.1.1</strong> troca de ator: do fabricante para o autor que se adapta.</li><li><strong>e7</strong> porque WebXR está em CRD há quatro anos [11] e fora do Interop 2026 [12], e cada fabricante liga módulos diferentes [5][6][8]. Confiança alta: é observação do presente projetada a cinco anos, com mecanismo institucional estável. <strong>e7.1</strong> porque Android XR e Quest, os que mais expõem recursos, são os que andam na frente [6][8] (que o Quest Browser é Chromium vem de memória — ver seção 8). <strong>e7.1.1</strong> porque o Ladybird, primeiro motor novo em uma década, ainda não tem alfa e o relato de agosto de 2026 não fala de WebGL/WebGPU [46].</li></ul>
+<h3 id="5-3-mecanismos-raiz-3">5.3 Mecanismos — Raiz 3</h3>
+<ul><li><strong>e8</strong> porque WebLLM retém 71–80% do nativo [34] e o Transformers.js v4 roda offline após a primeira carga [35]; o custo marginal de inferência passa ao aparelho do jogador. Sinal médio: há bibliotecas, não há jogo publicado com personagem gerado no cliente que eu tenha aberto.</li><li><strong>e8.1</strong> porque um modelo de 1B ocupa ~500 MB [37] e o Chrome já baixa e gerencia o Gemini Nano pelo usuário [36]. Quem captura: o fornecedor do navegador. <strong>e8.1.1</strong> porque modelo compartilhado por todos os sites produz comportamento parecido em todos.</li><li><strong>e8.2</strong> porque gerar no cliente torna barato que cada visita seja diferente. <strong>e8.2.1</strong> troca de ator (autor → museu) e de mecanismo (distribuição → preservação).</li><li><strong>e9</strong> porque o suporte medido a WebGPU é 72,48% no Android e 16,97% no Linux [3], e GPUs Samsung Xclipse esperam o Chrome 154 [2]. Confiança alta: é contagem presente com mecanismo direto. <strong>e9.1</strong> porque o Brasil é 75% Android [45]. <strong>e9.1.1</strong> troca de ator (projetista → Estado).</li><li><strong>e9.2 — retroação.</strong> Porque o Stadia mostrou que streaming no navegador é tecnicamente viável [30]; o fracasso comercial dele não impede o uso como fallback. <strong>e9.2.1</strong> porque o usuário perde a pista de onde o cálculo ocorre.</li><li><strong>e10 — retroação.</strong> Porque o WebGPU-SPY mostrou fingerprinting por cache de GPU [38] e a mitigação padrão é reduzir precisão de temporizador. <strong>e10.1</strong> troca de mecanismo (mitigação → permissão). <strong>e10.1.1</strong> troca de ator (navegador como guarda → navegador como curador).</li></ul>
+<h3 id="5-4-mecanismos-raiz-4">5.4 Mecanismos — Raiz 4</h3>
+<ul><li><strong>e11</strong> porque o SuperSplat 3.0 já é só WebGPU e cabe em 105 MB [17], o Node Material Editor gera WGSL [21], e o Figma provou o caminho no 2D com WebAssembly [25]. Classe de referência: Figma 2017 → maioria do design de interface colaborativo em alguns anos (sem número de adoção aberto nesta rodada).</li><li><strong>e11.1</strong> porque edição por link junta revisão e ajuste. <strong>e11.1.1</strong> troca de ator (estúdio → quem disputa crédito).</li><li><strong>e11.2</strong> porque a 8th Wall aposentou a plataforma e abriu partes em MIT, mantendo o XR Engine binário sob licença limitada [27] — os dois movimentos ("abrir formato", "fechar núcleo") no mesmo anúncio. <strong>e11.2.1</strong> troca de ator (fornecedor → comprador institucional).</li><li><strong>e12</strong> porque a Khronos, com Autodesk, Esri, NVIDIA e Niantic Spatial, põe splats em glTF [18]. <strong>e12.1</strong> porque o ciclo inteiro roda sem instalar. <strong>e12.1.1</strong> troca de ator (autor → acervo público).</li><li><strong>e13 — retroação.</strong> Porque o Flash foi bloqueado em 12/01/2021 e removido dos navegadores em 26/01/2021 [31]; o Ruffle, em Rust e WebAssembly, é hoje o que devolve essa obra [33]. <strong>e13.1</strong> porque o mesmo mecanismo se repete para WebGL e WebGPU. <strong>e13.1.1 está fora da janela do mapa (2050)</strong>: exige que a API de 2026 tenha sido descontinuada e que o emulador exista.</li></ul>
+<h3 id="5-5-cruzamentos">5.5 Cruzamentos</h3>
+<ul><li><strong>Convergência 1 — a curadoria muda de lugar, não some.</strong> e1.2.1 (assistente como gargalo), e6.1 (web lida pelo assistente), e7.1 (motor de referência decide o padrão), e10.1.1 (lista de origens confiáveis para GPU) e e8.1 (modelo do navegador como dependência) chegam, por raízes diferentes, ao mesmo efeito de segunda ordem: <strong>a loja perde a porta, mas três outros atores — assistente, motor dominante e permissão do navegador — assumem pedaços da curadoria.</strong> É o achado mais valioso do mapa e o que o distingue da leitura "a web liberta".</li><li><strong>Convergência 2 — a GPU como linha de acesso.</strong> e4 (sem certificação), e9 (GPU como barreira), e9.1 (duas versões no Brasil) e e5.1 (óculos com tela) chegam ao mesmo lugar: quem projeta passa a desenhar para faixas de GPU, e a faixa mais baixa é a maioria.</li><li><strong>Convergência 3 — preservação.</strong> e2.1.1, e8.2.1, e12.1.1 e e13.1 levam a instituições cuidando de página executável, não de arquivo.</li><li><strong>Retroalimentação que enfraquece.</strong> e10.1.1 (lista de origens confiáveis) recria a aprovação que a raiz 1 tirou; se crescer, a raiz 1 se desfaz por dentro.</li><li><strong>Retroalimentação que reforça.</strong> e11 (ferramenta no navegador) produz autores que já publicam em página, alimentando e1 e e12.</li><li><strong>Contradição.</strong> e5 (fabricante usa a web como canal de terceiros) e e6.1 (web entra só como dado para o assistente) não coexistem no mesmo aparelho. Decide entre eles: se os óculos leves com tela de 2028–2032 expõem ou não WebXR/<code>&lt;model&gt;</code> a páginas arbitrárias.</li><li><strong>Contradição 2.</strong> e8 (execução local barateia a mídia gerativa) e e9.2 (aparelho fraco volta ao servidor). Decide: a curva de preço de GPU em celular intermediário — sem número aberto nesta rodada.</li></ul>
+<h3 id="5-6-cobertura-steep-e-quem-perde">5.6 Cobertura STEEP e quem perde</h3>
+<ul><li>Social: e9, e9.1, e5.2.1. Tecnológico: e7, e10, e11. Econômico: e1, e1.2, e8. Ecológico: <strong>vazio</strong> — nenhuma fonte aberta mede energia de WebGPU no cliente contra servidor; registrado em 12.3. Político: e3, e3.1, e6.</li><li><strong>Quem perde:</strong> lojas (e1.2), fabricantes que vivem da loja (e3), plataformas hospedadas e licença por estação (e11.2), usuários sem GPU aceita (e9, e9.1), autores que perdem controle de enquadramento (e6.1.1), instituições de preservação (e13).</li></ul>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="6-1-sinais-fracos">6.1 Sinais fracos</h3>
+<ol><li><strong>Fork comunitário de Godot com WebGPU</strong> [22]. Um desenvolvedor, dois meses, "80% do FPS nativo". Se o backend virar oficial, motores de console passam a ter a web como alvo de primeira classe. Sinal observável: o backend WebGPU entrar na árvore principal da Godot.</li><li><strong>Ambientes imersivos de site no visionOS 27</strong> [5]. A Apple, que segura o AR, abre imersão por HTML. Se chegar aos óculos da Apple (2027 [15]), a raiz 2 ganha o ator mais resistente. Sinal observável: <code>&lt;model&gt;</code> imersivo anunciado para o óculos leve da Apple.</li><li><strong>Modelo embutido gerenciado pelo navegador</strong> [36]. Se sair de origin trial e chegar a Safari e Firefox, e8.1 vira padrão e o navegador vira fornecedor de IA. Sinal observável: Prompt API em estável em dois motores.</li><li><strong>Ladybird com alfa em 2026</strong> [46]. Se um motor independente implementar WebGPU, e7.1.1 deixa de ser só condicional. Sinal observável: WebGPU no changelog do Ladybird.</li><li><strong>Gestalt Village</strong> (trazido pela turma): modelo de linguagem inteiro no navegador via WebGPU, sem rede. Não encontrado nesta rodada (12.4); mantido como sinal apenas pela descrição da turma.</li></ol>
+<h3 id="6-2-wildcards">6.2 Wildcards</h3>
+<ol><li><strong>Uma fabricante de óculos desliga WebXR por padrão</strong> (o wildcard da turma). Mecanismo: um incidente de segurança via GPU (e10) ou de privacidade com câmera — a Counterpoint já registra escrutínio sobre filmagem sem consentimento com os óculos da Meta [15] — leva a fabricante a exigir opt-in por site. Improvável porque as três fabricantes acabaram de ampliar o suporte [4][6][8]. Efeito no mapa: raiz 2 cai para contexto, e5 e e7 perdem sentido, e e10.1.1 vira o efeito principal. Sinal precoce: WebXR passar a pedir permissão por origem num navegador de óculos.</li><li><strong>Motor alternativo no iOS com WebGPU e WebXR completos por decisão regulatória global.</strong> Mecanismo: CMA [41] mais DMA mais um terceiro mercado grande impõem motor livre; a Apple, para não manter duas versões do iOS, libera no mundo. Improvável: a Apple recorre e nenhum motor saiu em dois anos [39]. Efeito: e3 some, e3.1.1 some, a raiz 1 acelera cinco a oito anos. Sinal precoce: Chrome ou Edge com Blink publicados no iOS fora da UE.</li><li><strong>O acordo de busca Google–Apple acaba.</strong> Mecanismo: o remédio de 2025 permite pagamentos não exclusivos [44], mas uma apelação ou nova ação os proíbe; sem os ~US$ 20 bilhões [40], o incentivo da Apple para manter o Safari como porta muda. Improvável no horizonte curto. Efeito: e3 perde o motor econômico. Sinal precoce: decisão judicial que proíba pagamento por padrão de busca.</li></ol>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="7-1-pre-mortem">7.1 Pré-mortem</h3>
+<p>"É 2046 e este mapa se mostrou errado. Por quê?"</p>
+<ol><li><strong>Os óculos nunca chegaram à maioria, e a web imersiva ficou num nicho de nicho.</strong> Headsets caíram em 2025 [16]; os óculos que cresceram não têm tela [14][15]. Aponta para a raiz 2 e para e5.1: <strong>e5.1 prazo 2034 → 2040</strong>, e a confiança de e5.1.1 fica baixa.</li><li><strong>A interface virou assistente, e "página" deixou de ser a unidade.</strong> Se e6.1 vale para todo aparelho, não só o óculos, a raiz 1 (link como porta) é substituída por "pedido ao assistente como porta". Aponta para e1 e e2: <strong>e2 confiança alta → media</strong>; e1.2.1 mantido como o ramo que absorve esse risco.</li><li><strong>A execução voltou para o servidor.</strong> Se GPU de celular intermediário não melhorar o bastante, o link vira janela para streaming (e9.2) e a raiz 3 perde a premissa local. Aponta para e8: <strong>e8 sinal forte → medio</strong>, porque os três artefatos contados eram de bibliotecas de LLM, não de mídia gerada em cena.</li></ol>
+<h3 id="7-2-extrapolacao-linear">7.2 Extrapolação linear</h3>
+<ul><li><strong>"A loja acaba"</strong> era o primeiro rascunho de e1.2: removido (12.3), porque é só a tendência de regulação estendida; substituído por "receita migra para descoberta paga", que tem mecanismo não linear (a base da comissão encolhe e o ativo que sobra é a atenção).</li><li><strong>"O sistema operacional móvel perde relevância"</strong>: removido (12.3), porque é mais do mesmo e porque o mapa mostra o contrário — o SO volta como dono do assistente (e6.1).</li><li><strong>e11 (editor na página)</strong> é o Figma estendido ao 3D. Ganhou mecanismo de não linearidade só via e11.2 (resposta dos fornecedores); <strong>e11 confiança alta → media</strong>.</li></ul>
+<h3 id="7-3-velocidade-de-adocao">7.3 Velocidade de adoção</h3>
+<ul><li><strong>e1.2</strong> exigia que a comissão migrasse em seis anos (2032). A referência regulatória: DMA em 2024, nenhum motor alternativo até 2026 [39]; Epic × Apple com a taxa ainda sem valor fixado em 2026 [42]. <strong>Prazo 2032 → 2036</strong> (+4 anos).</li><li><strong>e3.1</strong> exigia 2029. O prazo da CMA é 01/01/2027 e o recurso pode adiar 6 a 12 meses [41]. <strong>Prazo 2029 → 2031</strong>.</li><li><strong>e9.1.1</strong> exigia que política pública de compra reagisse em dez anos a uma exigência técnica nova; sem referência aberta, <strong>prazo 2036 → 2040</strong> e confiança baixa.</li><li><strong>e13.1.1</strong> exigia descontinuação de WebGPU/WebXR de 2026 antes de 2046; o Flash levou de 1996 a 2021 [31], 25 anos. <strong>Prazo 2046 → 2050</strong>, fora da janela.</li></ul>
+<h3 id="7-4-a-raiz-que-nao-acontece">7.4 A raiz que não acontece</h3>
+<ul><li><strong>Sem a raiz 1</strong>, sobram as raízes 3 e 4 (IA e ferramenta na página, que não dependem de substituir a loja para jogo) e o ramo e9 (GPU como barreira). O mapa não colapsa.</li><li><strong>Sem a raiz 2</strong> (hipótese do pré-mortem 1), sobram as raízes 1, 3 e 4 na tela plana; perde-se e5–e7 e a convergência 1 fica com dois atores (motor e permissão) em vez de três.</li><li><strong>Sem a raiz 3</strong>, a raiz 1 continua (jogo e cena não precisam de IA), a raiz 4 continua; perde-se e8 e a convergência 1 perde o modelo do navegador.</li><li><strong>Sem a raiz 4</strong>, as outras três ficam; perde-se a convergência 3 (preservação) quase inteira.</li><li>Nenhuma raiz leva o mapa a zero sozinha; mas a <strong>raiz 1 e a raiz 2 dividem a premissa de que o fabricante continua permitindo</strong> — suposição 7.5.1.</li></ul>
+<h3 id="7-5-suposicoes-escondidas">7.5 Suposições escondidas</h3>
+<ol><li><strong>A plataforma continua permitindo.</strong> Todo o mapa assume WebXR ligado nos óculos → virou o wildcard 6.2.1.</li><li><strong>A GPU do celular intermediário melhora.</strong> Sem número aberto → e8 rebaixado e contradição 2 registrada.</li><li><strong>O Chrome continua com o Google e continua gratuito.</strong> O remédio de 2025 manteve o Chrome com o Google [44]; se mudasse, e7.1 mudaria de ator. Mantido, declarado.</li><li><strong>Energia barata no cliente.</strong> A categoria ecológica ficou vazia (5.6); um limite térmico nos óculos bastaria para empurrar e8 para o servidor (e9.2).</li><li><strong>O formato aberto continua aberto.</strong> <code>KHR_gaussian_splatting</code> pode ser ratificado com extensões proprietárias por fornecedor; e12 mantém confiança média só por isso.</li></ol>
+<h3 id="7-6-vies-do-autor">7.6 Viés do autor</h3>
+<p>A zona de interesse "Criação e plataforma" puxa para a raiz 4 e para a leitura de que a web libera o criador. <strong>e11.1.1 (crédito pelo histórico de edição)</strong> está aqui porque o tema da autoria interessa ao autor, não porque haja sinal — mantido com sinal fraco e confiança baixa, e marcado. A convergência 1 foi escrita contra esse viés.</p>
+<h3 id="7-7-calibracao">7.7 Calibração</h3>
+<p>Final, conferida pelo verificador (12.1): ordem 1 — alta 2, média 10, baixa 1; ordem 2 — alta 0, média 11, baixa 7; ordem 3 — alta 0, média 0, baixa 18. Cai com a ordem.</p>
+<h3 id="7-8-o-falseador-do-autor">7.8 O falseador do autor</h3>
+<ul><li><strong>Adoção além da maioria inicial?</strong> Não. WebGPU tem 82% de <em>suporte</em> [3], mas suporte não é adoção: nenhuma fonte aberta mede uso de páginas WebGPU/WebXR em produção (3.4), e jogo web de massa não usa WebGPU [28]. Headsets encolheram [16]. A raiz 1, na parte 3D pesada, está em nicho a precoce.</li><li><strong>Só melhora o que existe?</strong> Para visualizador de produto e jogo leve, sim — por isso foram recusados (3.6). Para as quatro raízes, o que muda é quem autoriza e quem cobra (raiz 1), quem controla o que o óculos mostra (raiz 2), onde está o custo da geração (raiz 3) e o que é o objeto da obra (raiz 4). Isso passa no teste do §2.1.</li></ul>
+<h3 id="7-9-registro-de-alteracoes">7.9 Registro de alterações</h3>
+<ul><li>e1.2: prazo 2032 → 2036, porque a regulação levou de 2024 a 2026 sem efeito sobre motor e a taxa de link externo ainda não tem valor [39][42].</li><li>e1.2 (rascunho "a loja acaba"): removido e substituído, extrapolação linear (12.3).</li><li>e2: confianca alta → media, porque o pré-mortem 2 (assistente como porta) ataca direto o link como unidade.</li><li>e3: confianca alta → media, porque a CMA pode forçar mudança antes de 2030 [41].</li><li>e3.1: prazo 2029 → 2031, porque o recurso pode adiar 6 a 12 meses [41].</li><li>e5.1: prazo 2034 → 2040, porque os óculos com tela são projetados em 12,2 milhões/ano em 2030 [14] e nenhum anunciou navegador [13].</li><li>e7.1: sinal forte → medio, porque um dos três artefatos (Quest Browser ser Chromium) veio de memória.</li><li>e8: sinal forte → medio, porque os artefatos são bibliotecas, não mídia em cena.</li><li>e9: mantido em confiança alta depois de reexame (contagem presente [2][3]).</li><li>e9.1.1: prazo 2036 → 2040, confiança media → baixa, sem referência de política pública aberta.</li><li>e11: confianca alta → media, extrapolação do Figma.</li><li>e13.1.1: prazo 2046 → 2050, porque o ciclo do Flash foi de 25 anos [31]; fora da janela.</li><li>"SO móvel perde relevância" (1ª ordem da raiz 2 no rascunho): removido (12.3).</li><li>"Surge a profissão de arquiteto de experiência web imersiva": removido, efeito genérico proibido pelo §3 (12.3).</li></ul>
+<p>Cota por raiz: raiz 1 (e1.2, e2, e3, e3.1), raiz 2 (e5.1, e7.1, dois removidos), raiz 3 (e8, e9.1.1), raiz 4 (e11, e13.1.1). Cumprida.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<ol><li><strong>Data da release do three.js.</strong> O extrato da página de releases devolveu "r186 (released September 8, 2024)". A numeração r186 com <code>DirectRenderPipeline</code> e TSL não é compatível com 2024 — o three.js estava por volta de r160–r170 no fim de 2024, de memória. Não usei a data; cito a fonte só pelo conteúdo [19].</li><li><strong>Vision Pro: 45 mil em quê.</strong> O resumo da busca atribui a IDC "45 mil no último trimestre de 2025"; o The Register diz "45 mil em 2025" contra 390 mil em 2024 [16]. As duas leituras não coexistem. Usei a do Register por ser a fonte aberta, mas o número pode ser só do 4º trimestre, e aí a queda anual seria menor.</li><li><strong>Quest Browser como Chromium.</strong> Afirmei em e7.1 que o Quest Browser anda com o motor do Chrome. Isso vem de memória; nenhuma fonte aberta nesta rodada diz isso. Rebaixei o sinal de e7.1 (7.9).</li><li><strong>"Gestalt Village" não foi achado.</strong> A turma o cita como modelo de linguagem inteiro no navegador. A busca devolveu WebLLM e outros, não o projeto. Mantive como sinal fraco só pela descrição da turma, sem link.</li><li><strong>Contaminação pela rodada de 2041.</strong> Antes de pesquisar, li o documento da mesma skill para o horizonte 2041. Parte das fontes coincide porque reabri as mesmas páginas, e a estrutura de quatro raízes é parecida. Tentei diferenciar pela convergência "curadoria muda de lugar", pela raiz 4 reescrita como preservação e pelos prazos de vinte anos; a independência entre as duas rodadas não é total.</li><li><strong>Ratificação do splat.</strong> A Khronos previa ratificação no 2º tri de 2026 [18]; não abri confirmação de que ocorreu. O texto diz "status não verificado".</li><li><strong>Números do fabricante.</strong> SuperSplat (−93% de memória) [17], Godot WebGPU ("5x mais rápido", "80% do nativo") [22] e Transformers.js (~60 tok/s) [35] são medições de quem vende. Nenhuma foi replicada.</li></ol>
+<h2 id="9-tres-cenarios-para-2046">9. Três cenários para 2046</h2>
+<p><strong>Provável.</strong> Em 2046 o link é a porta normal de jogo, visita e cena 3D na tela, e o 3D pesado roda no aparelho em três quartos dos casos — no quarto restante, o mesmo link abre streaming sem que ninguém perceba. A loja continua existindo, cobra pela descoberta e pelo assinante, não por cada compra. Nos óculos, a web entra como canal de terceiros e o cartão espacial por link é comum, mas o que aparece na frente dos olhos é montado pelo assistente do fabricante; a página é uma das fontes que ele lê. A curadoria saiu da loja e se espalhou entre o assistente, a permissão de GPU do navegador e o motor de referência. No Brasil, projetistas ainda entregam duas versões de cada cena. Sinal precoce de que estamos entrando nele: os primeiros óculos com tela de Google e Apple chegarem com <code>&lt;model&gt;</code>/WebXR limitados a parceiros.</p>
+<p><strong>Desejável.</strong> Em 2046 a web imersiva é especificada por teste público, dois ou três motores a implementam, e o mesmo link funciona em qualquer óculos. A cena é documento aberto (glTF com splats), a ferramenta que a edita é uma página, e a obra de 2026 é visitável num emulador mantido por acervo público. A permissão de GPU é do usuário, com critério publicado. Para chegar lá teria sido preciso: WebXR e WebGPU entrarem no Interop por vários anos, motor livre no iOS, e instituições de patrimônio financiarem emuladores de navegador. Sinal precoce: WebXR aparecer numa edição do Interop.</p>
+<p><strong>Indesejável.</strong> Em 2046 a web imersiva foi o que o Flash foi: aberta por uma década, depois fechada por segurança e privacidade. Após um incidente com câmera ou GPU, as fabricantes desligaram WebXR por padrão, a execução pesada exige origem aprovada, e a lista de origens confiáveis é uma loja com outro nome. A mídia gerada no cliente usa o modelo do navegador, e todas as obras soam parecidas. Quem tem aparelho fraco vê o mundo pelo streaming, com o dado no servidor. Sinal precoce: um navegador de óculos passar a pedir permissão por origem para abrir sessão imersiva.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> <em>Página imersiva com prazo de validade.</em> Uma cena curta — um objeto capturado em glTF com splats, editado no SuperSplat, com um personagem que responde por um modelo pequeno rodando no cliente — publicada como link e aberta por QR em cinco aparelhos de faixas diferentes (celular Android intermediário, iPhone, notebook sem GPU dedicada, Quest, e o que houver de Vision Pro ou Android XR). Depois, a mesma cena é congelada num pacote de preservação (página, motor, modelo, semente e um registro do navegador usado) e reaberta num navegador diferente.</p>
+<p><strong>Que pergunta responde.</strong> Três perguntas do mapa: quanto do "sem instalação" sobrevive fora do aparelho topo (e9, e9.1); quem, em cada plataforma, recusa o quê (e3, e6, e7); e o que sobra da obra quando o ambiente muda (e13).</p>
+<p><strong>Que tecnologia emergente usa, e por que não dá com a madura.</strong> WebGPU para splats e para o modelo na mesma GPU; WebXR com mãos; <code>KHR_gaussian_splatting</code>. Com WebGL e <code>model-viewer</code> dá para mostrar um objeto, mas não para rodar splats de milhões de pontos com ordenação em compute nem um modelo de linguagem no mesmo aparelho.</p>
+<p><strong>O que a turma faz em sala.</strong> Cada pessoa abre o link no próprio celular e registra quatro coisas: abriu ou não; segundos até a primeira interação; se o personagem respondeu no aparelho ou pediu fallback; o que o navegador pediu de permissão. A turma junta os dados numa tabela por faixa de aparelho. Na segunda metade, reabre o pacote de preservação num navegador diferente e anota o que quebrou.</p>
+<p><strong>O resultado que faria o autor mudar de ideia.</strong> Se mais de dois terços dos celulares da turma (a maioria Android, como no Brasil [45]) abrirem a cena completa com o modelo no aparelho em menos de dez segundos, a convergência 2 (GPU como barreira) está superestimada e e9.1 cai. Se, ao contrário, menos de um terço abrir, a raiz 3 é de topo de linha até bem depois de 2030, e e8 vai para 2036 ou mais.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<p>Quarenta e seis fontes, todas abertas nesta rodada em 22/09/2026.</p>
+<p><strong>WebGPU, WebXR e óculos</strong></p>
+<ol><li><a href="https://web.dev/blog/webgpu-supported-major-browsers">https://web.dev/blog/webgpu-supported-major-browsers</a> — Google, 25/11/2025. Versões de WebGPU por navegador e lacunas. Sustenta 3.1 e "por que agora" das raízes 1 e 3. <em>Confiabilidade:</em> alta, fonte primária.</li><li><a href="https://github.com/gpuweb/gpuweb/wiki/Implementation-Status">https://github.com/gpuweb/gpuweb/wiki/Implementation-Status</a> — grupo GPU for the Web, editado em 13/08/2026. Lacunas em Linux, Android por GPU, Windows ARM64. Sustenta 3.2, e4, e9. <em>Confiabilidade:</em> alta.</li><li><a href="https://web3dsurvey.com/webgpu">https://web3dsurvey.com/webgpu</a> — Web3D Survey. 82,09% no total; Android 72,48%; Linux 16,97%. Sustenta 3.2, 3.4, 3.5, e9, 7.8. <em>Confiabilidade:</em> média — amostra autosselecionada, sem data nem tamanho.</li><li><a href="https://webkit.org/blog/17640/webkit-features-for-safari-26-2/">https://webkit.org/blog/17640/webkit-features-for-safari-26-2/</a> — WebKit, 12/12/2025. WebXR com WebGPU no visionOS. Sustenta 3.1, raiz 2. <em>Confiabilidade:</em> alta.</li><li><a href="https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/">https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/</a> — WebKit, WWDC26. <code>&lt;model&gt;</code> em iOS/macOS, ambientes imersivos, sem <code>immersive-ar</code>. Sustenta e2, e3, e5, e5.1.1, sinal fraco 2. <em>Confiabilidade:</em> alta.</li><li><a href="https://developer.android.com/develop/xr/web">https://developer.android.com/develop/xr/web</a> — Android Developers. Módulos WebXR no Chrome do Android XR; mão como entrada primária. Sustenta 3.1, e5, e5.2. <em>Confiabilidade:</em> alta.</li><li><a href="https://blog.google/products-and-platforms/platforms/android/samsung-galaxy-xr/">https://blog.google/products-and-platforms/platforms/android/samsung-galaxy-xr/</a> — Google. Galaxy XR, US$ 1.799, OpenXR e WebXR, Chrome. Sustenta 3.1. <em>Confiabilidade:</em> alta para fatos; tom promocional.</li><li><a href="https://developers.meta.com/horizon/release-notes/web/">https://developers.meta.com/horizon/release-notes/web/</a> — Meta. Quest Browser 146, 149.1, 150.1 com WebGPU, depth, space-warp e foveação. Sustenta 3.1, e5, e7. <em>Confiabilidade:</em> alta.</li><li><a href="https://developers.meta.com/horizon/documentation/web/pwa-overview/">https://developers.meta.com/horizon/documentation/web/pwa-overview/</a> — Meta. PWA opcional na Horizon Store via Bubblewrap. Sustenta 3.1, e1, e5. <em>Confiabilidade:</em> alta.</li><li><a href="https://developers.meta.com/horizon/blog/2026-vr-state-of-the-union-horizon-mobile-focus/">https://developers.meta.com/horizon/blog/2026-vr-state-of-the-union-horizon-mobile-focus/</a> — Meta, 19/02/2026. VR cresceu menos que o esperado; 86% do tempo em apps de terceiros; sem web. Sustenta 3.2, 3.4, e5, e6. <em>Confiabilidade:</em> alta para a posição da empresa.</li><li><a href="https://www.w3.org/standards/history/webxr/">https://www.w3.org/standards/history/webxr/</a> — W3C. WebXR em CRD desde 2022; último em 09/06/2026. Sustenta 3.2, e7. <em>Confiabilidade:</em> alta.</li><li><a href="https://web.dev/blog/interop-2026">https://web.dev/blog/interop-2026</a> — Google, 12/02/2026. Áreas do Interop 2026 sem WebGPU nem WebXR. Sustenta 3.2, e7, cenário desejável. <em>Confiabilidade:</em> alta.</li><li><a href="https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/">https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/</a> — Google, I/O 2026. Óculos de áudio no outono, de tela depois, sem menção à web. Sustenta 3.2, e5.1, e6. <em>Confiabilidade:</em> alta para o anúncio.</li><li><a href="https://www.idc.com/resource-center/blog/smart-glasses-surge-the-xr-market-is-rewriting-its-own-rules/">https://www.idc.com/resource-center/blog/smart-glasses-surge-the-xr-market-is-rewriting-its-own-rules/</a> — IDC, 2026. 2,25 milhões no 1º tri; 13,6 milhões em 2026; 27,3 milhões em 2030; tela óptica 12,2 milhões em 2030; Meta 69,2%. Sustenta 3.4, e5.1, e6. <em>Confiabilidade:</em> média-alta, previsão de consultoria.</li><li><a href="https://9to5mac.com/2026/09/21/report-ai-glasses-shipments-surged-263-in-h1-2026-as-apple-prepares-to-enter-the-market/">https://9to5mac.com/2026/09/21/report-ai-glasses-shipments-surged-263-in-h1-2026-as-apple-prepares-to-enter-the-market/</a> — 9to5Mac sobre Counterpoint, 21/09/2026. +263%; Meta 94% dos sem tela; 7 milhões de Ray-Ban em 2025; Apple em 2027; escrutínio de privacidade. Sustenta 3.4, e1.2.1, wildcard 1. <em>Confiabilidade:</em> média-alta (secundária).</li><li><a href="https://www.theregister.com/2026/01/02/apple_vision_pro_meta_quest_sales_drop/">https://www.theregister.com/2026/01/02/apple_vision_pro_meta_quest_sales_drop/</a> — The Register, 02/01/2026. Vision Pro 390 mil → 45 mil; Quest −16%; IDC −42,8%. Sustenta 3.4, e5.1, pré-mortem 1. <em>Confiabilidade:</em> média-alta; ver seção 8, item 2.</li></ol>
+<p><strong>Motores, ferramentas, formatos</strong></p>
+<ol><li><a href="https://blog.playcanvas.com/new-in-supersplat-editor-3-0-rebuilt-on-webgpu/">https://blog.playcanvas.com/new-in-supersplat-editor-3-0-rebuilt-on-webgpu/</a> — PlayCanvas, 09/09/2026. SuperSplat 3.0 só WebGPU; 1.557 → 105 MB. Sustenta 3.1, raiz 4, e1.1, e11. <em>Confiabilidade:</em> alta para fatos; números do fabricante.</li><li><a href="https://www.khronos.org/news/press/gltf-gaussian-splatting-press-release">https://www.khronos.org/news/press/gltf-gaussian-splatting-press-release</a> — Khronos, 03/02/2026. RC de <code>KHR_gaussian_splatting</code>; participantes. Sustenta 3.1, raiz 4, e12. <em>Confiabilidade:</em> alta.</li><li><a href="https://github.com/mrdoob/three.js/releases">https://github.com/mrdoob/three.js/releases</a> — three.js. <code>WebGPURenderer</code>, TSL. Sustenta 3.1. <em>Confiabilidade:</em> alta para conteúdo; data do extrato errada (seção 8).</li><li><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/WebGPU.html">https://docs.unity3d.com/6000.3/Documentation/Manual/WebGPU.html</a> — Unity 6.3. WebGPU experimental. Sustenta 3.1, raiz 1 "o que falta". <em>Confiabilidade:</em> alta.</li><li><a href="https://gamefromscratch.com/babylon-js-8-game-engine-released/">https://gamefromscratch.com/babylon-js-8-game-engine-released/</a> — GameFromScratch, 03/04/2025. Babylon.js 8: shaders em GLSL e WGSL, Node Material Editor em WGSL, visualizador leve, splats SPZ. Sustenta 3.1, e1.1, e11. <em>Confiabilidade:</em> média-alta — secundária que resume o anúncio oficial.</li><li><a href="https://godotwebgpu.com/">https://godotwebgpu.com/</a> — Godot WebGPU (David Walter), beta 10/05/2026. Backend WebGPU comunitário, não oficial. Sustenta 3.1, e1, sinal fraco 1. <em>Confiabilidade:</em> média — projeto individual, números do autor.</li><li><a href="https://webassembly.org/news/2025-09-17-wasm-3.0/">https://webassembly.org/news/2025-09-17-wasm-3.0/</a> — WebAssembly CG, 17/09/2025. Recursos do Wasm 3.0. Sustenta 3.1, raiz 1. <em>Confiabilidade:</em> alta.</li><li><a href="https://redmonk.com/kholterhoff/2025/10/17/wasms-identity-crisis/">https://redmonk.com/kholterhoff/2025/10/17/wasms-identity-crisis/</a> — RedMonk, 17/10/2025. Barreiras de adoção do Wasm; JSPI no Safari. Sustenta 3.2. <em>Confiabilidade:</em> média-alta, análise de analista.</li><li><a href="https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/">https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/</a> — Figma, 08/06/2017. Carga 3x mais rápida com WebAssembly. Sustenta 3.6, raiz 4, e11. <em>Confiabilidade:</em> alta para o fato técnico.</li><li><a href="https://modelviewer.dev/">https://modelviewer.dev/</a> — Google. <code>model-viewer</code> com WebXR, Scene Viewer e Quick Look. Sustenta 3.6. <em>Confiabilidade:</em> alta.</li><li><a href="https://8thwall.org/">https://8thwall.org/</a> — 8th Wall. Plataforma aposentada em 28/02/2026; partes em MIT; XR Engine binário. Sustenta 3.6, e2.1, e11.2. <em>Confiabilidade:</em> alta, primária.</li></ol>
+<p><strong>Jogo web e classes de referência</strong></p>
+<ol><li><a href="https://poki.com/blog/state-of-web-gaming-report-2026">https://poki.com/blog/state-of-web-gaming-report-2026</a> — Poki, 2026. 100+ milhões/mês; 53%; 62%; sem WebGPU. Sustenta 3.4, 3.6, e1, 7.8. <em>Confiabilidade:</em> média — parte interessada.</li><li><a href="https://www.androidauthority.com/google-killing-android-instant-apps-3567211/">https://www.androidauthority.com/google-killing-android-instant-apps-3567211/</a> — Android Authority. Instant Apps 2017–2025, fim por baixa adoção. Sustenta seção 2. <em>Confiabilidade:</em> média-alta.</li><li><a href="https://en.wikipedia.org/wiki/Google_Stadia">https://en.wikipedia.org/wiki/Google_Stadia</a> — Wikipedia. Stadia 2019–2023, no Chrome. Sustenta 3.6, e9.2. <em>Confiabilidade:</em> média.</li><li><a href="https://en.wikipedia.org/wiki/Adobe_Flash_Player">https://en.wikipedia.org/wiki/Adobe_Flash_Player</a> — Wikipedia. 400 milhões de desktops em seis semanas (2013); bloqueio em 12/01/2021. Sustenta seção 2, e13, 7.3. <em>Confiabilidade:</em> média.</li><li><a href="https://en.wikipedia.org/wiki/App_Store_%28Apple%29">https://en.wikipedia.org/wiki/App_Store_%28Apple%29</a> — Wikipedia. Plano de web apps; loja em 10/07/2008 com 500 apps; pico de ~2,2 milhões em 2017; 30%. Sustenta seção 2, e1. <em>Confiabilidade:</em> média.</li><li><a href="https://ruffle.rs/">https://ruffle.rs/</a> — Ruffle. Emulador de Flash em Rust e WebAssembly. Sustenta e13, e13.1. <em>Confiabilidade:</em> alta para o que o projeto é.</li></ol>
+<p><strong>IA no navegador e segurança</strong></p>
+<ol><li><a href="https://arxiv.org/html/2412.15803v2">https://arxiv.org/html/2412.15803v2</a> — Ruan et al., WebLLM. 71–80% do nativo em M3 Max. Sustenta 3.1, raiz 3, e8. <em>Confiabilidade:</em> alta como preprint com código; hardware topo.</li><li><a href="https://huggingface.co/blog/transformersjs-v4">https://huggingface.co/blog/transformersjs-v4</a> — Hugging Face, 09/02/2026. Runtime WebGPU; GPT-OSS 20B ~60 tok/s; offline. Sustenta 3.1, e8. <em>Confiabilidade:</em> média-alta, número do fabricante.</li><li><a href="https://developer.chrome.com/docs/ai/built-in">https://developer.chrome.com/docs/ai/built-in</a> — Chrome. Gemini Nano gerenciado pelo navegador; APIs em origin trial. Sustenta 3.1, e8.1, sinal fraco 3. <em>Confiabilidade:</em> alta.</li><li><a href="https://news.ycombinator.com/item?id=44767775">https://news.ycombinator.com/item?id=44767775</a> — Hacker News, 02/08/2025, 145 pontos. Llama 3.2 1B, ~500 MB; falhas no Safari. Sustenta 3.1, e4, e8.1. <em>Confiabilidade:</em> média — relatos de praticantes.</li><li><a href="https://arxiv.org/abs/2401.04349">https://arxiv.org/abs/2401.04349</a> — Ferguson, Wilson, Naghibijouybari, WebGPU-SPY, 2024. Sustenta 3.2, e10, wildcard 1. <em>Confiabilidade:</em> alta como pesquisa.</li></ol>
+<p><strong>Lojas, regulação, poder</strong></p>
+<ol><li><a href="https://www.macrumors.com/2026/06/17/webkit-rule-costs-ios-users-browser-performance/">https://www.macrumors.com/2026/06/17/webkit-rule-costs-ios-users-browser-performance/</a> — MacRumors, 17/06/2026. Nenhum motor alternativo no iOS; Edge com Blink +28,6%. Sustenta 3.2, e3, 7.3, wildcard 2. <em>Confiabilidade:</em> média-alta; teste preliminar.</li><li><a href="https://open-web-advocacy.org/blog/apples-browser-engine-ban-persists-even-under-the-dma/">https://open-web-advocacy.org/blog/apples-browser-engine-ban-persists-even-under-the-dma/</a> — OWA, 14/07/2025. Quatro barreiras; ~US$ 20 bilhões/ano. Sustenta raiz 1 "quem bloqueia", e3, wildcard 3. <em>Confiabilidade:</em> média — advocacy com argumento documentado.</li><li><a href="https://www.mymobiles.com/news/cma-apple-mobile-browser-investigation-ruling">https://www.mymobiles.com/news/cma-apple-mobile-browser-investigation-ruling</a> — MyMobiles, 2026. CMA exige motores alternativos até 01/01/2027; recurso 6–12 meses. Sustenta e3.1, 7.3, wildcard 2. <em>Confiabilidade:</em> média — secundária.</li><li><a href="https://www.macrumors.com/2026/04/29/epic-games-wins-reversal-app-store-fee-battle/">https://www.macrumors.com/2026/04/29/epic-games-wins-reversal-app-store-fee-battle/</a> — MacRumors, 29/04/2026. Taxa "razoável" sobre link externo a ser fixada. Sustenta e1.2, 7.3. <em>Confiabilidade:</em> média-alta.</li><li><a href="https://www.cnnbrasil.com.br/economia/negocios/cade-faz-acordo-para-apple-oferecer-pagamento-e-lojas-de-apps-alternativos/">https://www.cnnbrasil.com.br/economia/negocios/cade-faz-acordo-para-apple-oferecer-pagamento-e-lojas-de-apps-alternativos/</a> — CNN Brasil, 12/2025. Acordo CADE–Apple. Sustenta 3.5, e1.2. <em>Confiabilidade:</em> média-alta.</li><li><a href="https://www.opb.org/article/2025/09/03/a-judge-lets-google-keep-chrome-but-levies-other-penalties/">https://www.opb.org/article/2025/09/03/a-judge-lets-google-keep-chrome-but-levies-other-penalties/</a> — OPB/NPR, 03/09/2025. Google mantém o Chrome; pagamentos não exclusivos permitidos. Sustenta 7.5.3, wildcard 3. <em>Confiabilidade:</em> alta.</li><li><a href="https://gs.statcounter.com/os-market-share/mobile/brazil">https://gs.statcounter.com/os-market-share/mobile/brazil</a> — StatCounter, agosto de 2026. Android 75,45% no Brasil. Sustenta 3.5, e9.1, experimento. <em>Confiabilidade:</em> média-alta (tráfego, não aparelhos).</li><li><a href="https://piunikaweb.com/2026/09/08/ladybird-august-2026-update-progress/">https://piunikaweb.com/2026/09/08/ladybird-august-2026-update-progress/</a> — PiunikaWeb, 08/09/2026. Progresso do Ladybird; sem menção a WebGL/WebGPU. Sustenta e7.1.1, sinal fraco 4. <em>Confiabilidade:</em> média — secundária.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-saida-do-verificador">12.1 Saída do verificador</h3>
+<p>Rodado em 22/09/2026, depois da última edição do documento (uma rodada anterior acusou o link da CMA por tempo esgotado no handshake TLS; testado três vezes, respondeu 200 em duas, e a rodada final abaixo é a que vale):</p>
+<pre><code class="lang-">frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 4 (frontmatter diz 4)
+efeitos ordem 1: 13 (frontmatter diz 13)
+efeitos ordem 2: 18 (frontmatter diz 18)
+efeitos ordem 3: 18 (frontmatter diz 18)
+prazo &gt; horizonte (2046) em ordens 1-2: 0 
+prazo &gt; horizonte em ordem 3 (permitido, mas declare): 1 [(&#x27;e13.1.1&#x27;, 2050)]
+confiança ordem 1: alta 2 · media 10 · baixa 1
+confiança ordem 2: alta 0 · media 11 · baixa 7
+confiança ordem 3: alta 0 · media 0 · baixa 18
+links da seção 11: 46/46 respondem (frontmatter diz fontes: 46)
+RESULTADO: ok</code></pre>
+<h3 id="12-2-premissas-assumidas-que-o-briefing-nao-cobria">12.2 Premissas assumidas que o briefing não cobria</h3>
+<ul><li>Número de raízes: quatro, pelo limite do §2 (duas a quatro).</li><li>"Nota sobre o Brasil": tratada em 3.5 e nos efeitos e9.1 e e9.1.1; não fiz mapa separado.</li><li>Janela de 2046: efeitos de 3ª ordem além de 2046 são declarados fora da janela (só e13.1.1).</li><li>Pesquisa: segui o §1 com 11 buscas e 49 aberturas; não usei a skill <code>futures-wheel</code> nem subagentes.</li><li>A rodada da mesma skill para 2041 foi lida antes da pesquisa (seção 8, item 5).</li></ul>
+<h3 id="12-3-efeitos-cortados-e-caminhos-abandonados">12.3 Efeitos cortados e caminhos abandonados</h3>
+<ul><li><strong>"A App Store deixa de ser relevante para experiências 3D"</strong> (rascunho de e1.2). Cortado: extrapolação linear da regulação; substituído pelo deslocamento de receita para descoberta.</li><li><strong>"O sistema operacional móvel perde relevância"</strong> (rascunho de 1ª ordem da raiz 2). Cortado: sem mecanismo específico, e o próprio mapa mostra o SO voltando como dono do assistente.</li><li><strong>"Surge a profissão de arquiteto de experiência web imersiva"</strong>. Cortado: efeito genérico proibido pelo §3.</li><li><strong>"Cursos de design de interação passam a ensinar WebXR"</strong>. Cortado: genérico, sem curso nomeado.</li><li><strong>"Consumo de energia migra do data center para o aparelho"</strong>. Cortado por falta de fonte aberta; deixa a categoria ecológica vazia (5.6).</li><li><strong>Raiz candidata "IA no navegador como raiz própria"</strong>. Fundida na raiz 3 para respeitar a fronteira com o tema 16.</li><li><strong>Raiz candidata "WebAssembly como runtime universal fora do navegador"</strong>. Recusada: fora do objeto (a web como plataforma 3D/XR); o RedMonk mostra que a própria comunidade não decidiu esse papel [24].</li><li><strong>Efeito "anúncios jogáveis 3D viram formato dominante de publicidade"</strong>. Cortado: formato já existe em WebGL (maduro) e o mecanismo não depende de WebGPU.</li></ul>
+<h3 id="12-4-buscas-e-aberturas-que-nao-deram-em-nada">12.4 Buscas e aberturas que não deram em nada</h3>
+<ul><li><code>"Gestalt Village" WebGPU browser LLM simulation</code> — nada sobre o projeto; resultados eram WebLLM e demos genéricas.</li><li><a href="https://www.npr.org/2025/09/02/nx-s1-5478625/google-chrome-doj-antitrust-ruling">https://www.npr.org/2025/09/02/nx-s1-5478625/google-chrome-doj-antitrust-ruling</a> — tempo esgotado; substituída pela OPB, que republica a matéria [44].</li><li><a href="https://www.nature.com/articles/s40494-026-02386-x">https://www.nature.com/articles/s40494-026-02386-x</a> (conservação de arte em Flash) — redirecionou para login; não entra como fonte.</li><li><a href="https://rhizome.org/preservation-services/">https://rhizome.org/preservation-services/</a> — 403; não entra como fonte. O resumo da busca menciona o Emulation-as-a-Service da Rhizome, que teria sustentado e13.1; fica aqui como pista não verificada.</li><li><code>Apple Vision Pro sales 2025 units IDC</code> — os resumos divergem sobre 45 mil ser anual ou trimestral (seção 8, item 2).</li><li><a href="https://blogs.windows.com/windowsdeveloper/2025/03/27/announcing-babylon-js-8-0/">https://blogs.windows.com/windowsdeveloper/2025/03/27/announcing-babylon-js-8-0/</a> (anúncio oficial do Babylon.js 8, 27/03/2025) — abriu pelo WebFetch e trazia o número "2x menor ao mirar WebGPU", mas responde 403 a acesso por script; trocado pela GameFromScratch [21] e o número "2x" retirado do texto.</li><li><code>Godot 4 web export WebGPU 2026</code> — confirmou que a exportação oficial ainda é só WebGL 2.0 (resumo da busca, página oficial não aberta); a fonte usada foi o fork [22].</li></ul>
+<h3 id="12-5-classes-de-referencia-usadas">12.5 Classes de referência usadas</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Referência</th><th>Do quê a quê</th><th>Tempo</th><th>Fonte</th></tr></thead><tbody><tr><td>App Store</td><td>500 apps → pico de ~2,2 milhões</td><td>2008 → 2017, 9 anos</td><td>[32]</td></tr><tr><td>Flash</td><td>presença de massa → bloqueio</td><td>1996 → 2021, 25 anos; carta de Jobs em 2010, 11 anos até o fim</td><td>[31]</td></tr><tr><td>WebXR</td><td>primeiro rascunho → ainda CRD</td><td>2019 → 2026, 7+ anos</td><td>[11]</td></tr><tr><td>WebGPU</td><td>todos os motores → 82% de suporte</td><td>11/2025 → 2026</td><td>[1][3]</td></tr><tr><td>Headsets de consumo</td><td>&gt;10 anos, queda em 2025</td><td>—</td><td>[16]</td></tr><tr><td>Óculos sem tela</td><td>7 milhões (2025) → 27,3 milhões/ano projetados (2030)</td><td>5 anos</td><td>[14][15]</td></tr><tr><td>Instant Apps</td><td>lançamento → fim</td><td>2017 → 2025</td><td>[29]</td></tr><tr><td>Stadia</td><td>lançamento → fim</td><td>2019 → 2023</td><td>[30]</td></tr><tr><td>Regulação de motor no iOS</td><td>DMA → nenhum motor</td><td>2024 → 2026+</td><td>[39]</td></tr></tbody></table></div>
+<h3 id="12-6-rodada-descartada-a-roda-em-tres-raizes">12.6 Rodada descartada: a roda em três raízes</h3>
+<p>O primeiro rascunho tinha três raízes (link, óculos, IA) e punha a ferramenta 3D como efeito de 1ª ordem da raiz 1. Descartado porque a ferramenta rompe outra coisa (licença por estação e objeto da obra), tem ator próprio (Khronos, fornecedores de DCC) e carrega o ramo de preservação, que não deriva do link. Com quatro raízes, a convergência 3 aparece; com três, ela ficava invisível.</p></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

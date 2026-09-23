@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerar geradores: design procedural e creative coding com IA · futurizacao-giordano · horizonte 2056 (30 anos) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 14 · futurizacao-giordano · horizonte 2056 (30 anos)</p><h1>Gerar geradores: design procedural e creative coding com IA</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/giordano-h2056/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/giordano-h2056/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Três rupturas sustentam este mapa de trinta anos. <strong>A IA passa a escrever o gerador</strong>: modelos de linguagem produzem script do Blender, grafo de PCG do Unreal, Apex Script do Houdini, GLSL e Three.js que rodam — e o artista fica com "um script comum, não uma caixa-preta". Com isso, o ofício do técnico-diretor deixa de ser gargalo e passa a ser o de auditor, e o erro típico deixa de ser "não roda" para ser "roda, mas está errado" (precisão geométrica ≈0,35 com alinhamento semântico ≈0,8, segundo o P3D-Bench). <strong>A mídia passa a circular como programa</strong>: o objeto viaja como uma função de alguns milhares de linhas, e não como um splat de 140 MB a 1,4 GB, e é executado na GPU de quem o recebe — o que puxa o asset de arquivo para parâmetro e o arquivamento de dado para ambiente de execução. <strong>O gerador é escrito no momento do uso</strong> (laboratório: GROMIT; o concorrente em pixel é o Genie 3): jogo e interface deixam de ser artefato fechado. As três convergem num ponto: <strong>quem controla onde o código roda</strong> — suíte de criação, loja de aplicativos, navegador — controla a mudança. O bloqueio tem dono e precedente: o PostScript virou PDF, e o Flash foi desligado. O provável em 2056 é uma mídia em que a regra é o formato de trabalho, mas o formato de distribuição continua mais congelado do que a promessa sugere.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p><strong>O que é.</strong> Em vez de produzir o artefato, produzir a regra que produz o artefato — e, agora, fazer a IA escrever essa regra. Entram aqui: modelos que reconstroem um objeto como código procedural (img2threejs, LL3M, 3DCodeBench), que escrevem shaders (GLSL), que montam grafos de nós (PCG do Unreal, Houdini, Geometry Nodes), que geram SVG (StarVector), que dirigem ferramentas de animação programática (Manim via MCP) e que escrevem comportamento de jogo durante a partida (GROMIT). Ficam de fora a captura de realidade em 3D (tema 10; aqui ela só aparece como concorrente, o splat) e a geração de vídeo e imagem como pixel (tema 12; aqui só aparece como o polo oposto da disputa "gerar pixel × gerar programa").</p>
+<p><strong>Onde encosta em mídia e interação.</strong> Em três lugares: no ofício (quem modela, quem escreve shader, quem projeta motion design por regra — Cavalry); no formato (o que trafega pela rede e o que roda no dispositivo); e na interação (conteúdo e mecânica que são escritos quando a pessoa chega, em vez de antes).</p>
+<p><strong>Por que merece um mapa de futuro e não um levantamento.</strong> Porque o procedural em si é maduro — WFC em jogos comerciais, Houdini há trinta anos, p5.js no ensino — e o levantamento diria "já existe". O que é novo é a mudança de quem escreve a regra, e essa mudança mexe com três suposições que o levantamento não pergunta: que o gerador exige especialista; que a mídia distribuída é dado; e que o software é fechado quando sai de fábrica.</p>
+<p><strong>Premissas do briefing (assumidas, não perguntadas).</strong> Horizonte 2056; público: quem projeta mídia e interação; recorte global com nota sobre o Brasil; descartado: o que já é comum em produto de massa; nenhuma raiz suspeita; viés neutro; ideias óbvias fora: as que servem para qualquer tema; falseador: evidência de que a adoção já passou da maioria inicial de Rogers, ou de que a tecnologia só melhora o que existe. Profundidade de três ordens; modo a partir de tema.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p>Âncora feita com acesso à web em 22/09/2026: 9 buscas e 37 tentativas de abrir página, das quais 31 fontes abertas (lista na seção 11).</p>
+<h3 id="3-1-o-que-ja-existe-e-funciona">3.1 O que já existe e funciona</h3>
+<ul><li><strong>Conectores oficiais das ferramentas de criação.</strong> O Blender Lab publicou um servidor MCP que dá acesso em linguagem natural à API Python (Blender 5.1+), com o aviso de que ele "executa código gerado por LLM no Blender sem nenhuma guarda" e a recomendação de rodar em máquina isolada [4]. A Anthropic anunciou em 28/04/2026 conectores para Blender, Autodesk Fusion, Adobe (50+ apps), Affinity, SketchUp, Resolume, Ableton e Splice [10].</li><li><strong>Houdini.</strong> O Houdini 22 saiu em 16/07/2026 com toolset de Gaussian splatting, KineFX e Copernicus [6]. No keynote (22/06/2026), a SideFX mostrou o <em>Apex Script Comfort Package</em> — extensão de VS Code, painel Python e servidor MCP — em que o assistente devolveu um componente de rig de mais de 300 linhas, com a frase "o artista possui um script comum, não uma caixa-preta"; está como prévia rumo ao SideFX Labs, não no lançamento principal [21]. Há terceiros no mesmo lugar: NodeArchitect (agente com MCP embutido para Houdini, vendido no Gumroad; só vi a listagem na busca, não abri).</li><li><strong>Unreal Engine 5.8.</strong> A Epic documenta o uso de um servidor MCP com o PCG no <em>City Sample</em>: duas habilidades, "geração de grafo PCG" e "definição de gramática de formas", e o aviso de que o prompt avançado exige entender o grafo "para conferir a qualidade do trabalho do LLM" [7].</li><li><strong>Imagem → código 3D.</strong> O img2threejs reconstrói o objeto de uma imagem como fábrica TypeScript de <code>THREE.Group</code>, em oito passes (blockout → estrutura → forma → material → superfície → luz → interação → otimização), com portões determinísticos em Python e revisão visual por passe; Apache 2.0, ~16,6 mil estrelas, v2.0 [2]. A vitrine da comunidade WebGPU (30/07/2026) atribui a autoria a Hoài Nhớ e o descreve como agnóstico de agente (Claude Code, Codex, OpenCode) [3]. O próprio projeto recusa pedidos de fidelidade que uma imagem não sustenta [2].</li><li><strong>Pesquisa em 3D por código.</strong> LL3M (ago/2025): multiagente escrevendo Python do Blender, com a representação "interpretável, legível, documentada" como argumento central [13]. ProcFunc (Princeton, abr/2026, revisto em 15/09/2026): biblioteca de funções procedurais em que VLMs criam código novo "com significativamente menos erros" [17]. Infinigen (CVPR 2023) é o precedente: mundos naturais inteiros por regra, sem aprendizado (visto só no resultado da busca, não aberto; fora da seção 11).</li><li><strong>SVG e shader.</strong> StarVector gera SVG a partir de imagem ou texto, treinado em 2 milhões de SVGs [14]. O shader-spec-eval, projeto individual, mede GLSL gerado por propriedades: 90,8% compilam, 67,5% passam em todas as propriedades; bordas nítidas são a falha mais comum [5].</li><li><strong>Animação programática.</strong> Manim tem 94,1 mil estrelas (MIT) [16]; um servidor MCP executa código Manim e devolve o vídeo (644 estrelas) [20].</li><li><strong>O procedural maduro, como contexto.</strong> WaveFunctionCollapse (25,3 mil estrelas), usado em Bad North, Caves of Qud, Townscaper e Matrix Awakens [19]; p5.js (24 mil estrelas, versão 2.0 em beta) [28]; Cavalry, motion design procedural, com plano gratuito e hoje da Canva [30]; Grasshopper, programação visual para Rhino desde 2007, padrão no Rhino desde a versão 6 [29].</li></ul>
+<h3 id="3-2-o-que-existe-e-ainda-nao-funciona">3.2 O que existe e ainda não funciona</h3>
+<ul><li><strong>Precisão.</strong> O P3D-Bench (jun/2026; 11 modelos gerais + 3 de domínio; JSON, OpenSCAD, CadQuery e Three.js) encontra alinhamento semântico ≈0,8 e precisão geométrica ≈0,35; o melhor modelo chega a ≈0,5 de PartMatchF1; CadQuery produz programa inválido com frequência; "programas que executam e renderizam de forma plausível ainda falham em recuperar a geometria paramétrica correta" [18].</li><li><strong>Falhas típicas.</strong> O 3DCodeBench (31/05/2026; 12 VLMs escrevendo Python do Blender 5.0; 212 categorias) aponta incompatibilidade de API como a maior causa de falha e, nos renders que dão certo, peças desconectadas ou flutuando; mais orçamento de raciocínio e refinamento em várias rodadas melhoram o resultado [1].</li><li><strong>Geração em tempo de execução.</strong> GROMIT (UIST 2024, melhor artigo) compila em Unity comportamento escrito por LLM durante a partida; em entrevistas com 13 desenvolvedores, as preocupações são qualidade, expectativa da comunidade e integração ao fluxo, e os autores pedem mais sistemas de proteção [31]. Não achei jogo comercial que faça isso.</li><li><strong>Modelo de mundo em pixel.</strong> O Project Genie (29/01/2026, Genie 3) gera mundos interativos em pixel, com limite de 60 s, disponível só para assinantes Ultra nos EUA, e com controle inconsistente [8]. É o polo oposto do tema: gera a experiência, não a regra.</li></ul>
+<h3 id="3-3-quem-constroi">3.3 Quem constrói</h3>
+<p>Fabricantes de ferramentas de criação (Blender Foundation, SideFX, Epic, Autodesk, Adobe, Canva/Cavalry); laboratórios de modelo (Anthropic com conectores; Google com Genie e com autores do 3DCodeBench); grupos acadêmicos (Princeton VL com Infinigen/ProcFunc; Chicago com LL3M; Berkeley com GROMIT); e a comunidade aberta (img2threejs, manim-mcp-server, WFC, p5.js, Arteprog).</p>
+<h3 id="3-4-numeros-de-adocao">3.4 Números de adoção</h3>
+<ul><li>84% dos desenvolvedores usam ou pretendem usar IA; 50,6% dos profissionais usam todo dia; ~31% usam agentes com regularidade; 66% se frustram com soluções "quase certas" (Stack Overflow 2025) [11]. É população de desenvolvedor, não de designer.</li><li>WebGPU: 87,35% de suporte global [15].</li><li>Splat de uma cena interna com 4 milhões de gaussianas: 1,4 GB em PLY, 140 MB em SOG [9].</li><li>Art Blocks, o precedente de "o código é a obra": script gravado on-chain, semente por token, 177 mil obras, US$ 1,4 bilhão em vendas até mai/2022 [27].</li><li><strong>Proporção de designers de mídia que usam IA para escrever gerador: sem número encontrado.</strong> O tamanho em bytes de um modelo do img2threejs também não foi encontrado; o "mil vezes mais leve" da descrição do tema não foi verificado.</li></ul>
+<h3 id="3-5-nota-sobre-o-brasil">3.5 Nota sobre o Brasil</h3>
+<p>Existe comunidade de programação criativa com lastro: a Noite de Processing em São Paulo (mensal desde 2018, Monica Rizzolli, Alexandre Villares, João Antônio Ferreira), o Processing Community Day SP 2020 da Arteprog [23], o encontro Compoética e um grupo no Telegram [24]. O custo pesa: Houdini Core custa US$ 1.995 e o FX, US$ 4.495 por licença fixa [6]; o Blender é gratuito. A hipótese deste mapa é que, no Brasil, a IA-autora-de-gerador chega pelo Blender e pelo navegador (Three.js, p5.js), não pelo Houdini. O inglês da API é barreira que a IA reduz: quem pede em português recebe código em Python. A classificação indicativa (ClassInd, Ministério da Justiça) é o regulador que encosta na raiz 3.</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="4-1-raiz-1-a-ia-escreve-o-gerador-script-grafo-de-nos-shader-que-o-humano-recebe-e-possui">4.1 Raiz 1 — A IA escreve o gerador (script, grafo de nós, shader) que o humano recebe e possui</h3>
+<ol><li><strong>O que rompe.</strong> A divisão entre artista e técnico-diretor: o procedural deixa de exigir quem saiba a sintaxe do Houdini ou a API do Blender. Rompe também a suposição de que modelo gerado por IA é caixa-preta — o que sai é script legível, editável e sem dependência do modelo depois de gerado [21].</li><li><strong>Por que agora.</strong> Três pré-condições de 2025–2026: modelos que escrevem programa gráfico que executa (LL3M, 3DCodeBench); o protocolo MCP adotado <em>oficialmente</em> pelas ferramentas (Blender Lab, SideFX, Epic) [4][7][21]; e laços de execução, render e crítica que corrigem o erro — o 3DCodeBench mostra que o refinamento em várias rodadas é o que melhora [1]. Há cinco anos, nenhuma das três existia.</li><li><strong>Onde está na difusão.</strong> Entre <strong>produto de nicho</strong> e <strong>adoção precoce</strong>: conectores oficiais existem; a SideFX ainda está em prévia no Labs; não há número entre designers. Emergente.</li><li><strong>O que falta.</strong> Precisão geométrica e por peça (≈0,35; ≈0,5) [18]; estabilidade de API entre versões [1]; guardas de execução [4]; um jeito de testar asset gerado que não seja olhar.</li></ol>
+<p><strong>Quem bloqueia.</strong> Os fabricantes de suíte (Autodesk, Adobe, SideFX) têm incentivo para capturar o agente como recurso da suíte e prender o gerador ao próprio formato — efeito e5.</p>
+<h3 id="4-2-raiz-2-a-midia-circula-como-programa-o-gerador-viaja-nao-o-resultado">4.2 Raiz 2 — A mídia circula como programa: o gerador viaja, não o resultado</h3>
+<ol><li><strong>O que rompe.</strong> O pipeline de asset baseado em arquivo pesado e fechado (malha, textura, splat, vídeo), e a suposição de que distribuir mídia é transmitir dado. O objeto entregue é uma função com parâmetros, executada na GPU de quem recebe [2].</li><li><strong>Por que agora.</strong> A IA baixou o custo de escrever o gerador — o que antes exigia um artista procedural por objeto passa a ser um passe de agente [2]; a WebGPU chegou a 87% de suporte [15]; e a mídia capturada ficou pesada (splat de 140 MB a 1,4 GB) [9], o que cria a tensão que dá sentido à alternativa leve. Procedural na web existe desde a demoscene, mas não na escala de "qualquer objeto a partir de uma foto".</li><li><strong>Onde está na difusão.</strong> <strong>Demo pública / produto de nicho</strong>: galerias de demonstração, nenhum pipeline de produção documentado. Especulativo na parte de formato de distribuição; <code>confianca</code> alta proibida nos ramos de formato.</li><li><strong>O que falta.</strong> Formato portátil de gerador (hoje, cada motor tem seu dialeto); determinismo entre GPUs; sandbox para rodar código alheio; aceitação da fidelidade estilizada [2]; preservação de longo prazo.</li></ol>
+<p><strong>Quem bloqueia.</strong> Os donos de plataforma de execução (Apple, Google, lojas de console) e os comitês de padrão, que já fizeram isso duas vezes: o PostScript, linguagem Turing-completa, perdeu a distribuição para o PDF [25]; o Flash, formato de mídia programada instalado em mais computadores que qualquer outro em 2005, foi recusado no iOS em 2010 e desligado em 2020 [26]. Efeitos e8 e e8.1.</p>
+<h3 id="4-3-raiz-3-o-gerador-e-escrito-no-momento-do-uso">4.3 Raiz 3 — O gerador é escrito no momento do uso</h3>
+<ol><li><strong>O que rompe.</strong> O software como artefato fechado e testado antes da venda: mecânica de jogo, conteúdo e interface passam a ser código escrito quando o usuário chega [31]. Rompe o controle final do designer sobre o que existe no produto.</li><li><strong>Por que agora.</strong> A latência e o custo de gerar código caíram a ponto de permitir compilar durante a partida (GROMIT, 2024) [31]; e o concorrente em pixel (Genie 3) tornou a pergunta "regra ou pixel?" concreta [8].</li><li><strong>Onde está na difusão.</strong> <strong>Laboratório / demo.</strong> Especulativo: <code>confianca: baixa</code> em toda a cadeia, por regra.</li><li><strong>O que falta.</strong> Guardas de segurança e de balanceamento [31]; política de loja que admita código gerado depois da certificação; modelo local rápido (tema 16); e a aceitação de quem joga.</li></ol>
+<p><strong>Quem bloqueia.</strong> Lojas de console e de aplicativos, que certificam o binário; e classificadores etários (ESRB, PEGI, ClassInd), que classificam conteúdo conhecido. Efeitos e13 e e10.1.1.</p>
+<h3 id="4-4-candidatos-recusados-como-raiz">4.4 Candidatos recusados como raiz</h3>
+<ul><li><em>Geração procedural em jogos</em> (WFC, Townscaper, Houdini): recusado; adoção em maioria nos jogos desde os anos 2010 [19]; tratado como contexto.</li><li><em>Creative coding em Processing/p5.js</em>: recusado; maduro em seu nicho e no ensino desde 2001/2014 [28]; contexto.</li><li><em>Programação visual por nós</em> (Grasshopper, Geometry Nodes): recusado; padrão no Rhino desde a versão 6 [29]; contexto.</li><li><em>Assistente de código de IA em geral</em>: recusado aqui; 84% dos desenvolvedores [11]; pertence ao tema 1.</li><li><em>Gaussian splatting</em>: pertence ao tema 10; aparece só como concorrente em e6.1.</li><li><em>Modelos de mundo em pixel</em> (Genie): pertence aos temas 9 e 12; aparece como polo oposto em e11.</li></ul>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: A IA escreve o gerador (script, grafo de nós, shader) que o humano recebe e possui
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: O técnico-diretor deixa de ser o gargalo do procedural, porque o artista generalista pede o script ou o grafo ao agente e recebe um programa que roda sem o modelo
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: O técnico-diretor passa de autor de ferramentas a revisor de geradores escritos por agente, lendo diffs e testando os limites dos parâmetros
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Estúdios tratam a biblioteca interna de funções procedurais canônicas que o agente compõe como o ativo competitivo, acima do acervo de assets
+                sinal: medio
+                prazo: 2042
+                confianca: baixa
+              - id: e1.1.2
+                ordem: 3
+                efeito: Some o degrau de entrada de modelador júnior, e com ele o caminho pelo qual se formava o técnico-diretor sênior que agora precisa auditar
+                sinal: fraco
+                prazo: 2045
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: A sintaxe do Houdini e dos Geometry Nodes deixa de filtrar quem trabalha em procedural, e artistas sem formação em programação entregam geradores
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: O grafo de nós perde a função de interface de autoria e fica como interface de leitura e inspeção do que o agente escreveu
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: O defeito típico do asset gerado deixa de ser não rodar e passa a ser rodar errado, com peças flutuando e medidas imprecisas, e a conferência vira a etapa cara
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: Ferramentas de criação incorporam testes de propriedade de asset (contagem de peças, simetria, estanqueidade, borda) rodando como integração contínua de arte
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: O briefing de design passa a ser escrito como lista de propriedades verificáveis e vira o documento contratual entre cliente e estúdio
+                sinal: fraco
+                prazo: 2045
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: O gerador escrito por IA entra antes e mais fundo na mídia, que tolera o quase-certo, do que no CAD de fabricação, que não tolera
+            sinal: medio
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: A mídia incorpora o erro do gerador como estética, e a distância de ferramenta e de formação entre design de mídia e design de produto aumenta
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: Disciplinas de design de jogos e de mídia trocam o exercício de fazer o objeto pelo de escrever e restringir a regra, seguindo o caminho que a arquitetura fez com o Grasshopper
+        sinal: medio
+        prazo: 2036
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O ateliê de sistemas visuais ocupa carga horária do ateliê de modelagem e ilustração em cursos de design, games e mídia digital
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: A crítica de design passa a julgar o espaço de variação de um gerador, e não uma peça, e a banca avalia o que o gerador nunca produz
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: No creative coding, o valor de ter conseguido programar o efeito cai, porque o agente escreve o sketch e o shader, e o prestígio se desloca para a regra e a ideia
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Comunidades como OpenProcessing e Shadertoy marcam o que foi escrito à mão e criam desafios com restrição de tamanho ou sem IA, como prova de habilidade
+            sinal: fraco
+            prazo: 2034
+            confianca: baixa
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: O código minúsculo escrito à mão vira gênero de prestígio, valorizado como a caligrafia depois da imprensa
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Coletivos de programação criativa como a Noite de Processing trocam o ensino de sintaxe pelo ensino de leitura crítica e modificação de gerador
+            sinal: fraco
+            prazo: 2032
+            confianca: baixa
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Em escolas públicas brasileiras, programação criativa entra como modificação de gerador pedido em português, contornando a barreira do inglês e da sintaxe
+                sinal: fraco
+                prazo: 2045
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: Fabricantes de suíte de criação capturam o agente como recurso da própria suíte, e o gerador que o artista possui só roda dentro daquele formato e daquela licença
+        sinal: forte
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: Projetos abertos que emitem código portátil (Three.js, OpenSCAD, Python do Blender) ganham tração justamente por fugir do formato da suíte
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Um padrão neutro de gerador portátil é negociado, como o USD fez para a cena, ou fracassa e cada motor mantém seu dialeto
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+  - disrupcao: A mídia circula como programa, e o gerador viaja no lugar do resultado
+    efeitos:
+      - id: e6
+        ordem: 1
+        efeito: Na web, objetos e cenários 3D passam a ser entregues como código executado na GPU do visitante em vez de malha ou splat de centenas de megabytes
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A disputa entre splat e gerador se resolve por papel, com captura para o que precisa ser fiel ao real e gerador para o que precisa ser editado, animado ou leve
+            sinal: medio
+            prazo: 2038
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: Codecs de mídia passam a procurar o programa que gera o conteúdo em vez de codificar pixels, e o arquivo vira código mais resíduo
+                sinal: fraco
+                prazo: 2052
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: Óculos de XR, limitados em bateria e banda, preferem geradores, e a estética procedural estilizada volta a dominar ambientes imersivos
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Mundos com cara de regra viram marca visual de uma época, como o pixel art dos anos 1980
+                sinal: fraco
+                prazo: 2055
+                confianca: baixa
+          - id: e6.3
+            ordem: 2
+            efeito: Trocar transferência por computação desloca o gasto de energia da rede e do data center para o aparelho de quem recebe a cena
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e6.3.1
+                ordem: 3
+                efeito: Fabricantes de óculos e celulares expõem um orçamento de computação por cena, e geradores passam a ser otimizados por energia como hoje se otimiza por peso
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: Lojas de asset passam a vender geradores parametrizáveis em vez de modelos fixos, e o asset deixa de ser arquivo para ser função
+        sinal: medio
+        prazo: 2033
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: A cobrança por download dá lugar à licença do espaço de variação, com restrição sobre quais saídas e sementes o comprador pode usar
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Tribunais têm de decidir se a saída de um gerador alheio é a obra, e o código passa a ser protegido como texto enquanto as saídas ficam em zona cinzenta
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: Como o gerador é código legível, um estilo procedural é copiado em minutos por quem lê e reescreve o código, e a vantagem de estilo dura menos
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: Estúdios passam a distribuir geradores compilados ou ofuscados, abrindo mão da legibilidade que era a vantagem do formato
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: Rodar código gráfico alheio na máquina de quem recebe vira problema de segurança, e plataformas passam a exigir sandbox e assinatura para geradores
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: Donos de plataforma só admitem geradores em linguagem declarativa restrita, repetindo a passagem do PostScript para o PDF
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: A expressividade do gerador distribuído passa a ser definida por comitê de padrão, e a arte de programa mais radical volta a circular fora das lojas
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: Preservar mídia feita por gerador passa a exigir preservar o ambiente de execução, como já acontece com o Flash no Ruffle e no Flashpoint
+        sinal: medio
+        prazo: 2040
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: Obras procedurais geradas contra uma versão de API deixam de rodar quando a ferramenta muda, e congelar gerador, versão do motor e semente vira prática de entrega
+            sinal: fraco
+            prazo: 2045
+            confianca: baixa
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: Acervos de mídia como cinematecas e o Internet Archive mantêm emuladores de motores gráficos como parte do acervo
+                sinal: fraco
+                prazo: 2054
+                confianca: baixa
+  - disrupcao: O gerador é escrito no momento do uso, quando o jogador ou usuário chega
+    efeitos:
+      - id: e10
+        ordem: 1
+        efeito: Jogos passam a compilar mecânica escrita por IA durante a partida, e o designer deixa de definir o conjunto fechado de regras para definir o que pode ser gerado
+        sinal: medio
+        prazo: 2038
+        confianca: baixa
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: Teste e balanceamento viram monitoramento contínuo em produção, com agentes-jogadores exercitando um código que nenhum humano leu
+            sinal: fraco
+            prazo: 2044
+            confianca: baixa
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: ClassInd, ESRB e PEGI passam a certificar o limitador do gerador em vez do conteúdo, porque o conteúdo é escrito depois da venda
+                sinal: fraco
+                prazo: 2052
+                confianca: baixa
+          - id: e10.2
+            ordem: 2
+            efeito: Guias, speedrun e wikis de jogo perdem o objeto comum, porque cada jogador tem mecânicas diferentes
+            sinal: fraco
+            prazo: 2045
+            confianca: baixa
+            efeitos:
+              - id: e10.2.1
+                ordem: 3
+                efeito: Jogadores passam a trocar sementes e geradores, e o jogo vira plataforma de troca de regras entre eles
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+      - id: e11
+        ordem: 1
+        efeito: O conteúdo interativo gerado se divide entre mundo sonhado em pixel, opaco e sem estado, e mundo escrito em código, persistente e com regra explícita
+        sinal: medio
+        prazo: 2035
+        confianca: baixa
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: Sistemas híbridos usam o modelo de mundo para a aparência e um gerador de código para o estado e a regra, que vira o esqueleto auditável sob a pele gerada
+            sinal: fraco
+            prazo: 2042
+            confianca: baixa
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: Em disputa de e-sport, aposta ou simulação, o que aconteceu de fato só é demonstrável na camada de código, e o pixel perde valor de prova
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+      - id: e12
+        ordem: 1
+        efeito: Aplicativos geram o componente de interface em código para a tarefa de cada usuário, e o designer de interação entrega sistema de design e restrições em vez de telas
+        sinal: fraco
+        prazo: 2040
+        confianca: baixa
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: Design systems viram gramáticas executáveis lidas por agentes e passam a ser testados como código
+            sinal: fraco
+            prazo: 2045
+            confianca: baixa
+            efeitos:
+              - id: e12.1.1
+                ordem: 3
+                efeito: Acessibilidade passa a ser garantida pela gramática, ou falha em escala, porque um erro nela aparece em milhões de telas únicas que ninguém testou
+                sinal: fraco
+                prazo: 2052
+                confianca: baixa
+      - id: e13
+        ordem: 1
+        efeito: Lojas de console e de aplicativos limitam código gerado e executado depois da certificação, freando a geração em tempo de execução fora do PC e da web
+        sinal: fraco
+        prazo: 2032
+        confianca: baixa
+        efeitos:
+          - id: e13.1
+            ordem: 2
+            efeito: A geração em tempo de execução fica restrita a linguagens interpretadas e isoladas aprovadas pelo dono da plataforma
+            sinal: fraco
+            prazo: 2040
+            confianca: baixa
+            efeitos:
+              - id: e13.1.1
+                ordem: 3
+                efeito: O navegador vira o principal palco de jogos e mídias escritos em tempo de execução, por ser a plataforma sem certificação prévia
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa</code></pre>
+<h3 id="5-1-os-mecanismos-raiz-por-raiz">5.1 Os mecanismos, raiz por raiz</h3>
+<p><strong>Raiz 1.</strong></p>
+<ul><li><strong>e1</strong> — porque o agente devolve script comum, sem dependência do modelo depois de gerado [21], o trabalho de traduzir a intenção do artista em Apex Script ou em grafo PCG deixa de passar pelo técnico-diretor. <code>sinal</code> forte: três artefatos — Blender Lab MCP [4], Houdini Apex Script Comfort Package [21], Unreal 5.8 PCG+MCP [7]. Classe de referência para o prazo: assistentes de código foram de demo pública (2021) a 50,6% de uso diário entre profissionais em 2025 [11], ~4 anos; mas a população de artistas técnicos adota ferramenta mais devagar que a de desenvolvedores (Grasshopper levou de 2007 até o Rhino 6 para virar padrão, ~10 anos [29]). Média das duas: 2030.</li><li><strong>e1.1</strong> — porque a Epic já escreve que prompt avançado exige entender o grafo "para conferir a qualidade do trabalho do LLM" [7], quem entende o grafo passa a gastar o tempo conferindo. Sinal médio: um artefato.</li><li><strong>e1.1.1</strong> — porque o ProcFunc mostra que biblioteca de funções procedurais reduz os erros do VLM [17], o estúdio que tem a biblioteca melhor tem o agente melhor; o valor migra do asset para a primitiva. Troca de ator (estúdio como organização) e de mecanismo (ativo competitivo).</li><li><strong>e1.1.2</strong> — porque o degrau de entrada (modelar à mão, peça por peça) é o que o agente faz primeiro, o júnior não acumula o repertório que o e1.1 exige do sênior. Efeito de quem perde. Sinal fraco: inferência.</li><li><strong>e1.2</strong> — porque o pedido em linguagem natural substitui a sintaxe, o filtro de entrada do Houdini deixa de ser a sintaxe. Precedente: o Grasshopper se popularizou por permitir "explorar desenhos sem aprender a programar" [29].</li><li><strong>e1.2.1</strong> — porque quem não escreveu o grafo ainda precisa entendê-lo, o grafo sobrevive como vista de leitura. Troca de função, não de popularidade: por isso é outra ordem.</li><li><strong>e2</strong> — retroação. Porque os três benchmarks convergem — 3DCodeBench (peças flutuando, API errada) [1], P3D-Bench (0,35 de geometria com 0,8 de semântica) [18], shader-spec-eval (67,5% passam, bordas falham) [5] —, o gargalo sai da escrita e vai para a conferência. <code>sinal</code> forte (três artefatos); prazo 2028 porque já é o estado de hoje. É o único efeito com confiança alta, e está na 1ª ordem.</li><li><strong>e2.1</strong> — porque conferir a olho não escala, as ferramentas adotam o método que o shader-spec-eval já usa (propriedade mensurável em vez de comparar pixel) [5]. Sinal médio.</li><li><strong>e2.1.1</strong> — porque o teste de propriedade é também uma especificação, o briefing vira o teste. Troca de ator: o cliente.</li><li><strong>e2.2</strong> — porque na mídia o "quase certo" passa e na fabricação não (CadQuery gera programa inválido com frequência) [18], a adoção se bifurca por setor.</li><li><strong>e2.2.1</strong> — porque a mídia aceita o erro e a engenharia exige solver, as duas culturas de ferramenta se separam. Fraco.</li><li><strong>e3</strong> — porque o designer que pede ao agente precisa saber especificar e restringir, o exercício de ensino muda. O ator nomeado são as disciplinas de design de jogos e de mídia (a CIN0055 incluída) e o precedente nomeado é a arquitetura com o Grasshopper [29]. Classe de referência: Grasshopper, de 2007 até padrão de ensino em ~10 anos; aplicada a partir de 2026, 2036.</li><li><strong>e3.1</strong> — porque a carga horária é fixa, o ateliê de sistemas entra ocupando o de modelagem. Fraco.</li><li><strong>e3.1.1</strong> — porque o objeto de avaliação passa a ser o gerador, a crítica avalia o espaço de variação, incluindo o que ele não produz.</li><li><strong>e4</strong> — porque o agente escreve o sketch e o shader (manim-mcp-server [20], shader-spec-eval [5]), a habilidade de programar deixa de ser distintiva no creative coding. Sinal médio: dois artefatos.</li><li><strong>e4.1</strong> — porque o prestígio precisa de prova, a comunidade cria restrição que o agente não satisfaz ou que se possa verificar. Fraco: não achei regra desse tipo publicada.</li><li><strong>e4.1.1</strong> — porque a restrição vira forma, o gênero ganha valor por ser feito à mão. Fraco.</li><li><strong>e4.2</strong> — porque o participante chega com código gerado, o coletivo passa a ensinar a lê-lo. Ator nomeado: Noite de Processing/Arteprog [23].</li><li><strong>e4.2.1</strong> — porque o pedido em português substitui a sintaxe em inglês, a barreira de entrada no Brasil cai. Troca de ator: escola pública.</li><li><strong>e5</strong> — quem bloqueia. Porque os conectores oficiais saíram primeiro dentro das suítes (Adobe, Autodesk Fusion, SketchUp) [10] e o MCP da SideFX é do próprio Houdini [21], o agente chega como recurso da suíte. Sinal forte: três artefatos.</li><li><strong>e5.1</strong> — porque o formato da suíte prende, o que é portátil (img2threejs, Apache 2.0, TypeScript) [2] vira a alternativa. Sinal médio.</li><li><strong>e5.1.1</strong> — porque o portátil precisa de padrão para sair do nicho, a questão é padronizar ou fragmentar. Fraco.</li></ul>
+<p><strong>Raiz 2.</strong></p>
+<ul><li><strong>e6</strong> — porque o gerador é texto e roda na GPU do visitante (WebGPU a 87,35% [15]), entregar código custa menos banda do que entregar um splat de 140 MB [9]. Sinal médio: galeria do img2threejs [2] e vitrine da WebGPU [3]. Classe de referência: a própria WebGPU (lançada no Chrome em 2023, 87% de suporte em 2026) mede só o suporte; o formato do conteúdo muda mais devagar que o navegador — o SVG levou mais de uma década entre a especificação e o uso comum. Prazo 2032.</li><li><strong>e6.1</strong> — porque o Houdini 22 lançou splat e procedural na mesma ferramenta [6], a coexistência por função já está no produto. Sinal médio.</li><li><strong>e6.1.1</strong> — porque achar o programa que gera uma imagem é o que o StarVector faz para SVG [14] e o img2threejs para objeto [2], a mesma operação aplicada a vídeo seria compressão. Fora do alcance técnico visível; fraco.</li><li><strong>e6.2</strong> — porque bateria e banda limitam o óculos, a forma leve ganha. Mecanismo plausível e sem sinal: fraco.</li><li><strong>e6.2.1</strong> — porque a geração que cresce vendo a forma a guarda como marca de época.</li><li><strong>e6.3</strong> — ecológico. Porque transferir menos e calcular mais é uma troca, a energia muda de lugar em vez de sumir. Fraco: não achei medição.</li><li><strong>e6.3.1</strong> — porque o gasto passa para o aparelho, o fabricante precisa expô-lo.</li><li><strong>e7</strong> — porque o img2threejs entrega uma "função fábrica" [2] e o Houdini Digital Asset já era um gerador vendável, a loja de asset tem com o que vender geradores. Sinal médio.</li><li><strong>e7.1</strong> — porque o gerador produz infinitas saídas, cobrar por arquivo perde sentido.</li><li><strong>e7.1.1</strong> — porque o USCO entende que prompt sozinho não dá autoria, mas seleção e arranjo podem dar [12], a saída de um gerador escrito por IA fica em zona cinzenta, enquanto o código escrito por humano é texto protegido. Troca de ator: tribunal.</li><li><strong>e7.2</strong> — porque o código é legível, a imitação fica barata. Fraco.</li><li><strong>e7.2.1</strong> — retroação contra a própria raiz: para proteger o estilo, o estúdio fecha o código.</li><li><strong>e8</strong> — retroação. Porque o próprio Blender Lab avisa que o servidor executa código do LLM sem guardas [4] e o Flash caiu em parte por segurança [26], distribuir programa tem custo de segurança. Sinal médio.</li><li><strong>e8.1</strong> — porque o precedente existe duas vezes (PostScript → PDF [25]; Flash recusado no iOS [26]), o dono da plataforma prefere formato declarativo. Troca de ator: plataforma.</li><li><strong>e8.1.1</strong> — porque o padrão declarativo é decidido em comitê, o limite expressivo sai da mão do artista.</li><li><strong>e9</strong> — porque obra que é programa só existe enquanto roda, preservar exige emulador; o Flashpoint guarda mais de 160 mil aplicações Flash [26]. Sinal médio: dois artefatos (Ruffle e Flashpoint), ambos de outra geração de mídia programada.</li><li><strong>e9.1</strong> — porque a incompatibilidade de API já é a falha principal do 3DCodeBench [1], a mesma falha, com o tempo, torna obra antiga irreproduzível.</li><li><strong>e9.1.1</strong> — porque a obra depende do motor, o acervo precisa guardar o motor. Troca de ator: instituição de memória.</li></ul>
+<p><strong>Raiz 3</strong> (toda a cadeia com <code>confianca: baixa</code>, por ser laboratório).</p>
+<ul><li><strong>e10</strong> — porque o GROMIT compila comportamento escrito por LLM durante a partida [31], a regra do jogo deixa de ser fechada na entrega. Sinal médio: GROMIT, e o PCG do Unreal com MCP [7] como meia-prova (geração no editor, não na partida). Classe de referência: VR de consumo, mais de dez anos de demo sem chegar a 10% — tecnologia que exige ferramenta nova e aceitação cultural nova. Prazo 2038.</li><li><strong>e10.1</strong> — porque nenhum humano leu o código da partida, o teste vira monitoramento. Os entrevistados do GROMIT pedem justamente proteções [31].</li><li><strong>e10.1.1</strong> — porque o classificador classifica conteúdo conhecido, conteúdo escrito depois da venda o obriga a classificar o limitador. Reguladores nomeados.</li><li><strong>e10.2</strong> — porque cada jogador tem mecânica própria, o conhecimento coletivo sobre o jogo perde o objeto.</li><li><strong>e10.2.1</strong> — porque o gerador é compartilhável, a troca de regra substitui o guia.</li><li><strong>e11</strong> — porque o Genie 3 gera pixel sem regra explícita e com limite de 60 s [8] e o GROMIT gera regra [31], as duas vias existem hoje em laboratório.</li><li><strong>e11.1</strong> — porque o pixel não guarda estado confiável e o código não tem aparência rica, a combinação usa cada um no que faz.</li><li><strong>e11.1.1</strong> — porque só o código é auditável, a prova migra para ele.</li><li><strong>e12</strong> — porque o mesmo mecanismo do GROMIT se aplica a interface, a tela deixa de ser desenhada antes. Sinal fraco: não abri fonte de interface gerada nesta rodada (satori e Remotion, trazidos pela turma, geram imagem e vídeo a partir de código, mas não por usuário).</li><li><strong>e12.1</strong> — porque o agente precisa de regra para compor, o design system vira gramática testável. Converge com e2.1.</li><li><strong>e12.1.1</strong> — porque um erro na gramática se replica em cada tela gerada, acessibilidade vira propriedade do sistema.</li><li><strong>e13</strong> — quem bloqueia. Porque lojas certificam binário e o precedente do iOS com o Flash [26] mostra o dono da plataforma recusando mídia programada, a geração em tempo de execução encontra a loja como porteiro. Sinal fraco: não abri a regra atual de loja nesta rodada.</li><li><strong>e13.1</strong> — porque a loja admite o que pode isolar, o gerador fica restrito a linguagem isolada.</li><li><strong>e13.1.1</strong> — porque o navegador não certifica, ele recebe o que as lojas recusam.</li></ul>
+<h3 id="5-2-regra-de-parada">5.2 Regra de parada</h3>
+<p>Não derivei 4ª ordem em nenhum ramo. Em e6.2.1 → "a estética volta como nostalgia em 2070" seria o mesmo efeito amadurecendo, sem troca de ator. Em e1.1.2 → "falta de sêniores em 2060" é o mesmo mecanismo mais adiante. Parei por isso.</p>
+<h3 id="5-3-cobertura-steep-e-quem-perde">5.3 Cobertura STEEP e quem perde</h3>
+<ul><li>Social: e3, e4, e10.2. Tecnológico: e1, e2, e6, e11, e12. Econômico: e5, e7. <strong>Ecológico: e6.3</strong> (fraco; categoria quase vazia, registrada). Político: e8, e13, e10.1.1.</li><li><strong>Quem perde:</strong> técnico-diretor como autor (e1.1); modelador júnior (e1.1.2); quem vive de ter conseguido programar o efeito (e4); lojas de asset por download (e7.1); estúdios de estilo (e7.2); comunidades de conhecimento sobre jogos (e10.2); quem depende de acessibilidade (e12.1.1, risco); acervos (e9.1).</li></ul>
+<h3 id="5-4-cruzamentos">5.4 Cruzamentos</h3>
+<ul><li><strong>Convergência 1 — o controle da execução.</strong> e5 (suíte prende o gerador), e8.1 (plataforma restringe a linguagem) e e13 (loja barra código depois da certificação) partem de raízes diferentes e chegam ao mesmo efeito de 2ª ordem: <strong>quem decide onde o código roda decide o que o gerador pode ser</strong>. É o achado mais forte do mapa: o gargalo do tema não é o modelo, é o ambiente de execução.</li><li><strong>Convergência 2 — especificação como teste.</strong> e2.1 (testes de propriedade de asset) e e12.1 (design system como gramática testável) chegam ao mesmo lugar por caminhos diferentes: o documento de design passa a ser executável. e2.1.1 e e3.1.1 são a consequência no contrato e na formação.</li><li><strong>Retroalimentação positiva.</strong> e6.1.1 (codecs procuram o programa) produz pares imagem–programa em escala, que são o dado de treino que falta à raiz 1 (os 2 milhões de SVGs do StarVector [14] são o exemplo pequeno). O ciclo: mais geradores → mais dado → melhores autores de gerador.</li><li><strong>Retroalimentação negativa.</strong> e7.2.1 (ofuscar o gerador para proteger o estilo) desmonta a legibilidade, que é a vantagem da raiz 2 e o argumento da raiz 1 ("script comum, não caixa-preta"). Se o mercado premiar a proteção, o gerador volta a ser caixa-preta, agora em forma de bytecode.</li><li><strong>Contradição.</strong> e6.2 (a estética procedural volta a dominar o XR) contra e11.1 (pele em pixel sobre esqueleto de código). Não coexistem como tendência dominante. Decide entre elas o custo de renderização neural no dispositivo: se cair a ponto de rodar em óculos com bateria de um dia, e11.1 vence e a estética procedural fica invisível sob a pele; se não cair, e6.2 vence.</li></ul>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="6-1-sinais-fracos">6.1 Sinais fracos</h3>
+<ol><li><strong>O gerador medido em tokens.</strong> O img2threejs vende eficiência de token como argumento de projeto: validação em Python determinístico, token só "onde o julgamento é necessário" [2]. <em>O que mudaria:</em> se o custo passa a ser contado em token e não em hora de artista, o preço de um asset vira preço de inferência. <em>Observável:</em> lojas de asset ou estúdios cotando geradores em custo de inferência.</li><li><strong>"Sem dependência do LLM depois de gerado."</strong> A frase da SideFX [21] separa o gerador escrito por IA do modelo generativo como serviço. <em>O que mudaria:</em> se a propriedade do artefato vira argumento de venda, a raiz 1 ganha o mercado profissional antes do de consumo. <em>Observável:</em> a prévia do Apex Script entrar no Houdini estável e aparecer em contrato de estúdio como requisito.</li><li><strong>A IA dirigindo ferramenta de animação matemática.</strong> manim-mcp-server (644 estrelas) [20]. <em>O que mudaria:</em> a explicação visual programada (Manim tem 94,1 mil estrelas [16]) pode virar o formato padrão de vídeo didático gerado — um vídeo que é código, reeditável. <em>Observável:</em> plataformas de ensino aceitando envio de cena Manim em vez de MP4.</li><li><strong>Biblioteca que reduz o erro do agente.</strong> ProcFunc: VLMs erram menos quando compõem funções prontas [17]. <em>O que mudaria:</em> o gargalo técnico de e2 cairia por biblioteca, não por modelo maior. <em>Observável:</em> benchmarks como o 3DCodeBench com trilha "com biblioteca" superando a trilha "modelo maior".</li></ol>
+<h3 id="6-2-wildcards">6.2 Wildcards</h3>
+<ol><li><strong>O motor de jogo em que o conteúdo é escrito como código quando o jogador chega</strong> (proposto pela disciplina). <em>Mecanismo:</em> modelo local rápido o bastante (tema 16) + biblioteca canônica (e1.1.1) + sandbox aceita pela plataforma (contrário de e13). <em>Por que é improvável:</em> exige três condições que dependem de atores diferentes, e a loja é contra. <em>O que faria com o mapa:</em> a raiz 3 sairia do laboratório de uma vez; e10 e e10.1.1 chegariam uma década antes; e13 viraria o efeito derrotado. <em>Sinal precoce:</em> um jogo comercial em console aprovado com geração de código em tempo de execução declarada na página da loja.</li><li><strong>O worm do gerador.</strong> <em>Mecanismo:</em> o servidor MCP do Blender executa código sem guardas [4]; arquivos com script embutido circulam entre estúdios; um código malicioso escondido num gerador compartilhado se espalha por pipelines. <em>Por que é improvável:</em> ferramentas já pedem permissão para scripts automáticos, e estúdios isolam redes. <em>O que faria:</em> e8 viraria regra de uma vez, e5 ganharia (a suíte fechada como garantia de segurança), a raiz 2 recuaria uma década. <em>Sinal precoce:</em> um CVE de execução de código em arquivo .blend ou .hda com circulação real.</li><li><strong>Um tribunal protege o espaço de variação como obra.</strong> <em>Mecanismo:</em> uma decisão aceita que a regra, e não as saídas, é a expressão protegida — o contrário da leitura atual [12]. <em>Por que é improvável:</em> o direito autoral protege expressão, não método. <em>O que faria:</em> e7.1 e e7.1.1 inverteriam: o gerador vira propriedade forte, e a cópia de e7.2 vira infração. <em>Sinal precoce:</em> um caso sobre obra do Art Blocks ou de gerador de loja de asset chegando a instância superior.</li></ol>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="7-1-pre-mortem-e-2056-e-este-mapa-errou-por-que">7.1 Pré-mortem: é 2056 e este mapa errou. Por quê?</h3>
+<ol><li><strong>O pixel venceu por completo.</strong> Modelos de mundo e de vídeo ficaram baratos no dispositivo, e ninguém precisou de regra: o gerador de pixel se tornou editável por prompt, e a legibilidade do código deixou de importar para quem projeta mídia. Atinge a raiz 2 inteira (e6, e7) e e11. <em>Ação:</em> e6.1 mantido como média, mas e6.2 (estética procedural domina o XR) já está baixa e ganhou a contradição da seção 5.4; e11 tinha sinal médio e ficou, porque o próprio Genie é um dos artefatos.</li><li><strong>A regra ficou na suíte.</strong> A convergência 1 foi mais forte do que o mapa admite: geradores só existem dentro das suítes e das lojas, e a "mídia que circula como programa" nunca saiu das galerias de demonstração. Atinge e6 e e5.1. <em>Ação:</em> e6 teve o prazo empurrado (registro abaixo).</li><li><strong>A imprecisão não foi resolvida.</strong> Os 0,35 de precisão geométrica ficaram em torno de 0,6, e a conferência humana continuou mais cara do que modelar à mão para objetos específicos. Atinge e1 e e7. <em>Ação:</em> e1 fica em média; e7 fica em média, com sinal médio.</li></ol>
+<h3 id="7-2-extrapolacao-linear">7.2 Extrapolação linear</h3>
+<ul><li><strong>e1</strong> ("o TD deixa de ser gargalo") é, em parte, "mais IA, mais rápido". Ganhou o mecanismo não linear em e1.1.2: a perda do degrau de formação produz falta de auditores, o que <em>freia</em> o próprio e1 — é um limite, não mais do mesmo.</li><li><strong>e6</strong> ("entrega como código") era linear no rascunho ("mais leve, então mais usado"). O mecanismo não linear é a restrição de plataforma (e8.1) — a adoção não cresce suavemente, ela bate num porteiro.</li><li><strong>e4.1.1</strong> (código à mão vira caligrafia) é analogia, não mecanismo. Mantido com baixa, e marcado aqui.</li></ul>
+<h3 id="7-3-velocidade-de-adocao">7.3 Velocidade de adoção</h3>
+<ul><li><strong>e6:</strong> no rascunho, prazo 2029. A classe de referência (formato de conteúdo web; SVG levou mais de uma década entre especificação e uso comum) não sustenta três anos. Empurrado para 2032.</li><li><strong>e10:</strong> no rascunho, 2032. O GROMIT é de 2024 e está em laboratório; a referência de VR de consumo (mais de dez anos sem chegar a 10%) pede mais. Empurrado para 2038.</li><li><strong>e6.2:</strong> no rascunho, 2034. Depende de óculos de XR em adoção, que não aconteceu em dez anos. Empurrado para 2040.</li><li><strong>e13:</strong> no rascunho, 2030. Nenhuma loja publicou restrição específica que eu tenha aberto. Empurrado para 2032.</li></ul>
+<h3 id="7-4-a-raiz-que-nao-acontece">7.4 A raiz que não acontece</h3>
+<ul><li><strong>Sem a raiz 1:</strong> a raiz 2 perde a razão de "por que agora" (o gerador continuaria caro de escrever) e volta a ser a demoscene. A raiz 3 cai junto. <strong>Isto é um aviso:</strong> o mapa depende fortemente da raiz 1; as raízes 2 e 3 são independentes em ator (plataforma, jogo), mas não em pré-condição. Declarado, não disfarçado.</li><li><strong>Sem a raiz 2:</strong> sobra a raiz 1 inteira dentro das suítes (o cenário provável da seção 9), e e9 perde metade do sentido.</li><li><strong>Sem a raiz 3:</strong> sobram as raízes 1 e 2; perde-se a camada de interação em tempo real, e e12 some.</li></ul>
+<h3 id="7-5-suposicoes-escondidas">7.5 Suposições escondidas</h3>
+<ol><li><strong>As ferramentas continuam expondo a API ao agente.</strong> Se a Adobe ou a Autodesk fecharem o MCP para parceiro único, e1 vira e5. Não vira wildcard novo: já é e5.</li><li><strong>Modelos continuam bons em código gráfico sem regressão.</strong> O 3DCodeBench mostra que o gargalo é a API [1]; se as APIs mudarem mais depressa que os modelos aprendem, e2 piora. Coberto por e9.1.</li><li><strong>O código gerado por IA continua sem proteção autoral forte.</strong> É a leitura do USCO em 2025 [12]; virou o wildcard 3.</li><li><strong>Energia do aparelho continua cara em relação à banda.</strong> Premissa de e6.2 e e6.3; se inverter, e6.2 cai.</li><li><strong>O navegador continua sem certificação prévia.</strong> Premissa de e13.1.1. Se o navegador passar a exigir assinatura de código (há pressão de segurança, e8), o último palco fecha.</li></ol>
+<h3 id="7-6-vies-do-autor">7.6 Viés do autor</h3>
+<p>O autor (e esta máquina) gosta de mídia programada, que é legível e ensina. Os efeitos que estão aqui por gosto: <strong>e4.1.1</strong> (o código à mão como caligrafia) e <strong>e3.1.1</strong> (a crítica avalia o espaço de variação) são desejáveis para quem ensina creative coding e não têm sinal. Ficaram com baixa e estão marcados. <strong>e6.2</strong> (estética procedural domina o XR) também é gosto; ganhou a contradição da seção 5.4.</p>
+<h3 id="7-7-o-falseador-do-briefing">7.7 O falseador do briefing</h3>
+<ul><li><em>A adoção já passou da maioria inicial (Rogers)?</em> Entre desenvolvedores, o uso de IA sim (84% [11]); o uso de <strong>agentes</strong>, não (~31% [11]); e entre designers de mídia escrevendo geradores não há número. As ferramentas oficiais estão em prévia (SideFX) ou recém-lançadas (Blender Lab, Unreal 5.8). <strong>Não passou.</strong> Mantido como emergente.</li><li><em>A tecnologia só melhora o que existe?</em> Para o técnico-diretor, melhora (escreve mais rápido). Para o artista generalista, rompe o filtro de entrada (e1.2). Para o formato de distribuição, rompe a suposição de que mídia é dado (raiz 2). <strong>O teste passa para as raízes 1 e 2 e passa com reservas para a 3</strong> (que é especulativa).</li></ul>
+<h3 id="7-8-calibracao">7.8 Calibração</h3>
+<div class="tabela-envolve"><table><thead><tr><th>ordem</th><th>alta</th><th>média</th><th>baixa</th><th>total</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>8</td><td>4</td><td>13</td></tr><tr><td>2</td><td>0</td><td>6</td><td>14</td><td>20</td></tr><tr><td>3</td><td>0</td><td>0</td><td>21</td><td>21</td></tr></tbody></table></div>
+<p>A confiança cai com a ordem. Nenhum efeito de 3ª ordem com confiança alta ou média.</p>
+<h3 id="7-9-registro-de-alteracoes">7.9 Registro de alterações</h3>
+<ul><li>e8: <code>confianca</code> alta → media, porque o precedente (Flash) levou de 2010 a 2020 para que a segurança derrubasse o formato [26]; o freio é real, mas lento.</li><li>e6: <code>prazo</code> 2029 → 2032, porque a classe de referência de formato web (SVG) levou mais de uma década.</li><li>e10: <code>prazo</code> 2032 → 2038, porque o GROMIT (2024) está em laboratório e a referência de VR de consumo pede mais de dez anos.</li><li>e6.2: <code>prazo</code> 2034 → 2040, porque depende de óculos de XR em adoção, que não aconteceu.</li><li>e13: <code>prazo</code> 2030 → 2032, e <code>sinal</code> medio → fraco, porque não abri regra de loja atual.</li><li>e12: <code>sinal</code> medio → fraco, porque nenhuma fonte sobre interface gerada por usuário foi aberta nesta rodada.</li><li>e1.2.1: <code>confianca</code> media → baixa, porque é 3ª ordem e o sinal é só inferência.</li><li>e3.1: <code>confianca</code> media → baixa, porque não achei curso de design com esse ateliê documentado.</li><li>e11: <code>sinal</code> forte → medio, porque GROMIT e Genie são laboratório/demonstração restrita, não caso real de uso.</li><li><strong>Removido</strong> "e3.2 — surge a profissão de engenheiro de prompt procedural" (vai para a seção 12): efeito proibido sem ator e mecanismo específicos; o que ele dizia já está em e1.1.</li><li><strong>Removido</strong> "e7.3 — o mercado de NFT de gerador volta com IA" (vai para a seção 12): falha no teste da causa solta; o Art Blocks existiu sem IA [27], e um retorno teria causa financeira, não esta raiz.</li><li><strong>Removido</strong> "e10.3 — jogadores perdem interesse em jogos fixos" (vai para a seção 12): efeito genérico, serve para qualquer tecnologia de personalização.</li></ul>
+<p>Cota por raiz cumprida: raiz 1 (e1.2.1, e3.1 rebaixados; e3.2 removido), raiz 2 (e8 rebaixado; e6, e6.2 empurrados; e7.3 removido), raiz 3 (e10, e13 empurrados; e12, e11 rebaixados; e10.3 removido).</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<ol><li><strong>O "85% de sucesso" do GROMIT.</strong> O número apareceu no resumo da ferramenta de busca, mas as duas páginas que tentei abrir (ACM, 403; PDF, grande demais) não carregaram, e a página que abri não traz o número. Fica fora do texto. Eu quase o usei no mecanismo de e10.</li><li><strong>"Mil vezes mais leve."</strong> A descrição do tema compara o 3D procedural ao splat e diz "mil vezes mais leve". Não achei o tamanho de um modelo do img2threejs; o que abri dá só o lado do splat (140 MB a 1,4 GB [9]). A comparação de peso em e6 é inferência a partir de o gerador ser texto, não medida. O experimento da seção 10 existe em parte para medir isso.</li><li><strong>Resumos intermediados.</strong> Todos os números (16,6 mil estrelas, 0,35/0,8/0,5, 90,8%/67,5%, 87,35%) passaram por um modelo menor que resume a página. Os que pesam no mapa (P3D-Bench, 3DCodeBench) vieram do resumo do artigo, não da tabela. Pode haver erro de transcrição.</li><li><strong>Uma contradição entre fontes que resolvi, talvez mal.</strong> A CG Channel diz que o Houdini 22 não traz recursos de IA [6]; a Jon Peddie Research descreve o MCP no keynote [21]. Conciliei como "prévia no Labs, fora do lançamento". É a leitura mais provável, mas é minha.</li><li><strong>Classes de referência de memória.</strong> "SVG levou mais de uma década" e "VR de consumo, mais de dez anos sem 10%" são de memória; não abri fonte nesta rodada. Os outros precedentes (PostScript, Flash, Grasshopper) foram abertos [25][26][29].</li><li><strong>A autoria do img2threejs.</strong> A vitrine da WebGPU atribui a Hoài Nhớ [3]; a busca mostrou também um repositório em outra conta (fraaalk/img2threejs). Não verifiquei qual é o original.</li><li><strong>O Unreal "5.8".</strong> A documentação da Epic diz 5.8 [7]; não conferi a data de lançamento dessa versão.</li><li><strong>Mecanismo fraco em e4.1.1 e e6.2.1.</strong> Os dois são analogias históricas (caligrafia, pixel art) e não têm mecanismo causal forte. Plausíveis, estão em baixa, e são os primeiros candidatos a sair numa revisão.</li></ol>
+<h2 id="9-tres-cenarios-para-2056">9. Três cenários para 2056</h2>
+<p><strong>Provável.</strong> Em 2056, quase todo asset procedural de estúdio é escrito por agente e conferido por gente. O técnico-diretor é um revisor com bateria de testes de propriedade; o briefing é uma lista de propriedades que o gerador precisa satisfazer. O gerador vive dentro das suítes, que cobram assinatura pelo agente e pelo formato; o padrão portátil saiu pela metade, aceito na web e ignorado nos consoles. Na web e no XR, objetos estilizados chegam como código, e o que precisa ser fiel chega como captura. A geração em tempo de execução existe em PC e navegador; nas lojas, só em linguagem declarativa. Cursos de design e de games têm um ateliê de sistemas visuais obrigatório, e a queixa recorrente dos estúdios é a falta de sêniores capazes de auditar. <em>Sinal precoce:</em> entre 2027 e 2030, o Apex Script da SideFX sai da prévia e entra no Houdini estável, e a Adobe lança formato próprio de gerador para o Creative Cloud.</p>
+<p><strong>Desejável.</strong> Em 2056, a regra é um formato público. Existe um padrão neutro de gerador, adotado pela web e pelos motores, com sandbox que as lojas aceitam; a obra procedural de 2030 ainda roda porque o acervo guarda o motor junto. Quem projeta mídia escreve restrições e avalia espaços de variação; o júnior aprende modificando gerador canônico, não modelando à mão, e continua virando sênior. No Brasil, a programação criativa chegou à escola pública como leitura e modificação de gerador pedido em português. <em>O que teria que ser feito:</em> um consórcio (Khronos, W3C, Blender Foundation) padronizar o gerador portátil antes de 2040; acervos adotarem emulação como política; cursos manterem um degrau de trabalho à mão. <em>Sinal precoce:</em> um grupo de trabalho da Khronos ou do W3C para geradores procedurais, com participação de pelo menos um motor comercial.</p>
+<p><strong>Indesejável.</strong> Em 2056, o gerador voltou a ser caixa-preta. Para proteger o estilo, estúdios distribuem bytecode ofuscado; para proteger o usuário, lojas só admitem linguagens declarativas definidas por comitê; o pixel gerado por modelo de mundo venceu no consumo, e a regra ficou só como esqueleto invisível que ninguém lê. A geração de técnicos formados à mão se aposentou, e ninguém a substituiu: os geradores de 2030 não rodam mais, e quem saberia consertá-los não existe. <em>Sinal precoce:</em> entre 2028 e 2032, um incidente de segurança com gerador compartilhado (wildcard 2) seguido de restrição de loja; e a primeira loja de asset que vende gerador compilado sem código.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> "Gerador contra arquivo." A turma escolhe cinco objetos do cotidiano (uma luminária, uma xícara, uma bicicleta, uma cadeira, um fone). Para cada um, uma foto vira duas versões: (a) código Three.js procedural gerado pelo img2threejs com um agente; (b) malha ou splat gerado por uma ferramenta de imagem→3D ou por captura com celular. As duas vão para uma página web lado a lado.</p>
+<p><strong>Que pergunta responde.</strong> Para quem projeta mídia e interação, a editabilidade do gerador vale mais do que a fidelidade da captura? E quão mais leve o gerador é de fato (a comparação que a seção 8 não conseguiu verificar)?</p>
+<p><strong>Que tecnologia emergente usa, e por que não dá com a madura.</strong> O img2threejs com agente (raiz 1) e a entrega como código na GPU do visitante via WebGPU/WebGL (raiz 2). Com a tecnologia madura (modelar à mão no Blender, ou fotogrametria), o gerador de cada objeto custaria dias de um artista procedural; o experimento mede justamente o que muda quando esse custo cai para um passe de agente.</p>
+<p><strong>O que a turma faz em sala.</strong> Três medidas por objeto. (1) Bytes transferidos e tempo até o primeiro quadro no celular de cada um. (2) Uma tarefa de edição sorteada ("alongue a alça", "anime a tampa", "troque o material para latão"): metade da turma faz na versão código, pedindo ao agente ou editando à mão; metade faz na versão arquivo, no Blender; cronometra. (3) Julgamento cego de fidelidade: "qual se parece mais com a foto?" e "qual você usaria numa peça interativa?".</p>
+<p><strong>O que me faria mudar de ideia.</strong> Se a edição na versão arquivo for tão rápida quanto na versão código em pelo menos três dos cinco objetos, <strong>ou</strong> se a turma julgar a fidelidade do gerador inaceitável para uso em mais de 70% dos julgamentos, a raiz 2 perde a razão prática: o ganho de editabilidade não compensa, e e6/e7 devem cair uma ordem de confiança. Se a diferença de bytes for menor que 10×, o argumento do peso (e6, e6.2) cai.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li><a href="https://arxiv.org/abs/2606.01057">https://arxiv.org/abs/2606.01057</a> — <em>3DCodeBench</em> (Gao, Shu, Ye, Xiong, Makadia, Guo, Itti, Chen; 31/05/2026): 12 VLMs escrevendo Python do Blender; falhas por API e peças flutuando; refinamento em várias rodadas melhora; 3DCodeArena. Sustenta 3.2, 4.1, e2, e9.1, 7.5. Preprint recente, sem revisão por pares; autores de laboratório de grande empresa e universidade.</li><li><a href="https://github.com/img2threejs/img2threejs">https://github.com/img2threejs/img2threejs</a> — repositório do img2threejs: oito passes, portões determinísticos, eficiência de token, Apache 2.0, ~16,6 mil estrelas, v2.0, limites declarados. Sustenta 3.1, 4.2, e5.1, e6, e7, sinal fraco 1, seção 10. Fonte primária do projeto; alegações de qualidade são do próprio autor.</li><li><a href="https://www.webgpu.com/showcase/img2threejs-photo-to-procedural-threejs-code/">https://www.webgpu.com/showcase/img2threejs-photo-to-procedural-threejs-code/</a> — vitrine da comunidade WebGL/WebGPU (30/07/2026): autor, v1.3, agnóstico de agente. Sustenta 3.1, e6. Fonte secundária de comunidade; boa para existência, não para desempenho.</li><li><a href="https://www.blender.org/lab/mcp-server/">https://www.blender.org/lab/mcp-server/</a> — servidor MCP oficial do Blender Lab: capacidades, Blender 5.1+, execução sem guardas. Sustenta 3.1, e1, e8, wildcard 2. Fonte primária oficial.</li><li><a href="https://github.com/Husienvora/shader-spec-eval">https://github.com/Husienvora/shader-spec-eval</a> — avaliação de GLSL por propriedades: 15 tarefas, 90,8% compilam, 67,5% passam, bordas nítidas falham mais. Sustenta 3.1, e2, e2.1, e4. Projeto individual, pequena escala.</li><li><a href="https://www.cgchannel.com/2026/07/sidefx-just-released-houdini-22/">https://www.cgchannel.com/2026/07/sidefx-just-released-houdini-22/</a> — lançamento do Houdini 22 (16/07/2026): splat, KineFX, Copernicus, preços. Sustenta 3.1, 3.5, e6.1. Imprensa especializada, confiável; não menciona IA.</li><li><a href="https://dev.epicgames.com/documentation/unreal-engine/city-sample-pcg-and-mcp-server-interaction-in-unreal-engine?lang=en-US">https://dev.epicgames.com/documentation/unreal-engine/city-sample-pcg-and-mcp-server-interaction-in-unreal-engine?lang=en-US</a> — documentação da Epic: MCP com PCG no City Sample, UE 5.8, papel humano de conferência. Sustenta 3.1, e1, e1.1, e10. Fonte primária oficial.</li><li><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/">https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/</a> — Project Genie (29/01/2026): pixel, 60 s, acesso Ultra nos EUA. Sustenta 3.2, 4.3, e11. Fonte primária do fornecedor.</li><li><a href="https://swyvl.io/blog/gaussian-splat-formats-ply-spz-ksplat/">https://swyvl.io/blog/gaussian-splat-formats-ply-spz-ksplat/</a> — tamanhos de splat por formato (4M gaussianas: PLY 1,4 GB, SOG 140 MB). Sustenta 3.4, 4.2, e6. Blog de empresa do setor; números plausíveis, sem metodologia detalhada.</li><li><a href="https://www.anthropic.com/news/claude-for-creative-work">https://www.anthropic.com/news/claude-for-creative-work</a> — anúncio dos conectores criativos (28/04/2026). Sustenta 3.1, e5. Fonte primária de fornecedor; tom promocional.</li><li><a href="https://survey.stackoverflow.co/2025/ai">https://survey.stackoverflow.co/2025/ai</a> — Stack Overflow Developer Survey 2025, IA: 84%, 50,6% diário, ~31% agentes, 66% "quase certo". Sustenta 3.4, 4.4, e1, 7.7. Pesquisa grande, amostra autosselecionada, população de desenvolvedores.</li><li><a href="https://www.mintz.com/insights-center/viewpoints/54731/2025-02-07-us-copyright-office-publishes-second-part-report-ai">https://www.mintz.com/insights-center/viewpoints/54731/2025-02-07-us-copyright-office-publishes-second-part-report-ai</a> — resumo do relatório do USCO de 2025: prompt sozinho não dá autoria; seleção e arranjo podem dar. Sustenta e7.1.1, wildcard 3, 7.5. Escritório de advocacia; li o resumo, não o relatório original.</li><li><a href="https://arxiv.org/abs/2508.08228">https://arxiv.org/abs/2508.08228</a> — <em>LL3M</em> (Lu, Chen, Dinh, Lang, Holtzman, Hanocka; ago/2025): multiagente escrevendo Python do Blender, representação interpretável. Sustenta 3.1, 4.1. Preprint de grupo acadêmico conhecido em geometria.</li><li><a href="https://arxiv.org/abs/2312.11556">https://arxiv.org/abs/2312.11556</a> — <em>StarVector</em>: imagem/texto → SVG, SVG-Stack com 2 milhões de amostras. Sustenta 3.1, e6.1.1, 5.4. Preprint revisado várias vezes, com modelos públicos.</li><li><a href="https://caniuse.com/webgpu">https://caniuse.com/webgpu</a> — suporte global a WebGPU: 87,35%. Sustenta 3.4, 4.2, e6. Referência padrão, baseada em StatCounter.</li><li><a href="https://github.com/3b1b/manim">https://github.com/3b1b/manim</a> — Manim: 94,1 mil estrelas, MIT. Sustenta 3.1, sinal fraco 3. Fonte primária.</li><li><a href="https://arxiv.org/abs/2604.26943">https://arxiv.org/abs/2604.26943</a> — <em>ProcFunc</em> (Raistrick et al.; abr/2026, rev. 15/09/2026): funções procedurais que reduzem erros de VLM. Sustenta 3.1, e1.1.1, sinal fraco 4. Preprint do grupo do Infinigen.</li><li><a href="https://arxiv.org/html/2606.11152v1">https://arxiv.org/html/2606.11152v1</a> — <em>P3D-Bench</em> (jun/2026): 14 modelos, ≈0,8 semântica, ≈0,35 geometria, ≈0,5 PartMatchF1, CadQuery inválido com frequência. Sustenta 3.2, 4.1, e2, e2.2, 7.1. Preprint recente, sem revisão por pares.</li><li><a href="https://github.com/mxgmn/WaveFunctionCollapse">https://github.com/mxgmn/WaveFunctionCollapse</a> — WFC: 25,3 mil estrelas, jogos que o usam. Sustenta 3.1, 4.4. Fonte primária.</li><li><a href="https://github.com/abhiemj/manim-mcp-server">https://github.com/abhiemj/manim-mcp-server</a> — MCP que executa Manim e devolve vídeo; 644 estrelas. Sustenta 3.1, e4, sinal fraco 3. Projeto individual; prova existência, não adoção.</li><li><a href="https://www.jonpeddie.com/news/sidefx-and-nvidia-bring-mcp-powered-ai-agents-to-houdini-22s-rigging-workflow-at-siggraph-2026/">https://www.jonpeddie.com/news/sidefx-and-nvidia-bring-mcp-powered-ai-agents-to-houdini-22s-rigging-workflow-at-siggraph-2026/</a> — Apex Script Comfort Package com MCP, rig de 300+ linhas, "script comum, não caixa-preta", prévia no Labs. Sustenta 3.1, 4.1, e1, e5, sinal fraco 2. Analista de indústria gráfica, confiável.</li><li><a href="https://artificialintelligenceact.eu/article/50/">https://artificialintelligenceact.eu/article/50/</a> — art. 50 do AI Act: marcação legível por máquina de conteúdo sintético, exceção para função assistiva de edição; aplicação em 02/08/2026. Sustenta a nota de 12.6. Site não oficial que reproduz o texto legal; confiável para o texto.</li><li><a href="https://arteprog.space/PCD-SP-20/">https://arteprog.space/PCD-SP-20/</a> — Processing Community Day SP 2020 e Noite de Processing (desde 2018). Sustenta 3.5, e4.2. Página do próprio coletivo; datada de 2020.</li><li><a href="https://dev.to/he4rt/programacao-criativa-vamos-desenhar-com-codigo-4a1">https://dev.to/he4rt/programacao-criativa-vamos-desenhar-com-codigo-4a1</a> — artigo de Sara Aniceto (He4rt) sobre programação criativa no Brasil: Compoética, grupo no Telegram, OpenProcessing. Sustenta 3.5. Texto de comunidade; bom para existência dos grupos, sem data de ano clara.</li><li><a href="https://en.wikipedia.org/wiki/PostScript">https://en.wikipedia.org/wiki/PostScript</a> — PostScript (1984), LaserWriter (1985), substituído pelo PDF na distribuição. Sustenta 4.2, e8.1, e13.1. Enciclopédia; confiável para datas.</li><li><a href="https://en.wikipedia.org/wiki/Adobe_Flash">https://en.wikipedia.org/wiki/Adobe_Flash</a> — Flash (1996), mais instalado em 2005, carta de Jobs (2010), fim em 31/12/2020, Ruffle e Flashpoint (160 mil aplicações). Sustenta 4.2, e8, e9, e13, 7.9. Enciclopédia; confiável para datas.</li><li><a href="https://www.rightclicksave.com/article/art-blocks-and-the-data-of-generative-art">https://www.rightclicksave.com/article/art-blocks-and-the-data-of-generative-art</a> — Art Blocks (Kyle Waters, Coin Metrics, 09/05/2022): script on-chain, 177 mil obras, US$ 1,4 bilhão. Sustenta 3.4, 7.9, wildcard 3. Analista de dados de cripto; números de 2022.</li><li><a href="https://github.com/processing/p5.js/">https://github.com/processing/p5.js/</a> — p5.js: 24 mil estrelas, LGPL-2.1, 2.0 em beta. Sustenta 3.1, 4.4. Fonte primária.</li><li><a href="https://en.wikipedia.org/wiki/Grasshopper_3D">https://en.wikipedia.org/wiki/Grasshopper_3D</a> — Grasshopper (2007), padrão no Rhino 6, uso no ensino de arquitetura, "explorar sem aprender a programar". Sustenta 3.1, 4.4, e1, e1.2, e3. Enciclopédia; a afirmação sobre ensino cita revista do setor.</li><li><a href="https://cavalry.studio/">https://cavalry.studio/</a> — Cavalry: motion design procedural, plano gratuito, hoje da Canva. Sustenta 3.1, 2. Página do produto; promocional.</li><li><a href="https://www.deep-hci.org/e/uist-2024-best-paper-whats-the-game-then-opportunities-and-challenges-for-runtime-behavior-generation/">https://www.deep-hci.org/e/uist-2024-best-paper-whats-the-game-then-opportunities-and-challenges-for-runtime-behavior-generation/</a> — resumo do GROMIT (Jennings, Wang, Li, Smith, Hartmann; UIST 2024, melhor artigo): comportamento compilado em Unity durante a partida, entrevistas com 13 desenvolvedores, pedido de proteções. Sustenta 3.2, 4.3, e10, e10.1, e11. Resumo de terceiros em podcast de IHC; o artigo original não abriu.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-saida-do-verificador">12.1 Saída do verificador</h3>
+<p>Comando: <code>python3 futurizacao-giordano/references/verificar.py tendencia-gerar-geradores-design-procedural-e-creative-coding-com-ia.md --links</code>, rodado em 22/09/2026.</p>
+<pre><code class="lang-">frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 3 (frontmatter diz 3)
+efeitos ordem 1: 13 (frontmatter diz 13)
+efeitos ordem 2: 20 (frontmatter diz 20)
+efeitos ordem 3: 21 (frontmatter diz 21)
+prazo &gt; horizonte (2056) em ordens 1-2: 0 
+prazo &gt; horizonte em ordem 3 (permitido, mas declare): 0 
+confiança ordem 1: alta 1 · media 8 · baixa 4
+confiança ordem 2: alta 0 · media 6 · baixa 14
+confiança ordem 3: alta 0 · media 0 · baixa 21
+links da seção 11: 31/31 respondem (frontmatter diz fontes: 31)
+RESULTADO: ok</code></pre>
+<h3 id="12-2-premissas-assumidas-e-o-que-o-briefing-nao-cobriu">12.2 Premissas assumidas e o que o briefing não cobriu</h3>
+<p>O briefing cobriu horizonte, público, recorte, descartado, raiz suspeita, viés, zona de interesse, ideias óbvias e falseador — sem rebaixamento de confiança por falta de entrevista. Assumido por mim, sem estar no briefing:</p>
+<ul><li><code>data</code>: 2026-09-22, do relógio da máquina.</li><li><code>publico_ok: false</code> (padrão do formato).</li><li>O nome e o desenho do experimento.</li><li>A decisão de tratar o Genie e o splat como concorrentes, não como raízes (fronteira com os temas 9, 10 e 12).</li><li>Profundidade: três ordens (do pedido).</li></ul>
+<p>Pedido em três linhas: mapear até 2056, para quem projeta mídia e interação, o que muda quando a IA passa a escrever o gerador em vez do artefato; recorte global com nota sobre o Brasil; recusar o procedural já comum em produto de massa.</p>
+<h3 id="12-3-buscas-feitas">12.3 Buscas feitas</h3>
+<div class="tabela-envolve"><table><thead><tr><th>#</th><th>busca</th><th>deu em</th></tr></thead><tbody><tr><td>1</td><td>LLM procedural 3D generation code Blender Python benchmark 2026</td><td>3DCodeBench, P3D-Bench, CodeGen-3D, BlenderRAG, ProcFunc, 3D-GPT</td></tr><tr><td>2</td><td>img2threejs procedural Three.js code from image</td><td>repositório, vitrine WebGPU, galeria</td></tr><tr><td>3</td><td>LLM shader generation GLSL evaluation paper</td><td>AI Co-Artist, ShadAR, shader-spec-eval</td></tr><tr><td>4</td><td>geração procedural IA design generativo creative coding Brasil</td><td>He4rt/dev.to, SVR (UPF), blogs genéricos</td></tr><tr><td>5</td><td>Art Blocks generative art on-chain script sales volume</td><td>DappRadar (403), RightClickSave, Tané</td></tr><tr><td>6</td><td>LLM generate Houdini node graph OR Geometry Nodes AI agent 2026</td><td>NodeArchitect, JPR sobre Houdini 22, Houdini-Agent</td></tr><tr><td>7</td><td>code-generated game content at runtime LLM procedural level generation shipped game 2026</td><td>GROMIT, Word2World, Word2Minecraft; nenhum jogo comercial</td></tr><tr><td>8</td><td>Infinigen procedural generator Princeton</td><td>CVPR 2023, GitHub, CG Channel</td></tr><tr><td>9</td><td>GROMIT runtime behavior generation Unity arXiv Jennings</td><td>UIST 2024, relatório técnico de Berkeley, deep-hci</td></tr></tbody></table></div>
+<p>Mais 37 tentativas de abrir página (WebFetch): 31 abertas, listadas na seção 11; 4 falharam (ACM 403, DappRadar 403, Medium do Art Blocks 403, PDF do GROMIT grande demais); 2 foram redirecionamentos (Cavalry, seguido; Tané/Notion, abandonado).</p>
+<p><strong>Buscas que não deram em nada útil:</strong> a de Brasil (4) trouxe sobretudo texto genérico sobre "design generativo" e um artigo do SVR sobre PCG em RV (não aberto); a de jogo comercial com geração em tempo de execução (7) não achou nenhum jogo lançado — é o dado que mantém a raiz 3 em laboratório.</p>
+<p><strong>Não abertos, vistos só na busca (e por isso fora da seção 11):</strong> AI Co-Artist (arXiv 2512.08951), ShadAR, CodeGen-3D, BlenderRAG (2605.00632), 3D-GPT, Word2World, avaliação em tempo de execução de PCG em endless runner (2605.01783), NodeArchitect, Infinigen (GitHub e arXiv), Houdini-Agent, ShapeCraft.</p>
+<h3 id="12-4-efeitos-cortados">12.4 Efeitos cortados</h3>
+<ul><li><strong>e3.2 (rascunho) — "Surge a profissão de engenheiro de prompt procedural."</strong> Cortado: efeito proibido ("surge uma nova profissão") sem ator e mecanismo; o conteúdo útil está em e1.1.</li><li><strong>e7.3 (rascunho) — "O mercado de NFT de gerador volta com IA."</strong> Cortado pelo teste da causa solta: o Art Blocks já existia sem IA [27]; um retorno teria causa financeira.</li><li><strong>e10.3 (rascunho) — "Jogadores perdem interesse em jogos fixos."</strong> Cortado: genérico, serve para qualquer personalização.</li><li><strong>Rascunho de e6.4 — "CDNs perdem receita."</strong> Cortado: extrapolação linear, sem mecanismo de não linearidade, e a fração de tráfego 3D em CDN é pequena; o efeito real está em e6.3 (energia muda de lugar).</li><li><strong>Rascunho de e2.3 — "Seguradoras de produção exigem auditoria de asset."</strong> Cortado: sem nenhum sinal e com ator mal definido.</li><li><strong>Rascunho de e12.2 — "Figma vira editor de gramática."</strong> Cortado: raiz trocada por produto; o efeito geral está em e12.1.</li></ul>
+<h3 id="12-5-raizes-descartadas-antes-da-roda">12.5 Raízes descartadas antes da roda</h3>
+<ul><li><em>"Neurossimbólico gráfico" como raiz própria.</em> Descartado: é o mecanismo da raiz 1 (modelo neural escrevendo programa simbólico), não outra ruptura.</li><li><em>"A obra vira o código" como raiz.</em> Descartado como raiz e mantido como efeito (e7.1.1, wildcard 3): o precedente do Art Blocks [27] mostra que "código como obra" existe sem IA; o que a IA muda é quem escreve, e isso já é a raiz 1.</li><li><em>"Design paramétrico na arquitetura" como raiz.</em> Descartado: maduro desde o Grasshopper [29]; usado como classe de referência.</li></ul>
+<h3 id="12-6-notas-que-nao-couberam">12.6 Notas que não couberam</h3>
+<ul><li><strong>AI Act, art. 50</strong> [22]: a marcação obrigatória de conteúdo sintético vale para áudio, imagem, vídeo e texto desde 02/08/2026, com exceção para função assistiva de edição. Pergunta aberta, não derivada na roda por falta de mecanismo claro: um objeto 3D entregue como código gerado por IA é "conteúdo sintético" a marcar, ou é software? Se for software, a raiz 2 ganha uma vantagem regulatória sobre o pixel gerado; se for conteúdo, a marca teria de estar no código. Candidato a efeito numa próxima rodada.</li><li><strong>Fronteira com o tema 1 (programação agêntica):</strong> a raiz 1 é um caso particular de programação agêntica. O que a separa é o objeto (programa gráfico, avaliado por render e por olho humano) e o ator (artista, não desenvolvedor).</li><li><strong>Fronteira com o tema 16 (IA local):</strong> o wildcard 1 depende de modelo local rápido; tratado como condição, não derivado aqui.</li><li><strong>Nota sobre o Houdini no Brasil:</strong> o preço do Houdini Core (US$ 1.995) [6] e a gratuidade do Blender sustentam a hipótese de que a raiz 1 chega ao Brasil pelo Blender; sem número de uso por país.</li></ul></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>

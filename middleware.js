@@ -24,6 +24,9 @@ export default async function middleware(req) {
   // A lista /futuros/confrontos/ é da turma: a rotina a anuncia no grupo depois de cada aula (22/09/2026).
   // Ela só lista o que já foi liberado, e cada confronto continua com a própria chave.
   if (/^\/futuros\/confrontos\/?$/.test(p)) return;
+  // /futuros/licoes/ é o apanhado do que as prospecções ensinaram: é da turma, não tem mapa de
+  // tema fechado dentro e é linkada de todas as páginas de tema (22/09/2026).
+  if (/^\/futuros\/licoes(\/|\/licoes\.md)?$/.test(p)) return;
   const senha = process.env.FUTUROS_SENHA || '';
   if (senha) {
     const esperado = await sha256(senha + '|tmi-futuros');

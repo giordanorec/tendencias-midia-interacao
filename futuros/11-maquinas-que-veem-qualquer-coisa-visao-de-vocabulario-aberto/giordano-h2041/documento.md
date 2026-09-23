@@ -1,0 +1,1347 @@
+---
+tema: "Máquinas que veem qualquer coisa: visão de vocabulário aberto"
+slug: maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto
+autor_login: grec
+zona_de_interesse: Percepção e mídia sintética
+data: 2026-09-22
+horizonte: 2041
+publico: quem projeta mídia e interação
+recorte_geografico: global
+disrupcoes_raiz: 4
+efeitos_ordem_1: 12
+efeitos_ordem_2: 17
+efeitos_ordem_3: 15
+tecnologias_citadas: [SAM, SAM 2, SAM 3, SAM 3.1, SA-Co, DINOv2, DINOv3, Grounding DINO, Grounding DINO 1.6, Grounded-Segment-Anything, YOLO-World, YOLOE-26, MobileCLIP2, RF-DETR, RT-DETRv3, Florence-2, OWLv2, NanoOWL, NanoSAM, EfficientViT-SAM, Donut, PaddleOCR, PaddleOCR-VL-1.6, MinerU2.5-Pro, GLM-OCR, TeleOCR, OvisOCR2, Qwen3-VL, DeepSeek-OCR 2, EasyOCR, LaTeX-OCR, LAVIS, SlowFast, insightface, supervision, Skyvern, CVAT, Label Studio, Roboflow Auto Label, Roboflow Label Assist, Google Lens, Ray-Ban Meta, Meta Live AI, NameTag, OOrion, Aira, Be My Eyes, Smart Sampa, Escola Paraná Biometria, C2PA, Canon Authenticity Imaging System, ORTHOS, llama.cpp]
+fontes: 30
+confianca: media
+experimento: "Quantas palavras para achar alguém: medir em sala, com câmera fixa e modelo aberto local, quantas palavras de descrição bastam para um sistema isolar uma pessoa entre catorze sem saber quem ela é"
+skill_usada: futurizacao-giordano
+publico_ok: false
+---
+
+## 1. Resumo
+
+Por trinta anos, um sistema de visão só enxergava o que alguém tinha rotulado antes. A lista
+de classes era o contrato, e o dataset era o ativo. Desde novembro de 2025 existe um modelo
+aberto, o SAM 3, que segmenta e segue em vídeo qualquer coisa descrita por uma frase curta. E
+leitores de documento com menos de um bilhão de parâmetros lideram o principal benchmark de
+leitura de PDF sem passar pela etapa clássica de OCR. Este mapa, com horizonte em 2041, parte
+de quatro rupturas. **(1)** A especificação de um sistema de visão passa a ser uma frase, e não
+um conjunto de imagens rotuladas. **(2)** O documento passa a ser lido como imagem, o que
+dissolve o pipeline de OCR e, mais adiante, a razão de existir do formulário. **(3)**
+Descrever passa a substituir identificar: acha-se uma pessoa por "camisa listrada, mochila
+azul" sem usar biometria, que é a categoria sobre a qual a lei de proteção foi construída.
+**(4)** O olhar em primeira pessoa vira consulta: óculos com câmera (13,6 milhões de unidades
+previstas para 2026) respondem sobre o que a pessoa está vendo. Até 2041 o deslocamento
+maior para quem projeta mídia é que **o assistente vira um segundo público de tudo o que se
+desenha**: etiqueta, placa, embalagem e documento passam a ser feitos também para serem
+descritos por máquina. O fim da obscuridade prática vem junto: acervos de vídeo e de papel
+que eram públicos mas, na prática, impossíveis de vasculhar passam a responder a uma frase.
+A retroação mais forte é que proibir identificar aumenta o incentivo para descrever. O mapa
+tem 4 raízes, 12 efeitos de 1ª ordem, 17 de 2ª e 15 de 3ª, com confiança média. A base
+técnica é forte e datada. A base sobre adoção em quinze anos é fraca, e foi ela que puxou a
+confiança para baixo.
+
+## 2. O tema
+
+**O que é.** Visão de vocabulário aberto é a capacidade de um sistema de visão responder a um
+conceito que ninguém lhe ensinou explicitamente, dado em linguagem natural ou por um exemplo
+visual. O nome técnico que a literatura consolidou em 2025–2026 é *promptable concept
+segmentation*: entra uma frase nominal curta e saem máscaras, em nível de pixel, para todas
+as instâncias que correspondem a ela, com identidade estável ao longo de um vídeo [1][3]. Ao
+lado corre uma segunda linhagem, a da **compreensão de documento sem OCR**: o modelo lê e
+estrutura uma página como imagem, sem a etapa de transformar pixel em cadeia de caracteres
+para depois interpretá-la [9][10][11].
+
+**Onde encosta em mídia e interação.**
+
+1. **Autoria.** Editar vídeo por objeto, isolar um elemento sem desenhar contorno, aplicar
+   efeito que segue "o cachorro marrom". A rotoscopia vira descrição.
+2. **Interface.** Se a máquina entende a tela e o documento como imagem, a interface deixa de
+   ser um contrato (formulário, DOM, API) e vira uma superfície que se observa.
+3. **Acessibilidade.** Descrever o mundo sob demanda, com a pergunta vinda da pessoa e não do
+   catálogo do aplicativo.
+4. **Vigilância e registro.** Um acervo de vídeo ou de papel, hoje opaco e caro de vasculhar,
+   passa a responder a uma frase.
+5. **Percepção em primeira pessoa.** O que se olha vira consulta, e quem é olhado vira
+   descrito.
+
+**Por que merece um mapa de futuro, e não um estado da arte.** Um levantamento de estado da
+arte responde qual modelo tem mais AP no LVIS. Não responde o que acontece com a auditoria
+quando a decisão depende do sentido de uma palavra, nem com a lei de proteção de dados quando
+a descrição substitui a identificação, nem com o formulário quando o documento se lê sozinho,
+nem com a sinalização urbana quando metade dos leitores é assistente. Essas perguntas têm
+consequências de segunda e terceira ordem que não são extrapolação de curva de benchmark.
+
+**Premissas desta rodada (briefing, modo não interativo).** Horizonte 2041. Público: quem
+projeta mídia e interação. Recorte global, com nota sobre o Brasil. Descartado de início: o
+que já é comum em produto de massa. Nenhuma raiz suspeita, viés neutro. Falseador declarado:
+evidência de que a adoção já passou da maioria inicial ou de que a tecnologia só melhora o que
+existe. Profundidade de três ordens. Nada disso foi perguntado a uma pessoa: veio do briefing
+e está registrado aqui como premissa. Fronteiras com os temas vizinhos: reconstrução 3D é o
+tema 10, o robô que usa a visão para agir é o tema 9, e a geração e substituição de imagem é o
+tema 12. Onde este mapa encosta neles, a prosa avisa.
+
+## 3. Onde isso está hoje
+
+Âncora feita com acesso à web em 22/09/2026: 17 buscas por palavra-chave e 31 tentativas de abertura de página, das quais 30 abriram. As que não
+abriram estão na §12.
+
+### 3.1 O que já existe e funciona
+
+- **SAM 3 (Meta, 20/11/2025; revisto em 28/03/2026).** Detecta, segmenta e rastreia em imagem e
+  vídeo a partir de frase nominal, de exemplo visual ou dos dois. Treinado com um motor de
+  dados de 4 milhões de rótulos de conceito, incluindo negativos difíceis. Os autores afirmam
+  dobrar a acurácia dos sistemas anteriores em segmentação por conceito [1]. Pela
+  documentação da Ultralytics: 47,0 de AP de máscara em LVIS zero-shot, contra 38,5 do melhor
+  anterior; 65,0 de CGF1 no SA-Co/Gold, contra 74,2 do limite inferior humano estimado (cerca
+  de 88%); 473,6 milhões de parâmetros; 3,45 GB [3].
+- **SAM 3.1 (27/03/2026).** Multiplexação de objetos em vídeo, de 16 para 32 quadros por
+  segundo num H100 com número médio de objetos. Pesos abertos no Hugging Face. Em produto no
+  Instagram Edits, no Vibes do app Meta AI e no "View in Room" do Marketplace [2].
+- **DINOv3 (Meta, 14/08/2025).** 7 bilhões de parâmetros, treinado sem rótulo em 1,7 bilhão de
+  imagens, com licença comercial. "Pela primeira vez, um único backbone de visão congelado
+  supera soluções especializadas" em detecção e segmentação. Terceiros já usam: o WRI reduziu o
+  erro médio de altura de dossel no Quênia de 4,1 m para 1,2 m, e o JPL da NASA usa em robôs de
+  exploração [4].
+- **Detectores abertos em tempo real.** O YOLOE-26 (Ultralytics) aceita prompt de texto,
+  exemplo visual ou um vocabulário embutido de 4.585 classes, e chega a 40,6 mAP em LVIS
+  [6]. Num Jetson AGX Orin, NanoOWL com EfficientViT-SAM-L0 roda a 47,51 FPS com mIoU de
+  84,64% [8].
+- **Leitura de documento sem OCR.** A origem é o Donut (NAVER, 2021, ECCV 2022), que nomeou os
+  três problemas do OCR em pipeline: custo, inflexibilidade a idioma e tipo de documento, e
+  propagação de erro [9]. Em setembro de 2026 o OmniDocBench (1.651 páginas, 10 tipos de
+  documento) tem no topo modelos de 0,8 a 1,2 bilhão de parâmetros — TeleOCR com 96,91,
+  OvisOCR2, PaddleOCR-VL-1.6 com 96,34 —, enquanto o Qwen3-VL-235B, generalista, marca 89,78
+  [10][11].
+- **Ferramenta comercial absorvendo o modelo no mesmo dia.** A Roboflow integrou o SAM 3 ao
+  Label Assist, ao Auto Label (rotular dataset inteiro por texto) e ao Workflows em 19/11/2025
+  [5].
+- **Automação de tela por visão.** O Skyvern (23,1 mil estrelas, AGPL-3.0) opera navegador
+  lendo a página como imagem, com 64,4% no WebBench [13].
+- **Percepção em primeira pessoa como produto.** Os óculos da Meta têm "descreva o que está ao
+  meu redor", integração com Be My Eyes e Aira, e o app OOrion, que localiza objetos, lê
+  texto e detecta obstáculos. O Português está entre os idiomas suportados [18].
+
+### 3.2 O que existe e ainda não funciona
+
+- **Frases compostas e relacionais.** O SAM 3 não sustenta "o penúltimo livro da direita" [2].
+  O YOLOE avisa que prompts de relação ("danificado", "o mais à esquerda") não têm "alça
+  confiável" [6].
+- **Zero-shot contra afinado.** Na documentação do próprio YOLOE: "a acurácia zero-shot fica
+  bem abaixo de um modelo treinado nas suas classes" [6].
+- **Custo e tamanho.** Um integrador calcula que rodar Grounding DINO em todos os quadros de
+  50 lojas custa de US$ 7.920 a 9.900 por mês, contra US$ 3.960 numa arquitetura em dois
+  níveis: detector fechado rápido mais o aberto só como exceção. A troca para fechado acontece
+  quando uma categoria acumula de 500 a 1.000 exemplos [7]. Quantização agressiva faz
+  variantes do EfficientViT-SAM falharem de forma catastrófica [8].
+- **Erro confiante.** Em inspeção industrial fina, modelos multimodais dão "decisões de alta
+  confiança mas não confiáveis" e não têm mecanismo de autocorreção [12].
+- **Generalista contra especialista em documento.** Modelos dedicados de OCR dominam o topo, e
+  o OCR especializado ainda vence em alto volume, em custo e em hardware restrito [11].
+
+### 3.3 Quem constrói
+
+Meta (SAM, DINO; pesos abertos), Ultralytics (YOLOE, com a documentação que integra o SAM 3),
+Roboflow (ferramenta comercial e RF-DETR), Baidu/PaddlePaddle e laboratórios chineses de
+leitura de documento (PaddleOCR-VL, MinerU, GLM-OCR), NAVER (Donut) e a comunidade aberta de
+automação (Skyvern). Do lado do bloqueio e da contenção: EFF, Future of Privacy Forum, ANPD,
+Data Privacy Brasil e Coalizão Direitos na Rede.
+
+### 3.4 Números de adoção
+
+- **Busca visual já é massa:** o Google Lens teve "quase 20 bilhões de buscas visuais por mês"
+  em outubro de 2024 [17]. É por isso que a busca visual por foto está recusada como raiz (§4).
+- **Óculos com câmera:** 13,6 milhões de unidades previstas para 2026 e 27,3 milhões para 2030,
+  com a Meta em 69,2% no 1º trimestre de 2026 e preço médio de US$ 376 [15].
+- **Rotulagem de dados:** US$ 2,61 bilhões em 2026, previsão de US$ 7,02 bilhões em 2031.
+  Rotulagem manual em 42,31% do mercado em 2025, e técnicas programáticas crescendo 22,16% ao
+  ano. O fluxo descrito: "pré-rotular com modelo fundacional, humano nas fatias ambíguas" [14].
+- **SAM 3 e SAM 3.1:** nenhum número de download ou de uso foi encontrado [2].
+- **Vigilância no Brasil:** Smart Sampa com 50 mil câmeras (20 mil próprias e 30 mil
+  integradas de redes privadas), cerca de 250 agentes e 159 prisões em flagrante declaradas
+  [25].
+
+### 3.5 Nota sobre o Brasil
+
+O Brasil entra por três portas. **Vigilância municipal de grande escala** já existe (Smart
+Sampa), com caso documentado de abordagem indevida de um paciente de CAPS a partir de um
+reconhecimento facial errado, e ao menos seis denúncias formais na Comuda [25][26]. **A ANPD**
+suspendeu, em 04/08/2026, a biometria facial de cerca de 1 milhão de estudantes em 2.136
+escolas do Paraná por falta de base legal, de avaliação de alternativa menos invasiva e de
+prova do benefício [24]. **O Congresso** tem duas frentes em sentidos opostos: o PL 2338/2023
+(marco da IA), aprovado no Senado em dezembro de 2024 e ainda pendente na Câmara, classifica o
+reconhecimento facial como risco excessivo com um rol amplo de exceções [28][29]; o PL
+1828/2023, pautado para 17/06/2026, autoriza câmeras de reconhecimento facial em metrô, ônibus
+e vias públicas [27]. **Nenhuma dessas frentes trata busca por descrição de atributos.** É
+nesse vão que a raiz R3 opera.
+
+## 4. As disrupções-raiz
+
+### Candidatos recusados como raiz
+
+- **Busca visual por foto (Lens, "o que é isto?") e busca em linguagem natural na galeria de
+  fotos.** Recusada: adoção em maioria. O Lens estava em quase 20 bilhões de buscas por mês em
+  2024 [17]. Entra como contexto na §3 e como classe de referência.
+- **Classificação de imagem, detecção com classes fixas, OCR tradicional.** Recusados:
+  maduros. O próprio mapa usa o detector fechado como a retroação de R1 (`e3`).
+- **Reconhecimento facial 1:N.** Recusado como raiz: não é vocabulário aberto, é
+  correspondência contra um banco de referência, com décadas de uso. Entra como contexto
+  regulatório de R3.
+- **Automação de navegador por visão (Skyvern).** Recusada como raiz *aqui*: é o tema 4 (a
+  internet agêntica). Aparece como sinal de R2, porque a tela lida como imagem é o mesmo
+  gesto do documento lido como imagem.
+
+### R1 — A especificação por conceito: o rótulo vira frase
+
+1. **O que rompe.** O dataset rotulado como contrato entre quem especifica e quem constrói; a
+   anotação como ofício de desenhar polígonos; a rotoscopia como trabalho por quadro. O
+   artefato que define o sistema passa a ser uma lista de frases, com exemplos negativos.
+2. **Por que agora.** Três pré-condições apareceram entre 2023 e 2026: backbones sem rótulo que
+   servem congelados a várias tarefas (DINOv3 [4]), um motor de dados com 4 milhões de
+   conceitos e negativos difíceis (SAM 3 [1]) e pesos abertos com integração comercial no dia
+   do lançamento (Roboflow [5]). Há cinco anos, vocabulário aberto era um ranking de pesquisa
+   (OWL, GLIP) sem uso por ferramenta.
+3. **Onde está na difusão.** Produto de nicho, entrando em adoção precoce na rotulagem e na
+   pós-produção de vídeo curto. Emergente.
+4. **O que falta.** Frases relacionais e compostas confiáveis [2][6]; custo por quadro
+   competitivo com o detector fechado [7]; um modo de versionar e auditar o vocabulário.
+   Nenhum item parece impossível.
+
+**Quem bloqueia.** Fornecedores de visão industrial certificada e integradores que vendem
+detector afinado por projeto: o negócio deles é a classe fechada com garantia. O efeito é
+`e3`, em que o aberto fica como rotulador e o fechado segue em produção. *Inferência minha:
+não abri fonte de nenhum desses fornecedores.*
+
+### R2 — O documento lido como imagem
+
+1. **O que rompe.** O pipeline OCR → template → regex; a camada de texto como condição para a
+   máquina processar um PDF; e, mais adiante, **o formulário como interface de coleta**. Se o
+   documento que a pessoa já tem se lê sozinho, pedir que ela redigite o que está nele deixa de
+   ter justificativa técnica.
+2. **Por que agora.** Os leitores de documento ficaram pequenos: modelos de 0,8 a 1,2 bilhão
+   de parâmetros lideram um benchmark de 1.651 páginas [10][11]. A linhagem começou em 2021
+   com o Donut [9], mas só em 2025–2026 chegou a um tamanho e a uma acurácia que cabem num
+   servidor comum.
+3. **Onde está na difusão.** Adoção precoce no processamento de documentos em empresa; produto
+   de nicho no setor público. Emergente.
+4. **O que falta.** Resolver o erro confiante (texto plausível no lugar do número certo)
+   [11][12]; órgãos públicos aceitarem foto como entrada com efeito jurídico; quinze anos de
+   mudança de processo administrativo, que é lenta por natureza.
+
+**Quem bloqueia.** Cartórios de notas e de registro, cujo serviço é conferir e autenticar
+documento, e fornecedores de captura (OCR mais digitação terceirizada). O efeito é `e6` e,
+mais adiante, `e4.1.1`. *Inferência minha, sem fonte aberta sobre o setor.*
+
+### R3 — Descrever substitui identificar
+
+1. **O que rompe.** A suposição sobre a qual a proteção foi construída: vigiar alguém exige
+   identificá-lo por um dado biométrico, contra um banco de referência. A proibição do AI Act
+   europeu só se aciona com quatro critérios ao mesmo tempo — identificação biométrica remota,
+   tempo real, espaço público e finalidade policial — e distingue identificação de verificação
+   [21]. A proibição de categorização biométrica exclui, explicitamente, a categorização por
+   roupa e acessórios [22]. Uma busca por "camisa listrada, mochila azul, 14h20" sobre o acervo
+   gravado não usa biometria e, ainda assim, segue uma pessoa.
+2. **Por que agora.** A pesquisa em *text-based person re-identification* migrou de listas de
+   atributos para linguagem natural [23], e o vocabulário aberto de uso geral (R1) torna
+   isso uma função de prateleira, não mais um sistema sob encomenda. Ao mesmo tempo, as
+   proibições dirigidas à biometria (2025–2026) criam o incentivo para a migração
+   [21][24][19].
+3. **Onde está na difusão.** Entre laboratório e produto de nicho. A busca por atributo existe
+   em análise de vídeo, mas não achei caso público de busca por frase livre em vigilância
+   municipal. Por isso **toda a cadeia de R3 sai com `confianca` no máximo média**, e a 3ª
+   ordem, baixa.
+4. **O que falta.** Acurácia entre câmeras diferentes; acervo com retenção longa; um operador
+   disposto a assumir a prática publicamente. Nenhum item é impossível. O último é o menos
+   provável de ser visível.
+
+**Quem bloqueia.** Coalizões civis (EFF, Data Privacy Brasil, Coalizão Direitos na Rede) e
+autoridades de dados (ANPD) têm incentivo para estender o conceito de dado sensível à
+trajetória descrita. Operadores de segurança pública e fornecedores de análise de vídeo têm
+incentivo para manter a descrição fora da categoria "biometria". Os efeitos são `e9` e
+`e7.1.1`.
+
+### R4 — O olhar vira consulta: percepção aberta em primeira pessoa
+
+1. **O que rompe.** A suposição de que olhar é um ato privado e sem registro, e a de que a
+   pergunta visual é uma sessão (tirar o celular, apontar, perguntar). Com óculos, a pergunta
+   vira um gesto contínuo, e quem está no campo de visão passa a ser descrito sem saber.
+2. **Por que agora.** O formato de óculos com câmera e sem tela barateou e escalou: 13,6
+   milhões de unidades previstas para 2026, com preço médio de US$ 376 e queda projetada para
+   cerca de US$ 229 em 2030 [15]. A descrição por voz já está em produto [18]. O recuo do
+   NameTag em 05/06/2026 [19] e a patente publicada em agosto [20] mostram que a identificação
+   por rosto está no roteiro dos fabricantes, mas sob contestação.
+3. **Onde está na difusão.** Produto de nicho: 13,6 milhões de unidades por ano, contra uma
+   base de adultos na casa dos bilhões. Emergente.
+4. **O que falta.** Bateria e computação para o vocabulário aberto no próprio dispositivo (o
+   SAM 3 tem 3,45 GB [3]); aceitação social; um arranjo regulatório sobre quem aparece na
+   imagem. Se "rotulagem contínua do campo de visão por padrão" for tratada como item, ela é
+   hoje improvável. Por isso está como **wildcard** na §6, e não como raiz. A raiz é a
+   percepção por pedido.
+
+**Quem bloqueia.** Donos de lugar (hospitais, escolas, tribunais, academias) e as
+organizações da §3 que contestaram o NameTag. O efeito é `e10.2` (o lugar proíbe o óculos) e
+`e12` (reação social e custo).
+
+## 5. A roda dos futuros
+
+```yaml
+roda:
+  - disrupcao: A especificação de um sistema de visão passa a ser uma frase, não um dataset rotulado
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: Editores de vídeo e estúdios de pós-produção passam a isolar, seguir e alterar elementos de cena por descrição em vez de rotoscopia quadro a quadro
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: O mascaramento e a rotoscopia terceirizados por quadro perdem volume e preço, e a edição por objeto passa a ser feita por quem não tem formação de compositor
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Distribuidores passam a vender o posicionamento de produto por mercado depois da filmagem, trocando objetos descritos na cena, e o corte final deixa de ser único
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: O artefato que se audita num sistema de visão passa a ser a lista de frases, limiares e exemplos negativos, e a ambiguidade de uma palavra vira defeito de produto
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Contratos de fornecimento com inspeção automática passam a anexar o vocabulário de prompts como cláusula técnica, e a disputa entre comprador e fornecedor passa a ser sobre o que uma frase cobre
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: Empresas de rotulagem deixam de vender desenho de polígono e passam a vender revisão de casos ambíguos sobre pré-rótulos gerados por modelo aberto
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: O valor de uma empresa de visão deixa de estar no dataset rotulado e passa a estar na posse de casos-limite e negativos difíceis do seu domínio
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Acervos especializados de imagem, como os de patologia, inspeção de solda e herbários, passam a ser licenciados por museus e universidades como pacotes de negativos difíceis para ajuste de modelos fundacionais
+                sinal: fraco
+                prazo: 2037
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: Anotadores sem especialização em países de renda baixa e média perdem a tarefa de entrada, e o trabalho de dados que sobra exige especialista do domínio
+            sinal: medio
+            prazo: 2031
+            confianca: media
+      - id: e3
+        ordem: 1
+        efeito: Em produção de alto volume o vocabulário aberto fica como prototipador e rotulador, e o que roda é um detector fechado destilado dele, porque o custo por quadro e o acerto zero-shot ainda perdem para o afinado
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: A arquitetura em dois níveis vira padrão, e quem projeta interação passa a desenhar a diferença entre o que o sistema reconhece na hora e o que ele vai procurar
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: Em aplicações de baixo volume como loja única, museu e sala de aula, o nível fechado desaparece porque rodar o aberto no dispositivo fica mais barato que manter um pipeline de destilação
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+  - disrupcao: O documento passa a ser lido como imagem, sem OCR em pipeline
+    efeitos:
+      - id: e4
+        ordem: 1
+        efeito: Bancos, seguradoras e departamentos de pessoal trocam o pipeline de OCR com template por um leitor de página que devolve estrutura direto da imagem
+        sinal: forte
+        prazo: 2029
+        confianca: alta
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: Centros de digitação e conferência de backoffice passam de transcrever documento para auditar exceções, e perdem o volume de documento padronizado
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Em atos com efeito jurídico, como registro de imóvel e concessão de benefício, a conferência humana passa a ser cobrada como responsabilidade assinada, não como esforço de leitura
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Órgãos e empresas deixam de pedir que a pessoa preencha campos e passam a pedir a foto do documento que ela já tem, e o formulário encolhe para as perguntas que nenhum documento responde
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: O excluído do serviço público digital deixa de ser quem não sabe preencher e passa a ser quem não tem o documento em bom estado ou não consegue fotografá-lo, e o balcão presencial passa a atender esse perfil
+                sinal: fraco
+                prazo: 2039
+                confianca: baixa
+      - id: e5
+        ordem: 1
+        efeito: Acervos escaneados sem camada de texto, como processos, diários oficiais e jornais antigos, passam a ser consultáveis e estruturáveis sem redigitação
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O que era público mas praticamente inacessível deixa de ser, e o nome de uma pessoa num diário oficial de décadas atrás passa a ser achável e cruzável com outras bases
+            sinal: medio
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Arquivos públicos e hemerotecas passam a ter de decidir, documento a documento, o que fica legível por máquina, e os pedidos de desindexação migram dos buscadores para os arquivos
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: A leitura sem OCR introduz um erro que o OCR não tinha, o texto fluente e errado em campo numérico, e bancos e órgãos públicos mantêm leitura clássica redundante nos campos críticos
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: Documentos com valor, data ou identificador passam a carregar sua própria versão estruturada assinada, e a vantagem do sem-OCR encolhe justamente onde ela mais importava
+            sinal: fraco
+            prazo: 2035
+            confianca: media
+  - disrupcao: Descrever passa a substituir identificar, e a busca por pessoas sai da categoria biometria
+    efeitos:
+      - id: e7
+        ordem: 1
+        efeito: Sistemas de videomonitoramento municipais e de varejo ganham busca por descrição em linguagem natural sobre o acervo gravado, sem usar dado biométrico
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: A busca retroativa por descrição reconstrói a trajetória de uma pessoa entre câmeras sem identificá-la no sentido legal, e a proteção ancorada em biometria não se aciona
+            sinal: fraco
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Autoridades de dados passam a tratar a trajetória descrita como dado pessoal sensível por efeito, e a definição regulatória migra da natureza do dado para a capacidade de seguir alguém
+                sinal: fraco
+                prazo: 2039
+                confianca: baixa
+          - id: e7.2
+            ordem: 2
+            efeito: O erro de busca por descrição recai sobre quem veste o genérico da descrição, como entregadores de aplicativo e estudantes de uniforme, que passam a ser abordados por semelhança de roupa
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e7.2.1
+                ordem: 3
+                efeito: Roupas e acessórios com padrões que confundem o descritor viram categoria de moda urbana, porque variar a própria descrição passa a ser a defesa disponível
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: Ferramentas de acessibilidade para pessoas cegas passam a descrever pessoas e cenas por pedido, e a mesma capacidade que vigia serve a quem não vê
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: A acessibilidade vira a porta de entrada da descrição de pessoas em produto de massa, e fabricantes de óculos usam a exceção para quem não vê como argumento contra restrições
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: A descrição de pessoas passa a ter níveis codificados em produto, como descrever roupa sim, estimar idade ou etnia não, nomear só com consentimento, e o design de acessibilidade vira o lugar onde a norma de privacidade visual é escrita
+                sinal: fraco
+                prazo: 2037
+                confianca: baixa
+      - id: e9
+        ordem: 1
+        efeito: Proibições e suspensões dirigidas à biometria aumentam o incentivo dos operadores para migrar para descrição de atributos, e as coalizões civis passam a mirar a análise de vídeo em geral
+        sinal: medio
+        prazo: 2029
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: No Brasil, a lei que sai do Congresso fixa o reconhecimento facial como categoria regulada enquanto a busca por atributo segue sem regra própria, e a lei nasce atrás da técnica
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: O registro das frases buscadas por agente público passa a ser condição de uso e prova em processo penal, e a defesa pede a lista de descrições que levaram à abordagem
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+  - disrupcao: O olhar em primeira pessoa vira consulta a um sistema de visão aberta
+    efeitos:
+      - id: e10
+        ordem: 1
+        efeito: Usuários de óculos com câmera passam a perguntar sobre o que estão olhando como gesto contínuo, e a pergunta visual migra do celular apontado para o olhar
+        sinal: forte
+        prazo: 2031
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: Museus, lojas e sinalização urbana passam a ser projetados também para o descritor, e quem projeta mídia ganha o assistente como segundo público de tudo o que desenha
+            sinal: fraco
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: Marcas passam a desenhar embalagens para o modo como o assistente as descreve, e o assistente vira o editor de qual produto da prateleira é mencionado
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+          - id: e10.2
+            ordem: 2
+            efeito: Hospitais, escolas, tribunais e academias passam a barrar óculos com câmera na porta, porque a descrição não precisa gravar e o LED de gravação deixa de dizer o que acontece
+            sinal: fraco
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e10.2.1
+                ordem: 3
+                efeito: O lugar sem câmera vira atributo anunciado por bares, clínicas e templos, e a privacidade visual vira bem de consumo distribuído de forma desigual
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+      - id: e11
+        ordem: 1
+        efeito: Estudo e trabalho de pessoas cegas deixam de depender de documento acessível preparado por terceiros, porque o leitor passa a ser o óculos e não o arquivo
+        sinal: medio
+        prazo: 2031
+        confianca: media
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: A obrigação institucional de publicar material acessível perde força, e a acessibilidade passa de dever de quem publica para ônus de quem consome e tem o dispositivo
+            sinal: fraco
+            prazo: 2035
+            confianca: baixa
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: A disputa sobre acessibilidade passa a ser decidida por quem paga o dispositivo, e a política de inclusão vira política de distribuição de hardware
+                sinal: fraco
+                prazo: 2039
+                confianca: baixa
+      - id: e12
+        ordem: 1
+        efeito: Custo de bateria, tamanho do modelo e reação social desaceleram a percepção aberta em óculos, que roda na nuvem e leva a imagem do olhar do usuário para os servidores da plataforma
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: A plataforma que opera os óculos acumula o maior acervo de imagem em primeira pessoa já feito, e o conflito passa a ser sobre retenção e treino com quem aparece no campo do usuário
+            sinal: fraco
+            prazo: 2034
+            confianca: baixa
+            efeitos:
+              - id: e12.1.1
+                ordem: 3
+                efeito: Processamento local obrigatório vira exigência de lei ou de mercado em ao menos uma grande jurisdição, e quem não consegue embarcar o modelo no óculos sai desse mercado
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+```
+
+### 5.1 Os mecanismos, raiz a raiz
+
+**R1 — especificação por conceito.**
+
+- `e1` **porque** a segmentação por frase com rastreamento em vídeo (SAM 3.1, 32 FPS em H100
+  [2]) transforma "isolar os copos da cena" de trabalho por quadro em instrução. Três
+  artefatos: SAM 3.1 no Instagram Edits [2], o Auto Label da Roboflow [5] e o YOLOE-26 com
+  prompt de texto [6]. Por isso o sinal é forte. Classe de referência: o Lens, de 2017 a quase
+  20 bilhões de buscas por mês em 2024 [17], ou seja, cerca de sete anos de "funciona em demo"
+  a massa numa função embutida em produto que já existia. Como `e1` está embutido em
+  aplicativos de edição que já têm base instalada, 2029 fica dentro dessa referência.
+  - `e1.1` **porque** o preço de uma tarefa cobrada por quadro cai quando a tarefa vira
+    instrução, e a barreira técnica, que era o que justificava terceirizar, some. Troca de
+    ator: do editor para o compositor terceirizado.
+    - `e1.1.1` **porque**, se trocar um objeto descrito num vídeo fica barato e rastreável, a
+      versão do filme vira uma variável comercial por mercado. *Encosta no tema 12 (mídia
+      sintética): a substituição é deles; o que é deste tema é achar o objeto por frase em
+      todos os quadros.*
+  - `e1.2` **porque** o que define o comportamento do sistema passa a ser o texto do prompt, e
+    não mais o conjunto de treino. Auditar passa a ser auditar palavras. A Roboflow já avisa
+    para "evitar classes amplas com partes específicas" [5], e o SAM 3 declara que há
+    conceitos com ambiguidade inerente [3]. A Mordor relata guia do instituto japonês de
+    segurança de IA exigindo "logs explicáveis de geração de rótulo" [14]. São dois artefatos,
+    então o sinal é médio.
+    - `e1.2.1` **porque** quem compra inspeção automática precisa de algo verificável no
+      contrato, e o que define a inspeção é a frase. Troca de ator: do engenheiro para o
+      departamento jurídico das duas partes.
+- `e2` **porque** o pré-rótulo por texto (Auto Label [5]) faz o humano revisar em vez de
+  desenhar. É o fluxo que a Mordor descreve como padrão [14].
+  - `e2.1` **porque**, se qualquer um rotula o comum com uma frase, a escassez muda para o caso
+    difícil que o modelo erra. Troca de mecanismo: de custo de trabalho para escassez de dado.
+    - `e2.1.1` **porque** o dono de acervo raro passa a ter o que falta aos modelos
+      fundacionais. Troca de ator: do laboratório de IA para o museu e a universidade.
+  - `e2.2` **porque** a tarefa de entrada — desenhar a caixa do carro — é justamente a que o
+    pré-rótulo cobre, e a que sobra — decidir se aquilo é uma lesão — exige formação. A Mordor
+    registra a exigência de qualidade do rotulador subindo [14]. Quem perde: o trabalhador de
+    dados sem formação específica. *Regra de parada: não derivei 3ª ordem porque o próximo
+    passo ("o trabalho de dados fica mais caro e mais concentrado") é o mesmo efeito
+    amadurecendo.*
+- `e3` (**retroação**) **porque** o próprio fornecedor documenta que o zero-shot fica "bem
+  abaixo" do afinado [6], e o custo de rodar o aberto em todos os quadros é duas vezes o da
+  arquitetura em dois níveis [7]. São três artefatos independentes ([6], [7] e a
+  recomendação da Roboflow de afinar para produção [5]), então o sinal é forte.
+  - `e3.1` **porque** a arquitetura em dois níveis tem duas latências. Quem desenha a
+    interação precisa mostrar ao usuário se o sistema "já sabe" ou "está procurando".
+    - `e3.1.1` **porque** o custo de embarcar o aberto cai (NanoOWL com EfficientViT-SAM a
+      47,51 FPS num Orin [8]), e abaixo de certo volume o custo de manter a destilação passa a
+      ser maior que o de rodar direto. Troca de mecanismo: do custo de inferência para o custo
+      de manutenção. É aqui que a retroação de R1 se desfaz, primeiro no nicho e não na
+      escala.
+
+**R2 — o documento lido como imagem.**
+
+- `e4` **porque** modelos de 0,9 bilhão de parâmetros estruturam página, tabela e fórmula
+  melhor que um generalista de 235 bilhões [11], e um único modelo substitui três etapas
+  frágeis [9]. Três artefatos (PaddleOCR-VL, MinerU, GLM-OCR [11]), então o sinal é forte.
+  Classe de referência: o próprio Donut, de 2021 ao topo de benchmark em 2026 (cinco anos),
+  mais a fricção de migração de processo corporativo. Daí 2029.
+  - `e4.1` **porque** o que o backoffice fazia — transcrever para campo — é o que o leitor
+    faz. Sobra a exceção. Troca de ator: do banco para o fornecedor de BPO.
+    - `e4.1.1` **porque**, quando o esforço de leitura some, o que continua escasso num ato
+      jurídico é alguém que responda pelo erro. Troca de mecanismo: de custo de trabalho para
+      alocação de responsabilidade.
+  - `e4.2` **porque** o formulário existe para transformar o que está no papel em dado
+    estruturado. Se o papel se estrutura sozinho, o formulário perde a função. O sinal é fraco:
+    não achei órgão público que já tenha substituído formulário por foto como política.
+    - `e4.2.1` **porque** a barreira de entrada muda de alfabetização em formulário para posse
+      de documento legível e de câmera. Quem perde: quem tem documento danificado, câmera ruim
+      ou não enxerga, e não tem ajuda.
+- `e5` **porque** o leitor de documento não precisa da camada de texto, e o OmniDocBench já
+  avalia dez tipos de documento, inclusive escaneados [10]. Dois artefatos ([10], [11]),
+  então o sinal é médio.
+  - `e5.1` **porque** a obscuridade prática dependia do custo de redigitar. Sem esse custo, o
+    registro que era público só em teoria passa a ser público de fato. **Converge com `e7.1`**
+    (§5.2).
+    - `e5.1.1` **porque** o arquivo, e não mais o buscador, passa a ser o ponto em que a
+      legibilidade por máquina é decidida. Troca de ator: de plataforma de busca para instituição
+      de memória.
+- `e6` (**retroação**) **porque** o OCR erra com caractere estranho, e isso se detecta; o
+  leitor generativo erra com texto plausível, e isso não se detecta. Os dois artefatos são
+  [12] (decisões confiantes e não confiáveis) e [11] (OCR especializado ainda vence em volume
+  e custo).
+  - `e6.1` **porque** a resposta institucional ao erro indetectável é tirar o campo crítico da
+    leitura e pôr num dado assinado que acompanha o documento. *Regra de parada: o neto seria
+    "o documento vira dado", que é o mesmo efeito amadurecendo.*
+
+**R3 — descrever substitui identificar.**
+
+- `e7` **porque** o vocabulário aberto de uso geral (R1), aplicado a acervo de câmera, faz de
+  uma frase uma busca. A literatura de busca de pessoa por texto já lista vigilância como
+  aplicação [23]. O Smart Sampa já tem alertas por algoritmo e 50 mil câmeras [25]. São dois
+  artefatos, então o sinal é médio, e nenhum deles é busca por frase livre em operação pública
+  confirmada.
+  - `e7.1` **porque** a norma europeia só proíbe quando há identificação biométrica remota
+    contra banco de referência [21], e exclui a categorização por roupa [22]. *A inferência de
+    que a trajetória descrita fica fora é minha, não das fontes.*
+    - `e7.1.1` **porque** a única forma de fechar o vão sem proibir câmera é mudar o critério
+      de "que dado é" para "o que ele permite fazer". Troca de ator: do legislador para a
+      autoridade de dados, que interpreta.
+  - `e7.2` **porque** a descrição é menos específica que o rosto, e o erro se concentra em quem
+    se parece com a descrição média. O caso do paciente do CAPS [26] é de reconhecimento
+    facial. Serve como referência de como o erro vira abordagem armada, não como prova deste
+    efeito. Quem perde: quem usa uniforme ou roupa barata padronizada.
+    - `e7.2.1` **porque**, se a descrição é o identificador, a defesa individual é variar a
+      própria descrição. Troca de ator: do operador para quem é observado.
+- `e8` **porque** a descrição de cena e de pessoa já está em óculos, com Be My Eyes, Aira e
+  OOrion [18]. Três artefatos, então o sinal é forte.
+  - `e8.1` **porque** a acessibilidade é o uso mais defensável da capacidade, e é o argumento
+    mais forte contra restrições. A patente da Meta descreve reconhecimento facial,
+    expressão e olhar no assistente [20]. O NameTag foi retirado sob pressão [19].
+    - `e8.1.1` **porque** o conflito entre `e8` e `e7` precisa de uma linha, e quem a escreve
+      primeiro é quem desenha o produto de acessibilidade. Troca de ator: do regulador para o
+      designer.
+- `e9` (**retroação**) **porque** cada proibição dirigida à biometria (ANPD no Paraná [24],
+  AI Act [21], recuo do NameTag [19]) deixa a descrição como caminho legal. Ao mesmo tempo, as
+  coalizões que venceram ([19], [27]) ampliam o alvo.
+  - `e9.1` **porque** o texto em trâmite trata reconhecimento facial com exceções amplas [28]
+    e há um projeto concorrente que o autoriza [27]. Nenhum dos dois nomeia busca por
+    atributo. Classe de referência: o PL 2338 passou no Senado em dezembro de 2024 e segue na
+    Câmara em setembro de 2026 [28][29].
+    - `e9.1.1` **porque**, se não há proibição, o controle possível é o registro. E o registro
+      de frases é o único rastro que a busca por descrição deixa. Troca de ator: do operador
+      para a defesa no processo penal.
+
+**R4 — o olhar vira consulta.**
+
+- `e10` **porque** o óculos elimina o gesto de tirar o celular, e a pergunta passa a custar só
+  uma frase dita. A Meta já oferece descrição por voz [18], e o Lens já aceita vídeo com
+  pergunta falada [17]. Classe de referência: smartphone, de 2007 a 35% dos adultos
+  americanos em 2011 [16], e óculos com câmera, de 2021 (primeira geração, de memória) a 13,6
+  milhões por ano em 2026 [15], ainda longe de 10% dos adultos. O óculos está andando mais
+  devagar que o smartphone. Por isso 2031, e não 2029 (§7).
+  - `e10.1` **porque**, se uma fração relevante dos visitantes lê o mundo pela descrição do
+    assistente, o conteúdo que o assistente não descreve bem deixa de ser visto. Troca de
+    ator: do usuário para quem projeta o espaço. **É o efeito que mais desloca o público deste
+    mapa.**
+    - `e10.1.1` **porque** o 20% de consultas de compra do Lens [17] mostra que a visão é canal
+      de venda. No óculos, o assistente escolhe o que mencionar. Troca de mecanismo: de
+      legibilidade para disputa comercial.
+  - `e10.2` **porque** o dono do lugar é o único ator com controle imediato sobre quem entra com
+    câmera. Quem perde: a pessoa filmada, que não tem sinal de que está sendo descrita.
+    - `e10.2.1` **porque** uma restrição que alguns lugares adotam e outros não vira atributo
+      de mercado.
+- `e11` **porque** o óculos lê o documento como imagem (R2) e o descreve por voz (R4). O
+  Português está entre os idiomas [18]. **Converge com `e4.2`** (§5.2).
+  - `e11.1` **porque** o argumento "o dispositivo lê" desloca o custo de quem publica para quem
+    lê. Quem perde: a pessoa cega sem o dispositivo.
+    - `e11.1.1` **porque**, se o custo mudou de lado, a política passa a ser quem paga o
+      dispositivo.
+- `e12` (**retroação**) **porque** o SAM 3 tem 3,45 GB e 473,6 milhões de parâmetros [3] e não
+  cabe num óculos. A percepção aberta no óculos, portanto, sobe para a nuvem, e isso mobiliza
+  a reação ([19], [20]).
+  - `e12.1` **porque** o modelo de nuvem produz o acervo como subproduto, e quem aparece no
+    campo de visão não tem relação contratual com a plataforma.
+    - `e12.1.1` **porque** a exigência de que a imagem não saia do óculos é a única resposta a
+      `e12.1` que não proíbe o produto. Ela transforma o chip de visão em barreira de entrada.
+      *Encosta no tema 16 (IA local).*
+
+### 5.2 Cruzamentos
+
+- **Convergência 1 — o fim da obscuridade prática.** `e5.1` (acervos de papel legíveis) e `e7.1`
+  (acervos de vídeo pesquisáveis por frase) chegam ao mesmo efeito de 2ª ordem por raízes
+  diferentes: **o que era público mas impraticável de vasculhar passa a responder a uma
+  pergunta**. Em R2, o custo que some é o de redigitar; em R3, o de assistir. É o achado mais
+  valioso do mapa, porque nenhuma das duas proteções de hoje (a biometria, o direito sobre o
+  buscador) cobre o acervo em si.
+- **Convergência 2 — o documento não precisa ser preparado para ser lido.** `e4.2` (o
+  formulário vira foto) e `e11` (o óculos lê para quem não vê) chegam à mesma coisa por raízes
+  diferentes. A preparação do documento para quem o lê, seja o sistema, seja a pessoa cega,
+  passa de quem publica para o leitor. Os dois ramos têm o mesmo perdedor: quem não tem o
+  dispositivo ou a câmera (`e4.2.1`, `e11.1`).
+- **Retroalimentação — proibir identificar reforça descrever.** `e9` (proibições à biometria)
+  → incentivo para `e7` (busca por descrição) → R3 se fortalece. O ciclo só quebra com
+  `e7.1.1` (critério por capacidade de seguir). Se `e7.1.1` não vier, cada proibição de
+  biometria acelera a raiz que ela não alcança.
+- **Retroalimentação — a restrição local reforça o aberto no dispositivo.** `e12.1.1`
+  (processamento local obrigatório) empurra a otimização de modelos abertos pequenos, que é o
+  que desfaz `e3` (`e3.1.1`). Uma restrição de privacidade acaba acelerando R1 fora da nuvem.
+- **Contradição — `e3` contra `e10`.** Se a produção fica fechada por custo (`e3`), a percepção
+  aberta contínua em óculos (`e10`) não é viável localmente e depende da nuvem (`e12`). Se o
+  aberto fica barato no dispositivo (`e3.1.1`), `e12` perde força. Não resolvo. O que decide é
+  a curva de custo de inferência aberta em hardware de menos de 5 W, que não medi.
+- **Contradição — `e8.1` contra `e7.1.1`.** A acessibilidade como porta de entrada da descrição
+  de pessoas (`e8.1`) e o endurecimento regulatório sobre a trajetória descrita (`e7.1.1`)
+  puxam em sentidos opostos. O que decide é qual chega primeiro a uma jurisdição grande: um
+  caso de acessibilidade negado ou um caso de vigilância por descrição exposto.
+
+### 5.3 Cobertura STEEP e quem perde
+
+| Categoria | Efeitos de 1ª ordem |
+|---|---|
+| Social | `e8`, `e10`, `e11` |
+| Tecnológico | `e1`, `e3`, `e4`, `e6`, `e12` |
+| Econômico | `e2`, `e4` |
+| Ecológico | **vazia.** O único candidato era o custo energético de rodar o aberto em todos os quadros (`e3`, `e12`), que já está dentro de efeitos tecnológicos. Não forcei. |
+| Político | `e7`, `e9` |
+
+**Quem perde, nomeado:** compositores de rotoscopia terceirizados (`e1.1`), anotadores sem
+especialização (`e2.2`), digitadores de backoffice (`e4.1`), quem não consegue fotografar o
+próprio documento (`e4.2.1`), pessoas citadas em acervos antes obscuros (`e5.1`), quem veste o
+genérico da descrição (`e7.2`), a pessoa descrita pelo óculos alheio (`e10.2`) e a pessoa cega
+sem dispositivo (`e11.1`).
+
+## 6. Sinais fracos e wildcards
+
+### Sinais fracos
+
+1. **Patente da Meta "Smart Cameras Enabled by Assistant Systems" (US 2026/0238876 A1),
+   noticiada em 16/08/2026** [20]. Descreve um assistente que combina reconhecimento facial,
+   análise de expressão, detecção de olhar e reconhecimento de objeto para decidir o que
+   importa ao usuário, como centralizar a esposa e borrar os outros. *O que mudaria:* a
+   descrição de pessoas deixa de ser função de acessibilidade e vira função de câmera padrão,
+   o que puxa `e8.1` e `e10.2` para antes. *Sinal observável:* lançamento de recurso de
+   "enquadrar pessoa conhecida" em óculos de consumo.
+2. **Logs de geração de rótulo exigidos pelo instituto japonês de segurança de IA**, relatado
+   pela Mordor [14]. *O que mudaria:* o versionamento do vocabulário (`e1.2`) vira obrigação
+   antes de virar prática. *Sinal observável:* norma publicada com o termo *prompt* ou
+   *concept vocabulary* como artefato de conformidade.
+3. **Assinatura de proveniência na captura (C2PA).** A Canon lançou em 11/05/2026 um sistema de
+   autenticidade de imagem para agências de notícia, testado com a Reuters, com planos para
+   governo e saúde [30]. *O que mudaria:* a imagem assinada é um contramovimento à imagem
+   lida. Se a assinatura passar a carregar "o que está na imagem" em forma estruturada, `e6.1`
+   se generaliza das fichas para a fotografia. *Sinal observável:* manifesto C2PA com campo de
+   conteúdo semântico adotado por um fabricante de celular.
+4. **ORTHOS** — trazido pela turma: extensão que simula a resposta emocional a manchetes com um
+   modelo da Meta. **Não abri nesta rodada.** Fica registrado como sinal apontado pela turma,
+   sem verificação. *O que mudaria:* a fronteira entre ver e inferir estado interno. A
+   proibição europeia de categorização biométrica não cobre inferência a partir de texto [22].
+   *Sinal observável:* produto de moderação ou de publicidade que vende "reação prevista" a
+   partir de imagem.
+
+### Wildcards
+
+1. **Monocultura de backbone.** *Mecanismo:* se até 2035 a maior parte dos sistemas de visão
+   abertos deriva de duas ou três famílias de backbone (hoje DINO e SAM são de um só
+   laboratório [1][4]), um erro sistemático de conceito numa família — ler um tipo de carimbo
+   como "válido", não ver um tipo de defeito — se manifesta ao mesmo tempo em milhares de
+   instalações. *Por que é improvável:* a diversidade de fornecedores chineses em leitura de
+   documento [10] e o uso de destilação para detectores próprios (`e3`) diluem o risco.
+   *O que faria com o mapa:* reverteria `e4` e `e1.2` para "auditoria por fornecedor único" e
+   daria a `e6` confiança alta. *Sinal precoce:* um incidente público com a mesma falha em
+   dois produtos de empresas diferentes.
+2. **Acervo retroativo aberto de uma vez.** *Mecanismo:* o vazamento, a abertura por decisão
+   judicial ou a venda de um acervo grande de câmeras urbanas ou de arquivo digitalizado, já
+   indexado por descrição, transforma a convergência 1 (§5.2) em fato consumado numa semana.
+   *Por que é improvável:* acervos de vídeo têm retenção curta. O site do programa municipal
+   paulistano declara 30 dias para leitura de placa, mas essa página não abriu nesta rodada
+   (§12). *O que faria:* anteciparia `e5.1.1` e `e7.1.1` em uma década. *Sinal precoce:*
+   contrato de vigilância com retenção acima de um ano e índice semântico entregue junto.
+3. **Rotulagem contínua do campo de visão por padrão em óculos de consumo** (o wildcard do
+   tema). *Mecanismo:* um modelo tipo SAM roda em tempo real no óculos e mantém uma camada de
+   rótulos sobre tudo o que o usuário viu, pesquisável depois ("onde deixei a chave",
+   "quem estava de vermelho na reunião"). *Por que é improvável até 2041:* o modelo de
+   referência tem 3,45 GB [3], a quantização quebra variantes de SAM leve [8] e o custo social
+   já derrubou uma função mais estreita [19]. *O que faria:* uniria R3 e R4, porque todo
+   usuário vira um acervo retroativo, e anularia `e10.2` como defesa, porque o lugar não
+   controla o que o visitante lembra. *Sinal precoce:* recurso de "memória visual pesquisável"
+   anunciado por um fabricante com mais de 10% do mercado.
+
+## 7. Contra o próprio mapa
+
+### 7.1 Pré-mortem: é 2041 e este mapa estava errado. Por quê?
+
+1. **O óculos não passou do nicho.** O formato de computação vestível no rosto repetiu a
+   trajetória do VR: vendas crescentes em números absolutos, nunca perto de 10% dos adultos.
+   Toda R4 fica em nicho. *Consequência:* `e10` teve a confiança rebaixada e o prazo
+   empurrado. `e10.1`, que é o efeito que eu mais gostaria que fosse verdade, tem sinal fraco e
+   pode não acontecer.
+2. **A lei alcançou a descrição rápido.** Uma autoridade grande (a europeia ou a ANPD) tratou a
+   busca de pessoa por descrição como tratamento de dado sensível já em 2028, e R3 ficou
+   restrita a uso comercial. *Consequência:* `e7.1` ficou com confiança média, e não alta, e a
+   inferência jurídica está atribuída a mim na prosa.
+3. **O erro confiante venceu.** Nenhum setor com responsabilidade legal aceitou leitura sem OCR
+   nos campos críticos, e R2 ficou restrita ao que já era automatizado. *Consequência:* `e6`
+   entrou como retroação explícita, e `e4.2` teve o prazo empurrado.
+
+### 7.2 Extrapolação linear
+
+- `e1` e `e4` são, em parte, "o mesmo, mais barato". Mantive os dois em 1ª ordem porque o
+  mecanismo de não-linearidade está nos filhos: a mudança de quem faz o trabalho (`e1.1`,
+  `e4.1`) e a mudança de função do artefato (`e1.2`, `e4.2`).
+- **Removido:** "o PDF morre como formato". Era extrapolação sem mecanismo (§12).
+- `e3.1.1` é o pai mais adiante? Não: troca o mecanismo (manutenção em vez de inferência).
+  Mantido.
+
+### 7.3 Velocidade de adoção
+
+- `e10`: prazo **2029 → 2031**. A referência: o smartphone passou de lançamento a 35% dos
+  adultos americanos em cerca de quatro anos [16]; o óculos com câmera, em cerca de cinco
+  anos, chegou a 13,6 milhões de unidades por ano [15], muito abaixo de 10%. Exigir que a
+  pergunta pelo olhar seja gesto comum em 2029 seria exigir velocidade de smartphone de um
+  formato que está andando mais devagar.
+- `e4.2`: prazo **2031 → 2034**. É mudança de processo administrativo. A referência
+  legislativa brasileira disponível é o PL 2338, com quase dois anos entre Senado e Câmara
+  sem conclusão [28][29].
+- `e7`: prazo **2028 → 2030**. Não achei caso público de busca por frase livre em vigilância
+  municipal. A referência é o próprio Smart Sampa, que integra análise por algoritmo mas
+  declara alertas de classe fixa [25].
+- `e12.1`: prazo **2032 → 2034**. Depende de `e10`, que foi empurrado.
+
+### 7.4 A raiz que não acontece
+
+- **Sem R1:** R3 perde o instrumento de prateleira, mas continua por *text-based person
+  search* especializada [23]. R2 não depende de R1. Sobra metade do mapa.
+- **Sem R2:** `e11` perde metade do mecanismo, e a convergência 1 fica só do lado do vídeo.
+  R1, R3 e R4 seguem.
+- **Sem R3:** R4 continua como acessibilidade e consulta, sem a camada de vigilância. A
+  convergência 1 fica só do lado do papel.
+- **Sem R4:** a vigilância volta a ser só de câmera fixa, e `e10.1` — o efeito mais
+  relevante para o público — some. R1 a R3 seguem.
+
+Nenhuma raiz deixa o mapa vazio quando é retirada. Não é uma raiz só disfarçada de várias.
+Mas R1 é **habilitadora** de R3 e R4: sem ela, as duas ficam mais lentas e mais caras.
+
+### 7.5 Suposições escondidas
+
+1. **Os pesos continuam abertos.** SAM e DINO são abertos por decisão de um só laboratório
+   [1][4]. Se a política mudar, R1 fica em quem já baixou. *Vira wildcard implícito,
+   registrado na §12.*
+2. **As plataformas continuam permitindo apps de terceiros nos óculos** (Be My Eyes, OOrion,
+   Aira [18]). Se fecharem, `e11` depende de um só fornecedor.
+3. **A retenção de vídeo continua curta.** Se aumentar, R3 acelera.
+4. **O custo de GPU continua caindo.** `e3.1.1` depende disso.
+5. **A norma europeia é referência para as demais.** Uso o AI Act como modelo do que "a lei"
+   faz; o Brasil pode seguir outra linha (o PL 1828 vai no sentido oposto [27]).
+
+### 7.6 Viés do autor
+
+A zona de interesse é "Percepção e mídia sintética". O efeito que está aqui por gosto é
+`e10.1` — o assistente como segundo público de quem projeta mídia. É o mais interessante para
+a turma, e tem sinal fraco. Também puxei R3 para a frente porque a disciplina já discutiu
+vigilância em outros temas. É possível que, para quem projeta mídia, R3 pese menos do que o
+espaço que ocupa aqui.
+
+### 7.7 Calibração
+
+Contagem final: ordem 1 — alta 5, média 7, baixa 0; ordem 2 — alta 0, média 15, baixa 2;
+ordem 3 — alta 0, média 0, baixa 15. A confiança cai com a ordem. Mesmo assim, havia média
+demais na 2ª ordem de R4, que depende de `e10` rebaixado: por isso `e11.1` e `e12.1` desceram
+para baixa.
+
+### 7.8 Registro de alterações
+
+- `e10`: confianca **alta → media**; prazo **2029 → 2031**. Referência smartphone × óculos
+  [15][16].
+- `e11`: confianca **alta → media**; sinal **forte → medio**. Os três artefatos de [18] são
+  sobre descrição de cena, não sobre leitura de documento de trabalho. Para esse uso, só
+  achei o anúncio do Be My Eyes Workplace em listagem de busca, que não abri.
+- `e11.1`: confianca **media → baixa**. Depende de `e10` e de uma mudança política sem sinal.
+- `e12.1`: confianca **media → baixa**; prazo **2032 → 2034**. Depende de `e10`.
+- `e4.2`: prazo **2031 → 2034**; confianca **alta → media**. Referência legislativa [28][29].
+- `e6.1`: sinal **medio → fraco**. Não abri nenhuma fonte de documento com versão
+  estruturada assinada no Brasil; o que tinha era memória.
+- `e7`: prazo **2028 → 2030**. Sem caso público de busca livre.
+- `e7.1`: confianca **alta → media**. A inferência jurídica é minha; as fontes [21][22] não
+  dizem isso.
+- `e1.1.1`: sinal **medio → fraco**, e nota de fronteira com o tema 12.
+- `e1.3` **removido** ("surge a profissão de engenheiro de vocabulário visual"). É efeito
+  proibido sem ator e mecanismo próprios; o conteúdo útil foi absorvido por `e1.2`. Vai para
+  a §12.
+- `e5.2` **removido** ("o PDF morre como formato"). Extrapolação sem mecanismo. Vai para a
+  §12.
+- `e7.3` **removido** ("a criminalidade em áreas monitoradas cai"). Falha no teste da causa
+  solta: aconteceria (ou não) com qualquer vigilância, com ou sem vocabulário aberto. Vai
+  para a §12.
+- `e9.1`: sinal mantido em médio, mas o texto trocou "a lei brasileira" por "a lei que sai do
+  Congresso", porque a lei ainda não saiu.
+
+Cota cumprida: R1 (`e1.1.1` rebaixado, `e1.3` removido), R2 (`e4.2` e `e6.1` rebaixados,
+`e5.2` removido), R3 (`e7.1` rebaixado, `e7.3` removido), R4 (`e10`, `e11`, `e11.1` e
+`e12.1` rebaixados).
+
+## 8. O que a máquina errou
+
+1. **Um número da mesma fonte que não bate consigo mesmo.** A documentação da Ultralytics dá
+   2.921 ms por imagem numa RTX PRO 6000 [3], e o blog da Meta dá 30 ms por imagem com mais de
+   100 objetos num H200 [2]. É uma diferença de quase cem vezes. Pode ser medição diferente
+   (ponta a ponta contra só o detector, primeira execução contra estado estável). Não
+   reconciliei e não usei nenhum dos dois para sustentar prazo. Um efeito que dependesse de
+   "SAM 3 é rápido" estaria apoiado em número não confiável.
+2. **Número de "50 milhões de dispositivos" que a fonte primária não tem.** O resumo da busca
+   sobre o NameTag dizia que o app estava em mais de 50 milhões de aparelhos. Ao abrir a página
+   da EFF [19], o texto fala em "milhões de telefones" sem o número. O número não entrou no
+   mapa. É o tipo de dado que um resumo de busca produz e que uma leitura apressada teria
+   citado.
+3. **Datas de memória usadas como classe de referência.** "Óculos com câmera de primeira
+   geração em 2021" e "o Lens lançado em 2017" são de memória, sem fonte aberta nesta rodada.
+   Estão marcados na prosa, mas o prazo de `e10` e de `e1` se apoia em parte neles.
+4. **Uma fonte que eu queria e não abri.** A página do Be My Eyes com o marco de 1 milhão de
+   usuários devolveu 403. O número apareceu só no resumo da busca, e por isso não sustenta
+   nada no mapa. Por essa lacuna, `e11` caiu de alta para média.
+5. **Inferências jurídicas que parecem citações.** A tese de R3 — a busca por descrição fica
+   fora do alcance da norma — é derivação minha do que as normas exigem [21][22], não
+   afirmação das fontes. O texto sobre categorização biométrica exclui roupa da
+   *categorização*, não da *identificação*. A distância entre as duas é o que R3 afirma, e ela
+   pode ser menor do que o mapa sugere.
+6. **Um mecanismo plausível com base fraca.** `e10.1` (o espaço projetado para o descritor)
+   soa bem e é o efeito que mais interessa ao público, mas não achei nenhum museu ou loja que
+   tenha feito isso. É plausibilidade de designer, não sinal.
+7. **"Quem bloqueia" sem fonte.** Em R1 e R2 nomeei fornecedores de visão industrial e
+   cartórios como bloqueadores sem ter aberto nenhuma fonte sobre eles. Está marcado como
+   inferência, mas um leitor apressado pode tomar como fato.
+
+## 9. Três cenários para 2041
+
+**Provável.** Em 2041 ninguém rotula carro em imagem. Rotula-se lesão, solda e carimbo, e
+quem faz isso tem diploma. Editar vídeo por objeto é tão banal quanto recortar foto foi em
+2010. Nas empresas, o documento chega como foto e sai como registro, mas nos campos de valor
+e de identificador há sempre uma segunda leitura ou um dado assinado. O formulário do serviço
+público encolheu para as perguntas que nenhum documento responde, e o balcão presencial
+atende sobretudo quem não tem câmera ou documento legível. Os óculos com câmera são comuns em
+algumas cidades e profissões, mas não universais, e metade dos hospitais e escolas os barra na
+porta. A vigilância municipal busca por descrição. A lei brasileira regula o reconhecimento
+facial e ainda discute se a trajetória descrita é dado sensível. *Sinal precoce:* a primeira
+licitação municipal brasileira que pede, por escrito, "busca por atributos em linguagem
+natural" no acervo.
+
+**Desejável.** Em 2041 a descrição de pessoas tem níveis, e eles foram escritos primeiro por
+quem projeta acessibilidade, com participação de pessoas cegas. A trajetória descrita é
+tratada como dado sensível desde 2032, e toda busca de agente público deixa registro das
+frases, acessível à defesa. Acervos públicos digitalizados decidem, com critério público, o que
+fica legível por máquina. O Estado subsidia leitores para quem não enxerga, e, onde não
+subsidia, a obrigação de publicar acessível continua. *O que teria de ser feito:* a ANPD
+estender o critério de dado sensível da natureza para a capacidade de seguir, e os
+fabricantes publicarem a política de descrição de pessoas como parte da documentação de
+acessibilidade. *Sinal precoce:* um guia de autoridade de dados que mencione "busca por
+descrição" ou "reidentificação por texto" pelo nome.
+
+**Indesejável.** Em 2041 os óculos com câmera são comuns, a percepção roda na nuvem, e a
+plataforma que os opera tem o maior acervo de imagem em primeira pessoa já feito, com quem
+apareceu no campo de visão dos outros incluído. Proibir o reconhecimento facial acelerou a
+busca por descrição. Entregadores e estudantes de uniforme são abordados por semelhança de
+roupa, e não há registro de qual frase levou à abordagem. Os acervos públicos antigos foram
+indexados por uma empresa privada antes que alguém decidisse o que deveria ficar legível. A
+acessibilidade virou argumento de venda e deixou de ser dever de quem publica. *Sinal
+precoce:* um caso de abordagem policial em que o boletim registra a descrição da roupa como
+motivo e não há reconhecimento facial envolvido.
+
+## 10. O experimento
+
+**O que é: "Quantas palavras para achar alguém".** Uma câmera fixa na sala filma a turma. Um
+modelo aberto de vocabulário aberto (YOLOE-26 com prompt de texto [6], ou NanoOWL com
+EfficientViT-SAM [8]) roda localmente num notebook, sem enviar imagem a lugar nenhum. Cada
+estudante escolhe em segredo um colega-alvo e escreve descrições progressivas — "pessoa",
+"pessoa de camiseta", "pessoa de camiseta escura com mochila", e assim por diante — até que o
+sistema isole uma só pessoa. Registra-se quantas palavras foram necessárias, se a pessoa isolada
+é o alvo, e quantas pessoas diferentes foram "achadas" por engano no caminho. Tudo com
+consentimento da turma e apagado ao fim da aula.
+
+**Que pergunta sobre o futuro ele responde.** A tese de R3: descrever basta para singularizar
+alguém, sem biometria? E quanto isso custa em palavras? Se bastam seis ou oito palavras de
+roupa e acessório para isolar uma pessoa em catorze, a distância entre "descrever" e
+"identificar" é curta, e `e7.1` ganha base. A contagem de falsos no caminho mede `e7.2`: quem
+é "achado" por engano, e por quê.
+
+**Que tecnologia emergente usa, e por que não dá com a madura.** Detecção por frase livre, sem
+treino, rodando localmente. Um detector de classes fixas só conhece "pessoa". Não sabe
+"camiseta escura com mochila" sem um dataset rotulado com esses atributos, e montar esse
+dataset é exatamente o trabalho que o vocabulário aberto dispensa. Reconhecimento facial
+responde a outra pergunta, e é justamente o que o experimento exclui.
+
+**O que a turma faz em sala.** Duas rodadas: uma com a roupa do dia, outra em que todos vestem
+algo parecido (por exemplo, camiseta de uma cor combinada). Compara-se o número de palavras
+até a singularização nas duas. A segunda rodada simula o uniforme de `e7.2` e a defesa de
+`e7.2.1`. Discussão ao fim: que frase foi a decisiva, e ela diz algo que a pessoa escolheu
+(roupa) ou algo que ela não escolheu (altura, cabelo)?
+
+**O que me faria mudar de ideia.** Se, na rodada com roupa do dia, o sistema **não** isolar a
+pessoa-alvo em pelo menos 70% das tentativas com até dez palavras, a busca por descrição ainda
+está longe de singularizar em cena real. Aí R3 cai para `confianca: baixa` em toda a cadeia e
+os prazos de `e7` e `e7.1` vão para depois de 2035. E se a rodada de uniforme mostrar que o
+sistema passa a acertar por atributos que a pessoa não escolheu (altura, cabelo), o mapa
+subestimou o quanto a descrição já é quase biometria. Nesse caso, a tese de R3 — que a
+descrição escapa à categoria biométrica — fica mais frágil juridicamente, e `e7.1.1` fica mais
+provável.
+
+## 11. Fontes
+
+Trinta fontes, todas abertas e lidas em 22/09/2026. As que tentei e não abri estão na §12.
+
+1. **SAM 3: Segment Anything with Concepts** — arXiv 2511.16719, Carion, Gustafson, Hu, Debnath,
+   Hu e 33 coautores (Meta); v1 20/11/2025, v2 28/03/2026.
+   https://arxiv.org/abs/2511.16719
+   *Sustenta:* definição de segmentação por conceito, 4 milhões de rótulos de conceito,
+   "dobra a acurácia", o benchmark SA-Co. *Confiabilidade:* alta; paper dos autores, com a
+   ressalva de que quem define a métrica tende a vencer nela.
+2. **SAM 3.1: Faster and More Accessible Real-Time Video Detection and Tracking** — AI at Meta,
+   27/03/2026. https://ai.meta.com/blog/segment-anything-model-3/
+   *Sustenta:* 16 → 32 FPS em H100; 30 ms por imagem em H200; produtos (Edits, Vibes,
+   Marketplace); pesos abertos; limitações (conceitos finos, descrições compostas, custo linear
+   por objeto); ausência de número de adoção. *Confiabilidade:* média; comunicação
+   institucional.
+3. **SAM 3 — documentação Ultralytics.** https://docs.ultralytics.com/models/sam-3
+   *Sustenta:* LVIS 47,0 contra 38,5; SA-Co/Gold 65,0 contra 74,2 humano; 473,6 milhões de
+   parâmetros; 3,45 GB; 2.921 ms em RTX PRO 6000; limitações. *Confiabilidade:* média-alta;
+   terceiro integrador, com números que batem com [1], exceto a latência (§8).
+4. **DINOv3** — AI at Meta, 14/08/2025.
+   https://ai.meta.com/blog/dinov3-self-supervised-vision-model/
+   *Sustenta:* 7B parâmetros, 1,7B imagens, licença comercial, backbone congelado, WRI 4,1 → 1,2
+   m, JPL. *Confiabilidade:* média-alta; blog de laboratório, com o número do WRI citado sem que
+   eu abrisse a fonte do WRI.
+5. **Launch: Use Segment Anything 3 (SAM 3) with Roboflow** — Roboflow, 19/11/2025.
+   https://blog.roboflow.com/sam3/
+   *Sustenta:* integração no mesmo dia (Label Assist, Auto Label, Workflows); "compute
+   intensive"; afinar para produção. *Confiabilidade:* média; fornecedor.
+6. **YOLOE — documentação Ultralytics.** https://docs.ultralytics.com/models/yoloe
+   *Sustenta:* YOLOE-26 com três modos, 40,6 mAP em LVIS, vocabulário embutido de 4.585
+   classes, "zero-shot bem abaixo do treinado", relações sem alça confiável, GPU de 4 a 8 GB.
+   *Confiabilidade:* média-alta; documentação do fabricante, que registra as próprias
+   limitações.
+7. **Open-Vocabulary Detection — Grounding DINO, Florence-2, OWLv2, RT-DETR, RF-DETR** —
+   Forasoft, 2026.
+   https://www.forasoft.com/learn/ai-for-video-engineering/articles-ai/open-vocabulary-detection-grounding-dino-florence-2-rtdetr-rfdetr
+   *Sustenta:* latências por modelo; US$ 3.960 contra 7.920–9.900 por mês em 50 lojas; troca
+   para fechado com 500 a 1.000 exemplos. *Confiabilidade:* média; integrador, sem revisão por
+   pares, com números internamente consistentes.
+8. **Real-time open-vocabulary perception for mobile robots on edge devices** — *Frontiers in
+   Robotics and AI*, 21/10/2025. https://pmc.ncbi.nlm.nih.gov/articles/PMC12583037/
+   *Sustenta:* 47,51 FPS com mIoU de 84,64% no Jetson AGX Orin; YOLO-World a 26,68 FPS; falha
+   catastrófica sob quantização. *Confiabilidade:* alta; periódico revisado, com hardware
+   declarado.
+9. **OCR-free Document Understanding Transformer (Donut)** — Kim et al. (NAVER), arXiv
+   2111.15664, 30/11/2021, ECCV 2022. https://arxiv.org/abs/2111.15664
+   *Sustenta:* origem de R2 e os três problemas do OCR em pipeline. *Confiabilidade:* alta;
+   marco de origem, não estado da arte.
+10. **OmniDocBench** — opendatalab, GitHub (consultado em 22/09/2026).
+    https://github.com/opendatalab/OmniDocBench
+    *Sustenta:* 1.651 páginas, 10 tipos de documento; ranking de 11/09/2026 com TeleOCR 96,91,
+    OvisOCR2 96,47, PaddleOCR-VL-1.6 96,34. *Confiabilidade:* alta para o que o benchmark
+    mede; um benchmark só, com o risco de ajuste a ele.
+11. **Best Open-Source OCR Models in 2026, Ranked by Benchmark** — Roboflow, 03/08/2026.
+    https://blog.roboflow.com/best-open-source-ocr-models/
+    *Sustenta:* modelos de 0,9B no topo contra Qwen3-VL-235B com 89,78; onde o OCR
+    especializado ainda vence. *Confiabilidade:* média; fornecedor, mas usa benchmark público.
+12. **M3-AD: Reflection-aware ... Benchmark and Framework for Industrial Anomaly Detection** —
+    arXiv 2603.00055, 10/02/2026. https://arxiv.org/abs/2603.00055
+    *Sustenta:* modelos multimodais dão "decisões de alta confiança mas não confiáveis" em
+    inspeção fina. *Confiabilidade:* média-alta; preprint, sem revisão confirmada.
+13. **Skyvern** — GitHub. https://github.com/Skyvern-AI/skyvern
+    *Sustenta:* automação de navegador por visão, 23,1 mil estrelas, 64,4% no WebBench,
+    AGPL-3.0. *Confiabilidade:* média; README do projeto, com benchmark autorrelatado.
+14. **Data Labeling Market** — Mordor Intelligence.
+    https://www.mordorintelligence.com/industry-reports/data-labeling-market
+    *Sustenta:* US$ 2,61 bi (2026) → 7,02 bi (2031); manual em 42,31%; programático a 22,16%
+    ao ano; pré-rótulo por modelo fundacional; guia japonês de logs de rótulo.
+    *Confiabilidade:* média; consultoria com metodologia não pública. Importa a direção.
+15. **Smart Glasses Market 2026** — IDC, 15/06/2026.
+    https://www.idc.com/resource-center/blog/smart-glasses-surge-the-xr-market-is-rewriting-its-own-rules/
+    *Sustenta:* 13,6 mi (2026), 27,3 mi (2030), Meta 69,2%, preço médio US$ 376 → ~229.
+    *Confiabilidade:* alta para a ordem de grandeza; analista de mercado reconhecido.
+16. **Smartphone Adoption and Usage** — Pew Research Center, 11/07/2011.
+    https://www.pewresearch.org/internet/2011/07/11/smartphone-adoption-and-usage/
+    *Sustenta:* classe de referência — 35% dos adultos americanos com smartphone em 2011
+    (n = 2.277). *Confiabilidade:* alta.
+17. **Google Search updates: AI-Organized Search, Google Lens, and more** — Google, 03/10/2024.
+    https://blog.google/products-and-platforms/products/search/google-search-lens-october-2024-updates/
+    *Sustenta:* quase 20 bilhões de buscas visuais por mês; vídeo com pergunta por voz;
+    recusa da busca visual como raiz. *Confiabilidade:* média-alta; número do próprio
+    operador.
+18. **Our AI Wearables Are "Changing the Game" for Disabled People** — Meta, 18/05/2026.
+    https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/
+    *Sustenta:* "descreva o que está ao meu redor", Be My Eyes, Aira, OOrion, idiomas incluindo
+    Português. *Confiabilidade:* média; comunicação institucional.
+19. **VICTORY: Meta Strips Facial Recognition Code From Smart Glasses App After Public Outcry** —
+    EFF, 08/06/2026.
+    https://www.eff.org/deeplinks/2026/06/victory-meta-strips-facial-recognition-code-smart-glasses-app-after-public-outcry
+    *Sustenta:* NameTag removido na atualização de 05/06; a posição de que a ambição não
+    acabou. *Confiabilidade:* alta para o fato; organização com posição declarada.
+20. **Meta smart glasses patent reignites facial recognition debate** — Biometric Update,
+    16/08/2026.
+    https://www.biometricupdate.com/202608/meta-smart-glasses-patent-reignites-facial-recognition-debate
+    *Sustenta:* patente US 2026/0238876 A1; FTC, BIPA de Illinois, Texas. *Confiabilidade:*
+    média-alta; veículo setorial, sobre documento público.
+21. **Red Lines under the EU AI Act: Restricting Real-time Remote Biometric Identification** —
+    Future of Privacy Forum, 07/04/2026.
+    https://fpf.org/blog/red-lines-under-the-eu-ai-act-restricting-real-time-remote-biometric-identification-systems-for-law-enforcement-purposes/
+    *Sustenta:* quatro critérios cumulativos, três exceções, identificação × verificação; não
+    trata busca por atributo não biométrico. *Confiabilidade:* alta; análise jurídica
+    especializada.
+22. **Red Lines under the EU AI Act: the prohibition of biometric categorization for certain
+    sensitive characteristics** — Future of Privacy Forum, 31/03/2026.
+    https://fpf.org/blog/red-lines-under-the-eu-ai-act-understanding-the-prohibition-of-biometric-categorization-for-certain-sensitive-characteristics/
+    *Sustenta:* a categorização por roupa, acessórios ou atividade em rede social não é
+    categorização biométrica. *Confiabilidade:* alta.
+23. **From Attributes to Natural Language: A Survey and Foresight on Text-based Person
+    Re-identification** — Jiang, Yang, Jones, Zhang, arXiv 2408.00096, 31/07/2024.
+    https://arxiv.org/abs/2408.00096
+    *Sustenta:* a migração de atributos para linguagem natural; vigilância como aplicação.
+    *Confiabilidade:* média-alta; survey em preprint.
+24. **ANPD manda suspender biometria facial de crianças em escolas do Paraná** — Núcleo
+    Jornalismo, 06/08/2026.
+    https://nucleo.jor.br/reportagem/2026/08/06/anpd-manda-suspender-biometria-facial-de-criancas-em-escolas-do-parana/
+    *Sustenta:* decisão de 04/08/2026; 2.136 escolas, ~1 milhão de estudantes; os fundamentos.
+    *Confiabilidade:* alta.
+25. **Programa Smart Sampa** — Secretaria Municipal de Segurança Urbana de São Paulo.
+    https://prefeitura.sp.gov.br/web/seguranca_urbana/w/smart-sampa-2
+    *Sustenta:* 50 mil câmeras (20 mil + 30 mil), ~250 agentes, alertas por algoritmo, 159
+    prisões. *Confiabilidade:* média; operador do sistema.
+26. **Smart Sampa ... é instalado em Caps e prende paciente por engano** — Brasil de Fato,
+    18/12/2025.
+    https://www.brasildefato.com.br/2025/12/18/smart-sampa-de-ricardo-nunes-e-instalado-em-caps-e-prende-paciente-por-engano/
+    *Sustenta:* abordagem armada por reconhecimento errado; seis denúncias na Comuda.
+    *Confiabilidade:* média; veículo com linha editorial declarada, com fonte institucional.
+27. **Câmara pode votar ... projeto que transforma o Brasil em Estado de vigilância facial** —
+    Data Privacy Brasil, 17/06/2026.
+    https://www.dataprivacybr.org/camara-pode-votar-a-qualquer-momento-projeto-que-transforma-o-brasil-em-estado-de-vigilancia-facial/
+    *Sustenta:* PL 1828/2023 e o que ele autoriza; posição de Data Privacy Brasil, Coalizão
+    Direitos na Rede e Tire Meu Rosto da Sua Mira. *Confiabilidade:* média-alta para o fato;
+    peça de advocacia.
+28. **Votação do marco da IA fica para 2026** — Desinformante, 19/12/2025.
+    https://desinformante.com.br/votacao-do-marco-da-ia-fica-para-2026-em-meio-a-impasses-politicos-e-criticas-ao-texto
+    *Sustenta:* PL 2338 aprovado no Senado, pendente na Câmara; reconhecimento facial como
+    risco excessivo com exceções amplas. *Confiabilidade:* média-alta.
+29. **PL 2338/23: votação prevista apenas para dezembro** — DIAP, 30/05/2025.
+    https://www.diap.org.br/index.php/noticias/noticias/92249-pl-2338-23-votacao-do-projeto-sobre-inteligencia-artificial-esta-prevista-apenas-para-dezembro
+    *Sustenta:* o calendário do projeto em 2025, como parte da classe de referência
+    legislativa. *Confiabilidade:* média-alta; entidade de assessoria parlamentar.
+30. **Canon Introduces C2PA-Compliant Authenticity Imaging System for News Organizations** —
+    Canon, 11/05/2026. https://global.canon/en/news/2026/20260511.html
+    *Sustenta:* sinal fraco 3; EOS R1 e R5 Mark II; teste com a Reuters. *Confiabilidade:*
+    média-alta; anúncio do fabricante.
+
+## 12. Anexo — o levantamento bruto
+
+### 12.1 Saída do verificador
+
+```
+frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 4 (frontmatter diz 4)
+efeitos ordem 1: 12 (frontmatter diz 12)
+efeitos ordem 2: 17 (frontmatter diz 17)
+efeitos ordem 3: 15 (frontmatter diz 15)
+prazo > horizonte (2041) em ordens 1-2: 0 
+prazo > horizonte em ordem 3 (permitido, mas declare): 0 
+confiança ordem 1: alta 5 · media 7 · baixa 0
+confiança ordem 2: alta 0 · media 15 · baixa 2
+confiança ordem 3: alta 0 · media 0 · baixa 15
+links da seção 11: 30/30 respondem (frontmatter diz fontes: 30)
+RESULTADO: ok
+```
+
+Nenhum efeito de 3ª ordem passa de 2041. Os mais tardios são `e5.1.1` e `e12.1.1`, em 2040.
+Isso não foi forçado: com um horizonte de quinze anos, efeitos de três passos causais cabem na
+janela.
+
+### 12.2 Premissas assumidas que o briefing não cobria
+
+- A contagem de "adultos" para a régua dos 10% (R4) usa a referência americana do Pew [16],
+  por falta de série global de adoção de óculos por população.
+- "Produto de massa" foi lido como: função disponível por padrão num aplicativo com centenas
+  de milhões de usuários. Por essa régua, o Lens é massa e o SAM 3 no Edits não é, porque não
+  achei número de uso.
+- Tratei os ids como globais (`e1` a `e12` atravessando as quatro raízes), como no formato de
+  exemplo.
+- A fronteira com o tema 12 (substituir o objeto) e com o tema 16 (IA local) foi resolvida
+  deixando aqui o **achar por conceito** e marcando na prosa onde o efeito encosta nos
+  vizinhos.
+
+### 12.3 Buscas feitas (17 por palavra-chave) e o que deram
+
+1. "SAM 3 segment anything concepts adoption 2026": ICLR 2026, arXiv, blog SAM 3.1. Abertos
+   [1], [2].
+2. "smart glasses shipments 2026 IDC Ray-Ban Meta units": IDC e agregadores. Aberto [15]. O
+   agregador (Dymesty) não foi usado.
+3. "OCR-free document understanding vision language model benchmark 2026 OmniDocBench":
+   Roboflow, OmniDocBench, DeepSeek-OCR 2, CC-OCR V2. Abertos [10], [11]. Não abri
+   DeepSeek-OCR 2 (arXiv 2601.20552) nem CC-OCR V2 (2605.03903).
+4. "visão computacional reconhecimento facial Brasil 2026 ANPD câmeras": Data Privacy Brasil,
+   ANPD (radar tecnológico de biometria, PDF), Olhar Digital. Aberto [27]. O número "376
+   projetos ativos capazes de monitorar 83 milhões de brasileiros" apareceu no resumo da busca,
+   **sem fonte primária aberta. Não usado.**
+5. "text-based person search surveillance natural language attribute search video analytics
+   2026": PeerJ (ABPS), IEEE overview, arXiv 2604.23282 (busca de anomalia de pessoa por texto),
+   survey 2408.00096. Aberto [23]. Não abri o PeerJ nem o 2604.23282.
+6. "Meta smart glasses facial recognition removed EFF June 2026": EFF, PetaPixel, Gizmodo,
+   Engadget, Biometric Update. Abertos [19], [20].
+7. "Be My Eyes Be My AI users 2026 blind accessibility live video": Wikipédia, Be My Eyes (1
+   milhão de usuários e 10 milhões de voluntários em 12/03/2026; Workplace em fevereiro de
+   2026), Meta. Aberto [18]. **A página do Be My Eyes devolveu HTTP 403** e não entrou.
+8. "YOLOE open vocabulary detection real-time edge 2026 Ultralytics": YOLOE docs, YOLO26
+   (arXiv 2606.03748). Aberto [6].
+9. "Google Lens visual searches per month 2025 2026 billion": agregadores de SEO com "20
+   bilhões em 2026". Descartados por serem secundários; fui à fonte do Google (busca 13).
+10. "PL 2338 marco da IA Câmara 2026 votação reconhecimento facial": Desinformante, DIAP,
+    Câmara, Entercast (votação prevista para 27/05/2026, relator Aguinaldo Ribeiro). Abertos
+    [28], [29]. **Não confirmei se a votação de maio de 2026 aconteceu** — nenhuma fonte aberta
+    diz. O mapa trata o PL como pendente.
+11. "data labeling market 2026 foundation model pre-labeling annotators demand": Mordor,
+    MarketsandMarkets, HeroHunt. Aberto [14].
+12. "EU AI Act remote biometric identification prohibition FPF red lines 2026": série FPF.
+    Abertos [21], [22].
+13. "Google Lens 20 billion visual searches per month Google blog": blog do Google. Aberto
+    [17].
+14. "Pew Research smartphone ownership 2011 35% history adoption timeline". Aberto [16].
+15. "Gov.br documento digital foto preenchimento formulário IA 2026 INSS leitura automática
+    de documentos": **não deu em nada utilizável.** Achei a declaração pré-preenchida do IR,
+    que é integração de base de dados, não leitura de imagem. É por isso que `e4.2` tem sinal
+    fraco.
+16. "image provenance C2PA content credentials adoption 2026 camera metadata": Canon, blogs
+    sobre C2PA (Pixel 10 assina por padrão, segundo um agregador não aberto). Aberto [30].
+17. "zero-shot industrial anomaly detection vision language model inspection 2026 arXiv
+    MVTec": SSVP, VMAD, StackCLIP, IADGPT, M3-AD. Aberto [12].
+
+Além dessas 17 buscas (o mínimo da skill é oito), foram 31 aberturas diretas de página: as 30
+da §11 e a do Be My Eyes, que falhou (§12.4).
+
+### 12.4 Páginas tentadas que não entraram
+
+- `bemyeyes.com/news/be-my-eyes-reaches-1-million...`: HTTP 403 no WebFetch e no verificador.
+- `smartsampa.prefeitura.sp.gov.br` (retenção de 30 dias para leitura de placa): **não abri
+  nesta rodada.** O dado vem do mapa de horizonte 2036 deste mesmo tema, que eu não posso
+  citar como fonte. Está mencionado no wildcard 2 com essa ressalva.
+- ORTHOS: não procurei nem abri. Fica como sinal da turma, sem verificação.
+- ACLU (carta das 75 organizações sobre os óculos da Meta): não abri nesta rodada. Não
+  sustenta nada aqui.
+
+### 12.5 Efeitos cortados na §7, por inteiro
+
+- **`e1.3` (removido):** "Surge a profissão de engenheiro de vocabulário visual, que escreve e
+  mantém os prompts de conceito de uma empresa". Removido por ser efeito da lista proibida
+  ("surge uma nova profissão") sem nome de empregador, sem mecanismo próprio além de `e1.2` e
+  sem sinal. O conteúdo — o vocabulário vira artefato de engenharia — foi absorvido por
+  `e1.2`.
+- **`e5.2` (removido):** "O PDF deixa de ser formato de troca porque qualquer imagem de página
+  vale o mesmo". Removido: extrapolação sem mecanismo. O PDF resolve fidelidade de layout e
+  assinatura, não legibilidade por máquina, e nada em R2 ataca essas duas funções.
+- **`e7.3` (removido):** "A criminalidade em áreas com busca por descrição cai". Removido pelo
+  teste da causa solta: aconteceria, ou não, com qualquer câmera, e não há mecanismo que ligue
+  o vocabulário aberto especificamente à dissuasão. Também não achei fonte sobre efeito da
+  vigilância sobre crime.
+- **Candidato a 1ª ordem descartado antes da roda:** "a busca por imagem substitui a busca por
+  texto no comércio". Maduro (Lens [17]); vai como contexto.
+- **Candidato a raiz descartado:** "a tela lida como imagem (Skyvern)". É o tema 4.
+- **Wildcard implícito da §7.5, não desenvolvido:** fechamento dos pesos do SAM e do DINO por
+  mudança de política da Meta. Não escrevi como wildcard porque o impacto é limitado: os
+  pesos atuais já estão distribuídos, e há alternativas abertas chinesas em documento [10].
+
+### 12.6 Números vistos e não usados, com o motivo
+
+- "50 milhões de dispositivos" com o app da Meta: aparece no resumo da busca, não na página da
+  EFF (§8).
+- "376 projetos ativos, 83 milhões de brasileiros monitorados": sem fonte primária.
+- "2.921 ms" contra "30 ms" por imagem do SAM 3: não reconciliados (§8).
+- "Glasses take nearly 85% of XR shipments" (Mixed News): não aberto.
+- "Pixel 10 assina toda foto por padrão com C2PA": agregador não aberto.
+
+### 12.7 Classes de referência usadas, juntas
+
+| Referência | De | Até | Anos | Fonte |
+|---|---|---|---|---|
+| Smartphone (EUA) | 2007, lançamento (memória) | 35% dos adultos em 2011 | ~4 | [16] |
+| Óculos com câmera | 2021, 1ª geração (memória) | 13,6 mi/ano em 2026, <10% | ≥5 e ainda não | [15] |
+| Busca visual (Lens) | 2017 (memória) | ~20 bi buscas/mês em 2024 | ~7 | [17] |
+| Documento sem OCR | Donut 2021 | modelos de 0,9B no topo em 2026 | ~5 até o nicho | [9][10][11] |
+| Lei brasileira de IA | Senado, dez/2024 | pendente em set/2026 | ≥2 | [28][29] |
+| VR de consumo | — | >10 anos e ainda sem 10% | — | régua da skill |

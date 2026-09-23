@@ -181,7 +181,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 15,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -197,7 +197,7 @@
   "aberto_em": null,
   "apresenta": "vjmm",
   "data": "2026-10-08",
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -213,7 +213,7 @@
   "aberto_em": null,
   "apresenta": "jgpt",
   "data": "2026-09-29",
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -229,7 +229,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 18,
+  "mapas": 22,
   "roda": null,
   "confrontos": []
  },
@@ -245,7 +245,7 @@
   "aberto_em": null,
   "apresenta": "kvv",
   "data": "2026-09-29",
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -261,7 +261,7 @@
   "aberto_em": null,
   "apresenta": "jcsc",
   "data": "2026-10-06",
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -277,7 +277,7 @@
   "aberto_em": null,
   "apresenta": "meap",
   "data": "2026-10-06",
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -293,7 +293,7 @@
   "aberto_em": null,
   "apresenta": null,
   "data": null,
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -309,7 +309,7 @@
   "aberto_em": null,
   "apresenta": "alpa2",
   "data": "2026-09-24",
-  "mapas": 13,
+  "mapas": 17,
   "roda": null,
   "confrontos": []
  },
@@ -325,7 +325,7 @@
   "aberto_em": "2026-09-22",
   "apresenta": "jlsn",
   "data": "2026-09-22",
-  "mapas": 13,
+  "mapas": 17,
   "roda": "/futuros/19-companheiros-digitais-e-ia-afetiva/giordano/prancha-01-panorama.jpg",
   "confrontos": [
    {

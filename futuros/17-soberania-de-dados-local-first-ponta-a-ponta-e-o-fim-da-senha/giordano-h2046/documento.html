@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soberania de dados: local-first, ponta-a-ponta e o fim da senha · futurizacao-giordano · horizonte 2046 (20 anos) — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 17 · futurizacao-giordano · horizonte 2046 (20 anos)</p><h1>Soberania de dados: local-first, ponta-a-ponta e o fim da senha</h1>
+<p class="doc-nav"><a class="botao botao--linha" href="/futuros/17-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/17-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha/giordano-h2046/infograficos" data-visor>Infográficos</a> <a class="botao botao--discreto" href="/futuros/17-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha/giordano-h2046/documento.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Em 2046 a passkey é contexto, não novidade: já em 2026, 75% dos consumidores pesquisados pela FIDO em dez países a tinham ativado em alguma conta [2], e o gov.br a adotou em fevereiro de 2026 [8]. O que rompe, num horizonte de vinte anos, é o que vem atrás, em quatro frentes. <strong>A conta vira chave:</strong> sem senha, a volta da conta sai do provedor e passa para aparelhos, guardiões e carteiras estatais — e, em 2046, o caso dominante de perda de acesso deixa de ser o aparelho esquecido e passa a ser a morte e o envelhecimento da primeira geração que viveu sem senha. <strong>Servidor cego:</strong> a cifra ponta-a-ponta sai da mensagem e chega ao backup, ao documento e à IA que roda em enclave auditável; o Estado responde trocando o alvo do servidor para o aparelho. <strong>Local-first:</strong> o original do dado mora no aparelho e o servidor vira relé, o que faz o software sobreviver ao fornecedor, mas fragmenta o arquivo de uma vida em réplicas pessoais que nenhum historiador consegue abrir. <strong>Cifra com prazo de validade:</strong> especialistas dão 51% a 70% de chance de um computador quântico capaz de quebrar a criptografia atual até cerca de 2041 [20]; tudo o que foi cifrado e copiado sem camada pós-quântica passa a ter data de abertura, e toda passkey de curva elíptica terá de ser reemitida. Para quem projeta mídia e interação, o trabalho sai da tela de login e vai para o desenho da perda, da herança, da delegação na velhice e do tempo que um segredo dura.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p><strong>O que é.</strong> Três rupturas na arquitetura do software pessoal que, juntas, tiram da empresa a posse do dado, da conta e da identidade: <strong>local-first</strong> (o original mora no aparelho e sincroniza; o servidor deixa de ser a fonte da verdade), <strong>ponta-a-ponta</strong> (quem guarda o dado não consegue lê-lo) e <strong>o fim da senha</strong> (autenticação por chave criptográfica guardada no aparelho, sem segredo compartilhado com o site). Num horizonte de vinte anos entra uma quarta, que as três pressupõem sem dizer: a de que a cifra de hoje continuará valendo amanhã.</p>
+<p><strong>Por que 2046 muda o mapa em relação a horizontes curtos.</strong> Vinte anos é o tempo de uma geração envelhecer. Quem ativou passkeys aos 50 anos em 2026 terá 70 em 2046. O mapa, por isso, dá mais peso a três objetos que num horizonte de cinco anos são marginais: <strong>morte e herança</strong>, <strong>declínio cognitivo e delegação</strong>, e <strong>arquivo de longa duração</strong> (o que acontece com vinte anos de dado cifrado quando a cifra envelhece). O estudo de Öhman e Watson (Oxford, 2019) projetou que os perfis de pessoas mortas no Facebook podem superar os de vivos por volta de 2070 [6]; a pergunta deste mapa é o que acontece com esse arquivo quando ele não está mais num servidor que alguém consegue ler.</p>
+<p><strong>Onde encosta em mídia e interação.</strong> (1) <strong>Recuperação, herança e delegação</strong> viram tela, fluxo e serviço a projetar, porque o provedor deixa de conseguir "devolver" a conta; (2) a <strong>interface da confiança</strong> — estado da sincronia, conflito entre versões, atestado do enclave, validade da cifra — vira elemento de design com consequência; (3) <strong>personalização, atendimento e moderação</strong>, que dependem de o servidor ler, mudam de lugar; (4) <strong>arquivo e memória</strong>: o álbum de família, o diário, a conversa guardada passam a ser objetos criptográficos com dono, prazo e herdeiro; (5) <strong>desigualdade de proteção</strong>: quem tem aparelho novo, chave física e guardiões competentes fica mais protegido que quem não tem.</p>
+<p><strong>Por que mapa de futuro e não estado da arte.</strong> Os componentes existem; o que não existe é a sociedade que funciona com eles como padrão. As consequências de segunda e terceira ordem — quem vira intermediário no lugar da plataforma, o que acontece com o arquivo histórico, como se herda uma chave — não se leem em nenhum produto de hoje.</p>
+<p><strong>Fronteira com os vizinhos.</strong> O <em>modelo</em> rodando localmente é o tema 16; aqui a IA aparece só como quem opera sobre o dado sem tirá-lo de casa (<code>e9.2</code>, <code>e5</code>). Identidade de <em>agentes</em> é o tema 2. Aqui o objeto é a arquitetura de dado e identidade da pessoa.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso está hoje</h2>
+<p><em>Âncora feita com busca na web em 22/09/2026 (cerca de 25 buscas e aberturas; lista na seção 12.3).</em></p>
+<h3 id="o-que-ja-existe-e-funciona">O que já existe e funciona</h3>
+<ul><li><strong>Passkeys em escala.</strong> Relatório FIDO 2026 (Sapio Research, abril de 2026; 11.000 consumidores e 1.400 decisores em dez países): 90% conhecem passkeys, 75% ativaram em pelo menos uma conta, 40% ativam na maioria dos apps, 49% as ativam "sempre que possível ou na maior parte das vezes"; 68% das organizações estão implantando para funcionários, 30% como método principal; 47% dos consumidores dizem que abandonam compra ou login quando esquecem a senha [2]. O comunicado da própria FIDO fala em 5 bilhões de passkeys em uso (página aberta, mas que recusa o verificador automático; ver 12.4).</li><li><strong>No Brasil:</strong> o app gov.br aceita chave de acesso desde fevereiro de 2026, com Android 9 ou iOS 16 em diante, bloqueio de tela ativo e conta nível prata ou ouro [8]. Nenhum número de uso foi encontrado.</li><li><strong>Herança parcial:</strong> o Contato de Legado da Apple usa chave dividida (a Apple guarda um pacote cifrado, o beneficiário guarda a chave AES) e exige certidão de óbito — mas <strong>não abre o Chaveiro do iCloud</strong>, onde moram as passkeys [4]. Google tem o Gerenciador de Contas Inativas; nos EUA, a lei RUFADAA dá prioridade a essas ferramentas das plataformas [5].</li><li><strong>Cifra ponta-a-ponta além da mensagem:</strong> Apple Private Cloud Compute (junho de 2024) com cinco requisitos — computação sem estado sobre dado pessoal, garantias executáveis, sem acesso privilegiado, não-direcionabilidade e transparência verificável [14]; WhatsApp Private Processing (abril de 2025) com TEE, máquina virtual confidencial, OHTTP e opcionalidade [15].</li><li><strong>Cifra pós-quântica em mensagem e tráfego:</strong> Signal PQXDH (aperto de mão) e SPQR/Triple Ratchet (outubro de 2025), justificados explicitamente pelo ataque "colete agora, decifre depois" [16]; mais de 65% do tráfego humano da Cloudflare já usa acordo de chave pós-quântico (abril de 2026) [18].</li><li><strong>Local-first com código em produção:</strong> Automerge 3.3 e automerge-repo 2.6 (julho de 2026), com usuários como Backstitch (colaboração em projetos Godot) e Braid (rastreador de tarefas para agentes) [24]; na turma, <code>budgero</code> ("local-first, self-hostable, end-to-end encrypted", 21 estrelas) [26] e <code>kostos</code> ("no accounts, end-to-end encrypted, works offline, self-hostable", 43 estrelas) [27].</li><li><strong>IA sobre dado financeiro sem nuvem:</strong> <code>TaxHacker</code> (contabilidade com IA self-hosted, 6.715 estrelas) [29], <code>rotki</code> (portfólio com privacidade, 4.029 estrelas) [30], <code>accountant24</code> (agente de finanças pessoais, 54 estrelas) [28].</li><li><strong>Identidade portátil numa rede social:</strong> AT Protocol permite migrar conta entre servidores de dados pessoais, inclusive migração adversarial com chave de rotação controlada pela pessoa quando o servidor antigo não coopera [22].</li></ul>
+<h3 id="o-que-existe-e-ainda-nao-funciona">O que existe e ainda não funciona</h3>
+<ul><li><strong>Portabilidade de passkey entre plataformas.</strong> CXF (formato) chegou a Review Draft em março de 2025; CXP (protocolo, com HPKE) seguia como rascunho de trabalho; a Apple já faz transferência entre apps no mesmo aparelho no iOS/macOS 26 [9]. Troca entre plataformas diferentes ainda depende do CXP.</li><li><strong>Sincronia local-first cifrada.</strong> Keyhive (controle de acesso local-first com BeeKEM, e o protocolo Beelay, que sincroniza carga cifrada que o servidor não consegue ler) é projeto de pesquisa 2024–2026; a página não declara prontidão para produção [23]; o blog do Automerge de julho de 2026 relata refatoração do automerge-repo para suportar cifra ponta-a-ponta e publicação do artigo do BeeKEM [24].</li><li><strong>Segurança da passkey sincronizada.</strong> Unit 42 (03/08/2026) mostrou três ataques ao Google Password Manager no Chrome/Windows; o mais grave extrai o Security Domain Secret — um segredo de 32 bytes que cifra todas as passkeys sincronizadas da conta — e <strong>não há mecanismo de rotação nem revogação</strong> do SDS. Todos exigem malware prévio no aparelho [3].</li><li><strong>Carteira de identidade europeia.</strong> Todo Estado-membro deve oferecer uma até dezembro de 2026; menos de um terço estava pronto segundo o observatório do Politecnico di Milano; na Alemanha, a sandbox tinha 115 organizações e cerca de 150 casos de uso, e "a adesão de quem aceita a carteira é o gargalo real" [10].</li><li><strong>Passkey pós-quântica.</strong> Não basta trocar o algoritmo: atestação, protocolo de PIN/verificação (hoje ECDH), tamanho de chave e limite de mensagem do CTAP-HID precisam mudar; "não vai acontecer por uma atualização de protocolo" e não há cronograma [21].</li><li><strong>Herança no Brasil.</strong> O PL 4/2025 (reforma do Código Civil) cria o "patrimônio digital", separa o que é herdável (valor econômico: milhas, cripto, perfis monetizados) do que não é (fotos, vídeos, áudios, mensagens), proíbe o acesso de herdeiros a mensagens privadas e cria o "inventariante digital"; em março de 2026 estava em comissão no Senado [7].</li></ul>
+<h3 id="o-relogio-pos-quantico">O relógio pós-quântico</h3>
+<div class="tabela-envolve"><table><thead><tr><th>Marco</th><th>Data</th><th>Fonte</th></tr></thead><tbody><tr><td>RSA-2048 e P-256 depreciados para sistemas novos (NIST)</td><td>2030</td><td>[19]</td></tr><tr><td>Algoritmos vulneráveis ao quântico eliminados (NIST)</td><td>2035</td><td>[19]</td></tr><tr><td>NSA CNSA 2.0: sistemas operacionais, apps e nuvem exclusivos</td><td>2033</td><td>[19]</td></tr><tr><td>UE: infraestrutura crítica pós-quântica em alto risco</td><td>fim de 2030</td><td>[19]</td></tr><tr><td>Meta própria do Google para migração</td><td>2029</td><td>[17]</td></tr><tr><td>Cloudflare: segurança pós-quântica em todos os produtos</td><td>2029</td><td>[18]</td></tr><tr><td>Chance de computador quântico criptograficamente relevante em 10 anos</td><td>28–49%</td><td>[20]</td></tr><tr><td>Idem em 15 anos (≈2041)</td><td>51–70%</td><td>[20]</td></tr></tbody></table></div>
+<p>Dois fatos de 2026 encurtaram o relógio: o Google estimou que quebrar ECDLP-256 exige menos de 1.200 qubits lógicos (com 90 milhões de portas Toffoli), cerca de vinte vezes menos qubits físicos que estimativas anteriores, e provou o resultado com prova de conhecimento zero sem publicar o circuito [17]; e a Cloudflare cita a Oratomic, para quem P-256 cairia com cerca de 10 mil qubits em computador de átomos neutros [18]. O relatório GRI não dá número para 20 anos [20]; o mapa <strong>assume</strong> que em 2046 a probabilidade é maior que a de 15 anos, o que é inferência, não dado.</p>
+<h3 id="quem-constroi">Quem constrói</h3>
+<ol><li><strong>Plataformas de sistema operacional</strong> (Apple, Google, Microsoft): chaveiros sincronizados, enclaves de IA, portabilidade CXF [4][9][14].</li><li><strong>FIDO Alliance</strong> e gerenciadores independentes (1Password, Bitwarden, Dashlane) no padrão de troca de credenciais [9].</li><li><strong>Laboratório e comunidade local-first:</strong> Ink &amp; Switch (ensaio de 2019, Keyhive, Automerge) [1][23][24]; motores de sincronia comerciais (Zero, PowerSync, ElectricSQL) discutidos no Hacker News [25].</li><li><strong>Mensageiros cifrados:</strong> Signal, Meta/WhatsApp [15][16].</li><li><strong>Estados e reguladores:</strong> Comissão Europeia (EUDI, Chat Control), Reino Unido (ordem que levou a Apple a retirar o ADP), NIST/NSA, STF e Senado no Brasil [7][10][11][12][13][19].</li><li><strong>Desenvolvedores independentes</strong> do material da turma: budgero, kostos, accountant24, TaxHacker, rotki [26]–[30], sobre bibliotecas como <code>@simplewebauthn</code> (2.352 estrelas) [32] e better-auth (30.058 estrelas) [33].</li></ol>
+<h3 id="numeros-de-adocao">Números de adoção</h3>
+<div class="tabela-envolve"><table><thead><tr><th>O quê</th><th>Número</th><th>Fonte</th></tr></thead><tbody><tr><td>Consumidores com passkey em ≥1 conta</td><td>75% (dez países, abril de 2026)</td><td>[2]</td></tr><tr><td>Consumidores que ativam passkey sempre ou quase sempre</td><td>49%</td><td>[2]</td></tr><tr><td>Tráfego humano da Cloudflare com acordo pós-quântico</td><td>&gt;65% (abril de 2026)</td><td>[18]</td></tr><tr><td>Estados da UE prontos para a carteira de dezembro de 2026</td><td>menos de um terço</td><td>[10]</td></tr><tr><td>Usuários de apps local-first</td><td>sem número encontrado</td><td>—</td></tr><tr><td>Usuários de gov.br com chave de acesso</td><td>sem número encontrado</td><td>[8]</td></tr><tr><td>Estrelas no GitHub (22/09/2026)</td><td>budgero 21 · kostos 43 · accountant24 54 · rotki 4.029 · TaxHacker 6.715 · keyhive 248</td><td>[26]–[31]</td></tr></tbody></table></div>
+<h3 id="o-ambiente-politico">O ambiente político</h3>
+<ul><li><strong>Reino Unido:</strong> a Apple deixou de oferecer o ADP a novos usuários; dez categorias (backup, Drive, Fotos, Notas etc.) voltam à proteção padrão, enquanto Chaveiro, Saúde, iMessage e FaceTime seguem cifrados [11].</li><li><strong>União Europeia:</strong> o Parlamento votou em abril de 2026 contra prolongar a derrogação que permitia varredura voluntária; em atualização de agosto, a varredura voltou a ser permitida até 03/04/2028 com salvaguardas, e o regulamento permanente segue em negociação, com foco deslocado para verificação de idade [12].</li><li><strong>Brasil:</strong> no STF, os relatores da ADI 5527 (Rosa Weber) e da ADPF 403 (Fachin) votaram que a cifra é "essencial para a proteção da coletividade" e contra bloqueio de app para forçar ordem judicial; o julgamento não tinha decisão final nas fontes abertas [13].</li></ul>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupções-raiz</h2>
+<h3 id="candidatos-recusados-como-raiz-criterio-2">Candidatos recusados como raiz (critério §2)</h3>
+<ul><li><strong>Passkey como método de login.</strong> Recusado: 75% com ≥1 conta e 49% de uso habitual em dez países [2], e adoção pelo principal serviço público do Brasil [8]. Está entre adoção precoce avançada e maioria; já se faz com o que é comum em produto de massa. Tratado como contexto; o que ainda rompe é a <strong>custódia</strong> da conta (d1).</li><li><strong>Cifra ponta-a-ponta em mensagem.</strong> Recusado: padrão em WhatsApp, Signal e iMessage; é maioria. Contexto.</li><li><strong>Acordo de chave pós-quântico no TLS.</strong> Recusado: mais de 65% do tráfego humano de uma grande CDN [18]. Contexto; a raiz d4 é o que <strong>não</strong> está protegido (o arquivo já copiado e a chave de identidade).</li><li><strong>"Login com Google", 2FA por SMS, backup cifrado com chave do provedor, HTTPS.</strong> Maduros, pela régua da disciplina.</li></ul>
+<h3 id="d1-a-conta-vira-chave-a-identidade-passa-a-morar-no-aparelho-e-na-carteira-da-pessoa-e-o-provedor-deixa-de-ser-o-caminho-de-volta">d1 — A conta vira chave: a identidade passa a morar no aparelho e na carteira da pessoa, e o provedor deixa de ser o caminho de volta</h3>
+<ol><li><strong>O que rompe.</strong> A suposição de que o provedor sempre consegue devolver a conta ("esqueci minha senha") e de que a identidade online é um cadastro no servidor de alguém. Com a chave no aparelho, recuperar, herdar e delegar passam a depender do que a pessoa montou antes de perder o acesso.</li><li><strong>Por que agora.</strong> Passkeys viraram padrão nos sistemas operacionais e chegaram a 75% de ativação [2]; carteiras de identidade estatais têm prazo legal na UE [10] e o gov.br aceitou a chave [8]; o contato de legado com chave dividida existe [4] — há cinco anos nada disso estava em produção de massa.</li><li><strong>Onde está na difusão.</strong> Login: adoção precoce avançada/maioria (recusado acima). Recuperação e herança por guardiões/carteira: <strong>produto de nicho a adoção precoce</strong> — emergente.</li><li><strong>O que falta.</strong> Portabilidade entre plataformas (CXP) [9]; rotação/revogação do segredo mestre da sincronia [3]; herança que abra o chaveiro [4]; regra jurídica de herança digital no Brasil [7]; carteiras estatais aceitas por serviços privados [10]; um desenho de delegação para quem envelhece (nenhuma fonte encontrada).</li></ol>
+<h3 id="d2-o-servidor-cego-a-cifra-ponta-a-ponta-sai-da-mensagem-e-chega-ao-backup-ao-documento-e-a-ia-e-quem-guarda-o-dado-deixa-de-poder-le-lo">d2 — O servidor cego: a cifra ponta-a-ponta sai da mensagem e chega ao backup, ao documento e à IA, e quem guarda o dado deixa de poder lê-lo</h3>
+<ol><li><strong>O que rompe.</strong> O modelo em que o servidor lê o dado para personalizar, moderar, atender e anunciar. Rompe também a suposição de que "processar na nuvem" implica "a empresa vê".</li><li><strong>Por que agora.</strong> A IA generativa criou demanda para processar dado pessoal fora do aparelho, e duas plataformas responderam com enclaves auditáveis em vez de servidores comuns [14][15]; o custo político ficou visível (ADP retirado no Reino Unido [11]).</li><li><strong>Onde está na difusão.</strong> Mensagem: maioria (recusado). Backup e documento cifrados por padrão, IA em enclave: <strong>adoção precoce</strong> em duas plataformas, nicho no resto.</li><li><strong>O que falta.</strong> Verificação independente real do que roda no enclave [14]; resposta estável dos Estados (UE, Reino Unido, STF) [11][12][13]; moderação que funcione sem ler o conteúdo; modelo de negócio que não dependa do dado lido.</li></ol>
+<h3 id="d3-local-first-o-original-do-dado-passa-a-morar-no-aparelho-e-o-servidor-vira-rele-de-sincronia">d3 — Local-first: o original do dado passa a morar no aparelho e o servidor vira relé de sincronia</h3>
+<ol><li><strong>O que rompe.</strong> A suposição de que o software é um serviço que para quando a empresa para ("The Long Now": o trabalho deve continuar acessível "mesmo depois que a empresa que produziu o software deixar de existir") [1]; e a de que o servidor é a fonte da verdade.</li><li><strong>Por que agora.</strong> CRDTs viáveis no navegador (Automerge 3) e motores de sincronia comerciais [24][25]; controle de acesso sem servidor saindo do laboratório [23]; desenvolvedores independentes publicando apps completos local-first com cifra [26][27].</li><li><strong>Onde está na difusão.</strong> <strong>Produto de nicho.</strong> Sete anos depois do ensaio de 2019, sem número de usuários encontrado; a discussão técnica mais popular encontrada ainda debate migração de esquema e conflito [25].</li><li><strong>O que falta.</strong> Controle de acesso e sincronia cifrada prontos para produção [23][24]; migração de esquema com cliente offline por muito tempo [25]; ferramentas para o dev médio; réplica doméstica confiável; um incentivo econômico para empresas que hoje cobram pela nuvem.</li></ol>
+<h3 id="d4-cifra-com-prazo-de-validade-o-computador-quantico-transforma-o-dado-guardado-sem-camada-pos-quantica-em-segredo-que-expira-e-a-chave-de-identidade-do-aparelho-tera-de-ser-trocada">d4 — Cifra com prazo de validade: o computador quântico transforma o dado guardado sem camada pós-quântica em segredo que expira, e a chave de identidade do aparelho terá de ser trocada</h3>
+<ol><li><strong>O que rompe.</strong> A suposição, que d1–d3 fazem sem dizer, de que "cifrado" significa "secreto para sempre". Vinte anos de backup e mensagem cifrados com curva elíptica, já copiados por quem quisesse copiar, passam a ter data de abertura; e toda passkey P-256 precisa de reemissão.</li><li><strong>Por que agora.</strong> Padrões pós-quânticos (ML-KEM, ML-DSA) exigidos pela NSA [19]; prazos de depreciação do NIST (2030/2035) [19]; estimativas de 2026 que baixaram o custo de quebrar P-256 [17][18]; especialistas dão mais de 50% de chance em 15 anos [20]. Há cinco anos nem os padrões nem as estimativas existiam.</li><li><strong>Onde está na difusão.</strong> No tráfego, maioria (recusado). Em identidade (passkey pós-quântica) e em arquivo cifrado em repouso: <strong>laboratório a demo</strong> — especulativo, <code>confianca: baixa</code> obrigatória nos ramos que dependem só dele.</li><li><strong>O que falta.</strong> Passkey pós-quântica padronizada, com atestação e CTAP revistos [21]; recifragem de acervos antigos; o próprio computador quântico (cuja data é incerta [20]).</li></ol>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - disrupcao: &quot;A conta vira chave: a identidade mora no aparelho e na carteira da pessoa, e o provedor deixa de ser o caminho de volta&quot;
+    efeitos:
+      - id: e1
+        ordem: 1
+        efeito: A recuperação de conta sai do &quot;esqueci minha senha&quot; do provedor e passa a ser uma rede de guardiões — outros aparelhos, contatos de recuperação e carteira estatal — que a própria pessoa monta antes de precisar
+        sinal: forte
+        prazo: 2030
+        confianca: alta
+        efeitos:
+          - id: e1.1
+            ordem: 2
+            efeito: O fluxo de reinscrição e a central de atendimento viram o principal alvo de tomada de conta, porque são o único ponto onde a chave ainda pode ser reemitida sem o aparelho
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e1.1.1
+                ordem: 3
+                efeito: Bancos e governos passam a exigir presença física ou credencial da carteira estatal para reemitir uma passkey, e a agência e o cartório voltam a ser ponto de identidade digital
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+          - id: e1.2
+            ordem: 2
+            efeito: A escolha e o teste periódico dos guardiões viram fluxo de produto desenhado, com lembrete de revisão como o de exame anual, porque guardião escolhido em 2026 pode estar morto, brigado ou sem aparelho em 2040
+            sinal: fraco
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e1.2.1
+                ordem: 3
+                efeito: Perder acesso passa a ser disputa entre guardiões — divórcio, briga de herdeiros — e o produto precisa trazer regra de quórum e de desempate escrita, que vira cláusula de acordo de separação
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+      - id: e2
+        ordem: 1
+        efeito: A morte de quem não configurou herança tranca o dado para sempre, porque o contato de legado não abre o chaveiro e a passkey não tem procedimento de certidão de óbito
+        sinal: forte
+        prazo: 2030
+        confianca: alta
+        efeitos:
+          - id: e2.1
+            ordem: 2
+            efeito: A herança digital vira requisito de produto — no Brasil, o PL 4/2025 separa patrimônio econômico herdável de conteúdo privado inacessível, e o app precisa saber a diferença entre os dois para cumprir a lei
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e2.1.1
+                ordem: 3
+                efeito: Cada dado passa a nascer com uma etiqueta &quot;herdável&quot; ou &quot;morre comigo&quot; escolhida pelo titular, e essa etiqueta vira campo de esquema padrão em bibliotecas local-first
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+          - id: e2.2
+            ordem: 2
+            efeito: A geração que adotou passkeys em massa por volta de 2026 chega aos 70–80 anos, e o declínio cognitivo antes da morte vira caso frequente de perda de acesso — a pessoa está viva, mas não consegue mais operar a própria chave
+            sinal: fraco
+            prazo: 2044
+            confianca: baixa
+            efeitos:
+              - id: e2.2.1
+                ordem: 3
+                efeito: Sistemas operacionais ganham delegação gradual de credenciais — um familiar passa a operar a chave do idoso com registro auditável no aparelho — e a curatela judicial passa a ter um equivalente técnico
+                sinal: fraco
+                prazo: 2046
+                confianca: baixa
+      - id: e3
+        ordem: 1
+        efeito: Carteiras de identidade estatais (EUDI, gov.br) viram o provedor de identidade de última instância em serviços regulados, deslocando o &quot;login com Google&quot; e a verificação por selfie e documento
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e3.1
+            ordem: 2
+            efeito: O custo de abrir conta em banco e fintech cai de dezenas de euros para poucos euros por cliente, e a carteira vira porta de entrada obrigatória desses serviços
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e3.1.1
+                ordem: 3
+                efeito: O Estado passa a poder saber cada vez que a pessoa se identifica num serviço privado, a menos que a carteira use divulgação seletiva e prova de conhecimento zero, e o desenho técnico da carteira vira disputa política aberta
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e3.2
+            ordem: 2
+            efeito: Quem não tem aparelho compatível ou documento de nível alto — idoso com celular antigo, migrante sem papéis, pessoa sem teto — perde acesso a serviços que antes aceitavam senha
+            sinal: medio
+            prazo: 2030
+            confianca: media
+            efeitos:
+              - id: e3.2.1
+                ordem: 3
+                efeito: O atendimento sem aparelho passa a ser exigido por lei em serviço público e auditado como requisito de acessibilidade, com balcão humano que emite credencial temporária
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+      - id: e4
+        ordem: 1
+        efeito: Os donos do chaveiro sincronizado viram o novo intermediário da identidade, porque a passkey sincronizada depende da conta Apple, Google ou Microsoft — a promessa de &quot;sem intermediário&quot; troca de intermediário
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e4.1
+            ordem: 2
+            efeito: A portabilidade de credenciais entre plataformas (CXP) vira pauta de defesa da concorrência, e o chaveiro passa a ser tratado por reguladores como infraestrutura de guardião de acesso
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e4.1.1
+                ordem: 3
+                efeito: Gerenciadores de credenciais independentes passam a ser regulados como custodiantes, com exigência de seguro por perda de chave, como já acontece com custódia de ativos
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e4.2
+            ordem: 2
+            efeito: Um único segredo mestre por conta concentra o risco, e um ataque ao fluxo de recuperação de uma plataforma compromete de uma vez todas as passkeys da pessoa
+            sinal: medio
+            prazo: 2029
+            confianca: media
+            efeitos:
+              - id: e4.2.1
+                ordem: 3
+                efeito: Serviços de alto risco passam a exigir passkey presa ao aparelho ou chave física, e surgem dois níveis de proteção — quem tem chave física e quem depende do chaveiro na nuvem
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+  - disrupcao: &quot;O servidor cego: a cifra ponta-a-ponta sai da mensagem e chega ao backup, ao documento e à IA, e quem guarda o dado deixa de poder lê-lo&quot;
+    efeitos:
+      - id: e5
+        ordem: 1
+        efeito: A IA que lê dado pessoal passa a rodar em enclave com atestado público, e &quot;o servidor processou mas não viu&quot; vira promessa que pesquisadores conseguem conferir
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e5.1
+            ordem: 2
+            efeito: O atestado do enclave vira elemento de interface — o app mostra que código rodou onde — e o designer precisa traduzir auditoria criptográfica em sinal que uma pessoa leiga entenda
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e5.1.1
+                ordem: 3
+                efeito: Uma falha num modelo de TEE de um fabricante derruba de uma vez a confiança de vários produtos que dependiam dele, e os auditores de transparência ganham poder de certificadora
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e5.2
+            ordem: 2
+            efeito: A personalização deixa de usar perfil guardado no servidor e passa a ser calculada no aparelho ou no enclave, e o anúncio segmentado por histórico perde a matéria-prima nos produtos cegos
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e5.2.1
+                ordem: 3
+                efeito: Produtos cegos migram de receita por anúncio para assinatura ou para leilão no aparelho, em que o aparelho escolhe o anúncio sem revelar o perfil, e o corretor de dado de terceiros perde margem
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+      - id: e6
+        ordem: 1
+        efeito: Estados respondem ao servidor cego mudando o alvo — varredura no aparelho, verificação de idade no sistema operacional, retirada da cifra de backup como no Reino Unido
+        sinal: forte
+        prazo: 2028
+        confianca: alta
+        efeitos:
+          - id: e6.1
+            ordem: 2
+            efeito: A proteção passa a depender do país — o mesmo app cifra o backup num lugar e não no outro — e quem cruza fronteira ou migra muda de nível de proteção sem perceber
+            sinal: medio
+            prazo: 2032
+            confianca: media
+            efeitos:
+              - id: e6.1.1
+                ordem: 3
+                efeito: Jornalistas, ONGs e empresas passam a registrar contas em jurisdições de cifra forte como prática de rotina, e aparecem &quot;paraísos de cifra&quot; com a mesma lógica dos paraísos fiscais
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e6.2
+            ordem: 2
+            efeito: No Brasil, enquanto o STF não conclui a ADI 5527 e a ADPF 403, operadores evitam oferecer backup cifrado por padrão no país para não arriscar ordem de bloqueio
+            sinal: fraco
+            prazo: 2030
+            confianca: baixa
+            efeitos:
+              - id: e6.2.1
+                ordem: 3
+                efeito: Se prevalecerem os votos dos relatores, a cifra ganha proteção constitucional explícita e o Brasil passa a ser o mercado da região onde oferecer servidor cego tem menor risco jurídico
+                sinal: fraco
+                prazo: 2036
+                confianca: baixa
+      - id: e7
+        ordem: 1
+        efeito: A moderação sai do servidor, que não lê, e passa para metadado e para a denúncia do próprio usuário, que entrega o trecho denunciado à plataforma
+        sinal: fraco
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e7.1
+            ordem: 2
+            efeito: O metadado — quem fala com quem e quando — vira o dado disputado, e relés cegos ao metadado (OHTTP) entram como camada seguinte enquanto Estados passam a pedir retenção de metadado
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e7.1.1
+                ordem: 3
+                efeito: Os poucos operadores de relé cego viram infraestrutura crítica sem modelo de receita próprio, e a privacidade de metadado passa a depender de dois ou três contratos
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+      - id: e8
+        ordem: 1
+        efeito: O atendimento ao cliente perde a capacidade de &quot;ver a conta&quot; para ajudar, e o suporte passa a exigir que a própria pessoa conceda acesso temporário ao dado
+        sinal: fraco
+        prazo: 2033
+        confianca: media
+        efeitos:
+          - id: e8.1
+            ordem: 2
+            efeito: O golpe migra da quebra técnica para induzir a pessoa a conceder essa chave temporária a um falso atendente
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e8.1.1
+                ordem: 3
+                efeito: Sistemas operacionais passam a impor espera obrigatória de horas e confirmação de um guardião antes de conceder acesso total a terceiro, trocando conveniência por segurança
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+  - disrupcao: &quot;Local-first: o original do dado passa a morar no aparelho e o servidor vira relé de sincronia&quot;
+    efeitos:
+      - id: e9
+        ordem: 1
+        efeito: Apps pequenos de finanças, notas e saúde passam a nascer local-first e self-hostable, porque o dev deixa de pagar e operar o banco de dados de cada usuário
+        sinal: forte
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e9.1
+            ordem: 2
+            efeito: O fim de uma empresa deixa de levar o dado junto, porque o app continua funcionando no aparelho depois que o fornecedor fecha
+            sinal: medio
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e9.1.1
+                ordem: 3
+                efeito: Encerrar um serviço passa a exigir, por contrato ou por regra de consumidor, a entrega de um modo que funcione sem servidor
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+          - id: e9.2
+            ordem: 2
+            efeito: Agentes de IA locais operam sobre o dado financeiro sem tirá-lo de casa, e contador e consultor passam a receber o relatório calculado na máquina do cliente em vez do extrato bruto
+            sinal: medio
+            prazo: 2033
+            confianca: media
+            efeitos:
+              - id: e9.2.1
+                ordem: 3
+                efeito: O cliente entrega ao profissional uma visão derivada com prova do que o agente calculou, e o sigilo profissional passa a ser garantido por técnica, não por confiança no escritório
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa
+      - id: e10
+        ordem: 1
+        efeito: A perda do aparelho sem réplica vira perda definitiva do dado, porque o servidor não guarda mais cópia legível, e &quot;onde está sua outra cópia&quot; entra no desenho do produto
+        sinal: medio
+        prazo: 2030
+        confianca: media
+        efeitos:
+          - id: e10.1
+            ordem: 2
+            efeito: Casas passam a ter um nó doméstico — roteador, TV, caixa de armazenamento — como réplica cifrada permanente, e o eletrodoméstico vira guardião do arquivo da família
+            sinal: fraco
+            prazo: 2036
+            confianca: media
+            efeitos:
+              - id: e10.1.1
+                ordem: 3
+                efeito: Enchente, incêndio ou mudança destroem arquivos familiares inteiros guardados no nó doméstico, repetindo a perda das caixas de fotos, e seguradoras passam a oferecer cobertura de arquivo
+                sinal: fraco
+                prazo: 2044
+                confianca: baixa
+      - id: e11
+        ordem: 1
+        efeito: O arquivo de uma vida — fotos, mensagens, diários — passa a existir espalhado em réplicas cifradas pessoais, e o historiador perde o acesso centralizado que as plataformas ofereciam
+        sinal: medio
+        prazo: 2040
+        confianca: media
+        efeitos:
+          - id: e11.1
+            ordem: 2
+            efeito: Arquivos públicos e museus passam a negociar doação de chaves em vez de caixas, e a doação de acervo pessoal vira doação criptográfica com cláusula de abertura em data futura
+            sinal: fraco
+            prazo: 2044
+            confianca: baixa
+            efeitos:
+              - id: e11.1.1
+                ordem: 3
+                efeito: A cápsula do tempo criptográfica — dado cifrado para abrir só em data marcada — vira gênero de mídia familiar e institucional
+                sinal: fraco
+                prazo: 2050
+                confianca: baixa
+      - id: e12
+        ordem: 1
+        efeito: Empresas cuja receita vem da assinatura de nuvem vendem &quot;modo offline&quot; que continua dependendo do servidor para contas e permissões, e local-first vira rótulo de marketing sem os ideais
+        sinal: medio
+        prazo: 2032
+        confianca: media
+        efeitos:
+          - id: e12.1
+            ordem: 2
+            efeito: Enquanto o controle de acesso sem servidor não amadurece, apps colaborativos local-first voltam a um servidor central de permissões, que reconcentra o poder
+            sinal: medio
+            prazo: 2031
+            confianca: media
+            efeitos:
+              - id: e12.1.1
+                ordem: 3
+                efeito: Se o controle de acesso distribuído amadurecer, o papel de administrador vira capacidade delegada entre pessoas, e equipes pequenas passam a organizar autoridade sem um dono do servidor
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+  - disrupcao: &quot;Cifra com prazo de validade: o computador quântico transforma o dado guardado sem camada pós-quântica em segredo que expira, e a chave de identidade do aparelho terá de ser trocada&quot;
+    efeitos:
+      - id: e13
+        ordem: 1
+        efeito: Todo dado cifrado sem camada pós-quântica e já copiado passa a ter data de abertura, e os backups que os servidores cegos guardaram com curva elíptica viram arquivos a abrir
+        sinal: medio
+        prazo: 2040
+        confianca: media
+        efeitos:
+          - id: e13.1
+            ordem: 2
+            efeito: A exposição retroativa atinge mensagens e backups das décadas de 2010 e 2020 — fontes jornalísticas, dissidentes, conversas íntimas — que ressurgem vinte ou trinta anos depois
+            sinal: fraco
+            prazo: 2044
+            confianca: baixa
+            efeitos:
+              - id: e13.1.1
+                ordem: 3
+                efeito: Tribunais criam doutrina sobre conteúdo obtido por decifração tardia, e publicar mensagem decifrada por obsolescência da cifra passa a ser tratado como vazamento
+                sinal: fraco
+                prazo: 2048
+                confianca: baixa
+          - id: e13.2
+            ordem: 2
+            efeito: Produtos passam a mostrar a validade de cada cifra e a oferecer recifragem de acervos antigos, e migrar o arquivo pessoal vira manutenção periódica como fazer backup
+            sinal: fraco
+            prazo: 2034
+            confianca: media
+            efeitos:
+              - id: e13.2.1
+                ordem: 3
+                efeito: O arquivo de quem morreu e de apps extintos fica exposto primeiro, porque ninguém o recifra, e a herança digital ganha prazo de urgência
+                sinal: fraco
+                prazo: 2045
+                confianca: baixa
+      - id: e14
+        ordem: 1
+        efeito: Toda passkey de curva elíptica terá de ser reemitida em algoritmo pós-quântico, e a primeira troca de chave de identidade da população inteira acontece como migração silenciosa ou como onda de reinscrição
+        sinal: medio
+        prazo: 2036
+        confianca: media
+        efeitos:
+          - id: e14.1
+            ordem: 2
+            efeito: Chaves físicas antigas sem memória ou banda para assinaturas pós-quânticas viram lixo eletrônico, e quem investiu na proteção mais forte é quem mais perde na migração
+            sinal: fraco
+            prazo: 2035
+            confianca: media
+            efeitos:
+              - id: e14.1.1
+                ordem: 3
+                efeito: Bancos e governos subsidiam a troca de chaves físicas como fizeram com cartões com chip, e a chave física passa a ser emitida pelo banco, não comprada pela pessoa
+                sinal: fraco
+                prazo: 2040
+                confianca: baixa
+          - id: e14.2
+            ordem: 2
+            efeito: A reemissão em massa reabre a porta do ataque de reinscrição, porque cada troca de chave é um fluxo de recuperação, e a tomada de conta tem pico durante a migração
+            sinal: fraco
+            prazo: 2036
+            confianca: baixa
+            efeitos:
+              - id: e14.2.1
+                ordem: 3
+                efeito: Plataformas que migram a chave dentro do chaveiro sincronizado sem o usuário fazer nada ganham vantagem sobre chaves presas ao aparelho, o que reforça a concentração do e4
+                sinal: fraco
+                prazo: 2038
+                confianca: baixa
+      - id: e15
+        ordem: 1
+        efeito: O custo da cifra pós-quântica — chaves e assinaturas maiores, limites do CTAP-HID — atrasa aparelhos baratos e embarcados, e a proteção forte chega antes a quem tem aparelho caro
+        sinal: medio
+        prazo: 2033
+        confianca: media
+        efeitos:
+          - id: e15.1
+            ordem: 2
+            efeito: No Brasil e no Sul global, celulares usados por muitos anos ficam com cifra clássica, e a desigualdade de proteção passa a seguir a desigualdade de renda
+            sinal: fraco
+            prazo: 2038
+            confianca: baixa
+            efeitos:
+              - id: e15.1.1
+                ordem: 3
+                efeito: Bancos passam a bloquear aparelhos sem suporte pós-quântico em serviços financeiros, forçando a troca de celular como aconteceu no desligamento de redes antigas
+                sinal: fraco
+                prazo: 2042
+                confianca: baixa</code></pre>
+<h3 id="o-que-o-bloco-nao-diz-os-mecanismos">O que o bloco não diz: os mecanismos</h3>
+<p><strong>d1 — a conta vira chave.</strong></p>
+<ul><li><code>e1</code> porque, sem segredo compartilhado com o site, o provedor não tem o que "resetar"; a volta passa a depender de réplicas e pessoas indicadas antes [4]. Sinal forte: contatos de recuperação e de legado da Apple [4], Gerenciador de Contas Inativas do Google [5], passkey do gov.br [8]. Classe de referência: passkeys foram de anúncio conjunto das plataformas (2022, de memória) a 75% com ≥1 conta em 2026 [2] — quatro anos quando o sistema operacional empurra; a recuperação por guardiões pega carona nessa curva, daí 2030.</li><li><code>e1.1</code> porque o ataque vai para onde ainda há reemissão: o ataque "Silver" da Unit 42 registra uma nova chave de verificação na conta ao explorar o fluxo de reinscrição [3]. Mecanismo novo em relação ao pai: troca de ator (o atacante), não mais a pessoa.</li><li><code>e1.1.1</code> porque, se o fluxo remoto é o alvo, o único canal que um atacante não automatiza é a presença física; o gov.br já condiciona a chave ao nível prata/ouro [8], que em parte vem de validação presencial ou bancária.</li><li><code>e1.2</code> porque guardião é relação humana com prazo de validade; em vinte anos, guardiões morrem, mudam de aparelho ou deixam de falar com o titular. Não há fonte sobre revisão periódica de guardiões — é inferência (sinal fraco).</li><li><code>e1.2.1</code> porque quórum de guardiões (Shamir ou equivalente) transforma desacordo familiar em impasse técnico; é a troca de mecanismo de "falha técnica" para "disputa".</li><li><code>e2</code> porque a documentação da Apple diz literalmente que a chave de legado "não abrange a informação necessária para decifrar o Chaveiro do iCloud" [4]. Sinal forte: é o comportamento documentado de hoje.</li><li><code>e2.1</code> porque o PL 4/2025 proíbe o acesso de herdeiros a mensagens privadas mas manda transmitir o patrimônio econômico [7]: com dado cifrado ponta-a-ponta, só o app (ou o titular, em vida) sabe classificar; o "inventariante digital" do projeto precisa de uma interface para trabalhar.</li><li><code>e2.1.1</code> porque a classificação só é barata se feita na criação; retroativa, exige abrir tudo, o que a própria lei proíbe.</li><li><code>e2.2</code> porque a demografia é certa (quem tinha 50–60 anos em 2026 terá 70–80 em 2046) e a passkey liga o acesso à biometria e ao PIN do aparelho, que dependem de memória e coordenação. Não há fonte sobre incidência — por isso sinal fraco e confiança baixa (ver seção 7).</li><li><code>e2.2.1</code> porque a curatela jurídica existe, mas não tem equivalente técnico: o juiz nomeia o curador, e o curador não consegue usar a chave. Troca de ator: do herdeiro (morte) para o curador (vida).</li><li><code>e3</code> porque a carteira estatal resolve o problema que o provedor privado deixou de resolver: provar quem é a pessoa depois que ela perde tudo. Classe de referência: EUDI tem obrigação legal para dezembro de 2026, e menos de um terço dos Estados estava pronto [10] — regulação acelera, mas o gargalo é quem aceita.</li><li><code>e3.1</code> porque o custo de abertura por carteira foi estimado em 3–8 euros contra 70–100 euros do processo atual [10] (número de fornecedor citando terceiros).</li><li><code>e3.1.1</code> porque cada apresentação da carteira pode gerar registro no emissor, a menos que o desenho impeça; troca de ator: o Estado passa a observar a vida privada.</li><li><code>e3.2</code> porque os requisitos técnicos do gov.br (Android 9+, iOS 16+, nível prata/ouro) [8] excluem, por construção, quem não os tem.</li><li><code>e3.2.1</code> porque, se a credencial vira condição de acesso a direito, o balcão sem aparelho deixa de ser cortesia e vira obrigação.</li><li><code>e4</code> porque a passkey sincronizada é cifrada por um segredo mestre guardado na conta da plataforma [3]; sem essa conta, não há sincronia. Sinal forte, 2028: já é assim.</li><li><code>e4.1</code> porque o CXF/CXP é justamente o mecanismo de saída, e o que falta é o protocolo entre plataformas [9]; quando uma saída técnica existe e não é implementada, vira pauta de concorrência.</li><li><code>e4.1.1</code> porque custódia de chave é custódia de ativo quando a chave abre o patrimônio; inferência, sinal fraco.</li><li><code>e4.2</code> porque a Unit 42 constatou que o SDS não tem rotação nem revogação [3]: comprometido uma vez, compromete tudo, inclusive passkeys futuras.</li><li><code>e4.2.1</code> porque a resposta de quem tem mais a perder é tirar a chave da sincronia; o custo e a complexidade da chave física separam quem pode.</li></ul>
+<p><strong>d2 — o servidor cego.</strong></p>
+<ul><li><code>e5</code> porque os dois maiores sistemas de IA em mensageiro/aparelho escolheram enclave com transparência verificável [14][15]. Confiança media, não alta: a verificação depende de pesquisadores de fato auditarem, e o mapa não achou auditoria independente publicada.</li><li><code>e5.1</code> porque "não vimos seu dado" só vale se o usuário puder conferir; a Apple coloca a verificabilidade como requisito [14], mas o público leigo não lê atestado.</li><li><code>e5.1.1</code> porque vários produtos dependem de poucos fabricantes de TEE; a falha de um é correlacionada.</li><li><code>e5.2</code> porque perfil guardado no servidor é o que alimenta anúncio segmentado; se o servidor não o tem, a personalização tem de ir para o aparelho. Sinal fraco: nenhuma fonte aberta mostra anúncio calculado no aparelho em produção.</li><li><code>e5.2.1</code> porque, sem perfil no servidor, o valor do dado de terceiros cai.</li><li><code>e6</code> porque o Reino Unido obteve a retirada do ADP [11] e a UE manteve a varredura voluntária até 2028 e deslocou o regulamento permanente para verificação de idade [12]: o alvo muda para onde o dado ainda está legível — o aparelho.</li><li><code>e6.1</code> porque a Apple mantém o ADP em outros países e o retirou em um [11].</li><li><code>e6.1.1</code> porque a escolha de jurisdição já é prática para dinheiro; o mecanismo é o mesmo com outra matéria.</li><li><code>e6.2</code> porque o julgamento sem decisão final [13] deixa aberta a possibilidade de bloqueio; sinal fraco: nenhuma fonte aberta mostra operador evitando cifra no Brasil por isso. Confiança baixa.</li><li><code>e6.2.1</code> porque os votos dos relatores [13] tornariam a cifra um direito, e não uma tolerância.</li><li><code>e7</code> porque o servidor cego não tem o conteúdo; a única via de conteúdo é o próprio participante. Rebaixado a sinal fraco (seção 7).</li><li><code>e7.1</code> porque, sem conteúdo, o metadado é o que sobra; o Private Processing já usa OHTTP de terceiros justamente para ocultá-lo [15].</li><li><code>e7.1.1</code> porque o relé de terceiros é operado por poucos e não tem receita do usuário.</li><li><code>e8</code> porque o suporte de hoje depende de ver a conta; com cifra ponta-a-ponta, só o titular pode mostrar.</li><li><code>e8.1</code> porque a engenharia social sempre ataca o elo que ainda depende de decisão humana.</li><li><code>e8.1.1</code> porque atraso e confirmação por terceiro são as defesas conhecidas contra golpe em tempo real.</li></ul>
+<p><strong>d3 — local-first.</strong></p>
+<ul><li><code>e9</code> porque o custo de servidor por usuário é o que impede o dev solo de oferecer app com dado sensível; com o dado no aparelho, o servidor é só relé. Sinal forte por existência (budgero, kostos, rotki, TaxHacker [26][27][29][30]), mas confiança media: estrelas não são adoção.</li><li><code>e9.1</code> porque é o ideal "The Long Now" [1]: se o original está no aparelho, o fim do fornecedor não apaga o trabalho.</li><li><code>e9.1.1</code> porque, quando a continuidade técnica é possível, a falta dela passa a ser escolha da empresa — e escolha pode ser regulada.</li><li><code>e9.2</code> porque accountant24 e TaxHacker [28][29] mostram o agente rodando onde o dado está; o profissional deixa de ser quem guarda o dado e passa a ser quem interpreta o resultado.</li><li><code>e9.2.1</code> porque, se o cálculo é local, o que sai é o resultado — e o resultado pode levar prova.</li><li><code>e10</code> porque sem cópia legível no servidor não há "restaurar da nuvem"; o HN registra a preocupação com perda de dado em conflitos [25].</li><li><code>e10.1</code> porque a réplica precisa estar ligada o tempo todo, e o aparelho doméstico já está.</li><li><code>e10.1.1</code> porque concentrar a réplica num lugar físico reintroduz o risco físico.</li><li><code>e11</code> porque o arquivo pessoal deixa de estar num servidor legível; Öhman e Watson alertam que controlar o arquivo dos mortos das plataformas é "controlar nossa história" e que o acesso não deve ficar com uma única empresa [6] — o local-first resolve o monopólio e cria a fragmentação.</li><li><code>e11.1</code> porque a única forma de preservar arquivo cifrado é receber a chave.</li><li><code>e11.1.1</code> porque a cifra com abertura programada é a versão técnica da cláusula de sigilo por prazo que arquivos já usam. Prazo 2050: <strong>fora da janela do mapa</strong>, declarado.</li><li><code>e12</code> porque a retenção do usuário pelo servidor é o modelo de receita; oferecer offline sem ceder o controle de conta é a captura mais barata. Quem bloqueia d3: empresas de SaaS por assinatura de nuvem.</li><li><code>e12.1</code> porque Keyhive ainda é pesquisa e a sincronia cifrada do Automerge estava em refatoração em julho de 2026 [23][24].</li><li><code>e12.1.1</code> porque capacidade delegada (BeeKEM, capacidades convergentes [23]) dispensa o dono do servidor.</li></ul>
+<p><strong>d4 — cifra com prazo de validade.</strong></p>
+<ul><li><code>e13</code> porque "colete agora, decifre depois" é a ameaça declarada pelo Signal para justificar o SPQR [16]; o que foi copiado com curva elíptica abre quando a curva cai [17][18][20]. Prazo 2040: entre a estimativa de 15 anos do GRI [20] e as metas de migração 2029–2035 [17][18][19].</li><li><code>e13.1</code> porque o alvo do colete-agora são justamente as mensagens de valor duradouro.</li><li><code>e13.1.1</code> porque a lei trata vazamento por invasão, não por obsolescência; a lacuna gera litígio. Prazo 2048: <strong>fora da janela</strong>, declarado.</li><li><code>e13.2</code> porque o dado em repouso não se protege sozinho; alguém precisa recifrar.</li><li><code>e13.2.1</code> porque o dado sem dono ativo é o que ninguém recifra.</li><li><code>e14</code> porque NIST deprecia P-256 em 2030 e elimina algoritmos vulneráveis em 2035 [19], e a passkey de hoje usa essas curvas; a FIDO precisa rever atestação, PIN/UV e CTAP [21]. Classe de referência: o próprio cronograma NIST prevê cinco anos entre depreciação e proibição [19]; 2036 assume que a população acompanha com um ano de atraso.</li><li><code>e14.1</code> porque o CTAP-HID tem limites de tamanho de mensagem que assinaturas pós-quânticas podem estourar [21].</li><li><code>e14.1.1</code> porque o emissor que exige a chave arca com a troca, como ocorreu com cartão com chip (analogia de memória, não aberta).</li><li><code>e14.2</code> porque reinscrição é o fluxo atacado em <code>e1.1</code> [3].</li><li><code>e14.2.1</code> porque a migração invisível só é possível para quem controla a sincronia.</li><li><code>e15</code> porque chaves e assinaturas maiores exigem mais memória e banda [21]. Quem bloqueia d4: fabricantes de hardware barato e de chave física, que preferem adiar a revisão.</li><li><code>e15.1</code> porque o ciclo de troca de celular é mais longo onde a renda é menor (inferência sem número; sinal fraco).</li><li><code>e15.1.1</code> porque o banco é quem assume o risco da fraude e tem incentivo para impor o requisito.</li></ul>
+<h3 id="regra-de-parada">Regra de parada</h3>
+<ul><li>"Mais serviços aceitam passkey" não é filho de <code>e1</code>: é o pai mais adiante (contexto).</li><li>"Mais países retiram o ADP" é <code>e6.1</code> mais adiante, não terceira ordem.</li><li>"Mais apps local-first de finanças" é <code>e9</code> mais adiante.</li><li>Em <code>e7</code>, só um filho: o próximo nível ("moderadores humanos passam a ler denúncias") não troca de ator nem de mecanismo em relação à moderação de hoje.</li><li>Em <code>e10</code>, <code>e11</code>, <code>e12</code> e <code>e15</code>, só um filho de segunda ordem: os candidatos a segundo filho repetiam o pai (ver 12.5).</li></ul>
+<h3 id="cruzamentos-4">Cruzamentos (§4)</h3>
+<p><strong>Convergência 1 — o fluxo de reinscrição é o ponto fraco de três raízes.</strong> <code>e1.1</code> (d1: a central vira alvo), <code>e8.1</code> (d2: o golpe da chave temporária) e <code>e14.2</code> (d4: a reemissão em massa) chegam ao mesmo efeito de segunda ordem — o momento em que uma chave é reemitida ou concedida é onde o ataque se concentra. É o achado mais valioso do mapa para quem projeta: o desenho da recuperação e da migração decide a segurança, mais que a criptografia.</p>
+<p><strong>Convergência 2 — morte e obsolescência se encontram.</strong> <code>e2</code> (d1: a morte tranca o dado), <code>e11</code> (d3: o arquivo se fragmenta) e <code>e13.2.1</code> (d4: o arquivo de quem morreu é o primeiro a ficar exposto) mostram o mesmo objeto por dois lados opostos: o dado de quem morreu tende a ficar <strong>inacessível para quem deveria abrir e aberto para quem não deveria</strong>. É específico do horizonte de 20 anos: em cinco anos, nem a morte em massa de usuários de passkey nem o computador quântico estão na janela.</p>
+<p><strong>Convergência 3 — concentração volta pela porta da conveniência.</strong> <code>e4</code> (chaveiro sincronizado), <code>e12.1</code> (servidor de permissões) e <code>e14.2.1</code> (migração invisível) reconcentram poder em quem controla a sincronia.</p>
+<p><strong>Retroalimentação.</strong></p>
+<ul><li>Reforça: <code>e2.1.1</code> (etiqueta herdável) e <code>e11.1</code> (doação de chaves) dão ao local-first a peça que falta para ser aceitável a famílias e instituições, reforçando d3.</li><li>Enfraquece: <code>e6</code> (Estado muda o alvo para o aparelho) e <code>e3.1.1</code> (carteira que rastreia) podem esvaziar d1 e d2 — a soberania do dado muda de lugar, não se completa.</li><li>Enfraquece: <code>e13</code> mostra que o servidor cego de hoje pode ser o vazamento de amanhã; se isso ficar visível antes de 2040, a confiança em d2 cai.</li></ul>
+<p><strong>Contradição.</strong></p>
+<ol><li><code>e2.1</code> (a lei protege a privacidade do morto e proíbe acesso a mensagens) × <code>e11.1</code> (arquivos pedem as chaves para preservar a história). O que decide: se a lei brasileira aprovada mantiver a proibição de acesso às mensagens [7], a doação de chaves só vale com consentimento em vida.</li><li><code>e4.2.1</code> (chave presa ao aparelho para alto risco) × <code>e14.2.1</code> (a chave presa perde na migração). O que decide: se a FIDO resolver a migração de chave física [21] antes de 2035.</li></ol>
+<h3 id="cobertura-steep-e-quem-perde">Cobertura STEEP e quem perde</h3>
+<ul><li><strong>Social:</strong> <code>e1.2.1</code>, <code>e2.2</code>, <code>e3.2</code>, <code>e11</code>, <code>e13.1</code>. <strong>Tecnológico:</strong> <code>e1</code>, <code>e5</code>, <code>e9</code>, <code>e10</code>, <code>e14</code>. <strong>Econômico:</strong> <code>e3.1</code>, <code>e5.2</code>, <code>e9.2</code>, <code>e12</code>, <code>e14.1</code>. <strong>Ecológico:</strong> <code>e14.1</code> (lixo eletrônico de chaves), <code>e15.1.1</code> (troca forçada de celular) — cobertura fraca, registrada. <strong>Político:</strong> <code>e3.1.1</code>, <code>e6</code>, <code>e6.2</code>, <code>e4.1</code>.</li><li><strong>Quem perde:</strong> idosos e curatelados (<code>e2.2</code>), quem não tem aparelho ou documento (<code>e3.2</code>), herdeiros (<code>e2</code>), historiadores e arquivos (<code>e11</code>), fontes jornalísticas antigas (<code>e13.1</code>), quem comprou chave física (<code>e14.1</code>), usuários de celular barato (<code>e15.1</code>), corretores de dado (<code>e5.2.1</code>), centrais de atendimento como canal de ajuda (<code>e8</code>).</li></ul>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<h3 id="sinais-fracos">Sinais fracos</h3>
+<ol><li><strong>IA de finanças que não sai da máquina</strong> — accountant24 (54 estrelas) [28], TaxHacker (6.715) [29]. Mudaria: <code>e9.2</code> sobe de sinal. Sinal observável: um escritório de contabilidade anunciar que aceita "relatório do agente do cliente" em vez de extrato.</li><li><strong>Controle de acesso sem servidor</strong> — Keyhive/BeeKEM, artigo publicado e automerge-repo refatorado para cifra [23][24]. Mudaria: <code>e12.1</code> cai e <code>e12.1.1</code> sobe. Observável: um app com mais de um milhão de usuários anunciar sincronia via Beelay ou equivalente.</li><li><strong>Herança como objeto de lei no Brasil</strong> — PL 4/2025 com "inventariante digital" [7]. Mudaria: <code>e2.1</code> e <code>e2.1.1</code> sobem. Observável: aprovação no plenário do Senado com o artigo sobre mensagens privadas intacto.</li><li><strong>Migração adversarial de conta</strong> — AT Protocol permite sair de um servidor que não coopera usando chave de rotação própria [22]. Mudaria: a identidade social passa a ter o mesmo modelo de d1. Observável: outra rede grande adotar chave de rotação controlada pelo usuário.</li><li><strong>Estimativas de quebra de P-256 caindo em série</strong> [17][18]. Mudaria: d4 antecipa, <code>e13</code> vai de 2040 para meados da década de 2030. Observável: nova estimativa abaixo de 1.000 qubits lógicos ou demonstração pública de fatoração em escala relevante.</li><li><strong>Desconhecimento das ferramentas de herança</strong> — a busca trouxe um estudo da Carnegie Mellon (abril de 2026) em que quase nenhum idoso conhecia o Contato de Legado ou o Gerenciador de Contas Inativas; <strong>não aberto</strong>, só visto no resumo da busca (12.4). Se confirmado, reforça <code>e2</code> e <code>e2.2</code>.</li></ol>
+<h3 id="wildcards">Wildcards</h3>
+<ol><li><strong>Q-Day anunciado de surpresa (antes de 2032).</strong> Mecanismo: um Estado ou laboratório demonstra quebra de P-256 antes da migração das passkeys e dos backups. Improvável porque as estimativas centrais estão em 10–15 anos [20]. Faria com o mapa: <code>e13</code>, <code>e14</code> e <code>e14.2</code> viram eventos de um ano, não de uma década; a reinscrição em massa acontece sob ataque. Sinal precoce: governos acelerando prazos do CNSA 2.0 ou do NIST [19] sem explicação pública.</li><li><strong>Lei que obriga local-first ou E2E por padrão para dado sensível (saúde, finanças).</strong> Mecanismo: após vazamento de grande escala, um regulador (UE ou ANPD, que em 2026 virou agência com orçamento próprio, segundo resumo de busca não aberto) exige que o fornecedor não consiga ler o dado. Improvável porque o movimento regulatório dominante é o oposto [11][12]. Faria: d2 e d3 saltam de nicho para maioria em setores regulados; <code>e12</code> desaparece. Sinal precoce: norma setorial citando "o controlador não deve ter acesso ao conteúdo".</li><li><strong>Falha em massa do segredo mestre de uma plataforma.</strong> Mecanismo: o ataque "Golden" da Unit 42 [3] ou equivalente explorado em escala; como o SDS não tem revogação, milhões de pessoas precisam reemitir tudo. Improvável porque exige malware prévio em muitos aparelhos. Faria: <code>e4.2.1</code> vira regra em meses; a confiança no chaveiro sincronizado cai. Sinal precoce: CVE atribuída a extração de SDS explorada em campo.</li><li><strong>Colapso da carteira estatal por falha de privacidade.</strong> Mecanismo: descobre-se que uma carteira nacional registra cada apresentação. Improvável porque o desenho europeu prevê divulgação seletiva. Faria: <code>e3</code> recua e <code>e3.1.1</code> vira pauta pública. Sinal precoce: auditoria independente publicada sobre logs do emissor.</li></ol>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o próprio mapa</h2>
+<h3 id="pre-mortem-e-2046-e-este-mapa-estava-errado-por-que">Pré-mortem: é 2046 e este mapa estava errado. Por quê?</h3>
+<ol><li><strong>A sincronia da plataforma venceu tudo.</strong> O chaveiro sincronizado, a IA em enclave e o backup "cifrado" das três plataformas resolveram recuperação, herança e migração pós-quântica de forma invisível; d1 e d3 nunca saíram do nicho porque a conveniência do intermediário foi suficiente. Aponta para <code>e1</code>, <code>e9</code>, <code>e10</code>. Consequência: <code>e9</code> rebaixado de alta para media; <code>e4</code> mantido em alta (é o cenário que este pré-mortem descreve).</li><li><strong>O computador quântico não chegou.</strong> Em 2046 a estimativa ainda está "a quinze anos". Aponta para d4 inteira. Consequência: <code>e13</code> empurrado de 2036 para 2040; <code>e14</code> mantido em 2036 porque a reemissão é imposta pelo cronograma do NIST [19], não pelo quântico — ou seja, ela acontece mesmo que o quântico não venha.</li><li><strong>A delegação na velhice foi resolvida por procuração em papel e pelo celular desbloqueado entregue ao filho.</strong> O mapa superestimou a formalização técnica. Aponta para <code>e2.2</code> e <code>e2.2.1</code>. Consequência: <code>e2.2</code> rebaixado de media para baixa.</li></ol>
+<h3 id="extrapolacao-linear">Extrapolação linear</h3>
+<ul><li><code>e9</code> ("apps pequenos nascem local-first") é o presente mais adiante; o que o salva de virar contexto é o mecanismo não-linear em <code>e9.1</code>: quando a primeira grande empresa fecha e o app continua funcionando, a expectativa do consumidor muda de patamar.</li><li><code>e6.1</code> ("proteção depende do país") é extrapolação do caso do Reino Unido [11]; mantido com confiança media, sem terceira ordem com confiança acima de baixa.</li><li><code>e3.1</code> (custo de onboarding cai) é extrapolação de uma estimativa de fornecedor [10]; prazo empurrado (abaixo).</li></ul>
+<h3 id="velocidade-de-adocao">Velocidade de adoção</h3>
+<ul><li><code>e3.1</code>: prazo 2029 → 2031. A EUDI tinha menos de um terço dos Estados prontos e a Alemanha só terá a carteira pública em 2027 [10]; a classe de referência (regulação com prazo legal) mostra atraso de ao menos dois anos.</li><li><code>e5.2</code>: prazo 2032 → 2036. Nenhum produto aberto mostra personalização no aparelho substituindo perfil no servidor; exigir isso em seis anos seria mais rápido que a própria cifra de mensagem, que levou anos de padrão a maioria.</li><li><code>e11</code>: prazo 2036 → 2040. Depende de local-first chegar a uma fração relevante dos arquivos pessoais; d3 levou sete anos (2019 → 2026) sem sair do nicho [1][24][25].</li><li><code>e13</code>: prazo 2036 → 2040 (ver pré-mortem 2).</li></ul>
+<h3 id="a-raiz-que-nao-acontece">A raiz que não acontece</h3>
+<ul><li><strong>Sem d1:</strong> sobra d2 e d3 quase intactos; <code>e2</code> (morte tranca o dado) continua, porque o dado cifrado tranca mesmo com senha. O mapa não depende só de d1.</li><li><strong>Sem d2:</strong> <code>e5</code>–<code>e8</code> somem; d3 perde a sincronia cifrada, mas <code>e9</code> e <code>e10</code> continuam. Sem d2, <code>e13</code> perde metade da razão (sem servidor cego guardando backup cifrado, sobra a mensagem).</li><li><strong>Sem d3:</strong> <code>e9</code>–<code>e12</code> somem; <code>e11</code> (arquivo fragmentado) vira improvável. d1, d2 e d4 continuam.</li><li><strong>Sem d4 (sem quântico):</strong> <code>e13</code> e seus filhos somem; <code>e14</code> continua por imposição do NIST [19]; <code>e15</code> continua em forma menor.</li><li>Conclusão: o mapa não é uma raiz só disfarçada; a dependência mais forte é d2 → d4 (o servidor cego é o arquivo que o quântico abre).</li></ul>
+<h3 id="suposicoes-escondidas">Suposições escondidas</h3>
+<ol><li><strong>As plataformas continuam permitindo apps de terceiros com cifra própria.</strong> Se o sistema operacional fechar o acesso a armazenamento cifrado por terceiros, d3 cai. Vira wildcard implícito.</li><li><strong>O Estado brasileiro mantém o gov.br como porta única.</strong> Se a identidade for fragmentada, <code>e3</code> perde força no Brasil.</li><li><strong>Energia e hardware para réplica doméstica continuam baratos.</strong> <code>e10.1</code> assume isso.</li><li><strong>Os padrões pós-quânticos atuais (ML-KEM, ML-DSA) não são quebrados por matemática clássica.</strong> Se forem, d4 recomeça do zero — novo wildcard, não incluído na roda.</li><li><strong>A lei continua distinguindo "herdável" de "privado".</strong> O PL 4/2025 faz isso [7]; se o texto final mudar, <code>e2.1</code> muda.</li></ol>
+<h3 id="vies-do-autor">Viés do autor</h3>
+<ul><li>A zona "Pessoas e dados" e o material da turma (finanças com privacidade) puxam o mapa para o lado de quem ganha com a soberania. <code>e9</code> e <code>e9.2</code> estão aqui em parte porque a turma os trouxe; foram mantidos com confiança media, não alta.</li><li>O horizonte longo puxa para temas de morte e arquivo, que são atraentes como narrativa; <code>e11.1</code> e <code>e11.1.1</code> ficaram com confiança baixa por isso.</li><li>O autor tende a ver a regulação estatal como ameaça à cifra; o mapa tenta equilibrar com <code>e3.2.1</code> e o wildcard 2 (regulação a favor).</li></ul>
+<h3 id="calibracao">Calibração</h3>
+<p>Contagem antes da bateria: ordem 1 — alta 5 · media 10 · baixa 0; ordem 2 — alta 0 · media 21 · baixa 3; ordem 3 — alta 0 · media 0 · baixa 24. Depois (a do bloco): ordem 1 — alta 4 · media 11 · baixa 0; ordem 2 — alta 0 · media 17 · baixa 7; ordem 3 — alta 0 · media 0 · baixa 24. A distribuição cai com a ordem: alta só na 1ª ordem (4 de 15, os efeitos com caso documentado hoje: <code>e1</code>, <code>e2</code>, <code>e4</code>, <code>e6</code>), nenhuma alta na 2ª e toda a 3ª em baixa. As mudanças de ordem 2 são <code>e2.2</code>, <code>e5.2</code>, <code>e6.2</code> e <code>e15.1</code> (media → baixa); a de ordem 1 é <code>e9</code> (alta → media). <em>(O verificador da seção 12.1 confere os números "depois".)</em></p>
+<h3 id="registro-de-alteracoes">Registro de alterações</h3>
+<div class="tabela-envolve"><table><thead><tr><th>id</th><th>campo</th><th>antes</th><th>depois</th><th>por quê</th></tr></thead><tbody><tr><td>e9</td><td>confianca</td><td>alta</td><td>media</td><td>pré-mortem 1: estrelas no GitHub são existência, não adoção [26]–[30]</td></tr><tr><td>e2.2</td><td>confianca</td><td>media</td><td>baixa</td><td>pré-mortem 3: demografia certa, dominância do caso sem nenhuma fonte</td></tr><tr><td>e3.1</td><td>prazo</td><td>2029</td><td>2031</td><td>EUDI com menos de um terço pronto; Alemanha só em 2027 [10]</td></tr><tr><td>e5.2</td><td>prazo</td><td>2032</td><td>2036</td><td>nenhum caso de personalização no aparelho substituindo perfil</td></tr><tr><td>e5.2</td><td>confianca</td><td>media</td><td>baixa</td><td>idem</td></tr><tr><td>e7</td><td>sinal</td><td>medio</td><td>fraco</td><td>nenhuma fonte aberta sobre denúncia com trecho em mensageiro cifrado</td></tr><tr><td>e11</td><td>prazo</td><td>2036</td><td>2040</td><td>d3 sete anos sem sair do nicho</td></tr><tr><td>e13</td><td>prazo</td><td>2036</td><td>2040</td><td>pré-mortem 2 e estimativa de 15 anos do GRI [20]</td></tr><tr><td>e15.1</td><td>confianca</td><td>media</td><td>baixa</td><td>sem número sobre ciclo de troca de celular no Brasil</td></tr><tr><td>e6.2</td><td>confianca</td><td>media</td><td>baixa</td><td>nenhuma fonte mostra operador evitando cifra por causa do STF</td></tr><tr><td>e8.2</td><td>—</td><td>"contadores perdem clientes para agentes locais"</td><td>removido (12.5)</td><td>teste da causa solta: aconteceria com IA na nuvem</td></tr><tr><td>e6.3</td><td>—</td><td>"verificação de idade no sistema operacional vira padrão global"</td><td>removido (12.5)</td><td>não depende do servidor cego; é tema de regulação de conteúdo</td></tr><tr><td>e1.3</td><td>—</td><td>"surge a profissão de designer de recuperação"</td><td>removido (12.5)</td><td>efeito proibido sem nome e mecanismo; conteúdo absorvido em <code>e1.2</code></td></tr></tbody></table></div>
+<p>Cota por raiz: d1 (<code>e2.2</code>, <code>e3.1</code>, <code>e1.3</code> removido), d2 (<code>e5.2</code>, <code>e7</code>, <code>e6.2</code>, <code>e6.3</code> removido), d3 (<code>e9</code>, <code>e11</code>, <code>e8.2</code> removido — estava sob d3 na primeira versão), d4 (<code>e13</code>, <code>e15.1</code>). Cumprida.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a máquina errou</h2>
+<ol><li><strong>O número "5 bilhões de passkeys".</strong> Aparece no comunicado da FIDO, que abri, mas que recusa o verificador automático (403). O resumo da Descope, que responde, <strong>não</strong> traz esse número — a ferramenta de leitura disse explicitamente que ele não está lá. Mantive o número na seção 3 atribuído ao comunicado, com a ressalva; ele não sustenta nenhum efeito.</li><li><strong>Datas de memória nas classes de referência.</strong> "Passkeys anunciadas em conjunto em 2022" e "cartão com chip" (em <code>e14.1.1</code>) vêm de memória; não abri fonte. Estão marcadas no texto. A classe de referência de <code>e1</code> se apoia na primeira data.</li><li><strong>O relatório do GRI não dá número para 20 anos.</strong> Uma leitura apressada extrapolaria "51–70% em 15 anos" para "mais de 70% em 2046". Não fiz isso no texto, mas a raiz d4 inteira assume que a probabilidade continua subindo depois de 15 anos — isso é inferência declarada na seção 3.</li><li><strong>Estudo da Carnegie Mellon sobre idosos e ferramentas de herança.</strong> Apareceu no resumo da busca com detalhes (abril de 2026, listas de senha na gaveta) que soam plausíveis demais para usar sem abrir. Não usei como fato; está como sinal fraco 6, marcado como não aberto.</li><li><strong>Discussão de HN sobre sync engines (item 47317254).</strong> Abri e tinha 1 ponto e 3 comentários — o resumo da busca a apresentava como discussão relevante. Troquei pela discussão de 2025 (467 pontos, 218 comentários) [25]. Um resumo de busca que infla a relevância de uma fonte é um erro que passaria se eu não abrisse.</li><li><strong>Status do ADP no Reino Unido.</strong> O resumo da busca dizia que "o Reino Unido retirou o pedido" e que "a Apple entrou com nova ação em agosto de 2026"; nenhuma das duas afirmações foi confirmada por página aberta. Usei só o que a página da Apple diz [11].</li><li><strong><code>e2.2</code> soa convincente e não tem fonte.</strong> O efeito de declínio cognitivo é forte como narrativa e fraco como evidência: não achei nenhum dado sobre perda de acesso por idade. Ficou com sinal fraco e confiança baixa.</li><li><strong>Custo de onboarding 70–100 € → 3–8 €.</strong> Número de fornecedor (Corbado) citando terceiros [10]; redondo o bastante para desconfiar. Usado só em <code>e3.1</code>, com a ressalva.</li></ol>
+<h2 id="9-tres-cenarios-para-2046">9. Três cenários para 2046</h2>
+<p><strong>Provável.</strong> Em 2046 quase ninguém digita senha, e quase ninguém é dono da própria chave: as passkeys foram reemitidas em algoritmo pós-quântico entre 2032 e 2038, de forma silenciosa, por dentro dos chaveiros das três plataformas, que se tornaram o intermediário de identidade de que o tema prometia se livrar. Serviços regulados aceitam a carteira estatal; o gov.br é a porta de quase tudo no Brasil, e há balcão para quem não tem aparelho. Os servidores de IA dessas plataformas rodam em enclave auditável, e o anúncio segmentado ainda existe fora deles. Local-first é comum em apps de nicho e em ferramentas profissionais, raro no consumo de massa. O problema social visível é o da geração que envelhece: famílias lidam com idosos que não conseguem mais operar a chave e com mortos cujo arquivo ficou trancado, porque poucos configuraram herança. Mensagens da década de 2010 copiadas por Estados começam a ser abertas, e uma ou duas revelações públicas acontecem. <strong>Sinal precoce:</strong> a migração pós-quântica de passkeys ser anunciada pelas plataformas antes de a FIDO fechar o padrão de chave física [21].</p>
+<p><strong>Desejável.</strong> Em 2046 a pessoa escolhe onde a chave mora e consegue levá-la entre plataformas, porque o CXP virou regra de concorrência. Todo app sério nasce com guardiões, delegação gradual e etiqueta herdável/morre-comigo; a lei brasileira de herança digital foi aprovada e a interface do inventariante existe. O arquivo de uma vida mora em réplicas cifradas da família e, por escolha em vida, parte dele é doada com chave a arquivos públicos com abertura programada. Tudo o que importava foi recifrado antes do quântico. Para chegar lá: padronizar portabilidade e herança do chaveiro até 2030; tornar a recifragem de acervos uma função do sistema operacional; concluir o julgamento do STF a favor da cifra; e financiar controle de acesso local-first aberto. <strong>Sinal precoce:</strong> um app de consumo com mais de dez milhões de usuários lançar herança com quórum de guardiões e etiqueta por dado.</p>
+<p><strong>Indesejável.</strong> Em 2046 a cifra existe, mas o Estado lê no aparelho: varredura no cliente e verificação de idade no sistema operacional viraram padrão em vários blocos, e a carteira estatal registra cada identificação. O chaveiro de uma plataforma sofreu comprometimento em massa sem revogação, e milhões de pessoas perderam contas de uma vez. O quântico chegou antes da recifragem, e o arquivo cifrado de mortos e de apps extintos foi aberto. A proteção forte ficou para quem tem aparelho caro e chave física; celulares baratos ficaram anos em cifra clássica. <strong>Sinal precoce:</strong> o regulamento europeu permanente aprovar exigência técnica sobre o aparelho, ou uma CVE de extração de segredo mestre de chaveiro sincronizado explorada em campo [3][12].</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> <em>O cofre que envelhece</em>: um app web de arquivo e finanças da família, local-first no navegador (Automerge ou SQLite no cliente), login só por passkey (<code>@simplewebauthn</code> [32]), sincronia cifrada por um relé que não lê (o servidor guarda só blobs cifrados), recuperação por quórum de guardiões (divisão de segredo de Shamir, com a chave de backup derivada por <code>argon2</code>), e uma etiqueta obrigatória em cada item: <strong>herdável</strong> ou <strong>morre comigo</strong>. Um painel mostra a "validade" de cada cifra (clássica ou híbrida pós-quântica) e oferece recifragem.</p>
+<p><strong>Que pergunta responde.</strong> Pessoas comuns conseguem montar e manter, sem ajuda, a estrutura de guardiões, herança e delegação de que d1 e d3 dependem? E o que decidem quando têm de classificar o próprio dado entre herdável e privado (<code>e2.1.1</code>)?</p>
+<p><strong>Tecnologia emergente usada, e por que não dá com a madura.</strong> Passkeys sem senha de fallback, CRDT local-first, sincronia cega e recuperação por quórum. Com a tecnologia madura (login com Google, backup na nuvem legível), o provedor resolve recuperação e herança por trás — exatamente o que o experimento quer tirar do caminho para ver o que a pessoa faz sozinha.</p>
+<p><strong>O que a turma faz em sala.</strong> Duplas, cada uma com dois aparelhos e dois colegas como guardiões. Quatro provas:</p>
+<ol><li><strong>Perder o aparelho:</strong> apagar o navegador e recuperar só com os guardiões.</li><li><strong>Morrer:</strong> um colega "morre"; o herdeiro tenta abrir o que é herdável e não deve conseguir abrir o resto.</li><li><strong>Envelhecer:</strong> o titular passa a ter "limitação" (não pode digitar PIN); um familiar ativa delegação gradual.</li><li><strong>Trocar a cifra:</strong> simular o Q-Day — o que foi cifrado só com curva clássica abre para a turma; o que foi recifrado não.</li></ol>
+<p>Mede-se: tempo até recuperar, número de pedidos de ajuda, fração de itens marcados herdável, quantos guardiões a pessoa escolhe e por quê.</p>
+<p><strong>O resultado que faria mudar de ideia.</strong> Se mais da metade das duplas não recuperar a conta em dez minutos sem ajuda, ou se a maioria preferir "deixar a plataforma cuidar" quando oferecida a opção, <code>e1</code>, <code>e1.2</code> e <code>e2.1.1</code> caem de confiança e o cenário provável (intermediário renovado) ganha peso. Se, ao contrário, a turma recuperar com facilidade e marcar menos de 20% dos itens como herdáveis, <code>e11.1</code> (doação de chaves a arquivos) fica ainda menos provável e a contradição 1 se resolve a favor da privacidade.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li><a href="https://www.inkandswitch.com/essay/local-first/">https://www.inkandswitch.com/essay/local-first/</a> — Kleppmann, Wiggins, van Hardenberg, McGranaghan, "Local-first software" (Onward! 2019, abril de 2019): sete ideais, "The Long Now". Sustenta d3, <code>e9.1</code>, classe de referência de d3. Confiabilidade alta: texto fundador, lido na fonte.</li><li><a href="https://www.descope.com/blog/post/2026-fido-report">https://www.descope.com/blog/post/2026-fido-report</a> — resumo do relatório FIDO 2026: 90%, 75%, 40%, 49%, 68%/30%/28%, 89%, 47%. Sustenta a recusa da passkey como raiz, <code>e1</code>. Confiabilidade média: fornecedor resumindo pesquisa encomendada pela FIDO (Sapio Research).</li><li><a href="https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/">https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/</a> — Unit 42, "Pass the Passkey" (03/08/2026): três ataques, SDS sem rotação nem revogação, malware prévio. Sustenta <code>e1.1</code>, <code>e4</code>, <code>e4.2</code>, <code>e14.2</code>, wildcard 3. Confiabilidade alta: pesquisa técnica primária.</li><li><a href="https://support.apple.com/guide/security/legacy-contact-security-secebf027fb8/web">https://support.apple.com/guide/security/legacy-contact-security-secebf027fb8/web</a> — Apple Platform Security: contato de legado, chave dividida, certidão de óbito, Chaveiro excluído. Sustenta <code>e1</code>, <code>e2</code>. Confiabilidade alta: documentação primária.</li><li><a href="https://en.wikipedia.org/wiki/Digital_inheritance">https://en.wikipedia.org/wiki/Digital_inheritance</a> — RUFADAA, ferramentas das plataformas, direitos de uso intransferíveis. Sustenta <code>e1</code>, <code>e2</code>. Confiabilidade média: enciclopédia; dado de adoção da RUFADAA desatualizado ("47 estados em 2021").</li><li><a href="https://www.sciencedaily.com/releases/2019/04/190427104813.htm">https://www.sciencedaily.com/releases/2019/04/190427104813.htm</a> — Öhman e Watson (Oxford, Big Data &amp; Society, 2019): mortos podem superar vivos no Facebook até 2070; "controlar este arquivo é controlar nossa história". Sustenta seção 2, <code>e11</code>. Confiabilidade média-alta: release da universidade sobre artigo revisado por pares; projeção com premissas declaradas.</li><li><a href="https://www12.senado.leg.br/noticias/infomaterias/2026/03/rede-social-selfies-e-milhas-aereas-na-partilha-novo-codigo-civil-delimita-heranca-digital">https://www12.senado.leg.br/noticias/infomaterias/2026/03/rede-social-selfies-e-milhas-aereas-na-partilha-novo-codigo-civil-delimita-heranca-digital</a> — Agência Senado (março de 2026): PL 4/2025, patrimônio digital, mensagens privadas inacessíveis, inventariante digital. Sustenta <code>e2.1</code>, contradição 1, sinal fraco 3. Confiabilidade alta sobre o texto do projeto; o projeto não é lei.</li><li><a href="https://www.uai.com.br/economia/2026/02/19/nova-atualizacao-do-gov-br-nao-vai-mais-pedir-reconhecimento-facial-nem-senha-para-acessar-o-aplicativo/">https://www.uai.com.br/economia/2026/02/19/nova-atualizacao-do-gov-br-nao-vai-mais-pedir-reconhecimento-facial-nem-senha-para-acessar-o-aplicativo/</a> — gov.br com passkey (19/02/2026), requisitos. Sustenta nota Brasil, <code>e1</code>, <code>e1.1.1</code>, <code>e3.2</code>. Confiabilidade média: imprensa regional, sem dado de uso.</li><li><a href="https://www.corbado.com/blog/credential-exchange-protocol-cxp-credential-exchange-format-cxf">https://www.corbado.com/blog/credential-exchange-protocol-cxp-credential-exchange-format-cxf</a> — CXF/CXP, HPKE, implementação Apple, contribuidores. Sustenta <code>e4.1</code>. Confiabilidade média: blog de fornecedor.</li><li><a href="https://www.corbado.com/blog/eudi-wallet-2026-deadline-rollout-eic-2026">https://www.corbado.com/blog/eudi-wallet-2026-deadline-rollout-eic-2026</a> — EUDI: prazo, menos de um terço prontos, sandbox alemã, custo 70–100 × 3–8 euros. Sustenta <code>e3</code>, <code>e3.1</code>, ajuste de prazo. Confiabilidade média: fornecedor citando terceiros.</li><li><a href="https://support.apple.com/en-us/122234">https://support.apple.com/en-us/122234</a> — Apple: ADP indisponível para novos usuários no Reino Unido; categorias que perdem e mantêm cifra. Sustenta <code>e6</code>, <code>e6.1</code>. Confiabilidade alta: fonte primária.</li><li><a href="https://www.eff.org/deeplinks/2026/04/eu-parliament-blocks-mass-scanning-our-chats-whats-next">https://www.eff.org/deeplinks/2026/04/eu-parliament-blocks-mass-scanning-our-chats-whats-next</a> — EFF (07/04/2026, atualizado em 05/08/2026): votação, varredura até 03/04/2028, regulamento permanente. Sustenta <code>e6</code>. Confiabilidade média: organização com posição declarada.</li><li><a href="https://isoc.org.br/noticia/policy-brief-criptografia-em-juizo-consideracoes-sobre-julgamento-da-adi-5527-e-da-adpf-403-pelo-stf">https://isoc.org.br/noticia/policy-brief-criptografia-em-juizo-consideracoes-sobre-julgamento-da-adi-5527-e-da-adpf-403-pelo-stf</a> — ISOC Brasil (policy brief de 26/05/2025, notícia de 19/10/2025): votos de Rosa Weber e Fachin. Sustenta <code>e6.2</code>, <code>e6.2.1</code>. Confiabilidade média: organização com posição declarada; não informa decisão final.</li><li><a href="https://security.apple.com/blog/private-cloud-compute/">https://security.apple.com/blog/private-cloud-compute/</a> — Apple: Private Cloud Compute (10/06/2024), cinco requisitos. Sustenta d2, <code>e5</code>, <code>e5.1</code>. Confiabilidade média: fonte primária com interesse.</li><li><a href="https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/">https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/</a> — Meta: Private Processing (TEE, CVM, OHTTP, transparência, opcionalidade). Sustenta d2, <code>e5</code>, <code>e7.1</code>. Confiabilidade média: fonte primária com interesse.</li><li><a href="https://signal.org/blog/spqr/">https://signal.org/blog/spqr/</a> — Signal (02/10/2025): SPQR, Triple Ratchet, "colete agora, decifre depois". Sustenta d4, <code>e13</code>. Confiabilidade alta: fonte primária.</li><li><a href="https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/">https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/</a> — Google: ECDLP-256 com &lt;1.200 qubits lógicos, prova de conhecimento zero, meta de 2029. Sustenta d4, sinal fraco 5. Confiabilidade alta: fonte primária.</li><li><a href="https://blog.cloudflare.com/post-quantum-roadmap/">https://blog.cloudflare.com/post-quantum-roadmap/</a> — Cloudflare (07/04/2026): &gt;65% do tráfego humano pós-quântico, roteiro de autenticação até 2029, estimativa da Oratomic. Sustenta recusa do PQ no TLS, d4. Confiabilidade alta para o próprio tráfego.</li><li><a href="https://thequantuminsider.com/2026/05/08/post-quantum-migration-timelines-government-industry-impact/">https://thequantuminsider.com/2026/05/08/post-quantum-migration-timelines-government-industry-impact/</a> — prazos NIST (2030/2035), NSA CNSA 2.0, UE. Sustenta d4, <code>e14</code>, tabela do relógio. Confiabilidade média: imprensa especializada; bate com o documento do NIST visto na busca.</li><li><a href="https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b/">https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b/</a> — Mosca e Piani, Quantum Threat Timeline Report 2025 (09/03/2026): 26 especialistas, 28–49% em 10 anos, 51–70% em 15. Sustenta d4, <code>e13</code>, wildcard 1. Confiabilidade média-alta: série anual de referência, amostra pequena.</li><li><a href="https://www.biometricupdate.com/202609/passkeys-in-the-post-quantum-era-why-fido-needs-more-than-new-algorithms">https://www.biometricupdate.com/202609/passkeys-in-the-post-quantum-era-why-fido-needs-more-than-new-algorithms</a> — Thiers (Swissbit), 16/09/2026: atestação, PIN/UV, tamanho de chave, CTAP-HID, sem cronograma. Sustenta d4, <code>e14</code>, <code>e14.1</code>, <code>e15</code>. Confiabilidade média: artigo de fabricante em veículo setorial.</li><li><a href="https://atproto.com/guides/account-migration">https://atproto.com/guides/account-migration</a> — AT Protocol: migração, migração adversarial, chaves de rotação. Sustenta sinal fraco 4. Confiabilidade alta: documentação oficial.</li><li><a href="https://www.inkandswitch.com/project/keyhive/">https://www.inkandswitch.com/project/keyhive/</a> — Keyhive, BeeKEM, Beelay (2024–2026). Sustenta d3, <code>e12.1</code>, <code>e12.1.1</code>. Confiabilidade alta: laboratório autor.</li><li><a href="https://automerge.org/blog/2026-july/">https://automerge.org/blog/2026-july/</a> — Automerge (julho de 2026): versões 3.3, automerge-repo 2.6, refatoração para cifra, artigo do BeeKEM, usuários. Sustenta d3, <code>e12.1</code>, sinal fraco 2. Confiabilidade alta como relato do projeto.</li><li><a href="https://news.ycombinator.com/item?id=44833834">https://news.ycombinator.com/item?id=44833834</a> — "Linear sent me down a local-first rabbit hole" (08/08/2025, 467 pontos, 218 comentários). Sustenta d3 (o que falta), <code>e10</code>. Confiabilidade média como termômetro social; baixa como evidência técnica.</li><li><a href="https://github.com/tombadilo-bombadilo/budgero">https://github.com/tombadilo-bombadilo/budgero</a> — budgero, 21 estrelas (22/09/2026). Sustenta <code>e9</code>. Confiabilidade alta como existência; nula como adoção.</li><li><a href="https://github.com/shynewt/kostos">https://github.com/shynewt/kostos</a> — kostos, 43 estrelas. Sustenta <code>e9</code>. Mesma ressalva.</li><li><a href="https://github.com/machulav/accountant24">https://github.com/machulav/accountant24</a> — accountant24, 54 estrelas. Sustenta <code>e9.2</code>, sinal fraco 1. Mesma ressalva.</li><li><a href="https://github.com/vas3k/TaxHacker">https://github.com/vas3k/TaxHacker</a> — TaxHacker, 6.715 estrelas. Sustenta <code>e9</code>, <code>e9.2</code>. Confiabilidade alta como existência.</li><li><a href="https://github.com/rotki/rotki">https://github.com/rotki/rotki</a> — rotki, 4.029 estrelas. Sustenta <code>e9</code>. Confiabilidade alta como existência.</li><li><a href="https://github.com/inkandswitch/keyhive">https://github.com/inkandswitch/keyhive</a> — repositório do Keyhive, 248 estrelas, atividade em 22/09/2026. Sustenta sinal fraco 2. Confiabilidade alta como existência.</li><li><a href="https://github.com/MasterKale/SimpleWebAuthn">https://github.com/MasterKale/SimpleWebAuthn</a> — <code>@simplewebauthn</code>, 2.352 estrelas. Sustenta o experimento. Confiabilidade alta como existência.</li><li><a href="https://github.com/better-auth/better-auth">https://github.com/better-auth/better-auth</a> — better-auth, 30.058 estrelas. Sustenta "quem constrói" e o substrato do experimento. Confiabilidade alta como existência.</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-saida-do-verificador">12.1 Saída do verificador</h3>
+<p>Comando: <code>python3 futurizacao-giordano/references/verificar.py tendencia-soberania-de-dados-local-first-ponta-a-ponta-e-o-fim-da-senha.md --links</code> (22/09/2026).</p>
+<pre><code class="lang-">frontmatter: 18/18 campos
+títulos literais: 12/12
+raízes: 4 (frontmatter diz 4)
+efeitos ordem 1: 15 (frontmatter diz 15)
+efeitos ordem 2: 24 (frontmatter diz 24)
+efeitos ordem 3: 24 (frontmatter diz 24)
+prazo &gt; horizonte (2046) em ordens 1-2: 0 
+prazo &gt; horizonte em ordem 3 (permitido, mas declare): 2 [(&#x27;e11.1.1&#x27;, 2050), (&#x27;e13.1.1&#x27;, 2048)]
+confiança ordem 1: alta 4 · media 11 · baixa 0
+confiança ordem 2: alta 0 · media 17 · baixa 7
+confiança ordem 3: alta 0 · media 0 · baixa 24
+links da seção 11: 33/33 respondem (frontmatter diz fontes: 33)
+RESULTADO: ok</code></pre>
+<p>Os dois efeitos de 3ª ordem além do horizonte (<code>e11.1.1</code>, 2050; <code>e13.1.1</code>, 2048) estão declarados na seção 5 como fora da janela do mapa.</p>
+<h3 id="12-2-premissas-assumidas-e-o-que-o-briefing-nao-cobria">12.2 Premissas assumidas e o que o briefing não cobria</h3>
+<ul><li>O briefing cobriu horizonte (2046), público, recorte (global com nota Brasil), descarte (o que já é comum em produto de massa), viés (neutro), raiz suspeita (nenhuma), falseador (adoção além da maioria inicial, ou tecnologia que só melhora o que existe) e profundidade (três ordens). Por isso <strong>não houve rebaixamento</strong> de confiança por falta de entrevista.</li><li><strong>Não coberto e assumido:</strong> (a) o que conta como "Brasil" na nota — tratado nos efeitos <code>e3.2</code>, <code>e6.2</code>, <code>e6.2.1</code>, <code>e15.1</code> e na seção 3; (b) se o autor quer o mapa independente da rodada de 2041 do mesmo tema — assumi que sim: a rodada de 2041 foi lida <strong>só</strong> para evitar repetir buscas mortas (lista de fontes e buscas), não a roda; a roda foi escrita do zero para o horizonte de 20 anos, com ênfase nova em envelhecimento, arquivo e doação de chaves; (c) a probabilidade de computador quântico em 20 anos — assumida maior que a de 15 anos, sem número (seção 3).</li><li><strong>Aplicação do falseador:</strong> passkey como login foi recusada como raiz exatamente pelo primeiro critério (75%/49% [2]); cifra de mensagem e acordo pós-quântico no TLS, pelo mesmo motivo.</li></ul>
+<h3 id="12-3-buscas-feitas-22-09-2026">12.3 Buscas feitas (22/09/2026)</h3>
+<ol><li>"FIDO Alliance passkey index 2026 adoption report" — aberto o comunicado da FIDO (403 no verificador) e o resumo da Descope [2].</li><li>"digital inheritance passkeys death account access problem 2026" — aberta a Wikipedia [5]; o resumo citava o estudo da Carnegie Mellon (não aberto) e escritórios de advocacia (não abertos).</li><li>"quantum threat timeline report 2025 Mosca Global Risk Institute" — aberto [20].</li><li>"local-first software 2026 Automerge sync engine production adoption" — aberto o blog do Automerge de julho de 2026 [24]; FOSDEM 2026 com trilha local-first (não aberto); blogs agregadores (não usados).</li><li>"gov.br chave de acesso passkey 2026 login sem senha" — aberto UAI [8].</li><li>"Unit 42 passkey security domain secret attack 2026" — aberto Unit 42 [3].</li><li>"Öhman Watson dead Facebook users outnumber living 2070" — aberto ScienceDaily [6].</li><li>"Credential Exchange Protocol CXP FIDO passkey portability 2026 status" — aberto Corbado [9]; resumo citava CXF como Proposed Standard em agosto de 2025 (Bitwarden, não aberto) — o texto usa só o que o Corbado diz.</li><li>"NIST IR 8547 deprecate RSA ECC 2030 disallowed 2035" — PDF do NIST listado, não aberto; aberto Quantum Insider [19].</li><li>"EUDI wallet December 2026 member states rollout readiness" — aberto Corbado [10].</li><li>"ANPD portabilidade de dados regulamentação 2026 LGPD" — nenhum aberto; o resumo citava Resolução CD/ANPD nº 19/2024 (JSON e CSV) e a ANPD como agência reguladora em 2026; mencionado só no wildcard 2 como não aberto.</li><li>"Apple Advanced Data Protection UK withdrawn 2026 update" — aberta a página da Apple [11]; afirmações do resumo sobre nova ação judicial não usadas.</li><li>"reforma Código Civil herança digital patrimônio digital senado 2026" — aberta a Agência Senado [7].</li><li>"Chat Control EU regulation 2026 vote encryption scanning" — aberto EFF [12]; resumo citava votação de 09/07/2026 (314 × 276, quórum de 361) de fontes não abertas — não usado.</li><li>"Ink &amp; Switch Keyhive local-first access control BeeKEM" — aberto [23].</li><li>"Hacker News local-first sync engine discussion 2025 2026" — abertos o item 47317254 (1 ponto, descartado) e o 44833834 [25].</li><li>"passkey account recovery lost device study users locked out 2026" — só blogs de fornecedores (MojoAuth, Corbado FAQ, Authsignal); nenhum estudo com dado de usuários trancados; nada usado.</li><li>"STF criptografia WhatsApp ADI 5527 ADPF 403 julgamento" — aberta ISOC Brasil [13]; resumo citava retomada em 11/12/2024 (escritório Ayres Britto, não aberto).</li><li>Abertos sem busca própria (URLs conhecidos das fontes primárias): Apple Legacy Contact [4], Apple PCC [14], Meta Private Processing [15], Signal SPQR [16], Google quântico [17], Cloudflare [18], Biometric Update [21], AT Protocol [22].</li><li>GitHub via <code>gh api repos/...</code>: budgero, kostos, accountant24, TaxHacker, rotki, keyhive, SimpleWebAuthn, better-auth [26]–[33].</li></ol>
+<h3 id="12-4-o-que-nao-abriu-ou-abriu-e-nao-serviu">12.4 O que não abriu, ou abriu e não serviu</h3>
+<ul><li><code>https://fidoalliance.org/fido-alliance-reports-accelerating-global-passkey-adoption-on-world-passkey-day-2026/</code> — aberto pela ferramenta de leitura (5 bilhões de passkeys, 7 de maio de 2026, 11.000 consumidores e 1.400 decisores, margens de erro ±0,9 e ±2,6 p.p.), mas responde 403 ao verificador. Substituído na seção 11 pela Descope [2]; o número de 5 bilhões ficou atribuído a ele na seção 3, com ressalva.</li><li><code>https://www.businesswire.com/...</code> (mesmo comunicado) — tempo esgotado no verificador.</li><li><code>https://news.ycombinator.com/item?id=47317254</code> — "Choosing a Sync Engine for Local-First in 2026", 1 ponto, 3 comentários: irrelevante como termômetro.</li><li>Estudo da Carnegie Mellon (abril de 2026) sobre idosos e ferramentas de herança — só no resumo da busca.</li><li>NIST IR 8547 (PDF) — não aberto; prazos vêm de [19].</li><li>Resolução ANPD nº 19/2024 e Lei 15.352/2026 — só no resumo da busca.</li><li>Material da turma não procurado: fintrack, Atlas, happy-balance, wilson, finvo, mailquill, BeeCount, Termly, <code>webauthn-p256</code>, <code>fido2-lib</code>, <code>@passwordless-id/webauthn</code>, Rodauth, iron-session, jose, otplib.</li></ul>
+<h3 id="12-5-efeitos-e-ramos-cortados">12.5 Efeitos e ramos cortados</h3>
+<ul><li><strong>e8.2 "Contadores humanos perdem clientes para agentes locais"</strong> (primeira versão, sob d3) — falha no teste da causa solta: aconteceria igual com IA em nuvem.</li><li><strong>e6.3 "Verificação de idade no sistema operacional vira padrão global"</strong> — não depende do servidor cego; pertence a regulação de conteúdo. Fica mencionado como forma de <code>e6</code>.</li><li><strong>e1.3 "Surge a profissão de designer de recuperação"</strong> — efeito proibido sem nome e mecanismo; o conteúdo foi absorvido em <code>e1.2</code>.</li><li><strong>"Mais serviços aceitam passkey"</strong>, <strong>"mais países tiram o ADP"</strong>, <strong>"mais apps local-first"</strong>, <strong>"mais mensageiros adotam PQ"</strong> — regra de parada (pai mais adiante) ou contexto.</li><li><strong>Segundo filho de <code>e10</code>: "backup em nuvem legível volta como produto premium"</strong> — é o contrário do pai, não um filho; registrado como possibilidade no pré-mortem 1.</li><li><strong>Segundo filho de <code>e11</code>: "redes sociais descentralizadas guardam o arquivo público"</strong> — o arquivo público não é o objeto de <code>e11</code> (que é o pessoal cifrado); cortado.</li><li><strong>Segundo filho de <code>e15</code>: "IoT doméstico fica sem cifra pós-quântica"</strong> — correto, mas é <code>e15</code> mais adiante com outro aparelho; regra de parada.</li><li><strong>"Cursos de design passam a ensinar recuperação e herança"</strong> — efeito proibido; descartado.</li></ul>
+<h3 id="12-6-a-rodada-descartada">12.6 A rodada descartada</h3>
+<p>Primeira versão, antes das buscas sobre envelhecimento e arquivo: as mesmas quatro raízes, mas com d1 centrada em "portabilidade de identidade" (CXP, AT Protocol, EUDI) e sem os ramos <code>e2.2</code> e <code>e11</code>. Descartada porque, com horizonte de 20 anos, a portabilidade é o efeito menos novo (tem padrão e prazo já em 2026), enquanto morte, velhice e arquivo são os que mudam de natureza entre 2031 e 2046. A portabilidade ficou como <code>e4.1</code> e sinal fraco 4. Uma quinta raiz candidata — "o arquivo de vida autocustodiado" — foi absorvida em d3 (<code>e11</code>) e na convergência 2, para não passar de quatro raízes e porque não passa sozinha no critério "o que rompe" sem d3.</p>
+<h3 id="12-7-material-da-turma-usado-e-nao-usado">12.7 Material da turma usado e não usado</h3>
+<p>Usado com fonte aberta: budgero, kostos, accountant24, TaxHacker, rotki (varredura de inspiração); <code>@simplewebauthn</code> e better-auth (desenvolvimento); <code>argon2</code> e Shamir no experimento (sem fonte aberta própria — são componentes conhecidos, citados como escolha de desenho, não como evidência). Não usado como fonte: ver 12.4.</p></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>
