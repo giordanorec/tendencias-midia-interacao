@@ -103,7 +103,7 @@
   "estado": "abre para a turma no dia da apresentação",
   "aberto_em": null,
   "apresenta": "vafs",
-  "data": "2026-10-01",
+  "data": "2026-10-06",
   "mapas": 17,
   "roda": null,
   "confrontos": []
@@ -164,7 +164,7 @@
   "estado": "aberto à turma desde 24/09",
   "aberto_em": "2026-09-24",
   "apresenta": "mjbo",
-  "data": "2026-09-24",
+  "data": "2026-09-29",
   "mapas": 17,
   "roda": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/giordano/prancha-01-panorama.jpg",
   "confrontos": [
@@ -225,7 +225,7 @@
   "estado": "abre para a turma no dia da apresentação",
   "aberto_em": null,
   "apresenta": "jgpt",
-  "data": "2026-09-29",
+  "data": "2026-10-01",
   "mapas": 17,
   "roda": null,
   "confrontos": []
@@ -289,7 +289,7 @@
   "estado": "abre para a turma no dia da apresentação",
   "aberto_em": null,
   "apresenta": "meap",
-  "data": "2026-10-06",
+  "data": "2026-10-08",
   "mapas": 17,
   "roda": null,
   "confrontos": []
