@@ -160,13 +160,13 @@
   "familia": "Simulação e mundos",
   "frase": "A IA sai da tela e ganha corpo — e aprende num mundo que a própria IA inventou.",
   "url": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 24/09",
+  "aberto_em": "2026-09-24",
   "apresenta": "mjbo",
   "data": "2026-09-24",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
