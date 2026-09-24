@@ -304,13 +304,13 @@
   "familia": "Pessoas e dados",
   "frase": "Interfaces desenhadas para serem usadas menos. Depois de vinte anos otimizando engajamento, o design descobriu o valor da fricção.",
   "url": "/futuros/18-bem-estar-digital-e-design-de-friccao/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 24/09",
+  "aberto_em": "2026-09-24",
   "apresenta": "alpa2",
   "data": "2026-09-24",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/18-bem-estar-digital-e-design-de-friccao/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
