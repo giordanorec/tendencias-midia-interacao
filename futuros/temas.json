@@ -167,7 +167,20 @@
   "data": "2026-09-24",
   "mapas": 17,
   "roda": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "mjbo",
+    "url": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/confronto-mjbo/",
+    "imagem": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/confronto-mjbo/confronto-resumo.jpg",
+    "perguntas": [
+     "Uma previsão pode ser mais certa que aquela de que depende?",
+     "Que número, em 2028, mostraria se a empresa sem robôs alcança as grandes?",
+     "Se o robô encarecer até 2030, a comparação com o celular vale?",
+     "Que teste em sala mostraria se o robô entendeu a ordem ou só viu a cena?",
+     "Após um acidente, o que precisa estar guardado para culpar quem criou o mundo, e quem prefere não guardar?"
+    ]
+   }
+  ]
  },
  {
   "n": 10,
@@ -311,7 +324,20 @@
   "data": "2026-09-24",
   "mapas": 17,
   "roda": "/futuros/18-bem-estar-digital-e-design-de-friccao/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "alpa2",
+    "url": "/futuros/18-bem-estar-digital-e-design-de-friccao/confronto-alpa2/",
+    "imagem": "/futuros/18-bem-estar-digital-e-design-de-friccao/confronto-alpa2/confronto-resumo.jpg",
+    "perguntas": [
+     "Se o que a empresa escreve vira prova, ela escreve mais ou menos sobre o app?",
+     "Dá para fiscalizar pelo que a pessoa queria fazer, ou os minutos continuam mandando?",
+     "A Meta já adivinha a idade pelo comportamento. Isso ainda é futuro?",
+     "Conversa com assistente de IA não tem rolagem. Que pausa serviria, sem ser um relógio?",
+     "Se o modo calmo pode ser cobrado, quem paga pelo bem-estar?"
+    ]
+   }
+  ]
  },
  {
   "n": 19,

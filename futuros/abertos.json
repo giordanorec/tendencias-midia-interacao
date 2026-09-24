@@ -33,7 +33,13 @@
   "titulo": "Agentes corporificados, IA física e modelos de mundo",
   "url": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/",
   "aberto_em": "2026-09-24",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "mjbo",
+    "url": "/futuros/09-agentes-corporificados-ia-fisica-e-modelos-de-mundo/confronto-mjbo/",
+    "aberto_em": "2026-09-24"
+   }
+  ]
  },
  {
   "n": 18,
@@ -41,7 +47,13 @@
   "titulo": "Bem-estar digital e design de fricção",
   "url": "/futuros/18-bem-estar-digital-e-design-de-friccao/",
   "aberto_em": "2026-09-24",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "alpa2",
+    "url": "/futuros/18-bem-estar-digital-e-design-de-friccao/confronto-alpa2/",
+    "aberto_em": "2026-09-24"
+   }
+  ]
  },
  {
   "n": 19,
