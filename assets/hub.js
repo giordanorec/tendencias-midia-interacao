@@ -1,3 +1,17 @@
+/* ~grec/tmi/26-2 é o endereço público da disciplina (GREC-0010). Emoldurada pelo CIn, a página avisa
+   a rota a quem a emoldura; aberta direto no domínio da Vercel, devolve para o CIn. */
+(function () {
+  var CIN = "https://www.cin.ufpe.br", BASE = "/~grec/tmi/26-2";
+  var direto = /(^|[?&])direto=1/.test(location.search);
+  try { if (direto) sessionStorage.setItem("tmi-direto", "1"); } catch (e) {}
+  var ficar = direto; try { ficar = ficar || sessionStorage.getItem("tmi-direto") === "1"; } catch (e) {}
+  if (window.top !== window.self) {
+    var avisar = function () { try { parent.postMessage({ tipo: "tmi-rota", caminho: location.pathname + location.search + location.hash, titulo: document.title }, CIN); } catch (e) {} };
+    avisar(); addEventListener("hashchange", avisar); addEventListener("load", avisar);
+  } else if (location.hostname === "tendencias-midia-interacao.vercel.app" && !ficar) {
+    location.replace(CIN + BASE + location.pathname + location.search + location.hash);
+  }
+})();
 /* Central da disciplina — três comportamentos, sem dependência.
    1. tema claro/escuro, lembrado no aparelho;
    2. a seção AGORA marca o que passou, o que é hoje e o que é o próximo;

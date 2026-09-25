@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     return res.end();
   }
   const hash = crypto.createHash('sha256').update(esperada + '|tmi-futuros').digest('hex');
-  res.setHeader('Set-Cookie', `tmi_prof=${hash}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=31536000`);
+  res.setHeader('Set-Cookie', `tmi_prof=${hash}; Path=/; HttpOnly; Secure; SameSite=None; Partitioned; Max-Age=31536000`);
   res.statusCode = 302;
   res.setHeader('Location', destinoSeguro);
   res.end();
