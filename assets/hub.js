@@ -1,4 +1,4 @@
-/* ~grec/tmi/26-2 é o endereço público da disciplina (GREC-0010). Emoldurada pelo CIn, a página avisa
+/* ~grec/tmi/26-2 é o endereço público da disciplina (GREC-0015). Emoldurada pelo CIn, a página avisa
    a rota a quem a emoldura; aberta direto no domínio da Vercel, devolve para o CIn. */
 (function () {
   var CIN = "https://www.cin.ufpe.br", BASE = "/~grec/tmi/26-2";
