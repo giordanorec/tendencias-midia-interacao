@@ -253,13 +253,13 @@
   "familia": "Criação e plataforma",
   "frase": "Em vez de produzir o artefato, produzir a regra que produz o artefato. O que muda agora: a IA passou a escrever o gerador.",
   "url": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 29/09",
+  "aberto_em": "2026-09-29",
   "apresenta": "kvv",
   "data": "2026-09-29",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {

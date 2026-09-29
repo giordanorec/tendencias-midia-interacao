@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerar geradores: design procedural e creative coding com IA · mapa de kvv — Futuros — Tendências em Mídia e Interação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23db1e2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/futuros/futuros.css">
+<script>try{var t=localStorage.getItem("tema");if(t==="claro"||t==="escuro")document.documentElement.setAttribute("data-tema",t);}catch(e){}</script>
+</head>
+<body>
+<header class="topo">
+  <div class="pagina topo__interno">
+    <a class="marca" href="/"><span class="marca__ponto" aria-hidden="true"></span>Tendências em Mídia e Interação</a>
+    <nav aria-label="Principal"><a href="/#agora">Agora</a><a href="/#jornada">Etapas</a><a href="/temas/">Temas</a><a href="/futuros/" aria-current="page">Futuros</a><a href="/temas/escolher/">Escolher</a><a href="/experimento/">Experimento</a><a href="/materiais/">Materiais</a><a href="/galeria/">Galerias</a><button class="tema-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></nav>
+  </div>
+</header>
+<main id="conteudo">
+<section class="estreita doc-cabecalho"><p class="rotulo">Futuros · tema 14 · documento do aluno kvv</p><h1>Gerar geradores: design procedural e creative coding com IA · mapa de kvv</h1><p class="doc-nav"><a class="botao botao--linha" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/">← Todos os mapas deste tema</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/confronto-kvv/aluno">Documento do aluno</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/confronto-kvv/confronto">Confronto</a> <a class="botao botao--discreto" href="/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/confronto-kvv/aluno.md">Markdown</a></p></section>
+<section class="estreita doc-corpo"><h2 id="1-resumo">1. Resumo</h2>
+<p>Durante décadas, gerar por regra (procedural) e gerar por dado (pixel, malha, amostra) foram caminhos separados, e a IA generativa de 2022 a 2025 apostou quase tudo no segundo. Este mapa sustenta que, até 2031, a IA passa a ser sobretudo <strong>autora de geradores</strong>: ela reconstrói objetos como código que se pode ler e versionar, opera Houdini, Blender e Unreal por protocolo (MCP) e escreve o gerador no momento em que o conteúdo é pedido. As três disrupções-raiz (<em>o código como formato de ativo</em>, <em>a ferramenta de criação operada por agente</em> e <em>o gerador escrito em tempo de uso</em>) deslocam o valor do artefato para a regra, o trabalho do designer da execução para a especificação e a revisão, e a disputa de autoria da obra para o gerador. Para o Brasil, a janela é dupla: estúdios pequenos ganham acesso a pipelines procedurais antes restritos a grandes casas de efeitos visuais, mas crescem também o risco de "dívida procedural" e a dependência de poucos fornecedores de contexto para agentes.</p>
+<h2 id="2-o-tema">2. O tema</h2>
+<p><strong>Conceito.</strong> "Gerar geradores" é a passagem de <em>produzir o artefato</em> para <em>produzir a regra que produz o artefato</em>, com a IA escrevendo essa regra. O design procedural (L-systems, ruído de Perlin, Wave Function Collapse, geometry nodes, Houdini) existe há décadas e é maduro; o creative coding (Processing, p5.js, shaders) também [1]. O que é novo é o <strong>autor</strong> do gerador: um modelo de linguagem, muitas vezes guiado por um modelo de visão que olha o resultado renderizado e aponta o que corrigir, num laço fechado [2].</p>
+<p><strong>Pontos de contato com mídia e interação.</strong></p>
+<ul><li><em>3D e jogos</em>: objetos e mundos entregues como programas pequenos, parametrizáveis e animáveis, em vez de malhas pesadas [2][3].</li><li><em>Motion e animação</em>: Manim, Remotion, Cavalry e Rive, a animação como programa ou máquina de estados, agora escrita por agentes [1][21].</li><li><em>Interfaces de ferramentas criativas</em>: o grafo de nós e o editor deixam de ser a única porta; a intenção em linguagem natural entra por protocolo [4][7].</li><li><em>Educação</em>: explicações visuais geradas como código verificável [20][21][24].</li><li><em>Autoria e direito</em>: se o prompt sozinho não confere autoria [19], o gerador editado por pessoas pode virar o novo objeto de proteção.</li></ul>
+<p><strong>Por que exige mapa prospectivo e não estado da arte.</strong> O estado da arte responde "o que as ferramentas fazem hoje" e envelhece em meses. A pergunta decisiva do tema é de consequência: <em>se a representação editável e leve (programa) vencer a representação densa e opaca (pixel, malha, splat) em certos domínios, o que muda no ofício, no mercado de ativos, no direito e no ensino?</em> Isso depende de efeitos encadeados (quem revisa geradores? de quem é um gerador reconstruído a partir da foto de um produto?) que um levantamento de ferramentas não captura. Além disso, o tema faz fronteira com os temas 10 (captura de realidade, dado) e 12 (mídia sintética, pixel) [1]: o mapa precisa decidir <strong>onde</strong> a regra vence o dado, e não presumir que vence sempre.</p>
+<h2 id="3-onde-isso-esta-hoje">3. Onde isso esta hoje</h2>
+<p><strong>O que funciona.</strong></p>
+<ul><li><em>Reconstrução por código a partir de uma imagem.</em> O img2threejs, que a turma trouxe como destaque [1], recebe uma única imagem de referência e produz uma especificação JSON e uma função TypeScript que devolve um <code>THREE.Group</code>. O processo passa por oito etapas (do bloqueio de formas à otimização), com validação determinística entre elas, e funciona com Claude Code, Codex ou OpenCode [2]. A galeria pública mostra que cada objeto é construído por código revisável, sem malhas importadas nem pacotes de arte baixados [3].</li><li><em>CAD paramétrico e formas 3D como programa.</em> CAD-Llama traduz sequências de comandos de CAD para um formato de código estruturado e ajusta LLMs para gerá-lo [8]; um levantamento sistemático mapeia as aplicações de LLMs em fluxos de CAD [9]; ShapeLib usa LLMs para descobrir bibliotecas reutilizáveis de funções de modelagem procedural [10]; MeshCoder converte nuvens de pontos em scripts Python executáveis no Blender [11].</li><li><em>Shaders e creative coding.</em> No AI Co-Artist, um LLM faz evoluir shaders GLSL a partir das escolhas visuais do usuário; no estudo com usuários, iniciantes produziram cerca de sete vezes mais shaders do que com ferramentas tradicionais [12]. O ShadAR gera shaders por linguagem natural para alterar a visão em óculos de realidade aumentada, em tempo real [13]. O shader-spec-eval, protótipo declarado, testa se o shader gerado cumpre propriedades visuais mensuráveis [14].</li><li><em>Animação explicativa como programa.</em> O TheoremExplainAgent gera vídeos longos que explicam teoremas com animações Manim [20]; o Code2Video usa três agentes (planejador, codificador e crítico) para transformar um tema de aula em código Python executável [21]; o SGA acrescenta uma camada de verificação geométrica que detecta sobreposições no código Manim gerado e reporta ganho relativo de 16,1% numa métrica de qualidade visual [22]; o LLM2Manim propõe um pipeline com humano no circuito, com foco pedagógico [24].</li><li><em>Ferramentas de criação abrindo-se a agentes.</em> No SIGGRAPH 2026, em julho, NVIDIA e fabricantes como Adobe, Affinity, Blender, Boris FX, Foundry, SideFX e Epic anunciaram conexões MCP para que agentes operem dentro das ferramentas [4][7]. A SideFX levou MCP ao Houdini 22 pelo APEX Script, para gerar e refinar código de rigging procedural; o Unreal Editor ganhou conexão MCP; o Blender oferece um servidor MCP leve pelo Blender Lab [4][6]. Antes disso, servidores MCP comunitários para Blender já circulavam [26].</li><li><em>Geradores procedurais puros em grande escala.</em> O Infinigen (Princeton) gera mundos fotorrealistas por geração procedural, inclusive interiores [15], e é descrito como "só regras matemáticas, zero IA" [16]; a mesma equipe publicou o ProcFunc, com API de primitivas, transpilador e rastreador [17], exatamente o tipo de camada que um agente consegue ler e escrever.</li></ul>
+<p><strong>O que falha.</strong></p>
+<ul><li><em>Fidelidade orgânica.</em> Reconstrução por primitivas funciona melhor com objetos manufaturados do que com rostos, tecidos e formas orgânicas; a galeria do img2threejs é dominada por objetos fabricados [3].</li><li><em>Executar não é ficar bom.</em> Um estudo de 2026 sobre geração de animações Manim mostra que a correlação entre métricas de código e métricas visuais enfraquece quando se usam estratégias agênticas na inferência [23]; o SGA existe justamente porque o código gerado sai com textos sobrepostos e objetos desalinhados [22].</li><li><em>Maturidade da camada agêntica nas ferramentas.</em> O MCP do Houdini 22 é uma prévia destinada ao SideFX Labs, "ainda não uma ferramenta de produção acabada", e restrita ao rigging em APEX Script [5].</li><li><em>Autoria.</em> O Copyright Office dos EUA concluiu que prompts, sozinhos, não conferem autoria; a proteção depende de elementos expressivos determinados por uma pessoa, como seleção, arranjo e modificação [19]. Não há doutrina específica para <em>geradores</em> escritos por IA e editados por pessoas.</li></ul>
+<p><strong>Quem está construindo.</strong> Laboratórios acadêmicos (Princeton VL e grupos de formas como programa e CAD) [8][10][11][15][17], comunidades open source (img2threejs, servidores MCP para Blender) [2][26], fabricantes de ferramentas (SideFX, Blender, Epic, Adobe) e a NVIDIA como fornecedora de infraestrutura [4][6][18]. No Brasil, a programação criativa aparece sobretudo como prática comunitária, com o p5.js como porta de entrada e comunidades como a Compoética [25]; não encontrei, nas buscas desta sessão, um grupo brasileiro publicando síntese de programas gráficos com LLM (lacuna, não prova de ausência).</p>
+<h2 id="4-as-disrupcoes-raiz">4. As disrupcoes-raiz</h2>
+<blockquote><p>Filtro aplicado: recusei como disrupção (a) "gerar shader a partir de prompt" isoladamente, porque automatiza uma tarefa que já existia (acelera, não rompe); (b) texturas e imagens por difusão, que pertencem ao tema 12; (c) Gaussian splatting, tema 10; (d) a narrativa "a IA vai substituir designers", descartada na entrevista.</p></blockquote>
+<h3 id="d1-o-codigo-como-formato-de-ativo">D1 — O código como formato de ativo</h3>
+<p><strong>O que rompe.</strong> A divisão histórica entre <em>ativo</em> (arquivo binário: .fbx, .png, .ply) e <em>regra</em> (script, grafo). Quando a IA converte uma imagem, uma nuvem de pontos ou uma descrição num programa curto que reproduz o objeto e continua editável e animável [2][11], o ativo deixa de ser dado congelado e vira fonte versionável. Rompe também a economia de peso: o que era arquivo pesado vira texto.</p>
+<p><strong>Por que agora.</strong> Há cinco anos os modelos de código não sustentavam programas gráficos longos que compilassem, e faltava o laço <em>renderizar → olhar → corrigir</em>, que exige um modelo de visão capaz de criticar o resultado. Esse laço aparece agora em toda parte: img2threejs, Code2Video e AI Co-Artist [2][21][12]. Somam-se os agentes de código com sessões longas e ferramentas (tema 1), que transformaram "gerar código" em "iterar até passar num portão de qualidade" [1][2].</p>
+<p><strong>O que falta para se concretizar.</strong> (1) Fidelidade aceitável em formas orgânicas; (2) bibliotecas compartilhadas de abstrações, na direção do ShapeLib [10], para que os programas sejam curtos <em>e</em> expressivos; (3) métricas de qualidade que não dependam só de "outra IA achou bonito", como o shader-spec-eval e o SGA ensaiam [14][22]; (4) um formato de troca: hoje cada gerador é código de uma biblioteca específica (Three.js, bpy, CadQuery), sem um equivalente procedural do glTF.</p>
+<h3 id="d2-a-ferramenta-de-criacao-operada-por-agente">D2 — A ferramenta de criação operada por agente</h3>
+<p><strong>O que rompe.</strong> A premissa de que dominar Houdini, Geometry Nodes ou Unreal exige anos de conhecimento tácito de nós, VEX e convenções de pipeline. Com MCP, o agente lê o estado da cena, consulta documentação curada e monta ou explica o grafo; a pessoa especifica, restringe e revisa [4][5]. O grafo de nós deixa de ser a interface principal e passa a ser o <em>código-objeto</em> da intenção.</p>
+<p><strong>Por que agora.</strong> Três coisas convergiram em 2025 e 2026: o MCP virou padrão de fato (tema 4) [1]; os agentes ficaram bons o bastante para operar APIs grandes, como mostram os servidores comunitários para Blender [26]; e os fabricantes decidiram abrir a porta em vez de construir IA própria isolada, num anúncio coordenado no SIGGRAPH 2026 [4][7]. Há cinco anos o caminho dominante era o plugin gerativo proprietário que entregava uma malha ao lado do pipeline, e não dentro dele.</p>
+<p><strong>O que falta para se concretizar.</strong> Sair da fase de prévia para produção [5]; rastreabilidade (quem mudou o quê na cena, e por quê, ponte com o tema 3); controle de custo e desempenho de agentes em cenas pesadas; e a confiança dos diretores técnicos no código gerado, que em ferramentas procedurais importa tanto quanto a velocidade [5].</p>
+<h3 id="d3-o-gerador-escrito-em-tempo-de-uso">D3 — O gerador escrito em tempo de uso</h3>
+<p><strong>O que rompe.</strong> A lógica de distribuição da mídia interativa: produzir → empacotar → baixar. Se um agente, na nuvem ou no aparelho, escreve o gerador no momento em que a pessoa chega (um objeto, uma fase, uma animação sobre <em>a dúvida daquele aluno</em>), o que se distribui é a capacidade de gerar, e não o conteúdo. A obra deixa de ser um estado fixo e vira uma família de estados. É o wildcard da ficha do tema ("motor de jogo em que o conteúdo é gerado como código quando o jogador chega") promovido a disrupção [1].</p>
+<p><strong>Por que agora.</strong> Agentes já geram vídeos explicativos longos a partir de código [20][21]; shaders gerados por linguagem natural já são aplicados em tempo real em óculos de RA [13]; WebGPU e IA local (temas 15 e 16) tornam plausível gerar e executar no próprio aparelho [1]. Há cinco anos o custo e a latência de gerar código confiável a cada pedido inviabilizavam a ideia.</p>
+<p><strong>O que falta para se concretizar.</strong> (1) Execução segura de código gerado no cliente (sandbox, linguagens restritas, ponte com o tema 2); (2) reprodutibilidade (semente mais versão do modelo) para que duas pessoas possam falar da "mesma" obra; (3) verificação automática de propriedades, já que testar todas as variações é impossível [14][22]; (4) modelos locais capazes o bastante. É a disrupção menos madura das três e, por isso, a de menor confiança no mapa.</p>
+<h2 id="5-a-roda-dos-futuros">5. A roda dos futuros</h2>
+<pre><code class="lang-yaml">roda:
+  - id: &quot;e1&quot;
+    titulo: &quot;O código como formato de ativo&quot;
+    sinal: &quot;img2threejs reconstrói objetos como fábricas TypeScript sem malhas importadas [2][3]&quot;
+    prazo: &quot;2026-2030&quot;
+    confianca: &quot;media&quot;
+    efeitos:
+      - id: &quot;e1.1&quot;
+        titulo: &quot;Ativos 2D e 3D passam a ser entregues e versionados como código-fonte, não como binários&quot;
+        sinal: &quot;especificação JSON mais fábrica TypeScript como saída do img2threejs [2]&quot;
+        prazo: &quot;2027-2029&quot;
+        confianca: &quot;media&quot;
+        efeitos:
+          - id: &quot;e1.1.1&quot;
+            titulo: &quot;Revisão de arte migra para o fluxo de código: o diretor de arte aprova mudanças de parâmetros&quot;
+            sinal: &quot;galeria com contribuição por pull request e código revisável [3]&quot;
+            prazo: &quot;2028-2030&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e1.1.1.1&quot;
+                titulo: &quot;Surge a função de revisor de geradores, e o portfólio do designer vira repositório com histórico&quot;
+                sinal: &quot;inferência a partir de e1.1.1; sem sinal direto&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+              - id: &quot;e1.1.1.2&quot;
+                titulo: &quot;Comparar o render de antes e depois de cada versão vira rotina em estúdios e cursos&quot;
+                sinal: &quot;comparação lado a lado a cada etapa no pipeline img2threejs [2]&quot;
+                prazo: &quot;2028-2030&quot;
+                confianca: &quot;media&quot;
+          - id: &quot;e1.1.2&quot;
+            titulo: &quot;Custo de armazenamento e transmissão de ativos cai de megabytes para kilobytes em objetos manufaturados&quot;
+            sinal: &quot;img2threejs se apresenta como image-to-3D econômico em tokens [2]&quot;
+            prazo: &quot;2027-2029&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e1.1.2.1&quot;
+                titulo: &quot;Lojas de ativos passam a vender geradores parametrizáveis, com licença por variação, e não arquivos&quot;
+                sinal: &quot;inferência; geradores procedurais vendidos hoje são nicho&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+      - id: &quot;e1.2&quot;
+        titulo: &quot;Qualquer objeto fotografado pode virar programa editável, e apropriar-se de um design fica trivial&quot;
+        sinal: &quot;galeria reconstrói produtos comerciais identificáveis a partir de uma imagem [3]&quot;
+        prazo: &quot;2027-2029&quot;
+        confianca: &quot;media&quot;
+        efeitos:
+          - id: &quot;e1.2.1&quot;
+            titulo: &quot;Conflito de propriedade: o gerador reconstruído a partir da foto de um produto é cópia?&quot;
+            sinal: &quot;prompt sozinho não confere autoria, segundo o Copyright Office [19]&quot;
+            prazo: &quot;2027-2030&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e1.2.1.1&quot;
+                titulo: &quot;Marcas exigem filtros contra reconstrução por código e cláusulas contratuais contra conversão de produto em gerador&quot;
+                sinal: &quot;inferência a partir de e1.2.1&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+              - id: &quot;e1.2.1.2&quot;
+                titulo: &quot;Designers documentam a trilha de edição humana do gerador para reivindicar autoria&quot;
+                sinal: &quot;proteção de seleção, arranjo e modificação feitos por pessoas [19]&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+          - id: &quot;e1.2.2&quot;
+            titulo: &quot;Ler o gerador de objetos reais vira forma de aprender forma e composição&quot;
+            sinal: &quot;código-fonte legível de cada estudo na galeria [3]; animação programática no ensino [21][24]&quot;
+            prazo: &quot;2027-2029&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e1.2.2.1&quot;
+                titulo: &quot;Currículos de design trocam parte da modelagem à mão por leitura e crítica de geradores&quot;
+                sinal: &quot;a ficha do tema pergunta se o ensino de design vira ensino de sistemas [1]&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+  - id: &quot;e2&quot;
+    titulo: &quot;A ferramenta de criação operada por agente&quot;
+    sinal: &quot;conexões MCP anunciadas por sete fabricantes no SIGGRAPH 2026 [4][7]&quot;
+    prazo: &quot;2026-2030&quot;
+    confianca: &quot;media&quot;
+    efeitos:
+      - id: &quot;e2.1&quot;
+        titulo: &quot;O grafo de nós deixa de ser a interface principal: o designer especifica a intenção e o agente monta e explica o grafo&quot;
+        sinal: &quot;Houdini 22 com MCP gerando e refinando APEX Script [4][5]&quot;
+        prazo: &quot;2027-2030&quot;
+        confianca: &quot;media&quot;
+        efeitos:
+          - id: &quot;e2.1.1&quot;
+            titulo: &quot;A barreira de entrada de Houdini e Geometry Nodes cai, e estúdios pequenos criam ferramentas procedurais próprias&quot;
+            sinal: &quot;MCP como interface em linguagem natural para quem tem pouca experiência em 3D [6]&quot;
+            prazo: &quot;2028-2030&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e2.1.1.1&quot;
+                titulo: &quot;Estúdios pequenos, inclusive no Brasil, competem com pipelines antes restritos a grandes casas de efeitos visuais&quot;
+                sinal: &quot;inferência; Blender gratuito com servidor MCP do Blender Lab [4][6]&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+              - id: &quot;e2.1.1.2&quot;
+                titulo: &quot;Dívida procedural: proliferam geradores que ninguém na equipe entende nem sabe manter&quot;
+                sinal: &quot;análogo à dívida técnica de código gerado por agente, tema 1 [1]&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;media&quot;
+          - id: &quot;e2.1.2&quot;
+            titulo: &quot;O conhecimento tácito do diretor técnico vira documentação curada para agentes, e ganha valor de ativo&quot;
+            sinal: &quot;pacote curado de sintaxe, funções, documentação e exemplos de APEX Script para o agente [5]&quot;
+            prazo: &quot;2027-2029&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e2.1.2.1&quot;
+                titulo: &quot;Fabricantes competem pela qualidade do contexto para agentes, e a dependência migra da interface para esse contexto&quot;
+                sinal: &quot;inferência a partir de e2.1.2&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;baixa&quot;
+      - id: &quot;e2.2&quot;
+        titulo: &quot;Ferramentas passam a conversar por um protocolo comum, sem plugins sob medida&quot;
+        sinal: &quot;NVIDIA promove MCP para evitar uma teia de plugins entre ferramentas [6]&quot;
+        prazo: &quot;2027-2030&quot;
+        confianca: &quot;media&quot;
+        efeitos:
+          - id: &quot;e2.2.1&quot;
+            titulo: &quot;A linha de produção vira uma orquestra de agentes&quot;
+            sinal: &quot;inspeção de texturas, validação de cor, variantes de exportação e validação de shot citadas como alvo [7]&quot;
+            prazo: &quot;2028-2030&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e2.2.1.1&quot;
+                titulo: &quot;Estúdios passam a medir produtividade por geradores reutilizáveis mantidos, e não por ativos entregues&quot;
+                sinal: &quot;inferência&quot;
+                prazo: &quot;2030-2031&quot;
+                confianca: &quot;baixa&quot;
+              - id: &quot;e2.2.1.2&quot;
+                titulo: &quot;Incidentes de agentes alterando cenas sem rastro levam a exigir trilha de auditoria nas ferramentas&quot;
+                sinal: &quot;ponte com o tema 3, observabilidade de agentes [1]&quot;
+                prazo: &quot;2028-2030&quot;
+                confianca: &quot;media&quot;
+          - id: &quot;e2.2.2&quot;
+            titulo: &quot;Ferramentas abertas como o Blender ganham vantagem por terem API e comunidade de servidores MCP&quot;
+            sinal: &quot;servidores MCP comunitários desde 2025 [26] e servidor do Blender Lab [4]&quot;
+            prazo: &quot;2028-2030&quot;
+            confianca: &quot;baixa&quot;
+            efeitos:
+              - id: &quot;e2.2.2.1&quot;
+                titulo: &quot;Em mercados com licenças cotadas em dólar, como o Brasil, o Blender vira o centro agêntico de estúdios e escolas&quot;
+                sinal: &quot;inferência com lente Brasil&quot;
+                prazo: &quot;2030-2031&quot;
+                confianca: &quot;baixa&quot;
+  - id: &quot;e3&quot;
+    titulo: &quot;O gerador escrito em tempo de uso&quot;
+    sinal: &quot;shaders gerados por LLM aplicados em tempo real em óculos de RA [13]; vídeos explicativos gerados como código [20][21]&quot;
+    prazo: &quot;2027-2031&quot;
+    confianca: &quot;baixa&quot;
+    efeitos:
+      - id: &quot;e3.1&quot;
+        titulo: &quot;Jogos e experiências distribuem geradores e sementes em vez de conteúdo, e parte do mundo é escrita quando o usuário chega&quot;
+        sinal: &quot;wildcard da ficha do tema [1]; ShadAR [13]&quot;
+        prazo: &quot;2029-2031&quot;
+        confianca: &quot;baixa&quot;
+        efeitos:
+          - id: &quot;e3.1.1&quot;
+            titulo: &quot;Cada jogador vê um mundo diferente, e comunidades passam a trocar sementes e geradores&quot;
+            sinal: &quot;inferência&quot;
+            prazo: &quot;2030-2031&quot;
+            confianca: &quot;baixa&quot;
+            efeitos:
+              - id: &quot;e3.1.1.1&quot;
+                titulo: &quot;Crítica e curadoria migram da obra para o sistema que a gera&quot;
+                sinal: &quot;a ficha do tema pergunta se a obra vira o código [1]&quot;
+                prazo: &quot;2030-2031&quot;
+                confianca: &quot;baixa&quot;
+              - id: &quot;e3.1.1.2&quot;
+                titulo: &quot;Testar todas as variações fica impossível, e verificar propriedades vira requisito de publicação&quot;
+                sinal: &quot;avaliação por propriedades mensuráveis no shader-spec-eval [14]&quot;
+                prazo: &quot;2030-2031&quot;
+                confianca: &quot;baixa&quot;
+          - id: &quot;e3.1.2&quot;
+            titulo: &quot;Executar código gerado no aparelho do usuário abre uma nova porta para ataques&quot;
+            sinal: &quot;ponte com o tema 2, contenção de agentes [1]&quot;
+            prazo: &quot;2028-2030&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e3.1.2.1&quot;
+                titulo: &quot;Ganham espaço linguagens de geração deliberadamente limitadas e sandboxes WebAssembly para código gerado&quot;
+                sinal: &quot;isolamento em WebAssembly já trazido pela turma no tema 2 [1]&quot;
+                prazo: &quot;2029-2031&quot;
+                confianca: &quot;media&quot;
+      - id: &quot;e3.2&quot;
+        titulo: &quot;Mídia explicativa é gerada como programa sob demanda, e cada estudante recebe a animação da sua dúvida&quot;
+        sinal: &quot;TheoremExplainAgent e Code2Video [20][21]&quot;
+        prazo: &quot;2027-2029&quot;
+        confianca: &quot;media&quot;
+        efeitos:
+          - id: &quot;e3.2.1&quot;
+            titulo: &quot;Professores viram curadores de bibliotecas de geradores didáticos, em vez de produtores de vídeo fixo&quot;
+            sinal: &quot;LLM2Manim com humano no circuito e foco pedagógico [24]&quot;
+            prazo: &quot;2028-2030&quot;
+            confianca: &quot;media&quot;
+            efeitos:
+              - id: &quot;e3.2.1.1&quot;
+                titulo: &quot;Nova desigualdade: redes com curadoria usam geradores confiáveis, e as demais ficam com vídeo genérico&quot;
+                sinal: &quot;inferência com lente Brasil&quot;
+                prazo: &quot;2030-2031&quot;
+                confianca: &quot;baixa&quot;
+              - id: &quot;e3.2.1.2&quot;
+                titulo: &quot;Erros sutis de geometria e layout gerados em escala tornam verificadores simbólicos um padrão&quot;
+                sinal: &quot;SGA detecta e corrige conflitos espaciais em Manim gerado [22]&quot;
+                prazo: &quot;2028-2030&quot;
+                confianca: &quot;media&quot;
+          - id: &quot;e3.2.2&quot;
+            titulo: &quot;O mesmo gerador produz a explicação em outras formas: alto contraste, versão tátil, descrição em áudio&quot;
+            sinal: &quot;inferência: o código carrega a estrutura da cena que o pixel não carrega [22]&quot;
+            prazo: &quot;2029-2031&quot;
+            confianca: &quot;baixa&quot;
+            efeitos:
+              - id: &quot;e3.2.2.1&quot;
+                titulo: &quot;Normas de acessibilidade passam a exigir a fonte gerativa da mídia educacional pública&quot;
+                sinal: &quot;inferência&quot;
+                prazo: &quot;2030-2031&quot;
+                confianca: &quot;baixa&quot;</code></pre>
+<p><strong>O que o bloco não exprime sozinho.</strong></p>
+<ul><li><em>As disrupções não são independentes.</em> A e2 é o canal por onde a e1 entra na produção profissional (o gerador reconstruído precisa de uma ferramenta para ser mantido), e a e3 depende de a e1 resolver fidelidade e verificação. Se a e1 estagnar nas formas orgânicas, a e3 fica restrita a nichos estilizados (low-poly, explicativo, interface).</li><li><em>Assimetria de domínio.</em> O mapa não prevê que "programa vence pixel" em geral. A aposta é territorial: o programa vence onde se exige edição, animação, leveza, explicabilidade ou verificação (objetos manufaturados, CAD, interface animada, didática, estilizado); pixel, splat e difusão continuam vencendo no fotorrealismo orgânico e na captura (temas 10 e 12). A fronteira entre os territórios é a variável mais importante que o YAML não mostra.</li><li><em>Ramos que se cruzam.</em> A e1.2.1 (propriedade do gerador reconstruído) e a e2.1.2 (conhecimento curado vira ativo) tratam da mesma pergunta por lados opostos: quem é dono do saber embutido num gerador. A e3.1.2 (ataques) e a e2.2.1.2 (trilha de auditoria) também convergem para uma infraestrutura comum de rastreio de código gerado.</li><li><em>A confiança cai com a ordem, mas não de modo uniforme.</em> Os efeitos de verificação (e1.1.1.2, e3.2.1.2, e3.1.2.1) têm confiança média mesmo na 3ª ordem, porque já há sinais técnicos; os efeitos econômicos e culturais (e1.1.2.1, e2.2.1.1, e3.1.1.1) são inferência pura.</li><li><em>Lacuna.</em> A lente Brasil aparece em poucos nós (e2.1.1.1, e2.2.2.1, e3.2.1.1) porque os sinais brasileiros encontrados são de comunidade, e não de indústria ou pesquisa em síntese de programas.</li></ul>
+<h2 id="6-sinais-fracos-e-wildcards">6. Sinais fracos e wildcards</h2>
+<p><strong>Sinais fracos.</strong></p>
+<ul><li><em>"Econômico em tokens" como argumento de venda</em> de um gerador 3D [2]: a métrica de custo da mídia sai de bytes e polígonos e entra em tokens.</li><li><em>Portões de qualidade embutidos na própria ferramenta de IA</em>: o img2threejs valida cada etapa com scripts determinísticos e deixa o julgamento do modelo só para a comparação visual [2]. O controle de qualidade passa a morar dentro do gerador de geradores.</li><li><em>Verificação sem juiz-IA</em>: o shader-spec-eval dispensa o "LLM como juiz" [14] e o SGA troca a crítica visual por análise geométrica determinística [22]. É sinal de desconfiança crescente no modelo que avalia a si mesmo, e de que a próxima camada de valor é a verificação.</li><li><em>O Houdini 22 começa pelo rigging</em> [5], e não pela modelagem: o agente entra pelo trabalho procedural mais tedioso e mais bem delimitado, um padrão provável para outras ferramentas.</li><li><em>O ProcFunc converte árvores de nós do Blender em código Python</em> [17]: geradores procedurais sendo reescritos numa forma que agentes leem e escrevem com mais facilidade.</li><li><em>Programação criativa como porta de entrada no Brasil</em> [25]: comunidades apresentam p5.js como hobby e forma de aprender; é aí, e não na indústria, que o "gerar geradores" tende a chegar primeiro por aqui.</li></ul>
+<p><strong>Wildcards (baixa probabilidade, alto impacto).</strong></p>
+<ul><li><strong>W1 — O tradutor universal.</strong> Surge um modelo que converte automaticamente qualquer splat, malha ou vídeo gerado num programa compacto, com fidelidade quase total. A disputa pixel contra programa acaba: tudo é capturado ou gerado como dado e <em>compilado</em> para código na saída. A e1 vira commodity e o mapa inteiro se desloca para verificação e autoria.</li><li><strong>W2 — O shader-bomba.</strong> Um shader ou programa WebGPU escrito por IA em tempo de uso é usado num ataque em larga escala (rastreamento, travamento de GPU, vazamento de dados), e os navegadores passam a bloquear por padrão código gráfico gerado. A e3 recua cinco anos.</li><li><strong>W3 — O gerador tem dono.</strong> Um tribunal ou escritório de registro relevante reconhece proteção autoral para um gerador cuja trilha de edição entre pessoa e agente está documentada, contrariando na prática a leitura de que "a IA escreveu, ninguém é autor". Geradores viram patrimônio jurídico e o mercado da e1.1.2.1 dispara.</li></ul>
+<h2 id="7-contra-o-proprio-mapa">7. Contra o proprio mapa</h2>
+<p><strong>Extrapolação linear.</strong> O mapa parte de um conjunto pequeno de demos e artigos (img2threejs, Code2Video, CAD-Llama) para prever uma mudança de formato de ativo. A pesquisa de formas como programa é anterior aos LLMs e nunca saiu do nicho; o argumento "agora é diferente porque há LLMs" é plausível, mas é o argumento que toda onda anterior usou. Teste honesto: se em 2028 os repositórios de ativos mais usados ainda forem quase todos binários, a e1 falhou como disrupção e virou só uma técnica.</p>
+<p><strong>Velocidade de adoção irreal.</strong> Pipelines de efeitos visuais e de jogos são conservadores por razões econômicas (prazo, responsabilidade, retrabalho). O próprio recurso do Houdini 22 é uma prévia estreita no Labs [5]. Prever que o grafo de nós deixa de ser a interface principal até 2030 (e2.1) pode estar dois ou três anos adiantado; ferramentas de estúdio levam cerca de uma década para trocar de paradigma.</p>
+<p><strong>Falha da disrupção.</strong> O cenário de falha mais provável não é a IA não conseguir escrever geradores, e sim <em>a difusão e os splats ficarem editáveis</em>, com controle por região, por parâmetro e por estado (o tema 12 mostra isso acontecendo) [1]. Isso esvaziaria a vantagem de editabilidade do programa. Se o pixel ganhar controle fino e leveza ao mesmo tempo, "gerar geradores" volta a ser o que era: um ofício de nicho de artistas técnicos, agora com um copiloto.</p>
+<p><strong>Viés pessoal do autor.</strong> O mapa foi feito para uma disciplina de Ciência da Computação, por alguém com formação em programação e com a ajuda de um agente de código. Há um viés estrutural a favor de "código é melhor que dado": legibilidade, diff e verificação são valores de programador, não necessariamente de artista. Um designer de personagens ou um fotógrafo daria mais peso à fidelidade e à expressividade e menos à editabilidade. A lente Brasil também é otimista (e2.1.1.1) e se apoia em inferência, e não em dados de mercado.</p>
+<h2 id="8-o-que-a-maquina-errou">8. O que a maquina errou</h2>
+<ol><li><strong>Fontes citadas sem abrir a página.</strong> Na primeira versão deste mapa, 26 URLs foram citadas a partir de trechos de resultados de busca, sem abrir cada página. A versão atualizada da skill exige que toda URL tenha sido aberta na sessão. Abri uma a uma: duas não responderam com conteúdo (o artigo de arXiv sobre escalonamento em tempo de teste para CAD e a página do FILE 2026) e saíram do texto, junto com as afirmações que só elas sustentavam (ver Seção 12).</li><li><strong>Enquadramento inflado do Houdini.</strong> Na primeira formulação da D2, "agentes no Houdini" foi tratado como capacidade de produção. A reportagem da JPR mostrou que é uma prévia no SideFX Labs, restrita ao rigging em APEX Script [5]. O texto foi corrigido e os prazos e a confiança de e2.1 foram rebaixados.</li><li><strong>Fonte velha quase usada como sinal atual.</strong> A busca por creative coding no Brasil trouxe o festival Multiverso como "o primeiro festival de arte generativa do país", mas a matéria é de 2018. Foi descartado como sinal de 2026.</li><li><strong>Artigos citados lendo só as referências.</strong> Para MeshCoder e ShapeLib, a primeira versão usou apenas listas de referências vistas na busca. Nesta versão abri os resumos no arXiv [10][11] e ajustei as descrições ao que eles de fato dizem (por exemplo, o MeshCoder gera scripts Python para o Blender).</li><li><strong>Afirmação contraditória sobre o Infinigen.</strong> Um texto no Medium dizia que o Infinigen combina regras com aprendizado de máquina; a CG Channel registra "só regras matemáticas, zero IA" [16]. A afirmação do Medium foi descartada.</li><li><strong>Número redondo sem base.</strong> Um rascunho do Resumo dizia que ativos procedurais seriam "mil vezes mais leves". Não há medida que sustente esse fator; ficou "de megabytes para kilobytes em objetos manufaturados", como hipótese testável.</li><li><strong>Afirmação de desempenho não verificada.</strong> A primeira versão dizia que a geração de vídeo explicativo por código "já tem taxas altas de sucesso em benchmarks". Nesta sessão só verifiquei os resumos, que não trazem esse número, e a frase virou "agentes já geram vídeos explicativos longos a partir de código" [20][21].</li><li><strong>Formato fora do padrão.</strong> A primeira versão tinha frontmatter com YAML inválido (a linha <code>experimento</code> misturava aspas e texto, erro descoberto ao gerar o PDF), títulos com acentos diferentes dos literais exigidos e uma roda de três níveis. Todos foram refeitos no formato da skill atualizada e conferidos pelas checagens da Etapa 5.</li></ol>
+<h2 id="9-tres-cenarios-para-2031">9. Tres cenarios para 2031</h2>
+<p><strong>Provável.</strong> Em 2031, objetos manufaturados, interfaces animadas, diagramas e material didático são entregues rotineiramente como geradores escritos por agentes e revisados por pessoas; o fotorrealismo orgânico continua com splats e difusão, e os dois mundos convivem em pipelines híbridos. Houdini, Blender e Unreal têm camadas agênticas maduras, e o grafo de nós virou algo que se <em>lê</em> para auditar mais do que algo que se monta à mão. A função de artista técnico se dividiu entre quem especifica e quem verifica geradores. Nos cursos de design e computação, inclusive no CIn, "ler e criticar um gerador" é exercício comum, mas a modelagem à mão não morreu: virou disciplina de base, como o desenho à mão. A questão autoral segue indefinida, e os estúdios documentam trilhas de edição por precaução.</p>
+<p><strong>Desejável.</strong> Em 2031, o gerador é o formato aberto da criatividade digital: um objeto, uma cena ou uma explicação vêm com a própria "receita" legível, verificável e remixável, e isso barateou radicalmente a produção para estúdios pequenos do Recife a Belém, que competem por ideias e não por orçamento de pipeline. Professores mantêm bibliotecas compartilhadas de geradores didáticos verificados, e cada estudante recebe a explicação da sua dúvida, inclusive em versões táteis e de alto contraste geradas pelo mesmo programa. A autoria foi resolvida de forma sensata: protege-se a contribuição humana documentada no gerador, e o código gerado circula com licenças claras.</p>
+<p><strong>Indesejável.</strong> Em 2031, "gerar geradores" virou fábrica de dívida procedural: estúdios acumulam milhares de geradores escritos por agentes que ninguém entende, e a manutenção depende inteiramente da camada agêntica proprietária de dois ou três fornecedores, que detêm o contexto curado de cada ferramenta. Qualquer produto fotografado vira gerador editável em minutos, e as marcas respondem com filtros e processos que atingem também o uso legítimo em ensino e arte. Depois de incidentes com código gráfico gerado em tempo de uso, os navegadores restringiram sua execução, e a mídia gerada sob medida ficou presa a plataformas fechadas. Redes de ensino sem curadoria recebem vídeo genérico, com erros sutis que ninguém verifica.</p>
+<h2 id="10-o-experimento">10. O experimento</h2>
+<p><strong>O que é.</strong> "Bolo ou receita?", a versão rápida do Pixel vs. Programa: cerca de 30 minutos, só com um chat de IA gratuito e o navegador. A turma se divide em duplas. Metade é o <strong>time Bolo</strong>, que pede a uma IA que gera imagens "um sol sobre o mar, com raios, em estilo de pôster". A outra metade é o <strong>time Receita</strong>, que pede à IA um código em p5.js da mesma cena e cola no editor web gratuito do p5.js [27] (não é preciso saber programar). Em seguida, o professor anuncia três pedidos de mudança, um de cada vez, com 3 minutos para cada: (1) colocar 12 raios no sol; (2) virar noite, trocando o sol pela lua e mudando as cores; (3) fazer as ondas se mexerem.</p>
+<p><strong>Pergunta sobre o futuro.</strong> Em 2031, quando o critério é conseguir mudar o trabalho, e não só entregá-lo, a representação editável (a receita, o código) supera a representação densa (o bolo, a imagem)?</p>
+<p><strong>Tecnologia emergente usada.</strong> IA que escreve o gerador (código p5.js) a partir de linguagem natural, comparada à geração direta de imagem por IA. É a disrupção e1 ("o código como formato de ativo") na sua forma mais acessível.</p>
+<p><strong>Atividade da turma.</strong> A cada rodada, cada dupla anota quantos pedidos fez à IA, se a mudança deu certo e se alguma outra coisa estragou no caminho (por exemplo, o desenho mudou inteiro quando só se pediram mais raios). No fechamento, cada time mostra a primeira e a última versão, e a turma vota em qual time teve mais controle sobre o próprio trabalho.</p>
+<p><strong>Resultado de mudança de ideia.</strong> Se a imagem mudar demais a cada pedido e o código só mudar o que foi pedido, a e1 se fortalece e a confiança de e1.1 e e1.1.1 sobe. Se os dois times forem igualmente capazes de fazer as mudanças, a e1 perde força e o teste adversarial da Seção 7 ("a difusão fica editável") ganha peso. Se nenhum dos dois conseguir a rodada 3 (animar as ondas), o gargalo real da tendência está na animação, o que explicaria por que a SideFX começou justamente pelo rigging.</p>
+<h2 id="11-fontes">11. Fontes</h2>
+<ol><li><a href="https://tendencias-midia-interacao.vercel.app/materiais/temas-tendencias-2026-2">Temas de tendência — 2026.2 (CIN0055, CIn/UFPE)</a> — sustenta: definição do tema 14, régua maduro/emergente, ferramentas trazidas pela turma, fronteiras com os temas vizinhos e o wildcard da ficha — confiabilidade: alta</li><li><a href="https://github.com/img2threejs/img2threejs">img2threejs (GitHub)</a> — sustenta: reconstrução de uma imagem em fábrica TypeScript de Three.js, pipeline de oito etapas com validação determinística, agentes suportados e economia de tokens — confiabilidade: alta</li><li><a href="https://github.com/img2threejs/img2threejs-showcase">img2threejs-showcase (GitHub)</a> — sustenta: galeria de objetos construídos só por código, sem malhas importadas, com contribuição por pull request — confiabilidade: alta</li><li><a href="https://blogs.nvidia.com/blog/siggraph-news-2026/">At SIGGRAPH, NVIDIA Advances Graphics and Simulation With Agentic and Physical AI (NVIDIA Blog)</a> — sustenta: conexões MCP em Adobe, Affinity, Blender, Boris FX, Foundry, Houdini 22 e Unreal — confiabilidade: media</li><li><a href="https://www.jonpeddie.com/news/sidefx-and-nvidia-bring-mcp-powered-ai-agents-to-houdini-22s-rigging-workflow-at-siggraph-2026/">SideFX and Nvidia bring MCP-powered AI agents to Houdini 22's rigging workflow at Siggraph 2026 (Jon Peddie Research)</a> — sustenta: o MCP do Houdini 22 é prévia no SideFX Labs, restrito ao rigging em APEX Script, com pacote curado de documentação — confiabilidade: alta</li><li><a href="https://aecmag.com/news/nvidia-backs-hybrid-ai-to-reshape-computer-graphics/">Nvidia backs hybrid AI to reshape computer graphics (AEC Magazine)</a> — sustenta: MCP como alternativa a uma teia de plugins e servidor MCP do Blender Lab como interface em linguagem natural — confiabilidade: media</li><li><a href="https://www.vp-land.com/stories/ai-agents-move-into-houdini-unreal-and-adobe-as-nvidia-rallies-creative-apps-around-mcp">AI Agents Move Into Houdini, Unreal, and Adobe as NVIDIA Rallies Creative Apps Around MCP (VP Land)</a> — sustenta: lista de sete fabricantes e tarefas de pipeline visadas por agentes — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2505.04481">CAD-Llama: Leveraging Large Language Models for Computer-Aided Design Parametric 3D Model Generation (arXiv)</a> — sustenta: geração de CAD paramétrico como código estruturado por LLM — confiabilidade: alta</li><li><a href="https://arxiv.org/abs/2505.08137">Large Language Models for Computer-Aided Design: A Survey (arXiv)</a> — sustenta: mapeamento sistemático das aplicações de LLMs em CAD — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2502.08884">ShapeLib: Designing a library of programmatic 3D shape abstractions with Large Language Models (arXiv)</a> — sustenta: LLMs descobrindo bibliotecas reutilizáveis de funções de modelagem procedural — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2508.14879">MeshCoder: LLM-Powered Structured Mesh Code Generation from Point Clouds (arXiv)</a> — sustenta: conversão de nuvens de pontos em scripts Python executáveis no Blender — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2512.08951">AI Co-Artist: A LLM-Powered Framework for Interactive GLSL Shader Animation Evolution (arXiv)</a> — sustenta: evolução de shaders por LLM e ganho de produção de iniciantes no estudo com usuários — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2602.17481">ShadAR: LLM-driven shader generation to transform visual perception in Augmented Reality (arXiv)</a> — sustenta: shaders gerados por linguagem natural aplicados em tempo real em óculos de RA — confiabilidade: media</li><li><a href="https://github.com/Husienvora/shader-spec-eval">shader-spec-eval (GitHub)</a> — sustenta: avaliação de shaders gerados por propriedades mensuráveis, sem juiz-IA, declarada como protótipo — confiabilidade: baixa</li><li><a href="https://github.com/princeton-vl/infinigen">Infinigen (GitHub, Princeton VL)</a> — sustenta: geração procedural de mundos fotorrealistas, inclusive interiores — confiabilidade: alta</li><li><a href="https://www.cgchannel.com/2025/06/open-source-tool-infinigen-indoors-generates-procedural-3d-interiors/">Open-source tool Infinigen Indoors generates procedural 3D interiors (CG Channel)</a> — sustenta: Infinigen baseado só em regras matemáticas, sem IA — confiabilidade: alta</li><li><a href="https://github.com/princeton-vl/procfunc">ProcFunc (GitHub, Princeton VL)</a> — sustenta: abstrações funcionais para geração procedural 3D em Python, com transpilador de nós do Blender e rastreador — confiabilidade: media</li><li><a href="https://www.sidefx.com/products/houdini/pipeline-ai/machine-learning-ai/">Machine Learning &amp; AI (SideFX)</a> — sustenta: posicionamento do Houdini em aprendizado de máquina e dados sintéticos — confiabilidade: alta</li><li><a href="https://newsroom.loc.gov/news/copyright-office-releases-part-2-of-artificial-intelligence-report/s/f3959c36-d616-498d-b8f9-67641fd18bab">Copyright Office Releases Part 2 of Artificial Intelligence Report (Library of Congress)</a> — sustenta: prompts sozinhos não conferem autoria; protege-se a contribuição expressiva humana — confiabilidade: alta</li><li><a href="https://arxiv.org/abs/2502.19400">TheoremExplainAgent: Towards Multimodal Explanations for LLM Theorem Understanding (arXiv)</a> — sustenta: agente que gera vídeos longos explicando teoremas com animações — confiabilidade: alta</li><li><a href="https://arxiv.org/abs/2510.01174">Code2Video: A Code-Centric Paradigm for Educational Video Generation (arXiv)</a> — sustenta: três agentes (planejador, codificador, crítico) convertendo temas de aula em código executável — confiabilidade: alta</li><li><a href="https://arxiv.org/html/2607.18116v1">SGA: Plug&amp;Play Geometric Verification for Educational Video Synthesis (arXiv)</a> — sustenta: verificação geométrica determinística de código Manim gerado e ganho relativo de 16,1% em qualidade visual — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2604.18364">Training and Agentic Inference Strategies for LLM-based Manim Animation Generation (arXiv)</a> — sustenta: correlação entre métricas de código e visuais enfraquece com estratégias agênticas na inferência — confiabilidade: media</li><li><a href="https://arxiv.org/abs/2604.05266">LLM2Manim: Pedagogy-Aware AI Generation of STEM Animations (arXiv)</a> — sustenta: pipeline com humano no circuito e foco pedagógico para animações geradas — confiabilidade: media</li><li><a href="https://dev.to/he4rt/programacao-criativa-vamos-desenhar-com-codigo-4a1">Programação Criativa: Vamos desenhar com código? (DEV Community)</a> — sustenta: p5.js como porta de entrada e comunidades brasileiras de programação criativa (Compoética, Telegram) — confiabilidade: baixa</li><li><a href="https://news.ycombinator.com/item?id=44622374">Show HN: MCP server for Blender that builds 3D scenes via natural language (Hacker News)</a> — sustenta: servidores MCP comunitários para Blender antes dos anúncios oficiais — confiabilidade: baixa</li><li><a href="https://editor.p5js.org/">p5.js Web Editor</a> — sustenta: editor web gratuito usado no experimento da Seção 10 — confiabilidade: alta</li></ol>
+<h2 id="12-anexo-o-levantamento-bruto">12. Anexo — o levantamento bruto</h2>
+<h3 id="12-1-entrevista-de-recorte-etapa-1">12.1 Entrevista de recorte (Etapa 1)</h3>
+<p>Pergunta: tema da análise. Resposta: "Gerar geradores: design procedural e creative coding com IA" (tema 14 da lista 2026.2), indicado pelo usuário por link para o site da disciplina.</p>
+<p>Pergunta: horizonte temporal. Resposta: não especificado; adotado o padrão sugerido, 2031.</p>
+<p>Pergunta: para quem é esta análise? Resposta: "Professor e alunos da matéria de tendências em mídia e interação."</p>
+<p>Pergunta: recorte geográfico. Resposta: "Global, com lente Brasil."</p>
+<p>Pergunta: premissas óbvias a descartar. Resposta: "IA vai substituir designers." (Opções oferecidas e não marcadas: "é só p5.js com autocomplete", "procedural sempre vence pixel", "prompt-to-shader é a disrupção".)</p>
+<p>Pergunta: vetores tecnológicos obrigatórios. Resposta: "Não." (Opções oferecidas e não marcadas: síntese de programa e neurossimbólico; agentes via MCP em ferramentas de criação; geração em tempo de uso e WebGPU; proveniência e autoria de regras. Três delas entraram por mérito da evidência, não por imposição.)</p>
+<p>Pedidos posteriores do usuário na mesma sessão: gerar PDF do documento; gerar uma apresentação em PDF com linguagem fácil; retirar da apresentação os slides de Fontes e de "Como o mapa foi feito"; trocar o experimento pela versão rápida "Bolo ou receita?"; regerar os arquivos com a versão atualizada da skill.</p>
+<h3 id="12-2-ficha-de-origem-site-da-disciplina">12.2 Ficha de origem (site da disciplina)</h3>
+<ul><li>Disrupção-raiz da ficha: produzir a regra em vez do artefato; a IA passa a escrever o gerador.</li><li>Linha maduro/emergente da ficha: procedural em jogos, shaders e Processing/p5 são maduros; IA como autora do gerador é emergente.</li><li>Ferramentas da turma: img2threejs, WaveFunctionCollapse, Fantasy-Map-Generator, noise-rs, Graphite, Pixel Composer, material-maker, nannou, css-doodle, glisp, curv, SHADERed, rust-gpu, manim, manim-web-mcp, triangula, msdfgen, Cavalry, pixelgen, satori, Remotion.</li><li>Perguntas da ficha usadas como provocação: o designer vira quem especifica regras? 3D procedural contra splat na web, no jogo e no óculos? A obra vira o código? Direito autoral de regra?</li><li>Wildcard da ficha (promovido a D3): motor de jogo que gera conteúdo como código quando o jogador chega.</li><li>Fronteiras: tema 10 (captura, dado) e tema 12 (vídeo e imagem como mídia).</li><li>Observação: a página de formato do documento no site da disciplina descreve a roda com três níveis (e1, e1.1, e1.1.1). Esta versão segue a skill atualizada, que pede quatro níveis (disrupção mais três ordens de efeito), e os contadores 3/6/12/18 do frontmatter continuam valendo nos dois formatos.</li></ul>
+<h3 id="12-3-log-de-buscas-primeira-rodada">12.3 Log de buscas (primeira rodada)</h3>
+<ol><li><code>img2threejs procedural three.js from image github</code>: repositório oficial, galeria, fork hoainho, organização. Usados repositório e galeria.</li><li><code>Blender MCP server LLM agent 3D modeling</code>: vários servidores MCP comunitários (pranav-deshmukh, poly-mcp, CSM.ai, blender-llm-mcp), FlowHunt, Show HN. Usado só o Show HN.</li><li><code>LLM program synthesis 3D shapes code arXiv 2025 CAD code generation</code>: MeshCoder, CADEvolve, levantamento LLM-CAD, ShapeCraft, escalonamento em tempo de teste para CAD, ShapeLib, CAD com solver (CGF 2025), CAD-Llama. Usados MeshCoder, levantamento, ShapeLib, CAD-Llama.</li><li><code>LLM shader generation GLSL benchmark arXiv</code>: AI Co-Artist, ShadAR, shader-spec-eval, microeval da Artificial Analysis, benchmarks de kernels de GPU (fora do escopo). Usados os três primeiros.</li><li><code>Houdini SideFX AI machine learning 2026 announcement</code>: JPR sobre Houdini 22, Equinox 2026 (ONNX), parceria com Endava (dados sintéticos), página de ML da SideFX. Usados JPR e página de ML.</li><li><code>Infinigen procedural generation Princeton open source</code>: repositório, CG Channel (Indoors), ProcFunc, Medium (descartado), notícia de Princeton. Usados repositório, CG Channel e ProcFunc.</li><li><code>SIGGRAPH 2026 Nvidia AI agents inside DCC applications Blender Unreal MCP</code>: blog da NVIDIA, página de eventos da NVIDIA, JPR, AEC Magazine, daily.dev, GamesBeat, VP Land. Usados blog da NVIDIA, AEC e VP Land.</li><li><code>US Copyright Office report AI generated works copyrightability part 2 prompts</code>: Library of Congress, Reed Smith, Authors Guild, Mintz, Copyright Alliance, Skadden. Usado o comunicado oficial.</li><li><code>creative coding Brasil festival arte generativa 2026</code>: FILE 2026, Multiverso (2018, descartado), Rio2C 2026, Festival Imagina, DEV Community, CC Fest (EUA). Usado DEV; FILE não pôde ser verificado (ver 12.6).</li><li><code>LLM agent generates Manim code educational video arXiv TheoremExplainAgent Code2Video</code>: ManimTrainer/ManimAgent, SGA, TheoremExplainAgent, Code2Video, LLM2Manim, OmniManim. Usados todos exceto OmniManim.</li></ol>
+<h3 id="12-4-verificacao-de-fontes-etapa-3">12.4 Verificação de fontes (Etapa 3)</h3>
+<p>Todas as 27 fontes da Seção 11 foram abertas por WebFetch nesta sessão e responderam com conteúdo. Para os artigos do arXiv, foi aberta a página de resumo (abs); no caso do SGA, a página de resumo veio vazia e foi usada a versão HTML (v1), que respondeu com título, resumo e resultados. O editor do p5.js foi aberto para confirmar título e finalidade antes de entrar no experimento.</p>
+<h3 id="12-5-candidatas-a-disrupcao-descartadas-rodada-1">12.5 Candidatas a disrupção descartadas (rodada 1)</h3>
+<ul><li><strong>"Prompt-to-shader"</strong>: recusada porque automatiza uma tarefa existente (escrever GLSL); acelera sem romper. Reaproveitada como sinal dentro da e3.</li><li><strong>"Texturas procedurais por difusão"</strong>: recusada; pertence ao tema 12 e é geração de pixel, não de regra.</li><li><strong>"Gaussian splatting com procedural"</strong>: recusada; é tema 10 e aparece só como contraponto (dado contra programa).</li><li><strong>"IA vai substituir designers"</strong>: descartada na entrevista.</li><li><strong>"Neurossimbólico como paradigma geral de IA"</strong>: recusada por amplitude excessiva; o recorte útil (síntese de programa gráfico verificada) foi absorvido na e1.</li><li><strong>"Mercado de geradores / NFT generativo"</strong>: recusada; arte generativa em blockchain é de 2021, madura ou em declínio. O efeito de mercado reaparece só em e1.1.2.1.</li></ul>
+<h3 id="12-6-efeitos-cortados-e-fontes-que-nao-puderam-ser-verificadas">12.6 Efeitos cortados e fontes que não puderam ser verificadas</h3>
+<p>Efeitos cortados na poda:</p>
+<ul><li>"Fim da profissão de modelador 3D": cortado por colidir com a premissa descartada e por falta de sinal; substituído por e1.2.2.1 (mudança de currículo) e e1.1.1.1 (nova função).</li><li>"Geradores como moeda em jogos online": cortado por especulação sem sinal.</li><li>"Óculos de RA carregando mundos inteiros como código": cortado por sobreposição com o tema 15; fica implícito em e3.1.</li><li>"Impressão 3D direta de geradores CAD em casa": cortado por se afastar de mídia e interação; resíduo em e3.2.2 (versão tátil de explicações).</li><li>"Agentes treinando outros agentes em mundos procedurais (Infinigen como currículo)": cortado porque pertence ao tema 9.</li><li>"Regulação obrigatória de marca d'água em código gerado": cortado por baixa plausibilidade técnica até 2031.</li></ul>
+<p>Fontes que não puderam ser verificadas (tentativas registradas, não citadas):</p>
+<ul><li>Artigo "Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection" (arXiv 2608.09706): a página de resumo veio sem texto legível. Saiu da Seção 3 a afirmação de que a geração de CAD por programa já tem trabalhos em ICML e ICLR 2026.</li><li>Página "FILE 2026 — Inter-Criatividade" (file.org.br): duas tentativas falharam por tempo esgotado ao buscar o robots.txt do site. Saíram as menções ao FILE 2026 nas Seções 3 e 6; a lente Brasil passou a se apoiar na fonte [25].</li><li>Página do festival Multiverso: não verificada porque o sinal já tinha sido descartado por ser de 2018.</li><li>Texto do Medium sobre o Infinigen: não verificado porque a afirmação foi descartada em favor de [16].</li></ul>
+<h3 id="12-7-log-das-iteracoes">12.7 Log das iterações</h3>
+<ul><li><strong>v0:</strong> e1 = "IA escreve shaders"; e2 = "Houdini com IA"; e3 = "mundos infinitos". Rejeitada: e1 incremental, e2 com enquadramento exagerado (ver Seção 8, item 2), e3 vaga.</li><li><strong>v1:</strong> e1 reformulada como "código como formato de ativo" depois da leitura do img2threejs e da literatura de CAD; e2 reformulada como "ferramenta de criação operada por agente via protocolo" depois da cobertura do SIGGRAPH 2026; e3 reformulada como "gerador escrito em tempo de uso", incluindo mídia explicativa para não depender só de jogos.</li><li><strong>v2:</strong> distribuição 2/4/6 efeitos por disrupção; confianças recalibradas depois do teste adversarial; lente Brasil explícita em três nós; "mil vezes mais leve" trocado por uma ordem de grandeza plausível.</li><li><strong>v2.1:</strong> experimento trocado de "Pixel vs. Programa" (cinco rodadas, reconstrução 3D) para a versão rápida "Bolo ou receita?", a pedido do usuário.</li><li><strong>v3 (esta versão, skill atualizada):</strong> todas as fontes reabertas por WebFetch (27 verificadas, 2 removidas); frontmatter com todos os textos entre aspas; títulos das 12 seções nos literais exigidos; roda refeita com quatro níveis e IDs e1 a e3.2.2.1; rótulos das Seções 4 e 10 ajustados aos exigidos ("O que falta para se concretizar", "Resultado de mudança de ideia"); URLs só na Seção 11.</li></ul>
+<h3 id="12-8-autochecagem-etapa-5">12.8 Autochecagem (Etapa 5)</h3>
+<ul><li><strong>Checagem 1 (frontmatter):</strong> passou na primeira rodada desta versão: YAML válido, todos os 18 campos presentes, <code>fontes: 27</code> igual ao número de itens da Seção 11. Na versão anterior do arquivo ela teria falhado, porque a linha <code>experimento</code> não era YAML válido (erro corrigido nesta versão).</li><li><strong>Checagem 2 (títulos de nível 2):</strong> passou: exatamente 12 linhas começando com <code>## </code>, com os textos literais. Na versão anterior teria falhado por causa dos acentos nos títulos das Seções 3, 4, 7, 8 e 9.</li><li><strong>Checagem 3 (roda):</strong> passou: YAML válido, contagem 3/6/12/18, 39 IDs únicos, todos com id, titulo, sinal, prazo e confianca.</li><li><strong>Checagem extra (URLs só na Seção 11):</strong> passou: nenhuma URL fora da Seção 11. A URL da fonte [1] foi trocada pela URL final após redirecionamento (sem a barra final).</li><li><strong>Checagem 4 (links):</strong> o <code>curl</code> retornou 000 para 22 URLs e 403 para as 5 do GitHub, porque o proxy do ambiente recusa conexões para esses domínios por política de rede, e não porque os links estejam quebrados. Conforme a skill, a checagem foi feita por WebFetch: as 27 URLs foram abertas nesta sessão e responderam com conteúdo (ver 12.4).</li></ul></section>
+</main>
+<footer class="rodape"><div class="pagina"><p class="rotulo">CIN0055 · Tendências em Mídia e Interação · CIn/UFPE · 2026.2 · <a href="/">página inicial</a> · <a href="/futuros/painel/">painel do professor</a></p></div></footer>
+<dialog class="visor" id="visor"><button type="button" onclick="document.getElementById('visor').close()">fechar ✕</button><iframe id="visor-frame" title="infográfico" hidden></iframe><img id="visor-img" alt="" hidden></dialog>
+<script>
+document.addEventListener('click', function(e){ var a = e.target.closest('a[data-visor],a[data-imagem]'); if(!a) return; e.preventDefault();
+  var v = document.getElementById('visor'), fr = document.getElementById('visor-frame'), im = document.getElementById('visor-img');
+  if (a.hasAttribute('data-imagem')) { fr.hidden = true; fr.src = 'about:blank'; im.src = a.getAttribute('href'); im.hidden = false; }
+  else { im.hidden = true; im.src = ''; fr.src = a.getAttribute('href'); fr.hidden = false; }
+  v.showModal(); });
+document.getElementById('visor').addEventListener('click', function(e){ if (e.target === this || e.target.id === 'visor-img') this.close(); });
+</script>
+<script src="/assets/hub.js"></script>
+</body>
+</html>
