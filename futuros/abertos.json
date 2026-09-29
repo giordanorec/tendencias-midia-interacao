@@ -47,7 +47,13 @@
   "titulo": "Gerar geradores: design procedural e creative coding com IA",
   "url": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/",
   "aberto_em": "2026-09-29",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "kvv",
+    "url": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/confronto-kvv/",
+    "aberto_em": "2026-09-29"
+   }
+  ]
  },
  {
   "n": 18,

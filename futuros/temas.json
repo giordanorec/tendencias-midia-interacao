@@ -260,7 +260,20 @@
   "data": "2026-09-29",
   "mapas": 17,
   "roda": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "kvv",
+    "url": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/confronto-kvv/",
+    "imagem": "/futuros/14-gerar-geradores-design-procedural-e-creative-coding-com-ia/confronto-kvv/confronto-resumo.jpg",
+    "perguntas": [
+     "2027 ou 2031: o que observar para saber quem acertou?",
+     "A IA fotografa uma cadeira e escreve o programa dela: quando é cópia, e quem decide?",
+     "Programa de aula escrito antes e ajustado na hora ainda é \"feito para cada aluno\"?",
+     "Criar ferramenta fica fácil, mas surgem programas que ninguém entende: o que decide qual lado ganha?",
+     "Se a atividade imagem contra código pedisse \"alto contraste\", que resultado confirmaria a ideia, e qual a derrubaria?"
+    ]
+   }
+  ]
  },
  {
   "n": 15,
