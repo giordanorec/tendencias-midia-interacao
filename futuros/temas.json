@@ -115,13 +115,13 @@
   "familia": "Simulação e mundos",
   "frase": "O personagem não jogável deixa de ser roteiro e vira agente. O mundo continua existindo quando o jogador sai.",
   "url": "/futuros/07-npcs-generativos-e-mundos-vivos/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 01/10",
+  "aberto_em": "2026-10-01",
   "apresenta": "bvga",
   "data": "2026-10-01",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/07-npcs-generativos-e-mundos-vivos/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
