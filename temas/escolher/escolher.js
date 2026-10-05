@@ -335,7 +335,8 @@ function pintarAula() {
   if (!ORDEM.length) { bloco.hidden = true; return; }
   bloco.hidden = false;
   const hoje = new Date();
-  const datas = [...new Set([...DATAS.slice(0, ORDEM.length), ...Object.values(ADIADO)])].sort((x, y) => { const k = (s) => s.split("/").reverse().join(""); return k(x) < k(y) ? -1 : 1; }).filter((d) => { const [dd, mm] = d.split("/").map(Number); return new Date(`2026-${String(mm).padStart(2, "0")}-${String(dd).padStart(2, "0")}T08:00:00-03:00`) <= hoje; });
+  /* só datas em que alguém apresenta: aula que caiu (01/10) não aparece nem vira a data padrão (05/10/2026) */
+  const datas = [...new Set(ORDEM.map((l, i) => ADIADO[l.aluno] || DATAS[i]).filter(Boolean))].sort((x, y) => { const k = (s) => s.split("/").reverse().join(""); return k(x) < k(y) ? -1 : 1; }).filter((d) => { const [dd, mm] = d.split("/").map(Number); return new Date(`2026-${String(mm).padStart(2, "0")}-${String(dd).padStart(2, "0")}T08:00:00-03:00`) <= hoje; });
   const selD = $("#aula-data"); const atualD = selD.value;
   selD.innerHTML = `<option value="">— escolha a data —</option>` + datas.map((d) => `<option value="${d}">${d}</option>`).join("");
   selD.value = datas.includes(atualD) ? atualD : (datas[datas.length - 1] || "");
