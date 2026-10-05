@@ -55,3 +55,6 @@ textarea.campo { width: 100%; resize: vertical; }
 .nota-tabela td { padding: 0.55em 0; border-bottom: var(--border); }
 .nota-tabela td:last-child { text-align: right; font-family: var(--font-mono); white-space: nowrap; }
 .skills .atrasado { color: var(--mode-off); font-family: var(--font-mono); font-size: var(--t-xs); }
+
+/* o cabeçalho fixo cobria o título ao seguir o link do topo (05/10/2026) */
+#bloco-aula{scroll-margin-top:12rem}
