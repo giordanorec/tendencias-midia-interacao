@@ -106,7 +106,20 @@
   "data": "2026-10-06",
   "mapas": 17,
   "roda": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "vafs",
+    "url": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/confronto-vafs/",
+    "imagem": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/confronto-vafs/confronto-resumo.jpg",
+    "perguntas": [
+     "Uma pessoa imitada que responde sozinha, sem falar com ninguém, já é uma sociedade simulada?",
+     "Robô respondendo pesquisa é tecnologia nova ou uso novo de algo antigo?",
+     "A máquina pode achatar opiniões dentro de um grupo e exagerar diferenças entre grupos ao mesmo tempo? Como medir?",
+     "Em que decisão de governo, hoje, uma população imitada substituiria uma consulta a pessoas?",
+     "Resultado de ferramenta não comprovada pode mudar um debate público? O que precisaria ser mostrado antes?"
+    ]
+   }
+  ]
  },
  {
   "n": 7,
@@ -122,7 +135,20 @@
   "data": "2026-10-06",
   "mapas": 17,
   "roda": "/futuros/07-npcs-generativos-e-mundos-vivos/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "bvga",
+    "url": "/futuros/07-npcs-generativos-e-mundos-vivos/confronto-bvga/",
+    "imagem": "/futuros/07-npcs-generativos-e-mundos-vivos/confronto-bvga/confronto-resumo.jpg",
+    "perguntas": [
+     "Se o jogo fixa tudo o que o personagem pode fazer, o que muda de fato?",
+     "Essas mudanças chegam em 2028 ou em 2036? Que sinal em 2028 tiraria a dúvida?",
+     "Que dado mostra que alguém volta a um jogo porque o personagem lembra dele?",
+     "A Europa preferiu um acordo voluntário a uma lei. Quem pressiona os estúdios, e como?",
+     "A mudança para dubladores vem dos personagens que agem ou só da voz gerada por IA?"
+    ]
+   }
+  ]
  },
  {
   "n": 8,

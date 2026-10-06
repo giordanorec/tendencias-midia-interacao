@@ -19,7 +19,13 @@
   "titulo": "Sociedades simuladas: a simulação como instrumento de investigação",
   "url": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/",
   "aberto_em": "2026-10-06",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "vafs",
+    "url": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/confronto-vafs/",
+    "aberto_em": "2026-10-06"
+   }
+  ]
  },
  {
   "n": 7,
@@ -27,7 +33,13 @@
   "titulo": "NPCs generativos e mundos vivos",
   "url": "/futuros/07-npcs-generativos-e-mundos-vivos/",
   "aberto_em": "2026-10-01",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "bvga",
+    "url": "/futuros/07-npcs-generativos-e-mundos-vivos/confronto-bvga/",
+    "aberto_em": "2026-10-06"
+   }
+  ]
  },
  {
   "n": 8,
