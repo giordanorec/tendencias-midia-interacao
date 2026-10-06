@@ -9,7 +9,8 @@ const SEMENTE = "TMI-2026-2-sorteio";
 // Adiamentos individuais, fora da ordem sorteada (decisão do professor). Não é troca: só quem está aqui muda de data.
 // Mesma tabela em rotina.py e publicar_futuros.py. 22/09: vjmm, voo atrasado; vai para a aula de margem de 08/10.
 // Mesma tabela de rotina.py e publicar_futuros.py, no formato que a página mostra.
-const ADIADO = { mjbo: "29/09", jgpt: "06/10", bvga: "06/10", vafs: "08/10", jcsc: "08/10", meap: "13/10", vjmm: "13/10" };
+// 05/10 (professor, no grupo): 06/10 vafs e depois bvga; 08/10 jcsc e meap. jgpt fica em 13/10 até ele definir.
+const ADIADO = { mjbo: "29/09", vafs: "06/10", bvga: "06/10", jcsc: "08/10", meap: "08/10", jgpt: "13/10", vjmm: "13/10" };
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
 /* A mesma ordem vale para os testes (movimento 3, presenciais) e para as apresentações finais. */
 const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
