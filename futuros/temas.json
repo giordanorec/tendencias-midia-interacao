@@ -99,13 +99,13 @@
   "familia": "Simulação e mundos",
   "frase": "Uma sociedade de agentes num ambiente controlado. Não é jogo, não é produtividade: é instrumento — o túnel de vento das ciências sociais.",
   "url": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 06/10",
+  "aberto_em": "2026-10-06",
   "apresenta": "vafs",
-  "data": "2026-10-08",
+  "data": "2026-10-06",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/06-sociedades-simuladas-a-simulacao-como-instrumento-de-investigacao/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
@@ -225,7 +225,7 @@
   "estado": "abre para a turma no dia da apresentação",
   "aberto_em": null,
   "apresenta": "jgpt",
-  "data": "2026-10-06",
+  "data": "2026-10-13",
   "mapas": 17,
   "roda": null,
   "confrontos": []
@@ -302,7 +302,7 @@
   "estado": "abre para a turma no dia da apresentação",
   "aberto_em": null,
   "apresenta": "meap",
-  "data": "2026-10-13",
+  "data": "2026-10-08",
   "mapas": 17,
   "roda": null,
   "confrontos": []
