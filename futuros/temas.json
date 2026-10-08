@@ -308,13 +308,13 @@
   "familia": "Criação e plataforma",
   "frase": "Jogo, visualização 3D e experiência imersiva rodam sem instalar nada. O que era app vira link.",
   "url": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 08/10",
+  "aberto_em": "2026-10-08",
   "apresenta": "jcsc",
   "data": "2026-10-08",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
