@@ -324,13 +324,13 @@
   "familia": "Criação e plataforma",
   "frase": "A inteligência sai da nuvem: roda no celular, no laptop e na aba do navegador — sem chave de API, sem custo por chamada, sem enviar dado para fora.",
   "url": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 08/10",
+  "aberto_em": "2026-10-08",
   "apresenta": "meap",
   "data": "2026-10-08",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
