@@ -315,7 +315,20 @@
   "data": "2026-10-08",
   "mapas": 17,
   "roda": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "jcsc",
+    "url": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/confronto-jcsc/",
+    "imagem": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/confronto-jcsc/confronto-resumo.jpg",
+    "perguntas": [
+     "Se YouTube e Discord viram os novos porteiros, que notícia mostraria se são melhores ou piores que a loja?",
+     "Com o fim daquele serviço, as agências foram para ferramentas abertas ou outra empresa? E as peças publicadas?",
+     "O Android ajuda ou o celular barato atrapalha? Um teste com os celulares da turma diria?",
+     "Jogo no navegador existe há dez anos. O que a tecnologia nova muda?",
+     "Com quantos megabytes \"sem instalar\" vira instalar? Quanto você esperaria?"
+    ]
+   }
+  ]
  },
  {
   "n": 16,
@@ -331,7 +344,20 @@
   "data": "2026-10-08",
   "mapas": 17,
   "roda": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "meap",
+    "url": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/confronto-meap/",
+    "imagem": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/confronto-meap/confronto-resumo.jpg",
+    "perguntas": [
+     "Que número provaria que os apps trocaram a nuvem pelo celular?",
+     "Se a nuvem também barateou, o que sobra ao aparelho: privacidade, funcionar sem internet, rapidez?",
+     "Como o usuário saberia onde o pedido foi processado?",
+     "Se o sistema apaga o modelo quando falta espaço, ele pode virar bem com herança?",
+     "No Brasil, o que trava primeiro: pouca memória ou a IA do Chrome não aceitar português?"
+    ]
+   }
+  ]
  },
  {
   "n": 17,

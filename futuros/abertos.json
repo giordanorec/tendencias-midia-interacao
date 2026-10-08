@@ -89,7 +89,13 @@
   "titulo": "O navegador como console: 3D e XR sem instalação",
   "url": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/",
   "aberto_em": "2026-10-08",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "jcsc",
+    "url": "/futuros/15-o-navegador-como-console-3d-e-xr-sem-instalacao/confronto-jcsc/",
+    "aberto_em": "2026-10-08"
+   }
+  ]
  },
  {
   "n": 16,
@@ -97,7 +103,13 @@
   "titulo": "IA local: no dispositivo e no navegador",
   "url": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/",
   "aberto_em": "2026-10-08",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "meap",
+    "url": "/futuros/16-ia-local-no-dispositivo-e-no-navegador/confronto-meap/",
+    "aberto_em": "2026-10-08"
+   }
+  ]
  },
  {
   "n": 18,
