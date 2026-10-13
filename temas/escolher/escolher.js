@@ -14,8 +14,8 @@ const ADIADO = { mjbo: "29/09", vafs: "06/10", bvga: "06/10", jcsc: "08/10", mea
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
 /* A mesma ordem vale para os testes (movimento 3, presenciais) e para as apresentações finais. */
 const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
-/* 24 e 26/11 são a semana do ENEXC (UFPE): sem atividade para nota. As finais pulam para 01 e 03/12. */
-const DATAS_FINAL = ["17/11","17/11","17/11","17/11","19/11","19/11","19/11","19/11","01/12","01/12","01/12","01/12","03/12","03/12"];
+/* finais depois de todos os testes, três por aula, em 17, 19, 24 e 26/11 (pedido do professor em 13/10; 24 e 26/11 têm aula). */
+const DATAS_FINAL = ["17/11","17/11","17/11","19/11","19/11","19/11","24/11","24/11","24/11","26/11","26/11","26/11","26/11","26/11"];
 
 const TEMAS = [
  "Programação agêntica: o desenvolvedor vira orquestrador",

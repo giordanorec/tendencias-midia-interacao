@@ -1,7 +1,7 @@
 # Movimento 3 — O projeto-experimento
 
 *CIN0055 · Tendências em Mídia e Interação · 2026.2*
-**Testes com a turma: de 22/10 a 12/11, presenciais, dois por aula. Apresentações finais: 17/11, 19/11, 01/12 e 03/12.** Individual. Vale **4,0**.
+**Ideias mostradas na aula de 15/10. Testes com a turma: de 22/10 a 10/11, presenciais, dois por aula. Apresentações finais: 17, 19, 24 e 26/11, três por aula.** Individual. Vale **4,0**.
 
 ---
 
@@ -32,7 +32,7 @@ Três exigências, sem exceção:
 
 ## Antes de construir: as ideias
 
-Uma semana depois da sua apresentação de tendência (23h59), você entrega na [página do
+Uma semana depois da sua apresentação de tendência, e no máximo até 14/10 (23h59), você entrega na [página do
 movimento 3](/experimento/) um documento de **ideias**, em duas partes:
 
 1. **Como você fez o brainstorming** — método, com quem ou com que IA, quantas ideias saíram.
@@ -44,8 +44,8 @@ movimento 3](/experimento/) um documento de **ideias**, em duas partes:
 
 O assistente da disciplina publica na mesma página uma pré-análise de cada ideia — viável para
 um aluno fazer no prazo? complexa o bastante para valer o movimento? alinhada com o tema? — e
-o professor comenta no grupo do WhatsApp. É com isso que você escolhe qual ideia vira o
-experimento. As ideias não valem ponto; são a condição para a orientação.
+o professor comenta. Na aula de 15/10 cada um mostra as suas três ideias (ou, se já está construindo,
+o que já tem), o professor comenta e cada um sai com o experimento escolhido. As ideias não valem ponto; são a condição para a orientação.
 
 ## O calendário
 
@@ -56,13 +56,13 @@ ordem foi sorteada.
 
 | Quando | O quê |
 |---|---|
-| 13/10, 15/10, 20/10 | **Construção com orientação.** Aulas remotas; você traz o que tem, o professor e a turma reagem. |
-| 22/10 · 27/10 · 29/10 · 03/11 · 05/11 · 10/11 · 12/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). |
-| 17/11 · 19/11 | **Apresentações finais**, blocos 1 e 2 (quem testou até 03/11), remotas. |
-| 24/11 · 26/11 | Semana do ENEXC (UFPE): sem atividade para nota. Orientação remota do `REGISTRO.md`. |
-| 01/12 · 03/12 | **Apresentações finais**, blocos 3 e 4 (quem testou de 05 a 12/11). |
-| 03/12 | Publicação da galeria pública de experimentos · encerramento. |
-| 10/12 | Margem (08/12 é feriado em Recife). |
+| 15/10 | **Ideias do experimento.** Aula remota: quem ainda não começou mostra três ideias, quem já começou mostra o que tem; o professor comenta e cada um fecha o seu experimento. |
+| 20/10 | **Construção com orientação.** Aula remota; você traz o que tem, o professor e a turma reagem. |
+| 22/10 · 27/10 · 29/10 · 03/11 · 05/11 · 10/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). |
+| 12/11 | Orientação remota do `REGISTRO.md` · reserva para teste remarcado. |
+| 17/11 · 19/11 · 24/11 · 26/11 | **Apresentações finais**, remotas, três por aula, na ordem dos testes. |
+| 26/11 | Publicação da galeria pública de experimentos · encerramento. |
+| 01/12 · 03/12 · 10/12 | Reserva, só usada se alguma final precisar ser remarcada (08/12 é feriado em Recife). |
 
 A sua data de teste, a de apresentação final e os seus prazos aparecem na [página do movimento 3](/experimento/).
 

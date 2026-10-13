@@ -6,7 +6,7 @@ const SEMENTE = "TMI-2026-2-sorteio";
 /* as mesmas tabelas da página de escolha (temas/escolher/escolher.js) — se mudar lá, mude aqui */
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
 const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
-const DATAS_FINAL = ["17/11","17/11","17/11","17/11","19/11","19/11","19/11","19/11","01/12","01/12","01/12","01/12","03/12","03/12"];
+const DATAS_FINAL = ["17/11","17/11","17/11","19/11","19/11","19/11","24/11","24/11","24/11","26/11","26/11","26/11","26/11","26/11"];
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 async function api(caminho, opt = {}) {
@@ -56,7 +56,9 @@ function dataDe(login, tabela, desloca) {
   const [dd, mm] = d.split("/").map(Number); const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() + desloca);
   return new Date(`2026-${String(dia.getUTCMonth() + 1).padStart(2, "0")}-${String(dia.getUTCDate()).padStart(2, "0")}T23:59:59-03:00`);
 }
-const prazoIdeias = (l) => dataDe(l, DATAS, 7), prazoExp = (l) => dataDe(l, DATAS_TESTE, -1), prazoReg = (l) => dataDe(l, DATAS_FINAL, -1);
+/* ideias: uma semana depois da apresentação, mas nunca depois de 14/10 (aula das ideias em 15/10, pedido do professor em 13/10) */
+const LIMITE_IDEIAS = new Date("2026-10-14T23:59:59-03:00");
+const prazoIdeias = (l) => { const d = dataDe(l, DATAS, 7); return d && d > LIMITE_IDEIAS ? LIMITE_IDEIAS : d; }, prazoExp = (l) => dataDe(l, DATAS_TESTE, -1), prazoReg = (l) => dataDe(l, DATAS_FINAL, -1);
 function pintarDatas() {
   const i = ORDEM.findIndex((l) => l.aluno === EU);
   if (i < 0) { $("#minhas-datas").textContent = "Você não está na ordem sorteada (não escolheu tema no movimento 2). Fale com o professor."; return; }
@@ -71,7 +73,7 @@ function lista(campo, campoEm, prazoFn, el, extra) {
 }
 function pintarIdeias() {
   const eu = ALUNOS.find((a) => a.login === EU); if (eu?.ideias_url && !$("#ideias-url").value) $("#ideias-url").value = eu.ideias_url;
-  const pz = prazoIdeias(EU); $("#ideias-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (uma semana depois da sua apresentação)` : "o seu prazo aparece aqui quando você estiver na ordem sorteada";
+  const pz = prazoIdeias(EU); $("#ideias-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (as ideias são mostradas na aula de quinta 15/10)` : "o seu prazo aparece aqui quando você estiver na ordem sorteada";
   lista("ideias_url", "ideias_em", prazoIdeias, "#lista-ideias", (a) => { const p = PRE.find((x) => x.login === a.login); return p ? ` · <a href="${esc(p.url)}"><b>pré-análise</b></a>` : ` · <span class="mudo">pré-análise em preparação</span>`; });
 }
 function pintarExps() {
