@@ -231,13 +231,13 @@
   "familia": "Percepção e mídia sintética",
   "frase": "Por décadas, um sistema de visão só reconhecia o que foi treinado para reconhecer. A máquina passou a ver o que se pede, não o que se ensinou.",
   "url": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 13/10",
+  "aberto_em": "2026-10-13",
   "apresenta": "vjmm",
   "data": "2026-10-13",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {
