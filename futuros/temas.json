@@ -238,7 +238,20 @@
   "data": "2026-10-13",
   "mapas": 17,
   "roda": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/giordano/prancha-01-panorama.jpg",
-  "confrontos": []
+  "confrontos": [
+   {
+    "login": "vjmm",
+    "url": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/confronto-vjmm/",
+    "imagem": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/confronto-vjmm/confronto-resumo.jpg",
+    "perguntas": [
+     "Algo do campus que nenhum banco de imagens tem: a máquina acharia? Se não, a quem serve?",
+     "Quem pagaria para tornar pesquisáveis as fotos antigas de um jornal local?",
+     "Quem foi filmado e contesta pede a gravação, a frase digitada ou a lista de achados?",
+     "Se a máquina inventa um dado que parece certo, como quem confere percebe?",
+     "Se um cartaz pode dar ordens à máquina, confirma-se toda ação dela ou só as vindas de imagem?"
+    ]
+   }
+  ]
  },
  {
   "n": 12,
@@ -247,13 +260,13 @@
   "familia": "Percepção e mídia sintética",
   "frase": "Vídeo por prompt já existe. A disrupção em curso é outra: o controle. A mídia sintética deixa de ser loteria e vira instrumento.",
   "url": "/futuros/12-midia-sintetica-controlavel-video-e-imagem/",
-  "aberto": false,
-  "estado": "abre para a turma no dia da apresentação",
-  "aberto_em": null,
+  "aberto": true,
+  "estado": "aberto à turma desde 13/10",
+  "aberto_em": "2026-10-13",
   "apresenta": "jgpt",
   "data": "2026-10-13",
   "mapas": 17,
-  "roda": null,
+  "roda": "/futuros/12-midia-sintetica-controlavel-video-e-imagem/giordano/prancha-01-panorama.jpg",
   "confrontos": []
  },
  {

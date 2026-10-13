@@ -75,6 +75,20 @@
   "titulo": "Máquinas que veem qualquer coisa: visão de vocabulário aberto",
   "url": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/",
   "aberto_em": "2026-10-13",
+  "confrontos": [
+   {
+    "login": "vjmm",
+    "url": "/futuros/11-maquinas-que-veem-qualquer-coisa-visao-de-vocabulario-aberto/confronto-vjmm/",
+    "aberto_em": "2026-10-13"
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "slug": "12-midia-sintetica-controlavel-video-e-imagem",
+  "titulo": "Mídia sintética controlável: vídeo e imagem",
+  "url": "/futuros/12-midia-sintetica-controlavel-video-e-imagem/",
+  "aberto_em": "2026-10-13",
   "confrontos": []
  },
  {
