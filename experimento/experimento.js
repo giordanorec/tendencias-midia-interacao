@@ -5,6 +5,8 @@ const H = { apikey: KEY, Authorization: "Bearer " + KEY, "Content-Type": "applic
 const SEMENTE = "TMI-2026-2-sorteio";
 /* as mesmas tabelas da página de escolha (temas/escolher/escolher.js) — se mudar lá, mude aqui */
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
+/* adiamentos individuais da apresentação: a mesma tabela de temas/escolher/escolher.js */
+const ADIADO = { mjbo: "29/09", vafs: "06/10", bvga: "06/10", jcsc: "08/10", meap: "08/10", jgpt: "13/10", vjmm: "13/10" };
 const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
 const DATAS_FINAL = ["17/11","17/11","17/11","19/11","19/11","19/11","24/11","24/11","24/11","26/11","26/11","26/11","26/11","26/11"];
 const $ = (s) => document.querySelector(s);
@@ -56,13 +58,13 @@ function dataDe(login, tabela, desloca) {
   const [dd, mm] = d.split("/").map(Number); const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() + desloca);
   return new Date(`2026-${String(dia.getUTCMonth() + 1).padStart(2, "0")}-${String(dia.getUTCDate()).padStart(2, "0")}T23:59:59-03:00`);
 }
-/* ideias: uma semana depois da apresentação, mas nunca depois de 14/10 (aula das ideias em 15/10, pedido do professor em 13/10) */
+/* ideias: prazo único 14/10 23h59 para todos; a aula de 15/10 é a das ideias (pedido do professor em 13/10) */
 const LIMITE_IDEIAS = new Date("2026-10-14T23:59:59-03:00");
-const prazoIdeias = (l) => { const d = dataDe(l, DATAS, 7); return d && d > LIMITE_IDEIAS ? LIMITE_IDEIAS : d; }, prazoExp = (l) => dataDe(l, DATAS_TESTE, -1), prazoReg = (l) => dataDe(l, DATAS_FINAL, -1);
+const prazoIdeias = (l) => (ORDEM.some((o) => o.aluno === l) ? LIMITE_IDEIAS : null), prazoExp = (l) => dataDe(l, DATAS_TESTE, -1), prazoReg = (l) => dataDe(l, DATAS_FINAL, -1);
 function pintarDatas() {
   const i = ORDEM.findIndex((l) => l.aluno === EU);
   if (i < 0) { $("#minhas-datas").textContent = "Você não está na ordem sorteada (não escolheu tema no movimento 2). Fale com o professor."; return; }
-  $("#minhas-datas").innerHTML = `Você apresentou (ou apresenta) o tema em <b>${DATAS[i]}</b> · ideias até <b>${fmtDia(prazoIdeias(EU))} 23h59</b> · experimento até <b>${fmtDia(prazoExp(EU))} 23h59</b> (teste em <b>${DATAS_TESTE[i]}</b>) · registro até <b>${fmtDia(prazoReg(EU))} 23h59</b> (final em <b>${DATAS_FINAL[i]}</b>).`;
+  $("#minhas-datas").innerHTML = `Você apresentou (ou apresenta) o tema em <b>${ADIADO[EU] || DATAS[i]}</b> · ideias até <b>${fmtDia(prazoIdeias(EU))} 23h59</b> · experimento até <b>${fmtDia(prazoExp(EU))} 23h59</b> (teste em <b>${DATAS_TESTE[i]}</b>) · registro até <b>${fmtDia(prazoReg(EU))} 23h59</b> (final em <b>${DATAS_FINAL[i]}</b>).`;
 }
 function lista(campo, campoEm, prazoFn, el, extra) {
   const com = ALUNOS.filter((a) => a[campo]);

@@ -32,7 +32,7 @@ Três exigências, sem exceção:
 
 ## Antes de construir: as ideias
 
-Uma semana depois da sua apresentação de tendência, e no máximo até 14/10 (23h59), você entrega na [página do
+Até 14/10 (23h59), você entrega na [página do
 movimento 3](/experimento/) um documento de **ideias**, em duas partes:
 
 1. **Como você fez o brainstorming** — método, com quem ou com que IA, quantas ideias saíram.
