@@ -7,8 +7,10 @@ const SEMENTE = "TMI-2026-2-sorteio";
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
 /* adiamentos individuais da apresentação: a mesma tabela de temas/escolher/escolher.js */
 const ADIADO = { mjbo: "29/09", vafs: "06/10", bvga: "06/10", jcsc: "08/10", meap: "08/10", jgpt: "13/10", vjmm: "13/10" };
-const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
-const DATAS_FINAL = ["17/11","17/11","17/11","19/11","19/11","19/11","24/11","24/11","24/11","26/11","26/11","26/11","26/11","26/11"];
+/* Movimento 3: testes e finais seguem a ORDEM REAL em que os mapas foram apresentados (com adiamentos e trocas),
+   não a posição no sorteio; jgpt, que não apresentou, fica por último. Pedido do professor no grupo em 15/10 (TMI-0148). */
+const TESTE = { yrv: "22/10", hfm: "22/10", jlsn: "27/10", alpa2: "27/10", mjbo: "29/10", kvv: "29/10", vafs: "03/11", bvga: "03/11", jcsc: "05/11", meap: "05/11", vjmm: "10/11", jgpt: "10/11" };
+const FINAL = { yrv: "17/11", hfm: "17/11", jlsn: "17/11", alpa2: "19/11", mjbo: "19/11", kvv: "19/11", vafs: "24/11", bvga: "24/11", jcsc: "24/11", meap: "26/11", vjmm: "26/11", jgpt: "26/11" };
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 async function api(caminho, opt = {}) {
@@ -53,6 +55,10 @@ async function carregar() {
   ORDEM = await ordemFinal(); pintarDatas(); pintarIdeias(); pintarExps();
 }
 const fmtDia = (d) => `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}`;
+function diaDe(d, desloca) {
+  if (!d) return null; const [dd, mm] = d.split("/").map(Number); const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() + desloca);
+  return new Date(`2026-${String(dia.getUTCMonth() + 1).padStart(2, "0")}-${String(dia.getUTCDate()).padStart(2, "0")}T23:59:59-03:00`);
+}
 function dataDe(login, tabela, desloca) {
   const i = ORDEM.findIndex((l) => l.aluno === login); const d = i >= 0 ? tabela[i] || null : null; if (!d) return null;
   const [dd, mm] = d.split("/").map(Number); const dia = new Date(Date.UTC(2026, mm - 1, dd)); dia.setUTCDate(dia.getUTCDate() + desloca);
@@ -60,11 +66,11 @@ function dataDe(login, tabela, desloca) {
 }
 /* ideias: prazo único 14/10 23h59 para todos; a aula de 15/10 é a das ideias (pedido do professor em 13/10) */
 const LIMITE_IDEIAS = new Date("2026-10-14T23:59:59-03:00");
-const prazoIdeias = (l) => (ORDEM.some((o) => o.aluno === l) ? LIMITE_IDEIAS : null), prazoExp = (l) => dataDe(l, DATAS_TESTE, -1), prazoReg = (l) => dataDe(l, DATAS_FINAL, -1);
+const prazoIdeias = (l) => (ORDEM.some((o) => o.aluno === l) ? LIMITE_IDEIAS : null), prazoExp = (l) => diaDe(TESTE[l], -1), prazoReg = (l) => diaDe(FINAL[l], -1);
 function pintarDatas() {
   const i = ORDEM.findIndex((l) => l.aluno === EU);
   if (i < 0) { $("#minhas-datas").textContent = "Você não está na ordem sorteada (não escolheu tema no movimento 2). Fale com o professor."; return; }
-  $("#minhas-datas").innerHTML = `Você apresentou (ou apresenta) o tema em <b>${ADIADO[EU] || DATAS[i]}</b> · ideias até <b>${fmtDia(prazoIdeias(EU))} 23h59</b> · experimento até <b>${fmtDia(prazoExp(EU))} 23h59</b> (teste em <b>${DATAS_TESTE[i]}</b>) · registro até <b>${fmtDia(prazoReg(EU))} 23h59</b> (final em <b>${DATAS_FINAL[i]}</b>).`;
+  $("#minhas-datas").innerHTML = `Você apresentou (ou apresenta) o tema em <b>${ADIADO[EU] || DATAS[i]}</b> · ideias até <b>${fmtDia(prazoIdeias(EU))} 23h59</b> · experimento até <b>${fmtDia(prazoExp(EU))} 23h59</b> (teste em <b>${TESTE[EU] || "?"}</b>) · registro até <b>${fmtDia(prazoReg(EU))} 23h59</b> (final em <b>${FINAL[EU] || "?"}</b>).`;
 }
 function lista(campo, campoEm, prazoFn, el, extra) {
   const com = ALUNOS.filter((a) => a[campo]);
@@ -81,7 +87,7 @@ function pintarIdeias() {
 function pintarExps() {
   const eu = ALUNOS.find((a) => a.login === EU); if (eu?.exp_url && !$("#exp-url").value) $("#exp-url").value = eu.exp_url;
   const pz = prazoExp(EU); const i = ORDEM.findIndex((l) => l.aluno === EU);
-  $("#exp-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (você testa em ${DATAS_TESTE[i]} e apresenta a final em ${DATAS_FINAL[i]})` : "o seu prazo aparece aqui quando você estiver na ordem sorteada";
+  $("#exp-prazo").textContent = pz ? `o seu prazo: ${fmtDia(pz)} às 23h59 (você testa em ${TESTE[EU] || "?"} e apresenta a final em ${FINAL[EU] || "?"})` : "o seu prazo aparece aqui quando você estiver na ordem sorteada";
   lista("exp_url", "exp_em", prazoExp, "#lista-exps");
 }
 async function salvar(campo, campoEm, inputId, okId, prazoFn, msg) {

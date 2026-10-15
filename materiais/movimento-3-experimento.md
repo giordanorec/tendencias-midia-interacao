@@ -49,7 +49,7 @@ o que já tem), o professor comenta e cada um sai com o experimento escolhido. A
 
 ## O calendário
 
-A ordem dos testes **repete a ordem das apresentações de tendência**. Quem apresentou primeiro
+A ordem dos testes **repete a ordem em que os mapas de tendência foram de fato apresentados**, com os adiamentos: yrv, hfm, jlsn, alpa2, mjbo, kvv, vafs, bvga, jcsc, meap, vjmm e jgpt. Quem apresentou primeiro
 testa primeiro, com projeto menos maduro e mais tempo de reação depois; quem apresentou por
 último testa por último, com mais tempo de construção e menos de correção. Foi por isso que a
 ordem foi sorteada.

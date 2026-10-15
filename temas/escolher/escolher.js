@@ -12,10 +12,10 @@ const SEMENTE = "TMI-2026-2-sorteio";
 // 05/10 (professor, no grupo): 06/10 vafs e depois bvga; 08/10 jcsc e meap. jgpt fica em 13/10 até ele definir.
 const ADIADO = { mjbo: "29/09", vafs: "06/10", bvga: "06/10", jcsc: "08/10", meap: "08/10", jgpt: "13/10", vjmm: "13/10" };
 const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","01/10","01/10","06/10","06/10","08/10","08/10"];
-/* A mesma ordem vale para os testes (movimento 3, presenciais) e para as apresentações finais. */
-const DATAS_TESTE = ["22/10","22/10","27/10","27/10","29/10","29/10","03/11","03/11","05/11","05/11","10/11","10/11","12/11","12/11"];
-/* finais depois de todos os testes, três por aula, em 17, 19, 24 e 26/11 (pedido do professor em 13/10; 24 e 26/11 têm aula). */
-const DATAS_FINAL = ["17/11","17/11","17/11","19/11","19/11","19/11","24/11","24/11","24/11","26/11","26/11","26/11","26/11","26/11"];
+/* Movimento 3: testes e finais seguem a ORDEM REAL em que os mapas foram apresentados (com adiamentos e trocas),
+   não a posição no sorteio; jgpt, que não apresentou, fica por último. Pedido do professor no grupo em 15/10 (TMI-0148). */
+const TESTE = { yrv: "22/10", hfm: "22/10", jlsn: "27/10", alpa2: "27/10", mjbo: "29/10", kvv: "29/10", vafs: "03/11", bvga: "03/11", jcsc: "05/11", meap: "05/11", vjmm: "10/11", jgpt: "10/11" };
+const FINAL = { yrv: "17/11", hfm: "17/11", jlsn: "17/11", alpa2: "19/11", mjbo: "19/11", kvv: "19/11", vafs: "24/11", bvga: "24/11", jcsc: "24/11", meap: "26/11", vjmm: "26/11", jgpt: "26/11" };
 
 const TEMAS = [
  "Programação agêntica: o desenvolvedor vira orquestrador",
@@ -240,7 +240,7 @@ async function pintarSorteio() {
   if (new Date() < SORTEIO) { ORDEM = []; return; }
   const linhas = await ordemFinal(); ORDEM = linhas;
   $("#lista-sorteio").innerHTML = linhas.length ? linhas.map((r, i) =>
-    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${ADIADO[r.aluno] ? ADIADO[r.aluno] + " (adiado)" : (DATAS[i] || "a combinar")} · teste ${DATAS_TESTE[i] || "?"} · final ${DATAS_FINAL[i] || "?"} · ${r.h.slice(0, 8)}</span></li>`).join("")
+    `<li${r.aluno === EU ? ' class="meu"' : ""}><span><b>${esc(r.aluno)}</b> · ${esc(nomeTema(r))}${r.troca ? ` <span class="mudo">(trocou com ${esc(r.troca.de === r.aluno ? r.troca.para : r.troca.de)})</span>` : ""}</span><span class="data">${ADIADO[r.aluno] ? ADIADO[r.aluno] + " (adiado)" : (DATAS[i] || "a combinar")} · teste ${TESTE[r.aluno] || "?"} · final ${FINAL[r.aluno] || "?"} · ${r.h.slice(0, 8)}</span></li>`).join("")
     : `<li class="mudo">Ninguém escolheu tema.</li>`;
   pintarTrocas(linhas);
 }
