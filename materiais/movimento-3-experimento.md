@@ -58,11 +58,12 @@ ordem foi sorteada.
 |---|---|
 | 15/10 | **Ideias do experimento.** Aula remota: quem ainda não começou mostra três ideias, quem já começou mostra o que tem; o professor comenta e cada um fecha o seu experimento. |
 | 20/10 | **Construção com orientação.** Aula remota; você traz o que tem, o professor e a turma reagem. |
-| 27/10 · 29/10 · 03/11 · 05/11 · 12/11 · 17/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). A aula de 22/10 não aconteceu e tudo andou uma aula. |
+| 27/10 · 29/10 · 03/11 · 05/11 · 10/11 · 12/11 · 17/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). A aula de 22/10 não aconteceu e tudo andou uma aula. |
 | a definir | Orientação remota do `REGISTRO.md`. |
 | 19/11 · 24/11 · 26/11 · 01/12 | **Apresentações finais**, remotas, três por aula, na ordem dos testes. |
-| 01/12 | Publicação da galeria pública de experimentos · encerramento. |
-| 03/12 · 10/12 | Reserva, só usada se alguma final precisar ser remarcada (08/12 é feriado em Recife). |
+| 01/12 | Últimas finais · encerramento das aulas. |
+| 03/12, 23h59 | **Prazo final de entrega dos projetos, para todos:** versão final do experimento e `REGISTRO.md`. Depois disso sai a galeria pública de experimentos. |
+| 03/12 · 10/12 | Reserva de aula, só usada se alguma final precisar ser remarcada (08/12 é feriado em Recife). |
 
 A sua data de teste, a de apresentação final e os seus prazos aparecem na [página do movimento 3](/experimento/).
 
@@ -96,7 +97,7 @@ O link do experimento acessível, salvo na [página do movimento 3](/experimento
 - como usar (ou instalar), passo a passo;
 - **o que você espera que aconteça** quando a turma usar — escrito antes, para ser confrontado depois.
 
-### Entre o teste e a apresentação final
+### Depois do teste, até 03/12 (23h59, para todos)
 
 Um arquivo `REGISTRO.md`, no mesmo repositório, em três partes:
 
@@ -107,6 +108,8 @@ Um arquivo `REGISTRO.md`, no mesmo repositório, em três partes:
    toda reação da turma é um sinal; saber qual é qual é o que se aprende aqui.
 
 Feche com uma linha: **a pergunta sobre o futuro ficou mais clara, mais confusa, ou mudou?**
+
+A versão final do experimento, no mesmo link, também vale até 03/12, 23h59.
 
 ### Na apresentação final (15 minutos)
 

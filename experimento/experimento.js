@@ -9,7 +9,7 @@ const DATAS = ["17/09","17/09","22/09","22/09","24/09","24/09","29/09","29/09","
 const ADIADO = { mjbo: "29/09", vafs: "06/10", bvga: "06/10", jcsc: "08/10", meap: "08/10", jgpt: "13/10", vjmm: "13/10" };
 /* Movimento 3: testes e finais seguem a ORDEM REAL em que os mapas foram apresentados (com adiamentos e trocas),
    não a posição no sorteio; jgpt, que não apresentou, fica por último. Pedido do professor no grupo em 15/10 (TMI-0148). */
-const TESTE = { yrv: "27/10", hfm: "27/10", jlsn: "29/10", alpa2: "29/10", mjbo: "03/11", kvv: "03/11", vafs: "05/11", bvga: "05/11", jcsc: "17/11", meap: "17/11", vjmm: "12/11", jgpt: "12/11" };
+const TESTE = { yrv: "27/10", hfm: "10/11", jlsn: "29/10", alpa2: "29/10", mjbo: "03/11", kvv: "10/11", vafs: "05/11", bvga: "05/11", jcsc: "17/11", meap: "17/11", vjmm: "12/11", jgpt: "12/11" };
 const FINAL = { yrv: "19/11", hfm: "19/11", jlsn: "19/11", alpa2: "24/11", mjbo: "24/11", kvv: "24/11", vafs: "26/11", bvga: "26/11", jcsc: "26/11", meap: "01/12", vjmm: "01/12", jgpt: "01/12" };
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -66,11 +66,13 @@ function dataDe(login, tabela, desloca) {
 }
 /* ideias: prazo único 14/10 23h59 para todos; a aula de 15/10 é a das ideias (pedido do professor em 13/10) */
 const LIMITE_IDEIAS = new Date("2026-10-14T23:59:59-03:00");
-const prazoIdeias = (l) => (ORDEM.some((o) => o.aluno === l) ? LIMITE_IDEIAS : null), prazoExp = (l) => diaDe(TESTE[l], -1), prazoReg = (l) => diaDe(FINAL[l], -1);
+/* registro e versão final do experimento: prazo único 03/12 23h59 para todos (professor, 03/11, TMI-0151) */
+const ENTREGA_FINAL = new Date("2026-12-03T23:59:59-03:00");
+const prazoIdeias = (l) => (ORDEM.some((o) => o.aluno === l) ? LIMITE_IDEIAS : null), prazoExp = (l) => diaDe(TESTE[l], -1), prazoReg = (l) => (FINAL[l] ? ENTREGA_FINAL : null);
 function pintarDatas() {
   const i = ORDEM.findIndex((l) => l.aluno === EU);
   if (i < 0) { $("#minhas-datas").textContent = "Você não está na ordem sorteada (não escolheu tema no movimento 2). Fale com o professor."; return; }
-  $("#minhas-datas").innerHTML = `Você apresentou (ou apresenta) o tema em <b>${ADIADO[EU] || DATAS[i]}</b> · ideias até <b>${fmtDia(prazoIdeias(EU))} 23h59</b> · experimento até <b>${fmtDia(prazoExp(EU))} 23h59</b> (teste em <b>${TESTE[EU] || "?"}</b>) · registro até <b>${fmtDia(prazoReg(EU))} 23h59</b> (final em <b>${FINAL[EU] || "?"}</b>).`;
+  $("#minhas-datas").innerHTML = `Você apresentou (ou apresenta) o tema em <b>${ADIADO[EU] || DATAS[i]}</b> · ideias até <b>${fmtDia(prazoIdeias(EU))} 23h59</b> · experimento até <b>${fmtDia(prazoExp(EU))} 23h59</b> (teste em <b>${TESTE[EU] || "?"}</b>) · apresentação final em <b>${FINAL[EU] || "?"}</b> · registro e versão final do experimento até <b>${fmtDia(prazoReg(EU))} 23h59</b>, para todos.`;
 }
 function lista(campo, campoEm, prazoFn, el, extra) {
   const com = ALUNOS.filter((a) => a[campo]);
