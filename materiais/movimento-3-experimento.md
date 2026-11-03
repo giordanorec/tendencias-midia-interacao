@@ -1,7 +1,7 @@
 # Movimento 3 — O projeto-experimento
 
 *CIN0055 · Tendências em Mídia e Interação · 2026.2*
-**Ideias mostradas na aula de 15/10. Testes com a turma: de 27/10 a 12/11, presenciais, dois por aula. Apresentações finais: 19, 24 e 26/11 e 01/12, três por aula.** Individual. Vale **4,0**.
+**Ideias mostradas na aula de 15/10. Testes com a turma: de 27/10 a 17/11, presenciais, dois por aula. Apresentações finais: 19, 24 e 26/11 e 01/12, três por aula.** Individual. Vale **4,0**.
 
 ---
 
@@ -58,8 +58,8 @@ ordem foi sorteada.
 |---|---|
 | 15/10 | **Ideias do experimento.** Aula remota: quem ainda não começou mostra três ideias, quem já começou mostra o que tem; o professor comenta e cada um fecha o seu experimento. |
 | 20/10 | **Construção com orientação.** Aula remota; você traz o que tem, o professor e a turma reagem. |
-| 27/10 · 29/10 · 03/11 · 05/11 · 10/11 · 12/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). A aula de 22/10 não aconteceu e tudo andou uma aula. |
-| 17/11 | Orientação remota do `REGISTRO.md`. |
+| 27/10 · 29/10 · 03/11 · 05/11 · 12/11 · 17/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). A aula de 22/10 não aconteceu e tudo andou uma aula. |
+| a definir | Orientação remota do `REGISTRO.md`. |
 | 19/11 · 24/11 · 26/11 · 01/12 | **Apresentações finais**, remotas, três por aula, na ordem dos testes. |
 | 01/12 | Publicação da galeria pública de experimentos · encerramento. |
 | 03/12 · 10/12 | Reserva, só usada se alguma final precisar ser remarcada (08/12 é feriado em Recife). |
