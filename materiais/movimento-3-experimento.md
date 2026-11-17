@@ -1,7 +1,7 @@
 # Movimento 3 — O projeto-experimento
 
 *CIN0055 · Tendências em Mídia e Interação · 2026.2*
-**Ideias mostradas na aula de 15/10. Testes com a turma: de 27/10 a 17/11, presenciais, dois por aula. Apresentações finais: 19, 24 e 26/11 e 01/12, três por aula.** Individual. Vale **4,0**.
+**Ideias mostradas na aula de 15/10. Testes com a turma: de 27/10 a 17/11, dois por aula. Apresentações finais: 19, 24 e 26/11 e 01/12, três por aula, 30 minutos cada. Em 03/12, todos mostram onde chegaram, 5 minutos cada.** Individual. Vale **4,0**.
 
 ---
 
@@ -58,12 +58,12 @@ ordem foi sorteada.
 |---|---|
 | 15/10 | **Ideias do experimento.** Aula remota: quem ainda não começou mostra três ideias, quem já começou mostra o que tem; o professor comenta e cada um fecha o seu experimento. |
 | 20/10 | **Construção com orientação.** Aula remota; você traz o que tem, o professor e a turma reagem. |
-| 27/10 · 29/10 · 03/11 · 05/11 · 10/11 · 12/11 · 17/11 | **Testes com a turma**, presenciais no CIn, dois por aula (cerca de 50 min cada). A aula de 22/10 não aconteceu e tudo andou uma aula. |
+| 27/10 · 29/10 · 03/11 · 05/11 · 10/11 · 12/11 · 17/11 | **Testes com a turma**, dois por aula (cerca de 50 min cada): presenciais no CIn até 05/11, remotos desde 10/11. A aula de 22/10 não aconteceu e tudo andou uma aula. kvv e jgpt não testaram nas suas datas e ficaram sem teste. |
 | a definir | Orientação remota do `REGISTRO.md`. |
-| 19/11 · 24/11 · 26/11 · 01/12 | **Apresentações finais**, remotas, três por aula, na ordem dos testes. |
-| 01/12 | Últimas finais · encerramento das aulas. |
+| 19/11 · 24/11 · 26/11 · 01/12 | **Apresentações finais**, remotas, três por aula, 30 minutos cada, na ordem dos testes. O projeto tem de estar demonstrável, não só como ideia. |
+| 01/12 | Últimas finais. |
+| 03/12 | **Última aula, remota:** todos mostram onde chegaram, 5 minutos cada. |
 | 03/12, 23h59 | **Prazo final de entrega dos projetos, para todos:** versão final do experimento e `REGISTRO.md`. Depois disso sai a galeria pública de experimentos. |
-| 03/12 · 10/12 | Reserva de aula, só usada se alguma final precisar ser remarcada (08/12 é feriado em Recife). |
 
 A sua data de teste, a de apresentação final e os seus prazos aparecem na [página do movimento 3](/experimento/).
 
@@ -71,7 +71,7 @@ A sua data de teste, a de apresentação final e os seus prazos aparecem na [pá
 
 ## O que acontece na aula de teste
 
-Cinquenta minutos, presenciais, nesta ordem:
+Cinquenta minutos, nesta ordem:
 
 1. **Cinco minutos seus.** O que é o experimento, que pergunta sobre o futuro ele tenta
    responder, o que você quer observar. Sem slides de contexto — a turma já viu o seu mapa.
@@ -111,7 +111,7 @@ Feche com uma linha: **a pergunta sobre o futuro ficou mais clara, mais confusa,
 
 A versão final do experimento, no mesmo link, também vale até 03/12, 23h59.
 
-### Na apresentação final (15 minutos)
+### Na apresentação final (30 minutos)
 
 O experimento como ficou, o registro do que mudou, e a resposta — mesmo que parcial — à
 pergunta que você escreveu antes de construir. Termine com o que você faria a seguir se
